@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <meta title="openfl-svg-tests" package="openfl-svg-test" version="0.0.1" company="Nick Grebenshikov" />
+
+    <!-- output -->
+    <app main="TestMain" file="openfl-svg-tests" path="bin" />
+
+    <window width="0" height="0" background="0xFFFFFF" fps="60"/>
+
+    <!-- classpath, haxe libs -->
+    <source path="." />
+
+    <set name="html5-backend" value="openfl-snapsvg" />
+
+    <haxelib name="openfl" />
+    <haxelib name="munit"/>
+    <haxelib name="jive"/>
+
+    <template path="templates" />
+
+</project>

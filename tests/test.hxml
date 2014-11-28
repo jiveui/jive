@@ -1,0 +1,57 @@
+## Flash 9+
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp src
+
+-cp tests
+-swf-version 11
+-swf tests/bin/as3_test.swf
+
+--next
+
+## Flash 8
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp src
+
+-cp tests
+-swf-version 8
+-swf tests/bin/as2_test.swf
+
+--next
+
+## JavaScript
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp src
+
+-cp tests
+-js tests/bin/js_test.js
+
+--next
+
+## Neko
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp src
+
+-cp tests
+-neko tests/bin/neko_test.n
+
+--next
+
+## CPP
+-main TestMain
+-lib munit
+-lib hamcrest
+-cp src
+
+-cp tests
+#-D HXCPP_M64
+-cpp tests/bin/cpp_test
+
+

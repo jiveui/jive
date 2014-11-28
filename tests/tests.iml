@@ -8,20 +8,15 @@
     </facet>
   </component>
   <component name="HaxeModuleSettingsStorage">
-    <option name="buildConfig" value="1" />
-    <option name="haxeTarget" value="JavaScript" />
-    <option name="hxmlPath" value="$MODULE_DIR$/build.hxml" />
-    <option name="mainClass" value="Main" />
-    <option name="outputFileName" value="calendar.js" />
-    <option name="outputFolder" value="$MODULE_DIR$/out/production/calendar" />
+    <option name="buildConfig" value="3" />
+    <option name="openFLTarget" value="HTML5" />
+    <option name="outputFolder" value="$MODULE_DIR$/../demos/calendar/out/production/tests" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/out/production/calendar" />
+    <output url="file://$MODULE_DIR$/../demos/calendar/out/production/tests" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/bin" />
+    <content url="file://$MODULE_DIR$/..">
+      <sourceFolder url="file://$MODULE_DIR$/../src" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Haxe 3.1.3" jdkType="Haxe toolkit" />
     <orderEntry type="sourceFolder" forTests="false" />
