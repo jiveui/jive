@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel
+        xmlns="org.aswing"
+        xmlns:v="view"
+        xmlns:ext="org.aswing.ext"
+        xmlns:geom="org.aswing.geom"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:border="org.aswing.border">
+    <haxe:Implements><![CDATA[DataContextControllable<view.EventPanelModel>]]></haxe:Implements>
+    <layout><GridLayout rows="3" columns="3" hgap="20" vgap="20"/></layout>
+    <JPanel>
+        <JLabel text="'Название'" />
+        <JTextField id="title" columns="{Binding columns}" />
+
+        <JLabel text="'Дата'" />
+        <JTextField id="dateText" columns="10"/>
+        <JButton text="{Binding notes}" mouseDown="datePopup.show()"/>
+
+        <JPopup id="datePopup">
+            <currentSize><geom:IntDimension width="250" height="250"/></currentSize>
+            <JPanel>
+                <ext:DateChooser id="date" />
+                <JButton text="'Close'" mouseDown="datePopup.hide()"/>
+            </JPanel>
+        </JPopup>
+    </JPanel>
+
+    <JLabel text="'Категория'" />
+    <JComboBox id="category" />
+
+    <JPanel x="10" y="20" width="200" height="300" alpha="0.5">
+        <border><border:EmptyBorder top="20" left="20" bottom="20" right="20"/></border>
+        <background><ASColor rgb="0x00ff00" alpha="0.5"/></background>
+        <opaque>true</opaque>
+        <JLabel text="'Заметки'" />
+        <JTextArea id="notes" columns="60" rows="10" text="{Binding notes mode=twoway}"/>
+        <JTextArea id="notes1" columns="10" rows="5" text="{Binding notes mode=once}"/>
+        <JButton mouseDown="trace('dataContext.notes=' + dataContext.notes)" text="'Show dataContext.notes on the error console'"/>
+    </JPanel>
+</JPanel>

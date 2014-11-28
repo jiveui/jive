@@ -1,0 +1,10 @@
+-lib aswing
+-lib bindx
+-lib hml
+-cp src
+-swf bin/empty.swf
+--no-output
+-main GenHx
+
+--next
+-cmd haxelib run openfl build project.xml html5

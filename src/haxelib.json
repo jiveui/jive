@@ -1,0 +1,11 @@
+{
+  "name": "jive",
+  "url": "https://github.com/ngrebenshikov/jive",
+  "license": "MIT",
+  "tags": [ "GUI", "UI", "AsWing", "Swing"],
+  "description": "Jive UI - a crossplatform UI framework based on AsWing",
+  "version": "0.0.1",
+  "releasenote": "Initial release",
+  "contributors": [ "grebenshikov.n" ],
+  "dependencies": {}
+}
