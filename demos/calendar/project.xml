@@ -15,7 +15,7 @@
     <set name="html5-backend" value="openfl-snapsvg"/>
 
     <haxelib name="openfl" />
-    <haxelib name="aswing"/>
+    <haxelib name="jive"/>
     <haxelib name="hml"/>
     <haxelib name="bindx"/>
 
