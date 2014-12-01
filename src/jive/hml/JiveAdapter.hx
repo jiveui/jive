@@ -1,4 +1,4 @@
-package org.aswing.hml;
+package jive.hml;
 
 #if macro
 import hml.xml.writer.DefaultNodeWriter;
@@ -21,7 +21,7 @@ using Lambda;
 #end
 
 #if macro
-class AswingAdapter extends MergedAdapter<XMLData, Node, Type> {
+class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
 			new ContainerAdapter(),
@@ -33,7 +33,7 @@ class AswingAdapter extends MergedAdapter<XMLData, Node, Type> {
 	}
 
 	static public function register():Void {
-		hml.Hml.registerProcessor(new hml.xml.XMLProcessor([new AswingAdapter()]));
+		hml.Hml.registerProcessor(new hml.xml.XMLProcessor([new JiveAdapter()]));
 	}
 }
 

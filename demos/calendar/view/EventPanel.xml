@@ -6,7 +6,7 @@
         xmlns:geom="org.aswing.geom"
         xmlns:haxe="http://haxe.org/"
         xmlns:border="org.aswing.border">
-    <haxe:Implements><![CDATA[DataContextControllable<view.EventPanelModel>]]></haxe:Implements>
+    <haxe:Implements><![CDATA[jive.DataContextControllable<view.EventPanelModel>]]></haxe:Implements>
     <layout><GridLayout rows="3" columns="3" hgap="20" vgap="20"/></layout>
     <JPanel>
         <JLabel text="'Название'" />

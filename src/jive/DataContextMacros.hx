@@ -1,4 +1,4 @@
-package ;
+package jive;
 
 import haxe.macro.Type;
 import haxe.macro.Context;
@@ -25,7 +25,7 @@ class DataContextMacros {
 
         var add = [];
 
-        var contextInterfaces = classType.interfaces.filter(function(i) { return i.t.toString() == "DataContextControllable"; });
+        var contextInterfaces = classType.interfaces.filter(function(i) { return i.t.toString() == "jive.DataContextControllable"; });
         if (contextInterfaces.length > 0) {
             var param = contextInterfaces[0].params[0];
             var typeName = switch (param) {

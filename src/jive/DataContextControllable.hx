@@ -1,7 +1,7 @@
-package ;
+package jive;
 
 #if !display
-@:autoBuild(DataContextMacros.build())
+@:autoBuild(jive.DataContextMacros.build())
 #end
 interface DataContextControllable<T> {
     var dataContext(default, set): T;

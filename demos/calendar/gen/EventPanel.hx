@@ -1,6 +1,6 @@
 package ;
 
-class EventPanel extends org.aswing.JPanel implements DataContextControllable<view.EventPanelModel> {
+class EventPanel extends org.aswing.JPanel implements jive.DataContextControllable<view.EventPanelModel> {
 
     var title_initialized:Bool = false;
 
