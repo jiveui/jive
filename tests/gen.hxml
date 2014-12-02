@@ -1,7 +1,7 @@
 -lib jive
 -lib hml
--cp src
--swf bin/empty.swf
+-cp tests/src
+-swf tests/bin/empty.swf
 --no-output
 -main GenHx
 --macro allowPackage('flash')

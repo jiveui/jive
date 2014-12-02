@@ -1,8 +1,8 @@
 version=src
-src=tests
+src=tests/src
 bin=tests/bin
 report=tests/report
 hxml=tests/test.hxml
-classPaths=src
+classPaths=src,tests/gen
 resources=tests/resources
 templates=tests/templates
