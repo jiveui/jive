@@ -1,6 +1,6 @@
 -lib jive
 -lib hml
--cp tests/src
+-cp tests/src/
 -swf tests/bin/empty.swf
 --no-output
 -main GenHx

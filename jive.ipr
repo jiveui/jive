@@ -318,22 +318,40 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
-    <library name="jive" type="Haxe">
+    <library name="bindx" type="Haxe">
       <CLASSES>
-        <root url="file://$USER_HOME$/src" />
+        <root url="file://$PROJECT_DIR$/../bindx/src" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$USER_HOME$/src" />
+        <root url="file://$PROJECT_DIR$/../bindx/src" />
+      </SOURCES>
+    </library>
+    <library name="hml" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../hml/src" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../hml/src" />
+      </SOURCES>
+    </library>
+    <library name="jive" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/src" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/src" />
       </SOURCES>
     </library>
     <library name="munit" type="Haxe">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../../../MassiveUnit/src" />
+        <root url="file://$PROJECT_DIR$/../MassiveUnit/src" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../../../MassiveUnit/src" />
+        <root url="file://$PROJECT_DIR$/../MassiveUnit/src" />
       </SOURCES>
     </library>
   </component>

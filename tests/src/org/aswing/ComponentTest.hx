@@ -6,5 +6,6 @@ class ComponentTest  {
     @Test
     public function testCurrent() {
         var c = new decl.ComponentTest();
+        Assert.isNotNull(c);
     }
 }
