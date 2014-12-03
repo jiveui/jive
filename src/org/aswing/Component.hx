@@ -2,9 +2,7 @@
  Copyright aswing.org, see the LICENCE.txt.
 */
 
-
 package org.aswing;
-
 
 import bindx.IBindable;
 import flash.display.DisplayObject;
@@ -12,172 +10,81 @@ import flash.display.DisplayObjectContainer;
 import flash.display.InteractiveObject;
 import flash.display.Sprite;
 import flash.events.Event;
-	import flash.events.KeyboardEvent;
-	import flash.events.MouseEvent;
-	import flash.events.FocusEvent;
-	import flash.geom.Rectangle;
-	import flash.geom.Point;
-	import flash.Lib; 
+import flash.events.KeyboardEvent;
+import flash.events.MouseEvent;
+import flash.events.FocusEvent;
+import flash.geom.Rectangle;
+import flash.geom.Point;
+import flash.Lib;
 
 import org.aswing.dnd.SourceData;
-	import org.aswing.event.PropertyChangeEvent;
-	import org.aswing.event.AWEvent;
-	import org.aswing.event.MovedEvent;
-	import org.aswing.event.ResizedEvent;
-	import org.aswing.event.FocusKeyEvent;
-	import org.aswing.event.DragAndDropEvent;
-	import org.aswing.event.ClickCountEvent;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntPoint;
-	import org.aswing.graphics.Graphics2D;
-	import org.aswing.graphics.SolidBrush;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.InsetsUIResource;
-	import org.aswing.plaf.UIResource;
-	import org.aswing.plaf.DefaultEmptyDecoraterResource;
- 
-	import org.aswing.util.Reflection;
+import org.aswing.event.PropertyChangeEvent;
+import org.aswing.event.AWEvent;
+import org.aswing.event.MovedEvent;
+import org.aswing.event.ResizedEvent;
+import org.aswing.event.FocusKeyEvent;
+import org.aswing.event.DragAndDropEvent;
+import org.aswing.event.ClickCountEvent;
+import org.aswing.geom.IntRectangle;
+import org.aswing.geom.IntDimension;
+import org.aswing.geom.IntPoint;
+import org.aswing.graphics.Graphics2D;
+import org.aswing.graphics.SolidBrush;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.InsetsUIResource;
+import org.aswing.plaf.UIResource;
+import org.aswing.plaf.DefaultEmptyDecoraterResource;
+
+import org.aswing.util.Reflection;
 	
-//--------------------------------------
-//  Events
-//--------------------------------------
-
-/**
- *  Dispatched when the component visible is set to true from false.
- *
- *  @eventType org.aswing.event.AWEvent.SHOWN
- */
-// [Event(name="shown", type="org.aswing.event.AWEvent")]
-
-/**
- *  Dispatched when the component visible is set to false from true.
- *
- *  @eventType org.aswing.event.AWEvent.HIDDEN
- */
-// [Event(name="hidden", type="org.aswing.event.AWEvent")]
-
-/**
- *  Dispatched when the component is painted.
- *
- *  @eventType org.aswing.event.AWEvent.PAINT
- */
-// [Event(name="paint", type="org.aswing.event.AWEvent")]
-
-/**
- *  Dispatched when the component is moved.
- *
- *  @eventType org.aswing.event.MovedEvent.MOVED
- */
-// [Event(name="moved", type="org.aswing.event.MovedEvent")]
-	
-/**
- *  Dispatched when the component is resized.
- *
- *  @eventType org.aswing.event.ResizedEvent.RESIZED
- */
-// [Event(name="resized", type="org.aswing.event.ResizedEvent")]
-
-/**
- * Dispatched when the component gained the focus from it is not the focus owner
- * 
- * @eventType org.aswing.event.AWEvent.FOCUS_GAINED
- */
-// [Event(name="focusGained", type="org.aswing.event.AWEvent")]
-	
-/**
- * Dispatched when the component lost the focus from it was the focus owner.
- * 
- * @eventType org.aswing.event.AWEvent.FOCUS_LOST
- */
-// [Event(name="focusLost", type="org.aswing.event.AWEvent")]
-
-/**
- * Dispatched when the key down and the component is the focus owner.
- * 
- * @eventType org.aswing.event.FocusKeyEvent.FOCUS_KEY_DOWN
- */
-// [Event(name="focusKeyDown", type="org.aswing.event.FocusKeyEvent")]
-	
-/**
- * Dispatched when the key up and the component is the focus owner.
- * 
- * @eventType org.aswing.event.FocusKeyEvent.FOCUS_KEY_UP
- */
-// [Event(name="focusKeyUp", type="org.aswing.event.FocusKeyEvent")]
-
-/**
- *  Dispatched when the component is clicked continuesly.
- *
- *  @eventType org.aswing.event.ClickCountEvent.CLICK_COUNT
- */
-// [Event(name="clickCount", type="org.aswing.event.ClickCountEvent")]
-
-
-/**
- * Dispatched when the component is recongnized that it can be drag start.
- * @see #isDragEnabled()
- * 
- * @eventType org.aswing.event.DragAndDropEvent.DRAG_RECOGNIZED
- */
-// [Event(name="dragRecognized", type="org.aswing.event.DragAndDropEvent")]
-
-/**
- * Dispatched when a drag is enter this component area.
- * @see #isDropTrigger()
- * 
- * @eventType org.aswing.event.DragAndDropEvent.DRAG_ENTER
- */
-// [Event(name="dragEnter", type="org.aswing.event.DragAndDropEvent")]
-
-/**
- * Dispatched when a drag is exit this component area.
- * @see #isDropTrigger()
- * 
- * @eventType org.aswing.event.DragAndDropEvent.DRAG_EXIT
- */
-// [Event(name="dragExit", type="org.aswing.event.DragAndDropEvent")]
-
-/**
- * Dispatched when a drag is drop on this component.
- * @see #isDropTrigger()
- * 
- * @eventType org.aswing.event.DragAndDropEvent.DRAG_DROP
- */
-// [Event(name="dragDrop", type="org.aswing.event.DragAndDropEvent")]
-
-/**
- * Dispatched when a drag is moving on this component.
- * @see #isDropTrigger()
- * 
- * @eventType org.aswing.event.DragAndDropEvent.DRAG_OVERRING
- */
-// [Event(name="dragOverring", type="org.aswing.event.DragAndDropEvent")]
-
 /**
  * The super class for all Components.
  * 
- * <p>The maximumSize and minimumSize are the component's represent max or min size.</p>
- * 
- * <p>You can set a Component's size max than its maximumSize, but when it was drawed,
- * it will not max than its maximumSize.Just as its maximumSize and posited itself
- * in that size dimension you just setted. The position is relative to <code>getAlignmentX</code> 
- * and <code>getAlignmentY<code>.
- * </p>
- * @see #setSize()
- * @see #setPrefferedSize()
- * @see #getAlignmentX()
- * 
- * @author paling
- */	
+ * The `Component` may dispatch several events:
+ *
+ * `org.aswing.event.AWEvent.SHOWN` when the component visible is set to true from false.
+ *
+ * `org.aswing.event.AWEvent.HIDDEN` when the component visible is set to false from true.
+ *
+ * `org.aswing.event.AWEvent.PAINT` when the component is painted.
+ *
+ * `org.aswing.event.MovedEvent.MOVED` when the component is moved
+ *
+ * `org.aswing.event.ResizedEvent.RESIZED` when the component is resized.
+ *
+ * `org.aswing.event.AWEvent.FOCUS_GAINED` when the component gained the focus from it is not the focus owner
+ *
+ * `org.aswing.event.AWEvent.FOCUS_LOST` when the component lost the focus from it was the focus owner.
+ *
+ * `org.aswing.event.FocusKeyEvent.FOCUS_KEY_DOWN` when the key down and the component is the focus owner.
+ *
+ * `org.aswing.event.FocusKeyEvent.FOCUS_KEY_UP` when the key up and the component is the focus owner.
+ *
+ * `org.aswing.event.ClickCountEvent.CLICK_COUNT` when the component is clicked continuesly.
+ *
+ * `org.aswing.event.DragAndDropEvent.DRAG_RECOGNIZED` when the component is recongnized that it can be drag start.
+ * See `Component.isDragEnabled`.
+ *
+ * `org.aswing.event.DragAndDropEvent.DRAG_ENTER` when a drag is enter this component area.
+ * See `Component.isDropTrigger`
+ *
+ * `org.aswing.event.DragAndDropEvent.DRAG_EXIT` when a drag is exit this component area.
+ * See `Component.isDropTrigger`
+ *
+ * `org.aswing.event.DragAndDropEvent.DRAG_DROP` when a drag is drop on this component.
+ * See `Component.isDropTrigger`
+ *
+ * `org.aswing.event.DragAndDropEvent.DRAG_OVERRING` when a drag is moving on this component.
+ * See `Component.isDropTrigger`
+ */
 class Component extends AWSprite implements IBindable {
-	/**
-	 * The max interval time to judge whether click was continuously.
-	 */
+
+	//The max interval time to judge whether click was continuously.
 	private static var MAX_CLICK_INTERVAL:Int= 400;
+
 	private static var AWML_INDEX:Int= 0;
 	private var ui:ComponentUI;
-	public var container:Container;
+	@:dox(hide) public var container:Container;
 	private var clientProperty:haxe.ds.StringMap<Dynamic>;
 	
 	private var awmlID:String;
@@ -185,16 +92,90 @@ class Component extends AWSprite implements IBindable {
 	private var awmlNamespace:String;
 	
 	private var clipBounds:IntRectangle;
-	private var alignmentX:Float;
-	private var alignmentY:Float;
-	private var minimumSize:IntDimension;
-	private var maximumSize:IntDimension;
-	private var preferredSize:IntDimension;
-	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Size and layout properties
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+	* The alignment along the X axis.
+	*
+	* This specifies how the component would like to be aligned relative
+	* to its size when its size is maxer than its `maximumSize`.
+	*
+	* The value should be a number between 0 and 1 where 0
+	* represents alignment start from left, 1 is aligned the furthest
+	* away from the left, 0.5 is centered, etc.
+	*/
+	public var alignmentX(get, set):Float;
+	private var _alignmentX:Float;
+	private function set_alignmentX(v:Float) { setAlignmentX(v); return v; }
+	private function get_alignmentX():Float { return getAlignmentX();}
+
+	/**
+	* The alignment along the Y axis.
+	*
+	* This specifies how the component would like to be aligned relative
+	* to its size when its size is maxer than its `maximumSize`.
+	*
+	* The value should be a number between 0 and 1 where 0
+	* represents alignment start from top, 1 is aligned the furthest
+	* away from the top, 0.5 is middle, etc.
+	*/
+	public var alignmentY(get, set):Float;
+	private var _alignmentY:Float;
+	private function set_alignmentY(v:Float) { setAlignmentY(v); return v; }
+	private function get_alignmentY():Float { return getAlignmentY();}
+
+	/**
+	* The minimum size of a `Component'.
+	*
+	* If it's `null` it'll be calculated. See `ComponentUI.getMinimumSize`
+	**/
+	public var minimumSize(get, set):IntDimension;
+	private var _minimumSize:IntDimension;
+	private function set_minimumSize(v:IntDimension) { setMinimumSize(v); return v; }
+	private function get_minimumSize():IntDimension { return getMinimumSize();}
+
+	/**
+	* The maximum size of a `Component'.
+	*
+	* If it's `null` it'll be calculated. See `ComponentUI.getMaximumSize`
+	**/
+	public var maximumSize(get, set):IntDimension;
+	private var _maximumSize:IntDimension;
+	private function set_maximumSize(v:IntDimension) { setMaximumSize(v); return v; }
+	private function get_maximumSize():IntDimension { return getMaximumSize();}
+
+	/**
+	* The `preferredSize`'s used during a layout process. `LayoutManager` tries to layout a component to this size.
+	*/
+	public var preferredSize(get, set):IntDimension;
+	private var _preferredSize:IntDimension;
+	private function set_preferredSize(v:IntDimension) { setPreferredSize(v); return v; }
+	private function get_preferredSize():IntDimension { return getPreferredSize();}
+
+	/**
+	* The component's size.
+	*
+	* You can set a Component's size max than its maximumSize, but when it was drawed,
+	* it will not max than its maximumSize.Just as its maximumSize and posited itself
+	* in that size dimension you just setted. The position is relative to `alignmentX`
+	*
+	* See `Component.alignmentX`, `Component.alignmentY`, `Component.minimumSize`, `Component.countMaximumSize`,
+	* `Component.preferredSize`
+	*/
+	public var currentSize(get,set): IntDimension;
+	private function get_currentSize(): IntDimension { return getSize(); }
+	private function set_currentSize(v: IntDimension): IntDimension { setSize(v); return v; }
+
 	private var cachePreferSizes:Bool;
 	private var cachedPreferredSize:IntDimension;
 	private var cachedMinimumSize:IntDimension;
 	private var cachedMaximumSize:IntDimension;
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	private var constraints:Dynamic;
 	private var uiElement:Bool;
 	
@@ -202,40 +183,109 @@ class Component extends AWSprite implements IBindable {
 	private var valid:Bool;
 	private var bounds:IntRectangle;
 	private var readyToPaint:Bool;
-	
-	private var _background:ASColor;
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Style properties
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * The background color of this component.
+	 *
+	 * It affects each component differently. Generally it affects the background of a component,
+	 * or to be the main tinge of a component.
+	 *
+	 * If it is `null` and it has style proxy, then this component will inherit the background color of its style proxy.
+	*/
 	public var background(get,set): ASColor;
+	private var _background:ASColor;
 	private function get_background(): ASColor { return getBackground(); }
 	private function set_background(v: ASColor): ASColor { setBackground(v); return v; }
 
-	private var _foreground:ASColor;
+	/**
+	 * The foreground color of this component.
+     *
+     * It affects each component differently. Generally it affects the text color of a component.
+     *
+     * If it is `null` and it has style proxy, then this component will inherit the foreground color of its style proxy.
+	*/
 	public var foreground(get,set): ASColor;
+	private var _foreground:ASColor;
 	private function get_foreground(): ASColor { return getForeground(); }
 	private function set_foreground(v: ASColor): ASColor { setForeground(v); return v; }
 
-	private var _mideground:ASColor;
+	/**
+     * The mideground color affects each component differently,
+     * generally it affects the thumb color. Most component has no thumb will
+     * not use this property.
+     *
+     * If it is `null` and it has style proxy, then this component will inherit the mideground color of its style proxy.
+    */
 	public var mideground(get,set): ASColor;
+	private var _mideground: ASColor;
 	private function get_mideground(): ASColor { return getMideground(); }
 	private function set_mideground(v: ASColor): ASColor { setMideground(v); return v; }
 
-	private var styleTune:StyleTune;
-	private var styleProxy:Component;
-	private var backgroundDecorator:GroundDecorator;
-	private var foregroundDecorator:GroundDecorator;
-	private var font:ASFont;
+	public var styleTune(get,set): StyleTune;
+	private var _styleTune: StyleTune;
+	private function get_styleTune(): StyleTune { return getStyleTune(); }
+	private function set_styleTune(v: StyleTune): StyleTune { setStyleTune(v); return v; }
+
+	public var styleProxy(get,set): Component;
+	private var _styleProxy: Component;
+	private function get_styleProxy(): Component { return getStyleProxy(); }
+	private function set_styleProxy(v: Component): Component { setStyleProxy(v); return v; }
+
+	public var backgroundDecorator(get,set): GroundDecorator;
+	private var _backgroundDecorator: GroundDecorator;
+	private function get_backgroundDecorator(): GroundDecorator { return getBackgroundDecorator(); }
+	private function set_backgroundDecorator(v: GroundDecorator): GroundDecorator { setBackgroundDecorator(v); return v; }
+
+	public var foregroundDecorator(get,set): GroundDecorator;
+	private var _foregroundDecorator: GroundDecorator;
+	private function get_foregroundDecorator(): GroundDecorator { return getForegroundDecorator(); }
+	private function set_foregroundDecorator(v: GroundDecorator): GroundDecorator { setForegroundDecorator(v); return v; }
+
+	public var font(get,set): ASFont;
+	private var _font:ASFont;
+	private function get_font(): ASFont { return getFont(); }
+	private function set_font(v: ASFont): ASFont { setFont(v); return v; }
+
 	private var fontValidated:Bool;
 
-	private var _opaque:Bool;
+	/**
+     * It's true if this component is completely opaque.
+     *
+     * An opaque component paints every pixel within its
+     * rectangular bounds. A non-opaque component paints only a subset of
+     * its pixels or none at all, allowing the pixels underneath it to
+     * "show through".  Therefore, a component that does not fully paint
+     * its pixels provides a degree of transparency.
+     *
+     * The value is from LookAndFeel defaults if you have not set it.
+     *
+     * Subclasses that guarantee to always completely paint their contents
+     * should override this method and return true.
+     *
+     *
+     * See `Component.opaqueSet`
+     */
 	public var opaque(get,set): Bool;
+	private var _opaque:Bool;
 	private function get_opaque(): Bool { return isOpaque(); }
 	private function set_opaque(v: Bool): Bool { setOpaque(v); return v; }
 
 	private var opaqueSet:Bool;
 
-	private var _border:Border;
+	/**
+	 * The border for the component, null to remove border.
+	 * Border's display object will always on top of background decorator but under other assets.
+	**/
 	public var border(get, set): Border;
+	private var _border:Border;
 	private function get_border(): Border { return getBorder(); }
 	private function set_border(v: Border): Border { setBorder(v); return v; }
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private var enabled:Bool;
 	private var focusable:Bool;
@@ -247,8 +297,7 @@ class Component extends AWSprite implements IBindable {
 	private var dragAcceptableInitiatorAppraiser:Dynamic->Bool;
 	private var resizerMargin:Insets;
 	
-	public function new()
-	{
+	public function new() {
 		bounds = new IntRectangle();
 		AWML_INDEX++;
 		awmlIndex = AWML_INDEX;
@@ -257,8 +306,8 @@ class Component extends AWSprite implements IBindable {
 		setName("Component");
 		ui = null;
 		clientProperty = null;
-		alignmentX = 0;
-		alignmentY = 0;
+		_alignmentX = 0;
+		_alignmentY = 0;
 		_opaque = false;
 		opaqueSet = false;
 		valid = false;
@@ -271,14 +320,14 @@ class Component extends AWSprite implements IBindable {
 		toolTipText = null;
 		uiElement = false;
 		_border = DefaultEmptyDecoraterResource.INSTANCE;
-		backgroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
-		foregroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
+		_backgroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
+		_foregroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
 		
-		font = DefaultEmptyDecoraterResource.DEFAULT_FONT;
+		_font = DefaultEmptyDecoraterResource.DEFAULT_FONT;
 		_background = DefaultEmptyDecoraterResource.DEFAULT_BACKGROUND_COLOR;
 		_foreground = DefaultEmptyDecoraterResource.DEFAULT_FOREGROUND_COLOR;
 		_mideground = DefaultEmptyDecoraterResource.DEFAULT_MIDEGROUND_COLOR;
-		styleTune  = DefaultEmptyDecoraterResource.DEFAULT_STYLE_TUNE;
+		_styleTune  = DefaultEmptyDecoraterResource.DEFAULT_STYLE_TUNE;
 		
 		addEventListener(FocusEvent.FOCUS_IN, __focusIn);
 		addEventListener(FocusEvent.FOCUS_OUT, __focusOut);
@@ -318,77 +367,80 @@ class Component extends AWSprite implements IBindable {
 	}
 		    
 	/**
-	 * Sets ID used to identify components created from AWML. Used to obtain components through 
+	 * Sets ID used to identify components created from AWML. Used to obtain components through
 	 * {@link org.aswing.awml.AwmlManager}. You should never modify this value.
-	 * 
+	 *
 	 * @param id the component's AWML ID
 	 */
-	public function setAwmlID(id:String):Void{
-		awmlID = id;	
+	@:dox(hide) public function setAwmlID(id:String):Void{
+		awmlID = id;
 	}
 
 	/**
 	 * Returns ID used to identify components created from AWML.
-	 * 
+	 *
 	 * @return the AWML ID
 	 */
-	public function getAwmlID():String{
+	@:dox(hide) public function getAwmlID():String{
 		return awmlID;
 	}
 
 	/**
-	 * Sets namespace used to identify components created from AWML. 
-	 * Used to obtain components through {@link org.aswing.awml.AwmlManager}. 
+	 * Sets namespace used to identify components created from AWML.
+	 * Used to obtain components through {@link org.aswing.awml.AwmlManager}.
 	 * You should never modify this value.
-	 * 
+	 *
 	 * @param theNamespace the new namespace name
 	 */
-	public function setAwmlNamespace(theNamespace:String):Void{
-		awmlNamespace = theNamespace;	
+	@:dox(hide) public function setAwmlNamespace(theNamespace:String):Void{
+		awmlNamespace = theNamespace;
 	}
 
 	/**
 	 * Returns namespace name used to identify components created from AWML.
-	 * 
+	 *
 	 * @return the namespace name
 	 */
-	public function getAwmlNamespace():String{
-		return awmlNamespace;	
+	@:dox(hide) public function getAwmlNamespace():String{
+		return awmlNamespace;
 	}
 
 	/**
-	 * Sets ID used to identify components created from AWML. Used to obtain components through 
+	 * Sets ID used to identify components created from AWML. Used to obtain components through
 	 * {@link org.aswing.awml.AwmlManager}. You should never modify this value.
-	 * 
+	 *
 	 * @param index the position index of the component
 	 */
-	public function setAwmlIndex(index:Int):Void{
-		awmlIndex = index;	
+	@:dox(hide) public function setAwmlIndex(index:Int):Void{
+		awmlIndex = index;
 	}
 
 	/**
 	 * Returns position index of the component inside its AWML container.
-	 * 
+	 *
 	 * @return the component index in the AWML
 	 */
-	public function getAwmlIndex():Int{
-		return awmlIndex;	
+	@:dox(hide) public function getAwmlIndex():Int{
+		return awmlIndex;
 	}
 	    
 	/**
-     * Returns the <code>UIDefaults</code> key used to
-     * look up the name of the <code>org.aswing.plaf.ComponentUI</code>
+     * Returns the `UIDefaults` key used to
+     * look up the name of the `org.aswing.plaf.ComponentUI`
      * class that defines the look and feel
-     * for this component.  Most applications will never need to
-     * call this method.  Subclasses of <code>Component</code> that support
-     * pluggable look and feel should override this method to
-     * return a <code>UIDefaults</code> key that maps to the
-     * <code>ComponentUI</code> subclass that defines their look and feel.
+     * for this component.
      *
-     * @return the <code>UIDefaults</code> key for a
-     *		<code>ComponentUI</code> subclass
-     * @see org.aswing.UIDefaults#getUI()
-     */
+     * Most applications will never need to
+     * call this method.  Subclasses of `Component` that support
+     * pluggable look and feel should override this method to
+     *
+     * return a `UIDefaults` key that maps to the
+     * `ComponentUI` subclass that defines their look and feel.
+     *
+     * See `org.aswing.UIDefaults.getUI`
+
+     * @return the `UIDefaults` key for a `ComponentUI` subclass
+     **/
 	public function getUIClassID():String{
 		return "ComponentUI";
 	}
@@ -518,7 +570,7 @@ class Component extends AWSprite implements IBindable {
 	 * Border's display object will always on top of background decorator but under other assets.
 	 * @param border the new border to set, or null.
 	 */
-	public function setBorder(b:Border):Void { 
+	@:dox(hide) public function setBorder(b:Border):Void {
 		if(b != _border){
 			if(_border != null && _border.getDisplay(this) != null){
 				removeChild(_border.getDisplay(this));
@@ -536,9 +588,8 @@ class Component extends AWSprite implements IBindable {
 	
 	/**
 	 * Returns the border.
-	 * @return the border.
 	 */
-	public function getBorder():Border{
+	@:dox(hide) public function getBorder():Border{
 		return _border;
 	}
 	
@@ -588,9 +639,9 @@ class Component extends AWSprite implements IBindable {
 	 * @param bg the background decorator.
 	 */
 	public function setBackgroundDecorator(bg:GroundDecorator):Void{
-		if(bg != backgroundDecorator){
-			var old:GroundDecorator= backgroundDecorator;
-			backgroundDecorator = bg;
+		if(bg != _backgroundDecorator){
+			var old:GroundDecorator= _backgroundDecorator;
+			_backgroundDecorator = bg;
 			if(bg != null){
 				setBackgroundChild(bg.getDisplay(this));
 			}else{
@@ -605,7 +656,7 @@ class Component extends AWSprite implements IBindable {
 	 * @return the background decorator of this component.
 	 */
 	public function getBackgroundDecorator():GroundDecorator{
-		return backgroundDecorator;
+		return _backgroundDecorator;
 	}
 	
 	/**
@@ -616,9 +667,9 @@ class Component extends AWSprite implements IBindable {
 	 * @param fg the foreground decorator.
 	 */
 	public function setForegroundDecorator(fg:GroundDecorator):Void{
-		if(fg != foregroundDecorator){
-			var old:Dynamic= backgroundDecorator;
-			foregroundDecorator = fg;
+		if(fg != _foregroundDecorator){
+			var old:Dynamic= _backgroundDecorator;
+			_foregroundDecorator = fg;
 			if(fg != null){
 				setForegroundChild(fg.getDisplay(this));
 			}else{
@@ -633,7 +684,7 @@ class Component extends AWSprite implements IBindable {
 	 * @return the foreground decorator of this component.
 	 */
 	public function getForegroundDecorator():GroundDecorator{
-		return foregroundDecorator;
+		return _foregroundDecorator;
 	}
 	
 	/**
@@ -737,8 +788,8 @@ class Component extends AWSprite implements IBindable {
 	 * @param newFont the font to set for this component.
 	 */
 	public function setFont(newFont:ASFont):Void{
-		if(font != newFont){
-			font = newFont;
+		if(_font != newFont){
+			_font = newFont;
 			setFontValidated(false);
 			repaint();
 			revalidate();
@@ -776,8 +827,8 @@ class Component extends AWSprite implements IBindable {
      * @see #setFont()
      */
 	public function getFont():ASFont{
-        if (font != null && font != DefaultEmptyDecoraterResource.NULL_FONT) {
-            return font;
+        if (_font != null && _font != DefaultEmptyDecoraterResource.NULL_FONT) {
+            return _font;
         }else if(getStyleProxy() != null){
         	return getStyleProxy().getFont();
         }else{
@@ -797,7 +848,7 @@ class Component extends AWSprite implements IBindable {
      *          component will inherit the background color of its style proxy.
      * @see #getBackground()
 	 */
-	public function setBackground(c:ASColor):Void{
+	@:dox(hide) public function setBackground(c:ASColor):Void{
 		if(_background != c){
 			_background = c;
 			repaint();
@@ -811,7 +862,7 @@ class Component extends AWSprite implements IBindable {
      *          the background color of its style proxy is returned
      * @see #setBackground()
 	 */
-	public function getBackground():ASColor{
+	@:dox(hide) public function getBackground():ASColor{
 		if(_background != null && _background != DefaultEmptyDecoraterResource.NULL_COLOR){
 			return _background;
 		}else if(getStyleProxy() != null){
@@ -832,7 +883,7 @@ class Component extends AWSprite implements IBindable {
      *          component will inherit the foreground color of its style proxy.
      * @see #getForeground()
 	 */
-	public function setForeground(c:ASColor):Void{
+	@:dox(hide) public function setForeground(c:ASColor):Void{
 		if(_foreground != c){
 			_foreground = c;
 			repaint();
@@ -846,7 +897,7 @@ class Component extends AWSprite implements IBindable {
      *          the foreground color of its parent is returned
      * @see #setForeground()
 	 */
-	public function getForeground():ASColor{
+	@:dox(hide) public function getForeground():ASColor{
 		if(_foreground != null && _foreground != DefaultEmptyDecoraterResource.NULL_COLOR){
 			return _foreground;
 		}else if(getStyleProxy() != null){
@@ -868,7 +919,7 @@ class Component extends AWSprite implements IBindable {
      *          component will inherit the mideground color of its style proxy.
      * @see #getMideground()
 	 */
-	public function setMideground(c:ASColor):Void{
+	@:dox(hide) public function setMideground(c:ASColor):Void{
 		if(_mideground != c){
 			_mideground = c;
 			repaint();
@@ -882,7 +933,7 @@ class Component extends AWSprite implements IBindable {
      *          the mideground color of its parent is returned
      * @see #setMideground()
 	 */
-	public function getMideground():ASColor{
+	@:dox(hide) public function getMideground():ASColor{
 		if(_mideground != null && _mideground != DefaultEmptyDecoraterResource.NULL_COLOR){
 			return _mideground;
 		}else if(getStyleProxy() != null){
@@ -908,8 +959,8 @@ class Component extends AWSprite implements IBindable {
      * @see #getColorAdjuster()
 	 */
 	public function setStyleTune(c:StyleTune):Void{
-		if(styleTune != c){
-			styleTune = c;
+		if(_styleTune != c){
+			_styleTune = c;
 			repaint();
 		}
 	}
@@ -922,8 +973,8 @@ class Component extends AWSprite implements IBindable {
      * @see #setColorAdjuster()
 	 */
 	public function getStyleTune():StyleTune{
-		if(styleTune != null && styleTune != DefaultEmptyDecoraterResource.NULL_STYLE_TUNE){
-			return styleTune;
+		if(_styleTune != null && _styleTune != DefaultEmptyDecoraterResource.NULL_STYLE_TUNE){
+			return _styleTune;
 		}else if(getStyleProxy() != null){
         	return getStyleProxy().getStyleTune();
         }else{
@@ -945,7 +996,7 @@ class Component extends AWSprite implements IBindable {
 	 * @param proxy the style proxy for this component
 	 */
 	public function setStyleProxy(proxy:Component):Void{
-		styleProxy = proxy;
+		_styleProxy = proxy;
 	}
 	
 	/**
@@ -958,8 +1009,8 @@ class Component extends AWSprite implements IBindable {
 	 * @return the style proxy of this component
 	 */
 	public function getStyleProxy():Component{
-		if(styleProxy != null){
-			return styleProxy;
+		if(_styleProxy != null){
+			return _styleProxy;
 		}else if(getParent() != null){
         	return getParent();
         }else if(Std.is(parent,Component)){
@@ -982,7 +1033,7 @@ class Component extends AWSprite implements IBindable {
      * @param b  true if this component should be opaque
      * @see #isOpaque()
      */
-    public function setOpaque(b:Bool):Void{
+    @:dox(hide) public function setOpaque(b:Bool):Void{
     	setOpaqueSet(true);
     	if(_opaque != b){
     		_opaque = b;
@@ -1010,7 +1061,7 @@ class Component extends AWSprite implements IBindable {
      * @see #setOpaque()
      * @see #isOpaqueSet()
      */
-    public function isOpaque():Bool{
+    @:dox(hide) public function isOpaque():Bool{
     	return _opaque;
     }
     
@@ -1230,7 +1281,7 @@ class Component extends AWSprite implements IBindable {
 	 * @see #countMaximumSize()
 	 * @see #getPreferredSize()
 	 */
-	public function setSize(newSize:IntDimension):Void{
+	@:dox(hide) public function setSize(newSize:IntDimension):Void{
 		newSize.width = Std.int(Math.max(0, newSize.width));
 		newSize.height = Std.int(Math.max(0, newSize.height));
 		var oldSize:IntDimension = new IntDimension(bounds.width, bounds.height);
@@ -1241,22 +1292,18 @@ class Component extends AWSprite implements IBindable {
 		}
 	}
 	/**
-	 * @see #setSize()
+	 * See `Component.currentSize`
 	 */
 	public function setSizeWH(w:Int, h:Int):Void{
 		setSize(new IntDimension(w, h));
 	}
-
-	public var currentSize(get,set): IntDimension;
-	private function get_currentSize(): IntDimension { return getSize(); }
-	private function set_currentSize(v: IntDimension): IntDimension { setSize(v); return v; }
 
 	/**
 	 * Stores the size value of this component into "return value" rv and returns rv. 
 	 * If rv is null a new IntDimension object is allocated. 
 	 * @param rv the return value, modified to the component's size.
 	 */	
-	public function getSize(rv:IntDimension=null):IntDimension{
+	@:dox(hide) public function getSize(rv:IntDimension=null):IntDimension{
 		if(rv != null){
 			rv.setSizeWH(bounds.width, bounds.height);
 			return rv;
@@ -1644,7 +1691,6 @@ class Component extends AWSprite implements IBindable {
 	 */
 	override public function set_x(value:Float):Float{
 		setX(Std.int(value));
-	 
 			return value;
 		}
 	
@@ -1712,9 +1758,9 @@ class Component extends AWSprite implements IBindable {
 	 * @param ax
 	 * @see #getAlignmentX()
 	 */
-    public function setAlignmentX(ax:Float):Void{
-    	if(alignmentX != ax){
-    		alignmentX = ax;
+    @:dox(hide) public function setAlignmentX(ax:Float):Void{
+    	if(_alignmentX != ax){
+    		_alignmentX = ax;
     		repaint();
     	}
     }
@@ -1723,9 +1769,9 @@ class Component extends AWSprite implements IBindable {
 	 * @param ay
 	 * @see #getAlignmentY()
      */
-    public function setAlignmentY(ay:Float):Void{
-    	if(alignmentY != ay){
-    		alignmentY = ay;
+    @:dox(hide) public function setAlignmentY(ay:Float):Void{
+    	if(_alignmentY != ay){
+    		_alignmentY = ay;
     		repaint();
     	}
     }		
@@ -1739,8 +1785,8 @@ class Component extends AWSprite implements IBindable {
 	 * away from the left, 0.5 is centered, etc. 
 	 * @return the alignment along the x axis, 0 by default
 	 */
-    public function getAlignmentX():Float{
-    	return alignmentX;
+    @:dox(hide) public function getAlignmentX():Float{
+    	return _alignmentX;
     }
 
 	/**
@@ -1752,8 +1798,8 @@ class Component extends AWSprite implements IBindable {
 	 * away from the top, 0.5 is centered, etc. 
 	 * @return the alignment along the y axis, 0 by default
 	 */
-    public function getAlignmentY():Float{
-    	return alignmentY;
+    @:dox(hide) public function getAlignmentY():Float{
+    	return _alignmentY;
     }
     
     /**
@@ -1863,13 +1909,13 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * @see #setMinimumSize()
 	 */
-	public function getMinimumSize():IntDimension{
-		if(isDirectReturnSize(minimumSize)){
-			return minimumSize.clone();
+	@:dox(hide) public function getMinimumSize():IntDimension{
+		if(isDirectReturnSize(_minimumSize)){
+			return _minimumSize.clone();
 		}else if(isCachePreferSizes() && cachedMinimumSize != null){
 			return cachedMinimumSize.clone();
 		}else{
-			var tempSize:IntDimension = mixSetSize(countMinimumSize(), minimumSize);			
+			var tempSize:IntDimension = mixSetSize(countMinimumSize(), _minimumSize);
 			if(isCachePreferSizes()){
 				cachedMinimumSize = tempSize;
 				return cachedMinimumSize.clone();
@@ -1882,13 +1928,13 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * @see #setMaximumSize()
 	 */	
-	public function getMaximumSize():IntDimension{
-		if(isDirectReturnSize(maximumSize)){
-			return maximumSize.clone();
+	@:dox(hide) public function getMaximumSize():IntDimension{
+		if(isDirectReturnSize(_maximumSize)){
+			return _maximumSize.clone();
 		}else if(isCachePreferSizes() && cachedMaximumSize != null){
 			return cachedMaximumSize.clone();
 		}else{
-			var tempSize:IntDimension = mixSetSize(countMaximumSize(), maximumSize);
+			var tempSize:IntDimension = mixSetSize(countMaximumSize(), _maximumSize);
 			if(isCachePreferSizes()){
 				cachedMaximumSize = tempSize;
 				return cachedMaximumSize.clone();
@@ -1901,14 +1947,14 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * @see #setPreferredSize()
 	 */	
-	public function getPreferredSize():IntDimension {
+	@:dox(hide) public function getPreferredSize():IntDimension {
 		
-		if(isDirectReturnSize(preferredSize)){
-			return preferredSize.clone();
+		if(isDirectReturnSize(_preferredSize)){
+			return _preferredSize.clone();
 		}else if(isCachePreferSizes() && cachedPreferredSize != null){
 			return cachedPreferredSize.clone();
 		}else{
-			var tempSize:IntDimension = mixSetSize(countPreferredSize(), preferredSize);
+			var tempSize:IntDimension = mixSetSize(countPreferredSize(), _preferredSize);
 			if(isCachePreferSizes()){
 				cachedPreferredSize = tempSize;
 				return cachedPreferredSize.clone();
@@ -1943,11 +1989,11 @@ class Component extends AWSprite implements IBindable {
 	 * others set the minimumSize to be a specified size.
 	 * @see #getMinimumSize()
 	 */
-	public function setMinimumSize(minimumSize:IntDimension):Void{
+	@:dox(hide) public function setMinimumSize(minimumSize:IntDimension):Void{
 		if(minimumSize == null){
-			this.minimumSize = null;
+			this._minimumSize = null;
 		}else{
-			this.minimumSize = minimumSize.clone();
+			this._minimumSize = minimumSize.clone();
 		}
 	}
 	
@@ -1963,11 +2009,11 @@ class Component extends AWSprite implements IBindable {
 	 * @see #getMaximumSize()
 	 * @see #MaximumSize()
 	 */	
-	public function setMaximumSize(maximumSize:IntDimension):Void{
+	@:dox(hide) public function setMaximumSize(maximumSize:IntDimension):Void{
 		if(maximumSize == null){
-			this.maximumSize = null;
+			this._maximumSize = null;
 		}else{
-			this.maximumSize = maximumSize.clone();
+			this._maximumSize = maximumSize.clone();
 		}
 	}
 	
@@ -1982,11 +2028,11 @@ class Component extends AWSprite implements IBindable {
 	 * others set the preferredSize to be a specified size.
 	 * @see #getPreferredSize()
 	 */	
-	public function setPreferredSize(preferredSize:IntDimension):Void{
+	@:dox(hide) public function setPreferredSize(preferredSize:IntDimension):Void{
 		if(preferredSize == null){
-			this.preferredSize = null;
+			this._preferredSize = null;
 		}else{
-			this.preferredSize = preferredSize.clone();
+			this._preferredSize = preferredSize.clone();
 		}
 	}	
 	
@@ -2003,10 +2049,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setPreferredSize()
 	 */
 	public function setPreferredWidth(preferredWidth:Int):Void{
-		if(preferredSize == null){
-			preferredSize = new IntDimension(-1, -1);
+		if(_preferredSize == null){
+			_preferredSize = new IntDimension(-1, -1);
 		}
-		preferredSize.width = preferredWidth;
+		_preferredSize.width = preferredWidth;
 	}
 	
 	/**
@@ -2022,10 +2068,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setPreferredSize()
 	 */
 	public function setPreferredHeight(preferredHeight:Int):Void{
-		if(preferredSize == null){
-			preferredSize = new IntDimension(-1, -1);
+		if(_preferredSize == null){
+			_preferredSize = new IntDimension(-1, -1);
 		}
-		preferredSize.height = preferredHeight;
+		_preferredSize.height = preferredHeight;
 	}
 	
 	/**
@@ -2040,10 +2086,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setMaximumSize()
 	 */
 	public function setMaximumWidth(maximumWidth:Int):Void{
-		if(maximumSize == null){
-			maximumSize = new IntDimension(-1, -1);
+		if(_maximumSize == null){
+			_maximumSize = new IntDimension(-1, -1);
 		}
-		maximumSize.width = maximumWidth;
+		_maximumSize.width = maximumWidth;
 	}
 	/**
 	 * Returns <code>getMaximumSize().height</code>
@@ -2057,10 +2103,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setMaximumSize()
 	 */
 	public function setMaximumHeight(maximumHeight:Int):Void{
-		if(maximumSize == null){
-			maximumSize = new IntDimension(-1, -1);
+		if(_maximumSize == null){
+			_maximumSize = new IntDimension(-1, -1);
 		}
-		maximumSize.height = maximumHeight;
+		_maximumSize.height = maximumHeight;
 	}
 	/**
 	 * Returns <code>getMinimumSize().width</code>
@@ -2074,10 +2120,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setMinimumSize()
 	 */
 	public function setMinimumWidth(minimumWidth:Int):Void{
-		if(minimumSize == null){
-			minimumSize = new IntDimension(-1, -1);
+		if(_minimumSize == null){
+			_minimumSize = new IntDimension(-1, -1);
 		}
-		minimumSize.width = minimumWidth;
+		_minimumSize.width = minimumWidth;
 	}	
 	/**
 	 * Returns <code>getMinimumSize().height</code>
@@ -2091,10 +2137,10 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setMinimumSize()
 	 */
 	public function setMinimumHeight(minimumHeight:Int):Void{
-		if(minimumSize == null){
-			minimumSize = new IntDimension(-1, -1);
+		if(_minimumSize == null){
+			_minimumSize = new IntDimension(-1, -1);
 		}
-		minimumSize.height = minimumHeight;
+		_minimumSize.height = minimumHeight;
 	}
 	
 	/**
@@ -2278,8 +2324,8 @@ class Component extends AWSprite implements IBindable {
 			g.fillRectangle(bg_trigger_brush, b.x, b.y, b.width, b.height);
 		}
 		
-		if(backgroundDecorator != null){
-			backgroundDecorator.updateDecorator(this, g, b.clone());
+		if(_backgroundDecorator != null){
+			_backgroundDecorator.updateDecorator(this, g, b.clone());
 		}
 		if (ui != null) { 
 			ui.paint(this, g, b.clone());
@@ -2291,8 +2337,8 @@ class Component extends AWSprite implements IBindable {
 			// because border are the rounds, others will painted in the border's bounds.
 			_border.updateBorder(this, g, getInsets().getOutsideBounds(b.clone()));
 		}
-		if(foregroundDecorator != null){
-			foregroundDecorator.updateDecorator(this, g, b.clone());
+		if(_foregroundDecorator != null){
+			_foregroundDecorator.updateDecorator(this, g, b.clone());
 		}
 				
 		dispatchEvent(new AWEvent(AWEvent.PAINT, false, false));
@@ -2621,19 +2667,18 @@ class Component extends AWSprite implements IBindable {
 		return FocusManager.getManager(stage);
 	}
     
-    public function fireFocusKeyDownEvent(e:KeyboardEvent):Void{
+    public function fireFocusKeyDownEvent(e:KeyboardEvent):Void {
     	dispatchEvent(new FocusKeyEvent(FocusKeyEvent.FOCUS_KEY_DOWN, e.charCode, 
     	e.keyCode, e.keyLocation, e.ctrlKey, e.altKey, e.shiftKey));
     }
     
-    public function fireFocusKeyUpEvent(e:KeyboardEvent):Void{
+    @:dox(hide) public function fireFocusKeyUpEvent(e:KeyboardEvent):Void {
     	dispatchEvent(new FocusKeyEvent(FocusKeyEvent.FOCUS_KEY_UP, e.charCode, 
     	e.keyCode, e.keyLocation, e.ctrlKey, e.altKey, e.shiftKey));
     }
-    
 
-	private function fireDragRecognizedEvent(touchedChild:Component):Void {
-	 	
+
+	@:dox(hide) private function fireDragRecognizedEvent(touchedChild:Component):Void {
 		dispatchEvent(new DragAndDropEvent(DragAndDropEvent.DRAG_RECOGNIZED, this, null, new IntPoint(Std.int(stage.mouseX), Std.int(stage.mouseY))));
 	}
 	
@@ -2641,34 +2686,35 @@ class Component extends AWSprite implements IBindable {
 	 * @private
 	 * Fires ON_DRAG_ENTER event.(Note, this method is only for DragManager use)
 	 */
-	public function fireDragEnterEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint, relatedTarget:Component):Void{
+	@:dox(hide) public function fireDragEnterEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint, relatedTarget:Component):Void{
 		dispatchEvent(new DragAndDropEvent(DragAndDropEvent.DRAG_ENTER, dragInitiator, sourceData, mousePos, this, relatedTarget));
 	}
 	/**
 	 * @private
 	 * Fires DRAG_OVERRING event.(Note, this method is only for DragManager use)
 	 */
-	public function fireDragOverringEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint):Void{
+	@:dox(hide) public function fireDragOverringEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint):Void{
 		dispatchEvent(new DragAndDropEvent(DragAndDropEvent.DRAG_OVERRING, dragInitiator, sourceData, mousePos, this));
 	}
 	/**
 	 * @private
 	 * Fires DRAG_EXIT event.(Note, this method is only for DragManager use)
 	 */
-	public function fireDragExitEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint, relatedTarget:Component):Void{
+	@:dox(hide) public function fireDragExitEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint, relatedTarget:Component):Void{
 		dispatchEvent(new DragAndDropEvent(DragAndDropEvent.DRAG_EXIT, dragInitiator, sourceData, mousePos, this, relatedTarget));
 	}
 	/**
 	 * @private
 	 * Fires DRAG_DROP event.(Note, this method is only for DragManager use)
 	 */
-	public function fireDragDropEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint):Void{
+	@:dox(hide) public function fireDragDropEvent(dragInitiator:Component, sourceData:SourceData, mousePos:IntPoint):Void{
 		dispatchEvent(new DragAndDropEvent(DragAndDropEvent.DRAG_DROP, dragInitiator, sourceData, mousePos, this));
 	}    
 	
 	//----------------------------------------------------------------
 	//               Event Handlers
 	//----------------------------------------------------------------
+
 	private var lastClickTime:Int;
 	private var _lastClickPoint:IntPoint;
 	private var clickCount:Int;
@@ -2799,24 +2845,20 @@ class Component extends AWSprite implements IBindable {
    			}
 		}
 	}
-	/*
-	override public function toString():String {
-	  	
-		return  Reflection.getClassName(this)+ "[asset:" +super.toString()  + "]";
-	}
-*/
-	public var d_y (get, set):Float;
 
-	public var d_x (get, set):Float;
-	public var d_visible (get, set):Bool;
+	@:dox(hide) public var d_y (get, set):Float;
+	@:dox(hide) public var d_x (get, set):Float;
+	@:dox(hide) public var d_visible (get, set):Bool;
 
 //	public var height (get, set):Float;
-//
 //	public var width (get, set):Float;
-//
 //	public var y (get, set):Float;
-//
 //	public var x (get, set):Float;
-//
 //	public var visible (get, set):Bool;
+
+//	override public function toString():String {
+//
+//		return  Reflection.getClassName(this)+ "[asset:" +super.toString()  + "]";
+//	}
+
 }
