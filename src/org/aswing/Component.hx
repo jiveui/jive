@@ -225,26 +225,60 @@ class Component extends AWSprite implements IBindable {
 	private function get_mideground(): ASColor { return getMideground(); }
 	private function set_mideground(v: ASColor): ASColor { setMideground(v); return v; }
 
+	/**
+	* The style tune affects each component differently based on its LAF UI implements,
+	* generally it affects the border and content color gradient.
+	*
+	* Not every LookAndFeel UI will use style tune. BasicLookAndFeel use it mostly.
+	*
+	* If it is `null` then this component will use `DefaultEmptyDecoraterResource.NULL_STYLE_TUNE`
+	*
+	* See `StyleTune`
+	*/
 	public var styleTune(get,set): StyleTune;
 	private var _styleTune: StyleTune;
 	private function get_styleTune(): StyleTune { return getStyleTune(); }
 	private function set_styleTune(v: StyleTune): StyleTune { setStyleTune(v); return v; }
 
+	/**
+	 * The style proxy is used to provide the style(background, mideground, foreground and StyleTune)
+	 * properties for this component if any of them are set to null or DefaultEmptyDecoraterResource.NULL_XXX.
+	 *
+	 * For example, if you set a button's `background` to null, then `background` of the button
+	 * will return its style proxy's background.
+	 *
+	 * By default, the proxy is the parent of this component
+	 */
 	public var styleProxy(get,set): Component;
 	private var _styleProxy: Component;
 	private function get_styleProxy(): Component { return getStyleProxy(); }
 	private function set_styleProxy(v: Component): Component { setStyleProxy(v); return v; }
 
+	/**
+	 * A decorator represents the component background with a `DisplayObject`.
+	 *
+	 * See `GroundDecorator`.
+	 */
 	public var backgroundDecorator(get,set): GroundDecorator;
 	private var _backgroundDecorator: GroundDecorator;
 	private function get_backgroundDecorator(): GroundDecorator { return getBackgroundDecorator(); }
 	private function set_backgroundDecorator(v: GroundDecorator): GroundDecorator { setBackgroundDecorator(v); return v; }
 
+	/**
+	 * A decorator represents the component foreground with a `DisplayObject`.
+	 *
+	 * See `GroundDecorator`.
+	 */
 	public var foregroundDecorator(get,set): GroundDecorator;
 	private var _foregroundDecorator: GroundDecorator;
 	private function get_foregroundDecorator(): GroundDecorator { return getForegroundDecorator(); }
 	private function set_foregroundDecorator(v: GroundDecorator): GroundDecorator { setForegroundDecorator(v); return v; }
 
+	/**
+	 * The text font for this component.
+	 *
+	 * The setting of this property will cause a repaint and revalidate method call.
+	*/
 	public var font(get,set): ASFont;
 	private var _font:ASFont;
 	private function get_font(): ASFont { return getFont(); }
@@ -638,7 +672,7 @@ class Component extends AWSprite implements IBindable {
 	 * 
 	 * @param bg the background decorator.
 	 */
-	public function setBackgroundDecorator(bg:GroundDecorator):Void{
+	@:dox(hide) public function setBackgroundDecorator(bg:GroundDecorator):Void{
 		if(bg != _backgroundDecorator){
 			var old:GroundDecorator= _backgroundDecorator;
 			_backgroundDecorator = bg;
@@ -655,7 +689,7 @@ class Component extends AWSprite implements IBindable {
 	 * Returns the background decorator of this component.
 	 * @return the background decorator of this component.
 	 */
-	public function getBackgroundDecorator():GroundDecorator{
+	@:dox(hide) public function getBackgroundDecorator():GroundDecorator{
 		return _backgroundDecorator;
 	}
 	
@@ -666,7 +700,7 @@ class Component extends AWSprite implements IBindable {
 	 * 
 	 * @param fg the foreground decorator.
 	 */
-	public function setForegroundDecorator(fg:GroundDecorator):Void{
+	@:dox(hide) public function setForegroundDecorator(fg:GroundDecorator):Void{
 		if(fg != _foregroundDecorator){
 			var old:Dynamic= _backgroundDecorator;
 			_foregroundDecorator = fg;
@@ -683,7 +717,7 @@ class Component extends AWSprite implements IBindable {
 	 * Returns the foreground decorator of this component.
 	 * @return the foreground decorator of this component.
 	 */
-	public function getForegroundDecorator():GroundDecorator{
+	@:dox(hide) public function getForegroundDecorator():GroundDecorator{
 		return _foregroundDecorator;
 	}
 	
@@ -958,7 +992,7 @@ class Component extends AWSprite implements IBindable {
      *          component will use <code>DefaultEmptyDecoraterResource.NULL_COLOR_ADJUSTER</code>
      * @see #getColorAdjuster()
 	 */
-	public function setStyleTune(c:StyleTune):Void{
+	@:dox(hide) public function setStyleTune(c:StyleTune):Void{
 		if(_styleTune != c){
 			_styleTune = c;
 			repaint();
@@ -972,7 +1006,7 @@ class Component extends AWSprite implements IBindable {
      * 			will be returned.
      * @see #setColorAdjuster()
 	 */
-	public function getStyleTune():StyleTune{
+	@:dox(hide) public function getStyleTune():StyleTune{
 		if(_styleTune != null && _styleTune != DefaultEmptyDecoraterResource.NULL_STYLE_TUNE){
 			return _styleTune;
 		}else if(getStyleProxy() != null){
@@ -995,7 +1029,7 @@ class Component extends AWSprite implements IBindable {
 	 * By default(nr set to null) the proxy is the parent of this component
 	 * @param proxy the style proxy for this component
 	 */
-	public function setStyleProxy(proxy:Component):Void{
+	@:dox(hide) public function setStyleProxy(proxy:Component):Void{
 		_styleProxy = proxy;
 	}
 	
@@ -1008,7 +1042,7 @@ class Component extends AWSprite implements IBindable {
 	 * </p>
 	 * @return the style proxy of this component
 	 */
-	public function getStyleProxy():Component{
+	@:dox(hide) public function getStyleProxy():Component{
 		if(_styleProxy != null){
 			return _styleProxy;
 		}else if(getParent() != null){
@@ -1089,7 +1123,7 @@ class Component extends AWSprite implements IBindable {
      * Valid values are 0 (fully transparent) to 1 (fully opaque).
      * @param alpha the alpha for this component, between 0 and 1. default is 1.
      */
-    public function setAlpha(alpha:Float):Void{
+    @:dox(hide) public function setAlpha(alpha:Float):Void{
     	this.alpha = alpha;
     }
     
@@ -1097,7 +1131,7 @@ class Component extends AWSprite implements IBindable {
      * Returns the alpha of this component.
      * @return the alpha of this component. default is 1.
      */
-    public function getAlpha():Float{
+	@:dox(hide) public function getAlpha():Float{
     	return alpha;
     }
     
@@ -1550,15 +1584,14 @@ class Component extends AWSprite implements IBindable {
 
 	/**
 	 * Adds a component to be the acceptable drag initiator to this component.
-	 * <p>
-	 * It is not meanning that the DnD events will not be fired when the initiator 
+	 *
+	 * It is not meanning that the DnD events will not be fired when the initiator
 	 * is dragging enter/over/exit/drop on this component.
 	 * It is meanning that you can have a convenient way to proccess that events from 
-	 * the method <code>isDragAcceptableInitiator</code> later, and the default dragging 
+	 * the method `Component.isDragAcceptableInitiator` later, and the default dragging
 	 * image will take advantage to present a better picture when painting.
-	 * </p>
+	 *
 	 * @param com the acceptable drag initiator
-	 * @see #isDragAcceptableInitiator()
 	 */
 	public function addDragAcceptableInitiator(com:Component):Void{
 		if(dragAcceptableInitiator == null){
@@ -1569,8 +1602,10 @@ class Component extends AWSprite implements IBindable {
 	
 	/**
 	 * Removes a component to be the acceptable drag initiator to this component.
+	 *
+	 * See `Component.addDragAcceptableInitiator`
+	 *
 	 * @param com the acceptable drag initiator
-	 * @see #addDragAcceptableInitiator()
 	 */
 	public function removeDragAcceptableInitiator(com:Component):Void{
 		if(dragAcceptableInitiator != null){
@@ -2667,7 +2702,7 @@ class Component extends AWSprite implements IBindable {
 		return FocusManager.getManager(stage);
 	}
     
-    public function fireFocusKeyDownEvent(e:KeyboardEvent):Void {
+    @:dox(hide) public function fireFocusKeyDownEvent(e:KeyboardEvent):Void {
     	dispatchEvent(new FocusKeyEvent(FocusKeyEvent.FOCUS_KEY_DOWN, e.charCode, 
     	e.keyCode, e.keyLocation, e.ctrlKey, e.altKey, e.shiftKey));
     }
