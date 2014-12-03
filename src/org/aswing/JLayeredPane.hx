@@ -123,7 +123,8 @@ package org.aswing;
  *
  * @author paling
  */
-  class JLayeredPane extends   Container  {
+import haxe.ds.ObjectMap;
+class JLayeredPane extends   Container  {
     /// Watch the values in getObjectForLayer()
     /** Convenience object defining the Default layer. Equivalent to new Integer(0).*/
     inline static public var    DEFAULT_LAYER:Int = 0 ;
@@ -205,7 +206,7 @@ package org.aswing;
 	
 	
     // Maptable to store layer values for non-JComponent components
-    private var componentToLayer:Map < Int > ;//<Component,Int >
+    private var componentToLayer:ObjectMap<Dynamic,Int> ;//<Component,Int >
     private var optimizedDrawingPossible:Bool;
 
 
@@ -216,7 +217,7 @@ package org.aswing;
     public  function new() {
 		super();
 		optimizedDrawingPossible = true;
-		componentToLayer = new Map <Int>();
+		componentToLayer = new ObjectMap<Dynamic, Int>();
         setLayout(new EmptyLayout());
     }
 
@@ -288,7 +289,7 @@ package org.aswing;
      */
     override public function removeAll():Void {
      
-        componentToLayer = new Map <Int>();
+        componentToLayer = new ObjectMap<Dynamic,Int>();
         super.removeAll();
     }
 
@@ -543,9 +544,9 @@ package org.aswing;
      *
      * @return the Maptable used to map components to their layers
      */
-    private  function getComponentToLayer():haxe.ds.IntMap<Int> {
+    private  function getComponentToLayer():ObjectMap<Dynamic,Int> {
         if(componentToLayer == null)
-            componentToLayer = new haxe.ds.IntMap<Int>();
+            componentToLayer = new ObjectMap<Dynamic, Int>();
         return componentToLayer;
     }
 

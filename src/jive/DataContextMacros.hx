@@ -1,5 +1,6 @@
 package jive;
 
+#if macro
 import haxe.macro.Type;
 import haxe.macro.Context;
 import haxe.macro.Expr;
@@ -8,12 +9,9 @@ using haxe.macro.Tools;
 using Lambda;
 
 class DataContextMacros {
-    #if macro
 	static var processed:Map<String, Bool> = new Map();
-	#end
 
     public static function build():Array<Field> {
-
         var res = Context.getBuildFields();
         var type = Context.getLocalClass();
         var classType:ClassType = type.get();
@@ -45,3 +43,4 @@ class DataContextMacros {
         return res.concat(add);
     }
 }
+#end

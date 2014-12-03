@@ -1,0 +1,65 @@
+<project name="build-utils">
+	<!-- Global System Enviroment -->
+	<property environment="env"/>
+<!--
+	<property name="haxe.home" value="${basedir}/../../tools/haxe"/>
+	<property name="neko.home" value="${basedir}/../../tools/neko"/>
+-->
+
+	<!-- default haXe compiler flags -->
+	<property name= "haxe.compiler.flags" value="-debug"/> 
+
+	<!-- Execute haXe compiler with tricky options -->
+	<target name="haxe">
+		<condition property="dir" value=".">
+			<not>
+				<isset property="dir"/>
+			</not>
+		</condition>
+		<echo level="info">Executing haXe for "${dir}/${hxml}" with flags ${haxe.compiler.flags}</echo>
+		<exec dir="${dir}" executable="haxe" failonerror="true">
+			<arg line="${hxml} ${haxe.compiler.flags}"/>
+<!--
+			<env key="HAXEPATH" file="${haxe.home}"/>
+			<env key="NEKO_INSTPATH" file="${neko.home}"/>
+-->
+		</exec>
+	</target>
+
+	<target name="munit">
+		<condition property="dir" value=".">
+			<not>
+				<isset property="dir"/>
+			</not>
+		</condition>
+		<echo level="info">Executing MassiveUnit for "${dir}"</echo>
+		<exec dir="${dir}" executable="haxelib" failonerror="true">
+			<arg line="run munit ${command} ${options}"/>
+		</exec>
+	</target>
+
+	<target name="dox">
+		<condition property="dir" value=".">
+			<not>
+				<isset property="dir"/>
+			</not>
+		</condition>
+		<echo level="info">Executing dox for "${dir}/${input.path}"</echo>
+		<exec dir="${dir}" executable="haxelib" failonerror="true">
+			<arg line="run dox -i ${input.path} -o ${output.path}"/>
+		</exec>
+	</target>
+
+	<target name="openfl">
+		<condition property="dir" value=".">
+			<not>
+				<isset property="dir"/>
+			</not>
+		</condition>
+		<echo level="info">Executing dox for "${dir}/${input.path}"</echo>
+		<exec dir="${dir}" executable="haxelib" failonerror="true">
+			<arg line="run openfl ${command} ${options}"/>
+		</exec>
+	</target>
+
+</project>

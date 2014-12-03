@@ -19,5 +19,4 @@
     <haxelib name="jive"/>
 
     <template path="templates" />
-
 </project>
