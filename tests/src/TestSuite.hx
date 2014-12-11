@@ -1,6 +1,7 @@
 import massive.munit.TestSuite;
 
 import jive.DataBindingTest;
+import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
 
 /**
@@ -16,6 +17,7 @@ class TestSuite extends massive.munit.TestSuite
 		super();
 
 		add(jive.DataBindingTest);
+		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
 	}
 }
