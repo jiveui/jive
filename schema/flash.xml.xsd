@@ -1,0 +1,27 @@
+<xs:schema targetNamespace="flash.xml" xmlns="flash.xml" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="XMLSchemaTypeValue">
+<xs:element ref="XML"/></xs:complexType>
+
+<xs:complexType name="XMLListSchemaTypeValue">
+<xs:element ref="XMLList"/></xs:complexType>
+
+<xs:complexType name="XMLSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XMLListSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="XML" type="XMLSchemaType"/>
+<xs:element name="XMLList" type="XMLListSchemaType"/>
+</xs:schema>

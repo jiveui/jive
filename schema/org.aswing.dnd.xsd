@@ -1,0 +1,100 @@
+<xs:schema targetNamespace="org.aswing.dnd" xmlns="org.aswing.dnd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="DropMotionSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DirectlyRemoveMotion" />
+<xs:element ref="RejectedMotion" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="RejectedMotionSchemaTypeValue">
+<xs:element ref="RejectedMotion"/></xs:complexType>
+
+<xs:complexType name="DraggingImageSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultDragImage" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DragListenerSchemaTypeValue">
+<xs:element ref="DragListener"/></xs:complexType>
+
+<xs:complexType name="SourceDataSchemaTypeValue">
+<xs:element ref="SourceData"/></xs:complexType>
+
+<xs:complexType name="DirectlyRemoveMotionSchemaTypeValue">
+<xs:element ref="DirectlyRemoveMotion"/></xs:complexType>
+
+<xs:complexType name="DragManagerSchemaTypeValue">
+<xs:element ref="DragManager"/></xs:complexType>
+
+<xs:complexType name="DefaultDragImageSchemaTypeValue">
+<xs:element ref="DefaultDragImage"/></xs:complexType>
+
+<xs:complexType name="DropMotionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RejectedMotionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DraggingImageSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DragListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SourceDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DirectlyRemoveMotionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DragManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultDragImageSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="DropMotion" type="DropMotionSchemaType"/>
+<xs:element name="RejectedMotion" type="RejectedMotionSchemaType"/>
+<xs:element name="DraggingImage" type="DraggingImageSchemaType"/>
+<xs:element name="DragListener" type="DragListenerSchemaType"/>
+<xs:element name="SourceData" type="SourceDataSchemaType"/>
+<xs:element name="DirectlyRemoveMotion" type="DirectlyRemoveMotionSchemaType"/>
+<xs:element name="DragManager" type="DragManagerSchemaType"/>
+<xs:element name="DefaultDragImage" type="DefaultDragImageSchemaType"/>
+</xs:schema>

@@ -475,8 +475,8 @@ class Container extends Component{
 	 */
 	override private function countMinimumSize():IntDimension{
 		var size:IntDimension = null;
-		if(ui != null){
-			size = ui.getMinimumSize(this);
+		if(_ui != null){
+			size = _ui.getMinimumSize(this);
 		}
 		if(size == null){
 			size = _layout.minimumLayoutSize(this);
@@ -492,8 +492,8 @@ class Container extends Component{
 	 */
 	override private function countMaximumSize():IntDimension{
 		var size:IntDimension = null;
-		if(ui != null){
-			size = ui.getMaximumSize(this);
+		if(_ui != null){
+			size = _ui.getMaximumSize(this);
 		}
 		if(size == null){
 			size = _layout.maximumLayoutSize(this);
@@ -509,8 +509,8 @@ class Container extends Component{
 	 */
 	override private function countPreferredSize():IntDimension{
 		var size:IntDimension = null;
-		if(ui != null){
-			size = ui.getPreferredSize(this);
+		if(_ui != null){
+			size = _ui.getPreferredSize(this);
 		}
 		if(size == null){
 			size = _layout.preferredLayoutSize(this);

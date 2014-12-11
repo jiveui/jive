@@ -1,0 +1,150 @@
+<xs:schema targetNamespace="bindx" xmlns="bindx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
+xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
+xmlns:org-aswing-ext="org.aswing.ext"
+xmlns:empty="empty"
+xmlns:org-aswing-tree="org.aswing.tree"
+xmlns:org-aswing-table="org.aswing.table"
+>
+<xs:complexType name="IBindableSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:AbstractButton" />
+<xs:element ref="org-aswing:JTree" />
+<xs:element ref="org-aswing:JProgressBar" />
+<xs:element ref="org-aswing-ext:DateLabel" />
+<xs:element ref="org-aswing:JLabel" />
+<xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="org-aswing:JCheckBoxMenuItem" />
+<xs:element ref="org-aswing:JTable" />
+<xs:element ref="org-aswing:JToggleButton" />
+<xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
+<xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="org-aswing:JCheckBox" />
+<xs:element ref="org-aswing-table:PoorTextCell" />
+<xs:element ref="org-aswing:JRadioButtonMenuItem" />
+<xs:element ref="org-aswing-ext:Form" />
+<xs:element ref="org-aswing:JList" />
+<xs:element ref="org-aswing:JLoadPane" />
+<xs:element ref="org-aswing:Component" />
+<xs:element ref="org-aswing:JAccordion" />
+<xs:element ref="org-aswing:JLayeredPane" />
+<xs:element ref="org-aswing:JToolTip" />
+<xs:element ref="org-aswing-ext:DefaultGridCell" />
+<xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="org-aswing-ext:Folder" />
+<xs:element ref="org-aswing:JPanel" />
+<xs:element ref="org-aswing-table:JTableHeader" />
+<xs:element ref="org-aswing:AssetPane" />
+<xs:element ref="org-aswing:JClosableTabbedPane" />
+<xs:element ref="org-aswing-ext:FormRow" />
+<xs:element ref="org-aswing:JTextComponent" />
+<xs:element ref="org-aswing:JMenuBar" />
+<xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="org-aswing:JLabelButton" />
+<xs:element ref="org-aswing-table:DefaultTextCell" />
+<xs:element ref="org-aswing:JMenuItem" />
+<xs:element ref="org-aswing:JWindow" />
+<xs:element ref="org-aswing:JSpacer" />
+<xs:element ref="org-aswing:JViewport" />
+<xs:element ref="org-aswing-colorchooser:JColorMixer" />
+<xs:element ref="org-aswing:JPopup" />
+<xs:element ref="org-aswing-ext:GridList" />
+<xs:element ref="org-aswing:JButton" />
+<xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
+<xs:element ref="org-aswing-ext:MultilineLabel" />
+<xs:element ref="org-aswing:CellPane" />
+<xs:element ref="org-aswing:JOptionPane" />
+<xs:element ref="org-aswing-ext:GridCellHolder" />
+<xs:element ref="org-aswing:JSharedToolTip" />
+<xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="org-aswing:JTextField" />
+<xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="org-aswing:JRadioButton" />
+<xs:element ref="org-aswing:JMenu" />
+<xs:element ref="org-aswing:JAdjuster" />
+<xs:element ref="org-aswing:JSlider" />
+<xs:element ref="org-aswing:JPopupMenu" />
+<xs:element ref="org-aswing:JTextArea" />
+<xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
+<xs:element ref="org-aswing:JStepper" />
+<xs:element ref="org-aswing:JSeparator" />
+<xs:element ref="org-aswing:JColorChooser" />
+<xs:element ref="org-aswing:JToolBar" />
+<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
+<xs:element ref="org-aswing:JScrollPane" />
+<xs:element ref="org-aswing-ext:DateChooser" />
+<xs:element ref="org-aswing:JScrollBar" />
+<xs:element ref="org-aswing-table:SelectablePoorTextCell" />
+<xs:element ref="org-aswing:Container" />
+<xs:element ref="org-aswing:JFrame" />
+<xs:element ref="org-aswing:JComboBox" />
+<xs:element ref="org-aswing:Box" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BindSchemaTypeValue">
+<xs:element ref="Bind"/></xs:complexType>
+
+<xs:complexType name="FieldsBindSignalSchemaTypeValue">
+<xs:element ref="FieldsBindSignal"/></xs:complexType>
+
+<xs:complexType name="MethodsBindSignalSchemaTypeValue">
+<xs:element ref="MethodsBindSignal"/></xs:complexType>
+
+<xs:complexType name="BindSignalSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MethodsBindSignal" />
+<xs:element ref="FieldsBindSignal" />
+<xs:element ref="BindSignal"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IBindableSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="__fieldBindings__" type="FieldsBindSignalSchemaTypeValue"/>
+<xs:element name="__methodBindings__" type="MethodsBindSignalSchemaTypeValue"/>
+<xs:attribute name="__fieldBindings__" type="xs:string"/>
+<xs:attribute name="__methodBindings__" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BindSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FieldsBindSignalSchemaType">
+<xs:complexContent>
+<xs:extension base="BindSignalSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MethodsBindSignalSchemaType">
+<xs:complexContent>
+<xs:extension base="BindSignalSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BindSignalSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IBindable" type="IBindableSchemaType"/>
+<xs:element name="Bind" type="BindSchemaType"/>
+<xs:element name="FieldsBindSignal" type="FieldsBindSignalSchemaType"/>
+<xs:element name="MethodsBindSignal" type="MethodsBindSignalSchemaType"/>
+<xs:element name="BindSignal" type="BindSignalSchemaType"/>
+</xs:schema>

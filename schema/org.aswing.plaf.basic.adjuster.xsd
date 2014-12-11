@@ -1,0 +1,28 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.adjuster" xmlns="org.aswing.plaf.basic.adjuster" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+>
+<xs:complexType name="PopupSliderUISchemaTypeValue">
+<xs:element ref="PopupSliderUI"/></xs:complexType>
+
+<xs:complexType name="PopupSliderThumbIconSchemaTypeValue">
+<xs:element ref="PopupSliderThumbIcon"/></xs:complexType>
+
+<xs:complexType name="PopupSliderUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicSliderUISchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PopupSliderThumbIconSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-icon:SliderThumbIconSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="PopupSliderUI" type="PopupSliderUISchemaType"/>
+<xs:element name="PopupSliderThumbIcon" type="PopupSliderThumbIconSchemaType"/>
+</xs:schema>

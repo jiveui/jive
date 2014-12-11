@@ -1,0 +1,16 @@
+<xs:schema targetNamespace="flash._Boot" xmlns="flash._Boot" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash="flash"
+>
+<xs:complexType name="RealBootSchemaTypeValue">
+<xs:element ref="RealBoot"/></xs:complexType>
+
+<xs:complexType name="RealBootSchemaType">
+<xs:complexContent>
+<xs:extension base="flash:BootSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RealBoot" type="RealBootSchemaType"/>
+</xs:schema>

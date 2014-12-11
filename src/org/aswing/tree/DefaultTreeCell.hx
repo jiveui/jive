@@ -33,8 +33,8 @@ class DefaultTreeCell extends JLabel  implements TreeCell {
 	 * Simpler this method to speed up performance
 	 */
 	override public function setComBounds(b:IntRectangle):Void{
-		if(!b.equals(bounds)){
-			bounds.setRect(b);
+		if(!b.equals(_bounds)){
+			_bounds.setRect(b);
 			locate();
 			valid = false;
 		}

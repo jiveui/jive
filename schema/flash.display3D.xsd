@@ -1,0 +1,54 @@
+<xs:schema targetNamespace="flash.display3D" xmlns="flash.display3D" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="Program3DSchemaTypeValue">
+<xs:element ref="Program3D"/></xs:complexType>
+
+<xs:complexType name="VertexBuffer3DSchemaTypeValue">
+<xs:element ref="VertexBuffer3D"/></xs:complexType>
+
+<xs:complexType name="IndexBuffer3DSchemaTypeValue">
+<xs:element ref="IndexBuffer3D"/></xs:complexType>
+
+<xs:complexType name="Context3DSchemaTypeValue">
+<xs:element ref="Context3D"/></xs:complexType>
+
+<xs:complexType name="Program3DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VertexBuffer3DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IndexBuffer3DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Context3DSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="driverInfo" type="xs:string"/>
+<xs:element name="enableErrorChecking" type="xs:boolean"/>
+<xs:attribute name="driverInfo" type="xs:string"/>
+<xs:attribute name="enableErrorChecking" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Program3D" type="Program3DSchemaType"/>
+<xs:element name="VertexBuffer3D" type="VertexBuffer3DSchemaType"/>
+<xs:element name="IndexBuffer3D" type="IndexBuffer3DSchemaType"/>
+<xs:element name="Context3D" type="Context3DSchemaType"/>
+</xs:schema>

@@ -1,0 +1,189 @@
+<xs:schema targetNamespace="org.aswing.ext" xmlns="org.aswing.ext" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="GridListSchemaTypeValue">
+<xs:element ref="GridList"/></xs:complexType>
+
+<xs:complexType name="DateLabelSchemaTypeValue">
+<xs:element ref="DateLabel"/></xs:complexType>
+
+<xs:complexType name="DefaultGridCellSchemaTypeValue">
+<xs:element ref="DefaultGridCell"/></xs:complexType>
+
+<xs:complexType name="FolderSchemaTypeValue">
+<xs:element ref="Folder"/></xs:complexType>
+
+<xs:complexType name="DateChooserSchemaTypeValue">
+<xs:element ref="DateChooser"/></xs:complexType>
+
+<xs:complexType name="FormRowSchemaTypeValue">
+<xs:element ref="FormRow"/></xs:complexType>
+
+<xs:complexType name="DateGridLayoutSchemaTypeValue">
+<xs:element ref="DateGridLayout"/></xs:complexType>
+
+<xs:complexType name="GridListLayoutSchemaTypeValue">
+<xs:element ref="GridListLayout"/></xs:complexType>
+
+<xs:complexType name="MultilineLabelSchemaTypeValue">
+<xs:element ref="MultilineLabel"/></xs:complexType>
+
+<xs:complexType name="GridListItemEventSchemaTypeValue">
+<xs:element ref="GridListItemEvent"/></xs:complexType>
+
+<xs:complexType name="GeneralGridListCellFactorySchemaTypeValue">
+<xs:element ref="GeneralGridListCellFactory"/></xs:complexType>
+
+<xs:complexType name="GridListCellFactorySchemaTypeValue">
+<xs:choice>
+<xs:element ref="GeneralGridListCellFactory" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FormSchemaTypeValue">
+<xs:element ref="Form"/></xs:complexType>
+
+<xs:complexType name="GridListCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultGridCell" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GridCellHolderSchemaTypeValue">
+<xs:element ref="GridCellHolder"/></xs:complexType>
+
+<xs:complexType name="DateRangeSchemaTypeValue">
+<xs:element ref="DateRange"/></xs:complexType>
+
+<xs:complexType name="GridListSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JViewportSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DateLabelSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JLabelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultGridCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JLabelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FolderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DateChooserSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FormRowSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DateGridLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GridListLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:EmptyLayoutSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MultilineLabelSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JTextAreaSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GridListItemEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:MouseEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GeneralGridListCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GridListCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FormSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GridListCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:CellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GridCellHolderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ContainerSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DateRangeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GridList" type="GridListSchemaType"/>
+<xs:element name="DateLabel" type="DateLabelSchemaType"/>
+<xs:element name="DefaultGridCell" type="DefaultGridCellSchemaType"/>
+<xs:element name="Folder" type="FolderSchemaType"/>
+<xs:element name="DateChooser" type="DateChooserSchemaType"/>
+<xs:element name="FormRow" type="FormRowSchemaType"/>
+<xs:element name="DateGridLayout" type="DateGridLayoutSchemaType"/>
+<xs:element name="GridListLayout" type="GridListLayoutSchemaType"/>
+<xs:element name="MultilineLabel" type="MultilineLabelSchemaType"/>
+<xs:element name="GridListItemEvent" type="GridListItemEventSchemaType"/>
+<xs:element name="GeneralGridListCellFactory" type="GeneralGridListCellFactorySchemaType"/>
+<xs:element name="GridListCellFactory" type="GridListCellFactorySchemaType"/>
+<xs:element name="Form" type="FormSchemaType"/>
+<xs:element name="GridListCell" type="GridListCellSchemaType"/>
+<xs:element name="GridCellHolder" type="GridCellHolderSchemaType"/>
+<xs:element name="DateRange" type="DateRangeSchemaType"/>
+</xs:schema>

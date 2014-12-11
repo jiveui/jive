@@ -229,7 +229,7 @@ class JComboBox extends Component  implements EditableComponent{
 		editor = anEditor;
 		editor.setEditable(isEditable());
 		addChild(editor.getEditorComponent());
-		if(ui != null){//means ui installed
+		if(_ui != null){//means ui installed
 			editor.getEditorComponent().setFont(getFont());
 			editor.getEditorComponent().setForeground(getForeground());
 			editor.getEditorComponent().setBackground(getBackground());

@@ -1,0 +1,102 @@
+<xs:schema targetNamespace="org.aswing.graphics" xmlns="org.aswing.graphics" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="IBrushSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BitmapBrush" />
+<xs:element ref="SolidBrush" />
+<xs:element ref="GradientBrush" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PenSchemaTypeValue">
+<xs:element ref="Pen"/></xs:complexType>
+
+<xs:complexType name="BitmapBrushSchemaTypeValue">
+<xs:element ref="BitmapBrush"/></xs:complexType>
+
+<xs:complexType name="GradientBrushSchemaTypeValue">
+<xs:element ref="GradientBrush"/></xs:complexType>
+
+<xs:complexType name="IPenSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GradientPen" />
+<xs:element ref="Pen" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GradientPenSchemaTypeValue">
+<xs:element ref="GradientPen"/></xs:complexType>
+
+<xs:complexType name="SolidBrushSchemaTypeValue">
+<xs:element ref="SolidBrush"/></xs:complexType>
+
+<xs:complexType name="Graphics2DSchemaTypeValue">
+<xs:element ref="Graphics2D"/></xs:complexType>
+
+<xs:complexType name="IBrushSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PenSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BitmapBrushSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GradientBrushSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IPenSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GradientPenSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SolidBrushSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Graphics2DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IBrush" type="IBrushSchemaType"/>
+<xs:element name="Pen" type="PenSchemaType"/>
+<xs:element name="BitmapBrush" type="BitmapBrushSchemaType"/>
+<xs:element name="GradientBrush" type="GradientBrushSchemaType"/>
+<xs:element name="IPen" type="IPenSchemaType"/>
+<xs:element name="GradientPen" type="GradientPenSchemaType"/>
+<xs:element name="SolidBrush" type="SolidBrushSchemaType"/>
+<xs:element name="Graphics2D" type="Graphics2DSchemaType"/>
+</xs:schema>

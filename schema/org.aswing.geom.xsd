@@ -1,0 +1,54 @@
+<xs:schema targetNamespace="org.aswing.geom" xmlns="org.aswing.geom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="IntDimensionSchemaTypeValue">
+<xs:element ref="IntDimension"/></xs:complexType>
+
+<xs:complexType name="IntRectangleSchemaTypeValue">
+<xs:element ref="IntRectangle"/></xs:complexType>
+
+<xs:complexType name="IntPointSchemaTypeValue">
+<xs:element ref="IntPoint"/></xs:complexType>
+
+<xs:complexType name="IntDimensionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="width" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntRectangleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="x" type="xs:int"/>
+<xs:element name="y" type="xs:int"/>
+<xs:element name="width" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntPointSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="x" type="xs:int"/>
+<xs:element name="y" type="xs:int"/>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IntDimension" type="IntDimensionSchemaType"/>
+<xs:element name="IntRectangle" type="IntRectangleSchemaType"/>
+<xs:element name="IntPoint" type="IntPointSchemaType"/>
+</xs:schema>

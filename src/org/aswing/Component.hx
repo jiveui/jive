@@ -83,19 +83,41 @@ class Component extends AWSprite implements IBindable {
 	private static var MAX_CLICK_INTERVAL:Int= 400;
 
 	private static var AWML_INDEX:Int= 0;
-	private var ui:ComponentUI;
+
+	/**
+     * The look and feel delegate for this component.
+     * `Component` subclasses generally override this method
+     */
+	public var ui(get, set):ComponentUI;
+	private var _ui:ComponentUI;
+	private function set_ui(v:ComponentUI) { setUI(v); return v; }
+	private function get_ui():ComponentUI { return getUI();}
+
 	@:dox(hide) public var container:Container;
+
 	private var clientProperty:haxe.ds.StringMap<Dynamic>;
 	
 	private var awmlID:String;
 	private var awmlIndex:Int;
 	private var awmlNamespace:String;
-	
-	private var clipBounds:IntRectangle;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Size and layout properties
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * The clip bounds, a rectangle mask to make specified bounds visible.
+	 *
+	 * `null' to make the componet mask whole rectangle(show all).
+	 *
+	 * Default is null.
+	 *
+	 * Note: the getter clones the value.
+	 */
+	public var clipBounds(get, set):IntRectangle;
+	private var _clipBounds:IntRectangle;
+	private function set_clipBounds(v:IntRectangle) { setClipBounds(v); return v; }
+	private function get_clipBounds():IntRectangle { return getClipBounds();}
 
     /**
 	* The alignment along the X axis.
@@ -169,6 +191,21 @@ class Component extends AWSprite implements IBindable {
 	private function get_currentSize(): IntDimension { return getSize(); }
 	private function set_currentSize(v: IntDimension): IntDimension { setSize(v); return v; }
 
+	/**
+	* The location of the top-left corner of a component is specified by x and y, and the size is specified by width and height.
+	**/
+	public var bounds(get,set): IntRectangle;
+	private var _bounds:IntRectangle;
+	private function get_bounds(): IntRectangle { return getComBounds(); }
+	private function set_bounds(v: IntRectangle): IntRectangle { setComBounds(v); return v; }
+
+	/**
+	* The location of the top-left corner of a component is specified by x and y, and the size is specified by width and height.
+	**/
+	public var location(get,set): IntPoint;
+	private function get_location(): IntPoint { return getLocation(); }
+	private function set_location(v: IntPoint): IntPoint { setLocation(v); return v; }
+
 	private var cachePreferSizes:Bool;
 	private var cachedPreferredSize:IntDimension;
 	private var cachedMinimumSize:IntDimension;
@@ -177,11 +214,25 @@ class Component extends AWSprite implements IBindable {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	private var constraints:Dynamic;
-	private var uiElement:Bool;
-	
+
+	/**
+     * Indicates if this component is just a ui element component or
+     * this component is a regular use created component.
+     *
+     * If a component is a ui element, it and its children will not be called
+     * `Component.updateUI` when AsWingUtils to go thought a list of component to update the UI.
+     * That is because ui element will be removed when uninstall UI, new ui elements
+     * will be created when install UI. So it do not need to do update.
+     *
+     * @return whether or not this component is a ui element component.
+     */
+	public var uiElement(get,set): Bool;
+	private var _uiElement:Bool;
+	private function get_uiElement(): Bool { return isUIElement(); }
+	private function set_uiElement(v: Bool): Bool { setUIElement(v); return v; }
+
 	private  var drawTransparentTrigger:Bool;
 	private var valid:Bool;
-	private var bounds:IntRectangle;
 	private var readyToPaint:Bool;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,7 +359,18 @@ class Component extends AWSprite implements IBindable {
 	private function get_opaque(): Bool { return isOpaque(); }
 	private function set_opaque(v: Bool): Bool { setOpaque(v); return v; }
 
-	private var opaqueSet:Bool;
+	/**
+     * The value means whether or not the opaque property is set by user.
+     *
+     * If it is not set, `Component.opaque` will can be replaced with the value defined
+     * in LAF defaults when install a UI.
+     *
+     * It'll also be set to `true` when you set the value of `Component.opaque`.
+     */
+	public var opaqueSet(get,set): Bool;
+	private var _opaqueSet:Bool;
+	private function get_opaqueSet(): Bool { return isOpaqueSet(); }
+	private function set_opaqueSet(v: Bool): Bool { setOpaqueSet(v); return v; }
 
 	/**
 	 * The border for the component, null to remove border.
@@ -319,40 +381,120 @@ class Component extends AWSprite implements IBindable {
 	private function get_border(): Border { return getBorder(); }
 	private function set_border(v: Border): Border { setBorder(v); return v; }
 
+	/**
+	 * Makes a component hide or shown.
+	 * If a component was hide, some laterly operation may not be done,
+	 * they will be done when next shown, ex: repaint, doLayout ....
+	 * So suggest you dont changed a component's visible frequently.
+	 */
+	public var visibility(get, set): Bool;
+	private function get_visibility(): Bool { return visible; }
+	private function set_visibility(v: Bool): Bool { setVisible(v); return v; }
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private var enabled:Bool;
-	private var focusable:Bool;
-	private var focusableSet:Bool;
-	private var toolTipText:String;
-	private var dragEnabled:Bool;
-	private var dropTrigger:Bool;
+	/**
+	 * Enable or disable the component.
+	 *
+	 * If a component is disabled, it will not fire mouse events.
+	 * And some component will has different interface when enabled or disabled.
+	 */
+	public var enabled(get, set): Bool;
+	private var _enabled:Bool;
+	private function get_enabled(): Bool { return isEnabled(); }
+	private function set_enabled(v: Bool): Bool { setEnabled(v); return v; }
+
+	/**
+     * The focusable state of this Component. This
+     * value overrides the Component's default focusability.
+     */
+	public var focusable(get, set): Bool;
+	private var _focusable:Bool;
+	private function get_focusable(): Bool { return isFocusable(); }
+	private function set_focusable(v: Bool): Bool { setFocusable(v); return v; }
+
+	/**
+     * Indicates whether or not the focusable property is set by user.
+     * If it is not set, `focusable` will be replaced with the value defined
+     * in LAF defaults when install a UI.
+     */
+	public var focusableSet(get, set): Bool;
+	private var _focusableSet:Bool;
+	private function get_focusableSet(): Bool { return isFocusableSet(); }
+	private function set_focusableSet(v: Bool): Bool { setFocusableSet(v); return v; }
+
+
+	/**
+	 * The text to display in a tool tip. The text displays when the cursor lingers over the component.
+	 *
+	 * This tip will display with a shared tool tip with other components,
+	 * so if you want to display more than one tip at same time, you may
+	 * need to create your `JToolTip` or `JSharedToolTip`.
+	 *
+	 * if the text is null, the tool tip is turned off for this component.
+	 */
+	public var toolTipText(get, set): String;
+	private var _toolTipText:String;
+	private function get_toolTipText(): String { return getToolTipText(); }
+	private function set_toolTipText(v: String): String { setToolTipText(v); return v; }
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Drag and Drop properties
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Means whether this component can fire `ON_DRAG_RECOGNIZED` event. (Default value is false)
+	 */
+	public var dragEnabled(get, set): Bool;
+	private var _dragEnabled:Bool;
+	private function get_dragEnabled(): Bool { return isDragEnabled(); }
+	private function set_dragEnabled(v: Bool): Bool { setDragEnabled(v); return v; }
+
+	/**
+	 * Means whether this component can trigger dragging component to fire drag events
+	 * when dragging over to this component.(Default value is false)
+	 * See `ON_DRAG_ENTER`, `ON_DRAG_OVER`, `ON_DRAG_EXIT`, `ON_DRAG_DROP`
+	 */
+	public var dropTrigger(get, set): Bool;
+	private var _dropTrigger:Bool;
+	private function get_dropTrigger(): Bool { return isDropTrigger(); }
+	private function set_dropTrigger(v: Bool): Bool { setDropTrigger(v); return v; }
+
 	private var dragAcceptableInitiator:haxe.ds.IntMap<Bool>;
 	private var dragAcceptableInitiatorAppraiser:Dynamic->Bool;
-	private var resizerMargin:Insets;
-	
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	/**
+	* The space between the component's border and the resizer trigger
+	*/
+	public var resizerMargin(get, set): Insets;
+	private var _resizerMargin:Insets;
+	private function get_resizerMargin(): Insets { return getResizerMargin(); }
+	private function set_resizerMargin(v: Insets): Insets { setResizerMargin(v); return v; }
+
 	public function new() {
-		bounds = new IntRectangle();
+		_bounds = new IntRectangle();
 		AWML_INDEX++;
 		awmlIndex = AWML_INDEX;
 		drawTransparentTrigger=true;
 		super();
 		setName("Component");
-		ui = null;
+		_ui = null;
 		clientProperty = null;
 		_alignmentX = 0;
 		_alignmentY = 0;
 		_opaque = false;
-		opaqueSet = false;
+		_opaqueSet = false;
 		valid = false;
-		enabled = true;
-		focusable = false;
-		focusableSet = false;
+		_enabled = true;
+		_focusable = false;
+		_focusableSet = false;
 		cachePreferSizes = true;
 		fontValidated = false;
 		readyToPaint = false;
-		toolTipText = null;
-		uiElement = false;
+		_toolTipText = null;
+		_uiElement = false;
 		_border = DefaultEmptyDecoraterResource.INSTANCE;
 		_backgroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
 		_foregroundDecorator = DefaultEmptyDecoraterResource.INSTANCE;
@@ -390,7 +532,7 @@ class Component extends AWSprite implements IBindable {
 		}
 		if(Std.is(dis,Component)){
 			var c:Component = AsWingUtils.as(dis,Component)	;
-			c.uiElement = true;
+			c._uiElement = true;
 		}
 		if(Std.is(dis,DisplayObjectContainer)){
 			var con:DisplayObjectContainer = AsWingUtils.as(dis,DisplayObjectContainer)	;
@@ -483,7 +625,7 @@ class Component extends AWSprite implements IBindable {
 	 * Sets the name of this component
 	 * @see #name
 	 */
-	public function setName(name:String):Void{
+	@:dox(hide) public function setName(name:String):Void{
 		this.name = name;
 	}
 	
@@ -491,23 +633,21 @@ class Component extends AWSprite implements IBindable {
 	 * Returns the name of the component
 	 * @see #name
 	 */
-	public function getName():String{
+	@:dox(hide) public function getName():String{
 		return name;
 	}
 	
     /**
      * Resets the UI property to a value from the current look and feel.
-     * <code>Component</code> subclasses must override this method
+     * `Component` subclasses must override this method
      * like this:
-     * <pre>
+     * <code>
      *   public void updateUI() {
      *      setUI(SliderUI(UIManager.getUI(this)));
      *   }
-     *  </pre>
+     * </code>
      *
-     * @see #setUI()
-     * @see org.aswing.UIManager#getLookAndFeel()
-     * @see org.aswing.UIManager#getUI()
+     * See `Component.ui`, `UIManager.getLookAndFeel`, `UIManager.getUI`
      */
     public function updateUI():Void{
     	//throw new ImpMissError();
@@ -526,8 +666,9 @@ class Component extends AWSprite implements IBindable {
      * @see #AsWingUtils#updateChildrenUI()
      * @see #setUIElement()
      */
+	@:dox(hide)
     public function isUIElement():Bool{
-    	return uiElement;
+    	return _uiElement;
     }
     
     /**
@@ -535,9 +676,10 @@ class Component extends AWSprite implements IBindable {
      * @param b true to set this component to be treated as a element, false not.
      * @see #isUIElement()
      */
+	@:dox(hide)
     public function setUIElement(b:Bool):Void{
-    	if(uiElement != b){
-    		uiElement = b;
+    	if(_uiElement != b){
+    		_uiElement = b;
     		if(b){
     			makeAllTobeUIElement(this);
     		}
@@ -548,7 +690,6 @@ class Component extends AWSprite implements IBindable {
      * Returns the default basic ui class for this component.
      * If there is not a ui class specified in L&F for this component, 
      * this method will be called to return a default one.
-     * @return the default basic ui class. 
      */
     public function getDefaultBasicUIClass():Class<Dynamic>{
     	//throw new ImpMissError();
@@ -578,25 +719,27 @@ class Component extends AWSprite implements IBindable {
      * @see UIManager#getLookAndFeel()
      * @see UIManager#getUI()
      */
+	@:dox(hide)
     public function setUI(newUI:ComponentUI):Void{
         /* We do not check that the UI instance is different
          * before allowing the switch in order to enable the
          * same UI instance *with different default settings*
          * to be installed.
          */
-        if (ui != null) {
-            ui.uninstallUI(this);
+        if (_ui != null) {
+            _ui.uninstallUI(this);
         }
-        ui = newUI;
-        if (ui != null) {
-            ui.installUI(this);
+        _ui = newUI;
+        if (_ui != null) {
+            _ui.installUI(this);
         }
         revalidate();
         repaint();
     }
-    
+
+    @:dox(hide)
     public function getUI():ComponentUI{
-    	return ui;
+    	return _ui;
     }
 	
 	/**
@@ -647,16 +790,16 @@ class Component extends AWSprite implements IBindable {
      *
      * @param m the space between the component's border and the resizer trigger
 	 */
-	public function setResizerMargin(m:Insets):Void{
-        if (resizerMargin != m) {
-        	resizerMargin = m;
+	@:dox(hide) public function setResizerMargin(m:Insets):Void{
+        if (_resizerMargin != m) {
+        	_resizerMargin = m;
             revalidate();
         	repaint();
         }
 	}
 	
-	public function getResizerMargin():Insets{
-		var m:Insets = resizerMargin;
+	@:dox(hide) public function getResizerMargin():Insets{
+		var m:Insets = _resizerMargin;
 		if(m == null){
 			return new InsetsUIResource();
 		}else if(Std.is(m,UIResource)){//make it can be replaced by LAF
@@ -744,7 +887,7 @@ class Component extends AWSprite implements IBindable {
         #else
 		return visible;
         #end
-	}	
+	}
 	
 	#if(cpp)
     override private function set_visible(value:Bool):Bool {
@@ -763,6 +906,7 @@ class Component extends AWSprite implements IBindable {
 	 * they will be done when next shown, ex: repaint, doLayout ....
 	 * So suggest you dont changed a component's visible frequently.
 	 */
+	@:dox(hide)
 	public function setVisible(v:Bool):Void{
 		if(v != d_visible){
 			d_visible = v;
@@ -779,7 +923,7 @@ class Component extends AWSprite implements IBindable {
 			revalidate();
 		}
 	}
-	
+	@:dox(hide)
 	public function isVisible():Bool{
 		return visible;
 	}
@@ -821,7 +965,7 @@ class Component extends AWSprite implements IBindable {
 	 * this method will cause a repaint and revalidate method call.<br>
 	 * @param newFont the font to set for this component.
 	 */
-	public function setFont(newFont:ASFont):Void{
+	@:dox(hide)public function setFont(newFont:ASFont):Void{
 		if(_font != newFont){
 			_font = newFont;
 			setFontValidated(false);
@@ -860,7 +1004,7 @@ class Component extends AWSprite implements IBindable {
      * for this component and it has parent, the font of its style proxy is returned
      * @see #setFont()
      */
-	public function getFont():ASFont{
+	@:dox(hide) public function getFont():ASFont{
         if (_font != null && _font != DefaultEmptyDecoraterResource.NULL_FONT) {
             return _font;
         }else if(getStyleProxy() != null){
@@ -1068,7 +1212,7 @@ class Component extends AWSprite implements IBindable {
      * @see #isOpaque()
      */
     @:dox(hide) public function setOpaque(b:Bool):Void{
-    	setOpaqueSet(true);
+    	opaqueSet = true;
     	if(_opaque != b){
     		_opaque = b;
     		repaint();
@@ -1104,8 +1248,9 @@ class Component extends AWSprite implements IBindable {
      * If it is not set, <code>opaque</code> will can be replaced with the value defined 
      * in LAF defaults when install a UI.
      */
+	@:dox(hide)
     public function isOpaqueSet():Bool{
-    	return opaqueSet;
+    	return _opaqueSet;
     }
     
     /**
@@ -1114,8 +1259,9 @@ class Component extends AWSprite implements IBindable {
      * @see #isOpaqueSet()
      * @see #isOpaque()
      */
+	@:dox(hide)
     public function setOpaqueSet(b:Bool):Void{
-    	opaqueSet = b;
+    	_opaqueSet = b;
     }
     
     /**
@@ -1145,18 +1291,16 @@ class Component extends AWSprite implements IBindable {
 		
 	/**
 	 * Returns the bounds that component should paint in.
-	 * <p>
+	 *
 	 * This is same to some paint method param b:Rectangle.
 	 * So if you want to paint outside those method, you can get the 
 	 * rectangle from here.
 	 * 
 	 * If this component has a little maximum size, and then current 
 	 * size is larger, the bounds return from this method will be related 
-	 * to <code>getAlignmentX<code>, <code>getAlignmentY<code> and <code>getMaximumSize<code>.
+	 * to `Component.alignmentX`, `Component.alignmentY` and `Component.maximumSize`.
+	 *
 	 * @return return the rectangle that component should paint in.
-	 * @see #getAlignmentX()
-	 * @see #getAlignmentY()
-	 * @see #getMaximumSize()
 	 */
 	public function getPaintBounds():IntRectangle{
 		return getInsets().getInsideBounds(getPaintBoundsInRoot());
@@ -1166,15 +1310,15 @@ class Component extends AWSprite implements IBindable {
 	 * Moves and resizes this component. The new location of the top-left corner is specified by x and y, and the new size is specified by width and height. 
 	 * @param b the location and size bounds
 	 */
-	public function setComBounds(b:IntRectangle):Void{
+	@:dox(hide) public function setComBounds(b:IntRectangle):Void{
 		setLocationXY(b.x, b.y);
 		setSizeWH(b.width, b.height);
 	}
 	
 	/**
 	 * Moves and resizes this component. The new location of the top-left corner is specified by x and y, and the new size is specified by width and height. 
-	 */	
-	public function setComBoundsXYWH(x:Int, y:Int, w:Int, h:Int):Void{
+	 */
+	@:dox(hide) public function setComBoundsXYWH(x:Int, y:Int, w:Int, h:Int):Void{
 		setLocationXY(x, y);
 		setSizeWH(w, h);
 	}
@@ -1190,26 +1334,28 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setSize()
 	 * @see #setLocation()
 	 */
-	public function getComBounds(rv:IntRectangle=null):IntRectangle{
+	@:dox(hide) public function getComBounds(rv:IntRectangle=null):IntRectangle{
 		if(rv != null){
-			rv.setRect(bounds);
+			rv.setRect(_bounds);
 			return rv;
 		}else{
-			return new IntRectangle(bounds.x, bounds.y, bounds.width, bounds.height);
+			return new IntRectangle(_bounds.x, _bounds.y, _bounds.width, _bounds.height);
 		}
 	}
 	
 	/**
 	 * Set the component's location, if it is diffs from old location, invalidate it to wait validate.
-	 * The top-left corner of the new location is specified by the x and y parameters 
+	 *
+	 * The top-left corner of the new location is specified by the x and y parameters
+	  *
 	 * in the coordinate space of this component's parent.
 	 */
+	@:dox(hide)
 	public function setLocation(newPos:IntPoint):Void{
-		var oldPos:IntPoint = bounds.getLocation();
-		 
-		 
+		var oldPos:IntPoint = _bounds.getLocation();
+
 		if(!newPos.equals(oldPos)){
-			bounds.setLocation(newPos);
+			_bounds.setLocation(newPos);
 			locate();
 			dispatchEvent(new MovedEvent(oldPos, newPos));
 		}
@@ -1218,18 +1364,15 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * @see #setLocation()
 	 */
-	public function setLocationXY(x:Int, y:Int):Void {
-	 	
+	@:dox(hide) public function setLocationXY(x:Int, y:Int):Void {
 		setLocation(new IntPoint(x, y));
 	}
 	
 	/**
 	 * Set the component's location in global coordinate. This method should only be called when the component 
 	 * is on the display list.
+	 * See `Component.location`, `flash.DisplayObject.localToGlobal`, `flash.DisplayObject.globalToLocal`
 	 * @param gp the global location.
-	 * @see #setLocation()
-	 * @see #localToGlobal()
-	 * @see #MovieClip.globalToLocal()
 	 */
 	public function setGlobalLocation(gp:IntPoint):Void{
 		var newPos:Point = parent.globalToLocal(new Point(gp.x, gp.y));
@@ -1245,33 +1388,35 @@ class Component extends AWSprite implements IBindable {
 	 * @see #localToGlobal()
 	 * @see #globalToLocal()
 	 */
-	public function setGlobalLocationXY(x:Int, y:Int):Void{
+	@:dox(hide) public function setGlobalLocationXY(x:Int, y:Int):Void{
 		setGlobalLocation(new IntPoint(x, y));
 	}
 	
 	/**
-	 * Stores the location value of this component into "return value" rv and returns rv. 
-	 * If p is null a new Point object is allocated. 
+	 * Stores the location value of this component into "return value" rv and returns rv.
+	 *
+	 * If `rv` is `null` a `new Point` object is allocated.
+	 *
 	 * @param rv the return value, modified to the component's location.
 	 */
+	@:dox(hide)
 	public function getLocation(rv:IntPoint=null):IntPoint{
 		if(rv != null){
-			rv.setLocationXY(bounds.x, bounds.y);
+			rv.setLocationXY(_bounds.x, _bounds.y);
 			return rv;
 		}else{
-			return new IntPoint(bounds.x, bounds.y);
+			return new IntPoint(_bounds.x, _bounds.y);
 		}
 	}
 	
 	/**
-	 * Stores the global location value of this component into "return value" p and returns p. 
-	 * If p is null a new Point object is allocated. 
-	 * @param p the return value, modified to the component's global location.
-	 * @see #getLocation()
-	 * @see #setGlobalLocation()
-	 * @see MovieClip.localToGlobal()
-	 * @see MovieClip.globalToLocal()
-	 */
+	* Stores the global location value of this component into "return value" rv and returns rv.
+	*
+	* If `rv` is `null` a `new Point` object is allocated.
+	* @param rv the return value, modified to the component's global location.
+	*
+	* See `Component.location`, `Component.setGlobalLocation`, `flash.DisplayObject.localToGlobal`, `flash.DisplayObject.globalToLocal`
+	**/
 	public function getGlobalLocation(rv:IntPoint=null):IntPoint{
 		var gp:Point =  this.localToGlobal(new Point(0, 0));
 		if(rv != null){
@@ -1281,13 +1426,23 @@ class Component extends AWSprite implements IBindable {
 			return new IntPoint(Std.int(gp.x), Std.int(gp.y));
 		}
 	}
-	
+
+	/**
+	* Converts global coordinates to the local space (inside component space).
+	*
+	* See `Component.localToGlobal`
+	**/
 	public function globalToComponent(p:IntPoint):IntPoint{
 		var np:Point = new Point(p.x, p.y);
 		np = globalToLocal(np);
 		return new IntPoint(Std.int(np.x), Std.int(np.y));
 	}
-	
+
+	/**
+	* Converts local (inside component space) coordinates to the global space.
+	*
+	* See `Component.globalToLocal`
+	**/
 	public function componentToGlobal(p:IntPoint):IntPoint{
 		var np:Point = new Point(p.x, p.y);
 	 
@@ -1299,7 +1454,7 @@ class Component extends AWSprite implements IBindable {
 	 * This method will call setComBounds()
 	 * @see #setComBounds()
 	 */
-	public function setBounds(b:IntRectangle):Void{
+	@:dox(hide) @:deprecated public function setBounds(b:IntRectangle):Void{
 		setComBounds(b);
 	}
 		
@@ -1318,9 +1473,9 @@ class Component extends AWSprite implements IBindable {
 	@:dox(hide) public function setSize(newSize:IntDimension):Void{
 		newSize.width = Std.int(Math.max(0, newSize.width));
 		newSize.height = Std.int(Math.max(0, newSize.height));
-		var oldSize:IntDimension = new IntDimension(bounds.width, bounds.height);
+		var oldSize:IntDimension = new IntDimension(_bounds.width, _bounds.height);
 		if(!newSize.equals(oldSize)){
-			bounds.setSize(newSize);
+			_bounds.setSize(newSize);
 			size();
 			dispatchEvent(new ResizedEvent(oldSize, newSize));
 		}
@@ -1328,6 +1483,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * See `Component.currentSize`
 	 */
+	@:dox(hide)
 	public function setSizeWH(w:Int, h:Int):Void{
 		setSize(new IntDimension(w, h));
 	}
@@ -1339,10 +1495,10 @@ class Component extends AWSprite implements IBindable {
 	 */	
 	@:dox(hide) public function getSize(rv:IntDimension=null):IntDimension{
 		if(rv != null){
-			rv.setSizeWH(bounds.width, bounds.height);
+			rv.setSizeWH(_bounds.width, _bounds.height);
 			return rv;
 		}else{
-			return new IntDimension(bounds.width, bounds.height);
+			return new IntDimension(_bounds.width, _bounds.height);
 		}
 	}
 	
@@ -1358,37 +1514,37 @@ class Component extends AWSprite implements IBindable {
 	 * @param width the width of component to set
 	 * @see  #setSize()
 	 */
-	public function setWidth(width:Int):Void{
+	@:dox(hide) public function setWidth(width:Int):Void{
 		setSizeWH(width, getHeight());
 	}
 	/**
 	 * Sets the component's height.
 	 * @param height the height of component to set
 	 * @see  #setSize()
-	 */	
-	public function setHeight(height:Int):Void{
+	 */
+	@:dox(hide) public function setHeight(height:Int):Void{
 		setSizeWH(getWidth(), height);
 	}
 	/**
 	 * Returns the current width of this component
 	 * @return the width of the component
 	 */
-	public function getWidth():Int{
-		return bounds.width;
+	@:dox(hide) public function getWidth():Int{
+		return _bounds.width;
 	}
 	/**
 	 * Returns the current height of this component
 	 * @return the height of the component
-	 */	
-	public function getHeight():Int{
-		return bounds.height;
+	 */
+	@:dox(hide) public function getHeight():Int{
+		return _bounds.height;
 	}
 	/**
 	 * Sets the x coordinate of the components.
 	 * @return the x coordinate
 	 * @see #setLocation()
 	 */
-	public function setX(x:Int):Void{
+	@:dox(hide) public function setX(x:Int):Void{
 		setLocationXY(x, getY());
 	}
 	/**
@@ -1396,7 +1552,7 @@ class Component extends AWSprite implements IBindable {
 	 * @return the y coordinate
 	 * @see #setLocation()
 	 */
-	public function setY(y:Int):Void{
+	@:dox(hide) public function setY(y:Int):Void{
 		setLocationXY(getX(), y);
 	}
 	/**
@@ -1404,16 +1560,16 @@ class Component extends AWSprite implements IBindable {
 	 * @return the current x coordinate of the components
 	 * @see #getLocation()
 	 */
-	public function getX():Int{
-		return bounds.x;
+	@:dox(hide) public function getX():Int{
+		return _bounds.x;
 	}
 	/**
 	 * Returns the current y coordinate of the components.
 	 * @return the current y coordinate of the components
 	 * @see #getLocation()
 	 */
-	public function getY():Int{
-		return bounds.y;
+	@:dox(hide) public function getY():Int{
+		return _bounds.y;
 	}
 	
 	/**
@@ -1423,9 +1579,10 @@ class Component extends AWSprite implements IBindable {
 	 * And some component will has different interface when enabled or disabled.
 	 * @param b true to enable the component, false to disable it.
 	 */
+	@:dox(hide)
 	public function setEnabled(b:Bool):Void{
-		if(enabled != b){
-			enabled = b;
+		if(_enabled != b){
+			_enabled = b;
 			mouseEnabled = b;
 			repaint();
 		}
@@ -1435,8 +1592,9 @@ class Component extends AWSprite implements IBindable {
 	 * Returns whether the component is enabled.
 	 * @see #setEnabled()
 	 */
+	@:dox(hide)
 	public function isEnabled():Bool{
-		return enabled;
+		return _enabled;
 	}
 	
 
@@ -1446,17 +1604,17 @@ class Component extends AWSprite implements IBindable {
 	 * Null to make the componet mask whole rectangle(show all).
 	 * @param b the bounds to be the masked clip, null to make it show all. Default is null.
 	 */
-	public function setClipBounds(b:IntRectangle):Void{
-		if(b == null && clipBounds == null){
+	@:dox(hide) public function setClipBounds(b:IntRectangle):Void{
+		if(b == null && _clipBounds == null){
 			return;
 		}
 		var changed:Bool= false;
-		if(b == null && clipBounds != null){
-			clipBounds = null;
+		if(b == null && _clipBounds != null){
+			_clipBounds = null;
 			changed = true;
 		}else{
-			if(!b.equals(clipBounds)){
-				clipBounds = b.clone();
+			if(!b.equals(_clipBounds)){
+				_clipBounds = b.clone();
 				changed = true;
 			}
 		}
@@ -1469,22 +1627,24 @@ class Component extends AWSprite implements IBindable {
 	 * Returns the clip bounds.
 	 * @see #setClipBounds()
 	 */
-	public function getClipBounds():IntRectangle{
-		if(clipBounds == null){
+	@:dox(hide) public function getClipBounds():IntRectangle{
+		if(_clipBounds == null){
 			return null;
 		}
-		return clipBounds.clone();
+		return _clipBounds.clone();
 	}
 	
 	/**
-	 * Sets the clip size, a rectangle mask to make specified bounds visible.
+	 * Sets the size of clip bounds, a rectangle mask to make specified bounds visible.
+	 *
 	 * This will be only in effect after component created and before next layout time.
-	 * @see #setClipBounds()
+	 *
+	 * See `Component.clipBounds`
 	 */	
 	public function setClipSize(size:IntDimension):Void{
 		var bounds:IntRectangle = new IntRectangle();
-		if(clipBounds != null){
-			bounds.setLocation(clipBounds.getLocation());
+		if(_clipBounds != null){
+			bounds.setLocation(_clipBounds.getLocation());
 		}
 		bounds.setSize(size);
 		setClipBounds(bounds);
@@ -1496,9 +1656,10 @@ class Component extends AWSprite implements IBindable {
      * @return <code>true</code> if this Component is focusable;
      *         <code>false</code> otherwise.
      * @see #setFocusable()
-     */	
+     */
+	@:dox(hide)
 	public function isFocusable():Bool{
-		return focusable;
+		return _focusable;
 	}
 	
     /**
@@ -1507,9 +1668,10 @@ class Component extends AWSprite implements IBindable {
      *
      * @param focusable indicates whether this Component is focusable
      * @see #isFocusable()
-     */	
+     */
+	@:dox(hide)
 	public function setFocusable(b:Bool):Void{
-		focusable = b;
+		_focusable = b;
 		#if(flash9)
 		getInternalFocusObject().tabEnabled = b;
 		#end
@@ -1520,9 +1682,10 @@ class Component extends AWSprite implements IBindable {
      * Returns whether or not the opaque property is set by user. 
      * If it is not set, <code>focusable</code> will can be replaced with the value defined 
      * in LAF defaults when install a UI.
-     */	
+     */
+	@:dox(hide)
 	public function isFocusableSet():Bool{
-		return focusableSet;
+		return _focusableSet;
 	}
 	
 	/**
@@ -1530,8 +1693,9 @@ class Component extends AWSprite implements IBindable {
 	 * @param b whether set or not
 	 * @see #isFocusableSet()
 	 */
+	@:dox(hide)
 	public function setFocusableSet(b:Bool):Void{
-		focusableSet = b;
+		_focusableSet = b;
 	}
 
 	/**
@@ -1539,8 +1703,9 @@ class Component extends AWSprite implements IBindable {
 	 * @see #ON_DRAG_RECOGNIZED 
 	 * @see #isDragEnabled()
 	 */
+	@:dox(hide)
 	public function setDragEnabled(b:Bool):Void{
-		dragEnabled = b;
+		_dragEnabled = b;
 	}
 	
 	/**
@@ -1548,8 +1713,9 @@ class Component extends AWSprite implements IBindable {
 	 * @see #ON_DRAG_RECOGNIZED
 	 * @see #setDragEnabled()
 	 */
+	@:dox(hide)
 	public function isDragEnabled():Bool{
-		return dragEnabled;
+		return _dragEnabled;
 	}
 	
 	/**
@@ -1563,8 +1729,9 @@ class Component extends AWSprite implements IBindable {
 	 * @see #ON_DRAG_DROP
 	 * @see #isDropTrigger()
 	 */
+	@:dox(hide)
 	public function setDropTrigger(b:Bool):Void{
-		dropTrigger = b;
+		_dropTrigger = b;
 	}
 	
 	/**
@@ -1578,8 +1745,9 @@ class Component extends AWSprite implements IBindable {
 	 * @see #ON_DRAG_DROP
 	 * @see #setDropTrigger()
 	 */
+	@:dox(hide)
 	public function isDropTrigger():Bool{
-		return dropTrigger;
+		return _dropTrigger;
 	}
 
 	/**
@@ -1655,8 +1823,8 @@ class Component extends AWSprite implements IBindable {
 	 * @see JToolTip
 	 * @see JSharedToolTip
 	 */
-	public function setToolTipText(t:String):Void{
-		toolTipText = t;
+	@:dox(hide) public function setToolTipText(t:String):Void{
+		_toolTipText = t;
 		if(t == null){
 			JSharedToolTip.getSharedInstance().unregisterComponent(this);
 		}else{
@@ -1669,8 +1837,8 @@ class Component extends AWSprite implements IBindable {
 	 * @return the text of the tool tip
 	 * @see #setToolTipText()
 	 */
-	public function getToolTipText():String{
-		return toolTipText;
+	@:dox(hide) public function getToolTipText():String{
+		return _toolTipText;
 	}	
 	
 	/**
@@ -1840,10 +2008,12 @@ class Component extends AWSprite implements IBindable {
     /**
      * Returns the value of the property with the specified key. 
      * Only properties added with putClientProperty will return a non-null value.
+     *
+     * See `Component.putClientProperty`
+     *
      * @param key the being queried
      * @param defaultValue if the value doesn't exists, the defaultValue will be returned
      * @return the value of this property or null
-     * @see #putClientProperty()
      */
     public function getClientProperty(key:String, ?defaultValue:Dynamic):Dynamic{
     	if(clientProperty == null){
@@ -1858,19 +2028,24 @@ class Component extends AWSprite implements IBindable {
     
     /**
      * Adds an arbitrary key/value "client property" to this component.
-     * <p>
-     * The <code>get/putClientProperty</code> methods provide access to 
-     * a small per-instance hashtable. Callers can use get/putClientProperty
+     *
+     * The `get/putClientProperty` methods provide access to
+     * a small per-instance hashtable.
+     *
+     * Callers can use get/putClientProperty
      * to annotate components that were created by another module.
+     *
      * For example, a
      * layout manager might store per child constraints this way. For example:
-     * <pre>
+     * `
      * componentA.putClientProperty("to the left of", componentB);
-     * </pre>
+     * `
+     *
+     * See `Component.getClientProperty`
+     *
      * @param key the new client property key
      * @param value the new client property value
-     * @see #getClientProperty()
-     */    
+     */
     public function putClientProperty(key:String, value:Dynamic):Void{
     	//Lazy initialization
     	if(clientProperty == null){
@@ -1883,8 +2058,8 @@ class Component extends AWSprite implements IBindable {
 	 * get the minimumSize from ui, if ui is null then Returns getInsets().roundsSize(new IntDimension(0, 0)).
 	 */
 	private function countMinimumSize():IntDimension{		
-		if(ui != null){
-			return ui.getMinimumSize(this);
+		if(_ui != null){
+			return _ui.getMinimumSize(this);
 		}else{
 			return getInsets().getOutsideSize(new IntDimension(0, 0));
 		}
@@ -1895,8 +2070,8 @@ class Component extends AWSprite implements IBindable {
 	 * @see IntDimension#createBigDimension()
 	 */
 	private function countMaximumSize():IntDimension{		
-		if(ui != null){
-			return ui.getMaximumSize(this);
+		if(_ui != null){
+			return _ui.getMaximumSize(this);
 		}else{
 			return IntDimension.createBigDimension();
 		}
@@ -1906,8 +2081,8 @@ class Component extends AWSprite implements IBindable {
 	 * get the preferredSize from ui, if ui is null then just return the current size
 	 */
 	private function countPreferredSize():IntDimension{
-		if(ui != null){
-			return ui.getPreferredSize(this);
+		if(_ui != null){
+			return _ui.getPreferredSize(this);
 		}else{
 			return getSize();
 		}
@@ -2075,7 +2250,7 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getPreferredSize().width</code>
 	 * @see #getPreferredSize()
 	 */
-	public function getPreferredWidth():Int{
+	@:dox(hide) public function getPreferredWidth():Int{
 		return getPreferredSize().width;
 	}
 	
@@ -2083,7 +2258,7 @@ class Component extends AWSprite implements IBindable {
 	 * Sets preferred width, -1 means auto count.
 	 * @see #setPreferredSize()
 	 */
-	public function setPreferredWidth(preferredWidth:Int):Void{
+	@:dox(hide) public function setPreferredWidth(preferredWidth:Int):Void{
 		if(_preferredSize == null){
 			_preferredSize = new IntDimension(-1, -1);
 		}
@@ -2094,7 +2269,7 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getPreferredSize().height</code>
 	 * @see #getPreferredSize()
 	 */
-	public function getPreferredHeight():Int{
+	@:dox(hide) public function getPreferredHeight():Int{
 		return getPreferredSize().height;
 	}
 	
@@ -2102,7 +2277,7 @@ class Component extends AWSprite implements IBindable {
 	 * Sets preferred width, -1 means auto count.
 	 * @see #setPreferredSize()
 	 */
-	public function setPreferredHeight(preferredHeight:Int):Void{
+	@:dox(hide) public function setPreferredHeight(preferredHeight:Int):Void{
 		if(_preferredSize == null){
 			_preferredSize = new IntDimension(-1, -1);
 		}
@@ -2113,14 +2288,14 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getMaximumSize().width</code>
 	 * @see #getMaximumSize()
 	 */
-	public function getMaximumWidth():Int{
+	@:dox(hide) public function getMaximumWidth():Int{
 		return getMaximumSize().width;
 	}
 	/**
 	 * Sets maximum width, -1 means auto count.
 	 * @see #setMaximumSize()
 	 */
-	public function setMaximumWidth(maximumWidth:Int):Void{
+	@:dox(hide) public function setMaximumWidth(maximumWidth:Int):Void{
 		if(_maximumSize == null){
 			_maximumSize = new IntDimension(-1, -1);
 		}
@@ -2130,14 +2305,14 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getMaximumSize().height</code>
 	 * @see #getMaximumSize()
 	 */
-	public function getMaximumHeight():Int{
+	@:dox(hide) public function getMaximumHeight():Int{
 		return getMaximumSize().height;
 	}
 	/**
 	 * Sets maximum height, -1 means auto count.
 	 * @see #setMaximumSize()
 	 */
-	public function setMaximumHeight(maximumHeight:Int):Void{
+	@:dox(hide) public function setMaximumHeight(maximumHeight:Int):Void{
 		if(_maximumSize == null){
 			_maximumSize = new IntDimension(-1, -1);
 		}
@@ -2147,14 +2322,14 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getMinimumSize().width</code>
 	 * @see #getMinimumSize()
 	 */
-	public function getMinimumWidth():Int{
+	@:dox(hide) public function getMinimumWidth():Int{
 		return getMinimumSize().width;
 	}
 	/**
 	 * Sets minimum width, -1 means auto count.
 	 * @see #setMinimumSize()
 	 */
-	public function setMinimumWidth(minimumWidth:Int):Void{
+	@:dox(hide) public function setMinimumWidth(minimumWidth:Int):Void{
 		if(_minimumSize == null){
 			_minimumSize = new IntDimension(-1, -1);
 		}
@@ -2164,14 +2339,14 @@ class Component extends AWSprite implements IBindable {
 	 * Returns <code>getMinimumSize().height</code>
 	 * @see #getMinimumSize()
 	 */
-	public function getMinimumHeight():Int{
+	@:dox(hide) public function getMinimumHeight():Int{
 		return getMinimumSize().height;
 	}
 	/**
 	 * Sets minimum height, -1 means auto count.
 	 * @see #setMinimumSize()
 	 */
-	public function setMinimumHeight(minimumHeight:Int):Void{
+	@:dox(hide) public function setMinimumHeight(minimumHeight:Int):Void{
 		if(_minimumSize == null){
 			_minimumSize = new IntDimension(-1, -1);
 		}
@@ -2191,49 +2366,50 @@ class Component extends AWSprite implements IBindable {
 	
     /**
      * Supports deferred automatic layout.  
-     * <p> 
-     * Calls <code>invalidateLayout</code> and then adds this component's
-     * <code>validateRoot</code> to a list of components that need to be
+     *
+     * Calls `Component.invalidate` and then adds this component
+     * to a list of components that need to be
      * validated.  Validation will occur after all currently pending
      * events have been dispatched.  In other words after this method
-     * is called,  the first validateRoot (if any) found when walking
+     * is called, the first component (if any) found when walking
      * up the containment hierarchy of this component will be validated.
-     * By default, <code>JPopup</code>, <code>JScrollPane</code>,
-     * and <code>JTextField</code> return true 
-     * from <code>isValidateRoot</code>.
-     * <p>
+     * By default, `JPopup`, `JScrollPane`,
+     * and `JTextField` return true
+     * from `Component.isValidateRoot`.
+     *
      * This method will or will not automatically be called on this component 
      * when a property value changes such that size, location, or 
      * internal layout of this component has been affected.But invalidate
      * will do called after thats method, so you want to get the contents of 
      * the GUI to update you should call this method.
-     * <p>
      *
-     * @see #invalidate()
-     * @see #validate()
-     * @see #isValidateRoot()
-     * @see RepaintManager#addInvalidComponent()
+     *
+     * See `Component.invalidate`, `Component.validate`, `Component.isValidateRoot`, `RepaintManager.addInvalidComponent`
      */
 	public function revalidate():Void{
     	invalidate();
     	RepaintManager.getInstance().addInvalidComponent(this);
     }
         
+	@:dox(hide)
     public function revalidateIfNecessary():Void{
     	RepaintManager.getInstance().addInvalidComponent(this);
     }
 	
 	/**
-	 * Redraws the component face next RENDER event.This method can
-     * be called often, so it needs to execute quickly.
-	 * @see org.aswing.RepaintManager
+	 * Redraws the component face next `RENDER` event.
+	 *
+	 * This method can be called often, so it needs to execute quickly.
+	 * See `org.aswing.RepaintManager`
 	 */
 	public function repaint():Void{
 		if(isVisible() && isReadyToPaint()){
 			RepaintManager.getInstance().addRepaintComponent(this);
 		}
 	}
-	
+	/**
+	* See `Component.repaint`, `Component.revalidate`
+	**/
 	public function repaintAndRevalidate():Void{
 		repaint();
 		revalidate();
@@ -2249,13 +2425,12 @@ class Component extends AWSprite implements IBindable {
 	}
 	
     /**
-     * Invalidates this component.  This component and all parents
-     * above it are marked as needing to be laid out, and all <code>clearPreferSizeCaches</code>.
+     * Invalidates this component.
+     *
+     * This component and all parents
+     * above it are marked as needing to be laid out, and all `Component.clearPreferSizeCaches`.
      * This method can be called often, so it needs to execute quickly.
-     * @see       #validate()
-     * @see       #doLayout()
-     * @see       #invalidatePreferSizeCaches()
-     * @see       org.aswing.LayoutManager
+     * See `Component.validate`, `Component.doLayout`, `Component.invalidatePreferSizeCaches`, `org.aswing.LayoutManager`
      */	
 	public function invalidate():Void{
     	invalidateTree();
@@ -2276,20 +2451,15 @@ class Component extends AWSprite implements IBindable {
 	
     /**
      * Clears this component and all parents above it's preferred size caches.
-     * <p>
+     *
      * By default all components' prefer sizes(max, min, prefer) have caches, if you 
-     * make some call that cached a invalided component's sizes but then you modifid 
+     * make some call that cached a invalided component's sizes but then you modify
      * the component again, so it's prefer size need to be renew, 
-     * <code>invalidatePreferSizeCaches</code> will be helpful now.
-     * </p>
-     * <p>
+     * `Component.invalidatePreferSizeCaches` will be helpful now.
+     *
      * Generally you do not need to call this method manually unless you get above situation.
-     * this method will be called inside <code>invalidate()</code> automatically.
-     * </p>
-     * @see       #invalidate()
-     * @see       #validate()
-     * @see       #setCachePreferSizes()
-     * @see       org.aswing.LayoutManager
+     * this method will be called inside `Component.invalidate` automatically.
+     * See	`Component.invalidate`, `Component.validate`, `Component.setCachePreferSizes`, `org.aswing.LayoutManager`
      */		
 	public function invalidatePreferSizeCaches():Void{
     	clearPreferSizeCaches();
@@ -2307,11 +2477,8 @@ class Component extends AWSprite implements IBindable {
 	
     /**
      * Ensures that this component has a valid layout.  This method is
-     * primarily intended to operate on instances of <code>Container</code>.
-     * @see       #invalidate()
-     * @see       #doLayout()
-     * @see       org.aswing.LayoutManager
-     * @see       org.aswing.Container#validate()
+     * primarily intended to operate on instances of `Container`.
+     * See `Component.invalidate`, `Container.doLayout`, `LayoutManager`, `Container.validate`
      */	
 	public function validate():Void{
     	if(!valid){
@@ -2321,9 +2488,7 @@ class Component extends AWSprite implements IBindable {
 	
 	/**
 	 * Redraw the component UI face immediately if it is visible and ready to paint.
-	 * @see #repaint()
-	 * @see #isVisible()
-	 * @see #isReadyToPaint()
+	 * See `Component.repaint`, `Component.visibility`, `Component.isReadyToPaint`
 	 */	
 	public function paintImmediately():Void{
 		if(isVisible() && isReadyToPaint()){
@@ -2362,8 +2527,8 @@ class Component extends AWSprite implements IBindable {
 		if(_backgroundDecorator != null){
 			_backgroundDecorator.updateDecorator(this, g, b.clone());
 		}
-		if (ui != null) { 
-			ui.paint(this, g, b.clone());
+		if (_ui != null) {
+			_ui.paint(this, g, b.clone());
 		}
 		//paintFocusRect();
 		//paint border at last to make it at the top depth
@@ -2388,11 +2553,11 @@ class Component extends AWSprite implements IBindable {
 	 */
 	public function paintFocusRect(force:Bool=false):Void{
 		var fm:FocusManager = FocusManager.getManager(stage);
-		if(ui!=null && fm!=null){
+		if(_ui!=null && fm!=null){
 			if(force || fm.isTraversing() && isFocusOwner()){
 				var fr:Sprite = fm.moveFocusRectUpperTo(this);
 				fr.graphics.clear();
-				ui.paintFocus(this, new Graphics2D(fr.graphics), new IntRectangle(0, 0, Std.int(getWidth()), Std.int(getHeight())));
+				_ui.paintFocus(this, new Graphics2D(fr.graphics), new IntRectangle(0, 0, Std.int(getWidth()), Std.int(getHeight())));
 			}
 		}
 	}
@@ -2409,11 +2574,11 @@ class Component extends AWSprite implements IBindable {
 		}else{
 			paintBounds = paintBounds.clone();
 		}
-		if(clipBounds != null){
-			paintBounds.x = Std.int(Math.max(paintBounds.x, clipBounds.x));
-			paintBounds.y = Std.int(Math.max(paintBounds.y, clipBounds.y));
-			paintBounds.width = Std.int(Math.min(paintBounds.width, clipBounds.width));
-			paintBounds.height = Std.int(Math.min(paintBounds.height, clipBounds.height));
+		if(_clipBounds != null){
+			paintBounds.x = Std.int(Math.max(paintBounds.x, _clipBounds.x));
+			paintBounds.y = Std.int(Math.max(paintBounds.y, _clipBounds.y));
+			paintBounds.width = Std.int(Math.min(paintBounds.width, _clipBounds.width));
+			paintBounds.height = Std.int(Math.min(paintBounds.height, _clipBounds.height));
 		}
 		setClipMaskRect(paintBounds);
 	}
@@ -2476,9 +2641,10 @@ class Component extends AWSprite implements IBindable {
 	}	
 	
 	/**
-	 * Returns the <code>Container</code> parent, 
-	 * if it parent is not a <code>Container</code>, null will be returned.
-	 * @return the <code>Container</code> parent
+	 * Returns the `Container` parent,
+	 * if it parent is not a `Container`, null will be returned.
+	 *
+	 * @return the `Container` parent
 	 */
 	public function getParent():Container{
 		return container;
@@ -2501,7 +2667,7 @@ class Component extends AWSprite implements IBindable {
 	
 	/**
 	 * Calls parent reAppendChildren if parent is a container.
-	 * @see Container#reAppendChildren()
+	 * See `Container.reAppendChildren`
 	 */
 	public function parentReAppendChildren():Void{
 		if(container!=null){
@@ -2510,8 +2676,7 @@ class Component extends AWSprite implements IBindable {
 	}
 	
 	/**
-	 * Returns the first <code>JRootPane</code> ancestor of this component.
-	 * @return the <code>JRootPane</code> ancestor, or null if not found.
+	 * Returns the first `JRootPane` ancestor of this component, or null if not found.
 	 */
 	public function getRootPaneAncestor():JRootPane{
 		var pa:DisplayObject = parent;
@@ -2525,8 +2690,7 @@ class Component extends AWSprite implements IBindable {
 	}
 	
 	/**
-	 * Returns the keyboard manager of this component's <code>JRootPane</code> ancestor.
-	 * @return the keyboard manager, or null if no root pane ancestor.
+	 * Returns the keyboard manager of this component's `JRootPane` ancestor or null if no root pane ancestor.
 	 */
 	public function getKeyboardManager():KeyboardManager{
 		var rootPane:JRootPane = getRootPaneAncestor();
@@ -2540,9 +2704,8 @@ class Component extends AWSprite implements IBindable {
 	 * Removes this component from its parent, 
 	 * whatever it is as a component child or only a display object child, 
 	 * or it's parent is just a display object container.
-	 * <p>
+	 *
 	 * This method will remove this component in any case.
-	 * </p>
 	 */
 	public function removeFromContainer():Void{
 		if(getParent() != null){
@@ -2557,24 +2720,23 @@ class Component extends AWSprite implements IBindable {
 	 * Sets component's constraints.
 	 * @param constraints the constraints to set
 	 */
-	public function setConstraints(constraints:Dynamic):Void{
-		this.constraints = constraints;	
+	@:dox(hide) public inline function setConstraints(constraints:Dynamic):Void{
+		this.constraints = constraints;
 	}
 	
 	/**
 	 * Gets cpmponent's constraints.
 	 * @return component's constraints
 	 */
-	public function getConstraints():Dynamic{
+	@:dox(hide) public inline function getConstraints():Dynamic{
 		return constraints;
 	}
 	
     /**
      * Transfers the focus to the next component, as though this Component were
      * the focus owner.
-     * 
+     * See `Component.requestFocus`
      * @return true if transfered, false otherwise
-     * @see       #requestFocus()
      */
     public function transferFocus():Bool{
     	return transferFocusWithDirection(1);
@@ -2583,9 +2745,8 @@ class Component extends AWSprite implements IBindable {
     /**
      * Transfers the focus to the previous component, as though this Component
      * were the focus owner.
-     * 
+     * See `Component.requestFocus`
      * @return true if transfered, false otherwise
-     * @see       #requestFocus()
      */
     public function transferFocusBackward():Bool{
     	return transferFocusWithDirection(-1);
@@ -2632,12 +2793,11 @@ class Component extends AWSprite implements IBindable {
      * granted. Every effort will be made to honor the request; however, in
      * some cases it may be impossible to do so. Developers must never assume
      * that this Component is the focus owner until this Component receives a
-     * ON_FOCUS_GAINED event.
+     * `org.aswing.event.AWEvent.FOCUS_GAINED` event.
+     *
+     * See `Component.focusable`
      *
      * @return true if the request is made successful, false if the request is denied.
-     * @see #isFocusable()
-     * @see #isDisplayable()
-     * @see #ON_FOCUS_GAINED
      */
     public function requestFocus():Bool{
     	//TODO imp check
@@ -2651,12 +2811,11 @@ class Component extends AWSprite implements IBindable {
     /**
      * Makes this component's internal focus object to be the stage focus directly, 
      * without any judgement.
-     * <p>
-     * You'd better to call <code>requestFocus()</code> generally, this method is only 
+     *
+     * You'd better to call `Component.requestFocus()` generally, this method is only
      * used to some internal implementation at most time.
-     * </p>
-     * @see #requestFocus()
-     * @see #getInternalFocusObject()
+     *
+     * See `Component.requestFocus`, `Component.getInternalFocusObject`
      */
     public function makeFocus():Void{
     	if(getFocusTransmit() != null){
@@ -2674,18 +2833,19 @@ class Component extends AWSprite implements IBindable {
     /**
      * Returns the object to receive the focus for this component. 
      * It will call the ui to return the ui specified object, if ui is null 
-     * or ui returned null, then it just return the component self. 
-     * <p>
-     * Other component may return a child object, for example <code>JTextComponent<code> will return 
-     * its <code>TextField</code> object.
-     * </p>
+     * or ui returned null, then it just return the component self.
+      *
+     * Other component may return a child object, for example `JTextComponent` will return
+     * its `TextField` object.
+     *
+     * See `org.aswing.plaf.ComponentUI.getInternalFocusObject`
+     *
      * @return the object to receive the focus.
-     * @see org.aswing.plaf.ComponentUI#getInternalFocusObject()
      */
 	public function getInternalFocusObject():InteractiveObject{
 		var ifo:InteractiveObject = null;
-		if(ui != null){
-			ifo = ui.getInternalFocusObject(this);
+		if(_ui != null){
+			ifo = _ui.getInternalFocusObject(this);
 		}
 		if(ifo != null){
 			return ifo;

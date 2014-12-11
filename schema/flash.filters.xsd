@@ -1,0 +1,148 @@
+<xs:schema targetNamespace="flash.filters" xmlns="flash.filters" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="GlowFilterSchemaTypeValue">
+<xs:element ref="GlowFilter"/></xs:complexType>
+
+<xs:complexType name="DropShadowFilterSchemaTypeValue">
+<xs:element ref="DropShadowFilter"/></xs:complexType>
+
+<xs:complexType name="BitmapFilterSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GlowFilter" />
+<xs:element ref="BlurFilter" />
+<xs:element ref="ColorMatrixFilter" />
+<xs:element ref="BevelFilter" />
+<xs:element ref="DropShadowFilter" />
+<xs:element ref="BitmapFilter"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ColorMatrixFilterSchemaTypeValue">
+<xs:element ref="ColorMatrixFilter"/></xs:complexType>
+
+<xs:complexType name="BevelFilterSchemaTypeValue">
+<xs:element ref="BevelFilter"/></xs:complexType>
+
+<xs:complexType name="BlurFilterSchemaTypeValue">
+<xs:element ref="BlurFilter"/></xs:complexType>
+
+<xs:complexType name="GlowFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="BitmapFilterSchemaType">
+<xs:element name="alpha" type="xs:double"/>
+<xs:element name="blurX" type="xs:double"/>
+<xs:element name="blurY" type="xs:double"/>
+<xs:element name="color" type="xs:string"/>
+<xs:element name="inner" type="xs:boolean"/>
+<xs:element name="knockout" type="xs:boolean"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:element name="strength" type="xs:double"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="blurX" type="xs:double"/>
+<xs:attribute name="blurY" type="xs:double"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="inner" type="xs:boolean"/>
+<xs:attribute name="knockout" type="xs:boolean"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="strength" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DropShadowFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="BitmapFilterSchemaType">
+<xs:element name="alpha" type="xs:double"/>
+<xs:element name="angle" type="xs:double"/>
+<xs:element name="blurX" type="xs:double"/>
+<xs:element name="blurY" type="xs:double"/>
+<xs:element name="color" type="xs:string"/>
+<xs:element name="distance" type="xs:double"/>
+<xs:element name="hideObject" type="xs:boolean"/>
+<xs:element name="inner" type="xs:boolean"/>
+<xs:element name="knockout" type="xs:boolean"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:element name="strength" type="xs:double"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="angle" type="xs:double"/>
+<xs:attribute name="blurX" type="xs:double"/>
+<xs:attribute name="blurY" type="xs:double"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="distance" type="xs:double"/>
+<xs:attribute name="hideObject" type="xs:boolean"/>
+<xs:attribute name="inner" type="xs:boolean"/>
+<xs:attribute name="knockout" type="xs:boolean"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="strength" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BitmapFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorMatrixFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="BitmapFilterSchemaType">
+<xs:element name="matrix" type="empty:ArraySchemaTypeValue"/>
+<xs:attribute name="matrix" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BevelFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="BitmapFilterSchemaType">
+<xs:element name="angle" type="xs:double"/>
+<xs:element name="blurX" type="xs:double"/>
+<xs:element name="blurY" type="xs:double"/>
+<xs:element name="distance" type="xs:double"/>
+<xs:element name="highlightAlpha" type="xs:double"/>
+<xs:element name="highlightColor" type="xs:string"/>
+<xs:element name="knockout" type="xs:boolean"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:element name="shadowAlpha" type="xs:double"/>
+<xs:element name="shadowColor" type="xs:string"/>
+<xs:element name="strength" type="xs:double"/>
+<xs:element name="type" type="xs:string"/>
+<xs:attribute name="angle" type="xs:double"/>
+<xs:attribute name="blurX" type="xs:double"/>
+<xs:attribute name="blurY" type="xs:double"/>
+<xs:attribute name="distance" type="xs:double"/>
+<xs:attribute name="highlightAlpha" type="xs:double"/>
+<xs:attribute name="highlightColor" type="xs:string"/>
+<xs:attribute name="knockout" type="xs:boolean"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="shadowAlpha" type="xs:double"/>
+<xs:attribute name="shadowColor" type="xs:string"/>
+<xs:attribute name="strength" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BlurFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="BitmapFilterSchemaType">
+<xs:element name="blurX" type="xs:double"/>
+<xs:element name="blurY" type="xs:double"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:attribute name="blurX" type="xs:double"/>
+<xs:attribute name="blurY" type="xs:double"/>
+<xs:attribute name="quality" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GlowFilter" type="GlowFilterSchemaType"/>
+<xs:element name="DropShadowFilter" type="DropShadowFilterSchemaType"/>
+<xs:element name="BitmapFilter" type="BitmapFilterSchemaType"/>
+<xs:element name="ColorMatrixFilter" type="ColorMatrixFilterSchemaType"/>
+<xs:element name="BevelFilter" type="BevelFilterSchemaType"/>
+<xs:element name="BlurFilter" type="BlurFilterSchemaType"/>
+</xs:schema>

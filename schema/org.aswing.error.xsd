@@ -1,0 +1,56 @@
+<xs:schema targetNamespace="org.aswing.error" xmlns="org.aswing.error" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing-event="org.aswing.event"
+xmlns:empty="empty"
+>
+<xs:complexType name="AsWingManagerNotInitedSchemaTypeValue">
+<xs:element ref="AsWingManagerNotInited"/></xs:complexType>
+
+<xs:complexType name="UnsupportedErrorSchemaTypeValue">
+<xs:element ref="UnsupportedError"/></xs:complexType>
+
+<xs:complexType name="ErrorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-event:ExpandVetoException" />
+<xs:element ref="ImpMissError" />
+<xs:element ref="AsWingManagerNotInited" />
+<xs:element ref="UnsupportedError" />
+<xs:element ref="Error"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ImpMissErrorSchemaTypeValue">
+<xs:element ref="ImpMissError"/></xs:complexType>
+
+<xs:complexType name="AsWingManagerNotInitedSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UnsupportedErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ImpMissErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="AsWingManagerNotInited" type="AsWingManagerNotInitedSchemaType"/>
+<xs:element name="UnsupportedError" type="UnsupportedErrorSchemaType"/>
+<xs:element name="Error" type="ErrorSchemaType"/>
+<xs:element name="ImpMissError" type="ImpMissErrorSchemaType"/>
+</xs:schema>

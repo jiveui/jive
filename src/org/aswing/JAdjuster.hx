@@ -190,7 +190,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 		model = newModel;
 		if (model != null){
 			model.addStateListener(__onModelStateChanged);
-			if(ui != null){
+			if(_ui != null){
 				getPopupSlider().setModel(model);
 			}
 		}

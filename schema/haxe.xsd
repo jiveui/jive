@@ -1,0 +1,51 @@
+<xs:schema targetNamespace="haxe" xmlns="haxe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="EnumValueToolsSchemaTypeValue">
+<xs:element ref="EnumValueTools"/></xs:complexType>
+
+<xs:complexType name="TimerSchemaTypeValue">
+<xs:element ref="Timer"/></xs:complexType>
+
+<xs:complexType name="EnumToolsSchemaTypeValue">
+<xs:element ref="EnumTools"/></xs:complexType>
+
+<xs:complexType name="LogSchemaTypeValue">
+<xs:element ref="Log"/></xs:complexType>
+
+<xs:complexType name="EnumValueToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TimerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="run" type="xs:string"/>
+<xs:attribute name="run" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EnumToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LogSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="EnumValueTools" type="EnumValueToolsSchemaType"/>
+<xs:element name="Timer" type="TimerSchemaType"/>
+<xs:element name="EnumTools" type="EnumToolsSchemaType"/>
+<xs:element name="Log" type="LogSchemaType"/>
+</xs:schema>

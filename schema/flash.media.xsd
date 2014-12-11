@@ -1,0 +1,289 @@
+<xs:schema targetNamespace="flash.media" xmlns="flash.media" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash-geom="flash.geom"
+xmlns:flash="flash"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="CameraSchemaTypeValue">
+<xs:element ref="Camera"/></xs:complexType>
+
+<xs:complexType name="StageVideoSchemaTypeValue">
+<xs:element ref="StageVideo"/></xs:complexType>
+
+<xs:complexType name="AVSourceSchemaTypeValue">
+<xs:element ref="AVSource"/></xs:complexType>
+
+<xs:complexType name="MicrophoneEnhancedOptionsSchemaTypeValue">
+<xs:element ref="MicrophoneEnhancedOptions"/></xs:complexType>
+
+<xs:complexType name="SoundTransformSchemaTypeValue">
+<xs:element ref="SoundTransform"/></xs:complexType>
+
+<xs:complexType name="AVPlayStateSchemaTypeValue">
+<xs:element ref="AVPlayState"/></xs:complexType>
+
+<xs:complexType name="MicrophoneSchemaTypeValue">
+<xs:element ref="Microphone"/></xs:complexType>
+
+<xs:complexType name="AVResultSchemaTypeValue">
+<xs:element ref="AVResult"/></xs:complexType>
+
+<xs:complexType name="AVCaptionStyleSchemaTypeValue">
+<xs:element ref="AVCaptionStyle"/></xs:complexType>
+
+<xs:complexType name="VideoStreamSettingsSchemaTypeValue">
+<xs:element ref="VideoStreamSettings"/></xs:complexType>
+
+<xs:complexType name="AVStreamSchemaTypeValue">
+<xs:element ref="AVStream"/></xs:complexType>
+
+<xs:complexType name="CameraSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="activityLevel" type="xs:double"/>
+<xs:element name="bandwidth" type="xs:int"/>
+<xs:element name="currentFPS" type="xs:double"/>
+<xs:element name="fps" type="xs:double"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="index" type="xs:int"/>
+<xs:element name="keyFrameInterval" type="xs:int"/>
+<xs:element name="loopback" type="xs:boolean"/>
+<xs:element name="motionLevel" type="xs:int"/>
+<xs:element name="motionTimeout" type="xs:int"/>
+<xs:element name="muted" type="xs:boolean"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:element name="width" type="xs:int"/>
+<xs:attribute name="activityLevel" type="xs:double"/>
+<xs:attribute name="bandwidth" type="xs:int"/>
+<xs:attribute name="currentFPS" type="xs:double"/>
+<xs:attribute name="fps" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="index" type="xs:int"/>
+<xs:attribute name="keyFrameInterval" type="xs:int"/>
+<xs:attribute name="loopback" type="xs:boolean"/>
+<xs:attribute name="motionLevel" type="xs:int"/>
+<xs:attribute name="motionTimeout" type="xs:int"/>
+<xs:attribute name="muted" type="xs:boolean"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StageVideoSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="colorSpaces" type="flash:VectorSchemaTypeValue"/>
+<xs:element name="depth" type="xs:int"/>
+<xs:element name="pan" type="flash-geom:PointSchemaTypeValue"/>
+<xs:element name="videoHeight" type="xs:int"/>
+<xs:element name="videoWidth" type="xs:int"/>
+<xs:element name="viewPort" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element name="zoom" type="flash-geom:PointSchemaTypeValue"/>
+<xs:attribute name="colorSpaces" type="xs:string"/>
+<xs:attribute name="depth" type="xs:int"/>
+<xs:attribute name="pan" type="xs:string"/>
+<xs:attribute name="videoHeight" type="xs:int"/>
+<xs:attribute name="videoWidth" type="xs:int"/>
+<xs:attribute name="viewPort" type="xs:string"/>
+<xs:attribute name="zoom" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AVSourceSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MicrophoneEnhancedOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="autoGain" type="xs:boolean"/>
+<xs:element name="echoPath" type="xs:int"/>
+<xs:element name="isVoiceDetected" type="xs:int"/>
+<xs:element name="mode" type="xs:string"/>
+<xs:element name="nonLinearProcessing" type="xs:boolean"/>
+<xs:attribute name="autoGain" type="xs:boolean"/>
+<xs:attribute name="echoPath" type="xs:int"/>
+<xs:attribute name="isVoiceDetected" type="xs:int"/>
+<xs:attribute name="mode" type="xs:string"/>
+<xs:attribute name="nonLinearProcessing" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SoundTransformSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="leftToLeft" type="xs:double"/>
+<xs:element name="leftToRight" type="xs:double"/>
+<xs:element name="pan" type="xs:double"/>
+<xs:element name="rightToLeft" type="xs:double"/>
+<xs:element name="rightToRight" type="xs:double"/>
+<xs:element name="volume" type="xs:double"/>
+<xs:attribute name="leftToLeft" type="xs:double"/>
+<xs:attribute name="leftToRight" type="xs:double"/>
+<xs:attribute name="pan" type="xs:double"/>
+<xs:attribute name="rightToLeft" type="xs:double"/>
+<xs:attribute name="rightToRight" type="xs:double"/>
+<xs:attribute name="volume" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AVPlayStateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="state" type="xs:int"/>
+<xs:attribute name="state" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MicrophoneSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="activityLevel" type="xs:double"/>
+<xs:element name="codec" type="xs:string"/>
+<xs:element name="encodeQuality" type="xs:int"/>
+<xs:element name="framesPerPacket" type="xs:int"/>
+<xs:element name="gain" type="xs:double"/>
+<xs:element name="index" type="xs:int"/>
+<xs:element name="muted" type="xs:boolean"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="rate" type="xs:int"/>
+<xs:element name="silenceLevel" type="xs:double"/>
+<xs:element name="silenceTimeout" type="xs:int"/>
+<xs:element name="soundTransform" type="SoundTransformSchemaTypeValue"/>
+<xs:element name="useEchoSuppression" type="xs:boolean"/>
+<xs:attribute name="activityLevel" type="xs:double"/>
+<xs:attribute name="codec" type="xs:string"/>
+<xs:attribute name="encodeQuality" type="xs:int"/>
+<xs:attribute name="framesPerPacket" type="xs:int"/>
+<xs:attribute name="gain" type="xs:double"/>
+<xs:attribute name="index" type="xs:int"/>
+<xs:attribute name="muted" type="xs:boolean"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="rate" type="xs:int"/>
+<xs:attribute name="silenceLevel" type="xs:double"/>
+<xs:attribute name="silenceTimeout" type="xs:int"/>
+<xs:attribute name="soundTransform" type="xs:string"/>
+<xs:attribute name="useEchoSuppression" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AVResultSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="result" type="xs:int"/>
+<xs:attribute name="result" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AVCaptionStyleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="backgroundColor" type="xs:string"/>
+<xs:element name="backgroundOpacity" type="xs:string"/>
+<xs:element name="edgeColor" type="xs:string"/>
+<xs:element name="fillColor" type="xs:string"/>
+<xs:element name="fillOpacity" type="xs:string"/>
+<xs:element name="font" type="xs:string"/>
+<xs:element name="fontColor" type="xs:string"/>
+<xs:element name="fontEdge" type="xs:string"/>
+<xs:element name="fontOpacity" type="xs:string"/>
+<xs:element name="size" type="xs:string"/>
+<xs:attribute name="backgroundColor" type="xs:string"/>
+<xs:attribute name="backgroundOpacity" type="xs:string"/>
+<xs:attribute name="edgeColor" type="xs:string"/>
+<xs:attribute name="fillColor" type="xs:string"/>
+<xs:attribute name="fillOpacity" type="xs:string"/>
+<xs:attribute name="font" type="xs:string"/>
+<xs:attribute name="fontColor" type="xs:string"/>
+<xs:attribute name="fontEdge" type="xs:string"/>
+<xs:attribute name="fontOpacity" type="xs:string"/>
+<xs:attribute name="size" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VideoStreamSettingsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="bandwidth" type="xs:int"/>
+<xs:element name="codec" type="xs:string"/>
+<xs:element name="fps" type="xs:double"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="keyFrameInterval" type="xs:int"/>
+<xs:element name="quality" type="xs:int"/>
+<xs:element name="width" type="xs:int"/>
+<xs:attribute name="bandwidth" type="xs:int"/>
+<xs:attribute name="codec" type="xs:string"/>
+<xs:attribute name="fps" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="keyFrameInterval" type="xs:int"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AVStreamSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="backBufferLength" type="xs:double"/>
+<xs:element name="backBufferTime" type="xs:double"/>
+<xs:element name="bufferLength" type="xs:double"/>
+<xs:element name="bufferTime" type="xs:double"/>
+<xs:element name="captionStyle" type="AVCaptionStyleSchemaTypeValue"/>
+<xs:element name="captionsEnabled" type="xs:boolean"/>
+<xs:element name="currentFPS" type="xs:double"/>
+<xs:element name="decoderType" type="xs:string"/>
+<xs:element name="droppedFrames" type="xs:int"/>
+<xs:element name="frameTime" type="xs:double"/>
+<xs:element name="initialBufferTime" type="xs:double"/>
+<xs:element name="playState" type="AVPlayStateSchemaTypeValue"/>
+<xs:element name="renderType" type="xs:string"/>
+<xs:element name="time" type="xs:double"/>
+<xs:element name="useHardwareDecoder" type="xs:boolean"/>
+<xs:element name="volume" type="xs:double"/>
+<xs:attribute name="backBufferLength" type="xs:double"/>
+<xs:attribute name="backBufferTime" type="xs:double"/>
+<xs:attribute name="bufferLength" type="xs:double"/>
+<xs:attribute name="bufferTime" type="xs:double"/>
+<xs:attribute name="captionStyle" type="xs:string"/>
+<xs:attribute name="captionsEnabled" type="xs:boolean"/>
+<xs:attribute name="currentFPS" type="xs:double"/>
+<xs:attribute name="decoderType" type="xs:string"/>
+<xs:attribute name="droppedFrames" type="xs:int"/>
+<xs:attribute name="frameTime" type="xs:double"/>
+<xs:attribute name="initialBufferTime" type="xs:double"/>
+<xs:attribute name="playState" type="xs:string"/>
+<xs:attribute name="renderType" type="xs:string"/>
+<xs:attribute name="time" type="xs:double"/>
+<xs:attribute name="useHardwareDecoder" type="xs:boolean"/>
+<xs:attribute name="volume" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Camera" type="CameraSchemaType"/>
+<xs:element name="StageVideo" type="StageVideoSchemaType"/>
+<xs:element name="AVSource" type="AVSourceSchemaType"/>
+<xs:element name="MicrophoneEnhancedOptions" type="MicrophoneEnhancedOptionsSchemaType"/>
+<xs:element name="SoundTransform" type="SoundTransformSchemaType"/>
+<xs:element name="AVPlayState" type="AVPlayStateSchemaType"/>
+<xs:element name="Microphone" type="MicrophoneSchemaType"/>
+<xs:element name="AVResult" type="AVResultSchemaType"/>
+<xs:element name="AVCaptionStyle" type="AVCaptionStyleSchemaType"/>
+<xs:element name="VideoStreamSettings" type="VideoStreamSettingsSchemaType"/>
+<xs:element name="AVStream" type="AVStreamSchemaType"/>
+</xs:schema>

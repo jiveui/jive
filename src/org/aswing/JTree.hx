@@ -418,7 +418,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the <code>TreeUI</code> object that renders this component
      */
     public function getTreeUI():TreeUI {
-        return AsWingUtils.as(ui,TreeUI)	;
+        return AsWingUtils.as(_ui,TreeUI)	;
     }
 
     /**

@@ -1,0 +1,80 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.tabbedpane" xmlns="org.aswing.plaf.basic.tabbedpane" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
+>
+<xs:complexType name="TabBackgroundSchemaTypeValue">
+<xs:element ref="TabBackground"/></xs:complexType>
+
+<xs:complexType name="ClosableTabSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicClosableTabbedPaneTab" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicClosableTabbedPaneTabSchemaTypeValue">
+<xs:element ref="BasicClosableTabbedPaneTab"/></xs:complexType>
+
+<xs:complexType name="TabSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicTabbedPaneTab" />
+<xs:element ref="ClosableTab" />
+<xs:element ref="org-aswing-plaf-basic-accordion:BasicAccordionHeader" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="CloseIconSchemaTypeValue">
+<xs:element ref="CloseIcon"/></xs:complexType>
+
+<xs:complexType name="BasicTabbedPaneTabSchemaTypeValue">
+<xs:element ref="BasicTabbedPaneTab"/></xs:complexType>
+
+<xs:complexType name="TabBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ClosableTabSchemaType">
+<xs:complexContent>
+<xs:extension base="TabSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicClosableTabbedPaneTabSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TabSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CloseIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTabbedPaneTabSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TabBackground" type="TabBackgroundSchemaType"/>
+<xs:element name="ClosableTab" type="ClosableTabSchemaType"/>
+<xs:element name="BasicClosableTabbedPaneTab" type="BasicClosableTabbedPaneTabSchemaType"/>
+<xs:element name="Tab" type="TabSchemaType"/>
+<xs:element name="CloseIcon" type="CloseIconSchemaType"/>
+<xs:element name="BasicTabbedPaneTab" type="BasicTabbedPaneTabSchemaType"/>
+</xs:schema>

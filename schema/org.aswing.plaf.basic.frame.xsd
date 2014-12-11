@@ -1,0 +1,16 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.frame" xmlns="org.aswing.plaf.basic.frame" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="BasicFrameTitleBarBGSchemaTypeValue">
+<xs:element ref="BasicFrameTitleBarBG"/></xs:complexType>
+
+<xs:complexType name="BasicFrameTitleBarBGSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BasicFrameTitleBarBG" type="BasicFrameTitleBarBGSchemaType"/>
+</xs:schema>

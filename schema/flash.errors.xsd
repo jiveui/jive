@@ -1,0 +1,22 @@
+<xs:schema targetNamespace="flash.errors" xmlns="flash.errors" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="ErrorSchemaTypeValue">
+<xs:element ref="Error"/></xs:complexType>
+
+<xs:complexType name="ErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="errorID" type="xs:int"/>
+<xs:element name="message" type="xs:string"/>
+<xs:element name="name" type="xs:string"/>
+<xs:attribute name="errorID" type="xs:int"/>
+<xs:attribute name="message" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Error" type="ErrorSchemaType"/>
+</xs:schema>

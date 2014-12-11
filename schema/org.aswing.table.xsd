@@ -1,0 +1,354 @@
+<xs:schema targetNamespace="org.aswing.table" xmlns="org.aswing.table" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:org-aswing-event="org.aswing.event"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="GeneralTableCellFactoryUIResourceSchemaTypeValue">
+<xs:element ref="GeneralTableCellFactoryUIResource"/></xs:complexType>
+
+<xs:complexType name="DefaultTextCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
+<xs:element ref="DefaultTextHeaderCell" />
+<xs:element ref="DefaultTextCell"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TableColumnModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTableColumnModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Resizable3SchemaTypeValue">
+<xs:choice>
+<xs:element ref="Resizable3Imp1" />
+<xs:element ref="Resizable3Imp2" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TableCellFactorySchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-table-sorter:SortableHeaderRenderer" />
+<xs:element ref="GeneralTableCellFactory" />
+<xs:element ref="GeneralTableCellFactoryUIResource" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SelectablePoorTextCellSchemaTypeValue">
+<xs:element ref="SelectablePoorTextCell"/></xs:complexType>
+
+<xs:complexType name="Resizable3Imp1SchemaTypeValue">
+<xs:element ref="Resizable3Imp1"/></xs:complexType>
+
+<xs:complexType name="DefaultTableModelSchemaTypeValue">
+<xs:element ref="DefaultTableModel"/></xs:complexType>
+
+<xs:complexType name="DefaultTextHeaderCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
+<xs:element ref="DefaultTextHeaderCell"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PoorTextCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="SelectablePoorTextCell" />
+<xs:element ref="PoorTextCell"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Resizable2SchemaTypeValue">
+<xs:choice>
+<xs:element ref="Resizable2Imp1" />
+<xs:element ref="Resizable3" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Resizable2Imp1SchemaTypeValue">
+<xs:element ref="Resizable2Imp1"/></xs:complexType>
+
+<xs:complexType name="TableCellEditorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:DefaultTextFieldCellEditor" />
+<xs:element ref="org-aswing:AbstractCellEditor" />
+<xs:element ref="org-aswing:DefaultNumberTextFieldCellEditor" />
+<xs:element ref="org-aswing:DefaultComboBoxCellEditor" />
+<xs:element ref="org-aswing:DefaultCheckBoxCellEditor" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TableColumnModelEventSchemaTypeValue">
+<xs:element ref="TableColumnModelEvent"/></xs:complexType>
+
+<xs:complexType name="TableColumnSchemaTypeValue">
+<xs:element ref="TableColumn"/></xs:complexType>
+
+<xs:complexType name="TableModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTableModel" />
+<xs:element ref="org-aswing-table-sorter:TableSorter" />
+<xs:element ref="PropertyTableModel" />
+<xs:element ref="AbstractTableModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PropertyTranslatorSchemaTypeValue">
+<xs:element ref="PropertyTranslator"/></xs:complexType>
+
+<xs:complexType name="AbstractTableCellSchemaTypeValue">
+<xs:element ref="AbstractTableCell"/></xs:complexType>
+
+<xs:complexType name="TableColumnModelListenerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:JTable" />
+<xs:element ref="JTableHeader" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GeneralTableCellFactorySchemaTypeValue">
+<xs:choice>
+<xs:element ref="GeneralTableCellFactoryUIResource" />
+<xs:element ref="GeneralTableCellFactory"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="JTableHeaderSchemaTypeValue">
+<xs:element ref="JTableHeader"/></xs:complexType>
+
+<xs:complexType name="TableCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTextCell" />
+<xs:element ref="PoorTextCell" />
+<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
+<xs:element ref="SelectablePoorTextCell" />
+<xs:element ref="AbstractTableCell" />
+<xs:element ref="DefaultTextHeaderCell" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Resizable3Imp2SchemaTypeValue">
+<xs:element ref="Resizable3Imp2"/></xs:complexType>
+
+<xs:complexType name="AbstractTableModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTableModel" />
+<xs:element ref="org-aswing-table-sorter:TableSorter" />
+<xs:element ref="PropertyTableModel" />
+<xs:element ref="AbstractTableModel"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultTableColumnModelSchemaTypeValue">
+<xs:element ref="DefaultTableColumnModel"/></xs:complexType>
+
+<xs:complexType name="PropertyTableModelSchemaTypeValue">
+<xs:element ref="PropertyTableModel"/></xs:complexType>
+
+<xs:complexType name="GeneralTableCellFactoryUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="GeneralTableCellFactorySchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTextCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JLabelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableColumnModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Resizable3SchemaType">
+<xs:complexContent>
+<xs:extension base="Resizable2SchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SelectablePoorTextCellSchemaType">
+<xs:complexContent>
+<xs:extension base="PoorTextCellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Resizable3Imp1SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTableModelSchemaType">
+<xs:complexContent>
+<xs:extension base="AbstractTableModelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTextHeaderCellSchemaType">
+<xs:complexContent>
+<xs:extension base="DefaultTextCellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PoorTextCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ComponentSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Resizable2SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Resizable2Imp1SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableCellEditorSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:CellEditorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableColumnModelEventSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-event:ModelEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableColumnSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyTranslatorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractTableCellSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableColumnModelListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GeneralTableCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JTableHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ContainerSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:CellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Resizable3Imp2SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractTableModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTableColumnModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyTableModelSchemaType">
+<xs:complexContent>
+<xs:extension base="AbstractTableModelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GeneralTableCellFactoryUIResource" type="GeneralTableCellFactoryUIResourceSchemaType"/>
+<xs:element name="DefaultTextCell" type="DefaultTextCellSchemaType"/>
+<xs:element name="TableColumnModel" type="TableColumnModelSchemaType"/>
+<xs:element name="Resizable3" type="Resizable3SchemaType"/>
+<xs:element name="TableCellFactory" type="TableCellFactorySchemaType"/>
+<xs:element name="SelectablePoorTextCell" type="SelectablePoorTextCellSchemaType"/>
+<xs:element name="Resizable3Imp1" type="Resizable3Imp1SchemaType"/>
+<xs:element name="DefaultTableModel" type="DefaultTableModelSchemaType"/>
+<xs:element name="DefaultTextHeaderCell" type="DefaultTextHeaderCellSchemaType"/>
+<xs:element name="PoorTextCell" type="PoorTextCellSchemaType"/>
+<xs:element name="Resizable2" type="Resizable2SchemaType"/>
+<xs:element name="Resizable2Imp1" type="Resizable2Imp1SchemaType"/>
+<xs:element name="TableCellEditor" type="TableCellEditorSchemaType"/>
+<xs:element name="TableColumnModelEvent" type="TableColumnModelEventSchemaType"/>
+<xs:element name="TableColumn" type="TableColumnSchemaType"/>
+<xs:element name="TableModel" type="TableModelSchemaType"/>
+<xs:element name="PropertyTranslator" type="PropertyTranslatorSchemaType"/>
+<xs:element name="AbstractTableCell" type="AbstractTableCellSchemaType"/>
+<xs:element name="TableColumnModelListener" type="TableColumnModelListenerSchemaType"/>
+<xs:element name="GeneralTableCellFactory" type="GeneralTableCellFactorySchemaType"/>
+<xs:element name="JTableHeader" type="JTableHeaderSchemaType"/>
+<xs:element name="TableCell" type="TableCellSchemaType"/>
+<xs:element name="Resizable3Imp2" type="Resizable3Imp2SchemaType"/>
+<xs:element name="AbstractTableModel" type="AbstractTableModelSchemaType"/>
+<xs:element name="DefaultTableColumnModel" type="DefaultTableColumnModelSchemaType"/>
+<xs:element name="PropertyTableModel" type="PropertyTableModelSchemaType"/>
+</xs:schema>

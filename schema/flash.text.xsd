@@ -1,0 +1,198 @@
+<xs:schema targetNamespace="flash.text" xmlns="flash.text" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:flash-display="flash.display"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="StyleSheetSchemaTypeValue">
+<xs:element ref="StyleSheet"/></xs:complexType>
+
+<xs:complexType name="TextSnapshotSchemaTypeValue">
+<xs:element ref="TextSnapshot"/></xs:complexType>
+
+<xs:complexType name="TextLineMetricsSchemaTypeValue">
+<xs:element ref="TextLineMetrics"/></xs:complexType>
+
+<xs:complexType name="TextFieldSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:AWTextField" />
+<xs:element ref="TextField"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TextFormatSchemaTypeValue">
+<xs:element ref="TextFormat"/></xs:complexType>
+
+<xs:complexType name="StyleSheetSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="styleNames" type="empty:ArraySchemaTypeValue"/>
+<xs:attribute name="styleNames" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextSnapshotSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="charCount" type="xs:int"/>
+<xs:attribute name="charCount" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextLineMetricsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="ascent" type="xs:double"/>
+<xs:element name="descent" type="xs:double"/>
+<xs:element name="height" type="xs:double"/>
+<xs:element name="leading" type="xs:double"/>
+<xs:element name="width" type="xs:double"/>
+<xs:element name="x" type="xs:double"/>
+<xs:attribute name="ascent" type="xs:double"/>
+<xs:attribute name="descent" type="xs:double"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="leading" type="xs:double"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextFieldSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-display:InteractiveObjectSchemaType">
+<xs:element name="alwaysShowSelection" type="xs:boolean"/>
+<xs:element name="antiAliasType" type="xs:string"/>
+<xs:element name="autoSize" type="xs:string"/>
+<xs:element name="background" type="xs:boolean"/>
+<xs:element name="backgroundColor" type="xs:string"/>
+<xs:element name="border" type="xs:boolean"/>
+<xs:element name="borderColor" type="xs:string"/>
+<xs:element name="bottomScrollV" type="xs:int"/>
+<xs:element name="caretIndex" type="xs:int"/>
+<xs:element name="condenseWhite" type="xs:boolean"/>
+<xs:element name="defaultTextFormat" type="TextFormatSchemaTypeValue"/>
+<xs:element name="displayAsPassword" type="xs:boolean"/>
+<xs:element name="embedFonts" type="xs:boolean"/>
+<xs:element name="gridFitType" type="xs:string"/>
+<xs:element name="htmlText" type="xs:string"/>
+<xs:element name="length" type="xs:int"/>
+<xs:element name="maxChars" type="xs:int"/>
+<xs:element name="maxScrollH" type="xs:int"/>
+<xs:element name="maxScrollV" type="xs:int"/>
+<xs:element name="mouseWheelEnabled" type="xs:boolean"/>
+<xs:element name="multiline" type="xs:boolean"/>
+<xs:element name="numLines" type="xs:int"/>
+<xs:element name="restrict" type="xs:string"/>
+<xs:element name="scrollH" type="xs:int"/>
+<xs:element name="scrollV" type="xs:int"/>
+<xs:element name="selectable" type="xs:boolean"/>
+<xs:element name="selectedText" type="xs:string"/>
+<xs:element name="selectionBeginIndex" type="xs:int"/>
+<xs:element name="selectionEndIndex" type="xs:int"/>
+<xs:element name="sharpness" type="xs:double"/>
+<xs:element name="styleSheet" type="StyleSheetSchemaTypeValue"/>
+<xs:element name="text" type="xs:string"/>
+<xs:element name="textColor" type="xs:string"/>
+<xs:element name="textHeight" type="xs:double"/>
+<xs:element name="textWidth" type="xs:double"/>
+<xs:element name="thickness" type="xs:double"/>
+<xs:element name="type" type="xs:string"/>
+<xs:element name="useRichTextClipboard" type="xs:boolean"/>
+<xs:element name="wordWrap" type="xs:boolean"/>
+<xs:attribute name="alwaysShowSelection" type="xs:boolean"/>
+<xs:attribute name="antiAliasType" type="xs:string"/>
+<xs:attribute name="autoSize" type="xs:string"/>
+<xs:attribute name="background" type="xs:boolean"/>
+<xs:attribute name="backgroundColor" type="xs:string"/>
+<xs:attribute name="border" type="xs:boolean"/>
+<xs:attribute name="borderColor" type="xs:string"/>
+<xs:attribute name="bottomScrollV" type="xs:int"/>
+<xs:attribute name="caretIndex" type="xs:int"/>
+<xs:attribute name="condenseWhite" type="xs:boolean"/>
+<xs:attribute name="defaultTextFormat" type="xs:string"/>
+<xs:attribute name="displayAsPassword" type="xs:boolean"/>
+<xs:attribute name="embedFonts" type="xs:boolean"/>
+<xs:attribute name="gridFitType" type="xs:string"/>
+<xs:attribute name="htmlText" type="xs:string"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="maxChars" type="xs:int"/>
+<xs:attribute name="maxScrollH" type="xs:int"/>
+<xs:attribute name="maxScrollV" type="xs:int"/>
+<xs:attribute name="mouseWheelEnabled" type="xs:boolean"/>
+<xs:attribute name="multiline" type="xs:boolean"/>
+<xs:attribute name="numLines" type="xs:int"/>
+<xs:attribute name="restrict" type="xs:string"/>
+<xs:attribute name="scrollH" type="xs:int"/>
+<xs:attribute name="scrollV" type="xs:int"/>
+<xs:attribute name="selectable" type="xs:boolean"/>
+<xs:attribute name="selectedText" type="xs:string"/>
+<xs:attribute name="selectionBeginIndex" type="xs:int"/>
+<xs:attribute name="selectionEndIndex" type="xs:int"/>
+<xs:attribute name="sharpness" type="xs:double"/>
+<xs:attribute name="styleSheet" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="textColor" type="xs:string"/>
+<xs:attribute name="textHeight" type="xs:double"/>
+<xs:attribute name="textWidth" type="xs:double"/>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="useRichTextClipboard" type="xs:boolean"/>
+<xs:attribute name="wordWrap" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextFormatSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="align" type="xs:string"/>
+<xs:element name="blockIndent" type="xs:string"/>
+<xs:element name="bold" type="xs:string"/>
+<xs:element name="bullet" type="xs:string"/>
+<xs:element name="color" type="xs:string"/>
+<xs:element name="display" type="xs:string"/>
+<xs:element name="font" type="xs:string"/>
+<xs:element name="indent" type="xs:string"/>
+<xs:element name="italic" type="xs:string"/>
+<xs:element name="kerning" type="xs:string"/>
+<xs:element name="leading" type="xs:string"/>
+<xs:element name="leftMargin" type="xs:string"/>
+<xs:element name="letterSpacing" type="xs:string"/>
+<xs:element name="rightMargin" type="xs:string"/>
+<xs:element name="size" type="xs:string"/>
+<xs:element name="tabStops" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="target" type="xs:string"/>
+<xs:element name="underline" type="xs:string"/>
+<xs:element name="url" type="xs:string"/>
+<xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="blockIndent" type="xs:string"/>
+<xs:attribute name="bold" type="xs:string"/>
+<xs:attribute name="bullet" type="xs:string"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="display" type="xs:string"/>
+<xs:attribute name="font" type="xs:string"/>
+<xs:attribute name="indent" type="xs:string"/>
+<xs:attribute name="italic" type="xs:string"/>
+<xs:attribute name="kerning" type="xs:string"/>
+<xs:attribute name="leading" type="xs:string"/>
+<xs:attribute name="leftMargin" type="xs:string"/>
+<xs:attribute name="letterSpacing" type="xs:string"/>
+<xs:attribute name="rightMargin" type="xs:string"/>
+<xs:attribute name="size" type="xs:string"/>
+<xs:attribute name="tabStops" type="xs:string"/>
+<xs:attribute name="target" type="xs:string"/>
+<xs:attribute name="underline" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="StyleSheet" type="StyleSheetSchemaType"/>
+<xs:element name="TextSnapshot" type="TextSnapshotSchemaType"/>
+<xs:element name="TextLineMetrics" type="TextLineMetricsSchemaType"/>
+<xs:element name="TextField" type="TextFieldSchemaType"/>
+<xs:element name="TextFormat" type="TextFormatSchemaType"/>
+</xs:schema>

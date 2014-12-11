@@ -19,10 +19,18 @@
 		<echo level="info">Executing haXe for "${dir}/${hxml}" with flags ${haxe.compiler.flags}</echo>
 		<exec dir="${dir}" executable="haxe" failonerror="true">
 			<arg line="${hxml} ${haxe.compiler.flags}"/>
-<!--
-			<env key="HAXEPATH" file="${haxe.home}"/>
-			<env key="NEKO_INSTPATH" file="${neko.home}"/>
--->
+		</exec>
+	</target>
+
+	<target name="neko">
+		<condition property="dir" value=".">
+			<not>
+				<isset property="dir"/>
+			</not>
+		</condition>
+		<echo level="info">Executing Neko for "${dir}/${file}" with flags ${neko.options}</echo>
+		<exec dir="${dir}" executable="neko" failonerror="true">
+			<arg line="${file} ${neko.options}"/>
 		</exec>
 	</target>
 

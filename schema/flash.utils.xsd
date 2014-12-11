@@ -1,0 +1,147 @@
+<xs:schema targetNamespace="flash.utils" xmlns="flash.utils" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:haxe-ds="haxe.ds"
+>
+<xs:complexType name="IDataOutputSchemaTypeValue">
+<xs:choice>
+<xs:element ref="IDataOutput2" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="NamespaceSchemaTypeValue">
+<xs:element ref="Namespace"/></xs:complexType>
+
+<xs:complexType name="RegExpSchemaTypeValue">
+<xs:element ref="RegExp"/></xs:complexType>
+
+<xs:complexType name="IDataOutput2SchemaTypeValue">
+<xs:choice>
+<xs:element ref="ByteArray" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IDataInput2SchemaTypeValue">
+<xs:choice>
+<xs:element ref="ByteArray" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ByteArraySchemaTypeValue">
+<xs:element ref="ByteArray"/></xs:complexType>
+
+<xs:complexType name="DictionarySchemaTypeValue">
+<xs:choice>
+<xs:element ref="haxe-ds:ObjectMap" />
+<xs:element ref="Dictionary"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IDataInputSchemaTypeValue">
+<xs:choice>
+<xs:element ref="IDataInput2" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IDataOutputSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="endian" type="xs:string"/>
+<xs:element name="objectEncoding" type="xs:string"/>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NamespaceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="prefix" type="xs:string"/>
+<xs:element name="uri" type="xs:string"/>
+<xs:attribute name="prefix" type="xs:string"/>
+<xs:attribute name="uri" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegExpSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="dotall" type="xs:boolean"/>
+<xs:element name="extended" type="xs:boolean"/>
+<xs:element name="global" type="xs:boolean"/>
+<xs:element name="ignoreCase" type="xs:boolean"/>
+<xs:element name="lastIndex" type="xs:int"/>
+<xs:element name="multiline" type="xs:boolean"/>
+<xs:element name="source" type="xs:string"/>
+<xs:attribute name="dotall" type="xs:boolean"/>
+<xs:attribute name="extended" type="xs:boolean"/>
+<xs:attribute name="global" type="xs:boolean"/>
+<xs:attribute name="ignoreCase" type="xs:boolean"/>
+<xs:attribute name="lastIndex" type="xs:int"/>
+<xs:attribute name="multiline" type="xs:boolean"/>
+<xs:attribute name="source" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IDataOutput2SchemaType">
+<xs:complexContent>
+<xs:extension base="IDataOutputSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IDataInput2SchemaType">
+<xs:complexContent>
+<xs:extension base="IDataInputSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ByteArraySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="bytesAvailable" type="xs:string"/>
+<xs:element name="endian" type="xs:string"/>
+<xs:element name="length" type="xs:string"/>
+<xs:element name="objectEncoding" type="xs:string"/>
+<xs:element name="position" type="xs:string"/>
+<xs:attribute name="bytesAvailable" type="xs:string"/>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="length" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
+<xs:attribute name="position" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DictionarySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IDataInputSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="bytesAvailable" type="xs:string"/>
+<xs:element name="endian" type="xs:string"/>
+<xs:element name="objectEncoding" type="xs:string"/>
+<xs:attribute name="bytesAvailable" type="xs:string"/>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IDataOutput" type="IDataOutputSchemaType"/>
+<xs:element name="Namespace" type="NamespaceSchemaType"/>
+<xs:element name="RegExp" type="RegExpSchemaType"/>
+<xs:element name="IDataOutput2" type="IDataOutput2SchemaType"/>
+<xs:element name="IDataInput2" type="IDataInput2SchemaType"/>
+<xs:element name="ByteArray" type="ByteArraySchemaType"/>
+<xs:element name="Dictionary" type="DictionarySchemaType"/>
+<xs:element name="IDataInput" type="IDataInputSchemaType"/>
+</xs:schema>

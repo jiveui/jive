@@ -55,11 +55,11 @@ class PoorTextCell extends Component  implements TableCell{
 		
 	override public function setComBounds(b:IntRectangle):Void{
 		readyToPaint = true;
-		if(!b.equals(bounds)){
-			if(b.width != bounds.width || b.height != bounds.height){
+		if(!b.equals(_bounds)){
+			if(b.width != _bounds.width || b.height != _bounds.height){
 				repaint();
 			}
-			bounds.setRect(b);
+			_bounds.setRect(b);
 			locate();
 			valid = false;
 		}

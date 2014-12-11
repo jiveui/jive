@@ -1,0 +1,275 @@
+<xs:schema targetNamespace="flash.net" xmlns="flash.net" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+xmlns:flash-media="flash.media"
+>
+<xs:complexType name="URLRequestHeaderSchemaTypeValue">
+<xs:element ref="URLRequestHeader"/></xs:complexType>
+
+<xs:complexType name="NetStreamPlayOptionsSchemaTypeValue">
+<xs:element ref="NetStreamPlayOptions"/></xs:complexType>
+
+<xs:complexType name="NetStreamSchemaTypeValue">
+<xs:element ref="NetStream"/></xs:complexType>
+
+<xs:complexType name="URLRequestSchemaTypeValue">
+<xs:element ref="URLRequest"/></xs:complexType>
+
+<xs:complexType name="NetConnectionSchemaTypeValue">
+<xs:element ref="NetConnection"/></xs:complexType>
+
+<xs:complexType name="NetStreamInfoSchemaTypeValue">
+<xs:element ref="NetStreamInfo"/></xs:complexType>
+
+<xs:complexType name="ResponderSchemaTypeValue">
+<xs:element ref="Responder"/></xs:complexType>
+
+<xs:complexType name="NetStreamMulticastInfoSchemaTypeValue">
+<xs:element ref="NetStreamMulticastInfo"/></xs:complexType>
+
+<xs:complexType name="URLRequestHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="name" type="xs:string"/>
+<xs:element name="value" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamPlayOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="len" type="xs:double"/>
+<xs:element name="oldStreamName" type="xs:string"/>
+<xs:element name="start" type="xs:double"/>
+<xs:element name="streamName" type="xs:string"/>
+<xs:element name="transition" type="xs:string"/>
+<xs:attribute name="len" type="xs:double"/>
+<xs:attribute name="oldStreamName" type="xs:string"/>
+<xs:attribute name="start" type="xs:double"/>
+<xs:attribute name="streamName" type="xs:string"/>
+<xs:attribute name="transition" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="audioCodec" type="xs:string"/>
+<xs:element name="bufferLength" type="xs:double"/>
+<xs:element name="bufferTime" type="xs:double"/>
+<xs:element name="bytesLoaded" type="xs:string"/>
+<xs:element name="bytesTotal" type="xs:string"/>
+<xs:element name="checkPolicyFile" type="xs:boolean"/>
+<xs:element name="client" type="xs:string"/>
+<xs:element name="currentFPS" type="xs:double"/>
+<xs:element name="decodedFrames" type="xs:string"/>
+<xs:element name="farID" type="xs:string"/>
+<xs:element name="farNonce" type="xs:string"/>
+<xs:element name="info" type="NetStreamInfoSchemaTypeValue"/>
+<xs:element name="liveDelay" type="xs:double"/>
+<xs:element name="maxPauseBufferTime" type="xs:double"/>
+<xs:element name="nearNonce" type="xs:string"/>
+<xs:element name="objectEncoding" type="xs:string"/>
+<xs:element name="peerStreams" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
+<xs:element name="time" type="xs:double"/>
+<xs:element name="videoCodec" type="xs:string"/>
+<xs:attribute name="audioCodec" type="xs:string"/>
+<xs:attribute name="bufferLength" type="xs:double"/>
+<xs:attribute name="bufferTime" type="xs:double"/>
+<xs:attribute name="bytesLoaded" type="xs:string"/>
+<xs:attribute name="bytesTotal" type="xs:string"/>
+<xs:attribute name="checkPolicyFile" type="xs:boolean"/>
+<xs:attribute name="client" type="xs:string"/>
+<xs:attribute name="currentFPS" type="xs:double"/>
+<xs:attribute name="decodedFrames" type="xs:string"/>
+<xs:attribute name="farID" type="xs:string"/>
+<xs:attribute name="farNonce" type="xs:string"/>
+<xs:attribute name="info" type="xs:string"/>
+<xs:attribute name="liveDelay" type="xs:double"/>
+<xs:attribute name="maxPauseBufferTime" type="xs:double"/>
+<xs:attribute name="nearNonce" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
+<xs:attribute name="peerStreams" type="xs:string"/>
+<xs:attribute name="soundTransform" type="xs:string"/>
+<xs:attribute name="time" type="xs:double"/>
+<xs:attribute name="videoCodec" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="URLRequestSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="contentType" type="xs:string"/>
+<xs:element name="data" type="xs:string"/>
+<xs:element name="digest" type="xs:string"/>
+<xs:element name="method" type="xs:string"/>
+<xs:element name="requestHeaders" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="url" type="xs:string"/>
+<xs:attribute name="contentType" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="digest" type="xs:string"/>
+<xs:attribute name="method" type="xs:string"/>
+<xs:attribute name="requestHeaders" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetConnectionSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:element name="client" type="xs:string"/>
+<xs:element name="connected" type="xs:boolean"/>
+<xs:element name="connectedProxyType" type="xs:string"/>
+<xs:element name="farID" type="xs:string"/>
+<xs:element name="farNonce" type="xs:string"/>
+<xs:element name="maxPeerConnections" type="xs:string"/>
+<xs:element name="nearID" type="xs:string"/>
+<xs:element name="nearNonce" type="xs:string"/>
+<xs:element name="objectEncoding" type="xs:string"/>
+<xs:element name="protocol" type="xs:string"/>
+<xs:element name="proxyType" type="xs:string"/>
+<xs:element name="unconnectedPeerStreams" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="uri" type="xs:string"/>
+<xs:element name="usingTLS" type="xs:boolean"/>
+<xs:attribute name="client" type="xs:string"/>
+<xs:attribute name="connected" type="xs:boolean"/>
+<xs:attribute name="connectedProxyType" type="xs:string"/>
+<xs:attribute name="farID" type="xs:string"/>
+<xs:attribute name="farNonce" type="xs:string"/>
+<xs:attribute name="maxPeerConnections" type="xs:string"/>
+<xs:attribute name="nearID" type="xs:string"/>
+<xs:attribute name="nearNonce" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
+<xs:attribute name="protocol" type="xs:string"/>
+<xs:attribute name="proxyType" type="xs:string"/>
+<xs:attribute name="unconnectedPeerStreams" type="xs:string"/>
+<xs:attribute name="uri" type="xs:string"/>
+<xs:attribute name="usingTLS" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="SRTT" type="xs:double"/>
+<xs:element name="audioBufferByteLength" type="xs:double"/>
+<xs:element name="audioBufferLength" type="xs:double"/>
+<xs:element name="audioByteCount" type="xs:double"/>
+<xs:element name="audioBytesPerSecond" type="xs:double"/>
+<xs:element name="audioLossRate" type="xs:double"/>
+<xs:element name="byteCount" type="xs:double"/>
+<xs:element name="currentBytesPerSecond" type="xs:double"/>
+<xs:element name="dataBufferByteLength" type="xs:double"/>
+<xs:element name="dataBufferLength" type="xs:double"/>
+<xs:element name="dataByteCount" type="xs:double"/>
+<xs:element name="dataBytesPerSecond" type="xs:double"/>
+<xs:element name="droppedFrames" type="xs:double"/>
+<xs:element name="isLive" type="xs:boolean"/>
+<xs:element name="maxBytesPerSecond" type="xs:double"/>
+<xs:element name="metaData" type="xs:string"/>
+<xs:element name="playbackBytesPerSecond" type="xs:double"/>
+<xs:element name="resourceName" type="xs:string"/>
+<xs:element name="uri" type="xs:string"/>
+<xs:element name="videoBufferByteLength" type="xs:double"/>
+<xs:element name="videoBufferLength" type="xs:double"/>
+<xs:element name="videoByteCount" type="xs:double"/>
+<xs:element name="videoBytesPerSecond" type="xs:double"/>
+<xs:element name="xmpData" type="xs:string"/>
+<xs:attribute name="SRTT" type="xs:double"/>
+<xs:attribute name="audioBufferByteLength" type="xs:double"/>
+<xs:attribute name="audioBufferLength" type="xs:double"/>
+<xs:attribute name="audioByteCount" type="xs:double"/>
+<xs:attribute name="audioBytesPerSecond" type="xs:double"/>
+<xs:attribute name="audioLossRate" type="xs:double"/>
+<xs:attribute name="byteCount" type="xs:double"/>
+<xs:attribute name="currentBytesPerSecond" type="xs:double"/>
+<xs:attribute name="dataBufferByteLength" type="xs:double"/>
+<xs:attribute name="dataBufferLength" type="xs:double"/>
+<xs:attribute name="dataByteCount" type="xs:double"/>
+<xs:attribute name="dataBytesPerSecond" type="xs:double"/>
+<xs:attribute name="droppedFrames" type="xs:double"/>
+<xs:attribute name="isLive" type="xs:boolean"/>
+<xs:attribute name="maxBytesPerSecond" type="xs:double"/>
+<xs:attribute name="metaData" type="xs:string"/>
+<xs:attribute name="playbackBytesPerSecond" type="xs:double"/>
+<xs:attribute name="resourceName" type="xs:string"/>
+<xs:attribute name="uri" type="xs:string"/>
+<xs:attribute name="videoBufferByteLength" type="xs:double"/>
+<xs:attribute name="videoBufferLength" type="xs:double"/>
+<xs:attribute name="videoByteCount" type="xs:double"/>
+<xs:attribute name="videoBytesPerSecond" type="xs:double"/>
+<xs:attribute name="xmpData" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResponderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamMulticastInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="bytesPushedFromPeers" type="xs:double"/>
+<xs:element name="bytesPushedToPeers" type="xs:double"/>
+<xs:element name="bytesReceivedFromIPMulticast" type="xs:double"/>
+<xs:element name="bytesReceivedFromServer" type="xs:double"/>
+<xs:element name="bytesRequestedByPeers" type="xs:double"/>
+<xs:element name="bytesRequestedFromPeers" type="xs:double"/>
+<xs:element name="fragmentsPushedFromPeers" type="xs:double"/>
+<xs:element name="fragmentsPushedToPeers" type="xs:double"/>
+<xs:element name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
+<xs:element name="fragmentsReceivedFromServer" type="xs:double"/>
+<xs:element name="fragmentsRequestedByPeers" type="xs:double"/>
+<xs:element name="fragmentsRequestedFromPeers" type="xs:double"/>
+<xs:element name="receiveControlBytesPerSecond" type="xs:double"/>
+<xs:element name="receiveDataBytesPerSecond" type="xs:double"/>
+<xs:element name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
+<xs:element name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
+<xs:element name="sendControlBytesPerSecond" type="xs:double"/>
+<xs:element name="sendControlBytesPerSecondToServer" type="xs:double"/>
+<xs:element name="sendDataBytesPerSecond" type="xs:double"/>
+<xs:attribute name="bytesPushedFromPeers" type="xs:double"/>
+<xs:attribute name="bytesPushedToPeers" type="xs:double"/>
+<xs:attribute name="bytesReceivedFromIPMulticast" type="xs:double"/>
+<xs:attribute name="bytesReceivedFromServer" type="xs:double"/>
+<xs:attribute name="bytesRequestedByPeers" type="xs:double"/>
+<xs:attribute name="bytesRequestedFromPeers" type="xs:double"/>
+<xs:attribute name="fragmentsPushedFromPeers" type="xs:double"/>
+<xs:attribute name="fragmentsPushedToPeers" type="xs:double"/>
+<xs:attribute name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
+<xs:attribute name="fragmentsReceivedFromServer" type="xs:double"/>
+<xs:attribute name="fragmentsRequestedByPeers" type="xs:double"/>
+<xs:attribute name="fragmentsRequestedFromPeers" type="xs:double"/>
+<xs:attribute name="receiveControlBytesPerSecond" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecond" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
+<xs:attribute name="sendControlBytesPerSecond" type="xs:double"/>
+<xs:attribute name="sendControlBytesPerSecondToServer" type="xs:double"/>
+<xs:attribute name="sendDataBytesPerSecond" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="URLRequestHeader" type="URLRequestHeaderSchemaType"/>
+<xs:element name="NetStreamPlayOptions" type="NetStreamPlayOptionsSchemaType"/>
+<xs:element name="NetStream" type="NetStreamSchemaType"/>
+<xs:element name="URLRequest" type="URLRequestSchemaType"/>
+<xs:element name="NetConnection" type="NetConnectionSchemaType"/>
+<xs:element name="NetStreamInfo" type="NetStreamInfoSchemaType"/>
+<xs:element name="Responder" type="ResponderSchemaType"/>
+<xs:element name="NetStreamMulticastInfo" type="NetStreamMulticastInfoSchemaType"/>
+</xs:schema>

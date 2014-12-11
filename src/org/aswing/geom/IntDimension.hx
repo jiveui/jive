@@ -129,12 +129,20 @@ class IntDimension{
 	
 	/**
 	 * Create a big dimension for component.
-	 * @return a IntDimension(100000, 100000)
+	 * @return a `IntDimension(100000, 100000)`
 	 */
 	public static function createBigDimension():IntDimension{
 		return new IntDimension(100000, 100000);
 	}
-	
+
+	/**
+	 * Create a null dimension for component.
+	 * @return a `IntDimension(-1, 11)`
+	 */
+	public static function createNullDimension():IntDimension{
+		return new IntDimension(-1, -1);
+	}
+
 	public function toString():String{
 		return "IntDimension["+width+","+height+"]";
 	}

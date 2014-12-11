@@ -1,0 +1,16 @@
+<xs:schema targetNamespace="flash.external" xmlns="flash.external" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="ExternalInterfaceSchemaTypeValue">
+<xs:element ref="ExternalInterface"/></xs:complexType>
+
+<xs:complexType name="ExternalInterfaceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ExternalInterface" type="ExternalInterfaceSchemaType"/>
+</xs:schema>

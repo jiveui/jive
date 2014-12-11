@@ -404,6 +404,6 @@ class AWSprite extends Sprite
 	}
 	
 	 
- 
-		public var d_numChildren (get, null):Int;
+    @:dox(hide)
+	public var d_numChildren (get, null):Int;
 }

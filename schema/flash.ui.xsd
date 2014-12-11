@@ -1,0 +1,106 @@
+<xs:schema targetNamespace="flash.ui" xmlns="flash.ui" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash-geom="flash.geom"
+xmlns:flash-display="flash.display"
+xmlns:flash-net="flash.net"
+xmlns:flash="flash"
+xmlns:empty="empty"
+>
+<xs:complexType name="ContextMenuBuiltInItemsSchemaTypeValue">
+<xs:element ref="ContextMenuBuiltInItems"/></xs:complexType>
+
+<xs:complexType name="ContextMenuSchemaTypeValue">
+<xs:element ref="ContextMenu"/></xs:complexType>
+
+<xs:complexType name="ContextMenuClipboardItemsSchemaTypeValue">
+<xs:element ref="ContextMenuClipboardItems"/></xs:complexType>
+
+<xs:complexType name="MouseCursorDataSchemaTypeValue">
+<xs:element ref="MouseCursorData"/></xs:complexType>
+
+<xs:complexType name="MouseSchemaTypeValue">
+<xs:element ref="Mouse"/></xs:complexType>
+
+<xs:complexType name="ContextMenuBuiltInItemsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="forwardAndBack" type="xs:boolean"/>
+<xs:element name="loop" type="xs:boolean"/>
+<xs:element name="play" type="xs:boolean"/>
+<xs:element name="print" type="xs:boolean"/>
+<xs:element name="quality" type="xs:boolean"/>
+<xs:element name="rewind" type="xs:boolean"/>
+<xs:element name="save" type="xs:boolean"/>
+<xs:element name="zoom" type="xs:boolean"/>
+<xs:attribute name="forwardAndBack" type="xs:boolean"/>
+<xs:attribute name="loop" type="xs:boolean"/>
+<xs:attribute name="play" type="xs:boolean"/>
+<xs:attribute name="print" type="xs:boolean"/>
+<xs:attribute name="quality" type="xs:boolean"/>
+<xs:attribute name="rewind" type="xs:boolean"/>
+<xs:attribute name="save" type="xs:boolean"/>
+<xs:attribute name="zoom" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ContextMenuSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-display:NativeMenuSchemaType">
+<xs:element name="builtInItems" type="ContextMenuBuiltInItemsSchemaTypeValue"/>
+<xs:element name="clipboardItems" type="ContextMenuClipboardItemsSchemaTypeValue"/>
+<xs:element name="clipboardMenu" type="xs:boolean"/>
+<xs:element name="customItems" type="empty:ArraySchemaTypeValue"/>
+<xs:element name="link" type="flash-net:URLRequestSchemaTypeValue"/>
+<xs:attribute name="builtInItems" type="xs:string"/>
+<xs:attribute name="clipboardItems" type="xs:string"/>
+<xs:attribute name="clipboardMenu" type="xs:boolean"/>
+<xs:attribute name="customItems" type="xs:string"/>
+<xs:attribute name="link" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ContextMenuClipboardItemsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="clear" type="xs:boolean"/>
+<xs:element name="copy" type="xs:boolean"/>
+<xs:element name="cut" type="xs:boolean"/>
+<xs:element name="paste" type="xs:boolean"/>
+<xs:element name="selectAll" type="xs:boolean"/>
+<xs:attribute name="clear" type="xs:boolean"/>
+<xs:attribute name="copy" type="xs:boolean"/>
+<xs:attribute name="cut" type="xs:boolean"/>
+<xs:attribute name="paste" type="xs:boolean"/>
+<xs:attribute name="selectAll" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseCursorDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="data" type="flash:VectorSchemaTypeValue"/>
+<xs:element name="frameRate" type="xs:double"/>
+<xs:element name="hotSpot" type="flash-geom:PointSchemaTypeValue"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="hotSpot" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ContextMenuBuiltInItems" type="ContextMenuBuiltInItemsSchemaType"/>
+<xs:element name="ContextMenu" type="ContextMenuSchemaType"/>
+<xs:element name="ContextMenuClipboardItems" type="ContextMenuClipboardItemsSchemaType"/>
+<xs:element name="MouseCursorData" type="MouseCursorDataSchemaType"/>
+<xs:element name="Mouse" type="MouseSchemaType"/>
+</xs:schema>

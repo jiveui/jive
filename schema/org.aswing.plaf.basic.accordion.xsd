@@ -1,0 +1,16 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.accordion" xmlns="org.aswing.plaf.basic.accordion" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:complexType name="BasicAccordionHeaderSchemaTypeValue">
+<xs:element ref="BasicAccordionHeader"/></xs:complexType>
+
+<xs:complexType name="BasicAccordionHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BasicAccordionHeader" type="BasicAccordionHeaderSchemaType"/>
+</xs:schema>

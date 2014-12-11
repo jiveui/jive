@@ -20,7 +20,8 @@ class SolidBackground implements GroundDecorator{
 	private var color:ASColor;
 	private var shape:Shape;
 	
-	public function new(color:ASColor){
+	public function new(color:ASColor = null){
+		if (null == color) color = ASColor.WHITE;
 		this.color = color;
 		shape = new Shape();
 	}

@@ -12,7 +12,7 @@
         <JLabel text="'Название'" />
         <JTextField id="title" columns="{Binding columns}" />
 
-        <JLabel text="'Дата'" />
+        <JLabel text="'Дата'"/>
         <JTextField id="dateText" columns="10"/>
         <JButton text="{Binding notes}" mouseDown="datePopup.show()"/>
 

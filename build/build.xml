@@ -9,6 +9,7 @@
         <antcall target="test"/>
         <antcall target="build.demos"/>
         <antcall target="gen.docs"/>
+        <antcall target="build.schema"/>
     </target>
 
     <target name="build.demos">
@@ -20,6 +21,12 @@
             <param name="dir" value="${project.root.path}/demos/calendar"/>
             <param name="hxml" value="build.hxml"/>
         </antcall>
+    </target>
+
+    <target name="build.schema" depends="gen.docs">
+        <exec dir="${project.root.path}" executable="haxelib" failonerror="true">
+            <arg line="run hml-xsd-gen -xml ${docs.path}/jive.xml -xsd ${project.root.path}/schema"/>
+        </exec>
     </target>
 
     <target name="test">

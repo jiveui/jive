@@ -1,0 +1,80 @@
+<xs:schema targetNamespace="org.aswing.table.sorter" xmlns="org.aswing.table.sorter" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:org-aswing-table="org.aswing.table"
+>
+<xs:complexType name="RowSchemaTypeValue">
+<xs:element ref="Row"/></xs:complexType>
+
+<xs:complexType name="ArrowSchemaTypeValue">
+<xs:element ref="Arrow"/></xs:complexType>
+
+<xs:complexType name="DirectiveSchemaTypeValue">
+<xs:element ref="Directive"/></xs:complexType>
+
+<xs:complexType name="SortableTextHeaderCellSchemaTypeValue">
+<xs:element ref="SortableTextHeaderCell"/></xs:complexType>
+
+<xs:complexType name="TableSorterSchemaTypeValue">
+<xs:element ref="TableSorter"/></xs:complexType>
+
+<xs:complexType name="SortableHeaderRendererSchemaTypeValue">
+<xs:element ref="SortableHeaderRenderer"/></xs:complexType>
+
+<xs:complexType name="RowSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="modelIndex" type="xs:int"/>
+<xs:element name="tableSorter" type="TableSorterSchemaTypeValue"/>
+<xs:attribute name="modelIndex" type="xs:int"/>
+<xs:attribute name="tableSorter" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrowSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DirectiveSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="column" type="xs:int"/>
+<xs:element name="direction" type="xs:double"/>
+<xs:attribute name="column" type="xs:int"/>
+<xs:attribute name="direction" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SortableTextHeaderCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-table:DefaultTextHeaderCellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableSorterSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-table:AbstractTableModelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SortableHeaderRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Row" type="RowSchemaType"/>
+<xs:element name="Arrow" type="ArrowSchemaType"/>
+<xs:element name="Directive" type="DirectiveSchemaType"/>
+<xs:element name="SortableTextHeaderCell" type="SortableTextHeaderCellSchemaType"/>
+<xs:element name="TableSorter" type="TableSorterSchemaType"/>
+<xs:element name="SortableHeaderRenderer" type="SortableHeaderRendererSchemaType"/>
+</xs:schema>

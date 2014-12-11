@@ -1,0 +1,427 @@
+<xs:schema targetNamespace="org.aswing.event" xmlns="org.aswing.event" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-error="org.aswing.error"
+xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:org-aswing-ext="org.aswing.ext"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:flash-events="flash.events"
+xmlns:org-aswing-table="org.aswing.table"
+>
+<xs:complexType name="MovedEventSchemaTypeValue">
+<xs:element ref="MovedEvent"/></xs:complexType>
+
+<xs:complexType name="InteractiveEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FrameEvent" />
+<xs:element ref="TreeSelectionEvent" />
+<xs:element ref="SelectionEvent" />
+<xs:element ref="ScrollPaneEvent" />
+<xs:element ref="WindowEvent" />
+<xs:element ref="InteractiveEvent"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeEventSchemaTypeValue">
+<xs:element ref="TreeEvent"/></xs:complexType>
+
+<xs:complexType name="TreeModelEventSchemaTypeValue">
+<xs:element ref="TreeModelEvent"/></xs:complexType>
+
+<xs:complexType name="PopupEventSchemaTypeValue">
+<xs:element ref="PopupEvent"/></xs:complexType>
+
+<xs:complexType name="TableModelEventSchemaTypeValue">
+<xs:element ref="TableModelEvent"/></xs:complexType>
+
+<xs:complexType name="DragAndDropEventSchemaTypeValue">
+<xs:element ref="DragAndDropEvent"/></xs:complexType>
+
+<xs:complexType name="CellEditorListenerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:JTree" />
+<xs:element ref="org-aswing:JTable" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ReleaseEventSchemaTypeValue">
+<xs:element ref="ReleaseEvent"/></xs:complexType>
+
+<xs:complexType name="ScrollPaneEventSchemaTypeValue">
+<xs:element ref="ScrollPaneEvent"/></xs:complexType>
+
+<xs:complexType name="TabCloseEventSchemaTypeValue">
+<xs:element ref="TabCloseEvent"/></xs:complexType>
+
+<xs:complexType name="ClickCountEventSchemaTypeValue">
+<xs:element ref="ClickCountEvent"/></xs:complexType>
+
+<xs:complexType name="ModelEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-table:TableColumnModelEvent" />
+<xs:element ref="TableModelEvent" />
+<xs:element ref="TreeModelEvent" />
+<xs:element ref="ListDataEvent" />
+<xs:element ref="ModelEvent"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="WindowEventSchemaTypeValue">
+<xs:element ref="WindowEvent"/></xs:complexType>
+
+<xs:complexType name="ExpandVetoExceptionSchemaTypeValue">
+<xs:element ref="ExpandVetoException"/></xs:complexType>
+
+<xs:complexType name="ToolTipEventSchemaTypeValue">
+<xs:element ref="ToolTipEvent"/></xs:complexType>
+
+<xs:complexType name="AttachEventSchemaTypeValue">
+<xs:element ref="AttachEvent"/></xs:complexType>
+
+<xs:complexType name="TableCellEditEventSchemaTypeValue">
+<xs:element ref="TableCellEditEvent"/></xs:complexType>
+
+<xs:complexType name="TreeSelectionEventSchemaTypeValue">
+<xs:element ref="TreeSelectionEvent"/></xs:complexType>
+
+<xs:complexType name="FocusKeyEventSchemaTypeValue">
+<xs:element ref="FocusKeyEvent"/></xs:complexType>
+
+<xs:complexType name="TreeModelListenerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:JTree" />
+<xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ColorChooserEventSchemaTypeValue">
+<xs:element ref="ColorChooserEvent"/></xs:complexType>
+
+<xs:complexType name="SelectionEventSchemaTypeValue">
+<xs:element ref="SelectionEvent"/></xs:complexType>
+
+<xs:complexType name="ResizedEventSchemaTypeValue">
+<xs:element ref="ResizedEvent"/></xs:complexType>
+
+<xs:complexType name="ListDataListenerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-ext:GridList" />
+<xs:element ref="org-aswing:JList" />
+<xs:element ref="org-aswing-table:PropertyTableModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ContainerEventSchemaTypeValue">
+<xs:element ref="ContainerEvent"/></xs:complexType>
+
+<xs:complexType name="AWEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="PopupEvent" />
+<xs:element ref="TabCloseEvent" />
+<xs:element ref="DragAndDropEvent" />
+<xs:element ref="ClickCountEvent" />
+<xs:element ref="AttachEvent" />
+<xs:element ref="TreeEvent" />
+<xs:element ref="SelectionEvent" />
+<xs:element ref="TreeCellEditEvent" />
+<xs:element ref="WindowEvent" />
+<xs:element ref="TableCellEditEvent" />
+<xs:element ref="ContainerEvent" />
+<xs:element ref="FrameEvent" />
+<xs:element ref="ColorChooserEvent" />
+<xs:element ref="ResizedEvent" />
+<xs:element ref="ToolTipEvent" />
+<xs:element ref="InteractiveEvent" />
+<xs:element ref="TreeSelectionEvent" />
+<xs:element ref="PropertyChangeEvent" />
+<xs:element ref="MovedEvent" />
+<xs:element ref="ScrollPaneEvent" />
+<xs:element ref="AWEvent"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ListItemEventSchemaTypeValue">
+<xs:element ref="ListItemEvent"/></xs:complexType>
+
+<xs:complexType name="TreeCellEditEventSchemaTypeValue">
+<xs:element ref="TreeCellEditEvent"/></xs:complexType>
+
+<xs:complexType name="FrameEventSchemaTypeValue">
+<xs:element ref="FrameEvent"/></xs:complexType>
+
+<xs:complexType name="ListDataEventSchemaTypeValue">
+<xs:element ref="ListDataEvent"/></xs:complexType>
+
+<xs:complexType name="PropertyChangeEventSchemaTypeValue">
+<xs:element ref="PropertyChangeEvent"/></xs:complexType>
+
+<xs:complexType name="TableModelListenerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-table-sorter:TableSorter" />
+<xs:element ref="org-aswing:JTable" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MovedEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InteractiveEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeModelEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ModelEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PopupEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableModelEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ModelEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DragAndDropEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CellEditorListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ReleaseEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:MouseEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ScrollPaneEventSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TabCloseEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ClickCountEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ModelEventSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WindowEventSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpandVetoExceptionSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-error:ErrorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ToolTipEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AttachEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableCellEditEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeSelectionEventSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FocusKeyEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:KeyboardEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeModelListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorChooserEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SelectionEventSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResizedEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListDataListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ContainerEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AWEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListItemEventSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:MouseEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeCellEditEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameEventSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListDataEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ModelEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PropertyChangeEventSchemaType">
+<xs:complexContent>
+<xs:extension base="AWEventSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableModelListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="MovedEvent" type="MovedEventSchemaType"/>
+<xs:element name="InteractiveEvent" type="InteractiveEventSchemaType"/>
+<xs:element name="TreeEvent" type="TreeEventSchemaType"/>
+<xs:element name="TreeModelEvent" type="TreeModelEventSchemaType"/>
+<xs:element name="PopupEvent" type="PopupEventSchemaType"/>
+<xs:element name="TableModelEvent" type="TableModelEventSchemaType"/>
+<xs:element name="DragAndDropEvent" type="DragAndDropEventSchemaType"/>
+<xs:element name="CellEditorListener" type="CellEditorListenerSchemaType"/>
+<xs:element name="ReleaseEvent" type="ReleaseEventSchemaType"/>
+<xs:element name="ScrollPaneEvent" type="ScrollPaneEventSchemaType"/>
+<xs:element name="TabCloseEvent" type="TabCloseEventSchemaType"/>
+<xs:element name="ClickCountEvent" type="ClickCountEventSchemaType"/>
+<xs:element name="ModelEvent" type="ModelEventSchemaType"/>
+<xs:element name="WindowEvent" type="WindowEventSchemaType"/>
+<xs:element name="ExpandVetoException" type="ExpandVetoExceptionSchemaType"/>
+<xs:element name="ToolTipEvent" type="ToolTipEventSchemaType"/>
+<xs:element name="AttachEvent" type="AttachEventSchemaType"/>
+<xs:element name="TableCellEditEvent" type="TableCellEditEventSchemaType"/>
+<xs:element name="TreeSelectionEvent" type="TreeSelectionEventSchemaType"/>
+<xs:element name="FocusKeyEvent" type="FocusKeyEventSchemaType"/>
+<xs:element name="TreeModelListener" type="TreeModelListenerSchemaType"/>
+<xs:element name="ColorChooserEvent" type="ColorChooserEventSchemaType"/>
+<xs:element name="SelectionEvent" type="SelectionEventSchemaType"/>
+<xs:element name="ResizedEvent" type="ResizedEventSchemaType"/>
+<xs:element name="ListDataListener" type="ListDataListenerSchemaType"/>
+<xs:element name="ContainerEvent" type="ContainerEventSchemaType"/>
+<xs:element name="AWEvent" type="AWEventSchemaType"/>
+<xs:element name="ListItemEvent" type="ListItemEventSchemaType"/>
+<xs:element name="TreeCellEditEvent" type="TreeCellEditEventSchemaType"/>
+<xs:element name="FrameEvent" type="FrameEventSchemaType"/>
+<xs:element name="ListDataEvent" type="ListDataEventSchemaType"/>
+<xs:element name="PropertyChangeEvent" type="PropertyChangeEventSchemaType"/>
+<xs:element name="TableModelListener" type="TableModelListenerSchemaType"/>
+</xs:schema>

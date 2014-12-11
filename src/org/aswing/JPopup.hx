@@ -382,8 +382,8 @@ class JPopup extends JRootPane{
 	}
 	
 	private function __dragMoving(e:MouseEvent):Void{
-		bounds.x = Std.int(d_x);
-		bounds.y = Std.int(d_y);
+		_bounds.x = Std.int(d_x);
+		_bounds.y = Std.int(d_y);
 		var newPos:IntPoint = getLocation();
 		if(!newPos.equals(lastDragPos)){
 			dispatchEvent(new MovedEvent(lastDragPos, newPos));

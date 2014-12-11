@@ -7,5 +7,9 @@
   "version": "0.0.1",
   "releasenote": "Initial release",
   "contributors": [ "grebenshikov.n" ],
-  "dependencies": {}
+  "dependencies": {
+    "hml": "",
+    "bindx": "",
+    "hml-xsd-gen": ""
+  }
 }

@@ -3,7 +3,8 @@
 */
 
 package org.aswing.geom;
-	import org.aswing.geom.IntPoint;
+
+import org.aswing.geom.IntPoint;
 import flash.geom.Rectangle;
 
 /**

@@ -1,0 +1,359 @@
+<xs:schema targetNamespace="org.aswing.tree" xmlns="org.aswing.tree" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:flash-events="flash.events"
+>
+<xs:complexType name="TreePathMapSchemaTypeValue">
+<xs:element ref="TreePathMap"/></xs:complexType>
+
+<xs:complexType name="TreeCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTreeCell" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="EmptySelectionModelSchemaTypeValue">
+<xs:element ref="EmptySelectionModel"/></xs:complexType>
+
+<xs:complexType name="PathPlaceHolderSchemaTypeValue">
+<xs:element ref="PathPlaceHolder"/></xs:complexType>
+
+<xs:complexType name="AbstractLayoutCacheSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FixedHeightLayoutCache" />
+<xs:element ref="AbstractLayoutCache"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeCellEditorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:DefaultTextFieldCellEditor" />
+<xs:element ref="org-aswing:AbstractCellEditor" />
+<xs:element ref="org-aswing:DefaultNumberTextFieldCellEditor" />
+<xs:element ref="org-aswing:DefaultComboBoxCellEditor" />
+<xs:element ref="org-aswing:DefaultCheckBoxCellEditor" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeSelectionModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="EmptySelectionModel" />
+<xs:element ref="DefaultTreeSelectionModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="NodeDimensionsSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="RowMapperSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FixedHeightLayoutCache" />
+<xs:element ref="AbstractLayoutCache" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreePathSchemaTypeValue">
+<xs:element ref="TreePath"/></xs:complexType>
+
+<xs:complexType name="DefaultTreeCellSchemaTypeValue">
+<xs:element ref="DefaultTreeCell"/></xs:complexType>
+
+<xs:complexType name="FixedHeightLayoutCacheSchemaTypeValue">
+<xs:element ref="FixedHeightLayoutCache"/></xs:complexType>
+
+<xs:complexType name="GeneralTreeCellFactoryUIResourceSchemaTypeValue">
+<xs:element ref="GeneralTreeCellFactoryUIResource"/></xs:complexType>
+
+<xs:complexType name="DefaultTreeModelSchemaTypeValue">
+<xs:element ref="DefaultTreeModel"/></xs:complexType>
+
+<xs:complexType name="TreeModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultTreeModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SearchInfoSchemaTypeValue">
+<xs:element ref="SearchInfo"/></xs:complexType>
+
+<xs:complexType name="TreeLeafIconSchemaTypeValue">
+<xs:element ref="TreeLeafIcon"/></xs:complexType>
+
+<xs:complexType name="MutableTreeNodeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultMutableTreeNode" />
+<xs:element ref="FHTreeStateNode" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultTreeSelectionModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="EmptySelectionModel" />
+<xs:element ref="DefaultTreeSelectionModel"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultMutableTreeNodeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FHTreeStateNode" />
+<xs:element ref="DefaultMutableTreeNode"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="EnumerationInfoSchemaTypeValue">
+<xs:element ref="EnumerationInfo"/></xs:complexType>
+
+<xs:complexType name="TreeCellFactorySchemaTypeValue">
+<xs:choice>
+<xs:element ref="GeneralTreeCellFactoryUIResource" />
+<xs:element ref="GeneralTreeCellFactory" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FHTreeStateNodeSchemaTypeValue">
+<xs:element ref="FHTreeStateNode"/></xs:complexType>
+
+<xs:complexType name="GeneralTreeCellFactorySchemaTypeValue">
+<xs:choice>
+<xs:element ref="GeneralTreeCellFactoryUIResource" />
+<xs:element ref="GeneralTreeCellFactory"/></xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeNodeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MutableTreeNode" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeFolderIconSchemaTypeValue">
+<xs:element ref="TreeFolderIcon"/></xs:complexType>
+
+<xs:complexType name="TreePathMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:CellSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmptySelectionModelSchemaType">
+<xs:complexContent>
+<xs:extension base="DefaultTreeSelectionModelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PathPlaceHolderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="isNew" type="xs:boolean"/>
+<xs:element name="path" type="TreePathSchemaTypeValue"/>
+<xs:attribute name="isNew" type="xs:boolean"/>
+<xs:attribute name="path" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractLayoutCacheSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeCellEditorSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:CellEditorSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeSelectionModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NodeDimensionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RowMapperSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreePathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTreeCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JLabelSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FixedHeightLayoutCacheSchemaType">
+<xs:complexContent>
+<xs:extension base="AbstractLayoutCacheSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GeneralTreeCellFactoryUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="GeneralTreeCellFactorySchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTreeModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SearchInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="node" type="FHTreeStateNodeSchemaTypeValue"/>
+<xs:element name="isNodeParentNode" type="xs:boolean"/>
+<xs:element name="childIndex" type="xs:double"/>
+<xs:attribute name="node" type="xs:string"/>
+<xs:attribute name="isNodeParentNode" type="xs:boolean"/>
+<xs:attribute name="childIndex" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeLeafIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MutableTreeNodeSchemaType">
+<xs:complexContent>
+<xs:extension base="TreeNodeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultTreeSelectionModelSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultMutableTreeNodeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EnumerationInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="parent" type="FHTreeStateNodeSchemaTypeValue"/>
+<xs:element name="nextIndex" type="xs:double"/>
+<xs:element name="childCount" type="xs:double"/>
+<xs:element name="enumCount" type="xs:double"/>
+<xs:attribute name="parent" type="xs:string"/>
+<xs:attribute name="nextIndex" type="xs:double"/>
+<xs:attribute name="childCount" type="xs:double"/>
+<xs:attribute name="enumCount" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FHTreeStateNodeSchemaType">
+<xs:complexContent>
+<xs:extension base="DefaultMutableTreeNodeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GeneralTreeCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeNodeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeFolderIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TreePathMap" type="TreePathMapSchemaType"/>
+<xs:element name="TreeCell" type="TreeCellSchemaType"/>
+<xs:element name="EmptySelectionModel" type="EmptySelectionModelSchemaType"/>
+<xs:element name="PathPlaceHolder" type="PathPlaceHolderSchemaType"/>
+<xs:element name="AbstractLayoutCache" type="AbstractLayoutCacheSchemaType"/>
+<xs:element name="TreeCellEditor" type="TreeCellEditorSchemaType"/>
+<xs:element name="TreeSelectionModel" type="TreeSelectionModelSchemaType"/>
+<xs:element name="NodeDimensions" type="NodeDimensionsSchemaType"/>
+<xs:element name="RowMapper" type="RowMapperSchemaType"/>
+<xs:element name="TreePath" type="TreePathSchemaType"/>
+<xs:element name="DefaultTreeCell" type="DefaultTreeCellSchemaType"/>
+<xs:element name="FixedHeightLayoutCache" type="FixedHeightLayoutCacheSchemaType"/>
+<xs:element name="GeneralTreeCellFactoryUIResource" type="GeneralTreeCellFactoryUIResourceSchemaType"/>
+<xs:element name="DefaultTreeModel" type="DefaultTreeModelSchemaType"/>
+<xs:element name="TreeModel" type="TreeModelSchemaType"/>
+<xs:element name="SearchInfo" type="SearchInfoSchemaType"/>
+<xs:element name="TreeLeafIcon" type="TreeLeafIconSchemaType"/>
+<xs:element name="MutableTreeNode" type="MutableTreeNodeSchemaType"/>
+<xs:element name="DefaultTreeSelectionModel" type="DefaultTreeSelectionModelSchemaType"/>
+<xs:element name="DefaultMutableTreeNode" type="DefaultMutableTreeNodeSchemaType"/>
+<xs:element name="EnumerationInfo" type="EnumerationInfoSchemaType"/>
+<xs:element name="TreeCellFactory" type="TreeCellFactorySchemaType"/>
+<xs:element name="FHTreeStateNode" type="FHTreeStateNodeSchemaType"/>
+<xs:element name="GeneralTreeCellFactory" type="GeneralTreeCellFactorySchemaType"/>
+<xs:element name="TreeNode" type="TreeNodeSchemaType"/>
+<xs:element name="TreeFolderIcon" type="TreeFolderIconSchemaType"/>
+</xs:schema>
