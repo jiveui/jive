@@ -3,6 +3,7 @@ import massive.munit.TestSuite;
 import jive.DataBindingTest;
 import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
+import org.aswing.GridLayoutTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -19,5 +20,6 @@ class TestSuite extends massive.munit.TestSuite
 		add(jive.DataBindingTest);
 		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
+		add(org.aswing.GridLayoutTest);
 	}
 }

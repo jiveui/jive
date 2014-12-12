@@ -13,18 +13,13 @@ import org.aswing.Insets;
 import org.aswing.geom.IntRectangle;
 
 /**
- * @author feynixs(Cai Rong)
- * @author paling
- * @author ngrebenshikov
+ * Authors: feynixs(Cai Rong), paling, ngrebenshikov
  */
 class GridLayout extends EmptyLayout{
 	/**
      * This is the horizontal gap (in pixels) which specifies the space
      * between columns.  They can be changed at any time.
      * This should be a non-negative integer.
-     *
-     * @see #getHgap()
-     * @see #setHgap(hgap:int)
      */
 	public var hgap(get, set): Int;
     private var _hgap:Int;
@@ -35,9 +30,6 @@ class GridLayout extends EmptyLayout{
      * This is the vertical gap (in pixels) which specifies the space
      * between rows.  They can be changed at any time.
      * This should be a non negative integer.
-     *
-     * @see #getVgap()
-     * @see #setVgap(vgap:int)
      */
 	public var vgap(get, set): Int;
     private var _vgap:Int;
@@ -49,9 +41,6 @@ class GridLayout extends EmptyLayout{
      * This should be a non negative integer, where '0' means
      * 'any number' meaning that the number of Rows in that
      * dimension depends on the other dimension.
-     *
-     * @see #getRows()
-     * @see #setRows(rows:int)
      */
 	public var rows(get, set): Int;
     private var _rows:Int;
@@ -63,9 +52,6 @@ class GridLayout extends EmptyLayout{
      * This should be a non negative integer, where '0' means
      * 'any number' meaning that the number of Columns in that
      * dimension depends on the other dimension.
-     *
-     * @see #getColumns()
-     * @see #setColumns(cols:int)
      */
 	public var columns(get, set): Int;
     private var _cols:Int;
@@ -73,33 +59,24 @@ class GridLayout extends EmptyLayout{
 	private function set_columns(v: Int): Int { setColumns(v); return v; }
 
     /**
-     * <p> 
-     * Creates a grid layout with the specified number of rows and 
-     * columns. All components in the layout are given equal size. 
-     * </p>
-     * <p>
-     * In addition, the horizontal and vertical gaps are set to the 
+     * Creates a grid layout with the specified number of rows and
+     * columns. All components in the layout are given equal size.
+     *
+     * In addition, the horizontal and vertical gaps are set to the
      * specified values. Horizontal gaps are placed between each
      * of the columns. Vertical gaps are placed between each of
-     * the rows. 
-     * </p>
-     * <p>
-     * One, but not both, of <code>rows</code> and <code>cols</code> can 
+     * the rows.
+     *
+     * One, but not both, of `rows` and `cols` can
      * be zero, which means that any number of objects can be placed in a 
-     * row or in a column. 
-     * </p>
-     * <p>
-     * All <code>GridLayout</code> constructors defer to this one.
-     * </p>
-     * @param     rows   the rows, with the value zero meaning 
-     *                   any number of rows
-     * @param     cols   the columns, with the value zero meaning 
-     *                   any number of columns
+     * row or in a column.
+     *
+     * Throws `ArgumentError` if the value of both `rows` and `cols` is set to zero
+     *
+     * @param     rows   the rows, with the value zero meaning any number of rows
+     * @param     cols   the columns, with the value zero meaning any number of columns
      * @param     hgap   (optional)the horizontal gap, default 0
      * @param     vgap   (optional)the vertical gap, default 0
-     * @throws ArgumentError  if the value of both
-     *			<code>rows</code> and <code>cols</code> is 
-     *			set to zero
      */
     public function new(rows:Int=1, cols:Int=0, hgap:Int=0, vgap:Int=0) {
 		if ((rows == 0) && (cols == 0)) {
@@ -116,8 +93,8 @@ class GridLayout extends EmptyLayout{
     /**
      * Gets the number of rows in this layout.
      * @return    the number of rows in this layout
-     * 
      */
+	@:dox(hide)
     public function getRows():Int{
 		return _rows;
     }
@@ -126,6 +103,7 @@ class GridLayout extends EmptyLayout{
      * Sets the number of rows in this layout to the specified value.
      * @param        rows   the number of rows in this layout
      */
+	@:dox(hide)
     public function setRows(rows:Int):Void{
 		this._rows = rows;
     }
@@ -135,6 +113,7 @@ class GridLayout extends EmptyLayout{
      * @return  the number of columns in this layout
      * 
      */
+	@:dox(hide)
     public function getColumns():Int{
 		return _cols;
     }
@@ -149,6 +128,7 @@ class GridLayout extends EmptyLayout{
      * @param        cols   the number of columns in this layout
      * 
      */
+	@:dox(hide)
     public function setColumns(cols:Int):Void{
 		this._cols = cols;
     }
@@ -158,6 +138,7 @@ class GridLayout extends EmptyLayout{
      * @return       the horizontal gap between components
      * 
      */
+	@:dox(hide)
     public function getHgap():Int{
 		return _hgap;
     }
@@ -167,6 +148,7 @@ class GridLayout extends EmptyLayout{
      * @param    hgap   the horizontal gap between components
      *
      */
+	@:dox(hide)
     public function setHgap(hgap:Int):Void{
 		this._hgap = hgap;
     }
@@ -176,6 +158,7 @@ class GridLayout extends EmptyLayout{
      * @return       the vertical gap between components
      * 
      */
+	@:dox(hide)
     public function getVgap():Int{
 		return _vgap;
     }
@@ -185,10 +168,14 @@ class GridLayout extends EmptyLayout{
      * @param         vgap  the vertical gap between components
      * 
      */
+	@:dox(hide)
     public function setVgap(vgap:Int):Void{
 		this._vgap = vgap;
     }
-	
+
+    /**
+	* See `LayoutManager.preferredLayoutSize`
+	**/
     override public function preferredLayoutSize(target:Container):IntDimension{
 		var insets:Insets = target.getInsets();
 		var ncomponents:Int= target.getComponentCount();
@@ -214,18 +201,25 @@ class GridLayout extends EmptyLayout{
 		return new IntDimension((((insets.left + insets.right) + (ncols * w)) + ((ncols - 1) * _hgap)), (((insets.top + insets.bottom) + (nrows * h)) + ((nrows - 1) * _vgap)));
     }
 
+	/**
+	* See `LayoutManager.minimumLayoutSize`
+	**/
     override public function minimumLayoutSize(target:Container):IntDimension{
 		return target.getInsets().getOutsideSize();
     }
 	
 	/**
-	 * return new IntDimension(1000000, 1000000);
+	 * See `LayoutManager.maximumLayoutSize`
+	 * @return new IntDimension(1000000, 1000000);
 	 */
     override public function maximumLayoutSize(target:Container):IntDimension{
     	return new IntDimension(1000000, 1000000);
     }
-    
-    override public function layoutContainer(target:Container):Void{
+
+	/**
+	* See `LayoutManager.layoutContainer`
+	**/
+	override public function layoutContainer(target:Container):Void{
 		var insets:Insets = target.getInsets();
 		var ncomponents:Int= target.getComponentCount();
 		var nrows:Int= _rows;
@@ -257,19 +251,22 @@ class GridLayout extends EmptyLayout{
 			x += (w + _hgap);
 		}
 	}
+
 	public function toString():String{
 		return ((((((((("GridLayout[hgap=") + _hgap) + ",vgap=") + _vgap) + ",rows=") + _rows) + ",cols=") + _cols) + "]");
 	}
     
 	/**
-	 * return 0.5
+	 * See `LayoutManager.getLayoutAlignmentX`
+	 * @return 0.5
 	 */
     override public function getLayoutAlignmentX(target:Container):Float{
     	return 0.5;
     }
 
 	/**
-	 * return 0.5
+	 * See `LayoutManager.getLayoutAlignmentY`
+	 * @return 0.5
 	 */
     override public function getLayoutAlignmentY(target:Container):Float{
     	return 0.5;
