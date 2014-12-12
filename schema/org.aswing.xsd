@@ -1279,6 +1279,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ASFontSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:element name="name" type="xs:string"/>
+<xs:element name="size" type="xs:int"/>
+<xs:element name="bold" type="xs:boolean"/>
+<xs:element name="italic" type="xs:boolean"/>
+<xs:element name="underline" type="xs:boolean"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="bold" type="xs:boolean"/>
+<xs:attribute name="italic" type="xs:boolean"/>
+<xs:attribute name="underline" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

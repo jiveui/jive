@@ -1432,7 +1432,9 @@ class Component extends AWSprite implements IBindable {
 	 * This method will call setComBounds()
 	 * @see #setComBounds()
 	 */
-	@:dox(hide) @:deprecated public function setBounds(b:IntRectangle):Void{
+	@:dox(hide)
+	@:deprecated
+	public function setBounds(b:IntRectangle):Void{
 		setComBounds(b);
 	}
 		

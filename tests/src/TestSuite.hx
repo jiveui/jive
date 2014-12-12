@@ -2,9 +2,11 @@ import massive.munit.TestSuite;
 
 import jive.DataBindingTest;
 import org.aswing.ASColorTest;
+import org.aswing.ASFontTest;
 import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
 import org.aswing.GridLayoutTest;
+import org.aswing.InsetsTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -20,8 +22,10 @@ class TestSuite extends massive.munit.TestSuite
 
 		add(jive.DataBindingTest);
 		add(org.aswing.ASColorTest);
+		add(org.aswing.ASFontTest);
 		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
 		add(org.aswing.GridLayoutTest);
+		add(org.aswing.InsetsTest);
 	}
 }
