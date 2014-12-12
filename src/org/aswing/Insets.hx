@@ -4,20 +4,22 @@
 
 package org.aswing;
 
-
 import org.aswing.geom.IntRectangle;
-	import org.aswing.geom.IntDimension;
-	/**
- * An Insets object is a representation of the borders of a container. 
- * It specifies the space that a container must leave at each of its edges. 
- * The space can be a border, a blank space, or a title. 
- * 
- * @author paling
- */
+import org.aswing.geom.IntDimension;
+
+/**
+*
+* An Insets object is a representation of the borders of a container.
+*
+* It specifies the space that a container must leave at each of its edges.
+* The space can be a border, a blank space, or a title.
+*
+* Author paling
+*/
 class Insets{
 	
 	/**
-	 * Creates new <code>Insets</code> instance with identic edges.
+	 * Creates new `Insets` instance with identic edges.
 	 * 
 	 * @param edge the edge value for insets.
 	 * @return new insets instance.
@@ -46,7 +48,7 @@ class Insets{
 	}
 	
 	/**
-	 * This insets add specified insets and return itself.
+	 * Add specified insets and return `this`.
 	 */
 	public function addInsets(insets:Insets):Insets{
 		this.top += insets.top;
@@ -55,15 +57,24 @@ class Insets{
 		this.right += insets.right;
 		return this;
 	}
-	
+
+	/**
+	* @return `left + right`
+	**/
 	public function getMarginWidth():Int{
 		return left + right;
 	}
-	
+
+	/**
+	* @return `top + bottom`
+	**/
 	public function getMarginHeight():Int{
 		return top + bottom;
 	}
-	
+
+	/**
+	* Apply insets to the bounds and return inner bounds.
+	**/
 	public function getInsideBounds(bounds:IntRectangle):IntRectangle{
 		var r:IntRectangle = bounds.clone();
 		r.x += left;
@@ -72,7 +83,10 @@ class Insets{
 		r.height -= (top + bottom);
 		return r;
 	}
-	
+
+	/**
+	* Apply insets to the bounds and return outer bounds.
+	**/
 	public function getOutsideBounds(bounds:IntRectangle):IntRectangle{
 		var r:IntRectangle = bounds.clone();
 		r.x -= left;
@@ -81,7 +95,10 @@ class Insets{
 		r.height += (top + bottom);
 		return r;
 	}
-	
+
+	/**
+	* Return the size after insets addition.
+	**/
 	public function getOutsideSize(size:IntDimension=null):IntDimension{
 		if(size == null) size = new IntDimension();
 		var s:IntDimension = size.clone();
@@ -89,7 +106,10 @@ class Insets{
 		s.height += (top + bottom);
 		return s;
 	}
-	
+
+	/**
+	* Return the size after insets substraction.
+	**/
 	public function getInsideSize(size:IntDimension=null):IntDimension{
 		if(size == null) size = new IntDimension();
 		var s:IntDimension = size.clone();
@@ -98,7 +118,7 @@ class Insets{
 		return s;
 	}
 	
-	public function equals(o:Dynamic):Bool{
+	public function equals(o:Dynamic):Bool {
 		var i:Insets = AsWingUtils.as(o,Insets)	;
 		if(i == null){
 			return false;
@@ -107,7 +127,7 @@ class Insets{
 		}
 	}
 	
-	public function clone():Insets{
+	public function clone():Insets {
 		return new Insets(top, left, bottom, right);
 	}
 	
