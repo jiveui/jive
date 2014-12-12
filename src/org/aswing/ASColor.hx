@@ -6,8 +6,9 @@ package org.aswing;
 
 
 /**
- * ASColor object to set color and alpha for a movieclip.
- * @author firdosh, paling, n0rthwood
+ * ASColor object to set color and alpha.
+ *
+ * Authors firdosh, paling, n0rthwood, ngrebenshikov
  */
 class ASColor{
 			
@@ -72,6 +73,7 @@ class ASColor{
 	/**
 	 * Returns the alpha component in the range 0-1.
 	 */
+	@:dox(hide)
 	public function getAlpha():Float{
 		return _alpha;
 	}
@@ -79,6 +81,7 @@ class ASColor{
 	/**
 	 * Returns the RGB value representing the color.
 	 */
+	@:dox(hide)
 	public function getRGB():Int{
 		return _rgb;
 	}

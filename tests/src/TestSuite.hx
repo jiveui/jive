@@ -1,6 +1,7 @@
 import massive.munit.TestSuite;
 
 import jive.DataBindingTest;
+import org.aswing.ASColorTest;
 import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
 import org.aswing.GridLayoutTest;
@@ -18,6 +19,7 @@ class TestSuite extends massive.munit.TestSuite
 		super();
 
 		add(jive.DataBindingTest);
+		add(org.aswing.ASColorTest);
 		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
 		add(org.aswing.GridLayoutTest);
