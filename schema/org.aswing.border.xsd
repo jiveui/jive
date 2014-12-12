@@ -7,7 +7,8 @@ xmlns:empty="empty"
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
 <xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
-<xs:element ref="EmptyBorder"/></xs:choice>
+<xs:element ref="EmptyBorder" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DecorateBorderSchemaTypeValue">
@@ -24,7 +25,8 @@ xmlns:empty="empty"
 <xs:element ref="SimpleTitledBorder" />
 <xs:element ref="TitledBorder" />
 <xs:element ref="BevelBorder" />
-<xs:element ref="DecorateBorder"/></xs:choice>
+<xs:element ref="DecorateBorder" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="SimpleTitledBorderSchemaTypeValue">
@@ -42,14 +44,16 @@ xmlns:empty="empty"
 <xs:complexType name="BevelBorderSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
-<xs:element ref="BevelBorder"/></xs:choice>
+<xs:element ref="BevelBorder" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="LineBorderSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
-<xs:element ref="LineBorder"/></xs:choice>
+<xs:element ref="LineBorder" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="EmptyBorderSchemaType">

@@ -23,7 +23,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="ErrorEventSchemaTypeValue">
 <xs:choice>
 <xs:element ref="IOErrorEvent" />
-<xs:element ref="ErrorEvent"/></xs:choice>
+<xs:element ref="ErrorEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IOErrorEventSchemaTypeValue">
@@ -163,14 +164,16 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="KeyboardEventSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-event:FocusKeyEvent" />
-<xs:element ref="KeyboardEvent"/></xs:choice>
+<xs:element ref="KeyboardEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TextEventSchemaTypeValue">
 <xs:choice>
 <xs:element ref="ErrorEvent" />
 <xs:element ref="IOErrorEvent" />
-<xs:element ref="TextEvent"/></xs:choice>
+<xs:element ref="TextEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="UncaughtErrorEventsSchemaTypeValue">
@@ -306,7 +309,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-ext:DateChooser" />
 <xs:element ref="flash-display:DisplayObjectContainer" />
 <xs:element ref="org-aswing:JFrame" />
-<xs:element ref="EventDispatcher"/></xs:choice>
+<xs:element ref="EventDispatcher" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="EventSchemaTypeValue">
@@ -342,7 +346,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-event:PropertyChangeEvent" />
 <xs:element ref="org-aswing-event:FocusKeyEvent" />
 <xs:element ref="MouseEvent" />
-<xs:element ref="Event"/></xs:choice>
+<xs:element ref="Event" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="MouseEventSchemaTypeValue">
@@ -350,7 +355,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-event:ReleaseEvent" />
 <xs:element ref="org-aswing-event:ListItemEvent" />
 <xs:element ref="org-aswing-ext:GridListItemEvent" />
-<xs:element ref="MouseEvent"/></xs:choice>
+<xs:element ref="MouseEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ErrorEventSchemaType">

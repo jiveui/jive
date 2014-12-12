@@ -12,7 +12,8 @@ xmlns:flash-_Boot="flash._Boot"
 <xs:complexType name="BootSchemaTypeValue">
 <xs:choice>
 <xs:element ref="flash-_Boot:RealBoot" />
-<xs:element ref="Boot"/></xs:choice>
+<xs:element ref="Boot" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="VectorSchemaType">

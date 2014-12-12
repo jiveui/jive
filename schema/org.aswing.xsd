@@ -49,13 +49,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-ext:MultilineLabel" />
 <xs:element ref="JTextField" />
 <xs:element ref="JTextArea" />
-<xs:element ref="JTextComponent"/></xs:choice>
+<xs:element ref="JTextComponent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="SoftBoxLayoutSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:DefaultMenuLayout" />
-<xs:element ref="SoftBoxLayout"/></xs:choice>
+<xs:element ref="SoftBoxLayout" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="EmptyFontSchemaTypeValue">
@@ -127,7 +129,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JMenu" />
 <xs:element ref="JToggleButton" />
 <xs:element ref="JCheckBox" />
-<xs:element ref="AbstractButton"/></xs:choice>
+<xs:element ref="AbstractButton" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JTreeSchemaTypeValue">
@@ -136,7 +139,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ASColorSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf:ASColorUIResource" />
-<xs:element ref="ASColor"/></xs:choice>
+<xs:element ref="ASColor" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ComponentSchemaTypeValue">
@@ -213,7 +217,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JFrame" />
 <xs:element ref="JComboBox" />
 <xs:element ref="Box" />
-<xs:element ref="Component"/></xs:choice>
+<xs:element ref="Component" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JLayeredPaneSchemaTypeValue">
@@ -229,7 +234,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="EmptyFont" />
 <xs:element ref="org-aswing-plaf:ASFontUIResource" />
-<xs:element ref="ASFont"/></xs:choice>
+<xs:element ref="ASFont" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="KeyActionSchemaTypeValue">
@@ -250,7 +256,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JWindowSchemaTypeValue">
 <xs:choice>
 <xs:element ref="JFrame" />
-<xs:element ref="JWindow"/></xs:choice>
+<xs:element ref="JWindow" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JButtonSchemaTypeValue">
@@ -262,7 +269,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="DefaultNumberTextFieldCellEditor" />
 <xs:element ref="DefaultComboBoxCellEditor" />
 <xs:element ref="DefaultCheckBoxCellEditor" />
-<xs:element ref="AbstractCellEditor"/></xs:choice>
+<xs:element ref="AbstractCellEditor" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="StyleResultSchemaTypeValue">
@@ -288,7 +296,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
-<xs:element ref="JLabel"/></xs:choice>
+<xs:element ref="JLabel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="WindowLayoutSchemaTypeValue">
@@ -309,7 +318,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="InsetsSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf:InsetsUIResource" />
-<xs:element ref="Insets"/></xs:choice>
+<xs:element ref="Insets" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JPanelSchemaTypeValue">
@@ -321,7 +331,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="SoftBox" />
 <xs:element ref="JOptionPane" />
 <xs:element ref="Box" />
-<xs:element ref="JPanel"/></xs:choice>
+<xs:element ref="JPanel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultNumberTextFieldCellEditorSchemaTypeValue">
@@ -345,7 +356,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultButtonModelSchemaTypeValue">
 <xs:choice>
 <xs:element ref="ToggleButtonModel" />
-<xs:element ref="DefaultButtonModel"/></xs:choice>
+<xs:element ref="DefaultButtonModel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ListSelectionModelSchemaTypeValue">
@@ -387,7 +399,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetIconSchemaTypeValue">
 <xs:choice>
 <xs:element ref="LoadIcon" />
-<xs:element ref="AssetIcon"/></xs:choice>
+<xs:element ref="AssetIcon" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="FrameTitleBarLayoutSchemaTypeValue">
@@ -401,7 +414,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JRadioButtonMenuItem" />
 <xs:element ref="JCheckBoxMenuItem" />
 <xs:element ref="JMenu" />
-<xs:element ref="JMenuItem"/></xs:choice>
+<xs:element ref="JMenuItem" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultListSelectionModelSchemaTypeValue">
@@ -479,7 +493,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JClosableTabbedPane" />
 <xs:element ref="JTabbedPane" />
 <xs:element ref="JAccordion" />
-<xs:element ref="AbstractTabbedPane"/></xs:choice>
+<xs:element ref="AbstractTabbedPane" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="MultipleAssetIconSchemaTypeValue">
@@ -491,7 +506,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="LookAndFeelSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicLookAndFeel" />
-<xs:element ref="LookAndFeel"/></xs:choice>
+<xs:element ref="LookAndFeel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultComboBoxEditorSchemaTypeValue">
@@ -506,7 +522,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JViewportSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-ext:GridList" />
-<xs:element ref="JViewport"/></xs:choice>
+<xs:element ref="JViewport" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BoxLayoutSchemaTypeValue">
@@ -530,7 +547,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultTextFieldCellEditorSchemaTypeValue">
 <xs:choice>
 <xs:element ref="DefaultNumberTextFieldCellEditor" />
-<xs:element ref="DefaultTextFieldCellEditor"/></xs:choice>
+<xs:element ref="DefaultTextFieldCellEditor" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JRadioButtonSchemaTypeValue">
@@ -590,7 +608,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="SoftBox" />
 <xs:element ref="JFrame" />
 <xs:element ref="Box" />
-<xs:element ref="Container"/></xs:choice>
+<xs:element ref="Container" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BoxSchemaTypeValue">
@@ -602,7 +621,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BorderLayoutSchemaTypeValue">
 <xs:choice>
 <xs:element ref="FrameTitleBarLayout" />
-<xs:element ref="BorderLayout"/></xs:choice>
+<xs:element ref="BorderLayout" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="AWTextFieldSchemaTypeValue">
@@ -617,7 +637,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractListModelSchemaTypeValue">
 <xs:choice>
 <xs:element ref="VectorListModel" />
-<xs:element ref="AbstractListModel"/></xs:choice>
+<xs:element ref="AbstractListModel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="EmptyLayoutSchemaTypeValue">
@@ -637,7 +658,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf:EmptyLayoutUIResourse" />
 <xs:element ref="FlowLayout" />
 <xs:element ref="SoftBoxLayout" />
-<xs:element ref="EmptyLayout"/></xs:choice>
+<xs:element ref="EmptyLayout" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="CursorSchemaTypeValue">
@@ -646,7 +668,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="StyleTuneSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf:UIStyleTune" />
-<xs:element ref="StyleTune"/></xs:choice>
+<xs:element ref="StyleTune" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="FocusTraversalPolicySchemaTypeValue">
@@ -734,7 +757,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JFrame" />
 <xs:element ref="JComboBox" />
 <xs:element ref="Box" />
-<xs:element ref="AWSprite"/></xs:choice>
+<xs:element ref="AWSprite" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ButtonModelSchemaTypeValue">
@@ -748,7 +772,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="DefaultListCellFactory" />
 <xs:element ref="DefaultComboBoxListCellFactory" />
-<xs:element ref="DefaultListTextCellFactory"/></xs:choice>
+<xs:element ref="DefaultListTextCellFactory" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JMenuSchemaTypeValue">
@@ -767,7 +792,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="JRadioButton" />
 <xs:element ref="JCheckBox" />
-<xs:element ref="JToggleButton"/></xs:choice>
+<xs:element ref="JToggleButton" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="CenterLayoutSchemaTypeValue">
@@ -777,7 +803,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="DefaultComboBoxListCell" />
 <xs:element ref="DefaultListCell" />
-<xs:element ref="AbstractListCell"/></xs:choice>
+<xs:element ref="AbstractListCell" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JRadioButtonMenuItemSchemaTypeValue">
@@ -786,7 +813,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JToolTipSchemaTypeValue">
 <xs:choice>
 <xs:element ref="JSharedToolTip" />
-<xs:element ref="JToolTip"/></xs:choice>
+<xs:element ref="JToolTip" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ListModelSchemaTypeValue">
@@ -798,7 +826,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ContainerOrderFocusTraversalPolicySchemaTypeValue">
 <xs:choice>
 <xs:element ref="WindowOrderFocusTraversalPolicy" />
-<xs:element ref="ContainerOrderFocusTraversalPolicy"/></xs:choice>
+<xs:element ref="ContainerOrderFocusTraversalPolicy" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BoundedRangeModelSchemaTypeValue">
@@ -848,7 +877,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="JWindow" />
 <xs:element ref="JFrame" />
-<xs:element ref="JPopup"/></xs:choice>
+<xs:element ref="JPopup" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IconSchemaTypeValue">
@@ -893,7 +923,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FlowLayoutSchemaTypeValue">
 <xs:choice>
 <xs:element ref="FlowWrapLayout" />
-<xs:element ref="FlowLayout"/></xs:choice>
+<xs:element ref="FlowLayout" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JSplitPaneSchemaTypeValue">
@@ -902,7 +933,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultListCellSchemaTypeValue">
 <xs:choice>
 <xs:element ref="DefaultComboBoxListCell" />
-<xs:element ref="DefaultListCell"/></xs:choice>
+<xs:element ref="DefaultListCell" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="OrientableSchemaTypeValue">
@@ -922,7 +954,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JWindow" />
 <xs:element ref="JFrame" />
 <xs:element ref="JPopup" />
-<xs:element ref="JRootPane"/></xs:choice>
+<xs:element ref="JRootPane" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="FrameTitleBarSchemaTypeValue">
@@ -934,7 +967,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTextAreaSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-ext:MultilineLabel" />
-<xs:element ref="JTextArea"/></xs:choice>
+<xs:element ref="JTextArea" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="GeneralListCellFactorySchemaTypeValue">
@@ -958,13 +992,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetPaneSchemaTypeValue">
 <xs:choice>
 <xs:element ref="JLoadPane" />
-<xs:element ref="AssetPane"/></xs:choice>
+<xs:element ref="AssetPane" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JTabbedPaneSchemaTypeValue">
 <xs:choice>
 <xs:element ref="JClosableTabbedPane" />
-<xs:element ref="JTabbedPane"/></xs:choice>
+<xs:element ref="JTabbedPane" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="KeyboardManagerSchemaTypeValue">
@@ -1785,6 +1821,79 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ContainerSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:element ref="AbstractButton" />
+<xs:element ref="JTree" />
+<xs:element ref="JProgressBar" />
+<xs:element ref="org-aswing-ext:DateLabel" />
+<xs:element ref="JLabel" />
+<xs:element ref="JFrameTitleBar" />
+<xs:element ref="JCheckBoxMenuItem" />
+<xs:element ref="JTable" />
+<xs:element ref="JToggleButton" />
+<xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
+<xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="JCheckBox" />
+<xs:element ref="org-aswing-table:PoorTextCell" />
+<xs:element ref="JRadioButtonMenuItem" />
+<xs:element ref="org-aswing-ext:Form" />
+<xs:element ref="JList" />
+<xs:element ref="JLoadPane" />
+<xs:element ref="JAccordion" />
+<xs:element ref="JLayeredPane" />
+<xs:element ref="JToolTip" />
+<xs:element ref="org-aswing-ext:DefaultGridCell" />
+<xs:element ref="AbstractTabbedPane" />
+<xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="org-aswing-ext:Folder" />
+<xs:element ref="JPanel" />
+<xs:element ref="org-aswing-table:JTableHeader" />
+<xs:element ref="AssetPane" />
+<xs:element ref="JClosableTabbedPane" />
+<xs:element ref="org-aswing-ext:FormRow" />
+<xs:element ref="JTextComponent" />
+<xs:element ref="JMenuBar" />
+<xs:element ref="JTabbedPane" />
+<xs:element ref="SoftBox" />
+<xs:element ref="JLabelButton" />
+<xs:element ref="org-aswing-table:DefaultTextCell" />
+<xs:element ref="JMenuItem" />
+<xs:element ref="JWindow" />
+<xs:element ref="JSpacer" />
+<xs:element ref="JViewport" />
+<xs:element ref="org-aswing-colorchooser:JColorMixer" />
+<xs:element ref="JPopup" />
+<xs:element ref="org-aswing-ext:GridList" />
+<xs:element ref="JButton" />
+<xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
+<xs:element ref="org-aswing-ext:MultilineLabel" />
+<xs:element ref="CellPane" />
+<xs:element ref="JOptionPane" />
+<xs:element ref="org-aswing-ext:GridCellHolder" />
+<xs:element ref="JSharedToolTip" />
+<xs:element ref="JSplitPane" />
+<xs:element ref="JTextField" />
+<xs:element ref="JRootPane" />
+<xs:element ref="JRadioButton" />
+<xs:element ref="JMenu" />
+<xs:element ref="JAdjuster" />
+<xs:element ref="JSlider" />
+<xs:element ref="JPopupMenu" />
+<xs:element ref="JTextArea" />
+<xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
+<xs:element ref="JStepper" />
+<xs:element ref="JSeparator" />
+<xs:element ref="JColorChooser" />
+<xs:element ref="JToolBar" />
+<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
+<xs:element ref="JScrollPane" />
+<xs:element ref="org-aswing-ext:DateChooser" />
+<xs:element ref="JScrollBar" />
+<xs:element ref="org-aswing-table:SelectablePoorTextCell" />
+<xs:element ref="Container" />
+<xs:element ref="JFrame" />
+<xs:element ref="JComboBox" />
+<xs:element ref="Box" />
+<xs:element ref="Component" />
 <xs:element name="layout" type="LayoutManagerSchemaTypeValue"/>
 <xs:attribute name="layout" type="xs:string"/>
 </xs:extension>

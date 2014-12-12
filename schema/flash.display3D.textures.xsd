@@ -6,7 +6,8 @@ xmlns:flash-events="flash.events"
 <xs:element ref="Texture" />
 <xs:element ref="CubeTexture" />
 <xs:element ref="RectangleTexture" />
-<xs:element ref="TextureBase"/></xs:choice>
+<xs:element ref="TextureBase" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TextureSchemaTypeValue">

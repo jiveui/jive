@@ -6,7 +6,8 @@ xmlns:empty="empty"
 <xs:complexType name="StringMapSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing:UIDefaults" />
-<xs:element ref="StringMap"/></xs:choice>
+<xs:element ref="StringMap" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IntMapSchemaTypeValue">

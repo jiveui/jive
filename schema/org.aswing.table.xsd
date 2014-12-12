@@ -12,7 +12,8 @@ xmlns:flash-events="flash.events"
 <xs:choice>
 <xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
 <xs:element ref="DefaultTextHeaderCell" />
-<xs:element ref="DefaultTextCell"/></xs:choice>
+<xs:element ref="DefaultTextCell" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TableColumnModelSchemaTypeValue">
@@ -48,13 +49,15 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTextHeaderCellSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
-<xs:element ref="DefaultTextHeaderCell"/></xs:choice>
+<xs:element ref="DefaultTextHeaderCell" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="PoorTextCellSchemaTypeValue">
 <xs:choice>
 <xs:element ref="SelectablePoorTextCell" />
-<xs:element ref="PoorTextCell"/></xs:choice>
+<xs:element ref="PoorTextCell" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="Resizable2SchemaTypeValue">
@@ -108,7 +111,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTableCellFactorySchemaTypeValue">
 <xs:choice>
 <xs:element ref="GeneralTableCellFactoryUIResource" />
-<xs:element ref="GeneralTableCellFactory"/></xs:choice>
+<xs:element ref="GeneralTableCellFactory" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JTableHeaderSchemaTypeValue">
@@ -133,7 +137,8 @@ xmlns:flash-events="flash.events"
 <xs:element ref="DefaultTableModel" />
 <xs:element ref="org-aswing-table-sorter:TableSorter" />
 <xs:element ref="PropertyTableModel" />
-<xs:element ref="AbstractTableModel"/></xs:choice>
+<xs:element ref="AbstractTableModel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultTableColumnModelSchemaTypeValue">

@@ -14,7 +14,8 @@ xmlns:empty="empty"
 <xs:element ref="ColorMatrixFilter" />
 <xs:element ref="BevelFilter" />
 <xs:element ref="DropShadowFilter" />
-<xs:element ref="BitmapFilter"/></xs:choice>
+<xs:element ref="BitmapFilter" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ColorMatrixFilterSchemaTypeValue">

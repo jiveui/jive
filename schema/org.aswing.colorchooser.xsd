@@ -29,7 +29,8 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing:JColorChooser" />
 <xs:element ref="JColorSwatches" />
 <xs:element ref="JColorMixer" />
-<xs:element ref="AbstractColorChooserPanel"/></xs:choice>
+<xs:element ref="AbstractColorChooserPanel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="JColorSwatchesSchemaTypeValue">

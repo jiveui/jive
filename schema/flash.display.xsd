@@ -28,14 +28,16 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
 <xs:element ref="org-aswing-plaf-basic-cursor:H_ResizeCursor" />
 <xs:element ref="org-aswing-plaf-basic-cursor:HV_ResizeCursor" />
-<xs:element ref="Shape"/></xs:choice>
+<xs:element ref="Shape" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="MovieClipSchemaTypeValue">
 <xs:choice>
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="flash:Boot" />
-<xs:element ref="MovieClip"/></xs:choice>
+<xs:element ref="MovieClip" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="FrameLabelSchemaTypeValue">
@@ -139,7 +141,8 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JFrame" />
 <xs:element ref="org-aswing:JComboBox" />
 <xs:element ref="org-aswing:Box" />
-<xs:element ref="DisplayObject"/></xs:choice>
+<xs:element ref="DisplayObject" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IGraphicsDataSchemaTypeValue">
@@ -225,7 +228,8 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JFrame" />
 <xs:element ref="org-aswing:JComboBox" />
 <xs:element ref="org-aswing:Box" />
-<xs:element ref="Sprite"/></xs:choice>
+<xs:element ref="Sprite" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IBitmapDrawableSchemaTypeValue">
@@ -423,7 +427,8 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JFrame" />
 <xs:element ref="org-aswing:JComboBox" />
 <xs:element ref="org-aswing:Box" />
-<xs:element ref="DisplayObjectContainer"/></xs:choice>
+<xs:element ref="DisplayObjectContainer" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BitmapSchemaTypeValue">
@@ -432,7 +437,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NativeMenuSchemaTypeValue">
 <xs:choice>
 <xs:element ref="flash-ui:ContextMenu" />
-<xs:element ref="NativeMenu"/></xs:choice>
+<xs:element ref="NativeMenu" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="InteractiveObjectSchemaTypeValue">
@@ -521,7 +527,8 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JFrame" />
 <xs:element ref="org-aswing:JComboBox" />
 <xs:element ref="org-aswing:Box" />
-<xs:element ref="InteractiveObject"/></xs:choice>
+<xs:element ref="InteractiveObject" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ShaderDataSchemaTypeValue">

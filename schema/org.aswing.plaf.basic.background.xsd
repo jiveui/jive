@@ -20,7 +20,8 @@ xmlns:empty="empty"
 <xs:choice>
 <xs:element ref="ComboBoxBackground" />
 <xs:element ref="InputBackground" />
-<xs:element ref="TextComponentBackBround"/></xs:choice>
+<xs:element ref="TextComponentBackBround" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="InputBackgroundSchemaTypeValue">

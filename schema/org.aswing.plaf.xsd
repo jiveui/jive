@@ -138,7 +138,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="SplitPaneUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
-<xs:element ref="SplitPaneUI"/></xs:choice>
+<xs:element ref="SplitPaneUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultsDecoratorBaseSchemaTypeValue">
@@ -189,7 +190,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuBarUI" />
-<xs:element ref="BaseComponentUI"/></xs:choice>
+<xs:element ref="BaseComponentUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="SliderUISchemaTypeValue">

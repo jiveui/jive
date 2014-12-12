@@ -14,7 +14,8 @@ xmlns:empty="empty"
 <xs:element ref="ImpMissError" />
 <xs:element ref="AsWingManagerNotInited" />
 <xs:element ref="UnsupportedError" />
-<xs:element ref="Error"/></xs:choice>
+<xs:element ref="Error" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ImpMissErrorSchemaTypeValue">

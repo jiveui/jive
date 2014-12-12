@@ -54,7 +54,7 @@
 		</condition>
 		<echo level="info">Executing dox for "${dir}/${input.path}"</echo>
 		<exec dir="${dir}" executable="haxelib" failonerror="true">
-			<arg line="run dox -i ${input.path} -o ${output.path}"/>
+			<arg line="run dox -i ${input.path} -o ${output.path} -theme ${theme.path}"/>
 		</exec>
 	</target>
 

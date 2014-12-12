@@ -18,7 +18,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="SelectionEvent" />
 <xs:element ref="ScrollPaneEvent" />
 <xs:element ref="WindowEvent" />
-<xs:element ref="InteractiveEvent"/></xs:choice>
+<xs:element ref="InteractiveEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TreeEventSchemaTypeValue">
@@ -61,7 +62,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="TableModelEvent" />
 <xs:element ref="TreeModelEvent" />
 <xs:element ref="ListDataEvent" />
-<xs:element ref="ModelEvent"/></xs:choice>
+<xs:element ref="ModelEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="WindowEventSchemaTypeValue">
@@ -134,7 +136,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="PropertyChangeEvent" />
 <xs:element ref="MovedEvent" />
 <xs:element ref="ScrollPaneEvent" />
-<xs:element ref="AWEvent"/></xs:choice>
+<xs:element ref="AWEvent" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ListItemEventSchemaTypeValue">

@@ -99,7 +99,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:choice>
 <xs:element ref="MethodsBindSignal" />
 <xs:element ref="FieldsBindSignal" />
-<xs:element ref="BindSignal"/></xs:choice>
+<xs:element ref="BindSignal" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="IBindableSchemaType">

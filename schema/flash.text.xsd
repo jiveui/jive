@@ -16,7 +16,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextFieldSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing:AWTextField" />
-<xs:element ref="TextField"/></xs:choice>
+<xs:element ref="TextField" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TextFormatSchemaTypeValue">

@@ -15,7 +15,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:choice>
 <xs:element ref="TextFieldBorder" />
 <xs:element ref="TextAreaBorder" />
-<xs:element ref="TextComponentBorder"/></xs:choice>
+<xs:element ref="TextComponentBorder" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ComboBoxPopupBorderSchemaTypeValue">

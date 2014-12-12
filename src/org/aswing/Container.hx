@@ -59,6 +59,7 @@ import org.aswing.event.ContainerEvent;
  * </p>
  * @author paling
  */	
+@:children("org.aswing.Component")
 class Container extends Component{
 	
 	private var focusTraversalPolicy:FocusTraversalPolicy;

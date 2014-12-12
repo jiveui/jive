@@ -46,7 +46,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractImpulserSchemaTypeValue">
 <xs:choice>
 <xs:element ref="Timer" />
-<xs:element ref="AbstractImpulser"/></xs:choice>
+<xs:element ref="AbstractImpulser" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="ReflectionSchemaTypeValue">
@@ -55,7 +56,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ArrayListSchemaTypeValue">
 <xs:choice>
 <xs:element ref="Stack" />
-<xs:element ref="ArrayList"/></xs:choice>
+<xs:element ref="ArrayList" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="HashSetSchemaTypeValue">

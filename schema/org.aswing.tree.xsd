@@ -22,7 +22,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractLayoutCacheSchemaTypeValue">
 <xs:choice>
 <xs:element ref="FixedHeightLayoutCache" />
-<xs:element ref="AbstractLayoutCache"/></xs:choice>
+<xs:element ref="AbstractLayoutCache" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TreeCellEditorSchemaTypeValue">
@@ -92,13 +93,15 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeSelectionModelSchemaTypeValue">
 <xs:choice>
 <xs:element ref="EmptySelectionModel" />
-<xs:element ref="DefaultTreeSelectionModel"/></xs:choice>
+<xs:element ref="DefaultTreeSelectionModel" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="DefaultMutableTreeNodeSchemaTypeValue">
 <xs:choice>
 <xs:element ref="FHTreeStateNode" />
-<xs:element ref="DefaultMutableTreeNode"/></xs:choice>
+<xs:element ref="DefaultMutableTreeNode" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="EnumerationInfoSchemaTypeValue">
@@ -117,7 +120,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTreeCellFactorySchemaTypeValue">
 <xs:choice>
 <xs:element ref="GeneralTreeCellFactoryUIResource" />
-<xs:element ref="GeneralTreeCellFactory"/></xs:choice>
+<xs:element ref="GeneralTreeCellFactory" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TreeNodeSchemaTypeValue">

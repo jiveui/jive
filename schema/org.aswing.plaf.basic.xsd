@@ -26,7 +26,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="BasicRadioButtonUI" />
 <xs:element ref="BasicCheckBoxUI" />
-<xs:element ref="BasicToggleButtonUI"/></xs:choice>
+<xs:element ref="BasicToggleButtonUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicCheckBoxUISchemaTypeValue">
@@ -40,7 +41,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="BasicMenuUI" />
 <xs:element ref="BasicCheckBoxMenuItemUI" />
 <xs:element ref="BasicRadioButtonMenuItemUI" />
-<xs:element ref="BasicMenuItemUI"/></xs:choice>
+<xs:element ref="BasicMenuItemUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicFrameTitleBarUISchemaTypeValue">
@@ -58,7 +60,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTabbedPaneUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="BasicClosableTabbedPaneUI" />
-<xs:element ref="BasicTabbedPaneUI"/></xs:choice>
+<xs:element ref="BasicTabbedPaneUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicTextFieldUISchemaTypeValue">
@@ -79,7 +82,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSliderUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
-<xs:element ref="BasicSliderUI"/></xs:choice>
+<xs:element ref="BasicSliderUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicComboBoxUISchemaTypeValue">
@@ -88,7 +92,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicRadioButtonUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="BasicCheckBoxUI" />
-<xs:element ref="BasicRadioButtonUI"/></xs:choice>
+<xs:element ref="BasicRadioButtonUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicColorChooserUISchemaTypeValue">
@@ -106,7 +111,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="BasicToggleButtonUI" />
 <xs:element ref="BasicCheckBoxUI" />
 <xs:element ref="BasicLabelButtonUI" />
-<xs:element ref="BasicButtonUI"/></xs:choice>
+<xs:element ref="BasicButtonUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicMenuBarUISchemaTypeValue">
@@ -146,7 +152,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="BasicTextAreaUI" />
 <xs:element ref="BasicTextFieldUI" />
-<xs:element ref="BasicTextComponentUI"/></xs:choice>
+<xs:element ref="BasicTextComponentUI" />
+</xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicTableHeaderUISchemaTypeValue">
