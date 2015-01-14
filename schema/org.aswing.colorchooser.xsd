@@ -4,19 +4,19 @@ xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
 <xs:complexType name="NoColorIconSchemaTypeValue">
-<xs:element ref="NoColorIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="NoColorIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PreviewColorIconSchemaTypeValue">
-<xs:element ref="PreviewColorIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="PreviewColorIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ColorRectIconSchemaTypeValue">
-<xs:element ref="ColorRectIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="ColorRectIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultColorSelectionModelSchemaTypeValue">
-<xs:element ref="DefaultColorSelectionModel"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultColorSelectionModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JColorMixerSchemaTypeValue">
-<xs:element ref="JColorMixer"/></xs:complexType>
+<xs:sequence><xs:element ref="JColorMixer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ColorSelectionModelSchemaTypeValue">
 <xs:choice>
@@ -34,14 +34,16 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="JColorSwatchesSchemaTypeValue">
-<xs:element ref="JColorSwatches"/></xs:complexType>
+<xs:sequence><xs:element ref="JColorSwatches"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="VerticalLayoutSchemaTypeValue">
-<xs:element ref="VerticalLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="VerticalLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NoColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -49,6 +51,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PreviewColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -56,6 +60,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ColorRectIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -63,6 +69,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultColorSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -70,6 +78,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JColorMixerSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractColorChooserPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -77,6 +87,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ColorSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -84,6 +96,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractColorChooserPanelSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -91,6 +105,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JColorSwatchesSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractColorChooserPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -98,6 +114,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="VerticalLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

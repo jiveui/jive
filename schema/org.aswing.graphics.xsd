@@ -10,13 +10,13 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="PenSchemaTypeValue">
-<xs:element ref="Pen"/></xs:complexType>
+<xs:sequence><xs:element ref="Pen"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BitmapBrushSchemaTypeValue">
-<xs:element ref="BitmapBrush"/></xs:complexType>
+<xs:sequence><xs:element ref="BitmapBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GradientBrushSchemaTypeValue">
-<xs:element ref="GradientBrush"/></xs:complexType>
+<xs:sequence><xs:element ref="GradientBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IPenSchemaTypeValue">
 <xs:choice>
@@ -26,17 +26,19 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="GradientPenSchemaTypeValue">
-<xs:element ref="GradientPen"/></xs:complexType>
+<xs:sequence><xs:element ref="GradientPen"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SolidBrushSchemaTypeValue">
-<xs:element ref="SolidBrush"/></xs:complexType>
+<xs:sequence><xs:element ref="SolidBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="Graphics2DSchemaTypeValue">
-<xs:element ref="Graphics2D"/></xs:complexType>
+<xs:sequence><xs:element ref="Graphics2D"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -44,6 +46,8 @@ xmlns:empty="empty"
 <xs:complexType name="PenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -51,6 +55,8 @@ xmlns:empty="empty"
 <xs:complexType name="BitmapBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -58,6 +64,8 @@ xmlns:empty="empty"
 <xs:complexType name="GradientBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -65,6 +73,8 @@ xmlns:empty="empty"
 <xs:complexType name="IPenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -72,6 +82,8 @@ xmlns:empty="empty"
 <xs:complexType name="GradientPenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -79,6 +91,8 @@ xmlns:empty="empty"
 <xs:complexType name="SolidBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -86,6 +100,8 @@ xmlns:empty="empty"
 <xs:complexType name="Graphics2DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

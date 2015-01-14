@@ -2,20 +2,22 @@
 xmlns:empty="empty"
 >
 <xs:complexType name="EnumValueToolsSchemaTypeValue">
-<xs:element ref="EnumValueTools"/></xs:complexType>
+<xs:sequence><xs:element ref="EnumValueTools"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TimerSchemaTypeValue">
-<xs:element ref="Timer"/></xs:complexType>
+<xs:sequence><xs:element ref="Timer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EnumToolsSchemaTypeValue">
-<xs:element ref="EnumTools"/></xs:complexType>
+<xs:sequence><xs:element ref="EnumTools"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LogSchemaTypeValue">
-<xs:element ref="Log"/></xs:complexType>
+<xs:sequence><xs:element ref="Log"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EnumValueToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -23,7 +25,9 @@ xmlns:empty="empty"
 <xs:complexType name="TimerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="run" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="run" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -32,6 +36,8 @@ xmlns:empty="empty"
 <xs:complexType name="EnumToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -39,6 +45,8 @@ xmlns:empty="empty"
 <xs:complexType name="LogSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

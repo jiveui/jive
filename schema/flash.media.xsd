@@ -5,41 +5,42 @@ xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
 <xs:complexType name="CameraSchemaTypeValue">
-<xs:element ref="Camera"/></xs:complexType>
+<xs:sequence><xs:element ref="Camera"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StageVideoSchemaTypeValue">
-<xs:element ref="StageVideo"/></xs:complexType>
+<xs:sequence><xs:element ref="StageVideo"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AVSourceSchemaTypeValue">
-<xs:element ref="AVSource"/></xs:complexType>
+<xs:sequence><xs:element ref="AVSource"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MicrophoneEnhancedOptionsSchemaTypeValue">
-<xs:element ref="MicrophoneEnhancedOptions"/></xs:complexType>
+<xs:sequence><xs:element ref="MicrophoneEnhancedOptions"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SoundTransformSchemaTypeValue">
-<xs:element ref="SoundTransform"/></xs:complexType>
+<xs:sequence><xs:element ref="SoundTransform"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AVPlayStateSchemaTypeValue">
-<xs:element ref="AVPlayState"/></xs:complexType>
+<xs:sequence><xs:element ref="AVPlayState"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MicrophoneSchemaTypeValue">
-<xs:element ref="Microphone"/></xs:complexType>
+<xs:sequence><xs:element ref="Microphone"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AVResultSchemaTypeValue">
-<xs:element ref="AVResult"/></xs:complexType>
+<xs:sequence><xs:element ref="AVResult"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AVCaptionStyleSchemaTypeValue">
-<xs:element ref="AVCaptionStyle"/></xs:complexType>
+<xs:sequence><xs:element ref="AVCaptionStyle"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="VideoStreamSettingsSchemaTypeValue">
-<xs:element ref="VideoStreamSettings"/></xs:complexType>
+<xs:sequence><xs:element ref="VideoStreamSettings"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AVStreamSchemaTypeValue">
-<xs:element ref="AVStream"/></xs:complexType>
+<xs:sequence><xs:element ref="AVStream"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CameraSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="activityLevel" type="xs:double"/>
 <xs:element name="bandwidth" type="xs:int"/>
 <xs:element name="currentFPS" type="xs:double"/>
@@ -54,6 +55,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="name" type="xs:string"/>
 <xs:element name="quality" type="xs:int"/>
 <xs:element name="width" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="activityLevel" type="xs:double"/>
 <xs:attribute name="bandwidth" type="xs:int"/>
 <xs:attribute name="currentFPS" type="xs:double"/>
@@ -75,6 +77,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="StageVideoSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="colorSpaces" type="flash:VectorSchemaTypeValue"/>
 <xs:element name="depth" type="xs:int"/>
 <xs:element name="pan" type="flash-geom:PointSchemaTypeValue"/>
@@ -82,6 +85,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="videoWidth" type="xs:int"/>
 <xs:element name="viewPort" type="flash-geom:RectangleSchemaTypeValue"/>
 <xs:element name="zoom" type="flash-geom:PointSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="colorSpaces" type="xs:string"/>
 <xs:attribute name="depth" type="xs:int"/>
 <xs:attribute name="pan" type="xs:string"/>
@@ -96,6 +100,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVSourceSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -103,11 +109,13 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="MicrophoneEnhancedOptionsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="autoGain" type="xs:boolean"/>
 <xs:element name="echoPath" type="xs:int"/>
 <xs:element name="isVoiceDetected" type="xs:int"/>
 <xs:element name="mode" type="xs:string"/>
 <xs:element name="nonLinearProcessing" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="autoGain" type="xs:boolean"/>
 <xs:attribute name="echoPath" type="xs:int"/>
 <xs:attribute name="isVoiceDetected" type="xs:int"/>
@@ -120,12 +128,14 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="SoundTransformSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="leftToLeft" type="xs:double"/>
 <xs:element name="leftToRight" type="xs:double"/>
 <xs:element name="pan" type="xs:double"/>
 <xs:element name="rightToLeft" type="xs:double"/>
 <xs:element name="rightToRight" type="xs:double"/>
 <xs:element name="volume" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="leftToLeft" type="xs:double"/>
 <xs:attribute name="leftToRight" type="xs:double"/>
 <xs:attribute name="pan" type="xs:double"/>
@@ -139,7 +149,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVPlayStateSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="state" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="state" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -148,6 +160,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="MicrophoneSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="activityLevel" type="xs:double"/>
 <xs:element name="codec" type="xs:string"/>
 <xs:element name="encodeQuality" type="xs:int"/>
@@ -161,6 +174,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="silenceTimeout" type="xs:int"/>
 <xs:element name="soundTransform" type="SoundTransformSchemaTypeValue"/>
 <xs:element name="useEchoSuppression" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="activityLevel" type="xs:double"/>
 <xs:attribute name="codec" type="xs:string"/>
 <xs:attribute name="encodeQuality" type="xs:int"/>
@@ -181,7 +195,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVResultSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="result" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="result" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -190,6 +206,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVCaptionStyleSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="backgroundColor" type="xs:string"/>
 <xs:element name="backgroundOpacity" type="xs:string"/>
 <xs:element name="edgeColor" type="xs:string"/>
@@ -200,6 +217,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="fontEdge" type="xs:string"/>
 <xs:element name="fontOpacity" type="xs:string"/>
 <xs:element name="size" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="backgroundColor" type="xs:string"/>
 <xs:attribute name="backgroundOpacity" type="xs:string"/>
 <xs:attribute name="edgeColor" type="xs:string"/>
@@ -217,6 +235,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="VideoStreamSettingsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bandwidth" type="xs:int"/>
 <xs:element name="codec" type="xs:string"/>
 <xs:element name="fps" type="xs:double"/>
@@ -224,6 +243,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="keyFrameInterval" type="xs:int"/>
 <xs:element name="quality" type="xs:int"/>
 <xs:element name="width" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="bandwidth" type="xs:int"/>
 <xs:attribute name="codec" type="xs:string"/>
 <xs:attribute name="fps" type="xs:double"/>
@@ -238,6 +258,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVStreamSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="backBufferLength" type="xs:double"/>
 <xs:element name="backBufferTime" type="xs:double"/>
 <xs:element name="bufferLength" type="xs:double"/>
@@ -254,6 +275,7 @@ xmlns:flash-events="flash.events"
 <xs:element name="time" type="xs:double"/>
 <xs:element name="useHardwareDecoder" type="xs:boolean"/>
 <xs:element name="volume" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="backBufferLength" type="xs:double"/>
 <xs:attribute name="backBufferTime" type="xs:double"/>
 <xs:attribute name="bufferLength" type="xs:double"/>

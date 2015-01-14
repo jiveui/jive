@@ -30,19 +30,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="DefaultComboBoxCellEditorSchemaTypeValue">
-<xs:element ref="DefaultComboBoxCellEditor"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultComboBoxCellEditor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JListSchemaTypeValue">
-<xs:element ref="JList"/></xs:complexType>
+<xs:sequence><xs:element ref="JList"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JAccordionSchemaTypeValue">
-<xs:element ref="JAccordion"/></xs:complexType>
+<xs:sequence><xs:element ref="JAccordion"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FocusManagerSchemaTypeValue">
-<xs:element ref="FocusManager"/></xs:complexType>
+<xs:sequence><xs:element ref="FocusManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CursorManagerSchemaTypeValue">
-<xs:element ref="CursorManager"/></xs:complexType>
+<xs:sequence><xs:element ref="CursorManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JTextComponentSchemaTypeValue">
 <xs:choice>
@@ -61,7 +61,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="EmptyFontSchemaTypeValue">
-<xs:element ref="EmptyFont"/></xs:complexType>
+<xs:sequence><xs:element ref="EmptyFont"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CellSchemaTypeValue">
 <xs:choice>
@@ -73,7 +73,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JToolBarSchemaTypeValue">
-<xs:element ref="JToolBar"/></xs:complexType>
+<xs:sequence><xs:element ref="JToolBar"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MutableListModelSchemaTypeValue">
 <xs:choice>
@@ -82,7 +82,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="SimpleButtonIconToggleSchemaTypeValue">
-<xs:element ref="SimpleButtonIconToggle"/></xs:complexType>
+<xs:sequence><xs:element ref="SimpleButtonIconToggle"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GroundDecoratorSchemaTypeValue">
 <xs:choice>
@@ -134,7 +134,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JTreeSchemaTypeValue">
-<xs:element ref="JTree"/></xs:complexType>
+<xs:sequence><xs:element ref="JTree"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ASColorSchemaTypeValue">
 <xs:choice>
@@ -222,13 +222,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JLayeredPaneSchemaTypeValue">
-<xs:element ref="JLayeredPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JLayeredPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultComboBoxListCellFactorySchemaTypeValue">
-<xs:element ref="DefaultComboBoxListCellFactory"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultComboBoxListCellFactory"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JMenuBarSchemaTypeValue">
-<xs:element ref="JMenuBar"/></xs:complexType>
+<xs:sequence><xs:element ref="JMenuBar"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ASFontSchemaTypeValue">
 <xs:choice>
@@ -239,19 +239,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="KeyActionSchemaTypeValue">
-<xs:element ref="KeyAction"/></xs:complexType>
+<xs:sequence><xs:element ref="KeyAction"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SoftBoxSchemaTypeValue">
-<xs:element ref="SoftBox"/></xs:complexType>
+<xs:sequence><xs:element ref="SoftBox"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="WeightBoxLayoutSchemaTypeValue">
-<xs:element ref="WeightBoxLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="WeightBoxLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JLabelButtonSchemaTypeValue">
-<xs:element ref="JLabelButton"/></xs:complexType>
+<xs:sequence><xs:element ref="JLabelButton"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EmptyIconSchemaTypeValue">
-<xs:element ref="EmptyIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="EmptyIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JWindowSchemaTypeValue">
 <xs:choice>
@@ -261,7 +261,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JButtonSchemaTypeValue">
-<xs:element ref="JButton"/></xs:complexType>
+<xs:sequence><xs:element ref="JButton"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractCellEditorSchemaTypeValue">
 <xs:choice>
@@ -274,7 +274,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="StyleResultSchemaTypeValue">
-<xs:element ref="StyleResult"/></xs:complexType>
+<xs:sequence><xs:element ref="StyleResult"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EditableComponentSchemaTypeValue">
 <xs:choice>
@@ -301,19 +301,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="WindowLayoutSchemaTypeValue">
-<xs:element ref="WindowLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="WindowLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JTableSchemaTypeValue">
-<xs:element ref="JTable"/></xs:complexType>
+<xs:sequence><xs:element ref="JTable"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SolidBackgroundSchemaTypeValue">
-<xs:element ref="SolidBackground"/></xs:complexType>
+<xs:sequence><xs:element ref="SolidBackground"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ASFontAdvPropertiesSchemaTypeValue">
-<xs:element ref="ASFontAdvProperties"/></xs:complexType>
+<xs:sequence><xs:element ref="ASFontAdvProperties"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="VectorListModelSchemaTypeValue">
-<xs:element ref="VectorListModel"/></xs:complexType>
+<xs:sequence><xs:element ref="VectorListModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="InsetsSchemaTypeValue">
 <xs:choice>
@@ -336,22 +336,22 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="DefaultNumberTextFieldCellEditorSchemaTypeValue">
-<xs:element ref="DefaultNumberTextFieldCellEditor"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultNumberTextFieldCellEditor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JClosableTabbedPaneSchemaTypeValue">
-<xs:element ref="JClosableTabbedPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JClosableTabbedPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultBoundedRangeModelSchemaTypeValue">
-<xs:element ref="DefaultBoundedRangeModel"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultBoundedRangeModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="KeySequenceSchemaTypeValue">
-<xs:element ref="KeySequence"/></xs:complexType>
+<xs:sequence><xs:element ref="KeySequence"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultListCellFactorySchemaTypeValue">
-<xs:element ref="DefaultListCellFactory"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultListCellFactory"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AsWingUtilsSchemaTypeValue">
-<xs:element ref="AsWingUtils"/></xs:complexType>
+<xs:sequence><xs:element ref="AsWingUtils"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultButtonModelSchemaTypeValue">
 <xs:choice>
@@ -379,22 +379,22 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JScrollBarSchemaTypeValue">
-<xs:element ref="JScrollBar"/></xs:complexType>
+<xs:sequence><xs:element ref="JScrollBar"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ButtonGroupSchemaTypeValue">
-<xs:element ref="ButtonGroup"/></xs:complexType>
+<xs:sequence><xs:element ref="ButtonGroup"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JComboBoxSchemaTypeValue">
-<xs:element ref="JComboBox"/></xs:complexType>
+<xs:sequence><xs:element ref="JComboBox"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JFrameTitleBarSchemaTypeValue">
-<xs:element ref="JFrameTitleBar"/></xs:complexType>
+<xs:sequence><xs:element ref="JFrameTitleBar"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JCheckBoxMenuItemSchemaTypeValue">
-<xs:element ref="JCheckBoxMenuItem"/></xs:complexType>
+<xs:sequence><xs:element ref="JCheckBoxMenuItem"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JLoadPaneSchemaTypeValue">
-<xs:element ref="JLoadPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JLoadPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AssetIconSchemaTypeValue">
 <xs:choice>
@@ -404,10 +404,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="FrameTitleBarLayoutSchemaTypeValue">
-<xs:element ref="FrameTitleBarLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="FrameTitleBarLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="RepaintManagerSchemaTypeValue">
-<xs:element ref="RepaintManager"/></xs:complexType>
+<xs:sequence><xs:element ref="RepaintManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JMenuItemSchemaTypeValue">
 <xs:choice>
@@ -419,7 +419,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="DefaultListSelectionModelSchemaTypeValue">
-<xs:element ref="DefaultListSelectionModel"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultListSelectionModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BorderSchemaTypeValue">
 <xs:choice>
@@ -457,25 +457,25 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="GridLayoutSchemaTypeValue">
-<xs:element ref="GridLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="GridLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FlowWrapLayoutSchemaTypeValue">
-<xs:element ref="FlowWrapLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="FlowWrapLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JSliderSchemaTypeValue">
-<xs:element ref="JSlider"/></xs:complexType>
+<xs:sequence><xs:element ref="JSlider"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LoadIconSchemaTypeValue">
-<xs:element ref="LoadIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="LoadIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultSingleSelectionModelSchemaTypeValue">
-<xs:element ref="DefaultSingleSelectionModel"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultSingleSelectionModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="KeyStrokeSchemaTypeValue">
-<xs:element ref="KeyStroke"/></xs:complexType>
+<xs:sequence><xs:element ref="KeyStroke"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AsWingManagerSchemaTypeValue">
-<xs:element ref="AsWingManager"/></xs:complexType>
+<xs:sequence><xs:element ref="AsWingManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ListCellSchemaTypeValue">
 <xs:choice>
@@ -486,7 +486,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="KeyMapSchemaTypeValue">
-<xs:element ref="KeyMap"/></xs:complexType>
+<xs:sequence><xs:element ref="KeyMap"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractTabbedPaneSchemaTypeValue">
 <xs:choice>
@@ -498,10 +498,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="MultipleAssetIconSchemaTypeValue">
-<xs:element ref="MultipleAssetIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="MultipleAssetIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AssetBackgroundSchemaTypeValue">
-<xs:element ref="AssetBackground"/></xs:complexType>
+<xs:sequence><xs:element ref="AssetBackground"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LookAndFeelSchemaTypeValue">
 <xs:choice>
@@ -511,13 +511,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="DefaultComboBoxEditorSchemaTypeValue">
-<xs:element ref="DefaultComboBoxEditor"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultComboBoxEditor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultCheckBoxCellEditorSchemaTypeValue">
-<xs:element ref="DefaultCheckBoxCellEditor"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultCheckBoxCellEditor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SimpleButtonIconSchemaTypeValue">
-<xs:element ref="SimpleButtonIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="SimpleButtonIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JViewportSchemaTypeValue">
 <xs:choice>
@@ -527,22 +527,22 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BoxLayoutSchemaTypeValue">
-<xs:element ref="BoxLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="BoxLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ToggleButtonModelSchemaTypeValue">
-<xs:element ref="ToggleButtonModel"/></xs:complexType>
+<xs:sequence><xs:element ref="ToggleButtonModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CellPaneSchemaTypeValue">
-<xs:element ref="CellPane"/></xs:complexType>
+<xs:sequence><xs:element ref="CellPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JSharedToolTipSchemaTypeValue">
-<xs:element ref="JSharedToolTip"/></xs:complexType>
+<xs:sequence><xs:element ref="JSharedToolTip"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JTextFieldSchemaTypeValue">
-<xs:element ref="JTextField"/></xs:complexType>
+<xs:sequence><xs:element ref="JTextField"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SimpleButtonSchemaTypeValue">
-<xs:element ref="SimpleButton"/></xs:complexType>
+<xs:sequence><xs:element ref="SimpleButton"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTextFieldCellEditorSchemaTypeValue">
 <xs:choice>
@@ -552,19 +552,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JRadioButtonSchemaTypeValue">
-<xs:element ref="JRadioButton"/></xs:complexType>
+<xs:sequence><xs:element ref="JRadioButton"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JPopupMenuSchemaTypeValue">
-<xs:element ref="JPopupMenu"/></xs:complexType>
+<xs:sequence><xs:element ref="JPopupMenu"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ViewportLayoutSchemaTypeValue">
-<xs:element ref="ViewportLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="ViewportLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JColorChooserSchemaTypeValue">
-<xs:element ref="JColorChooser"/></xs:complexType>
+<xs:sequence><xs:element ref="JColorChooser"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AssetItemSchemaTypeValue">
-<xs:element ref="AssetItem"/></xs:complexType>
+<xs:sequence><xs:element ref="AssetItem"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ContainerSchemaTypeValue">
 <xs:choice>
@@ -613,10 +613,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BoxSchemaTypeValue">
-<xs:element ref="Box"/></xs:complexType>
+<xs:sequence><xs:element ref="Box"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JProgressBarSchemaTypeValue">
-<xs:element ref="JProgressBar"/></xs:complexType>
+<xs:sequence><xs:element ref="JProgressBar"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BorderLayoutSchemaTypeValue">
 <xs:choice>
@@ -626,13 +626,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="AWTextFieldSchemaTypeValue">
-<xs:element ref="AWTextField"/></xs:complexType>
+<xs:sequence><xs:element ref="AWTextField"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="WindowOrderFocusTraversalPolicySchemaTypeValue">
-<xs:element ref="WindowOrderFocusTraversalPolicy"/></xs:complexType>
+<xs:sequence><xs:element ref="WindowOrderFocusTraversalPolicy"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="UIDefaultsSchemaTypeValue">
-<xs:element ref="UIDefaults"/></xs:complexType>
+<xs:sequence><xs:element ref="UIDefaults"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractListModelSchemaTypeValue">
 <xs:choice>
@@ -663,7 +663,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="CursorSchemaTypeValue">
-<xs:element ref="Cursor"/></xs:complexType>
+<xs:sequence><xs:element ref="Cursor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StyleTuneSchemaTypeValue">
 <xs:choice>
@@ -680,7 +680,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JOptionPaneSchemaTypeValue">
-<xs:element ref="JOptionPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JOptionPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AWSpriteSchemaTypeValue">
 <xs:choice>
@@ -777,16 +777,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JMenuSchemaTypeValue">
-<xs:element ref="JMenu"/></xs:complexType>
+<xs:sequence><xs:element ref="JMenu"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JStepperSchemaTypeValue">
-<xs:element ref="JStepper"/></xs:complexType>
+<xs:sequence><xs:element ref="JStepper"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JFrameSchemaTypeValue">
-<xs:element ref="JFrame"/></xs:complexType>
+<xs:sequence><xs:element ref="JFrame"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GradientBackgroundSchemaTypeValue">
-<xs:element ref="GradientBackground"/></xs:complexType>
+<xs:sequence><xs:element ref="GradientBackground"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JToggleButtonSchemaTypeValue">
 <xs:choice>
@@ -797,7 +797,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="CenterLayoutSchemaTypeValue">
-<xs:element ref="CenterLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="CenterLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractListCellSchemaTypeValue">
 <xs:choice>
@@ -808,7 +808,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JRadioButtonMenuItemSchemaTypeValue">
-<xs:element ref="JRadioButtonMenuItem"/></xs:complexType>
+<xs:sequence><xs:element ref="JRadioButtonMenuItem"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JToolTipSchemaTypeValue">
 <xs:choice>
@@ -837,10 +837,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JSpacerSchemaTypeValue">
-<xs:element ref="JSpacer"/></xs:complexType>
+<xs:sequence><xs:element ref="JSpacer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AWKeyboardSchemaTypeValue">
-<xs:element ref="AWKeyboard"/></xs:complexType>
+<xs:sequence><xs:element ref="AWKeyboard"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LayoutManagerSchemaTypeValue">
 <xs:choice>
@@ -928,7 +928,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JSplitPaneSchemaTypeValue">
-<xs:element ref="JSplitPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JSplitPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultListCellSchemaTypeValue">
 <xs:choice>
@@ -972,7 +972,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="GeneralListCellFactorySchemaTypeValue">
-<xs:element ref="GeneralListCellFactory"/></xs:complexType>
+<xs:sequence><xs:element ref="GeneralListCellFactory"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CellEditorSchemaTypeValue">
 <xs:choice>
@@ -987,7 +987,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JCheckBoxSchemaTypeValue">
-<xs:element ref="JCheckBox"/></xs:complexType>
+<xs:sequence><xs:element ref="JCheckBox"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AssetPaneSchemaTypeValue">
 <xs:choice>
@@ -1004,13 +1004,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="KeyboardManagerSchemaTypeValue">
-<xs:element ref="KeyboardManager"/></xs:complexType>
+<xs:sequence><xs:element ref="KeyboardManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="UIManagerSchemaTypeValue">
-<xs:element ref="UIManager"/></xs:complexType>
+<xs:sequence><xs:element ref="UIManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MenuSelectionManagerSchemaTypeValue">
-<xs:element ref="MenuSelectionManager"/></xs:complexType>
+<xs:sequence><xs:element ref="MenuSelectionManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MenuElementSchemaTypeValue">
 <xs:choice>
@@ -1024,7 +1024,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="DefaultComboBoxListCellSchemaTypeValue">
-<xs:element ref="DefaultComboBoxListCell"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultComboBoxListCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="KeyTypeSchemaTypeValue">
 <xs:choice>
@@ -1034,19 +1034,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="AsWingConstantsSchemaTypeValue">
-<xs:element ref="AsWingConstants"/></xs:complexType>
+<xs:sequence><xs:element ref="AsWingConstants"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JAdjusterSchemaTypeValue">
-<xs:element ref="JAdjuster"/></xs:complexType>
+<xs:sequence><xs:element ref="JAdjuster"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JSeparatorSchemaTypeValue">
-<xs:element ref="JSeparator"/></xs:complexType>
+<xs:sequence><xs:element ref="JSeparator"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ScrollPaneLayoutSchemaTypeValue">
-<xs:element ref="ScrollPaneLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="ScrollPaneLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="JScrollPaneSchemaTypeValue">
-<xs:element ref="JScrollPane"/></xs:complexType>
+<xs:sequence><xs:element ref="JScrollPane"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ComboBoxEditorSchemaTypeValue">
 <xs:choice>
@@ -1057,6 +1057,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DecoratorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1064,6 +1066,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultComboBoxCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractCellEditorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1071,6 +1075,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JListSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1078,6 +1084,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JAccordionSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractTabbedPaneSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1085,6 +1093,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FocusManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1092,6 +1102,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CursorManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1099,7 +1111,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTextComponentSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
 <xs:element name="text" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="text" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -1108,6 +1122,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SoftBoxLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1115,6 +1131,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="EmptyFontSchemaType">
 <xs:complexContent>
 <xs:extension base="ASFontSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1122,6 +1140,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CellSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1129,6 +1149,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JToolBarSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1136,6 +1158,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MutableListModelSchemaType">
 <xs:complexContent>
 <xs:extension base="ListModelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1143,6 +1167,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SimpleButtonIconToggleSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1150,6 +1176,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="GroundDecoratorSchemaType">
 <xs:complexContent>
 <xs:extension base="DecoratorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1157,6 +1185,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SingleSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1164,7 +1194,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
 <xs:element name="text" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="text" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -1173,6 +1205,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTreeSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1180,8 +1214,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ASColorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="rgb" type="xs:int"/>
 <xs:element name="alpha" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="rgb" type="xs:int"/>
 <xs:attribute name="alpha" type="xs:double"/>
 </xs:extension>
@@ -1191,6 +1227,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ComponentSchemaType">
 <xs:complexContent>
 <xs:extension base="AWSpriteSchemaType">
+<xs:sequence>
 <xs:element name="ui" type="org-aswing-plaf:ComponentUISchemaTypeValue"/>
 <xs:element name="clipBounds" type="org-aswing-geom:IntRectangleSchemaTypeValue"/>
 <xs:element name="alignmentX" type="xs:double"/>
@@ -1221,6 +1258,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="dragEnabled" type="xs:boolean"/>
 <xs:element name="dropTrigger" type="xs:boolean"/>
 <xs:element name="resizerMargin" type="InsetsSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="ui" type="xs:string"/>
 <xs:attribute name="clipBounds" type="xs:string"/>
 <xs:attribute name="alignmentX" type="xs:double"/>
@@ -1258,6 +1296,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JLayeredPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1265,6 +1305,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultComboBoxListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultListTextCellFactorySchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1272,6 +1314,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JMenuBarSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1279,11 +1323,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ASFontSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="name" type="xs:string"/>
 <xs:element name="size" type="xs:int"/>
 <xs:element name="bold" type="xs:boolean"/>
 <xs:element name="italic" type="xs:boolean"/>
 <xs:element name="underline" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="name" type="xs:string"/>
 <xs:attribute name="size" type="xs:int"/>
 <xs:attribute name="bold" type="xs:boolean"/>
@@ -1296,8 +1342,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeyActionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="key" type="KeyTypeSchemaTypeValue"/>
 <xs:element name="action" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="key" type="xs:string"/>
 <xs:attribute name="action" type="xs:string"/>
 </xs:extension>
@@ -1307,6 +1355,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SoftBoxSchemaType">
 <xs:complexContent>
 <xs:extension base="JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1314,6 +1364,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="WeightBoxLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1321,6 +1373,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JLabelButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1328,6 +1382,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="EmptyIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1335,6 +1391,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JWindowSchemaType">
 <xs:complexContent>
 <xs:extension base="JPopupSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1342,6 +1400,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1349,6 +1409,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1356,12 +1418,14 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="StyleResultSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="clight" type="ASColorSchemaTypeValue"/>
 <xs:element name="cdark" type="ASColorSchemaTypeValue"/>
 <xs:element name="blight" type="ASColorSchemaTypeValue"/>
 <xs:element name="bdark" type="ASColorSchemaTypeValue"/>
 <xs:element name="shadow" type="xs:double"/>
 <xs:element name="round" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="clight" type="xs:string"/>
 <xs:attribute name="cdark" type="xs:string"/>
 <xs:attribute name="blight" type="xs:string"/>
@@ -1375,6 +1439,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="EditableComponentSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1382,7 +1448,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JLabelSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
 <xs:element name="text" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="text" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -1391,6 +1459,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="WindowLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1398,6 +1468,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTableSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1405,6 +1477,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SolidBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1412,6 +1486,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ASFontAdvPropertiesSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1419,6 +1495,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="VectorListModelSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractListModelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1426,10 +1504,12 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="InsetsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bottom" type="xs:int"/>
 <xs:element name="top" type="xs:int"/>
 <xs:element name="left" type="xs:int"/>
 <xs:element name="right" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="bottom" type="xs:int"/>
 <xs:attribute name="top" type="xs:int"/>
 <xs:attribute name="left" type="xs:int"/>
@@ -1441,6 +1521,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JPanelSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1448,6 +1530,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultNumberTextFieldCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultTextFieldCellEditorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1455,6 +1539,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JClosableTabbedPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="JTabbedPaneSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1462,6 +1548,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultBoundedRangeModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1469,6 +1557,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeySequenceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1476,6 +1566,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultListTextCellFactorySchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1483,6 +1575,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AsWingUtilsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1490,6 +1584,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultButtonModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1497,6 +1593,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ListSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1504,6 +1602,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ViewportableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1511,6 +1611,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JScrollBarSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1518,6 +1620,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ButtonGroupSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1525,6 +1629,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JComboBoxSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1532,6 +1638,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JFrameTitleBarSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1539,6 +1647,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JCheckBoxMenuItemSchemaType">
 <xs:complexContent>
 <xs:extension base="JMenuItemSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1546,6 +1656,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JLoadPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="AssetPaneSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1553,6 +1665,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+<xs:element name="width" type="xs:int"/>
+<xs:element name="height" type="xs:int"/>
+<xs:element name="scale" type="xs:boolean"/>
+<xs:element name="asset" type="flash-display:DisplayObjectSchemaTypeValue"/>
+</xs:sequence>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="scale" type="xs:boolean"/>
+<xs:attribute name="asset" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1560,6 +1682,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameTitleBarLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="BorderLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1567,6 +1691,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="RepaintManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1574,6 +1700,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JMenuItemSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1581,6 +1709,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultListSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1588,6 +1718,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecoratorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1595,6 +1727,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1602,10 +1736,12 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="GridLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
 <xs:element name="hgap" type="xs:int"/>
 <xs:element name="vgap" type="xs:int"/>
 <xs:element name="rows" type="xs:int"/>
 <xs:element name="columns" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="hgap" type="xs:int"/>
 <xs:attribute name="vgap" type="xs:int"/>
 <xs:attribute name="rows" type="xs:int"/>
@@ -1617,6 +1753,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FlowWrapLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="FlowLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1624,6 +1762,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSliderSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1631,6 +1771,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="LoadIconSchemaType">
 <xs:complexContent>
 <xs:extension base="AssetIconSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1638,6 +1780,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultSingleSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1645,6 +1789,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeyStrokeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1652,6 +1798,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AsWingManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1659,6 +1807,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ListCellSchemaType">
 <xs:complexContent>
 <xs:extension base="CellSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1666,6 +1816,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeyMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1673,6 +1825,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractTabbedPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1680,6 +1834,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MultipleAssetIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1687,6 +1843,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1694,6 +1852,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="LookAndFeelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1701,6 +1861,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultComboBoxEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1708,6 +1870,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultCheckBoxCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractCellEditorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1715,6 +1879,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SimpleButtonIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1722,6 +1888,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JViewportSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1729,6 +1897,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BoxLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1736,6 +1906,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ToggleButtonModelSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultButtonModelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1743,6 +1915,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CellPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1750,6 +1924,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSharedToolTipSchemaType">
 <xs:complexContent>
 <xs:extension base="JToolTipSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1757,9 +1933,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTextFieldSchemaType">
 <xs:complexContent>
 <xs:extension base="JTextComponentSchemaType">
+<xs:sequence>
 <xs:element name="columns" type="xs:int"/>
 <xs:element name="setColumns" type="xs:string"/>
 <xs:element name="getColumns" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="columns" type="xs:int"/>
 <xs:attribute name="setColumns" type="xs:string"/>
 <xs:attribute name="getColumns" type="xs:string"/>
@@ -1770,12 +1948,14 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SimpleButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:SpriteSchemaType">
+<xs:sequence>
 <xs:element name="downState" type="flash-display:DisplayObjectSchemaTypeValue"/>
 <xs:element name="enabled" type="xs:boolean"/>
 <xs:element name="hitTestState" type="flash-display:DisplayObjectSchemaTypeValue"/>
 <xs:element name="overState" type="flash-display:DisplayObjectSchemaTypeValue"/>
 <xs:element name="trackAsMenu" type="xs:boolean"/>
 <xs:element name="upState" type="flash-display:DisplayObjectSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="downState" type="xs:string"/>
 <xs:attribute name="enabled" type="xs:boolean"/>
 <xs:attribute name="hitTestState" type="xs:string"/>
@@ -1789,6 +1969,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultTextFieldCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractCellEditorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1796,6 +1978,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JRadioButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="JToggleButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1803,6 +1987,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JPopupMenuSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1810,6 +1996,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ViewportLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1817,6 +2005,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JColorChooserSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-colorchooser:AbstractColorChooserPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1824,6 +2014,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetItemSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1831,6 +2023,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ContainerSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
 <xs:element ref="AbstractButton" />
 <xs:element ref="JTree" />
 <xs:element ref="JProgressBar" />
@@ -1905,6 +2098,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="Box" />
 <xs:element ref="Component" />
 <xs:element name="layout" type="LayoutManagerSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="layout" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -1913,6 +2107,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BoxSchemaType">
 <xs:complexContent>
 <xs:extension base="JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1920,6 +2116,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JProgressBarSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1927,6 +2125,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BorderLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1934,6 +2134,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AWTextFieldSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-text:TextFieldSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1941,6 +2143,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="WindowOrderFocusTraversalPolicySchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerOrderFocusTraversalPolicySchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1948,6 +2152,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="UIDefaultsSchemaType">
 <xs:complexContent>
 <xs:extension base="haxe-ds:StringMapSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1955,6 +2161,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractListModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1962,6 +2170,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="EmptyLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1969,6 +2179,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CursorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1976,12 +2188,14 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="StyleTuneSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="cGradient" type="xs:double"/>
 <xs:element name="bOffset" type="xs:double"/>
 <xs:element name="bGradient" type="xs:double"/>
 <xs:element name="shadowAlpha" type="xs:double"/>
 <xs:element name="round" type="xs:double"/>
 <xs:element name="mide" type="StyleTuneSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="cGradient" type="xs:double"/>
 <xs:attribute name="bOffset" type="xs:double"/>
 <xs:attribute name="bGradient" type="xs:double"/>
@@ -1995,6 +2209,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FocusTraversalPolicySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2002,6 +2218,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JOptionPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2009,6 +2227,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AWSpriteSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:SpriteSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2016,6 +2236,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ButtonModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2023,6 +2245,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultListTextCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2030,6 +2254,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JMenuSchemaType">
 <xs:complexContent>
 <xs:extension base="JMenuItemSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2037,6 +2263,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JStepperSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2044,6 +2272,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JFrameSchemaType">
 <xs:complexContent>
 <xs:extension base="JWindowSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2051,6 +2281,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="GradientBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2058,6 +2290,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JToggleButtonSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2065,6 +2299,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CenterLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2072,6 +2308,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AbstractListCellSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2079,6 +2317,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JRadioButtonMenuItemSchemaType">
 <xs:complexContent>
 <xs:extension base="JMenuItemSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2086,6 +2326,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JToolTipSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2093,6 +2335,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ListModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2100,6 +2344,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ContainerOrderFocusTraversalPolicySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2107,6 +2353,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BoundedRangeModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2114,6 +2362,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSpacerSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2121,6 +2371,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AWKeyboardSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2128,6 +2380,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="LayoutManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2135,6 +2389,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JPopupSchemaType">
 <xs:complexContent>
 <xs:extension base="JRootPaneSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2142,6 +2398,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="IconSchemaType">
 <xs:complexContent>
 <xs:extension base="DecoratorSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2149,6 +2407,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FlowLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2156,6 +2416,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSplitPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2163,6 +2425,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultListCellSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractListCellSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2170,6 +2434,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="OrientableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2177,6 +2443,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JRootPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2184,6 +2452,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameTitleBarSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2191,12 +2461,14 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTextAreaSchemaType">
 <xs:complexContent>
 <xs:extension base="JTextComponentSchemaType">
+<xs:sequence>
 <xs:element name="columns" type="xs:int"/>
 <xs:element name="rows" type="xs:int"/>
 <xs:element name="setColumns" type="xs:string"/>
 <xs:element name="getColumns" type="xs:string"/>
 <xs:element name="setRows" type="xs:string"/>
 <xs:element name="getRows" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="columns" type="xs:int"/>
 <xs:attribute name="rows" type="xs:int"/>
 <xs:attribute name="setColumns" type="xs:string"/>
@@ -2210,6 +2482,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="GeneralListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2217,6 +2491,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2224,6 +2500,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JCheckBoxSchemaType">
 <xs:complexContent>
 <xs:extension base="JToggleButtonSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2231,6 +2509,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AssetPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2238,6 +2518,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JTabbedPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractTabbedPaneSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2245,6 +2527,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeyboardManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2252,6 +2536,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="UIManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2259,6 +2545,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuSelectionManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2266,6 +2554,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuElementSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2273,6 +2563,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultComboBoxListCellSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultListCellSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2280,6 +2572,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="KeyTypeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2287,6 +2581,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="AsWingConstantsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2294,6 +2590,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JAdjusterSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2301,6 +2599,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSeparatorSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2308,6 +2608,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ScrollPaneLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2315,6 +2617,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JScrollPaneSchemaType">
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2322,6 +2626,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ComboBoxEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -28,7 +28,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 </xs:complexType>
 
 <xs:complexType name="IOErrorEventSchemaTypeValue">
-<xs:element ref="IOErrorEvent"/></xs:complexType>
+<xs:sequence><xs:element ref="IOErrorEvent"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IEventDispatcherSchemaTypeValue">
 <xs:choice>
@@ -177,10 +177,10 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 </xs:complexType>
 
 <xs:complexType name="UncaughtErrorEventsSchemaTypeValue">
-<xs:element ref="UncaughtErrorEvents"/></xs:complexType>
+<xs:sequence><xs:element ref="UncaughtErrorEvents"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FocusEventSchemaTypeValue">
-<xs:element ref="FocusEvent"/></xs:complexType>
+<xs:sequence><xs:element ref="FocusEvent"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EventDispatcherSchemaTypeValue">
 <xs:choice>
@@ -362,6 +362,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="ErrorEventSchemaType">
 <xs:complexContent>
 <xs:extension base="TextEventSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -369,6 +371,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="IOErrorEventSchemaType">
 <xs:complexContent>
 <xs:extension base="ErrorEventSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -376,6 +380,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="IEventDispatcherSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -383,12 +389,14 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="KeyboardEventSchemaType">
 <xs:complexContent>
 <xs:extension base="EventSchemaType">
+<xs:sequence>
 <xs:element name="altKey" type="xs:boolean"/>
 <xs:element name="charCode" type="xs:string"/>
 <xs:element name="ctrlKey" type="xs:boolean"/>
 <xs:element name="keyCode" type="xs:string"/>
 <xs:element name="keyLocation" type="xs:string"/>
 <xs:element name="shiftKey" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="altKey" type="xs:boolean"/>
 <xs:attribute name="charCode" type="xs:string"/>
 <xs:attribute name="ctrlKey" type="xs:boolean"/>
@@ -402,7 +410,9 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="TextEventSchemaType">
 <xs:complexContent>
 <xs:extension base="EventSchemaType">
+<xs:sequence>
 <xs:element name="text" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="text" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -411,6 +421,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="UncaughtErrorEventsSchemaType">
 <xs:complexContent>
 <xs:extension base="EventDispatcherSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -418,10 +430,12 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="FocusEventSchemaType">
 <xs:complexContent>
 <xs:extension base="EventSchemaType">
+<xs:sequence>
 <xs:element name="isRelatedObjectInaccessible" type="xs:boolean"/>
 <xs:element name="keyCode" type="xs:string"/>
 <xs:element name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
 <xs:element name="shiftKey" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
 <xs:attribute name="keyCode" type="xs:string"/>
 <xs:attribute name="relatedObject" type="xs:string"/>
@@ -433,6 +447,8 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="EventDispatcherSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -440,12 +456,14 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="EventSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bubbles" type="xs:boolean"/>
 <xs:element name="cancelable" type="xs:boolean"/>
 <xs:element name="currentTarget" type="xs:string"/>
 <xs:element name="eventPhase" type="xs:string"/>
 <xs:element name="target" type="xs:string"/>
 <xs:element name="type" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="bubbles" type="xs:boolean"/>
 <xs:attribute name="cancelable" type="xs:boolean"/>
 <xs:attribute name="currentTarget" type="xs:string"/>
@@ -459,6 +477,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="MouseEventSchemaType">
 <xs:complexContent>
 <xs:extension base="EventSchemaType">
+<xs:sequence>
 <xs:element name="altKey" type="xs:boolean"/>
 <xs:element name="buttonDown" type="xs:boolean"/>
 <xs:element name="ctrlKey" type="xs:boolean"/>
@@ -470,6 +489,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element name="shiftKey" type="xs:boolean"/>
 <xs:element name="stageX" type="xs:double"/>
 <xs:element name="stageY" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="altKey" type="xs:boolean"/>
 <xs:attribute name="buttonDown" type="xs:boolean"/>
 <xs:attribute name="ctrlKey" type="xs:boolean"/>

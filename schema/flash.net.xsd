@@ -4,34 +4,36 @@ xmlns:flash-events="flash.events"
 xmlns:flash-media="flash.media"
 >
 <xs:complexType name="URLRequestHeaderSchemaTypeValue">
-<xs:element ref="URLRequestHeader"/></xs:complexType>
+<xs:sequence><xs:element ref="URLRequestHeader"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NetStreamPlayOptionsSchemaTypeValue">
-<xs:element ref="NetStreamPlayOptions"/></xs:complexType>
+<xs:sequence><xs:element ref="NetStreamPlayOptions"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NetStreamSchemaTypeValue">
-<xs:element ref="NetStream"/></xs:complexType>
+<xs:sequence><xs:element ref="NetStream"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="URLRequestSchemaTypeValue">
-<xs:element ref="URLRequest"/></xs:complexType>
+<xs:sequence><xs:element ref="URLRequest"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NetConnectionSchemaTypeValue">
-<xs:element ref="NetConnection"/></xs:complexType>
+<xs:sequence><xs:element ref="NetConnection"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NetStreamInfoSchemaTypeValue">
-<xs:element ref="NetStreamInfo"/></xs:complexType>
+<xs:sequence><xs:element ref="NetStreamInfo"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ResponderSchemaTypeValue">
-<xs:element ref="Responder"/></xs:complexType>
+<xs:sequence><xs:element ref="Responder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="NetStreamMulticastInfoSchemaTypeValue">
-<xs:element ref="NetStreamMulticastInfo"/></xs:complexType>
+<xs:sequence><xs:element ref="NetStreamMulticastInfo"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="URLRequestHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="name" type="xs:string"/>
 <xs:element name="value" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="name" type="xs:string"/>
 <xs:attribute name="value" type="xs:string"/>
 </xs:extension>
@@ -41,11 +43,13 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamPlayOptionsSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="len" type="xs:double"/>
 <xs:element name="oldStreamName" type="xs:string"/>
 <xs:element name="start" type="xs:double"/>
 <xs:element name="streamName" type="xs:string"/>
 <xs:element name="transition" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="len" type="xs:double"/>
 <xs:attribute name="oldStreamName" type="xs:string"/>
 <xs:attribute name="start" type="xs:double"/>
@@ -58,6 +62,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="audioCodec" type="xs:string"/>
 <xs:element name="bufferLength" type="xs:double"/>
 <xs:element name="bufferTime" type="xs:double"/>
@@ -78,6 +83,7 @@ xmlns:flash-media="flash.media"
 <xs:element name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
 <xs:element name="time" type="xs:double"/>
 <xs:element name="videoCodec" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="audioCodec" type="xs:string"/>
 <xs:attribute name="bufferLength" type="xs:double"/>
 <xs:attribute name="bufferTime" type="xs:double"/>
@@ -105,12 +111,14 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="URLRequestSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="contentType" type="xs:string"/>
 <xs:element name="data" type="xs:string"/>
 <xs:element name="digest" type="xs:string"/>
 <xs:element name="method" type="xs:string"/>
 <xs:element name="requestHeaders" type="empty:ArraySchemaTypeValue"/>
 <xs:element name="url" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="contentType" type="xs:string"/>
 <xs:attribute name="data" type="xs:string"/>
 <xs:attribute name="digest" type="xs:string"/>
@@ -124,6 +132,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetConnectionSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:sequence>
 <xs:element name="client" type="xs:string"/>
 <xs:element name="connected" type="xs:boolean"/>
 <xs:element name="connectedProxyType" type="xs:string"/>
@@ -138,6 +147,7 @@ xmlns:flash-media="flash.media"
 <xs:element name="unconnectedPeerStreams" type="empty:ArraySchemaTypeValue"/>
 <xs:element name="uri" type="xs:string"/>
 <xs:element name="usingTLS" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="client" type="xs:string"/>
 <xs:attribute name="connected" type="xs:boolean"/>
 <xs:attribute name="connectedProxyType" type="xs:string"/>
@@ -159,6 +169,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamInfoSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="SRTT" type="xs:double"/>
 <xs:element name="audioBufferByteLength" type="xs:double"/>
 <xs:element name="audioBufferLength" type="xs:double"/>
@@ -183,6 +194,7 @@ xmlns:flash-media="flash.media"
 <xs:element name="videoByteCount" type="xs:double"/>
 <xs:element name="videoBytesPerSecond" type="xs:double"/>
 <xs:element name="xmpData" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="SRTT" type="xs:double"/>
 <xs:attribute name="audioBufferByteLength" type="xs:double"/>
 <xs:attribute name="audioBufferLength" type="xs:double"/>
@@ -214,6 +226,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="ResponderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -221,6 +235,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamMulticastInfoSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bytesPushedFromPeers" type="xs:double"/>
 <xs:element name="bytesPushedToPeers" type="xs:double"/>
 <xs:element name="bytesReceivedFromIPMulticast" type="xs:double"/>
@@ -240,6 +255,7 @@ xmlns:flash-media="flash.media"
 <xs:element name="sendControlBytesPerSecond" type="xs:double"/>
 <xs:element name="sendControlBytesPerSecondToServer" type="xs:double"/>
 <xs:element name="sendDataBytesPerSecond" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="bytesPushedFromPeers" type="xs:double"/>
 <xs:attribute name="bytesPushedToPeers" type="xs:double"/>
 <xs:attribute name="bytesReceivedFromIPMulticast" type="xs:double"/>

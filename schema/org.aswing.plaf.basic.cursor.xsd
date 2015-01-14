@@ -2,17 +2,19 @@
 xmlns:flash-display="flash.display"
 >
 <xs:complexType name="V_ResizeCursorSchemaTypeValue">
-<xs:element ref="V_ResizeCursor"/></xs:complexType>
+<xs:sequence><xs:element ref="V_ResizeCursor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="H_ResizeCursorSchemaTypeValue">
-<xs:element ref="H_ResizeCursor"/></xs:complexType>
+<xs:sequence><xs:element ref="H_ResizeCursor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="HV_ResizeCursorSchemaTypeValue">
-<xs:element ref="HV_ResizeCursor"/></xs:complexType>
+<xs:sequence><xs:element ref="HV_ResizeCursor"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="V_ResizeCursorSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:ShapeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -20,6 +22,8 @@ xmlns:flash-display="flash.display"
 <xs:complexType name="H_ResizeCursorSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:ShapeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -27,6 +31,8 @@ xmlns:flash-display="flash.display"
 <xs:complexType name="HV_ResizeCursorSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:ShapeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

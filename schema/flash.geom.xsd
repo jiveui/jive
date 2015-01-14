@@ -3,38 +3,40 @@ xmlns:flash="flash"
 xmlns:empty="empty"
 >
 <xs:complexType name="Vector3DSchemaTypeValue">
-<xs:element ref="Vector3D"/></xs:complexType>
+<xs:sequence><xs:element ref="Vector3D"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ColorTransformSchemaTypeValue">
-<xs:element ref="ColorTransform"/></xs:complexType>
+<xs:sequence><xs:element ref="ColorTransform"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PerspectiveProjectionSchemaTypeValue">
-<xs:element ref="PerspectiveProjection"/></xs:complexType>
+<xs:sequence><xs:element ref="PerspectiveProjection"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="RectangleSchemaTypeValue">
-<xs:element ref="Rectangle"/></xs:complexType>
+<xs:sequence><xs:element ref="Rectangle"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TransformSchemaTypeValue">
-<xs:element ref="Transform"/></xs:complexType>
+<xs:sequence><xs:element ref="Transform"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MatrixSchemaTypeValue">
-<xs:element ref="Matrix"/></xs:complexType>
+<xs:sequence><xs:element ref="Matrix"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PointSchemaTypeValue">
-<xs:element ref="Point"/></xs:complexType>
+<xs:sequence><xs:element ref="Point"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="Matrix3DSchemaTypeValue">
-<xs:element ref="Matrix3D"/></xs:complexType>
+<xs:sequence><xs:element ref="Matrix3D"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="Vector3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="length" type="xs:double"/>
 <xs:element name="lengthSquared" type="xs:double"/>
 <xs:element name="w" type="xs:double"/>
 <xs:element name="x" type="xs:double"/>
 <xs:element name="y" type="xs:double"/>
 <xs:element name="z" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:double"/>
 <xs:attribute name="lengthSquared" type="xs:double"/>
 <xs:attribute name="w" type="xs:double"/>
@@ -48,6 +50,7 @@ xmlns:empty="empty"
 <xs:complexType name="ColorTransformSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="alphaMultiplier" type="xs:double"/>
 <xs:element name="alphaOffset" type="xs:double"/>
 <xs:element name="blueMultiplier" type="xs:double"/>
@@ -57,6 +60,7 @@ xmlns:empty="empty"
 <xs:element name="greenOffset" type="xs:double"/>
 <xs:element name="redMultiplier" type="xs:double"/>
 <xs:element name="redOffset" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="alphaMultiplier" type="xs:double"/>
 <xs:attribute name="alphaOffset" type="xs:double"/>
 <xs:attribute name="blueMultiplier" type="xs:double"/>
@@ -73,9 +77,11 @@ xmlns:empty="empty"
 <xs:complexType name="PerspectiveProjectionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="fieldOfView" type="xs:double"/>
 <xs:element name="focalLength" type="xs:double"/>
 <xs:element name="projectionCenter" type="PointSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="fieldOfView" type="xs:double"/>
 <xs:attribute name="focalLength" type="xs:double"/>
 <xs:attribute name="projectionCenter" type="xs:string"/>
@@ -86,6 +92,7 @@ xmlns:empty="empty"
 <xs:complexType name="RectangleSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bottom" type="xs:double"/>
 <xs:element name="bottomRight" type="PointSchemaTypeValue"/>
 <xs:element name="height" type="xs:double"/>
@@ -97,6 +104,7 @@ xmlns:empty="empty"
 <xs:element name="width" type="xs:double"/>
 <xs:element name="x" type="xs:double"/>
 <xs:element name="y" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="bottom" type="xs:double"/>
 <xs:attribute name="bottomRight" type="xs:string"/>
 <xs:attribute name="height" type="xs:double"/>
@@ -115,6 +123,7 @@ xmlns:empty="empty"
 <xs:complexType name="TransformSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="colorTransform" type="ColorTransformSchemaTypeValue"/>
 <xs:element name="concatenatedColorTransform" type="ColorTransformSchemaTypeValue"/>
 <xs:element name="concatenatedMatrix" type="MatrixSchemaTypeValue"/>
@@ -122,6 +131,7 @@ xmlns:empty="empty"
 <xs:element name="matrix3D" type="Matrix3DSchemaTypeValue"/>
 <xs:element name="perspectiveProjection" type="PerspectiveProjectionSchemaTypeValue"/>
 <xs:element name="pixelBounds" type="RectangleSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="colorTransform" type="xs:string"/>
 <xs:attribute name="concatenatedColorTransform" type="xs:string"/>
 <xs:attribute name="concatenatedMatrix" type="xs:string"/>
@@ -136,12 +146,14 @@ xmlns:empty="empty"
 <xs:complexType name="MatrixSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="a" type="xs:double"/>
 <xs:element name="b" type="xs:double"/>
 <xs:element name="c" type="xs:double"/>
 <xs:element name="d" type="xs:double"/>
 <xs:element name="tx" type="xs:double"/>
 <xs:element name="ty" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="a" type="xs:double"/>
 <xs:attribute name="b" type="xs:double"/>
 <xs:attribute name="c" type="xs:double"/>
@@ -155,9 +167,11 @@ xmlns:empty="empty"
 <xs:complexType name="PointSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="length" type="xs:double"/>
 <xs:element name="x" type="xs:double"/>
 <xs:element name="y" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:double"/>
 <xs:attribute name="x" type="xs:double"/>
 <xs:attribute name="y" type="xs:double"/>
@@ -168,9 +182,11 @@ xmlns:empty="empty"
 <xs:complexType name="Matrix3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="determinant" type="xs:double"/>
 <xs:element name="position" type="Vector3DSchemaTypeValue"/>
 <xs:element name="rawData" type="flash:VectorSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="determinant" type="xs:double"/>
 <xs:attribute name="position" type="xs:string"/>
 <xs:attribute name="rawData" type="xs:string"/>

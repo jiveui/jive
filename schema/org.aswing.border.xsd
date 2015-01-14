@@ -30,16 +30,16 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="SimpleTitledBorderSchemaTypeValue">
-<xs:element ref="SimpleTitledBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="SimpleTitledBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SideLineBorderSchemaTypeValue">
-<xs:element ref="SideLineBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="SideLineBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="CaveBorderSchemaTypeValue">
-<xs:element ref="CaveBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="CaveBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TitledBorderSchemaTypeValue">
-<xs:element ref="TitledBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="TitledBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BevelBorderSchemaTypeValue">
 <xs:choice>
@@ -59,10 +59,12 @@ xmlns:empty="empty"
 <xs:complexType name="EmptyBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
 <xs:element name="top" type="xs:int"/>
 <xs:element name="left" type="xs:int"/>
 <xs:element name="bottom" type="xs:int"/>
 <xs:element name="right" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="top" type="xs:int"/>
 <xs:attribute name="left" type="xs:int"/>
 <xs:attribute name="bottom" type="xs:int"/>
@@ -74,6 +76,8 @@ xmlns:empty="empty"
 <xs:complexType name="DecorateBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,6 +85,8 @@ xmlns:empty="empty"
 <xs:complexType name="SimpleTitledBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -88,6 +94,8 @@ xmlns:empty="empty"
 <xs:complexType name="SideLineBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -95,8 +103,10 @@ xmlns:empty="empty"
 <xs:complexType name="CaveBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
 <xs:element name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
 <xs:element name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="DEFAULT_LINE_LIGHT_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_LINE_COLOR" type="xs:string"/>
 </xs:extension>
@@ -106,10 +116,12 @@ xmlns:empty="empty"
 <xs:complexType name="TitledBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
 <xs:element name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
 <xs:element name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
 <xs:element name="DEFAULT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
 <xs:element name="DEFAULT_FONT" type="org-aswing:ASFontSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="DEFAULT_LINE_LIGHT_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_LINE_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_COLOR" type="xs:string"/>
@@ -121,6 +133,8 @@ xmlns:empty="empty"
 <xs:complexType name="BevelBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -128,6 +142,8 @@ xmlns:empty="empty"
 <xs:complexType name="LineBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

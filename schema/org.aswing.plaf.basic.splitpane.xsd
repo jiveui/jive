@@ -3,14 +3,16 @@ xmlns:org-aswing="org.aswing"
 xmlns:empty="empty"
 >
 <xs:complexType name="DividerIconSchemaTypeValue">
-<xs:element ref="DividerIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="DividerIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DividerSchemaTypeValue">
-<xs:element ref="Divider"/></xs:complexType>
+<xs:sequence><xs:element ref="Divider"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DividerIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -18,6 +20,8 @@ xmlns:empty="empty"
 <xs:complexType name="DividerSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

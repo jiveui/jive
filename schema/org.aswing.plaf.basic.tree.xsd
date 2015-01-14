@@ -2,7 +2,7 @@
 xmlns:empty="empty"
 >
 <xs:complexType name="BasicExpandControlSchemaTypeValue">
-<xs:element ref="BasicExpandControl"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicExpandControl"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ExpandControlSchemaTypeValue">
 <xs:choice>
@@ -13,6 +13,8 @@ xmlns:empty="empty"
 <xs:complexType name="BasicExpandControlSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -20,6 +22,8 @@ xmlns:empty="empty"
 <xs:complexType name="ExpandControlSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

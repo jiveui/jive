@@ -4,37 +4,37 @@ xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
 <xs:complexType name="GridListSchemaTypeValue">
-<xs:element ref="GridList"/></xs:complexType>
+<xs:sequence><xs:element ref="GridList"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateLabelSchemaTypeValue">
-<xs:element ref="DateLabel"/></xs:complexType>
+<xs:sequence><xs:element ref="DateLabel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultGridCellSchemaTypeValue">
-<xs:element ref="DefaultGridCell"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultGridCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FolderSchemaTypeValue">
-<xs:element ref="Folder"/></xs:complexType>
+<xs:sequence><xs:element ref="Folder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateChooserSchemaTypeValue">
-<xs:element ref="DateChooser"/></xs:complexType>
+<xs:sequence><xs:element ref="DateChooser"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FormRowSchemaTypeValue">
-<xs:element ref="FormRow"/></xs:complexType>
+<xs:sequence><xs:element ref="FormRow"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateGridLayoutSchemaTypeValue">
-<xs:element ref="DateGridLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="DateGridLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GridListLayoutSchemaTypeValue">
-<xs:element ref="GridListLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="GridListLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MultilineLabelSchemaTypeValue">
-<xs:element ref="MultilineLabel"/></xs:complexType>
+<xs:sequence><xs:element ref="MultilineLabel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GridListItemEventSchemaTypeValue">
-<xs:element ref="GridListItemEvent"/></xs:complexType>
+<xs:sequence><xs:element ref="GridListItemEvent"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GeneralGridListCellFactorySchemaTypeValue">
-<xs:element ref="GeneralGridListCellFactory"/></xs:complexType>
+<xs:sequence><xs:element ref="GeneralGridListCellFactory"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GridListCellFactorySchemaTypeValue">
 <xs:choice>
@@ -43,7 +43,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="FormSchemaTypeValue">
-<xs:element ref="Form"/></xs:complexType>
+<xs:sequence><xs:element ref="Form"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GridListCellSchemaTypeValue">
 <xs:choice>
@@ -52,14 +52,16 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="GridCellHolderSchemaTypeValue">
-<xs:element ref="GridCellHolder"/></xs:complexType>
+<xs:sequence><xs:element ref="GridCellHolder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateRangeSchemaTypeValue">
-<xs:element ref="DateRange"/></xs:complexType>
+<xs:sequence><xs:element ref="DateRange"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GridListSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JViewportSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -67,6 +69,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateLabelSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -74,6 +78,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultGridCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,6 +87,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FolderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -88,6 +96,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateChooserSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -95,6 +105,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FormRowSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -102,6 +114,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateGridLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -109,6 +123,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridListLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:EmptyLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -116,6 +132,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="MultilineLabelSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JTextAreaSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -123,6 +141,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridListItemEventSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:MouseEventSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -130,6 +150,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralGridListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -137,6 +159,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -144,6 +168,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FormSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -151,6 +177,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridListCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:CellSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -158,6 +186,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridCellHolderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -165,6 +195,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateRangeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

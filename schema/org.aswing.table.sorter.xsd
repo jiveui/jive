@@ -3,28 +3,30 @@ xmlns:empty="empty"
 xmlns:org-aswing-table="org.aswing.table"
 >
 <xs:complexType name="RowSchemaTypeValue">
-<xs:element ref="Row"/></xs:complexType>
+<xs:sequence><xs:element ref="Row"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ArrowSchemaTypeValue">
-<xs:element ref="Arrow"/></xs:complexType>
+<xs:sequence><xs:element ref="Arrow"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DirectiveSchemaTypeValue">
-<xs:element ref="Directive"/></xs:complexType>
+<xs:sequence><xs:element ref="Directive"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SortableTextHeaderCellSchemaTypeValue">
-<xs:element ref="SortableTextHeaderCell"/></xs:complexType>
+<xs:sequence><xs:element ref="SortableTextHeaderCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableSorterSchemaTypeValue">
-<xs:element ref="TableSorter"/></xs:complexType>
+<xs:sequence><xs:element ref="TableSorter"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SortableHeaderRendererSchemaTypeValue">
-<xs:element ref="SortableHeaderRenderer"/></xs:complexType>
+<xs:sequence><xs:element ref="SortableHeaderRenderer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="RowSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="modelIndex" type="xs:int"/>
 <xs:element name="tableSorter" type="TableSorterSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="modelIndex" type="xs:int"/>
 <xs:attribute name="tableSorter" type="xs:string"/>
 </xs:extension>
@@ -34,6 +36,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ArrowSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -41,8 +45,10 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="DirectiveSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="column" type="xs:int"/>
 <xs:element name="direction" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="column" type="xs:int"/>
 <xs:attribute name="direction" type="xs:double"/>
 </xs:extension>
@@ -52,6 +58,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="SortableTextHeaderCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-table:DefaultTextHeaderCellSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -59,6 +67,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TableSorterSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-table:AbstractTableModelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -66,6 +76,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="SortableHeaderRendererSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

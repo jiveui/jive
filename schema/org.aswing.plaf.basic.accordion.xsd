@@ -2,11 +2,13 @@
 xmlns:empty="empty"
 >
 <xs:complexType name="BasicAccordionHeaderSchemaTypeValue">
-<xs:element ref="BasicAccordionHeader"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicAccordionHeader"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicAccordionHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

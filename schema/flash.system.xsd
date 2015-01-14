@@ -3,19 +3,21 @@ xmlns:flash-utils="flash.utils"
 xmlns:empty="empty"
 >
 <xs:complexType name="ApplicationDomainSchemaTypeValue">
-<xs:element ref="ApplicationDomain"/></xs:complexType>
+<xs:sequence><xs:element ref="ApplicationDomain"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LoaderContextSchemaTypeValue">
-<xs:element ref="LoaderContext"/></xs:complexType>
+<xs:sequence><xs:element ref="LoaderContext"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SecurityDomainSchemaTypeValue">
-<xs:element ref="SecurityDomain"/></xs:complexType>
+<xs:sequence><xs:element ref="SecurityDomain"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ApplicationDomainSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="domainMemory" type="flash-utils:ByteArraySchemaTypeValue"/>
 <xs:element name="parentDomain" type="ApplicationDomainSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="domainMemory" type="xs:string"/>
 <xs:attribute name="parentDomain" type="xs:string"/>
 </xs:extension>
@@ -25,9 +27,11 @@ xmlns:empty="empty"
 <xs:complexType name="LoaderContextSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="applicationDomain" type="ApplicationDomainSchemaTypeValue"/>
 <xs:element name="checkPolicyFile" type="xs:boolean"/>
 <xs:element name="securityDomain" type="SecurityDomainSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="applicationDomain" type="xs:string"/>
 <xs:attribute name="checkPolicyFile" type="xs:boolean"/>
 <xs:attribute name="securityDomain" type="xs:string"/>
@@ -38,6 +42,8 @@ xmlns:empty="empty"
 <xs:complexType name="SecurityDomainSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

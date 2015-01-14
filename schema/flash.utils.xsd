@@ -9,10 +9,10 @@ xmlns:haxe-ds="haxe.ds"
 </xs:complexType>
 
 <xs:complexType name="NamespaceSchemaTypeValue">
-<xs:element ref="Namespace"/></xs:complexType>
+<xs:sequence><xs:element ref="Namespace"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="RegExpSchemaTypeValue">
-<xs:element ref="RegExp"/></xs:complexType>
+<xs:sequence><xs:element ref="RegExp"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IDataOutput2SchemaTypeValue">
 <xs:choice>
@@ -27,7 +27,7 @@ xmlns:haxe-ds="haxe.ds"
 </xs:complexType>
 
 <xs:complexType name="ByteArraySchemaTypeValue">
-<xs:element ref="ByteArray"/></xs:complexType>
+<xs:sequence><xs:element ref="ByteArray"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DictionarySchemaTypeValue">
 <xs:choice>
@@ -45,8 +45,10 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="IDataOutputSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="endian" type="xs:string"/>
 <xs:element name="objectEncoding" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="endian" type="xs:string"/>
 <xs:attribute name="objectEncoding" type="xs:string"/>
 </xs:extension>
@@ -56,8 +58,10 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="NamespaceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="prefix" type="xs:string"/>
 <xs:element name="uri" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="prefix" type="xs:string"/>
 <xs:attribute name="uri" type="xs:string"/>
 </xs:extension>
@@ -67,6 +71,7 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="RegExpSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="dotall" type="xs:boolean"/>
 <xs:element name="extended" type="xs:boolean"/>
 <xs:element name="global" type="xs:boolean"/>
@@ -74,6 +79,7 @@ xmlns:haxe-ds="haxe.ds"
 <xs:element name="lastIndex" type="xs:int"/>
 <xs:element name="multiline" type="xs:boolean"/>
 <xs:element name="source" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="dotall" type="xs:boolean"/>
 <xs:attribute name="extended" type="xs:boolean"/>
 <xs:attribute name="global" type="xs:boolean"/>
@@ -88,6 +94,8 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="IDataOutput2SchemaType">
 <xs:complexContent>
 <xs:extension base="IDataOutputSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -95,6 +103,8 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="IDataInput2SchemaType">
 <xs:complexContent>
 <xs:extension base="IDataInputSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -102,11 +112,13 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="ByteArraySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bytesAvailable" type="xs:string"/>
 <xs:element name="endian" type="xs:string"/>
 <xs:element name="length" type="xs:string"/>
 <xs:element name="objectEncoding" type="xs:string"/>
 <xs:element name="position" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="bytesAvailable" type="xs:string"/>
 <xs:attribute name="endian" type="xs:string"/>
 <xs:attribute name="length" type="xs:string"/>
@@ -119,6 +131,8 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="DictionarySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -126,9 +140,11 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="IDataInputSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="bytesAvailable" type="xs:string"/>
 <xs:element name="endian" type="xs:string"/>
 <xs:element name="objectEncoding" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="bytesAvailable" type="xs:string"/>
 <xs:attribute name="endian" type="xs:string"/>
 <xs:attribute name="objectEncoding" type="xs:string"/>

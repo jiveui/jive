@@ -3,14 +3,16 @@ xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 >
 <xs:complexType name="PopupSliderUISchemaTypeValue">
-<xs:element ref="PopupSliderUI"/></xs:complexType>
+<xs:sequence><xs:element ref="PopupSliderUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PopupSliderThumbIconSchemaTypeValue">
-<xs:element ref="PopupSliderThumbIcon"/></xs:complexType>
+<xs:sequence><xs:element ref="PopupSliderThumbIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PopupSliderUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic:BasicSliderUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -18,6 +20,8 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:complexType name="PopupSliderThumbIconSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic-icon:SliderThumbIconSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

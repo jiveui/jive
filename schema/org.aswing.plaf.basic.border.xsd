@@ -3,13 +3,13 @@ xmlns:empty="empty"
 xmlns:org-aswing-border="org.aswing.border"
 >
 <xs:complexType name="TextAreaBorderSchemaTypeValue">
-<xs:element ref="TextAreaBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="TextAreaBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ProgressBarBorderSchemaTypeValue">
-<xs:element ref="ProgressBarBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="ProgressBarBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableHeaderCellBorderSchemaTypeValue">
-<xs:element ref="TableHeaderCellBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="TableHeaderCellBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TextComponentBorderSchemaTypeValue">
 <xs:choice>
@@ -20,32 +20,34 @@ xmlns:org-aswing-border="org.aswing.border"
 </xs:complexType>
 
 <xs:complexType name="ComboBoxPopupBorderSchemaTypeValue">
-<xs:element ref="ComboBoxPopupBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="ComboBoxPopupBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TextFieldBorderSchemaTypeValue">
-<xs:element ref="TextFieldBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="TextFieldBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PopupMenuBorderSchemaTypeValue">
-<xs:element ref="PopupMenuBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="PopupMenuBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ComboBoxBorderSchemaTypeValue">
-<xs:element ref="ComboBoxBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="ComboBoxBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FrameBorderSchemaTypeValue">
-<xs:element ref="FrameBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="FrameBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="EmptyBorderResourceSchemaTypeValue">
-<xs:element ref="EmptyBorderResource"/></xs:complexType>
+<xs:sequence><xs:element ref="EmptyBorderResource"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ColorChooserBorderSchemaTypeValue">
-<xs:element ref="ColorChooserBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="ColorChooserBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ToolTipBorderSchemaTypeValue">
-<xs:element ref="ToolTipBorder"/></xs:complexType>
+<xs:sequence><xs:element ref="ToolTipBorder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TextAreaBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="TextComponentBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -53,6 +55,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ProgressBarBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -60,6 +64,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="TableHeaderCellBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -67,6 +73,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="TextComponentBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -74,6 +82,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ComboBoxPopupBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,6 +91,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="TextFieldBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="TextComponentBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -88,6 +100,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="PopupMenuBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -95,6 +109,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ComboBoxBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:BevelBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -102,6 +118,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="FrameBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -109,6 +127,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="EmptyBorderResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -116,6 +136,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ColorChooserBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -123,6 +145,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ToolTipBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -2,14 +2,16 @@
 xmlns:empty="empty"
 >
 <xs:complexType name="XMLSchemaTypeValue">
-<xs:element ref="XML"/></xs:complexType>
+<xs:sequence><xs:element ref="XML"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="XMLListSchemaTypeValue">
-<xs:element ref="XMLList"/></xs:complexType>
+<xs:sequence><xs:element ref="XMLList"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="XMLSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -17,6 +19,8 @@ xmlns:empty="empty"
 <xs:complexType name="XMLListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

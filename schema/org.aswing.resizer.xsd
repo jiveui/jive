@@ -8,16 +8,16 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="ResizerControllerSchemaTypeValue">
-<xs:element ref="ResizerController"/></xs:complexType>
+<xs:sequence><xs:element ref="ResizerController"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultResizerSchemaTypeValue">
-<xs:element ref="DefaultResizer"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultResizer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultResizeBarHandlerSchemaTypeValue">
-<xs:element ref="DefaultResizeBarHandler"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultResizeBarHandler"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ResizeStrategyImpSchemaTypeValue">
-<xs:element ref="ResizeStrategyImp"/></xs:complexType>
+<xs:sequence><xs:element ref="ResizeStrategyImp"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ResizerSchemaTypeValue">
 <xs:choice>
@@ -28,6 +28,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizeStrategySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -35,6 +37,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizerControllerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -42,6 +46,8 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultResizerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -49,6 +55,8 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultResizeBarHandlerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -56,6 +64,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizeStrategyImpSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -63,6 +73,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

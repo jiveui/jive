@@ -49,16 +49,16 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 xmlns:flash-accessibility="flash.accessibility"
 >
 <xs:complexType name="TypeSchemaTypeValue">
-<xs:element ref="Type"/></xs:complexType>
+<xs:sequence><xs:element ref="Type"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaTypeValue">
-<xs:element ref="ArrayAccess"/></xs:complexType>
+<xs:sequence><xs:element ref="ArrayAccess"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringSchemaTypeValue">
-<xs:element ref="String"/></xs:complexType>
+<xs:sequence><xs:element ref="String"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StdSchemaTypeValue">
-<xs:element ref="Std"/></xs:complexType>
+<xs:sequence><xs:element ref="Std"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IMapSchemaTypeValue">
 <xs:choice>
@@ -651,26 +651,28 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexType>
 
 <xs:complexType name="ReflectSchemaTypeValue">
-<xs:element ref="Reflect"/></xs:complexType>
+<xs:sequence><xs:element ref="Reflect"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ArraySchemaTypeValue">
-<xs:element ref="Array"/></xs:complexType>
+<xs:sequence><xs:element ref="Array"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringBufSchemaTypeValue">
-<xs:element ref="StringBuf"/></xs:complexType>
+<xs:sequence><xs:element ref="StringBuf"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateSchemaTypeValue">
-<xs:element ref="Date"/></xs:complexType>
+<xs:sequence><xs:element ref="Date"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringToolsSchemaTypeValue">
-<xs:element ref="StringTools"/></xs:complexType>
+<xs:sequence><xs:element ref="StringTools"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MathSchemaTypeValue">
-<xs:element ref="Math"/></xs:complexType>
+<xs:sequence><xs:element ref="Math"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TypeSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -678,6 +680,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ArrayAccessSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -685,7 +689,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="length" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -694,6 +700,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StdSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -701,6 +709,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="IMapSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -710,6 +720,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ReflectSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -717,7 +729,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ArraySchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
 <xs:element name="length" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -726,6 +740,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringBufSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -733,6 +749,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="DateSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -740,6 +758,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -747,6 +767,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="MathSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

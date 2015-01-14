@@ -2,7 +2,12 @@ package decl;
 
 class ComponentTest extends org.aswing.JLabel {
 
-    inline function get_field0():org.aswing.ASColor {
+    public function destroyHml():Void {
+        
+    }
+    
+
+    inline function get_aSColor__0():org.aswing.ASColor {
         /* tests/declarations/decl/ComponentTest.xml:8 characters: 9-16 */
         var res = new org.aswing.ASColor();
         /* tests/declarations/decl/ComponentTest.xml:9 characters: 13-16 */
@@ -12,13 +17,13 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field1():org.aswing.SolidBackground {
+    inline function get_solidBackground__0():org.aswing.SolidBackground {
         /* tests/declarations/decl/ComponentTest.xml:14 characters: 9-24 */
         var res = new org.aswing.SolidBackground();
         return res;
     }
 
-    inline function get_field2():org.aswing.geom.IntRectangle {
+    inline function get_intRectangle__0():org.aswing.geom.IntRectangle {
         /* tests/declarations/decl/ComponentTest.xml:17 characters: 9-26 */
         var res = new org.aswing.geom.IntRectangle();
         /* tests/declarations/decl/ComponentTest.xml:18 characters: 13-19 */
@@ -32,7 +37,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field3():org.aswing.geom.IntRectangle {
+    inline function get_intRectangle__1():org.aswing.geom.IntRectangle {
         /* tests/declarations/decl/ComponentTest.xml:25 characters: 9-26 */
         var res = new org.aswing.geom.IntRectangle();
         /* tests/declarations/decl/ComponentTest.xml:26 characters: 13-19 */
@@ -46,7 +51,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field4():org.aswing.geom.IntDimension {
+    inline function get_intDimension__0():org.aswing.geom.IntDimension {
         /* tests/declarations/decl/ComponentTest.xml:33 characters: 9-26 */
         var res = new org.aswing.geom.IntDimension();
         /* tests/declarations/decl/ComponentTest.xml:34 characters: 13-23 */
@@ -56,13 +61,13 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field5():org.aswing.EmptyFont {
+    inline function get_emptyFont__0():org.aswing.EmptyFont {
         /* tests/declarations/decl/ComponentTest.xml:44 characters: 9-18 */
         var res = new org.aswing.EmptyFont();
         return res;
     }
 
-    inline function get_field6():org.aswing.ASColor {
+    inline function get_aSColor__1():org.aswing.ASColor {
         /* tests/declarations/decl/ComponentTest.xml:47 characters: 9-16 */
         var res = new org.aswing.ASColor();
         /* tests/declarations/decl/ComponentTest.xml:48 characters: 13-16 */
@@ -72,7 +77,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field7():org.aswing.geom.IntPoint {
+    inline function get_intPoint__0():org.aswing.geom.IntPoint {
         /* tests/declarations/decl/ComponentTest.xml:53 characters: 9-22 */
         var res = new org.aswing.geom.IntPoint();
         /* tests/declarations/decl/ComponentTest.xml:54 characters: 13-19 */
@@ -82,7 +87,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field8():org.aswing.geom.IntDimension {
+    inline function get_intDimension__1():org.aswing.geom.IntDimension {
         /* tests/declarations/decl/ComponentTest.xml:59 characters: 9-26 */
         var res = new org.aswing.geom.IntDimension();
         /* tests/declarations/decl/ComponentTest.xml:60 characters: 13-23 */
@@ -92,7 +97,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field9():org.aswing.geom.IntDimension {
+    inline function get_intDimension__2():org.aswing.geom.IntDimension {
         /* tests/declarations/decl/ComponentTest.xml:65 characters: 9-26 */
         var res = new org.aswing.geom.IntDimension();
         /* tests/declarations/decl/ComponentTest.xml:66 characters: 13-23 */
@@ -102,7 +107,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field10():org.aswing.ASColor {
+    inline function get_aSColor__2():org.aswing.ASColor {
         /* tests/declarations/decl/ComponentTest.xml:71 characters: 9-16 */
         var res = new org.aswing.ASColor();
         /* tests/declarations/decl/ComponentTest.xml:72 characters: 13-16 */
@@ -112,7 +117,7 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field11():org.aswing.geom.IntDimension {
+    inline function get_intDimension__3():org.aswing.geom.IntDimension {
         /* tests/declarations/decl/ComponentTest.xml:78 characters: 9-26 */
         var res = new org.aswing.geom.IntDimension();
         /* tests/declarations/decl/ComponentTest.xml:79 characters: 13-23 */
@@ -122,13 +127,13 @@ class ComponentTest extends org.aswing.JLabel {
         return res;
     }
 
-    inline function get_field12():org.aswing.StyleTune {
+    inline function get_styleTune__0():org.aswing.StyleTune {
         /* tests/declarations/decl/ComponentTest.xml:84 characters: 9-18 */
         var res = new org.aswing.StyleTune();
         return res;
     }
 
-    inline function get_field13():org.aswing.plaf.basic.BasicLabelUI {
+    inline function get_basicLabelUI__0():org.aswing.plaf.basic.BasicLabelUI {
         /* tests/declarations/decl/ComponentTest.xml:88 characters: 9-26 */
         var res = new org.aswing.plaf.basic.BasicLabelUI();
         return res;
@@ -142,15 +147,15 @@ class ComponentTest extends org.aswing.JLabel {
         /* tests/declarations/decl/ComponentTest.xml:6 characters: 5-15 */
         this.alignmentY = 0.7;
         /* tests/declarations/decl/ComponentTest.xml:7 characters: 5-15 */
-        this.background = get_field0();
+        this.background = get_aSColor__0();
         /* tests/declarations/decl/ComponentTest.xml:13 characters: 5-24 */
-        this.backgroundDecorator = get_field1();
+        this.backgroundDecorator = get_solidBackground__0();
         /* tests/declarations/decl/ComponentTest.xml:16 characters: 5-11 */
-        this.bounds = get_field2();
+        this.bounds = get_intRectangle__0();
         /* tests/declarations/decl/ComponentTest.xml:24 characters: 5-15 */
-        this.clipBounds = get_field3();
+        this.clipBounds = get_intRectangle__1();
         /* tests/declarations/decl/ComponentTest.xml:32 characters: 5-16 */
-        this.currentSize = get_field4();
+        this.currentSize = get_intDimension__0();
         /* tests/declarations/decl/ComponentTest.xml:38 characters: 5-16 */
         this.dragEnabled = true;
         /* tests/declarations/decl/ComponentTest.xml:39 characters: 5-16 */
@@ -162,27 +167,27 @@ class ComponentTest extends org.aswing.JLabel {
         /* tests/declarations/decl/ComponentTest.xml:42 characters: 5-17 */
         this.focusableSet = true;
         /* tests/declarations/decl/ComponentTest.xml:43 characters: 5-9 */
-        this.font = get_field5();
+        this.font = get_emptyFont__0();
         /* tests/declarations/decl/ComponentTest.xml:46 characters: 5-15 */
-        this.foreground = get_field6();
+        this.foreground = get_aSColor__1();
         /* tests/declarations/decl/ComponentTest.xml:52 characters: 5-13 */
-        this.location = get_field7();
+        this.location = get_intPoint__0();
         /* tests/declarations/decl/ComponentTest.xml:58 characters: 5-16 */
-        this.maximumSize = get_field8();
+        this.maximumSize = get_intDimension__1();
         /* tests/declarations/decl/ComponentTest.xml:64 characters: 5-16 */
-        this.minimumSize = get_field9();
+        this.minimumSize = get_intDimension__2();
         /* tests/declarations/decl/ComponentTest.xml:70 characters: 5-15 */
-        this.mideground = get_field10();
+        this.mideground = get_aSColor__2();
         /* tests/declarations/decl/ComponentTest.xml:76 characters: 5-11 */
         this.opaque = true;
         /* tests/declarations/decl/ComponentTest.xml:77 characters: 5-18 */
-        this.preferredSize = get_field11();
+        this.preferredSize = get_intDimension__3();
         /* tests/declarations/decl/ComponentTest.xml:83 characters: 5-14 */
-        this.styleTune = get_field12();
+        this.styleTune = get_styleTune__0();
         /* tests/declarations/decl/ComponentTest.xml:86 characters: 5-16 */
         this.toolTipText = 'Tooltip text!';
         /* tests/declarations/decl/ComponentTest.xml:87 characters: 5-7 */
-        this.ui = get_field13();
+        this.ui = get_basicLabelUI__0();
         /* tests/declarations/decl/ComponentTest.xml:90 characters: 5-14 */
         this.uiElement = true;
         /* tests/declarations/decl/ComponentTest.xml:91 characters: 5-15 */

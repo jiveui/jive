@@ -5,22 +5,22 @@ xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
 <xs:complexType name="BasicAdjusterUISchemaTypeValue">
-<xs:element ref="BasicAdjusterUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicAdjusterUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicTableUISchemaTypeValue">
-<xs:element ref="BasicTableUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicTableUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicTextAreaUISchemaTypeValue">
-<xs:element ref="BasicTextAreaUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicTextAreaUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicProgressBarUISchemaTypeValue">
-<xs:element ref="BasicProgressBarUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicProgressBarUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicScrollBarUISchemaTypeValue">
-<xs:element ref="BasicScrollBarUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicScrollBarUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicToolTipUISchemaTypeValue">
-<xs:element ref="BasicToolTipUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicToolTipUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicToggleButtonUISchemaTypeValue">
 <xs:choice>
@@ -31,10 +31,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicCheckBoxUISchemaTypeValue">
-<xs:element ref="BasicCheckBoxUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicCheckBoxUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicToolBarUISchemaTypeValue">
-<xs:element ref="BasicToolBarUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicToolBarUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicMenuItemUISchemaTypeValue">
 <xs:choice>
@@ -46,16 +46,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicFrameTitleBarUISchemaTypeValue">
-<xs:element ref="BasicFrameTitleBarUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicFrameTitleBarUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicScrollPaneUISchemaTypeValue">
-<xs:element ref="BasicScrollPaneUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicScrollPaneUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicClosableTabbedPaneUISchemaTypeValue">
-<xs:element ref="BasicClosableTabbedPaneUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicClosableTabbedPaneUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicSplitPaneUISchemaTypeValue">
-<xs:element ref="BasicSplitPaneUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicSplitPaneUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicTabbedPaneUISchemaTypeValue">
 <xs:choice>
@@ -65,19 +65,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicTextFieldUISchemaTypeValue">
-<xs:element ref="BasicTextFieldUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicTextFieldUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicPanelUISchemaTypeValue">
-<xs:element ref="BasicPanelUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicPanelUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicGraphicsUtilsSchemaTypeValue">
-<xs:element ref="BasicGraphicsUtils"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicGraphicsUtils"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicFrameUISchemaTypeValue">
-<xs:element ref="BasicFrameUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicFrameUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicColorMixerUISchemaTypeValue">
-<xs:element ref="BasicColorMixerUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicColorMixerUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicSliderUISchemaTypeValue">
 <xs:choice>
@@ -87,7 +87,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicComboBoxUISchemaTypeValue">
-<xs:element ref="BasicComboBoxUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicComboBoxUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicRadioButtonUISchemaTypeValue">
 <xs:choice>
@@ -97,13 +97,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicColorChooserUISchemaTypeValue">
-<xs:element ref="BasicColorChooserUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicColorChooserUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicTreeUISchemaTypeValue">
-<xs:element ref="BasicTreeUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicTreeUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicStepperUISchemaTypeValue">
-<xs:element ref="BasicStepperUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicStepperUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicButtonUISchemaTypeValue">
 <xs:choice>
@@ -116,37 +116,37 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicMenuBarUISchemaTypeValue">
-<xs:element ref="BasicMenuBarUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicMenuBarUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicAccordionUISchemaTypeValue">
-<xs:element ref="BasicAccordionUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicAccordionUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicPopupMenuUISchemaTypeValue">
-<xs:element ref="BasicPopupMenuUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicPopupMenuUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicListUISchemaTypeValue">
-<xs:element ref="BasicListUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicListUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicSpacerUISchemaTypeValue">
-<xs:element ref="BasicSpacerUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicSpacerUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicColorSwatchesUISchemaTypeValue">
-<xs:element ref="BasicColorSwatchesUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicColorSwatchesUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ToolBarButtonBgAdapterSchemaTypeValue">
-<xs:element ref="ToolBarButtonBgAdapter"/></xs:complexType>
+<xs:sequence><xs:element ref="ToolBarButtonBgAdapter"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicViewportUISchemaTypeValue">
-<xs:element ref="BasicViewportUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicViewportUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicSeparatorUISchemaTypeValue">
-<xs:element ref="BasicSeparatorUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicSeparatorUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicLabelUISchemaTypeValue">
-<xs:element ref="BasicLabelUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicLabelUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicCheckBoxMenuItemUISchemaTypeValue">
-<xs:element ref="BasicCheckBoxMenuItemUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicCheckBoxMenuItemUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicTextComponentUISchemaTypeValue">
 <xs:choice>
@@ -157,26 +157,28 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="BasicTableHeaderUISchemaTypeValue">
-<xs:element ref="BasicTableHeaderUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicTableHeaderUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicLabelButtonUISchemaTypeValue">
-<xs:element ref="BasicLabelButtonUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicLabelButtonUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicLookAndFeelSchemaTypeValue">
-<xs:element ref="BasicLookAndFeel"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicLookAndFeel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicRadioButtonMenuItemUISchemaTypeValue">
-<xs:element ref="BasicRadioButtonMenuItemUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicRadioButtonMenuItemUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicMenuUISchemaTypeValue">
-<xs:element ref="BasicMenuUI"/></xs:complexType>
+<xs:sequence><xs:element ref="BasicMenuUI"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultMenuLayoutSchemaTypeValue">
-<xs:element ref="DefaultMenuLayout"/></xs:complexType>
+<xs:sequence><xs:element ref="DefaultMenuLayout"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicAdjusterUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -184,6 +186,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTableUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -191,6 +195,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTextAreaUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicTextComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -198,6 +204,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicProgressBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -205,6 +213,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicScrollBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -212,6 +222,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicToolTipUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -219,6 +231,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicToggleButtonUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicButtonUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -226,6 +240,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicCheckBoxUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicRadioButtonUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -233,6 +249,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicToolBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -240,6 +258,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicMenuItemUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -247,6 +267,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicFrameTitleBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -254,6 +276,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicScrollPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -261,6 +285,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicClosableTabbedPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicTabbedPaneUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -268,6 +294,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSplitPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:SplitPaneUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -275,6 +303,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTabbedPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -282,6 +312,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTextFieldUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicTextComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -289,6 +321,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicPanelUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -296,6 +330,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicGraphicsUtilsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -303,6 +339,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicFrameUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -310,6 +348,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicColorMixerUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -317,6 +357,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSliderUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -324,6 +366,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicComboBoxUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -331,6 +375,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicRadioButtonUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicToggleButtonUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -338,6 +384,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicColorChooserUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -345,6 +393,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTreeUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -352,6 +402,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicStepperUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -359,6 +411,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicButtonUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -366,6 +420,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicMenuBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -373,6 +429,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicAccordionUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -380,6 +438,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicPopupMenuUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -387,6 +447,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicListUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -394,6 +456,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSpacerUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -401,6 +465,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicColorSwatchesUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -408,6 +474,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ToolBarButtonBgAdapterSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -415,6 +483,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicViewportUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -422,6 +492,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSeparatorUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -429,6 +501,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicLabelUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -436,6 +510,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicCheckBoxMenuItemUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicMenuItemUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -443,6 +519,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTextComponentUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -450,6 +528,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTableHeaderUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -457,6 +537,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicLabelButtonUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicButtonUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -464,6 +546,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicLookAndFeelSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:LookAndFeelSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -471,6 +555,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicRadioButtonMenuItemUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicMenuItemUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -478,6 +564,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicMenuUISchemaType">
 <xs:complexContent>
 <xs:extension base="BasicMenuItemUISchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -485,6 +573,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultMenuLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:SoftBoxLayoutSchemaType">
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
