@@ -1844,7 +1844,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:sequence>
+<xs:element name="asset" type="flash-display:DisplayObjectSchemaTypeValue"/>
 </xs:sequence>
+<xs:attribute name="asset" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
