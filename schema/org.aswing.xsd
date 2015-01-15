@@ -1238,6 +1238,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="currentSize" type="org-aswing-geom:IntDimensionSchemaTypeValue"/>
 <xs:element name="bounds" type="org-aswing-geom:IntRectangleSchemaTypeValue"/>
 <xs:element name="location" type="org-aswing-geom:IntPointSchemaTypeValue"/>
+<xs:element name="constraints" type="xs:string"/>
 <xs:element name="uiElement" type="xs:boolean"/>
 <xs:element name="background" type="ASColorSchemaTypeValue"/>
 <xs:element name="foreground" type="ASColorSchemaTypeValue"/>
@@ -1269,6 +1270,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="currentSize" type="xs:string"/>
 <xs:attribute name="bounds" type="xs:string"/>
 <xs:attribute name="location" type="xs:string"/>
+<xs:attribute name="constraints" type="xs:string"/>
 <xs:attribute name="uiElement" type="xs:boolean"/>
 <xs:attribute name="background" type="xs:string"/>
 <xs:attribute name="foreground" type="xs:string"/>
@@ -2128,7 +2130,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
 <xs:sequence>
+<xs:element name="hgap" type="xs:int"/>
+<xs:element name="vgap" type="xs:int"/>
 </xs:sequence>
+<xs:attribute name="hgap" type="xs:int"/>
+<xs:attribute name="vgap" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

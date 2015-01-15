@@ -22,31 +22,31 @@ import org.aswing.geom.IntRectangle;
  * component to a container with a border layout, use one of these
  * five constants, for example:
  * <pre>
- *    Panel p = new Panel();
+ *    var p: JPanel = new JPanel();
  *    p.setLayout(new BorderLayout());
- *    p.add(new Button("Okay"), BorderLayout.SOUTH);
+ *    p.append(new JButton("Ok"), BorderLayout.SOUTH);
  * </pre>
  * For convenience, <code>BorderLayout</code> interprets the
  * absence of a string specification the same as the constant
  * <code>CENTER</code>:
  * <pre>
- *    Panel p2 = new Panel();
+ *    var p2: JPanel = new JPanel();
  *    p2.setLayout(new BorderLayout());
- *    p2.add(new TextArea());  // Same as p.add(new TextArea(), BorderLayout.CENTER);
+ *    p2.append(new TextArea());  // Same as p.add(new TextArea(), BorderLayout.CENTER);
  * </pre>
  * 
  * <p>
  * The following image illustrate the way the borderLayout layout child component.
  * <br></br>
- * <img src="../../aswingImg/BorderLayout.JPG" ></img>
+ * <img src="../../BorderLayout.jpg" ></img>
  * </p>
- * @author paling
+ *
+ * Authors paling, ngrebenshikov
  */
  
 class BorderLayout extends EmptyLayout{
-	private var hgap:Int;
-
-	private var vgap:Int;
+	public var hgap:Int;
+	public var vgap:Int;
 
 	private var north:Component;
 
@@ -139,31 +139,33 @@ class BorderLayout extends EmptyLayout{
 		defaultConstraints = constraints.toString();
 	}
 
-    public function getHgap():Int{
+    @:dox(hide)
+	public function getHgap():Int{
 		return hgap;
     }
 	
 	/**
 	 * Set horizontal gap
 	 */
+	@:dox(hide)
     public function setHgap(hgap:Int):Void{
 		this.hgap = hgap;
     }
 
-    public function getVgap():Int{
+    @:dox(hide)
+	public function getVgap():Int{
 		return vgap;
     }
 	
 	/**
 	 *  Set vertical gap
 	 */
+	@:dox(hide)
     public function setVgap(vgap:Int):Void{
 		this.vgap = vgap;
     }
 	
-	/**
-	 * 
-	 */
+	@:dox(hide)
     override public function addLayoutComponent(comp:Component, constraints:Dynamic):Void{
     	var name:String= constraints != null ? constraints.toString() : null;
 	    addLayoutComponentByAlign(name, comp);
@@ -198,9 +200,7 @@ class BorderLayout extends EmptyLayout{
 		}
     }
     
-	/**
-	 * 
-	 */
+	@:dox(hide)
     override public function removeLayoutComponent(comp:Component):Void{
 		if (comp == center) {
 		    center = null;
@@ -223,16 +223,13 @@ class BorderLayout extends EmptyLayout{
 		    lastItem = null;
 		}
     }
-	/**
-	 * 
-	 */
+
+	@:dox(hide)
     override public function minimumLayoutSize(target:Container):IntDimension {
 		return target.getInsets().getOutsideSize();
     }
 	
-	/**
-	 * 
-	 */
+	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension {
     	var dim:IntDimension = new IntDimension(0, 0);
 	    var ltr:Bool= true;
@@ -270,16 +267,13 @@ class BorderLayout extends EmptyLayout{
 		dim.height += insets.top + insets.bottom;
 		return dim;
     }
-	/**
-	 *
-	 */
+
+	@:dox(hide)
     override public function getLayoutAlignmentX(target:Container):Float{
     	return 0.5;
     }
 	
-	/**
-	 * 
-	 */
+	@:dox(hide)
     override public function getLayoutAlignmentY(target:Container):Float{
     	return 0.5;
     }
@@ -307,6 +301,7 @@ class BorderLayout extends EmptyLayout{
      * @see     Container
      * @see     Container#doLayout()
      */
+	@:dox(hide)
     override public function layoutContainer(target:Container):Void{
     	var td:IntDimension = target.getSize();
 		var insets:Insets = target.getInsets();

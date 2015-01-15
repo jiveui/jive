@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel xmlns="org.aswing" xmlns:geom="org.aswing.geom" xmlns:border="org.aswing.border">
+    <layout>
+        <BorderLayout>
+            <hgap>10</hgap>
+            <vgap>20</vgap>
+        </BorderLayout>
+    </layout>
+    <border>
+        <border:EmptyBorder>
+            <border:top>30</border:top>
+            <border:left>30</border:left>
+            <border:bottom>30</border:bottom>
+            <border:right>30</border:right>
+        </border:EmptyBorder>
+    </border>
+    <JButton text="'North'" constraints="org.aswing.BorderLayout.NORTH">
+        <preferredSize>
+            <geom:IntDimension width="100" height="100"/>
+        </preferredSize>
+        <font>
+            <ASFont size="30"/>
+        </font>
+        <background>
+            <ASColor rgb="0xbdc3c7"/>
+        </background>
+    </JButton>
+    <JButton text="'South'" constraints="org.aswing.BorderLayout.SOUTH">
+        <preferredSize>
+            <geom:IntDimension width="100" height="100"/>
+        </preferredSize>
+        <font>
+            <ASFont size="30"/>
+        </font>
+        <background>
+            <ASColor rgb="0xf39c12"/>
+        </background>
+    </JButton>
+    <JButton text="'East'" constraints="org.aswing.BorderLayout.EAST">
+        <preferredSize>
+            <geom:IntDimension width="100" height="100"/>
+        </preferredSize>
+        <font>
+            <ASFont size="30"/>
+        </font>
+        <background>
+            <ASColor rgb="0xc0392b"/>
+        </background>
+    </JButton>
+    <JButton text="'West'" constraints="org.aswing.BorderLayout.WEST">
+        <preferredSize>
+            <geom:IntDimension width="100" height="100"/>
+        </preferredSize>
+        <font>
+            <ASFont size="30"/>
+        </font>
+        <background>
+            <ASColor rgb="0x20980b9"/>
+        </background>
+    </JButton>
+    <JButton text="'Center'">
+        <preferredSize>
+            <geom:IntDimension width="100" height="100"/>
+        </preferredSize>
+        <font>
+            <ASFont size="45"/>
+        </font>
+        <background>
+            <ASColor rgb="0x34495e"/>
+        </background>
+    </JButton>
+</JPanel>

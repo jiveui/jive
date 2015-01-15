@@ -190,8 +190,12 @@ class Component extends AWSprite implements IBindable {
 	private var cachedMaximumSize:IntDimension;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	private var constraints:Dynamic;
+	/**
+	* Component constraints. It's used by layout managers to layout components in a container.
+	*
+	* For example, `BorderLayout.CENTER`
+	**/
+	public var constraints:Dynamic;
 
 	/**
      * Indicates if this component is just a ui element component or
@@ -2705,7 +2709,7 @@ class Component extends AWSprite implements IBindable {
 	}
 	
 	/**
-	 * Gets cpmponent's constraints.
+	 * Gets component's constraints.
 	 * @return component's constraints
 	 */
 	@:dox(hide) public inline function getConstraints():Dynamic{

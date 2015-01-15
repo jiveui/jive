@@ -5,6 +5,7 @@ import org.aswing.ASColorTest;
 import org.aswing.ASFontTest;
 import org.aswing.AssetBackgroundTest;
 import org.aswing.AssetIconTest;
+import org.aswing.BorderLayoutTest;
 import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
 import org.aswing.GridLayoutTest;
@@ -27,6 +28,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.ASFontTest);
 		add(org.aswing.AssetBackgroundTest);
 		add(org.aswing.AssetIconTest);
+		add(org.aswing.BorderLayoutTest);
 		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
 		add(org.aswing.GridLayoutTest);
