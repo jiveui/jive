@@ -6,28 +6,26 @@ package org.aswing;
 
 	
 import flash.display.DisplayObject;
-import flash.display.Loader;
 import flash.display.Shape;
 
 import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.error.ImpMissError;
+import org.aswing.geom.IntRectangle;
 import flash.display.Sprite;
 import flash.display.DisplayObjectContainer;
 
 /**
  * Abstract class for A container with a decorative asset.
- * <p>
+ *
  * External content will be load automatically when the pane was created if floorEnabled.
- * </p>
- * @see org.aswing.JLoadPane
- * @see org.aswing.JAttachPane
- * @author paling
+ *
+ * See `JLoadPane`, `JAttachPane`
+ *
+ * Author paling, ngrebenshikov
  */	
 class AssetPane extends Container{
 	
 	/**
-	 * preffered size of this component will be the fit to contain both size of extenal image/animation
+	 * Preffered size of this component will be the fit to contain both size of extenal image/animation
 	 *  and counted from <code>LayoutManager</code>
 	 */
 	inline public static var PREFER_SIZE_BOTH:Int= 0;
@@ -62,89 +60,188 @@ class AssetPane extends Container{
 	inline public static var SCALE_FIT_HEIGHT:Int= 4;
 	/**
 	 * Custom scaling of the image.
-	 * @see setCustomScale
+	 * See `AssetPane.setCustomScale`
 	 */
 	inline public static var SCALE_CUSTOM:Int= 5;
 	
 	
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * See `AsWingConstants`
 	 */
 	inline public static var CENTER:Int= AsWingConstants.CENTER;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * See `AsWingConstants`
 	 */
 	inline public static var TOP:Int= AsWingConstants.TOP;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * See `AsWingConstants`
 	 */
     inline public static var LEFT:Int= AsWingConstants.LEFT;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * See `AsWingConstants`
 	 */
     inline public static var BOTTOM:Int= AsWingConstants.BOTTOM;
  	/**
 	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * See `AsWingConstants`
 	 */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
-    
-	private var asset:DisplayObject;
+
+	/**
+	* The content
+	*
+	* You should take care to do operation at this display object,
+	* if you want to remove it, you should call `unloadAsset()` instead of
+	* call `asset.parent.removeChild(asset)`
+	**/
+	public var asset(get, set): DisplayObject;
+	private var _asset:DisplayObject;
+	private function get_asset(): DisplayObject { return getAsset(); }
+	private function set_asset(v: DisplayObject): DisplayObject { setAsset(v); return v; }
+
+	public var assetVisible(get, set): Bool;
+	private var _assetVisible: Bool;
+	private function get_assetVisible(): Bool { return isAssetVisible(); }
+	private function set_assetVisible(v: Bool): Bool { setAssetVisible(v); return v; }
+
+	/**
+	 * The preffered size counting strategy. Must be one of below:
+	 * <ul>
+	 * <li>`AssetPane.PREFER_SIZE_BOTH`
+	 * <li>`AssetPane.PREFER_SIZE_IMAGE`
+	 * <li>`AssetPane.PREFER_SIZE_LAYOUT`
+	 * </ul>
+	 */
+	public var prefferSizeStrategy(get, set): Int;
+	private var _prefferSizeStrategy: Int;
+	private function get_prefferSizeStrategy(): Int { return Std.int(getPrefferSizeStrategy()); }
+	private function set_prefferSizeStrategy(v: Int): Int { setPrefferSizeStrategy(v); return v; }
+
+	/**
+     * The vertical alignment of the image/animation.
+     * Must be one of the following values:
+     * <ul>
+     * <li>`AsWingConstants.CENTER` (the default)
+     * <li>`AsWingConstants.TOP`
+     * <li>`AsWingConstants.BOTTOM`
+     * </ul>
+     */
+	public var verticalAlignment(get, set): Int;
+	private var _verticalAlignment:Int;
+	private function get_verticalAlignment(): Int { return Std.int(getVerticalAlignment()); }
+	private function set_verticalAlignment(v: Int): Int { setVerticalAlignment(v); return v; }
+
+	/**
+     * The horizontal alignment of the image/animation.
+     * Must be one of the following values:
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+	public var horizontalAlignment(get, set): Int;
+	private var _horizontalAlignment:Int;
+	private function get_horizontalAlignment(): Int { return Std.int(getHorizontalAlignment()); }
+	private function set_horizontalAlignment(v: Int): Int { setHorizontalAlignment(v); return v; }
+
+	/**
+	* The content scale mode.
+	* <ul>
+	*     <li>`AssetPane.SCALE_NONE`
+	*     <li>`AssetPane.SCALE_FIT_PANE`
+	*     <li>`AssetPane.SCALE_STRETCH_PANE`
+	*     <li>`AssetPane.SCALE_FIT_WIDTH`
+	*     <li>`AssetPane.SCALE_FIT_HEIGHT`
+	*     <li>`AssetPane.SCALE_CUSTOM`
+	* </ul>
+	**/
+	public var scaleMode(get, set): Int;
+	private var _scaleMode:Int;
+	private function get_scaleMode(): Int { return getScaleMode(); }
+	private function set_scaleMode(v: Int): Int { setScaleMode(v); return v; }
+
+	/**
+     * The x offset of the position of the loaded image/animation.
+     * If you dont want to locate the content to the topleft of the pane, you can set the offsets.
+     */
+	public var offsetX(get, set): Float;
+	private var _offsetX:Float;
+	private function get_offsetX(): Float { return getOffsetX(); }
+	private function set_offsetX(v: Float): Float { setOffsetX(v); return v; }
+
+	/**
+     * The y offset of the position of the loaded image/animation.
+     * If you dont want to locate the content to the topleft of the pane, you can set the offsets.
+     */
+	public var offsetY(get, set): Float;
+	private var _offsetY:Float;
+	private function get_offsetY(): Float { return getOffsetY(); }
+	private function set_offsetY(v: Float): Float { setOffsetY(v); return v; }
+
+	/**
+     * The custom scale value in percents. Automatically turns scale mode into `SCALE_CUSTOM`.
+     * @see `setScaleMode`
+     */
+	public var customScale(get, set): Int;
+	private var _customScale:Int;
+	private function get_customScale(): Int { return getCustomScale(); }
+	private function set_customScale(v: Int): Int { setCustomScale(v); return v; }
+
+	/**
+     * A readonly current actual scale value in percents. If `AssetPane.scaleMode` is
+     * `AssetPane.SCALE_STRETCH_PANE` returns `null`.
+     */
+	public var actualScale(default, null): Null<Int>;
+
+	public var clipEnabled(get, set): Bool;
+	private function get_clipEnabled(): Bool { return isMaskAsset(); }
+	private function set_clipEnabled(v: Bool): Bool { setMaskAsset(v); return v; }
+
 	private var assetContainer:DisplayObjectContainer;
 	private var assetMask:Shape;
 	
-	private var assetVisible:Bool;
 	private var maskFloor:Bool;
 	private var floorLoaded:Bool;
-	private var prefferSizeStrategy:Int;
-    private var verticalAlignment:Int;
-    private var horizontalAlignment:Int;
-    private var scaleMode:Int;
-    private var customScale:Int;
-    private var actualScale:Int;
     private var floorOriginalSize:IntDimension;
     private var floorOriginalScaleX:Float;
     private var floorOriginalScaleY:Float;
     private var hadscaled:Bool;
-    private var offsetX:Float;
-    private var offsetY:Float;
-	
+
 	/**
-	 * AssetPane(path:String, prefferSizeStrategy:int) <br>
-	 * AssetPane(path:String) prefferSizeStrategy default to PREFER_SIZE_BOTH<br>
-	 * AssetPane() path default to null,prefferSizeStrategy default to PREFER_SIZE_IMAGE
-	 * <p>
-	 * Creates a AssetPane with a path to load external content.
-	 * </p>
+	 * Creates a AssetPane with a asset content.
+	 *
 	 * @param asset the asset to be placed on this pane.
 	 * @param prefferSizeStrategy the prefferedSize count strategy. Must be one of below:
+	 *
 	 * <ul>
-	 * <li>{@link #PREFER_SIZE_BOTH}
-	 * <li>{@link #PREFER_SIZE_IMAGE}
-	 * <li>{@link #PREFER_SIZE_LAYOUT}
+	 * <li> `AssetPane.PREFER_SIZE_BOTH`
+	 * <li> `AssetPane.PREFER_SIZE_IMAGE`
+	 * <li> `AssetPane.PREFER_SIZE_LAYOUT`
 	 * </ul>
-	 * @see #setAsset()
+	 *
+	 * See `AssetPane.asset`
 	 */
 	public function new(asset:DisplayObject=null, prefferSizeStrategy:Int=PREFER_SIZE_IMAGE) {
 		super();
-		this.prefferSizeStrategy = prefferSizeStrategy;
+		this._prefferSizeStrategy = prefferSizeStrategy;
 		
-    	verticalAlignment = TOP;
-    	horizontalAlignment = LEFT;
-    	scaleMode = SCALE_NONE;
+    	_verticalAlignment = TOP;
+    	_horizontalAlignment = LEFT;
+    	_scaleMode = SCALE_NONE;
     	actualScale = 100;
-    	customScale = 100;
+    	_customScale = 100;
     	hadscaled = false;
     	maskFloor = true;
 		floorOriginalSize = null;
-		assetVisible = true;
+		_assetVisible = true;
 		floorLoaded = false;
-		offsetX = 0;
-		offsetY = 0;
+		_offsetX = 0;
+		_offsetY = 0;
 		floorOriginalScaleX = 1;
 		floorOriginalScaleY = 1;
 		setFocusable(false);
@@ -158,18 +255,19 @@ class AssetPane extends Container{
 	
 	
 	/**
-	 * set the asset of the pane
+	 * Set the asset of the pane
 	 * This method will cause old asset to be removed and new asset to be added.
 	 * @param asset the asset of the pane.
 	 */ 
+	@:dox(hide)
 	public function setAsset(asset:DisplayObject):Void{
-		if (this.asset != asset){
-			if(this.asset!=null)	{
-				if(this.asset.parent == assetContainer){
-					assetContainer.removeChild(this.asset);
+		if (this._asset != asset){
+			if(this._asset!=null)	{
+				if(this._asset.parent == assetContainer){
+					assetContainer.removeChild(this._asset);
 				}
 			}
-			this.asset = asset;
+			this._asset = asset;
 			if(asset!=null)	{
 				storeOriginalScale();
 				assetContainer.addChild(asset);
@@ -180,25 +278,25 @@ class AssetPane extends Container{
 	}
 	
 	/**
-	 * unload the asset of the pane
+	 * Unload the asset of the pane
 	 */ 
 	public function unloadAsset():Void{
-		setAsset(null);
+		asset = null;
 	}
 	
 	private function storeOriginalScale():Void{
-		if(asset!=null)	{
-			floorOriginalScaleX = asset.scaleX;
-			floorOriginalScaleY = asset.scaleY;
+		if(_asset!=null)	{
+			floorOriginalScaleX = _asset.scaleX;
+			floorOriginalScaleY = _asset.scaleY;
 		}
 	}
 	
 	private function resetAsset():Void{
-		if(asset!=null)	{
-			asset.scaleX = floorOriginalScaleX;
-			asset.scaleY = floorOriginalScaleY;
-			setAssetOriginalSize(new IntDimension(Std.int(asset.width), Std.int(asset.height)));
-			asset.visible = assetVisible;
+		if(_asset!=null)	{
+			_asset.scaleX = floorOriginalScaleX;
+			_asset.scaleY = floorOriginalScaleY;
+			setAssetOriginalSize(new IntDimension(Std.int(_asset.width), Std.int(_asset.height)));
+			_asset.visible = _assetVisible;
 		}
 		revalidate();
 	}
@@ -212,8 +310,9 @@ class AssetPane extends Container{
 	 * </p>
 	 * @return the asset.
 	 */
+	@:dox(hide)
 	public function getAsset():DisplayObject{
-		return asset;
+		return _asset;
 	}
 	
 	/**
@@ -224,16 +323,18 @@ class AssetPane extends Container{
 	 * <li>{@link #PREFER_SIZE_LAYOUT}
 	 * </ul>
 	 */
+	@:dox(hide)
 	public function setPrefferSizeStrategy(p:Float):Void{
-		prefferSizeStrategy =Std.int( p);
+		_prefferSizeStrategy =Std.int( p);
 	}
 	
 	/**
 	 * Returns the preffered size counting strategy.
 	 * @see #setPrefferSizeStrategy()
 	 */
+	@:dox(hide)
 	public function getPrefferSizeStrategy():Float{
-		return prefferSizeStrategy;
+		return _prefferSizeStrategy;
 	}	
 	
     /**
@@ -247,8 +348,9 @@ class AssetPane extends Container{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+	@:dox(hide)
     public function getVerticalAlignment():Float{
-        return verticalAlignment;
+        return _verticalAlignment;
     }
     
     /**
@@ -261,11 +363,12 @@ class AssetPane extends Container{
      * </ul>
      * Default is CENTER.
      */
+	@:dox(hide)
     public function setVerticalAlignment(alignment:Int=AsWingConstants.CENTER):Void{
-        if (alignment == verticalAlignment){
+        if (alignment == _verticalAlignment){
         	return;
         }else{
-        	verticalAlignment = alignment;
+        	_verticalAlignment = alignment;
         	revalidate();
         }
     }
@@ -281,8 +384,9 @@ class AssetPane extends Container{
      * </ul>
      * Default is LEFT.
      */
+	@:dox(hide)
     public function getHorizontalAlignment():Float{
-        return horizontalAlignment;
+        return _horizontalAlignment;
     }
     
     /**
@@ -294,11 +398,12 @@ class AssetPane extends Container{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+	@:dox(hide)
     public function setHorizontalAlignment(alignment:Int=AsWingConstants.RIGHT):Void{
-        if (alignment == horizontalAlignment){
+        if (alignment == _horizontalAlignment){
         	return;
         }else{
-        	horizontalAlignment = alignment;
+        	_horizontalAlignment = alignment;
         	revalidate();
         }
     }
@@ -315,9 +420,10 @@ class AssetPane extends Container{
 	 * <li>{@link #SCALE_COMPLETE}
 	 * </ul>
      */
+	@:dox(hide)
     public function setScaleMode(mode:Int):Void{
-    	if(scaleMode != mode){
-    		scaleMode = mode;
+    	if(_scaleMode != mode){
+    		_scaleMode = mode;
     		revalidate();
     	}
     }
@@ -326,41 +432,45 @@ class AssetPane extends Container{
      * Returns current image scale mode. 
      * @return current image scale mode.
 	 * <ul>
-	 * <li>{@link #SCALE_NONE}
-	 * <li>{@link #SCALE_PROPORTIONAL}
-	 * <li>{@link #SCALE_COMPLETE}
+	 * <li>`SCALE_NONE`
+	 * <li>`SCALE_PROPORTIONAL`
+	 * <li>`SCALE_COMPLETE`
 	 * </ul>
      */
+	@:dox(hide)
     public function getScaleMode():Int{
-    	return scaleMode;
+    	return _scaleMode;
     }
     
     /**
-     * Sets new custom scale value in percents. Automatically turns scale mode into #SCALE_CUSTOM.
+     * Sets new custom scale value in percents. Automatically turns scale mode into `SCALE_CUSTOM`.
      * @param scale the new scale 
      * @see #setScaleMode
      */
+	@:dox(hide)
     public function setCustomScale(scale:Int):Void{
     	setScaleMode(SCALE_CUSTOM);
-    	if (customScale != scale) {
-    		customScale = scale;
+    	if (_customScale != scale) {
+    		_customScale = scale;
     		revalidate();	
     	}
     }
     
     /**
-     * Returns current actual scale value in percents. If <code>scaleMode</code> is
-     * #SCALE_STRETCH_PANE returns <code>null</code>. 
+     * Returns current actual scale value in percents. If `AssetPane.scaleMode` is
+     * `AssetPane.SCALE_STRETCH_PANE` returns `null`.
      */
-    public function getActualScale():Int{
-    	return actualScale;	
+	@:dox(hide)
+    public function getActualScale():Int {
+    	return actualScale;
     }
 
     /**
      * Returns current custom scale value in percents.
      */
+	@:dox(hide)
     public function getCustomScale():Int{
-    	return customScale;	
+    	return _customScale;
     }
     
     /**
@@ -368,9 +478,10 @@ class AssetPane extends Container{
      * If you dont want to locate the content to the topleft of the pane, you can set the offsets.
      * @param offset the x offset 
      */
+	@:dox(hide)
     public function setOffsetX(offset:Float):Void{
-    	if(offsetX != offset){
-    		offsetX = offset;
+    	if(_offsetX != offset){
+    		_offsetX = offset;
     		revalidate();
     	}
     }
@@ -380,9 +491,10 @@ class AssetPane extends Container{
      * If you dont want to locate the content to the topleft of the pane, you can set the offsets.
      * @param offset the y offset 
      */
+	@:dox(hide)
     public function setOffsetY(offset:Float):Void{
-    	if(offsetY != offset){
-    		offsetY = offset;
+    	if(_offsetY != offset){
+    		_offsetY = offset;
     		revalidate();
     	}
     }    
@@ -390,25 +502,28 @@ class AssetPane extends Container{
     /**
      * @see #setOffsetX()
      */
+	@:dox(hide)
     public function getOffsetX():Float{
-    	return offsetX;
+    	return _offsetX;
     }
     
     /**
      * @see #setOffsetY()
      */
+	@:dox(hide)
     public function getOffsetY():Float{
-    	return offsetY;
+    	return _offsetY;
     }
 	
 	/**
 	 * Sets the visible of the assets.
 	 * @param b the visible property.
 	 */
+	@:dox(hide)
 	public function setAssetVisible(b:Bool):Void{
-		assetVisible = b;
-		if(asset!=null)	{
-			asset.visible = b;
+		_assetVisible = b;
+		if(_asset!=null)	{
+			_asset.visible = b;
 		}
 	}
 	
@@ -416,8 +531,9 @@ class AssetPane extends Container{
 	 * Returns the asset visible property.
 	 * @return the asset visible property.
 	 */
+	@:dox(hide)
 	public function isAssetVisible():Bool{
-		return assetVisible;
+		return _assetVisible;
 	}
 	
 	/**
@@ -442,7 +558,7 @@ class AssetPane extends Container{
 	}
 	
 	/**
-	 * layout this container
+	 * Layout this container
 	 */
 	override public function doLayout():Void{
 		super.doLayout();
@@ -459,13 +575,13 @@ class AssetPane extends Container{
 			assetMask.y = b.y;
 			assetMask.width = b.width;
 			assetMask.height = b.height;
-			if(scaleMode == SCALE_STRETCH_PANE){
-				floor.x = b.x - offsetX;
-				floor.y = b.y - offsetY;
+			if(_scaleMode == SCALE_STRETCH_PANE){
+				floor.x = b.x - _offsetX;
+				floor.y = b.y - _offsetY;
 				floor.width = s.width;
 				floor.height = s.height;
 				hadscaled = true;
-			} else if (scaleMode == SCALE_FIT_PANE || scaleMode == SCALE_FIT_WIDTH || scaleMode == SCALE_FIT_HEIGHT || scaleMode == SCALE_CUSTOM) {
+			} else if (_scaleMode == SCALE_FIT_PANE || _scaleMode == SCALE_FIT_WIDTH || _scaleMode == SCALE_FIT_HEIGHT || _scaleMode == SCALE_CUSTOM) {
 				floor.width = s.width;
 				floor.height = s.height;
 				alignFloor();
@@ -483,7 +599,7 @@ class AssetPane extends Container{
 				alignFloor();
 			}
 			// calc current scale
-			if (scaleMode != SCALE_STRETCH_PANE) {
+			if (_scaleMode != SCALE_STRETCH_PANE) {
 				actualScale = Math.floor(floor.width / floorOriginalSize.width * 100);
 			} else {
 				actualScale = 0;
@@ -501,22 +617,22 @@ class AssetPane extends Container{
 		if (b == null) b = getPaintBounds();
 		
 		var mx:Float, my:Float;
-		if(horizontalAlignment == CENTER){
+		if(_horizontalAlignment == CENTER){
 			mx = b.x + (b.width - floorMC.width)/2;
-		}else if(horizontalAlignment == RIGHT){
+		}else if(_horizontalAlignment == RIGHT){
 			mx = b.x + (b.width - floorMC.width);
 		}else{
 			mx = b.x;
 		}
-		if(verticalAlignment == CENTER){
+		if(_verticalAlignment == CENTER){
 			my = b.y + (b.height - floorMC.height)/2;
-		}else if(verticalAlignment == BOTTOM){
+		}else if(_verticalAlignment == BOTTOM){
 			my = b.y + (b.height - floorMC.height);
 		}else{
 			my = b.y;
 		}
-		floorMC.x = mx - offsetX;
-		floorMC.y = my - offsetY;
+		floorMC.x = mx - _offsetX;
+		floorMC.y = my - _offsetY;
 	}	
 	
 	/**
@@ -532,9 +648,9 @@ class AssetPane extends Container{
 			sizeByMC = size;
 		}
 		
-		if(prefferSizeStrategy == PREFER_SIZE_IMAGE){
+		if(_prefferSizeStrategy == PREFER_SIZE_IMAGE){
 			return sizeByMC;
-		}else if(prefferSizeStrategy == PREFER_SIZE_LAYOUT){
+		}else if(_prefferSizeStrategy == PREFER_SIZE_LAYOUT){
 			return size;
 		}else{
 			return new IntDimension(
@@ -547,28 +663,28 @@ class AssetPane extends Container{
 		var b:IntRectangle = getPaintBounds();
 		var size:IntDimension = new IntDimension();
 		
-		if(scaleMode == SCALE_STRETCH_PANE){
+		if(_scaleMode == SCALE_STRETCH_PANE){
 			size.width = b.width;
 			size.height = b.height;
-		} else if (scaleMode == SCALE_FIT_PANE || scaleMode == SCALE_FIT_WIDTH || scaleMode == SCALE_FIT_HEIGHT) {
+		} else if (_scaleMode == SCALE_FIT_PANE || _scaleMode == SCALE_FIT_WIDTH || _scaleMode == SCALE_FIT_HEIGHT) {
 			var hScale:Float= floorOriginalSize.width / b.width;
 			var vScale:Float= floorOriginalSize.height / b.height; 
 			var scale:Float= 1;
-			if (scaleMode == SCALE_FIT_WIDTH) {
+			if (_scaleMode == SCALE_FIT_WIDTH) {
 				scale = hScale;
-			} else if (scaleMode == SCALE_FIT_HEIGHT) {
+			} else if (_scaleMode == SCALE_FIT_HEIGHT) {
 				scale = vScale;
 			} else {
 				scale = Math.max(hScale, vScale);
 			}
 			size.width = Std.int(floorOriginalSize.width/scale);
 			size.height = Std.int(floorOriginalSize.height/scale);
-		} else if (scaleMode == SCALE_CUSTOM){
-			size.width = Std.int(floorOriginalSize.width*(customScale/100));
-			size.height = Std.int(floorOriginalSize.height*(customScale/100));
+		} else if (_scaleMode == SCALE_CUSTOM){
+			size.width = Std.int(floorOriginalSize.width*(_customScale/100));
+			size.height = Std.int(floorOriginalSize.height*(_customScale/100));
 		} else {
-			size.width = Std.int(floorOriginalSize.width - offsetX);
-			size.height =Std.int(floorOriginalSize.height - offsetY);
+			size.width = Std.int(floorOriginalSize.width - _offsetX);
+			size.height =Std.int(floorOriginalSize.height - _offsetY);
 		}
 		
 		return size; 
@@ -576,17 +692,18 @@ class AssetPane extends Container{
 	
 	/**
 	 * Reload the asset. This will reset the asset to count currenty size and re-layout.
-	 * @see org.aswing.JLoadPane
-	 * @see org.aswing.JAttachPane
+	 * See `JLoadPane`, `JAttachPane`
 	 */
 	public function reload():Void{
 		resetAsset();
 	}
 	
+	@:dox(hide)
 	public function isMaskAsset():Bool{
 		return maskFloor;
 	}
 	
+	@:dox(hide)
 	public function setMaskAsset(m:Bool):Void{
 		maskFloor = m;
 		applyMaskAsset();

@@ -2512,7 +2512,29 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:sequence>
+<xs:element name="asset" type="flash-display:DisplayObjectSchemaTypeValue"/>
+<xs:element name="assetVisible" type="xs:boolean"/>
+<xs:element name="prefferSizeStrategy" type="xs:int"/>
+<xs:element name="verticalAlignment" type="xs:int"/>
+<xs:element name="horizontalAlignment" type="xs:int"/>
+<xs:element name="scaleMode" type="xs:int"/>
+<xs:element name="offsetX" type="xs:double"/>
+<xs:element name="offsetY" type="xs:double"/>
+<xs:element name="customScale" type="xs:int"/>
+<xs:element name="actualScale" type="xs:string"/>
+<xs:element name="clipEnabled" type="xs:boolean"/>
 </xs:sequence>
+<xs:attribute name="asset" type="xs:string"/>
+<xs:attribute name="assetVisible" type="xs:boolean"/>
+<xs:attribute name="prefferSizeStrategy" type="xs:int"/>
+<xs:attribute name="verticalAlignment" type="xs:int"/>
+<xs:attribute name="horizontalAlignment" type="xs:int"/>
+<xs:attribute name="scaleMode" type="xs:int"/>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+<xs:attribute name="customScale" type="xs:int"/>
+<xs:attribute name="actualScale" type="xs:string"/>
+<xs:attribute name="clipEnabled" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

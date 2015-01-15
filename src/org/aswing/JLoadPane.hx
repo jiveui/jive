@@ -118,8 +118,8 @@ class JLoadPane extends AssetPane{
 		if(assetContainer == regularAssetContainer){
 			assetContainer = loader;
 			if (this.contains(regularAssetContainer)){
-				if(this.asset!=null && regularAssetContainer.contains(this.asset)){
-					regularAssetContainer.removeChild(this.asset);
+				if(this._asset!=null && regularAssetContainer.contains(this._asset)){
+					regularAssetContainer.removeChild(this._asset);
 				}
 				removeChild(regularAssetContainer);
 				regularAssetContainer.mask = null;
@@ -128,7 +128,7 @@ class JLoadPane extends AssetPane{
 			bringToBottom(assetContainer);
 			applyMaskAsset();
 		}
-		this.asset = asset;
+		this._asset = asset;
 		storeOriginalScale();
 		setLoaded(asset != null);
 		resetAsset();
@@ -141,7 +141,7 @@ class JLoadPane extends AssetPane{
 	 * @param request The absolute or relative URL of the SWF, JPEG, GIF, or PNG file to be loaded. 
 	 * 		A relative path must be relative to the main SWF file. Absolute URLs must include 
 	 * 		the protocol reference, such as http:// or file:///. Filenames cannot include disk drive specifications. 
-	 * @param context (default = null) â€?A LoaderContext object.
+	 * @param context (default = null) ï¿½?A LoaderContext object.
 	 * @see flash.display.Loader#load()
 	 */
 	public function load(request:URLRequest ):Void{
@@ -157,7 +157,7 @@ class JLoadPane extends AssetPane{
 		this.urlRequest = null;
 		 
 		if(assetContainer == loader){ 
-			this.asset = null;
+			this._asset = null;
 			setLoaded(false);
 			resetAsset();
 		}else{
