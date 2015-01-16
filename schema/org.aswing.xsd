@@ -1394,7 +1394,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="JPopupSchemaType">
 <xs:sequence>
+<xs:element name="content" type="ContainerSchemaTypeValue"/>
+<xs:element name="activable" type="xs:boolean"/>
+<xs:element name="actived" type="xs:boolean"/>
 </xs:sequence>
+<xs:attribute name="content" type="xs:string"/>
+<xs:attribute name="activable" type="xs:boolean"/>
+<xs:attribute name="actived" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1462,7 +1468,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
 <xs:sequence>
+<xs:element name="titleBar" type="ComponentSchemaTypeValue"/>
+<xs:element name="contentPane" type="ComponentSchemaTypeValue"/>
 </xs:sequence>
+<xs:attribute name="titleBar" type="xs:string"/>
+<xs:attribute name="contentPane" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
