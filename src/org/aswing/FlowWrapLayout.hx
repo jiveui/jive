@@ -10,13 +10,18 @@ import org.aswing.geom.IntPoint;
 
 /**
  * FlowWrapLayout wrap layout is extended FlowLayout, 
- * the only different is that it has a prefer width, the prefer width means that when count the preffered size, 
- * it assume to let chilren arrange to a line when one reach the prefer width, then wrap next to next line.
+ * the only different is that it has a preferred width, it means that when count the preffered size,
+ * it assume to let chilren arrange to a line when one reach the preferred width, then wrap to next line.
  * FlowLayout is different, when counting the preferred size, FlowLayout assumes all children should be arrange to one line.
  *
- * @author 	paling
+ * The following image illustrate the way the `FlowWrapLayout` layout child components.
+ *
+ * <img src="../../FlowWrapLayout.jpg" ></img>
+ *
+ * <br/>
+ * Authors paling, ngrebenshikov
  */
-class FlowWrapLayout extends FlowLayout{
+class FlowWrapLayout extends FlowLayout {
 	
     /**
      * This value indicates that each row of components
@@ -35,41 +40,45 @@ class FlowWrapLayout extends FlowLayout{
      * should be right-justified.
      */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
-    
-    private var preferWidth:Int;
 
     /**
-     * <p>  
+    * A preffered width of a component. When the width of inside components widthes reachs the preferred width, then it wraps to next line and the process goes on.
+	**/
+	public var preferredWidth:Int;
+
+    /**
      * Creates a new flow wrap layout manager with the indicated prefer width, alignment
      * and the indicated horizontal and vertical gaps.
-     * </p>
+     *
      * The value of the alignment argument must be one of
      * <code>FlowWrapLayout.LEFT</code>, <code>FlowWrapLayout.RIGHT</code>,or <code>FlowWrapLayout.CENTER</code>.
-     * @param      preferWidth the width that when component need to wrap to second line
+     * @param      preferredWidth the width that when component need to wrap to second line
      * @param      align   the alignment value, default is LEFT
      * @param      hgap    the horizontal gap between components, default 5
      * @param      vgap    the vertical gap between components, default 5
      * @param      margin  whether or not the gap will margin around
      */
-    public function new(preferWidth:Int=200, align:Int=AsWingConstants.LEFT, hgap:Int=5, vgap:Int=5, margin:Bool=true) {
+    public function new(preferredWidth:Int=200, align:Int=AsWingConstants.LEFT, hgap:Int=5, vgap:Int=5, margin:Bool=true) {
     	super(align, hgap, vgap, margin);
-		this.preferWidth = preferWidth;
+		this.preferredWidth = preferredWidth;
     }
     
     /**
      * Sets the prefer width for all should should arranged.
      * @param preferWidth the prefer width for all should should arranged.
      */
+	@:dox(hide)
     public function setPreferWidth(preferWidth:Int):Void{
-    	this.preferWidth = preferWidth;
+    	this.preferredWidth = preferWidth;
     }
     
     /**
      * Returns the prefer width for all should should arranged.
      * @return the prefer width for all should should arranged.
-     */    
+     */
+	@:dox(hide)
     public function getPreferWidth():Int{
-    	return preferWidth;
+    	return preferredWidth;
     }
     
     /**
@@ -81,6 +90,7 @@ class FlowWrapLayout extends FlowLayout{
      * @see Container
      * @see #doLayout()
      */
+	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension {
 		var dim:IntDimension = new IntDimension(0, 0);
 		var nmembers:Int= target.getComponentCount();
@@ -104,7 +114,7 @@ class FlowWrapLayout extends FlowLayout{
                     x += hgap;
                 }
 				x += d.width;
-                if(x >= preferWidth || count == visibleNum){
+                if(x >= preferredWidth || count == visibleNum){
                 	dim.width = Std.int(Math.max(dim.width, x));
                 	dim.height += rowHeight;
                 	if(count != visibleNum){

@@ -17,13 +17,18 @@ import org.aswing.geom.IntPoint;
  * to arrange buttons in a panel. It will arrange
  * buttons left to right until no more buttons fit on the same line.
  * Each line is centered.
- * <p></p>
+ *
  * For example, the following picture shows an applet using the flow
  * layout manager (its default layout manager) to position three buttons:
- * <p></p>
+ *
  * A flow layout lets each component assume its natural (preferred) size.
  *
- * @author 	paling
+ * The following image illustrate the way the `FlowLayout` layout child components.
+ *
+ * <img src="../../FlowLayout.jpg" ></img>
+ *
+ *<br/>
+ * Authors paling, ngrebenshikov
  */
 class FlowLayout extends EmptyLayout{
 
@@ -50,46 +55,36 @@ class FlowLayout extends EmptyLayout{
      * how each row distributes empty space.
      * It can be one of the following values:
      * <ul>
-     * <code>LEFT</code>
-     * <code>RIGHT</code>
-     * <code>CENTER</code>
+     * <li><code>LEFT</code></li>
+     * <li><code>RIGHT</code></li>
+     * <li><code>CENTER</code></li>
      * </ul>
-     *
-     * @see #getAlignment
-     * @see #setAlignment
      */
-    private var align:Int;
+    public var align:Int;
 
     /**
      * The flow layout manager allows a seperation of
      * components with gaps.  The horizontal gap will
      * specify the space between components.
-     *
-     * @see #getHgap()
-     * @see #setHgap(int)
      */
-    private var hgap:Int;
+    public var hgap:Int;
 
     /**
      * The flow layout manager allows a seperation of
      * components with gaps.  The vertical gap will
      * specify the space between rows.
-     *
-     * @see #getHgap()
-     * @see #setHgap(int)
      */
-    private var vgap:Int;
+    public var vgap:Int;
     
     /**
-     * whether or not the gap will margin around
+     * Whether or not the gap will margin around
      */
-    private var margin:Bool;
+    public var margin:Bool;
 
     /**
-     * <p>  
      * Creates a new flow layout manager with the indicated alignment
      * and the indicated horizontal and vertical gaps.
-     * </p>
+     *
      * The value of the alignment argument must be one of
      * <code>FlowLayout.LEFT</code>, <code>FlowLayout.RIGHT</code>,or <code>FlowLayout.CENTER</code>.
      * @param      align   the alignment value, default is LEFT
@@ -108,13 +103,15 @@ class FlowLayout extends EmptyLayout{
     /**
      * Sets whether or not the gap will margin around.
      */
+	@:dox(hide)
     public function setMargin(b:Bool):Void{
     	margin = b;
     }
     
     /**
      * Returns whether or not the gap will margin around.
-     */    
+     */
+	@:dox(hide)
     public function isMargin():Bool{
     	return margin;
     }
@@ -125,6 +122,7 @@ class FlowLayout extends EmptyLayout{
      * @return     the alignment value for this layout
      * @see        #setAlignment
      */
+	@:dox(hide)
     public function getAlignment():Int{
 		return align;
     }
@@ -140,6 +138,7 @@ class FlowLayout extends EmptyLayout{
      * @param      align one of the alignment values shown above
      * @see        #getAlignment()
      */
+	@:dox(hide)
     public function setAlignment(align:Int):Void{
     	if(LEFT != LEFT && align != RIGHT && align != CENTER ){
     		throw new Error("Alignment must be LEFT OR RIGHT OR CENTER !");
@@ -152,6 +151,7 @@ class FlowLayout extends EmptyLayout{
      * @return     the horizontal gap between components
      * @see        #setHgap()
      */
+	@:dox(hide)
     public function getHgap():Int{
 		return hgap;
     }
@@ -161,6 +161,7 @@ class FlowLayout extends EmptyLayout{
      * @param hgap the horizontal gap between components
      * @see        #getHgap()
      */
+	@:dox(hide)
     public function setHgap(hgap:Int):Void{
 		this.hgap = hgap;
     }
@@ -170,6 +171,7 @@ class FlowLayout extends EmptyLayout{
      * @return     the vertical gap between components
      * @see        #setVgap()
      */
+	@:dox(hide)
     public function getVgap():Int{
 		return vgap;
     }
@@ -179,6 +181,7 @@ class FlowLayout extends EmptyLayout{
      * @param vgap the vertical gap between components
      * @see        #getVgap()
      */
+	@:dox(hide)
     public function setVgap(vgap:Int):Void{
 		this.vgap = vgap;
     }
@@ -192,6 +195,7 @@ class FlowLayout extends EmptyLayout{
      * @see Container
      * @see #doLayout()
      */
+	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension {
 		var dim:IntDimension = new IntDimension(0, 0);
 		var nmembers:Int= target.getComponentCount();
@@ -229,6 +233,7 @@ class FlowLayout extends EmptyLayout{
      * @see Container
      * @see Container#doLayout()
      */
+	@:dox(hide)
     override public function minimumLayoutSize(target:Container):IntDimension {
 		return target.getInsets().getOutsideSize();
     }
@@ -275,6 +280,7 @@ class FlowLayout extends EmptyLayout{
      * @see Container
      * @see Container#doLayout
      */
+	@:dox(hide)
     override public function layoutContainer(target:Container):Void{
 		var insets:Insets = target.getInsets();
 	    var td:IntDimension = target.getSize();

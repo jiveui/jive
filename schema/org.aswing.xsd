@@ -1766,7 +1766,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="FlowLayoutSchemaType">
 <xs:sequence>
+<xs:element name="preferredWidth" type="xs:int"/>
 </xs:sequence>
+<xs:attribute name="preferredWidth" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2426,7 +2428,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="EmptyLayoutSchemaType">
 <xs:sequence>
+<xs:element name="align" type="xs:int"/>
+<xs:element name="hgap" type="xs:int"/>
+<xs:element name="vgap" type="xs:int"/>
+<xs:element name="margin" type="xs:boolean"/>
 </xs:sequence>
+<xs:attribute name="align" type="xs:int"/>
+<xs:attribute name="hgap" type="xs:int"/>
+<xs:attribute name="vgap" type="xs:int"/>
+<xs:attribute name="margin" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

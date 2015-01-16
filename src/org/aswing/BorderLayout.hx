@@ -35,11 +35,9 @@ import org.aswing.geom.IntRectangle;
  *    p2.append(new TextArea());  // Same as p.add(new TextArea(), BorderLayout.CENTER);
  * </pre>
  * 
- * <p>
  * The following image illustrate the way the borderLayout layout child component.
- * <br></br>
+ *
  * <img src="../../BorderLayout.jpg" ></img>
- * </p>
  *
  * Authors paling, ngrebenshikov
  */

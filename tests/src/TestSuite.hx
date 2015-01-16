@@ -8,6 +8,8 @@ import org.aswing.AssetIconTest;
 import org.aswing.BorderLayoutTest;
 import org.aswing.BordersTest;
 import org.aswing.ComponentTest;
+import org.aswing.FlowLayoutTest;
+import org.aswing.FlowWrapLayoutTest;
 import org.aswing.GridLayoutTest;
 import org.aswing.InsetsTest;
 import org.aswing.JWindowTest;
@@ -32,6 +34,8 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.BorderLayoutTest);
 		add(org.aswing.BordersTest);
 		add(org.aswing.ComponentTest);
+		add(org.aswing.FlowLayoutTest);
+		add(org.aswing.FlowWrapLayoutTest);
 		add(org.aswing.GridLayoutTest);
 		add(org.aswing.InsetsTest);
 		add(org.aswing.JWindowTest);
