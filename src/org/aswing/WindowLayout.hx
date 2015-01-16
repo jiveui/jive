@@ -7,16 +7,23 @@ package org.aswing;
 
 import org.aswing.error.Error;
 import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntRectangle;
-	/**
- * Layout for JWindow and JFrame.
- * @author paling
- */
-class WindowLayout extends EmptyLayout{
-	
-	private var titleBar:Component;
+import org.aswing.geom.IntRectangle;
 
-	private var contentPane:Component;
+/**
+ * Layout for `JWindow` and `JFrame`.
+ *
+ * Author paling
+ */
+class WindowLayout extends EmptyLayout {
+	/**
+	* A title bar that is set in the `JWindow` via `window.append(comp, WindowLayout.TITLE);` (readonly)
+	**/
+	public var titleBar(default, null):Component;
+
+	/**
+	* A content pane that is set in the `JWindow` via `window.append(comp, WindowLayout.TITLE);` (readonly)
+	**/
+	public var contentPane(default, null):Component;
 
     /**
      * The title bar layout constraint.
@@ -35,7 +42,8 @@ class WindowLayout extends EmptyLayout{
 	/**
 	 * @param comp the child to add to the layout
 	 * @param constraints the constraints indicate what position the child will be added.
-	 * @throws ArgumentError when the constraints is not <code>TITLE</code> either <code>CONTENT</code>.
+	 *
+	 * It throws `ArgumentError` when the constraints is not `TITLE` either `CONTENT`.
 	 */
     override public function addLayoutComponent(comp:Component, constraints:Dynamic):Void{
 	    if(constraints == TITLE){
@@ -46,15 +54,18 @@ class WindowLayout extends EmptyLayout{
 	    	throw new Error("ERROR When add component to JWindow/JFrame, constraints must be TITLE or CONTENT : " + constraints);
 	    }
     }
-    
+
+	@:dox(hide)
     public function getTitleBar():Component{
     	return titleBar;
     }
-    
+
+	@:dox(hide)
     public function getContentPane():Component{
     	return contentPane;
     }
-    
+
+	@:dox(hide)
     override public function removeLayoutComponent(comp:Component):Void{
      	if(comp == titleBar){
      		titleBar = null;
@@ -63,6 +74,7 @@ class WindowLayout extends EmptyLayout{
      	}
      }
 
+	@:dox(hide)
 	override public function minimumLayoutSize(target:Container):IntDimension {
 		var insets:Insets = target.getInsets();
 		var size:IntDimension = insets.getOutsideSize();
@@ -71,7 +83,8 @@ class WindowLayout extends EmptyLayout{
 		}
 		return size;
 	}
-	
+
+	@:dox(hide)
 	override public function preferredLayoutSize(target:Container):IntDimension {
 		var insets:Insets = target.getInsets();
 		var size:IntDimension = insets.getOutsideSize();
@@ -90,7 +103,8 @@ class WindowLayout extends EmptyLayout{
 		return size;
 	}
 	
-	override public function layoutContainer(target:Container):Void{	
+	@:dox(hide)
+	override public function layoutContainer(target:Container):Void{
     	var td:IntDimension = target.getSize();
 		var insets:Insets = target.getInsets();
 		var r:IntRectangle = insets.getInsideBounds(td.getBounds());
@@ -110,5 +124,4 @@ class WindowLayout extends EmptyLayout{
     public function toString():String{
 		return "WindowLayout[]";
     }
-	
 }
