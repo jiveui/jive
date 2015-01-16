@@ -10,19 +10,53 @@ import org.aswing.JPanel;
 import org.aswing.JSpacer;
 
 /**
- * A <code>JPanel</code> with <code>BoxLayout</code>.
+ * A `JPanel` with `BoxLayout`.
+ *
+ * The following picture illustrates `Box` with `X_AXIS`:
+ *
+ * <img src="../../BoxLayoutX.jpg" ></img>
+ *
+ * <br/>
+ *
+ * The picure for `Y_AXIS`:
+ *
+ * <img src="../../BoxLayoutY.jpg" ></img>
+ *
+ * <br/>
+ *
+ * See `SoftBox`.
  * 
- * @author paling
+ * Authors paling, ngrebenshikov
  */
-class Box extends JPanel{
+class Box extends JPanel {
+
 	/**
-	 * Box(axis:int, gap:int)<br>
-	 * Box(axis:int) default gap to 0.
-	 * Creates a panel with a BoxLayout.
-	 * @param axis (optional)the axis of layout, default is X_AXIS
-	 *  {@link org.aswing.BoxLayout#X_AXIS} or {@link org.aswing.BoxLayout#Y_AXIS}
-     * @param gap (optional)the gap between each component, default 0
-	 * @see org.aswing.SoftBoxLayout
+	* An axis for `BoxLayout`
+	**/
+	public var axis(get, set): Int;
+	private function get_axis(): Int { return getAxis(); }
+	private function set_axis(v: Int): Int { setAxis(v); return v; }
+
+	/**
+	* A gap between children in pixels
+	*
+	* See `BoxLayout`
+	**/
+	public var gap(get, set): Int;
+	private function get_gap(): Int { return getGap(); }
+	private function set_gap(v: Int): Int { setGap(v); return v; }
+
+	/**
+	 * `Box(axis:int, gap:int)`
+	 *
+	 * `Box(axis:int)` default gap to 0.
+	 *
+	 * Creates a panel with a `BoxLayout`.
+	 *
+	 * @param axis (optional) the axis of layout, default is `X_AXIS`. Values: `org.aswing.BoxLayout.X_AXIS` or `org.aswing.BoxLayout.Y_AXIS`
+     * @param gap (optional) the gap between each component, default 0
+	 *
+	 * See `org.aswing.SoftBox`
 	 */
 	public function new(axis:Int=0, gap:Int=0){
 		super();
@@ -34,6 +68,7 @@ class Box extends JPanel{
 	 * Sets new axis for the default BoxLayout.
 	 * @param axis the new axis
 	 */
+	@:dox(hide)
 	public function setAxis(axis:Int):Void{
 		AsWingUtils.as(getLayout(),BoxLayout).setAxis(axis);
 	}
@@ -42,6 +77,7 @@ class Box extends JPanel{
 	 * Gets current axis of the default BoxLayout.
 	 * @return axis 
 	 */
+	@:dox(hide)
 	public function getAxis():Int{
 		return AsWingUtils.as(getLayout(),BoxLayout).getAxis();
 	}
@@ -50,6 +86,7 @@ class Box extends JPanel{
 	 * Sets new gap for the default BoxLayout.
 	 * @param gap the new gap
 	 */
+	@:dox(hide)
 	public function setGap(gap:Int):Void{
 		AsWingUtils.as(getLayout(),BoxLayout).setGap(gap);
 	}
@@ -58,6 +95,7 @@ class Box extends JPanel{
 	 * Gets current gap of the default BoxLayout.
 	 * @return gap 
 	 */
+	@:dox(hide)
 	public function getGap():Int{
 		return AsWingUtils.as(getLayout(),BoxLayout).getGap();
 	}
@@ -83,7 +121,8 @@ class Box extends JPanel{
 
 	/**
 	 * Creates a glue that displays its components from left to right.
-	 * @see org.aswing.JSpacer#createHorizontalGlue
+	 *
+	 * See `org.aswing.JSpacer.createVerticalGlue`
 	 */
 	public static function createHorizontalGlue():Component{
 		return JSpacer.createHorizontalSpacer(0);
@@ -91,7 +130,8 @@ class Box extends JPanel{
 	
 	/**
 	 * Creates a glue that displays its components from top to bottom.
-	 * @see org.aswing.JSpacer#createVerticalGlue
+	 *
+	 * See `org.aswing.JSpacer.createVerticalGlue`
 	 */
 	public static function createVerticalGlue():Component{
 		return JSpacer.createVerticalSpacer(0);
