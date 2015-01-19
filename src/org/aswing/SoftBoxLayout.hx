@@ -13,42 +13,39 @@ import org.aswing.geom.IntRectangle;
 import org.aswing.Insets;
 
 /**
- * The SoftBoxLayout will layout the child components using their preferredWidth or preferredHeight instead of width or height.
- * It ignores the preferredWidth when set to Y_AXIS, ignores the preferredHeight when set to X_AXIS.
- * <p>
- * When set to X_AXIS, all of the child components share the same height from the container and use their own preferredWidth
- * When set to Y_AXIS, all of the child components share the same width  from the container and use their own preferredHeight
- * </p>
- * <p></p>
- * <p></p>
- * <p>	
- *   The picture below shows that when set X_AXIS,all of the child component share the same height no matter what value you set for the componnet.
- *   It ignores the width and height property you set for the child component.<br/>
- * 	 <strong>Note:</strong> The align is set to LEFT, so the children are ajusted to the left side,
- *    In the right,there are still free space.
- *  <br/>
- * 	<img src="../../aswingImg/SoftBoxLayout_X_AXIS.JPG" ></img>
- * </p>
+ * The SoftBoxLayout will layout the child components using their `preferredWidth` or `preferredHeight` instead of width or height.
+ * It ignores the `preferredWidt`h when set to `Y_AXIS`, ignores the `preferredHeight` when set to `X_AXIS`.
+ *
+ * When set to `X_AXIS`, all of the child components share the same height from the container and use their own `preferredWidth`
+ * When set to `Y_AXIS`, all of the child components share the same width  from the container and use their own `preferredHeight`
+ *
+ * The picture below shows that when set `X_AXIS`, all of the child component share the same height no matter what value you set for the componnet.
+ * It ignores the `width` and `height` property you set for the child component.
+ *
+ * <strong>Note:</strong> The align is set to `LEFT`, so the children are ajusted to the left side,
+ * In the right,there are still free space.<br/>
+ *
+ * <img src="../../SoftBoxLayoutX.jpg" ></img>
+ *
  * <br/>
+ *
+ * The picture below shows that when set `Y_AXIS`,all of the child component share the same width no matter what value you set for the componnet.
+ * It ignores the width and height property you set for the child component.<br/>
+ * <strong>Note:</strong> The align is set to `RIGHT`, when axis set to `Y_AXIS` and align set to right,  the children are ajusted to the bottom,
+ * at top ,there are still free space.
+ *
+ * <img src="../../SoftBoxLayoutY.jpg" ></img>
+ *
  * <br/>
- *  <p>	
- *   The picture below shows that when set Y_AXIS,all of the child component share the same width no matter what value you set for the componnet.
- *   It ignores the width and height property you set for the child component.<br/>
- * 	 <strong>Note:</strong> The align is set to <strong>RIGHT</strong>, when axis set to Y_AXIS and align set to right,  the children are ajusted to the bottom,
- *    at top ,there are still free space.
- *  <br/>
- * 	<img src="../../aswingImg/SoftBoxLayout_Y_AXIS.JPG" ></img>
- * </p>
- * <br/>
- * <br/>
- * <p>
- *   <strong>Note</strong> the container itself who applied SoftBoxLayout is not affected by the X_AXIS or Y_AXIS you set for SoftBoxLayout<br/>
- *   The container's size will be determined by its parents' layout manager.  
- * </p>	
- *   
- * @see BoxLayout
- * @author paling
+ *
+ * <strong>Note:</strong> the container itself who applied `SoftBoxLayout` is not affected by the `X_AXIS` or `Y_AXIS` you set for `SoftBoxLayout`.
+ * The container's size will be determined by its parents' layout manager.
+ *
+ * See `BoxLayout`
+ *
+ * Author paling
  */
+
 class SoftBoxLayout extends EmptyLayout{
 	/**
      * Specifies that components should be laid out left to right.
@@ -90,18 +87,42 @@ class SoftBoxLayout extends EmptyLayout{
      * should be right-justified(X_AXIS)/bottom-justified(Y_AXIS).
      */
     inline public static var BOTTOM:Int= AsWingConstants.BOTTOM;
-    
-    
-    private var axis:Int;
-    private var gap:Int;
-    private var align:Int;
+
+
+	/**
+     * The layout axis. Must be one of:
+     * <ul>
+     *  <li>`X_AXIS`
+     *  <li>`Y_AXIS`
+     * </ul>
+     *
+     * Default is `X_AXIS`.
+     */
+	public var axis:Int;
+
+	/**
+	* The space between children
+	**/
+    public var gap:Int;
+
+	/**
+     * The layout align. Must be one of:
+     * <ul>
+     *  <li>`LEFT`
+     *  <li>`RIGHT`
+     *  <li>`CENTER`
+     *  <li>`TOP`
+     *  <li>`BOTTOM`
+     * </ul>
+     *
+     * Default is `LEFT`.
+     */
+    public var align:Int;
     
     /**
-     * @param axis the layout axis, default X_AXIS
+     * @param axis the layout axis, default `X_AXIS`
      * @param gap (optional)the gap between each component, default 0
-     * @param align (optional)the alignment value, default is LEFT
-     * @see #X_AXIS
-     * @see #Y_AXIS
+     * @param align (optional)the alignment value, default is `LEFT`
      */
     public function new(axis:Int=X_AXIS, gap:Int=0, align:Int=AsWingConstants.LEFT){
     	setAxis(axis);
@@ -118,7 +139,9 @@ class SoftBoxLayout extends EmptyLayout{
      * </ul> Default is X_AXIS.
      * @param axis new axis
      */
+	@:dox(hide)
     public function setAxis(axis:Int= X_AXIS):Void{
+		untyped console.log("setAxis " + axis);
     	this.axis = axis ;
     }
     
@@ -126,6 +149,7 @@ class SoftBoxLayout extends EmptyLayout{
      * Gets axis.
      * @return axis
      */
+	@:dox(hide)
     public function getAxis():Int{
     	return axis;	
     }
@@ -133,7 +157,8 @@ class SoftBoxLayout extends EmptyLayout{
     /**
      * Sets new gap.
      * @param get new gap
-     */	
+     */
+	@:dox(hide)
     public function setGap(gap:Int= 0):Void{
     	this.gap = gap ;
     }
@@ -142,6 +167,7 @@ class SoftBoxLayout extends EmptyLayout{
      * Gets gap.
      * @return gap
      */
+	@:dox(hide)
     public function getGap():Int{
     	return gap;	
     }
@@ -157,6 +183,7 @@ class SoftBoxLayout extends EmptyLayout{
      * </ul> Default is LEFT.
      * @param align new align
      */
+	@:dox(hide)
     public function setAlign(align:Int=AsWingConstants.LEFT):Void{
     	this.align =  align;
     }
@@ -165,6 +192,7 @@ class SoftBoxLayout extends EmptyLayout{
      * Returns the align.
      * @return the align
      */
+	@:dox(hide)
     public function getAlign():Int{
     	return align;
     }
@@ -172,6 +200,7 @@ class SoftBoxLayout extends EmptyLayout{
 	/**
 	 * Returns preferredLayoutSize;
 	 */
+	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension{
     	var count:Int= target.getComponentCount();
     	var insets:Insets = target.getInsets();
@@ -203,6 +232,7 @@ class SoftBoxLayout extends EmptyLayout{
 	/**
 	 * Returns minimumLayoutSize;
 	 */
+	@:dox(hide)
     override public function minimumLayoutSize(target:Container):IntDimension{
     	return target.getInsets().getOutsideSize();
     }
@@ -210,7 +240,9 @@ class SoftBoxLayout extends EmptyLayout{
     /**
      * do nothing
      */
+	@:dox(hide)
     override public function layoutContainer(target:Container):Void{
+		untyped console.log('layoutContainer ' + axis);
     	var count:Int= target.getComponentCount();
     	var size:IntDimension = target.getSize();
     	var insets:Insets = target.getInsets();
@@ -273,6 +305,7 @@ class SoftBoxLayout extends EmptyLayout{
 	/**
 	 * return 0.5
 	 */
+	@:dox(hide)
     override public function getLayoutAlignmentX(target:Container):Float{
     	return 0.5;
     }
@@ -280,6 +313,7 @@ class SoftBoxLayout extends EmptyLayout{
 	/**
 	 * return 0.5
 	 */
+	@:dox(hide)
     override public function getLayoutAlignmentY(target:Container):Float{
     	return 0.5;
     }
