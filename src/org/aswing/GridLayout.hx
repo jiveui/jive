@@ -13,6 +13,18 @@ import org.aswing.Insets;
 import org.aswing.geom.IntRectangle;
 
 /**
+ * A grid layout with the specified number of rows and
+ * columns. All components in the layout are given equal size.
+ *
+ * In addition, the horizontal and vertical gaps are set to the
+ * specified values. Horizontal gaps are placed between each
+ * of the columns. Vertical gaps are placed between each of
+ * the rows.<br/>
+ *
+ * The picture below shows the panel with 2 rows and 3 columns:<br/>
+ * <img src="../../GridLayout.jpg" ></img>
+ * <br/>
+ *
  * Authors: feynixs(Cai Rong), paling, ngrebenshikov
  */
 class GridLayout extends EmptyLayout{
@@ -176,6 +188,7 @@ class GridLayout extends EmptyLayout{
     /**
 	* See `LayoutManager.preferredLayoutSize`
 	**/
+	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension{
 		var insets:Insets = target.getInsets();
 		var ncomponents:Int= target.getComponentCount();
@@ -204,6 +217,7 @@ class GridLayout extends EmptyLayout{
 	/**
 	* See `LayoutManager.minimumLayoutSize`
 	**/
+	@:dox(hide)
     override public function minimumLayoutSize(target:Container):IntDimension{
 		return target.getInsets().getOutsideSize();
     }
@@ -212,6 +226,7 @@ class GridLayout extends EmptyLayout{
 	 * See `LayoutManager.maximumLayoutSize`
 	 * @return new IntDimension(1000000, 1000000);
 	 */
+	@:dox(hide)
     override public function maximumLayoutSize(target:Container):IntDimension{
     	return new IntDimension(1000000, 1000000);
     }
@@ -219,6 +234,7 @@ class GridLayout extends EmptyLayout{
 	/**
 	* See `LayoutManager.layoutContainer`
 	**/
+	@:dox(hide)
 	override public function layoutContainer(target:Container):Void{
 		var insets:Insets = target.getInsets();
 		var ncomponents:Int= target.getComponentCount();
@@ -260,6 +276,7 @@ class GridLayout extends EmptyLayout{
 	 * See `LayoutManager.getLayoutAlignmentX`
 	 * @return 0.5
 	 */
+	@:dox(hide)
     override public function getLayoutAlignmentX(target:Container):Float{
     	return 0.5;
     }
@@ -268,6 +285,7 @@ class GridLayout extends EmptyLayout{
 	 * See `LayoutManager.getLayoutAlignmentY`
 	 * @return 0.5
 	 */
+	@:dox(hide)
     override public function getLayoutAlignmentY(target:Container):Float{
     	return 0.5;
     }
