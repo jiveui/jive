@@ -1,2 +1,10 @@
 tests/gen/decl/EmptyBorderTest.hx
 tests/gen/decl/JPanelTest.hx
+demos/all-in-one/bin/
+demos/calendar/bin/
+docs/
+tests/bin/
+tests/report/
+tests/gen/
+jive.iws
+demos/calendar/gen/

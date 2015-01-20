@@ -65,6 +65,10 @@ class JViewport extends Container  implements Viewportable {
 	private var horizontalUnitIncrement:Int;
 	private var horizontalBlockIncrement:Int;
 
+	/**
+	 * If true, the view will always be set to the same height as the viewport.<br>
+	 * If false, the view will be set to it's preffered height.
+	 */
 	public var fitViewHeight(get, set):Bool;
 	private var _fitViewHeight:Bool;
 	private function get_fitViewHeight(): Bool { return isTracksHeight(); }
@@ -78,7 +82,7 @@ class JViewport extends Container  implements Viewportable {
     private var verticalAlignment:Int;
     private var horizontalAlignment:Int;
 	
-	private var view:Component;
+	private var _view:Component;
 	
 	/**
 	 * Create a viewport with view and size tracks properties.
@@ -260,19 +264,19 @@ class JViewport extends Container  implements Viewportable {
 	 * </p>
 	 */
 	public function setView(view:Component):Void{
-		if(this.view != view){
-			this.view = view;
+		if(this._view != view){
+			this._view = view;
 			removeAll();
 			
 			if(view != null){
-				insertImp(-1, view);
+				insertImp(-1, _view);
 			}
 			fireStateChanged();
 		}
 	}
 	
 	public function getView():Component{
-		return view;
+		return _view;
 	}
 		
 	/**
@@ -392,13 +396,13 @@ class JViewport extends Container  implements Viewportable {
      * @return the view's size, (0, 0) if view is null.
 	 */
 	public function getViewSize() : IntDimension {
-		if(view == null){
+		if(_view == null){
 			return new IntDimension();
 		}else{
 			if(isTracksWidth() && isTracksHeight()){
 				return getExtentSize();
 			}else{
-				var viewSize:IntDimension = view.getPreferredSize();
+				var viewSize:IntDimension = _view.getPreferredSize();
 				var extentSize:IntDimension = getExtentSize();
 				if(isTracksWidth()){
 					viewSize.width = extentSize.width;
@@ -415,8 +419,8 @@ class JViewport extends Container  implements Viewportable {
 	 * @return the view's position, (0,0) if view is null.
 	 */
 	public function getViewPosition() : IntPoint {
-		if(view != null){
-			var p:IntPoint = view.getLocation();
+		if(_view != null){
+			var p:IntPoint = _view.getLocation();
 			var ir:IntRectangle = getInsets().getInsideBounds(getSize().getBounds());
 			p.x = ir.x - p.x;
 			p.y = ir.y - p.y;
@@ -436,8 +440,8 @@ class JViewport extends Container  implements Viewportable {
 		restrictionViewPos(p);
 		if(!p.equals(getViewPosition())){
 			var ir:IntRectangle = getInsets().getInsideBounds(getSize().getBounds());
-			if(view!=null)	{
-				view.setLocationXY(ir.x-p.x, ir.y-p.y);
+			if(_view!=null)	{
+				_view.setLocationXY(ir.x-p.x, ir.y-p.y);
 			}
 			fireStateChanged(programmatic);
 		}

@@ -1,4 +1,5 @@
 <xs:schema targetNamespace="org.aswing" xmlns="org.aswing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:bindx="bindx"
 xmlns:flash-text="flash.text"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
@@ -1265,6 +1266,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="dragEnabled" type="xs:boolean"/>
 <xs:element name="dropTrigger" type="xs:boolean"/>
 <xs:element name="resizerMargin" type="InsetsSchemaTypeValue"/>
+<xs:element name="__fieldBindings__" type="bindx:FieldsBindSignalSchemaTypeValue"/>
+<xs:element name="__methodBindings__" type="bindx:MethodsBindSignalSchemaTypeValue"/>
 </xs:sequence>
 <xs:attribute name="ui" type="xs:string"/>
 <xs:attribute name="clipBounds" type="xs:string"/>
@@ -1297,6 +1300,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="dragEnabled" type="xs:boolean"/>
 <xs:attribute name="dropTrigger" type="xs:boolean"/>
 <xs:attribute name="resizerMargin" type="xs:string"/>
+<xs:attribute name="__fieldBindings__" type="xs:string"/>
+<xs:attribute name="__methodBindings__" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1917,7 +1922,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:sequence>
+<xs:element name="fitViewHeight" type="xs:boolean"/>
+<xs:element name="fitViewWidth" type="xs:boolean"/>
 </xs:sequence>
+<xs:attribute name="fitViewHeight" type="xs:boolean"/>
+<xs:attribute name="fitViewWidth" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

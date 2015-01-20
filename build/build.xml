@@ -15,7 +15,8 @@
     <target name="build.demos">
           <antcall target="openfl">
               <param name="dir" value="${project.root.path}/demos/all-in-one"/>
-              <param name="options" value="build project.xml html5"/>
+              <param name="command" value="build"/>
+              <param name="options" value="project.xml html5"/>
           </antcall>
         <antcall target="haxe">
             <param name="dir" value="${project.root.path}/demos/calendar"/>
