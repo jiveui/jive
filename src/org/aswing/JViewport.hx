@@ -13,33 +13,22 @@ import org.aswing.geom.IntRectangle;
 import org.aswing.plaf.basic.BasicViewportUI;
 
 /**
- * Dispatched when the viewport's state changed. the state is all about:
- * <ul>
- * <li>view position</li>
- * <li>verticalUnitIncrement</li>
- * <li>verticalBlockIncrement</li>
- * <li>horizontalUnitIncrement</li>
- * <li>horizontalBlockIncrement</li>
- * </ul>
- * </p>
- * 
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
-
-/**
  * JViewport is an basic viewport to view normal components. Generally JViewport works 
  * with JScrollPane together, for example:<br>
+ *
  * <pre>
  *     var scrollPane:JScrollPane = new JScrollPane();
  *     var viewport:JViewport = new JViewport(yourScrollContentComponent, true, false);
  *     scrollPane.setViewport(viewport);
  * </pre>
+ *
  * Then you'll get a scrollpane with scroll content and only vertical scrollbar. And 
  * the scroll content will always tracks the scroll pane width.
- * @author paling
+ *
+ * Authors: paling, ngrebenshikov
  */
-class JViewport extends Container  implements Viewportable{
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the viewport's state changed")
+class JViewport extends Container  implements Viewportable {
  	
  	/**
  	 * The default unit/block increment, it means auto count a value.
@@ -47,28 +36,27 @@ class JViewport extends Container  implements Viewportable{
  	inline public static var AUTO_INCREMENT:Int= AsWingConstants.MIN_VALUE;
  	
 	/**
-	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * A fast access to `AsWingConstants` Constant
 	 */
 	inline public static var CENTER:Int= AsWingConstants.CENTER;
+
 	/**
-	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * A fast access to `AsWingConstants` Constant
 	 */
 	inline public static var TOP:Int= AsWingConstants.TOP;
+
 	/**
-	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * A fast access to `AsWingConstants` Constant
 	 */
     inline public static var LEFT:Int= AsWingConstants.LEFT;
+
 	/**
-	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * A fast access to `AsWingConstants Constant
 	 */
     inline public static var BOTTOM:Int= AsWingConstants.BOTTOM;
+
  	/**
-	 * A fast access to AsWingConstants Constant
-	 * @see org.aswing.AsWingConstants
+	 * A fast access to `AsWingConstants` Constant
 	 */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
  	
@@ -76,10 +64,17 @@ class JViewport extends Container  implements Viewportable{
 	private var verticalBlockIncrement:Int;
 	private var horizontalUnitIncrement:Int;
 	private var horizontalBlockIncrement:Int;
-	
-	private var tracksHeight:Bool;
-	private var tracksWidth:Bool;
-	
+
+	public var fitViewHeight(get, set):Bool;
+	private var _fitViewHeight:Bool;
+	private function get_fitViewHeight(): Bool { return isTracksHeight(); }
+	private function set_fitViewHeight(v:Bool): Bool { setTracksHeight(v); return v; }
+
+	public var fitViewWidth(get, set):Bool;
+	private var _fitViewWidth:Bool;
+	private function get_fitViewWidth(): Bool { return isTracksWidth(); }
+	private function set_fitViewWidth(v:Bool): Bool { setTracksWidth(v); return v; }
+
     private var verticalAlignment:Int;
     private var horizontalAlignment:Int;
 	
@@ -87,15 +82,14 @@ class JViewport extends Container  implements Viewportable{
 	
 	/**
 	 * Create a viewport with view and size tracks properties.
-	 * @see #setView()
-	 * @see #setTracksWidth()
-	 * @see #setTracksHeight()
+	 *
+	 * See `JViewport.view`,`JViewport.firViewWidth`, `JViewport.fitViewHeight`
 	 */
-	public function new(view:Component=null, tracksWidth:Bool=false, tracksHeight:Bool=false){
+	public function new(view:Component=null, fitViewWidth:Bool=false, fitViewHeight:Bool=false){
 		super();
 		setName("JViewport");
-		this.tracksWidth = tracksWidth;
-		this.tracksHeight = tracksHeight;
+		this._fitViewWidth = fitViewWidth;
+		this._fitViewHeight = fitViewHeight;
 		verticalUnitIncrement = AUTO_INCREMENT;
 		verticalBlockIncrement = AUTO_INCREMENT;
 		horizontalUnitIncrement = AUTO_INCREMENT;
@@ -108,15 +102,18 @@ class JViewport extends Container  implements Viewportable{
 		setLayout(new ViewportLayout());
 		updateUI();
 	}
-    
+
+	@:dox(hide)
 	override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+	@:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicViewportUI;
     }
-	
+
+	@:dox(hide)
 	override public function getUIClassID():String{
 		return "ViewportUI";
 	}	
@@ -124,6 +121,7 @@ class JViewport extends Container  implements Viewportable{
 	/**
 	 * @throws Error if the layout is not a ViewportLayout
 	 */
+	@:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		if(Std.is(layout,ViewportLayout)){
 			super.setLayout(layout);
@@ -138,9 +136,10 @@ class JViewport extends Container  implements Viewportable{
 	 * If false, the view will be set to it's preffered size.
 	 * @param b tracks width
 	 */
+	@:dox(hide)
 	public function setTracksWidth(b:Bool):Void{
-		if(b != tracksWidth){
-			tracksWidth = b;
+		if(b != _fitViewWidth){
+			_fitViewWidth = b;
 			revalidate();
 		}
 	}
@@ -151,8 +150,9 @@ class JViewport extends Container  implements Viewportable{
 	 * If false, the view will be set to it's preffered width.
 	 * @return whether tracks width
 	 */
+	@:dox(hide)
 	public function isTracksWidth():Bool{
-		return tracksWidth;
+		return _fitViewWidth;
 	}
 	
 	/**
@@ -161,9 +161,10 @@ class JViewport extends Container  implements Viewportable{
 	 * If false, the view will be set to it's preffered height.
 	 * @param b tracks height
 	 */
+	@:dox(hide)
 	public function setTracksHeight(b:Bool):Void{
-		if(tracksHeight != b){
-			tracksHeight = b;
+		if(_fitViewHeight != b){
+			_fitViewHeight = b;
 			revalidate();
 		}
 	}
@@ -174,8 +175,9 @@ class JViewport extends Container  implements Viewportable{
 	 * If false, the view will be set to it's preffered height.
 	 * @return whether tracks height
 	 */
+	@:dox(hide)
 	public function isTracksHeight():Bool{
-		return tracksHeight;
+		return _fitViewHeight;
 	}
 
     /**
