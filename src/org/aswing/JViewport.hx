@@ -74,6 +74,10 @@ class JViewport extends Container  implements Viewportable {
 	private function get_fitViewHeight(): Bool { return isTracksHeight(); }
 	private function set_fitViewHeight(v:Bool): Bool { setTracksHeight(v); return v; }
 
+	/**
+	 * If true, the view will always be set to the same width as the viewport.<br>
+	 * If false, the view will be set to it's preffered width.
+	 */
 	public var fitViewWidth(get, set):Bool;
 	private var _fitViewWidth:Bool;
 	private function get_fitViewWidth(): Bool { return isTracksWidth(); }
