@@ -59,11 +59,38 @@ class JViewport extends Container  implements Viewportable {
 	 * A fast access to `AsWingConstants` Constant
 	 */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
- 	
-	private var verticalUnitIncrement:Int;
-	private var verticalBlockIncrement:Int;
-	private var horizontalUnitIncrement:Int;
-	private var horizontalBlockIncrement:Int;
+
+	/**
+	 * The unit value for the Vertical scrolling.
+	 */
+	public var verticalUnitIncrement(get, set):Int;
+	private var _verticalUnitIncrement:Int;
+	private function get_verticalUnitIncrement():Int { return getVerticalUnitIncrement(); }
+	private function set_verticalUnitIncrement(v:Int):Int { setVerticalUnitIncrement(v); return v; }
+
+	/**
+     * The block value for the Vertical scrolling.
+     */
+	public var verticalBlockIncrement(get, set): Int;
+	private var _verticalBlockIncrement: Int;
+	private function get_verticalBlockIncrement(): Int { return getVerticalBlockIncrement(); }
+	private function set_verticalBlockIncrement(v: Int): Int { setVerticalBlockIncrement(v); return v; }
+
+	/**
+	 * Returns the unit value for the Horizontal scrolling.
+	 */
+	public var horizontalUnitIncrement(get, set): Int;
+	private var _horizontalUnitIncrement:Int;
+	private function get_horizontalUnitIncrement(): Int { return getHorizontalUnitIncrement(); }
+	private function set_horizontalUnitIncrement(v: Int): Int { setHorizontalUnitIncrement(v); return v; }
+
+	/**
+     * The block value for the Horizontal scrolling.
+     */
+	public var horizontalBlockIncrement(get, set): Int;
+	private var _horizontalBlockIncrement: Int;
+	private function get_horizontalBlockIncrement(): Int { return getHorizontalBlockIncrement(); }
+	private function set_horizontalBlockIncrement(v: Int): Int { setHorizontalBlockIncrement(v); return v; }
 
 	/**
 	 * If true, the view will always be set to the same height as the viewport.<br>
@@ -83,11 +110,58 @@ class JViewport extends Container  implements Viewportable {
 	private function get_fitViewWidth(): Bool { return isTracksWidth(); }
 	private function set_fitViewWidth(v:Bool): Bool { setTracksWidth(v); return v; }
 
-    private var verticalAlignment:Int;
-    private var horizontalAlignment:Int;
-	
+	/**
+     * The vertical alignment of the view if the view is lower than extent height.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>AsWingConstants.CENTER (the default)
+     * <li>AsWingConstants.TOP
+     * <li>AsWingConstants.BOTTOM
+     * </ul>
+     */
+	public var verticalAlignment(get, set):Int;
+	private var _verticalAlignment:Int;
+	private function get_verticalAlignment():Int { return getVerticalAlignment(); }
+	private function set_verticalAlignment(v:Int):Int { setVerticalAlignment(v); return v; }
+
+	/**
+     * The horizontal alignment of the view if the view is narrower than extent width.
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+	public var horizontalAlignment(get, set):Int;
+	private var _horizontalAlignment: Int;
+	private function get_horizontalAlignment():Int { return getHorizontalAlignment(); }
+	private function set_horizontalAlignment(v:Int):Int { setHorizontalAlignment(v); return v; }
+	/**
+	 * The view is the visible content of the `JViewport`.
+	 *
+	 * `JViewport` use to manage the scroll view of a component.
+	 * The component will be set size to its preferred size, then scroll in the viewport.
+	 */
+	public var view(get, set):Component;
 	private var _view:Component;
-	
+	private function get_view(): Component { return getView(); }
+	private function set_view(v:Component): Component { setView(v); return v; }
+
+
+	/**
+	 * The view's position.
+	 *
+	 * It returns (0,0) if view is null.
+	 *
+	 * See `setViewPosition` to set view position loudly (to trigger events).
+	 */
+	public var viewPosition(get, set): IntPoint;
+	private var _viewPosition: IntPoint;
+	private function get_viewPosition(): IntPoint { return getViewPosition(); }
+	private function set_viewPosition(v: IntPoint): IntPoint { setViewPosition(v); return v; }
+
 	/**
 	 * Create a viewport with view and size tracks properties.
 	 *
@@ -98,13 +172,13 @@ class JViewport extends Container  implements Viewportable {
 		setName("JViewport");
 		this._fitViewWidth = fitViewWidth;
 		this._fitViewHeight = fitViewHeight;
-		verticalUnitIncrement = AUTO_INCREMENT;
-		verticalBlockIncrement = AUTO_INCREMENT;
-		horizontalUnitIncrement = AUTO_INCREMENT;
-		horizontalBlockIncrement = AUTO_INCREMENT;
+		_verticalUnitIncrement = AUTO_INCREMENT;
+		_verticalBlockIncrement = AUTO_INCREMENT;
+		_horizontalUnitIncrement = AUTO_INCREMENT;
+		_horizontalBlockIncrement = AUTO_INCREMENT;
 		
     	verticalAlignment = CENTER;
-    	horizontalAlignment = CENTER;
+    	_horizontalAlignment = CENTER;
     	
 		if(view != null) setView(view);
 		setLayout(new ViewportLayout());
@@ -199,6 +273,7 @@ class JViewport extends Container  implements Viewportable {
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+	@:dox(hide)
     public function getVerticalAlignment():Int{
         return verticalAlignment;
     }
@@ -212,6 +287,7 @@ class JViewport extends Container  implements Viewportable {
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+	@:dox(hide)
     public function setVerticalAlignment(alignment:Int):Void{
         if (alignment == verticalAlignment){
         	return;
@@ -231,8 +307,9 @@ class JViewport extends Container  implements Viewportable {
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+	@:dox(hide)
     public function getHorizontalAlignment():Int{
-        return horizontalAlignment;
+        return _horizontalAlignment;
     }
     
     /**
@@ -244,11 +321,12 @@ class JViewport extends Container  implements Viewportable {
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+	@:dox(hide)
     public function setHorizontalAlignment(alignment:Int):Void{
-        if (alignment == horizontalAlignment){
+        if (alignment == _horizontalAlignment){
         	return;
         }else{
-        	horizontalAlignment = alignment;
+        	_horizontalAlignment = alignment;
         	setViewPosition(getViewPosition());//make it to be restricted
         }
     }
@@ -267,6 +345,7 @@ class JViewport extends Container  implements Viewportable {
 	 * Same as isTracksViewportHeight method.
 	 * </p>
 	 */
+	@:dox(hide)
 	public function setView(view:Component):Void{
 		if(this._view != view){
 			this._view = view;
@@ -278,7 +357,8 @@ class JViewport extends Container  implements Viewportable {
 			fireStateChanged();
 		}
 	}
-	
+
+	@:dox(hide)
 	public function getView():Component{
 		return _view;
 	}
@@ -286,9 +366,10 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Sets the unit value for the Vertical scrolling.
 	 */
+	@:dox(hide)
     public function setVerticalUnitIncrement(increment:Int):Void{
-    	if(verticalUnitIncrement != increment){
-    		verticalUnitIncrement = increment;
+    	if(_verticalUnitIncrement != increment){
+    		_verticalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
@@ -296,9 +377,10 @@ class JViewport extends Container  implements Viewportable {
     /**
      * Sets the block value for the Vertical scrolling.
      */
+	@:dox(hide)
     public function setVerticalBlockIncrement(increment:Int):Void{
-    	if(verticalBlockIncrement != increment){
-    		verticalBlockIncrement = increment;
+    	if(_verticalBlockIncrement != increment){
+    		_verticalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }
@@ -306,9 +388,10 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Sets the unit value for the Horizontal scrolling.
 	 */
+	@:dox(hide)
     public function setHorizontalUnitIncrement(increment:Int):Void{
-    	if(horizontalUnitIncrement != increment){
-    		horizontalUnitIncrement = increment;
+    	if(_horizontalUnitIncrement != increment){
+    		_horizontalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
@@ -316,9 +399,10 @@ class JViewport extends Container  implements Viewportable {
     /**
      * Sets the block value for the Horizontal scrolling.
      */
+	@:dox(hide)
     public function setHorizontalBlockIncrement(increment:Int):Void{
-    	if(horizontalBlockIncrement != increment){
-    		horizontalBlockIncrement = increment;
+    	if(_horizontalBlockIncrement != increment){
+    		_horizontalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }		
@@ -328,6 +412,7 @@ class JViewport extends Container  implements Viewportable {
 	 * In fact just call setView(com) in this method
 	 * @see #setView()
 	 */
+	@:dox(hide)
 	override public function append(com:Component, constraints:Dynamic=null):Void{
 		setView(com);
 	}
@@ -335,7 +420,8 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * In fact just call setView(com) in this method
 	 * @see #setView()
-	 */	
+	 */
+	@:dox(hide)
 	override public function insert(i:Int, com:Component, constraints:Dynamic=null):Void{
 		setView(com);
 	}
@@ -345,9 +431,10 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Returns the unit value for the Vertical scrolling.
 	 */
+	@:dox(hide)
     public function getVerticalUnitIncrement():Int{
-    	if(verticalUnitIncrement != AUTO_INCREMENT){
-    		return verticalUnitIncrement;
+    	if(_verticalUnitIncrement != AUTO_INCREMENT){
+    		return _verticalUnitIncrement;
     	}else{
     		return Std.int( Math.max(getExtentSize().height/40, 1));
     	}
@@ -356,9 +443,10 @@ class JViewport extends Container  implements Viewportable {
     /**
      * Return the block value for the Vertical scrolling.
      */
+	@:dox(hide)
     public function getVerticalBlockIncrement():Int{
-    	if(verticalBlockIncrement != AUTO_INCREMENT){
-    		return verticalBlockIncrement;
+    	if(_verticalBlockIncrement != AUTO_INCREMENT){
+    		return _verticalBlockIncrement;
     	}else{
     		return getExtentSize().height-1;
     	}
@@ -367,9 +455,10 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Returns the unit value for the Horizontal scrolling.
 	 */
+	@:dox(hide)
     public function getHorizontalUnitIncrement():Int{
-    	if(horizontalUnitIncrement != AUTO_INCREMENT){
-    		return horizontalUnitIncrement;
+    	if(_horizontalUnitIncrement != AUTO_INCREMENT){
+    		return _horizontalUnitIncrement;
     	}else{
     		return Std.int(Math.max(getExtentSize().width/40, 1));
     	}
@@ -378,17 +467,18 @@ class JViewport extends Container  implements Viewportable {
     /**
      * Return the block value for the Horizontal scrolling.
      */
+	@:dox(hide)
     public function getHorizontalBlockIncrement():Int{
-    	if(horizontalBlockIncrement != AUTO_INCREMENT){
-    		return horizontalBlockIncrement;
+    	if(_horizontalBlockIncrement != AUTO_INCREMENT){
+    		return _horizontalBlockIncrement;
     	}else{
     		return getExtentSize().width - 1;
     	}
     }
   
+	@:dox(hide)
     public function setViewportTestSize(s:IntDimension):Void{
     	setSize(s); 
-		 
     }
 	 
 	public function getExtentSize() : IntDimension {
@@ -419,9 +509,9 @@ class JViewport extends Container  implements Viewportable {
 	}
 	
 	/**
-	 * Returns the view's position, if there is not any view, return (0,0).
 	 * @return the view's position, (0,0) if view is null.
 	 */
+	@:dox(hide)
 	public function getViewPosition() : IntPoint {
 		if(_view != null){
 			var p:IntPoint = _view.getLocation();
@@ -433,8 +523,11 @@ class JViewport extends Container  implements Viewportable {
 			return new IntPoint(0, 0);
 		}
 	}
-	
-	public function getVisibleRect():IntRectangle{
+
+	/**
+	 * @return the view's visible rectangle.
+	 */
+	public function getVisibleRect():IntRectangle {
 		var p:IntPoint = getViewPosition();
 		var s:IntDimension = getExtentSize();
 		return new IntRectangle(p.x, p.y, s.width, s.height);
@@ -458,7 +551,7 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Make a scroll or not to ensure specified rect will be visible.
 	 * @param contentRect the rect to be ensure visible
-	 * @programmatic whether or not a programmatic call
+	 * @param programmatic whether or not a programmatic call
 	 */
 	public function ensureRectVisible(contentRect:IntRectangle, programmatic:Bool=true):Void{
 		contentRect = contentRect.clone();
@@ -552,9 +645,9 @@ class JViewport extends Container  implements Viewportable {
 		if(showSize.width < viewSize.width){
 			p.x =Std.int( Math.max(0, Math.min(viewSize.width-showSize.width, p.x)));
 		}else if(showSize.width > viewSize.width){
-			if(horizontalAlignment == CENTER){
+			if(_horizontalAlignment == CENTER){
 				p.x = -Std.int((showSize.width - viewSize.width)/2);
-			}else if(horizontalAlignment == RIGHT){
+			}else if(_horizontalAlignment == RIGHT){
 				p.x = -(showSize.width - viewSize.width);
 			}else{
 				p.x = 0;
@@ -581,19 +674,21 @@ class JViewport extends Container  implements Viewportable {
     	
 	/**
 	 * Add a listener to listen the viewpoat state change event.
-	 * <p>
+	 *
 	 * When the viewpoat's state changed, the state is all about:
 	 * <ul>
-	 * <li>viewPosition</li>
-	 * <li>verticalUnitIncrement</li>
-	 * <li>verticalBlockIncrement</li>
-	 * <li>horizontalUnitIncrement</li>
-	 * <li>horizontalBlockIncrement</li>
+	 * <li>`viewPosition`</li>
+	 * <li>`verticalUnitIncrement`</li>
+	 * <li>`verticalBlockIncrement`</li>
+	 * <li>`horizontalUnitIncrement`</li>
+	 * <li>`horizontalBlockIncrement`</li>
 	 * </ul>
+	 *
+	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
+	 *
 	 * @param listener the listener
 	 * @param priority the priority
 	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.InteractiveEvent#STATE_CHANGED
 	 */
 	public function addStateListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
 		addEventListener(InteractiveEvent.STATE_CHANGED, listener, false, priority);
@@ -601,9 +696,11 @@ class JViewport extends Container  implements Viewportable {
 	
 	/**
 	 * Removes a state listener.
+	 *
+	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
+	 *
 	 * @param listener the listener to be removed.
-	 * @see org.aswing.event.InteractiveEvent#STATE_CHANGED
-	 */	
+	 */
 	public function removeStateListener(listener:Dynamic -> Void):Void{
 		removeEventListener(InteractiveEvent.STATE_CHANGED, listener);
 	}

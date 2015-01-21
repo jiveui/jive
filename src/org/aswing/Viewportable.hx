@@ -6,34 +6,18 @@ package org.aswing;
 
 
 import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntRectangle;
-	/**
- * Dispatched when the viewport's state changed. the state is all about:
- * <ul>
- * <li>view position</li>
- * <li>verticalUnitIncrement</li>
- * <li>verticalBlockIncrement</li>
- * <li>horizontalUnitIncrement</li>
- * <li>horizontalBlockIncrement</li>
- * </ul>
- * </p>
- * 
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.geom.IntPoint;
+import org.aswing.geom.IntRectangle;
 
 /**
  * A viewportable object can scrolled by <code>JScrollPane</code>, 
  * <code>JScrollBar</code> to view its viewed content in a visible area.
  * 
- * @see JScrollPane
- * @see JViewport
- * @see JList
- * @see JTextArea
+ * See `JScrollPane`, `JViewport`, `JList`, `JTextArea`
  * 
- * @author paling
- */	
+ * Authors: paling, ngrebenshikov
+ */
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the viewport's state changed")
 interface Viewportable{
 
 	/**
