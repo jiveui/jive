@@ -9,10 +9,9 @@ package org.aswing.tree;
  * Defines the requirements for an object that can be used as a
  * tree node in a JTree.
  * 
- * @author paling
- * @see org.aswing.tree.MutableTreeNode
- * @see org.aswing.tree.DefaultMutableTreeNode
- * @see org.aswing.JTree
+ * Author paling
+ *
+ * See `MutableTreeNode`, `DefaultMutableTreeNode`, `JTree`
  */
 interface TreeNode {
 	function getAwmlIndex():Int;

@@ -156,6 +156,7 @@ class JViewport extends Container  implements Viewportable {
 	 * It returns (0,0) if view is null.
 	 *
 	 * See `setViewPosition` to set view position loudly (to trigger events).
+	 * See `Viewportable.setViewPosition`
 	 */
 	public var viewPosition(get, set): IntPoint;
 	private var _viewPosition: IntPoint;

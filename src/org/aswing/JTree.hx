@@ -329,11 +329,46 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      */
     private var settingUI:Bool;
 
-	private var viewPosition:IntPoint;
-	private var verticalUnitIncrement:Int;
-	private var verticalBlockIncrement:Int;
-	private var horizontalUnitIncrement:Int;
-	private var horizontalBlockIncrement:Int;
+    /**
+     * See `JViewport.viewPosition`, `Viewportable.setViewPosition`
+     **/
+    public var viewPosition(get, set): IntPoint;
+    private var _viewPosition: IntPoint;
+    private function get_viewPosition(): IntPoint { return getViewPosition(); }
+    private function set_viewPosition(v: IntPoint): IntPoint { setViewPosition(v); return v; }
+
+    /**
+	 * The unit value for the Vertical scrolling.
+	 */
+    public var verticalUnitIncrement(get, set):Int;
+    private var _verticalUnitIncrement:Int;
+    private function get_verticalUnitIncrement():Int { return getVerticalUnitIncrement(); }
+    private function set_verticalUnitIncrement(v:Int):Int { setVerticalUnitIncrement(v); return v; }
+
+    /**
+     * The block value for the Vertical scrolling.
+     */
+    public var verticalBlockIncrement(get, set): Int;
+    private var _verticalBlockIncrement: Int;
+    private function get_verticalBlockIncrement(): Int { return getVerticalBlockIncrement(); }
+    private function set_verticalBlockIncrement(v: Int): Int { setVerticalBlockIncrement(v); return v; }
+
+    /**
+	 * Returns the unit value for the Horizontal scrolling.
+	 */
+    public var horizontalUnitIncrement(get, set): Int;
+    private var _horizontalUnitIncrement:Int;
+    private function get_horizontalUnitIncrement(): Int { return getHorizontalUnitIncrement(); }
+    private function set_horizontalUnitIncrement(v: Int): Int { setHorizontalUnitIncrement(v); return v; }
+
+    /**
+     * The block value for the Horizontal scrolling.
+     */
+    public var horizontalBlockIncrement(get, set): Int;
+    private var _horizontalBlockIncrement: Int;
+    private function get_horizontalBlockIncrement(): Int { return getHorizontalBlockIncrement(); }
+    private function set_horizontalBlockIncrement(v: Int): Int { setHorizontalBlockIncrement(v); return v; }
+
 	
     /**
      * Max number of stacks to keep around.
@@ -425,13 +460,13 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
         super();
         setName("JTree");
         
-		verticalUnitIncrement = AUTO_INCREMENT;
-		verticalBlockIncrement = AUTO_INCREMENT;
-		horizontalUnitIncrement = AUTO_INCREMENT;
-		horizontalBlockIncrement = AUTO_INCREMENT;
+		_verticalUnitIncrement = AUTO_INCREMENT;
+		_verticalBlockIncrement = AUTO_INCREMENT;
+		_horizontalUnitIncrement = AUTO_INCREMENT;
+		_horizontalBlockIncrement = AUTO_INCREMENT;
         
         if(newModel == null) newModel = getDefaultTreeModel();
-        viewPosition = new IntPoint();
+        _viewPosition = new IntPoint();
 		expandedStack = new Stack();
 		_toggleClickCount = 3;
 		expandedState = new TreePathMap();
@@ -465,7 +500,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Sets the L&F object that renders this component.
      *
      * @param ui  the <code>TreeUI</code> L&F object
-     * @see UIDefaults#getUI()
+     * See `UIDefaults.getUI()`
      */
     @:dox(hide)
     override public function setUI(ui:ComponentUI):Void{
@@ -480,7 +515,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Replaces the current UI object with the latest version from the 
      * <code>UIManager</code>.
      *
-     * @see JComponent#updateUI
+     * See `JComponent.updateUI`
      */
     @:dox(hide)
     override public function updateUI():Void{
@@ -498,8 +533,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the name of the L&F class that renders this component.
      *
      * @return the string "TreeUI"
-     * @see org.aswing.Component#getUIClassID()
-     * @see org.aswing.UIDefaults#getUI()
+     * See `org.aswing.Component.getUIClassID()`
+     * See `org.aswing.UIDefaults.getUI()`
      */
     @:dox(hide)
     override public function getUIClassID():String{
@@ -730,8 +765,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * from the cell elements.
      *
      * @return the fixed cell width
-     * @see #setFixedCellWidth()
-     * @see #getRowHeight()
+     * See `setFixedCellWidth()`
+     * See `getRowHeight()`
      */
     @:dox(hide)
     public function getFixedCellWidth():Int{
@@ -742,15 +777,15 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Sets the width of every cell in the list.  If <code>width</code> is -1,
      * cell widths are computed by applying <code>getPreferredSize</code>
      * to the <code>TreeCell</code> component for each list element.
-     * <p>
+     * 
      * The default value of this property is -1.<br>
      * If your tree model is very large or all of your tree item has same width, 
      * i recommend you set a fixed cell with it will speed up the performance.
-     * <p>
+     * 
      *
      * @param width   the width, in pixels, for all cells in this list
-     * @see #setFixedCellWidth()
-     * @see #setRowHeight()
+     * See `setFixedCellWidth()`
+     * See `setRowHeight()`
      */
     @:dox(hide)
     public function setFixedCellWidth(width:Int):Void{
@@ -764,8 +799,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the foreground color for selected cells.
      *
      * @return the <code>Color</code> object for the foreground property
-     * @see #setSelectionForeground()
-     * @see #setSelectionBackground()
+     * See `setSelectionForeground()`
+     * See `setSelectionBackground()`
      */
     @:dox(hide)
 	public function getSelectionForeground():ASColor{
@@ -776,17 +811,17 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Sets the foreground color for selected cells.  Cell renderers
      * can use this color to render text and graphics for selected
      * cells.
-     * <p>
+     * 
      * The default value of this property is defined by the look
      * and feel implementation.
      * 
      * @param selectionForeground  the <code>Color</code> to use in the foreground
      *                             for selected list items
-     * @see #getSelectionForeground()
-     * @see #setSelectionBackground()
-     * @see #setForeground()
-     * @see #setBackground()
-     * @see #setFont()
+     * See `getSelectionForeground()`
+     * See `setSelectionBackground()`
+     * See `setForeground()`
+     * See `setBackground()`
+     * See `setFont()`
      */
     @:dox(hide)
 	public function setSelectionForeground(selectionForeground:ASColor):Void{
@@ -802,8 +837,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the background color for selected cells.
      *
      * @return the <code>Color</code> used for the background of selected list items
-     * @see #setSelectionBackground()
-     * @see #setSelectionForeground()
+     * See `setSelectionBackground()`
+     * See `setSelectionForeground()`
      */
     @:dox(hide)
 	public function getSelectionBackground():ASColor{
@@ -813,16 +848,16 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     /**
      * Sets the background color for selected cells.  Cell renderers
      * can use this color to the fill selected cells.
-     * <p>
+     * 
      * The default value of this property is defined by the look
      * and feel implementation.
      * @param selectionBackground  the <code>Color</code> to use for the background
      *                             of selected cells
-     * @see #getSelectionBackground()
-     * @see #setSelectionForeground()
-     * @see #setForeground()
-     * @see #setBackground()
-     * @see #setFont()
+     * See `getSelectionBackground()`
+     * See `setSelectionForeground()`
+     * See `setForeground()`
+     * See `setBackground()`
+     * See `setFont()`
      */
     @:dox(hide)
 	public function setSelectionBackground(selectionBackground:ASColor):Void{
@@ -839,7 +874,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * another node in the tree, a change in the tree's data, or by some
      * other means. Setting this property to <code>true</code> causes the
      * changes to be automatically saved when editing is interrupted.
-     * <p>
+     * 
      * Fires a property change for the INVOKES_STOP_CELL_EDITING_PROPERTY.
      *
      * @param newValue true means that <code>stopCellEditing</code> is invoked 
@@ -861,7 +896,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return the indicator that tells what happens when editing is 
      *         interrupted
-     * @see #setInvokesStopCellEditing()
+     * See `setInvokesStopCellEditing()`
      */
     @:dox(hide)
     public function isInvokesStopCellEditing():Bool{
@@ -881,7 +916,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param newValue <code>false</code> to disable scrolling on expansion;
      *                 <code>true</code> to enable it
-     * @see #getScrollsOnExpand()
+     * See `getScrollsOnExpand()`
      */
     @:dox(hide)
     public function setScrollsOnExpand(newValue:Bool):Void{
@@ -974,7 +1009,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the <code>expandsSelectedPaths</code> property.
      * @return true if selection changes result in the parent path being
      *         expanded
-     * @see #setExpandsSelectedPaths()
+     * See `setExpandsSelectedPaths()`
      */
     @:dox(hide)
     public function isExpandsSelectedPaths():Bool{
@@ -1112,7 +1147,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * to the current selection. If any component of the path isn't
      * viewable, and <code>getExpandsSelectedPaths</code> is true it is 
      * made viewable.
-     * <p>
+     * 
      * Note that <code>JTree</code> does not allow duplicate nodes to
      * exist as children under the same parent -- each sibling must be
      * a unique object.
@@ -1129,7 +1164,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * any component of any of the paths isn't viewable and
      * <code>getExpandsSelectedPaths</code> is true, it is
      * made viewable.
-     * <p>
+     * 
      * Note that <code>JTree</code> does not allow duplicate nodes to
      * exist as children under the same parent -- each sibling must be
      * a unique object.
@@ -1179,7 +1214,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the last <code>Object</code> in the first selected node's
      *		<code>TreePath</code>,
      *		or <code>null</code> if nothing is selected
-     * @see TreePath#getLastPathComponent
+     * See `TreePath.getLastPathComponent`
      */
     public function getLastSelectedPathComponent():Dynamic{
         var selPath:TreePath = getSelectionModel().getSelectionPath();
@@ -1492,7 +1527,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the <code>IntRectangle</code> that the specified node will be drawn
      * into. Returns <code>null</code> if any component in the path is hidden
      * (under a collapsed parent).
-     * <p>
+     * 
      * Note:<br>
      * This method returns a valid rectangle, even if the specified
      * node is not currently displayed.
@@ -1649,7 +1684,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     /**
      * Ensures that the node in the specified row is expanded and
      * viewable.
-     * <p>
+     * 
      * If <code>row</code> is < 0 or >= <code>getRowCount</code> this
      * will have no effect.
      *
@@ -1672,7 +1707,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 
     /**
      * Ensures that the node in the specified row is collapsed.
-     * <p>
+     * 
      * If <code>row</code> is < 0 or >= <code>getRowCount</code> this
      * will have no effect.
      *
@@ -1715,7 +1750,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *          the top of the display area, minus any top margin
      * @return the row corresponding to the location, or -1 if the
      *         location is not within the bounds of a displayed cell
-     * @see #getClosestRowForLocation
+     * See `getClosestRowForLocation`
      */
     public function getRowForLocation(x:Int, y:Int):Int{
 		return getRowForPath(getPathForLocation(x, y));
@@ -1735,8 +1770,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return  the <code>TreePath</code> for the node closest to that location,
      *          <code>null</code> if nothing is viewable or there is no model
      *
-     * @see #getPathForLocation
-     * @see #getPathBounds
+     * See `getPathForLocation`
+     * See `getPathBounds`
      */
     public function getClosestPathForLocation(x:Int, y:Int):TreePath {
         var tree:TreeUI = getTreeUI();
@@ -1760,8 +1795,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the row closest to the location, -1 if nothing is
      *         viewable or there is no model
      *
-     * @see #getRowForLocation
-     * @see #getRowBounds
+     * See `getRowForLocation`
+     * See `getRowBounds`
      */
     public function getClosestRowForLocation(x:Int, y:Int):Int{
 		return getRowForPath(getClosestPathForLocation(x, y));
@@ -1772,7 +1807,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * edited can be obtained using <code>getSelectionPath</code>.
      *
      * @return true if the user is currently editing a node
-     * @see #getSelectionPath
+     * See `getSelectionPath`
      */
     public function isEditing():Bool{
         var tree:TreeUI = getTreeUI();
@@ -1791,7 +1826,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * <blockquote>
      * <b>Note:</b><br>
      * To make edit-saves automatic whenever the user changes
-     * their position in the tree, use {@link #setInvokesStopCellEditing}.
+     * their position in the tree, use {@link `setInvokesStopCellEditing}.`
      * </blockquote>
      *
      * @return true if editing was in progress and is now stopped,
@@ -1863,7 +1898,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param selectionModel the <code>TreeSelectionModel</code> to use,
      *		or <code>null</code> to disable selections
-     * @see TreeSelectionModel
+     * See TreeSelectionModel
      */
     @:dox(hide)
     public function setSelectionModel(selectionModel:TreeSelectionModel):Void{
@@ -1891,7 +1926,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * set the selection model to <code>null</code>, which forces an empty
      * selection model to be used.
      *
-     * @see #setSelectionModel()
+     * See `setSelectionModel()`
      */
     @:dox(hide)
     public function getSelectionModel():TreeSelectionModel {
@@ -2064,7 +2099,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param path the <code>TreePath</code> indicating the node that was
      *		expanded
-     * @see EventListenerList
+     * See EventListenerList
      */
     public function fireTreeExpanded(path:TreePath):Void{
     	dispatchEvent(new TreeEvent(TreeEvent.TREE_EXPANDED, path));
@@ -2077,7 +2112,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param path the <code>TreePath</code> indicating the node that was
      *		collapsed
-     * @see EventListenerList
+     * See EventListenerList
      */
     public function fireTreeCollapsed(path:TreePath):Void{
     	dispatchEvent(new TreeEvent(TreeEvent.TREE_COLLAPSED, path));
@@ -2090,7 +2125,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param path the <code>TreePath</code> indicating the node that was
      *		expanded
-     * @see EventListenerList
+     * See EventListenerList
      */
      public function fireTreeWillExpand(path:TreePath):Void{
     	dispatchEvent(new TreeEvent(TreeEvent.TREE_WILL_EXPAND, path));
@@ -2103,7 +2138,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param path the <code>TreePath</code> indicating the node that was
      *		expanded
-     * @see EventListenerList
+     * See EventListenerList
      */
      public function fireTreeWillCollapse(path:TreePath):Void{
     	dispatchEvent(new TreeEvent(TreeEvent.TREE_WILL_COLLAPSE, path));
@@ -2134,7 +2169,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *          generated by the
      *		<code>TreeSelectionModel</code>
      *          when a node is selected or deselected
-     * @see EventListenerList
+     * See EventListenerList
      */
     /*protected function fireValueChanged(e:TreeSelectionEvent):void {
     	//TODO check if need
@@ -2254,7 +2289,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * true, all parents of <code>path</code> and path are marked as
      * expanded. If <code>state</code> is false, all parents of 
      * <code>path</code> are marked EXPANDED, but <code>path</code> itself
-     * is marked collapsed.<p>
+     * is marked collapsed.
      * This will fail if a <code>TreeWillExpandListener</code> vetos it.
      */
     private function setExpandedState(path:TreePath, state:Bool):Void{
@@ -2584,62 +2619,70 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, programmatic));
 	}	
 	
-	public function getVerticalUnitIncrement() : Int{
-		if(verticalUnitIncrement == AUTO_INCREMENT){
+	@:dox(hide)
+    public function getVerticalUnitIncrement() : Int{
+		if(_verticalUnitIncrement == AUTO_INCREMENT){
 			return getRowHeight();
 		}else{
-			return verticalUnitIncrement;
+			return _verticalUnitIncrement;
 		}
 	}
 
+    @:dox(hide)
 	public function getVerticalBlockIncrement() : Int{
-		if(verticalBlockIncrement == AUTO_INCREMENT){
+		if(_verticalBlockIncrement == AUTO_INCREMENT){
 			return Std.int(Math.max(getRowHeight(), getExtentSize().height - getRowHeight()));
 		}else{
-			return verticalBlockIncrement;
+			return _verticalBlockIncrement;
 		}
 	}
 
+    @:dox(hide)
 	public function getHorizontalUnitIncrement() : Int{
-		if(horizontalUnitIncrement == AUTO_INCREMENT){
+		if(_horizontalUnitIncrement == AUTO_INCREMENT){
 			return 1;
 		}else{
-			return horizontalUnitIncrement;
+			return _horizontalUnitIncrement;
 		}
 	}
 
+    @:dox(hide)
 	public function getHorizontalBlockIncrement() : Int{
-		if(horizontalBlockIncrement == AUTO_INCREMENT){
+		if(_horizontalBlockIncrement == AUTO_INCREMENT){
 			return Std.int(Math.max(1, getExtentSize().width - 1));
 		}else{
-			return horizontalBlockIncrement;
+			return _horizontalBlockIncrement;
 		}
 	}
-	
+
+    @:dox(hide)
     public function setVerticalUnitIncrement(increment:Int):Void{
-    	if(verticalUnitIncrement != increment){
-    		verticalUnitIncrement = increment;
+    	if(_verticalUnitIncrement != increment){
+    		_verticalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setVerticalBlockIncrement(increment:Int):Void{
-    	if(verticalBlockIncrement != increment){
-    		verticalBlockIncrement = increment;
+    	if(_verticalBlockIncrement != increment){
+    		_verticalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalUnitIncrement(increment:Int):Void{
-    	if(horizontalUnitIncrement != increment){
-    		horizontalUnitIncrement = increment;
+    	if(_horizontalUnitIncrement != increment){
+    		_horizontalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalBlockIncrement(increment:Int):Void{
-    	if(horizontalBlockIncrement != increment){
-    		horizontalBlockIncrement = increment;
+    	if(_horizontalBlockIncrement != increment){
+    		_horizontalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }	
@@ -2656,14 +2699,15 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 		return getTreeUI().getViewSize(this);
 	}
 
-	public function getViewPosition() : IntPoint {
-		return new IntPoint(viewPosition.x, viewPosition.y);
+	@:dox(hide)
+    public function getViewPosition() : IntPoint {
+		return new IntPoint(_viewPosition.x, _viewPosition.y);
 	}
 
 	public function setViewPosition(p : IntPoint, programmatic:Bool=true) : Void{
 		restrictionViewPos(p);
-		if(!viewPosition.equals(p)){
-			viewPosition.setLocation(p);
+		if(!_viewPosition.equals(p)){
+			_viewPosition.setLocation(p);
 			fireStateChanged(programmatic);
 			//TODO r
 			//repaint();
@@ -2692,7 +2736,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	
 	public function getVisibleRect():IntRectangle{
 		var es:IntDimension = getExtentSize();
-		return new IntRectangle(viewPosition.x, viewPosition.y, es.width, es.height);
+		return new IntRectangle(_viewPosition.x, _viewPosition.y, es.width, es.height);
 	}
 	
 	private function restrictionViewPos(p:IntPoint):IntPoint{
@@ -2713,7 +2757,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 
 	/**
 	 * Add a listener to listen the viewpoat state change event.
-	 * <p>
+	 * 
 	 * When the viewpoat's state changed, the state is all about:
 	 * <ul>
 	 * <li>viewPosition</li>
@@ -2725,7 +2769,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	 * @param listener the listener
 	 * @param priority the priority
 	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.InteractiveEvent#STATE_CHANGED
+	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
 	 */
 	public function addStateListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
 		addEventListener(InteractiveEvent.STATE_CHANGED, listener, false, priority);
@@ -2734,7 +2778,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	/**
 	 * Removes a state listener.
 	 * @param listener the listener to be removed.
-	 * @see org.aswing.event.AWEvent#STATE_CHANGED
+	 * See `org.aswing.event.AWEvent.STATE_CHANGED`
 	 */	
 	public function removeStateListener(listener:Dynamic -> Void):Void{
 		removeEventListener(InteractiveEvent.STATE_CHANGED, listener);

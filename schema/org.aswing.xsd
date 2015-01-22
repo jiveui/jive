@@ -1338,6 +1338,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="scrollsOnExpandSet" type="xs:boolean"/>
 <xs:element minOccurs="0" name="toggleClickCount" type="xs:int"/>
 <xs:element minOccurs="0" name="expandsSelectedPaths" type="xs:boolean"/>
+<xs:element minOccurs="0" name="viewPosition" type="org-aswing-geom:IntPointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="verticalBlockIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalBlockIncrement" type="xs:int"/>
 </xs:all>
 <xs:attribute name="model" type="xs:string"/>
 <xs:attribute name="selectionModel" type="xs:string"/>
@@ -1356,6 +1361,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="scrollsOnExpandSet" type="xs:boolean"/>
 <xs:attribute name="toggleClickCount" type="xs:int"/>
 <xs:attribute name="expandsSelectedPaths" type="xs:boolean"/>
+<xs:attribute name="viewPosition" type="xs:string"/>
+<xs:attribute name="verticalUnitIncrement" type="xs:int"/>
+<xs:attribute name="verticalBlockIncrement" type="xs:int"/>
+<xs:attribute name="horizontalUnitIncrement" type="xs:int"/>
+<xs:attribute name="horizontalBlockIncrement" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -12,9 +12,9 @@ import org.aswing.tree.TreeNode;
  * by adding or removing child nodes, or by changing the contents
  * of a user object stored in the node.
  * 
- * @author paling
- * @see org.aswing.tree.DefaultMutableTreeNode
- * @see org.aswing.JTree
+ * Author paling
+ *
+ * See `DefaultMutableTreeNode`, `JTree`
  */
 interface MutableTreeNode extends TreeNode {
 	

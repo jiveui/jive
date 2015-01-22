@@ -13,7 +13,7 @@ import org.aswing.util.ArrayList;
 /**
  * A <code>DefaultMutableTreeNode</code> is a general-purpose node in a tree data
  * structure. 
- * <p>
+ * 
  * A tree node may have at most one parent and 0 or more children.
  * <code>DefaultMutableTreeNode</code> provides operations for examining and modifying a
  * node's parent and children and also operations for examining the tree that
@@ -22,14 +22,14 @@ import org.aswing.util.ArrayList;
  * parents and children.  A node with no parent is the root of its tree; a
  * node with no children is a leaf.  A tree may consist of many subtrees,
  * each node acting as the root for its own subtree.
- * <p>
+ * 
  * This class provides enumerations for efficiently traversing a tree or
  * subtree in various orders or for following the path between two nodes.
  * A <code>DefaultMutableTreeNode</code> may also hold a reference to a user object, the
  * use of which is left to the user.  Asking a <code>DefaultMutableTreeNode</code> for its
  * string representation with <code>toString()</code> returns the string
  * representation of its user object.
- * <p>
+ * 
  * While DefaultMutableTreeNode implements the MutableTreeNode interface and
  * will allow you to add in any implementation of MutableTreeNode not all
  * of the methods in DefaultMutableTreeNode will be applicable to all
@@ -39,7 +39,7 @@ import org.aswing.util.ArrayList;
  * of the TreeNode/MutableTreeNode methods will behave as defined no
  * matter what implementations are added.
  * 
- * @author paling
+ * Author paling
  */
 @:children("org.aswing.tree.MutableTreeNode")
 class DefaultMutableTreeNode implements MutableTreeNode {
@@ -104,7 +104,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      *				<code>newChild</code> is null or is an ancestor of this node, 
      *				or if <code>childIndex</code> is out of bounds, or if this 
      *				node does not allow children
-     * @see	#isNodeDescendant
+     * See `DefaultMiutableTreeNode.isNodeDescendant`
      */
     public function insert(newChild:MutableTreeNode, childIndex:Int):Void{
 		if(allowsChildren == false) {
@@ -247,7 +247,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Determines whether or not this node is allowed to have children. 
      * If <code>allows</code> is false, all of this node's children are
      * removed.
-     * <p>
+     * 
      * Note: By default, a node allows children.
      *
      * @param	allows	true if this node is allowed to have children
@@ -275,8 +275,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      *
      * @param	userObject	the Object that constitutes this node's 
      *                          user-specified data
-     * @see	#getUserObject
-     * @see	#toString
+     * See `DefaultMiutableTreeNode.getUserObject`
+     * See `DefaultMiutableTreeNode.toString`
      */
 	@:dox(hide)
     public function setUserObject(userObject:TreeNode):Void{
@@ -287,8 +287,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns this node's user object.
      *
      * @return	the Object stored at this node by the user
-     * @see	#setUserObject
-     * @see	#toString
+     * See `DefaultMiutableTreeNode.setUserObject`
+     * See `DefaultMiutableTreeNode.toString`
      */
 	@:dox(hide)
     public function getUserObject():TreeNode{
@@ -340,7 +340,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Removes <code>newChild</code> from its parent and makes it a child of
      * this node by adding it to the end of this node's child array.
      *
-     * @see		#insert()
+     * See `DefaultMiutableTreeNode.insert()`
      * @param	newChild	node to add as a child of this node
      */
     public function append(newChild:MutableTreeNode):Void{
@@ -365,8 +365,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * operation is at worst O(h) where h is the distance from the root to
      * this node.
      *
-     * @see		#isNodeDescendant()
-     * @see		#getSharedAncestor()
+     * See `DefaultMiutableTreeNode.isNodeDescendant()`
+     * See `DefaultMiutableTreeNode.getSharedAncestor()`
      * @param	anotherNode	node to test as an ancestor of this node
      * @return	true if this node is a descendant of <code>anotherNode</code>
      */
@@ -394,8 +394,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * false.  This operation is at worst O(h) where h is the distance from the
      * root to <code>anotherNode</code>.
      *
-     * @see	#isNodeAncestor
-     * @see	#getSharedAncestor
+     * See `DefaultMiutableTreeNode.isNodeAncestor`
+     * See `DefaultMiutableTreeNode.getSharedAncestor`
      * @param	anotherNode	node to test as descendant of this node
      * @return	true if this node is an ancestor of <code>anotherNode</code>
      */
@@ -412,8 +412,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * <code>aNode</code> are in different trees or if <code>aNode</code> is
      * null.  A node is considered an ancestor of itself.
      *
-     * @see	#isNodeAncestor
-     * @see	#isNodeDescendant
+     * See `DefaultMiutableTreeNode.isNodeAncestor`
+     * See `DefaultMiutableTreeNode.isNodeDescendant`
      * @param	aNode	node to find common ancestor with
      * @return	nearest ancestor common to this node and <code>aNode</code>,
      *		or null if none
@@ -474,8 +474,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns true if and only if <code>aNode</code> is in the same tree
      * as this node.  Returns false if <code>aNode</code> is null.
      *
-     * @see	#getSharedAncestor
-     * @see	#getRoot
+     * See `DefaultMiutableTreeNode.getSharedAncestor`
+     * See `DefaultMiutableTreeNode.getRoot`
      * @return	true if <code>aNode</code> is in the same tree as this node;
      *		false if <code>aNode</code> is null
      */
@@ -491,7 +491,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * <code>getLevel()</code> because it must effectively traverse the entire
      * tree rooted at this node.
      *
-     * @see	#getLevel
+     * See `DefaultMiutableTreeNode.getLevel`
      * @return	the depth of the tree whose root is this node
      */
     public function getDepth():Int{
@@ -514,7 +514,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns the number of levels above this node -- the distance from
      * the root to this node.  If this node is the root, returns 0.
      *
-     * @see	#getDepth
+     * See `DefaultMiutableTreeNode.getDepth`
      * @return	the number of levels above this node
      */
     public function getLevel():Int{
@@ -591,7 +591,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns the root of the tree that contains this node.  The root is
      * the ancestor with a null parent.
      *
-     * @see	#isNodeAncestor
+     * See `DefaultMiutableTreeNode.isNodeAncestor`
      * @return	the root of the tree that contains this node
      */
     public function getRoot():TreeNode {
@@ -625,7 +625,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * traversal.  This is an inefficient way to traverse the entire tree; use
      * an enumeration, instead.
      *
-     * @see	#preorderEnumeration
+     * See `DefaultMiutableTreeNode.preorderEnumeration`
      * @return	the node that follows this node in a preorder traversal, or
      *		null if this node is last
      */
@@ -663,7 +663,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * This is an inefficient way to
      * traverse the entire tree; use an enumeration, instead.
      *
-     * @see	#preorderEnumeration
+     * See `DefaultMiutableTreeNode.preorderEnumeration`
      * @return	the node that precedes this node in a preorder traversal, or
      *		null if this node is the first
      */
@@ -690,12 +690,12 @@ class DefaultMutableTreeNode implements MutableTreeNode {
     /**
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in preorder.  The first node returned by the enumeration's
-     * <code>nextElement()</code> method is this node.<P>
+     * <code>nextElement()</code> method is this node.
      *
      * Modifying the tree by inserting, removing, or moving a node invalidates
      * any enumerations created before the modification.
      *
-     * @see	#postorderEnumeration()
+     * See `DefaultMiutableTreeNode.postorderEnumeration()`
      * @return	an enumeration for traversing the tree in preorder
      */
     public function preorderEnumeration():Array<Dynamic>{
@@ -718,13 +718,13 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in postorder.  The first node returned by the enumeration's
      * <code>nextElement()</code> method is the leftmost leaf.  This is the
-     * same as a depth-first traversal.<P>
+     * same as a depth-first traversal.
      *
      * Modifying the tree by inserting, removing, or moving a node invalidates
      * any enumerations created before the modification.
      *
-     * @see	#depthFirstEnumeration()
-     * @see	#preorderEnumeration()
+     * See `DefaultMiutableTreeNode.depthFirstEnumeration()`
+     * See `DefaultMiutableTreeNode.preorderEnumeration()`
      * @return	an enumeration for traversing the tree in postorder
      */
     public function postorderEnumeration():Array<Dynamic>{
@@ -747,12 +747,12 @@ class DefaultMutableTreeNode implements MutableTreeNode {
     /**
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in breadth-first order.  The first node returned by the
-     * enumeration's <code>nextElement()</code> method is this node.<P>
+     * enumeration's <code>nextElement()</code> method is this node.
      *
      * Modifying the tree by inserting, removing, or moving a node invalidates
      * any enumerations created before the modification.
      *
-     * @see	#depthFirstEnumeration()
+     * See `DefaultMiutableTreeNode.depthFirstEnumeration()`
      * @return	an enumeration for traversing the tree in breadth-first order
      */
     public function breadthFirstEnumeration():Array<Dynamic>{
@@ -776,13 +776,13 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Creates and returns an enumeration that traverses the subtree rooted at
      * this node in depth-first order.  The first node returned by the
      * enumeration's <code>nextElement()</code> method is the leftmost leaf.
-     * This is the same as a postorder traversal.<P>
+     * This is the same as a postorder traversal.
      *
      * Modifying the tree by inserting, removing, or moving a node invalidates
      * any enumerations created before the modification.
      *
-     * @see	#breadthFirstEnumeration()
-     * @see	#postorderEnumeration()
+     * See `DefaultMiutableTreeNode.breadthFirstEnumeration()`
+     * See `DefaultMiutableTreeNode.postorderEnumeration()`
      * @return	an enumeration for traversing the tree in depth-first order
      */
     public function depthFirstEnumeration():Array<Dynamic>{
@@ -797,13 +797,13 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * node, and so on, and finally returns this node.  Creation of the
      * enumeration is O(m) where m is the number of nodes between this node
      * and <code>ancestor</code>, inclusive.  Each <code>nextElement()</code>
-     * message is O(1).<P>
+     * message is O(1).
      *
      * Modifying the tree by inserting, removing, or moving a node invalidates
      * any enumerations created before the modification.
      *
-     * @see		#isNodeAncestor()
-     * @see		#isNodeDescendant()
+     * See `DefaultMiutableTreeNode.isNodeAncestor()`
+     * See `DefaultMiutableTreeNode.isNodeDescendant()`
      * @exception	IllegalArgumentException if <code>ancestor</code> is
      *						not an ancestor of this node
      * @return	an enumeration for following the path from an ancestor of
@@ -895,7 +895,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * <code>aChild</code> and is O(n) where n is the number of children; to
      * traverse the entire array of children, use an enumeration instead.
      *
-     * @see		#children()
+     * See `DefaultMiutableTreeNode.children()`
      * @exception	Error if <code>aChild</code> is
      *					null or is not a child of this node
      * @return	the child of this node that immediately follows
@@ -1015,7 +1015,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * of children; to traverse the entire array, use the parent's child
      * enumeration instead.
      *
-     * @see	#children
+     * See `DefaultMiutableTreeNode.children`
      * @return	the sibling of this node that immediately follows this node
      */
     public function getNextSibling():DefaultMutableTreeNode {
@@ -1077,7 +1077,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * children (e.g. to distinguish files from empty directories), use this
      * method in conjunction with <code>getAllowsChildren</code>
      *
-     * @see	#getAllowsChildren()
+     * See `DefaultMiutableTreeNode.getAllowsChildren()`
      * @return	true if this node has no children
      */
     public function isLeaf():Bool{
@@ -1090,8 +1090,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * either this node or its first child's first leaf.
      * Returns this node if it is a leaf.
      *
-     * @see	#isLeaf()
-     * @see	#isNodeDescendant()
+     * See `DefaultMiutableTreeNode.isLeaf()`
+     * See `DefaultMiutableTreeNode.isNodeDescendant()`
      * @return	the first leaf in the subtree rooted at this node
      */
     public function getFirstLeaf():DefaultMutableTreeNode {
@@ -1110,8 +1110,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * either this node or its last child's last leaf. 
      * Returns this node if it is a leaf.
      *
-     * @see	#isLeaf()
-     * @see	#isNodeDescendant()
+     * See `DefaultMiutableTreeNode.isLeaf()`
+     * See `DefaultMiutableTreeNode.isNodeDescendant()`
      * @return	the last leaf in the subtree rooted at this node
      */
     public function getLastLeaf():DefaultMutableTreeNode {
@@ -1128,20 +1128,20 @@ class DefaultMutableTreeNode implements MutableTreeNode {
     /**
      * Returns the leaf after this node or null if this node is the
      * last leaf in the tree.
-     * <p>
+     * 
      * In this implementation of the <code>MutableNode</code> interface,
      * this operation is very inefficient. In order to determine the
      * next node, this method first performs a linear search in the 
      * parent's child-list in order to find the current node. 
-     * <p>
+     * 
      * That implementation makes the operation suitable for short
      * traversals from a known position. But to traverse all of the 
      * leaves in the tree, you should use <code>depthFirstEnumeration</code>
      * to enumerate the nodes in the tree and use <code>isLeaf</code>
      * on each node to determine which are leaves.
      *
-     * @see	#depthFirstEnumeration()
-     * @see	#isLeaf()
+     * See `DefaultMiutableTreeNode.depthFirstEnumeration()`
+     * See `DefaultMiutableTreeNode.isLeaf()`
      * @return	returns the next leaf past this node
      */
     public function getNextLeaf():DefaultMutableTreeNode {
@@ -1163,20 +1163,20 @@ class DefaultMutableTreeNode implements MutableTreeNode {
     /**
      * Returns the leaf before this node or null if this node is the
      * first leaf in the tree.
-     * <p>
+     * 
      * In this implementation of the <code>MutableNode</code> interface,
      * this operation is very inefficient. In order to determine the
      * previous node, this method first performs a linear search in the 
      * parent's child-list in order to find the current node. 
-     * <p>
+     * 
      * That implementation makes the operation suitable for short
      * traversals from a known position. But to traverse all of the 
      * leaves in the tree, you should use <code>depthFirstEnumeration</code>
      * to enumerate the nodes in the tree and use <code>isLeaf</code>
      * on each node to determine which are leaves.
      *
-     * @see		#depthFirstEnumeration()
-     * @see		#isLeaf()
+     * See `DefaultMiutableTreeNode.depthFirstEnumeration()`
+     * See `DefaultMiutableTreeNode.isLeaf()`
      * @return	returns the leaf before this node
      */
     public function getPreviousLeaf():DefaultMutableTreeNode {
@@ -1200,7 +1200,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * If this node is a leaf, returns <code>1</code>.  This method is O(n)
      * where n is the number of descendants of this node.
      *
-     * @see	#isNodeAncestor()
+     * See `DefaultMiutableTreeNode.isNodeAncestor()`
      * @return	the number of leaves beneath this node
      */
     public function getLeafCount():Int{
@@ -1230,7 +1230,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns the result of sending <code>toString()</code> to this node's
      * user object, or null if this node has no user object.
      *
-     * @see	#getUserObject()
+     * See `DefaultMiutableTreeNode.getUserObject()`
      */
     public function toString():String{
 		if (userObject == null) {
