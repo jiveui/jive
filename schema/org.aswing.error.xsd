@@ -5,10 +5,10 @@ xmlns:empty="empty"
 <xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="AsWingManagerNotInitedSchemaTypeValue">
-<xs:sequence><xs:element ref="AsWingManagerNotInited"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="AsWingManagerNotInited"/></xs:all></xs:complexType>
 
 <xs:complexType name="UnsupportedErrorSchemaTypeValue">
-<xs:sequence><xs:element ref="UnsupportedError"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="UnsupportedError"/></xs:all></xs:complexType>
 
 <xs:complexType name="ErrorSchemaTypeValue">
 <xs:choice>
@@ -21,13 +21,13 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="ImpMissErrorSchemaTypeValue">
-<xs:sequence><xs:element ref="ImpMissError"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ImpMissError"/></xs:all></xs:complexType>
 
 <xs:complexType name="AsWingManagerNotInitedSchemaType">
 <xs:complexContent>
 <xs:extension base="ErrorSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -35,8 +35,8 @@ xmlns:empty="empty"
 <xs:complexType name="UnsupportedErrorSchemaType">
 <xs:complexContent>
 <xs:extension base="ErrorSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -44,8 +44,8 @@ xmlns:empty="empty"
 <xs:complexType name="ErrorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -53,8 +53,8 @@ xmlns:empty="empty"
 <xs:complexType name="ImpMissErrorSchemaType">
 <xs:complexContent>
 <xs:extension base="ErrorSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

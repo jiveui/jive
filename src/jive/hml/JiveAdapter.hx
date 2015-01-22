@@ -24,6 +24,7 @@ using Lambda;
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
+			new DefaultMutableTreeNodeAdapter(),
 			new ContainerAdapter(),
 			new ComponentAdapter(),
 			new DisplayObjectAdapter(),

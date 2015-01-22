@@ -11,33 +11,33 @@ xmlns:empty="empty"
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ContextMenuBuiltInItemsSchemaTypeValue">
-<xs:sequence><xs:element ref="ContextMenuBuiltInItems"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ContextMenuBuiltInItems"/></xs:all></xs:complexType>
 
 <xs:complexType name="ContextMenuSchemaTypeValue">
-<xs:sequence><xs:element ref="ContextMenu"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ContextMenu"/></xs:all></xs:complexType>
 
 <xs:complexType name="ContextMenuClipboardItemsSchemaTypeValue">
-<xs:sequence><xs:element ref="ContextMenuClipboardItems"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ContextMenuClipboardItems"/></xs:all></xs:complexType>
 
 <xs:complexType name="MouseCursorDataSchemaTypeValue">
-<xs:sequence><xs:element ref="MouseCursorData"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MouseCursorData"/></xs:all></xs:complexType>
 
 <xs:complexType name="MouseSchemaTypeValue">
-<xs:sequence><xs:element ref="Mouse"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Mouse"/></xs:all></xs:complexType>
 
 <xs:complexType name="ContextMenuBuiltInItemsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="forwardAndBack" type="xs:boolean"/>
-<xs:element name="loop" type="xs:boolean"/>
-<xs:element name="play" type="xs:boolean"/>
-<xs:element name="print" type="xs:boolean"/>
-<xs:element name="quality" type="xs:boolean"/>
-<xs:element name="rewind" type="xs:boolean"/>
-<xs:element name="save" type="xs:boolean"/>
-<xs:element name="zoom" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="forwardAndBack" type="xs:boolean"/>
+<xs:element minOccurs="0" name="loop" type="xs:boolean"/>
+<xs:element minOccurs="0" name="play" type="xs:boolean"/>
+<xs:element minOccurs="0" name="print" type="xs:boolean"/>
+<xs:element minOccurs="0" name="quality" type="xs:boolean"/>
+<xs:element minOccurs="0" name="rewind" type="xs:boolean"/>
+<xs:element minOccurs="0" name="save" type="xs:boolean"/>
+<xs:element minOccurs="0" name="zoom" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="forwardAndBack" type="xs:boolean"/>
 <xs:attribute name="loop" type="xs:boolean"/>
 <xs:attribute name="play" type="xs:boolean"/>
@@ -53,13 +53,13 @@ xmlns:empty="empty"
 <xs:complexType name="ContextMenuSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:NativeMenuSchemaType">
-<xs:sequence>
-<xs:element name="builtInItems" type="ContextMenuBuiltInItemsSchemaTypeValue"/>
-<xs:element name="clipboardItems" type="ContextMenuClipboardItemsSchemaTypeValue"/>
-<xs:element name="clipboardMenu" type="xs:boolean"/>
-<xs:element name="customItems" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="link" type="flash-net:URLRequestSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="builtInItems" type="ContextMenuBuiltInItemsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="clipboardItems" type="ContextMenuClipboardItemsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="clipboardMenu" type="xs:boolean"/>
+<xs:element minOccurs="0" name="customItems" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="link" type="flash-net:URLRequestSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="builtInItems" type="xs:string"/>
 <xs:attribute name="clipboardItems" type="xs:string"/>
 <xs:attribute name="clipboardMenu" type="xs:boolean"/>
@@ -72,13 +72,13 @@ xmlns:empty="empty"
 <xs:complexType name="ContextMenuClipboardItemsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="clear" type="xs:boolean"/>
-<xs:element name="copy" type="xs:boolean"/>
-<xs:element name="cut" type="xs:boolean"/>
-<xs:element name="paste" type="xs:boolean"/>
-<xs:element name="selectAll" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="clear" type="xs:boolean"/>
+<xs:element minOccurs="0" name="copy" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cut" type="xs:boolean"/>
+<xs:element minOccurs="0" name="paste" type="xs:boolean"/>
+<xs:element minOccurs="0" name="selectAll" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="clear" type="xs:boolean"/>
 <xs:attribute name="copy" type="xs:boolean"/>
 <xs:attribute name="cut" type="xs:boolean"/>
@@ -91,11 +91,11 @@ xmlns:empty="empty"
 <xs:complexType name="MouseCursorDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="data" type="flash:VectorSchemaTypeValue"/>
-<xs:element name="frameRate" type="xs:double"/>
-<xs:element name="hotSpot" type="flash-geom:PointSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="data" type="flash:VectorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="hotSpot" type="flash-geom:PointSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="data" type="xs:string"/>
 <xs:attribute name="frameRate" type="xs:double"/>
 <xs:attribute name="hotSpot" type="xs:string"/>
@@ -106,8 +106,8 @@ xmlns:empty="empty"
 <xs:complexType name="MouseSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

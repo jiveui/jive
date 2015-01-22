@@ -16,7 +16,7 @@ import org.aswing.tree.TreeNode;
  * @see org.aswing.tree.DefaultMutableTreeNode
  * @see org.aswing.JTree
  */
-interface MutableTreeNode extends TreeNode{
+interface MutableTreeNode extends TreeNode {
 	
     /**
      * Adds <code>child</code> to the receiver at <code>index</code>.

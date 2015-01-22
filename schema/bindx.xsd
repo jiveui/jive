@@ -95,13 +95,13 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="BindSchemaTypeValue">
-<xs:sequence><xs:element ref="Bind"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Bind"/></xs:all></xs:complexType>
 
 <xs:complexType name="FieldsBindSignalSchemaTypeValue">
-<xs:sequence><xs:element ref="FieldsBindSignal"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FieldsBindSignal"/></xs:all></xs:complexType>
 
 <xs:complexType name="MethodsBindSignalSchemaTypeValue">
-<xs:sequence><xs:element ref="MethodsBindSignal"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MethodsBindSignal"/></xs:all></xs:complexType>
 
 <xs:complexType name="BindSignalSchemaTypeValue">
 <xs:choice>
@@ -114,10 +114,10 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="IBindableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="__fieldBindings__" type="FieldsBindSignalSchemaTypeValue"/>
-<xs:element name="__methodBindings__" type="MethodsBindSignalSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__fieldBindings__" type="FieldsBindSignalSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__methodBindings__" type="MethodsBindSignalSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="__fieldBindings__" type="xs:string"/>
 <xs:attribute name="__methodBindings__" type="xs:string"/>
 </xs:extension>
@@ -127,8 +127,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="BindSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -136,8 +136,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="FieldsBindSignalSchemaType">
 <xs:complexContent>
 <xs:extension base="BindSignalSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -145,8 +145,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="MethodsBindSignalSchemaType">
 <xs:complexContent>
 <xs:extension base="BindSignalSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -154,8 +154,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="BindSignalSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

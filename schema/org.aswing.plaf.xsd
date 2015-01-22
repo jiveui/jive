@@ -33,7 +33,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="EmptyLayoutUIResourseSchemaTypeValue">
-<xs:sequence><xs:element ref="EmptyLayoutUIResourse"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="EmptyLayoutUIResourse"/></xs:all></xs:complexType>
 
 <xs:complexType name="ComponentUISchemaTypeValue">
 <xs:choice>
@@ -111,10 +111,10 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="UIStyleTuneSchemaTypeValue">
-<xs:sequence><xs:element ref="UIStyleTune"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="UIStyleTune"/></xs:all></xs:complexType>
 
 <xs:complexType name="ASColorUIResourceSchemaTypeValue">
-<xs:sequence><xs:element ref="ASColorUIResource"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ASColorUIResource"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameUISchemaTypeValue">
 <xs:choice>
@@ -129,7 +129,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="ASFontUIResourceSchemaTypeValue">
-<xs:sequence><xs:element ref="ASFontUIResource"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ASFontUIResource"/></xs:all></xs:complexType>
 
 <xs:complexType name="ComboBoxUISchemaTypeValue">
 <xs:choice>
@@ -156,7 +156,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="DefaultsDecoratorBaseSchemaTypeValue">
-<xs:sequence><xs:element ref="DefaultsDecoratorBase"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DefaultsDecoratorBase"/></xs:all></xs:complexType>
 
 <xs:complexType name="BaseComponentUISchemaTypeValue">
 <xs:choice>
@@ -215,13 +215,13 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="InsetsUIResourceSchemaTypeValue">
-<xs:sequence><xs:element ref="InsetsUIResource"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="InsetsUIResource"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayUIResourceSchemaTypeValue">
-<xs:sequence><xs:element ref="ArrayUIResource"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ArrayUIResource"/></xs:all></xs:complexType>
 
 <xs:complexType name="DefaultEmptyDecoraterResourceSchemaTypeValue">
-<xs:sequence><xs:element ref="DefaultEmptyDecoraterResource"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DefaultEmptyDecoraterResource"/></xs:all></xs:complexType>
 
 <xs:complexType name="UIResourceSchemaTypeValue">
 <xs:choice>
@@ -294,13 +294,13 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 </xs:complexType>
 
 <xs:complexType name="EmptyUIResourcesSchemaTypeValue">
-<xs:sequence><xs:element ref="EmptyUIResources"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="EmptyUIResources"/></xs:all></xs:complexType>
 
 <xs:complexType name="ColorSwatchesUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -308,8 +308,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="EmptyLayoutUIResourseSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:EmptyLayoutSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -317,8 +317,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="ComponentUISchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -326,8 +326,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="DefaultsDecoratorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -335,8 +335,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="AdjusterUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -344,8 +344,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="TreeUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -353,8 +353,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="UIStyleTuneSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:StyleTuneSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -362,8 +362,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="ASColorUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ASColorSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -371,8 +371,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="FrameUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -380,8 +380,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="TableUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -389,8 +389,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="ASFontUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ASFontSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -398,8 +398,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="ComboBoxUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -407,8 +407,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="MenuElementUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -416,8 +416,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="SplitPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="BaseComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -425,8 +425,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="DefaultsDecoratorBaseSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -434,8 +434,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="BaseComponentUISchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -443,8 +443,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="SliderUISchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -452,8 +452,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="InsetsUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:InsetsSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -461,8 +461,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="ArrayUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -470,8 +470,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="DefaultEmptyDecoraterResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -479,8 +479,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="UIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -488,8 +488,8 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:complexType name="EmptyUIResourcesSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

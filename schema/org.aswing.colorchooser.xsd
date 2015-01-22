@@ -7,19 +7,19 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="NoColorIconSchemaTypeValue">
-<xs:sequence><xs:element ref="NoColorIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="NoColorIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="PreviewColorIconSchemaTypeValue">
-<xs:sequence><xs:element ref="PreviewColorIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PreviewColorIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="ColorRectIconSchemaTypeValue">
-<xs:sequence><xs:element ref="ColorRectIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ColorRectIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="DefaultColorSelectionModelSchemaTypeValue">
-<xs:sequence><xs:element ref="DefaultColorSelectionModel"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DefaultColorSelectionModel"/></xs:all></xs:complexType>
 
 <xs:complexType name="JColorMixerSchemaTypeValue">
-<xs:sequence><xs:element ref="JColorMixer"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="JColorMixer"/></xs:all></xs:complexType>
 
 <xs:complexType name="ColorSelectionModelSchemaTypeValue">
 <xs:choice>
@@ -37,16 +37,16 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="JColorSwatchesSchemaTypeValue">
-<xs:sequence><xs:element ref="JColorSwatches"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="JColorSwatches"/></xs:all></xs:complexType>
 
 <xs:complexType name="VerticalLayoutSchemaTypeValue">
-<xs:sequence><xs:element ref="VerticalLayout"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="VerticalLayout"/></xs:all></xs:complexType>
 
 <xs:complexType name="NoColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -54,8 +54,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PreviewColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -63,8 +63,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ColorRectIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -72,8 +72,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultColorSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,8 +81,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JColorMixerSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractColorChooserPanelSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -90,8 +90,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ColorSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -99,8 +99,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractColorChooserPanelSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -108,8 +108,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JColorSwatchesSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractColorChooserPanelSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -117,8 +117,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="VerticalLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:EmptyLayoutSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

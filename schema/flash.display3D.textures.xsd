@@ -12,19 +12,19 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="TextureSchemaTypeValue">
-<xs:sequence><xs:element ref="Texture"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Texture"/></xs:all></xs:complexType>
 
 <xs:complexType name="CubeTextureSchemaTypeValue">
-<xs:sequence><xs:element ref="CubeTexture"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="CubeTexture"/></xs:all></xs:complexType>
 
 <xs:complexType name="RectangleTextureSchemaTypeValue">
-<xs:sequence><xs:element ref="RectangleTexture"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="RectangleTexture"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextureBaseSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -32,8 +32,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextureSchemaType">
 <xs:complexContent>
 <xs:extension base="TextureBaseSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -41,8 +41,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="CubeTextureSchemaType">
 <xs:complexContent>
 <xs:extension base="TextureBaseSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -50,8 +50,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="RectangleTextureSchemaType">
 <xs:complexContent>
 <xs:extension base="TextureBaseSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

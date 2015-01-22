@@ -41,6 +41,7 @@ import org.aswing.util.ArrayList;
  * 
  * @author paling
  */
+@:children("org.aswing.tree.MutableTreeNode")
 class DefaultMutableTreeNode implements MutableTreeNode {
 	private static var AWML_INDEX:Int= 0;
 	 

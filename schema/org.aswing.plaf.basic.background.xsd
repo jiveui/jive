@@ -3,19 +3,19 @@ xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ProgressBarBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ProgressBarBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ProgressBarBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ProgressBarIconSchemaTypeValue">
-<xs:sequence><xs:element ref="ProgressBarIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ProgressBarIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="ListBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ListBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ListBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ComboBoxBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ComboBoxBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ComboBoxBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextComponentBackBroundSchemaTypeValue">
 <xs:choice>
@@ -26,37 +26,37 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="InputBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="InputBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="InputBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="PanelBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="PanelBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PanelBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ScrollBarThumbSchemaTypeValue">
-<xs:sequence><xs:element ref="ScrollBarThumb"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ScrollBarThumb"/></xs:all></xs:complexType>
 
 <xs:complexType name="ToolTipBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ToolTipBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ToolTipBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ButtonBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ButtonBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ButtonBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ScrollBarBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ScrollBarBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ScrollBarBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableHeaderBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="TableHeaderBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TableHeaderBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="TableBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TableBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ToggleButtonBackgroundSchemaTypeValue">
-<xs:sequence><xs:element ref="ToggleButtonBackground"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ToggleButtonBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ProgressBarBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -64,8 +64,8 @@ xmlns:empty="empty"
 <xs:complexType name="ProgressBarIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -73,8 +73,8 @@ xmlns:empty="empty"
 <xs:complexType name="ListBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -82,8 +82,8 @@ xmlns:empty="empty"
 <xs:complexType name="FrameBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -91,8 +91,8 @@ xmlns:empty="empty"
 <xs:complexType name="ComboBoxBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="TextComponentBackBroundSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -100,8 +100,8 @@ xmlns:empty="empty"
 <xs:complexType name="TextComponentBackBroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -109,8 +109,8 @@ xmlns:empty="empty"
 <xs:complexType name="InputBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="TextComponentBackBroundSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -118,8 +118,8 @@ xmlns:empty="empty"
 <xs:complexType name="PanelBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -127,8 +127,8 @@ xmlns:empty="empty"
 <xs:complexType name="ScrollBarThumbSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -136,8 +136,8 @@ xmlns:empty="empty"
 <xs:complexType name="ToolTipBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -145,8 +145,8 @@ xmlns:empty="empty"
 <xs:complexType name="ButtonBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -154,8 +154,8 @@ xmlns:empty="empty"
 <xs:complexType name="ScrollBarBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -163,8 +163,8 @@ xmlns:empty="empty"
 <xs:complexType name="TableHeaderBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -172,8 +172,8 @@ xmlns:empty="empty"
 <xs:complexType name="TableBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -181,8 +181,8 @@ xmlns:empty="empty"
 <xs:complexType name="ToggleButtonBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

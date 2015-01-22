@@ -14,16 +14,16 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="IntMapSchemaTypeValue">
-<xs:sequence><xs:element ref="IntMap"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IntMap"/></xs:all></xs:complexType>
 
 <xs:complexType name="ObjectMapSchemaTypeValue">
-<xs:sequence><xs:element ref="ObjectMap"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ObjectMap"/></xs:all></xs:complexType>
 
 <xs:complexType name="StringMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -31,8 +31,8 @@ xmlns:empty="empty"
 <xs:complexType name="IntMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -40,8 +40,8 @@ xmlns:empty="empty"
 <xs:complexType name="ObjectMapSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-utils:DictionarySchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

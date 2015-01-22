@@ -41,7 +41,7 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
 <xs:complexType name="GraphicsSchemaTypeValue">
-<xs:sequence><xs:element ref="Graphics"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Graphics"/></xs:all></xs:complexType>
 
 <xs:complexType name="ShapeSchemaTypeValue">
 <xs:choice>
@@ -61,13 +61,13 @@ xmlns:flash-media="flash.media"
 </xs:complexType>
 
 <xs:complexType name="FrameLabelSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameLabel"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameLabel"/></xs:all></xs:complexType>
 
 <xs:complexType name="ShaderSchemaTypeValue">
-<xs:sequence><xs:element ref="Shader"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Shader"/></xs:all></xs:complexType>
 
 <xs:complexType name="Stage3DSchemaTypeValue">
-<xs:sequence><xs:element ref="Stage3D"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Stage3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="DisplayObjectSchemaTypeValue">
 <xs:choice>
@@ -166,7 +166,7 @@ xmlns:flash-media="flash.media"
 </xs:complexType>
 
 <xs:complexType name="IGraphicsDataSchemaTypeValue">
-<xs:sequence><xs:element ref="IGraphicsData"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IGraphicsData"/></xs:all></xs:complexType>
 
 <xs:complexType name="SpriteSchemaTypeValue">
 <xs:choice>
@@ -350,19 +350,19 @@ xmlns:flash-media="flash.media"
 </xs:complexType>
 
 <xs:complexType name="StageSchemaTypeValue">
-<xs:sequence><xs:element ref="Stage"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Stage"/></xs:all></xs:complexType>
 
 <xs:complexType name="LoaderSchemaTypeValue">
-<xs:sequence><xs:element ref="Loader"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Loader"/></xs:all></xs:complexType>
 
 <xs:complexType name="LoaderInfoSchemaTypeValue">
-<xs:sequence><xs:element ref="LoaderInfo"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="LoaderInfo"/></xs:all></xs:complexType>
 
 <xs:complexType name="BitmapDataSchemaTypeValue">
-<xs:sequence><xs:element ref="BitmapData"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="BitmapData"/></xs:all></xs:complexType>
 
 <xs:complexType name="SceneSchemaTypeValue">
-<xs:sequence><xs:element ref="Scene"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Scene"/></xs:all></xs:complexType>
 
 <xs:complexType name="DisplayObjectContainerSchemaTypeValue">
 <xs:choice>
@@ -452,7 +452,7 @@ xmlns:flash-media="flash.media"
 </xs:complexType>
 
 <xs:complexType name="BitmapSchemaTypeValue">
-<xs:sequence><xs:element ref="Bitmap"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Bitmap"/></xs:all></xs:complexType>
 
 <xs:complexType name="NativeMenuSchemaTypeValue">
 <xs:choice>
@@ -552,13 +552,13 @@ xmlns:flash-media="flash.media"
 </xs:complexType>
 
 <xs:complexType name="ShaderDataSchemaTypeValue">
-<xs:sequence><xs:element ref="ShaderData"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ShaderData"/></xs:all></xs:complexType>
 
 <xs:complexType name="GraphicsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -566,9 +566,9 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="ShapeSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectSchemaType">
-<xs:sequence>
-<xs:element name="graphics" type="GraphicsSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="graphics" type="GraphicsSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="graphics" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -577,18 +577,18 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="MovieClipSchemaType">
 <xs:complexContent>
 <xs:extension base="SpriteSchemaType">
-<xs:sequence>
-<xs:element name="currentFrame" type="xs:int"/>
-<xs:element name="currentFrameLabel" type="xs:string"/>
-<xs:element name="currentLabel" type="xs:string"/>
-<xs:element name="currentLabels" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="currentScene" type="SceneSchemaTypeValue"/>
-<xs:element name="enabled" type="xs:boolean"/>
-<xs:element name="framesLoaded" type="xs:int"/>
-<xs:element name="scenes" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="totalFrames" type="xs:int"/>
-<xs:element name="trackAsMenu" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="currentFrame" type="xs:int"/>
+<xs:element minOccurs="0" name="currentFrameLabel" type="xs:string"/>
+<xs:element minOccurs="0" name="currentLabel" type="xs:string"/>
+<xs:element minOccurs="0" name="currentLabels" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="currentScene" type="SceneSchemaTypeValue"/>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="framesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="scenes" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="totalFrames" type="xs:int"/>
+<xs:element minOccurs="0" name="trackAsMenu" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="currentFrame" type="xs:int"/>
 <xs:attribute name="currentFrameLabel" type="xs:string"/>
 <xs:attribute name="currentLabel" type="xs:string"/>
@@ -606,10 +606,10 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="FrameLabelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="frame" type="xs:int"/>
-<xs:element name="name" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="frame" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:all>
 <xs:attribute name="frame" type="xs:int"/>
 <xs:attribute name="name" type="xs:string"/>
 </xs:extension>
@@ -619,11 +619,11 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="ShaderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="byteCode" type="flash-utils:ByteArraySchemaTypeValue"/>
-<xs:element name="data" type="ShaderDataSchemaTypeValue"/>
-<xs:element name="precisionHint" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="byteCode" type="flash-utils:ByteArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="data" type="ShaderDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="precisionHint" type="xs:string"/>
+</xs:all>
 <xs:attribute name="byteCode" type="xs:string"/>
 <xs:attribute name="data" type="xs:string"/>
 <xs:attribute name="precisionHint" type="xs:string"/>
@@ -634,12 +634,12 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="Stage3DSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="context3D" type="flash-display3D:Context3DSchemaTypeValue"/>
-<xs:element name="visible" type="xs:boolean"/>
-<xs:element name="x" type="xs:double"/>
-<xs:element name="y" type="xs:double"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="context3D" type="flash-display3D:Context3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="visible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
 <xs:attribute name="context3D" type="xs:string"/>
 <xs:attribute name="visible" type="xs:boolean"/>
 <xs:attribute name="x" type="xs:double"/>
@@ -651,39 +651,39 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="DisplayObjectSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="accessibilityProperties" type="flash-accessibility:AccessibilityPropertiesSchemaTypeValue"/>
-<xs:element name="alpha" type="xs:double"/>
-<xs:element name="blendMode" type="xs:string"/>
-<xs:element name="blendShader" type="ShaderSchemaTypeValue"/>
-<xs:element name="cacheAsBitmap" type="xs:boolean"/>
-<xs:element name="filters" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="height" type="xs:double"/>
-<xs:element name="loaderInfo" type="LoaderInfoSchemaTypeValue"/>
-<xs:element name="mask" type="DisplayObjectSchemaTypeValue"/>
-<xs:element name="mouseX" type="xs:double"/>
-<xs:element name="mouseY" type="xs:double"/>
-<xs:element name="name" type="xs:string"/>
-<xs:element name="opaqueBackground" type="xs:string"/>
-<xs:element name="parent" type="DisplayObjectContainerSchemaTypeValue"/>
-<xs:element name="root" type="DisplayObjectSchemaTypeValue"/>
-<xs:element name="rotation" type="xs:double"/>
-<xs:element name="rotationX" type="xs:double"/>
-<xs:element name="rotationY" type="xs:double"/>
-<xs:element name="rotationZ" type="xs:double"/>
-<xs:element name="scale9Grid" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element name="scaleX" type="xs:double"/>
-<xs:element name="scaleY" type="xs:double"/>
-<xs:element name="scaleZ" type="xs:double"/>
-<xs:element name="scrollRect" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element name="stage" type="StageSchemaTypeValue"/>
-<xs:element name="transform" type="flash-geom:TransformSchemaTypeValue"/>
-<xs:element name="visible" type="xs:boolean"/>
-<xs:element name="width" type="xs:double"/>
-<xs:element name="x" type="xs:double"/>
-<xs:element name="y" type="xs:double"/>
-<xs:element name="z" type="xs:double"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="accessibilityProperties" type="flash-accessibility:AccessibilityPropertiesSchemaTypeValue"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="blendMode" type="xs:string"/>
+<xs:element minOccurs="0" name="blendShader" type="ShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="cacheAsBitmap" type="xs:boolean"/>
+<xs:element minOccurs="0" name="filters" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="loaderInfo" type="LoaderInfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="mask" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="mouseX" type="xs:double"/>
+<xs:element minOccurs="0" name="mouseY" type="xs:double"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="opaqueBackground" type="xs:string"/>
+<xs:element minOccurs="0" name="parent" type="DisplayObjectContainerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="root" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rotation" type="xs:double"/>
+<xs:element minOccurs="0" name="rotationX" type="xs:double"/>
+<xs:element minOccurs="0" name="rotationY" type="xs:double"/>
+<xs:element minOccurs="0" name="rotationZ" type="xs:double"/>
+<xs:element minOccurs="0" name="scale9Grid" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="scaleX" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleY" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleZ" type="xs:double"/>
+<xs:element minOccurs="0" name="scrollRect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stage" type="StageSchemaTypeValue"/>
+<xs:element minOccurs="0" name="transform" type="flash-geom:TransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="visible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="z" type="xs:double"/>
+</xs:all>
 <xs:attribute name="accessibilityProperties" type="xs:string"/>
 <xs:attribute name="alpha" type="xs:double"/>
 <xs:attribute name="blendMode" type="xs:string"/>
@@ -722,8 +722,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="IGraphicsDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -731,14 +731,14 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="SpriteSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectContainerSchemaType">
-<xs:sequence>
-<xs:element name="buttonMode" type="xs:boolean"/>
-<xs:element name="dropTarget" type="DisplayObjectSchemaTypeValue"/>
-<xs:element name="graphics" type="GraphicsSchemaTypeValue"/>
-<xs:element name="hitArea" type="SpriteSchemaTypeValue"/>
-<xs:element name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
-<xs:element name="useHandCursor" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="buttonMode" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dropTarget" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="graphics" type="GraphicsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="hitArea" type="SpriteSchemaTypeValue"/>
+<xs:element minOccurs="0" name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="useHandCursor" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="buttonMode" type="xs:boolean"/>
 <xs:attribute name="dropTarget" type="xs:string"/>
 <xs:attribute name="graphics" type="xs:string"/>
@@ -752,8 +752,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="IBitmapDrawableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -761,23 +761,23 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="StageSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectContainerSchemaType">
-<xs:sequence>
-<xs:element name="align" type="xs:string"/>
-<xs:element name="colorCorrection" type="xs:string"/>
-<xs:element name="colorCorrectionSupport" type="xs:string"/>
-<xs:element name="displayState" type="xs:string"/>
-<xs:element name="focus" type="InteractiveObjectSchemaTypeValue"/>
-<xs:element name="frameRate" type="xs:double"/>
-<xs:element name="fullScreenHeight" type="xs:string"/>
-<xs:element name="fullScreenSourceRect" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element name="fullScreenWidth" type="xs:string"/>
-<xs:element name="quality" type="xs:string"/>
-<xs:element name="scaleMode" type="xs:string"/>
-<xs:element name="showDefaultContextMenu" type="xs:boolean"/>
-<xs:element name="stageFocusRect" type="xs:boolean"/>
-<xs:element name="stageHeight" type="xs:int"/>
-<xs:element name="stageWidth" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="align" type="xs:string"/>
+<xs:element minOccurs="0" name="colorCorrection" type="xs:string"/>
+<xs:element minOccurs="0" name="colorCorrectionSupport" type="xs:string"/>
+<xs:element minOccurs="0" name="displayState" type="xs:string"/>
+<xs:element minOccurs="0" name="focus" type="InteractiveObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="fullScreenHeight" type="xs:string"/>
+<xs:element minOccurs="0" name="fullScreenSourceRect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="fullScreenWidth" type="xs:string"/>
+<xs:element minOccurs="0" name="quality" type="xs:string"/>
+<xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
+<xs:element minOccurs="0" name="showDefaultContextMenu" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stageFocusRect" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stageHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="stageWidth" type="xs:int"/>
+</xs:all>
 <xs:attribute name="align" type="xs:string"/>
 <xs:attribute name="colorCorrection" type="xs:string"/>
 <xs:attribute name="colorCorrectionSupport" type="xs:string"/>
@@ -800,10 +800,10 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="LoaderSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectContainerSchemaType">
-<xs:sequence>
-<xs:element name="content" type="DisplayObjectSchemaTypeValue"/>
-<xs:element name="contentLoaderInfo" type="LoaderInfoSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contentLoaderInfo" type="LoaderInfoSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="content" type="xs:string"/>
 <xs:attribute name="contentLoaderInfo" type="xs:string"/>
 </xs:extension>
@@ -813,27 +813,27 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="LoaderInfoSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="actionScriptVersion" type="xs:string"/>
-<xs:element name="applicationDomain" type="flash-system:ApplicationDomainSchemaTypeValue"/>
-<xs:element name="bytes" type="flash-utils:ByteArraySchemaTypeValue"/>
-<xs:element name="bytesLoaded" type="xs:string"/>
-<xs:element name="bytesTotal" type="xs:string"/>
-<xs:element name="childAllowsParent" type="xs:boolean"/>
-<xs:element name="content" type="DisplayObjectSchemaTypeValue"/>
-<xs:element name="contentType" type="xs:string"/>
-<xs:element name="frameRate" type="xs:double"/>
-<xs:element name="height" type="xs:int"/>
-<xs:element name="loader" type="LoaderSchemaTypeValue"/>
-<xs:element name="loaderURL" type="xs:string"/>
-<xs:element name="parameters" type="xs:string"/>
-<xs:element name="parentAllowsChild" type="xs:boolean"/>
-<xs:element name="sameDomain" type="xs:boolean"/>
-<xs:element name="sharedEvents" type="flash-events:EventDispatcherSchemaTypeValue"/>
-<xs:element name="swfVersion" type="xs:string"/>
-<xs:element name="url" type="xs:string"/>
-<xs:element name="width" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="actionScriptVersion" type="xs:string"/>
+<xs:element minOccurs="0" name="applicationDomain" type="flash-system:ApplicationDomainSchemaTypeValue"/>
+<xs:element minOccurs="0" name="bytes" type="flash-utils:ByteArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:string"/>
+<xs:element minOccurs="0" name="childAllowsParent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contentType" type="xs:string"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="loader" type="LoaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="loaderURL" type="xs:string"/>
+<xs:element minOccurs="0" name="parameters" type="xs:string"/>
+<xs:element minOccurs="0" name="parentAllowsChild" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sameDomain" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sharedEvents" type="flash-events:EventDispatcherSchemaTypeValue"/>
+<xs:element minOccurs="0" name="swfVersion" type="xs:string"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
 <xs:attribute name="actionScriptVersion" type="xs:string"/>
 <xs:attribute name="applicationDomain" type="xs:string"/>
 <xs:attribute name="bytes" type="xs:string"/>
@@ -860,12 +860,12 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="BitmapDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="height" type="xs:int"/>
-<xs:element name="rect" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element name="transparent" type="xs:boolean"/>
-<xs:element name="width" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="rect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
 <xs:attribute name="height" type="xs:int"/>
 <xs:attribute name="rect" type="xs:string"/>
 <xs:attribute name="transparent" type="xs:boolean"/>
@@ -877,11 +877,11 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="SceneSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="labels" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="name" type="xs:string"/>
-<xs:element name="numFrames" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="labels" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="numFrames" type="xs:int"/>
+</xs:all>
 <xs:attribute name="labels" type="xs:string"/>
 <xs:attribute name="name" type="xs:string"/>
 <xs:attribute name="numFrames" type="xs:int"/>
@@ -892,12 +892,12 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="DisplayObjectContainerSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveObjectSchemaType">
-<xs:sequence>
-<xs:element name="mouseChildren" type="xs:boolean"/>
-<xs:element name="numChildren" type="xs:int"/>
-<xs:element name="tabChildren" type="xs:boolean"/>
-<xs:element name="textSnapshot" type="flash-text:TextSnapshotSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="mouseChildren" type="xs:boolean"/>
+<xs:element minOccurs="0" name="numChildren" type="xs:int"/>
+<xs:element minOccurs="0" name="tabChildren" type="xs:boolean"/>
+<xs:element minOccurs="0" name="textSnapshot" type="flash-text:TextSnapshotSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="mouseChildren" type="xs:boolean"/>
 <xs:attribute name="numChildren" type="xs:int"/>
 <xs:attribute name="tabChildren" type="xs:boolean"/>
@@ -909,11 +909,11 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="BitmapSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectSchemaType">
-<xs:sequence>
-<xs:element name="bitmapData" type="BitmapDataSchemaTypeValue"/>
-<xs:element name="pixelSnapping" type="xs:string"/>
-<xs:element name="smoothing" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bitmapData" type="BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="pixelSnapping" type="xs:string"/>
+<xs:element minOccurs="0" name="smoothing" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="bitmapData" type="xs:string"/>
 <xs:attribute name="pixelSnapping" type="xs:string"/>
 <xs:attribute name="smoothing" type="xs:boolean"/>
@@ -924,8 +924,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NativeMenuSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -933,15 +933,15 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="InteractiveObjectSchemaType">
 <xs:complexContent>
 <xs:extension base="DisplayObjectSchemaType">
-<xs:sequence>
-<xs:element name="accessibilityImplementation" type="flash-accessibility:AccessibilityImplementationSchemaTypeValue"/>
-<xs:element name="contextMenu" type="flash-ui:ContextMenuSchemaTypeValue"/>
-<xs:element name="doubleClickEnabled" type="xs:boolean"/>
-<xs:element name="focusRect" type="xs:string"/>
-<xs:element name="mouseEnabled" type="xs:boolean"/>
-<xs:element name="tabEnabled" type="xs:boolean"/>
-<xs:element name="tabIndex" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="accessibilityImplementation" type="flash-accessibility:AccessibilityImplementationSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contextMenu" type="flash-ui:ContextMenuSchemaTypeValue"/>
+<xs:element minOccurs="0" name="doubleClickEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="focusRect" type="xs:string"/>
+<xs:element minOccurs="0" name="mouseEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="tabEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="tabIndex" type="xs:int"/>
+</xs:all>
 <xs:attribute name="accessibilityImplementation" type="xs:string"/>
 <xs:attribute name="contextMenu" type="xs:string"/>
 <xs:attribute name="doubleClickEnabled" type="xs:boolean"/>
@@ -956,8 +956,8 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="ShaderDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

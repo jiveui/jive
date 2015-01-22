@@ -128,10 +128,10 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     /**
      * The model that defines the tree displayed by this object.
      */
-    public var treeModel(get, set): TreeModel;
+    public var model(get, set): TreeModel;
     private var _treeModel: TreeModel;
-    private function get_treeModel(): TreeModel { return getModel(); }
-    private function set_treeModel(v: TreeModel): TreeModel { setModel(v); return v; }
+    private function get_model(): TreeModel { return getModel(); }
+    private function set_model(v: TreeModel): TreeModel { setModel(v); return v; }
 
     /**
      * Models the set of selected nodes in this tree.

@@ -3,16 +3,16 @@ xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="XMLSchemaTypeValue">
-<xs:sequence><xs:element ref="XML"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="XML"/></xs:all></xs:complexType>
 
 <xs:complexType name="XMLListSchemaTypeValue">
-<xs:sequence><xs:element ref="XMLList"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="XMLList"/></xs:all></xs:complexType>
 
 <xs:complexType name="XMLSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -20,8 +20,8 @@ xmlns:empty="empty"
 <xs:complexType name="XMLListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

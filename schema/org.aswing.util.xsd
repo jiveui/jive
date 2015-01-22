@@ -7,7 +7,7 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="WeakMapSchemaTypeValue">
-<xs:sequence><xs:element ref="WeakMap"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="WeakMap"/></xs:all></xs:complexType>
 
 <xs:complexType name="ImpulserSchemaTypeValue">
 <xs:choice>
@@ -17,13 +17,13 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="WeakReferenceSchemaTypeValue">
-<xs:sequence><xs:element ref="WeakReference"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="WeakReference"/></xs:all></xs:complexType>
 
 <xs:complexType name="DepthManagerSchemaTypeValue">
-<xs:sequence><xs:element ref="DepthManager"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DepthManager"/></xs:all></xs:complexType>
 
 <xs:complexType name="ObjectUtilsSchemaTypeValue">
-<xs:sequence><xs:element ref="ObjectUtils"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ObjectUtils"/></xs:all></xs:complexType>
 
 <xs:complexType name="ListSchemaTypeValue">
 <xs:choice>
@@ -35,16 +35,16 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="HashMapSchemaTypeValue">
-<xs:sequence><xs:element ref="HashMap"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="HashMap"/></xs:all></xs:complexType>
 
 <xs:complexType name="DateAsSchemaTypeValue">
-<xs:sequence><xs:element ref="DateAs"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DateAs"/></xs:all></xs:complexType>
 
 <xs:complexType name="TimerSchemaTypeValue">
-<xs:sequence><xs:element ref="Timer"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Timer"/></xs:all></xs:complexType>
 
 <xs:complexType name="StringUtilsSchemaTypeValue">
-<xs:sequence><xs:element ref="StringUtils"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="StringUtils"/></xs:all></xs:complexType>
 
 <xs:complexType name="AbstractImpulserSchemaTypeValue">
 <xs:choice>
@@ -54,7 +54,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="ReflectionSchemaTypeValue">
-<xs:sequence><xs:element ref="Reflection"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Reflection"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayListSchemaTypeValue">
 <xs:choice>
@@ -64,31 +64,31 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="HashSetSchemaTypeValue">
-<xs:sequence><xs:element ref="HashSet"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="HashSet"/></xs:all></xs:complexType>
 
 <xs:complexType name="LinkedListSchemaTypeValue">
-<xs:sequence><xs:element ref="LinkedList"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="LinkedList"/></xs:all></xs:complexType>
 
 <xs:complexType name="StackSchemaTypeValue">
-<xs:sequence><xs:element ref="Stack"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Stack"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayUtilsSchemaTypeValue">
-<xs:sequence><xs:element ref="ArrayUtils"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ArrayUtils"/></xs:all></xs:complexType>
 
 <xs:complexType name="ListNodeSchemaTypeValue">
-<xs:sequence><xs:element ref="ListNode"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ListNode"/></xs:all></xs:complexType>
 
 <xs:complexType name="WeakMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="exists" type="xs:string"/>
-<xs:element name="get" type="xs:string"/>
-<xs:element name="iterator" type="xs:string"/>
-<xs:element name="keys" type="xs:string"/>
-<xs:element name="remove" type="xs:string"/>
-<xs:element name="set" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="exists" type="xs:string"/>
+<xs:element minOccurs="0" name="get" type="xs:string"/>
+<xs:element minOccurs="0" name="iterator" type="xs:string"/>
+<xs:element minOccurs="0" name="keys" type="xs:string"/>
+<xs:element minOccurs="0" name="remove" type="xs:string"/>
+<xs:element minOccurs="0" name="set" type="xs:string"/>
+</xs:all>
 <xs:attribute name="exists" type="xs:string"/>
 <xs:attribute name="get" type="xs:string"/>
 <xs:attribute name="iterator" type="xs:string"/>
@@ -102,8 +102,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ImpulserSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -111,9 +111,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="WeakReferenceSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="value" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:all>
 <xs:attribute name="value" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -122,8 +122,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DepthManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -131,8 +131,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ObjectUtilsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -140,8 +140,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -149,15 +149,15 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="HashMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="set" type="xs:string"/>
-<xs:element name="get" type="xs:string"/>
-<xs:element name="exists" type="xs:string"/>
-<xs:element name="remove" type="xs:string"/>
-<xs:element name="keys" type="xs:string"/>
-<xs:element name="values" type="xs:string"/>
-<xs:element name="iterator" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="set" type="xs:string"/>
+<xs:element minOccurs="0" name="get" type="xs:string"/>
+<xs:element minOccurs="0" name="exists" type="xs:string"/>
+<xs:element minOccurs="0" name="remove" type="xs:string"/>
+<xs:element minOccurs="0" name="keys" type="xs:string"/>
+<xs:element minOccurs="0" name="values" type="xs:string"/>
+<xs:element minOccurs="0" name="iterator" type="xs:string"/>
+</xs:all>
 <xs:attribute name="set" type="xs:string"/>
 <xs:attribute name="get" type="xs:string"/>
 <xs:attribute name="exists" type="xs:string"/>
@@ -172,8 +172,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateAsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -181,10 +181,10 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TimerSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractImpulserSchemaType">
-<xs:sequence>
-<xs:element name="currentCount" type="xs:int"/>
-<xs:element name="running" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="currentCount" type="xs:int"/>
+<xs:element minOccurs="0" name="running" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="currentCount" type="xs:int"/>
 <xs:attribute name="running" type="xs:boolean"/>
 </xs:extension>
@@ -194,8 +194,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="StringUtilsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -203,8 +203,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractImpulserSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -212,8 +212,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ReflectionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -221,8 +221,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ArrayListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -230,8 +230,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="HashSetSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -239,8 +239,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="LinkedListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -248,8 +248,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="StackSchemaType">
 <xs:complexContent>
 <xs:extension base="ArrayListSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -257,8 +257,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ArrayUtilsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -266,8 +266,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ListNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

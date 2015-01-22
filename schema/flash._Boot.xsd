@@ -3,13 +3,13 @@ xmlns:flash="flash"
 >
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:complexType name="RealBootSchemaTypeValue">
-<xs:sequence><xs:element ref="RealBoot"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="RealBoot"/></xs:all></xs:complexType>
 
 <xs:complexType name="RealBootSchemaType">
 <xs:complexContent>
 <xs:extension base="flash:BootSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

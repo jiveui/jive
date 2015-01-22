@@ -3,22 +3,22 @@ xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="AccessibilityPropertiesSchemaTypeValue">
-<xs:sequence><xs:element ref="AccessibilityProperties"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="AccessibilityProperties"/></xs:all></xs:complexType>
 
 <xs:complexType name="AccessibilityImplementationSchemaTypeValue">
-<xs:sequence><xs:element ref="AccessibilityImplementation"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="AccessibilityImplementation"/></xs:all></xs:complexType>
 
 <xs:complexType name="AccessibilityPropertiesSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="description" type="xs:string"/>
-<xs:element name="forceSimple" type="xs:boolean"/>
-<xs:element name="name" type="xs:string"/>
-<xs:element name="noAutoLabeling" type="xs:boolean"/>
-<xs:element name="shortcut" type="xs:string"/>
-<xs:element name="silent" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="forceSimple" type="xs:boolean"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="noAutoLabeling" type="xs:boolean"/>
+<xs:element minOccurs="0" name="shortcut" type="xs:string"/>
+<xs:element minOccurs="0" name="silent" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="description" type="xs:string"/>
 <xs:attribute name="forceSimple" type="xs:boolean"/>
 <xs:attribute name="name" type="xs:string"/>
@@ -32,10 +32,10 @@ xmlns:empty="empty"
 <xs:complexType name="AccessibilityImplementationSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="errno" type="xs:string"/>
-<xs:element name="stub" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="errno" type="xs:string"/>
+<xs:element minOccurs="0" name="stub" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="errno" type="xs:string"/>
 <xs:attribute name="stub" type="xs:boolean"/>
 </xs:extension>

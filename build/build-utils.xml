@@ -40,7 +40,7 @@
 				<isset property="dir"/>
 			</not>
 		</condition>
-		<echo level="info">Executing MassiveUnit for "${dir}"</echo>
+		<echo level="info">Executing MassiveUnit for "${dir}" with command "${command} ${options}" </echo>
 		<exec dir="${dir}" executable="haxelib" failonerror="true">
 			<arg line="run munit ${command} ${options}"/>
 		</exec>

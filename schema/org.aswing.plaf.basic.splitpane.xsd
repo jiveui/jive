@@ -5,16 +5,16 @@ xmlns:empty="empty"
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DividerIconSchemaTypeValue">
-<xs:sequence><xs:element ref="DividerIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DividerIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="DividerSchemaTypeValue">
-<xs:sequence><xs:element ref="Divider"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Divider"/></xs:all></xs:complexType>
 
 <xs:complexType name="DividerIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -22,8 +22,8 @@ xmlns:empty="empty"
 <xs:complexType name="DividerSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
