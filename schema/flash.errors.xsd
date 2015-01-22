@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="flash.errors" xmlns="flash.errors" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ErrorSchemaTypeValue">
 <xs:sequence><xs:element ref="Error"/></xs:sequence></xs:complexType>
 

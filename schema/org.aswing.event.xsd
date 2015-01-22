@@ -8,6 +8,14 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:flash-events="flash.events"
 xmlns:org-aswing-table="org.aswing.table"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:complexType name="MovedEventSchemaTypeValue">
 <xs:sequence><xs:element ref="MovedEvent"/></xs:sequence></xs:complexType>
 

@@ -3,6 +3,9 @@ xmlns:org-aswing="org.aswing"
 xmlns:flash-utils="flash.utils"
 xmlns:empty="empty"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="StringMapSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing:UIDefaults" />

@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="flash.display3D.textures" xmlns="flash.display3D.textures" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="TextureBaseSchemaTypeValue">
 <xs:choice>
 <xs:element ref="Texture" />

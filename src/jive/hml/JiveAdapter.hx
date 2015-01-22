@@ -143,4 +143,21 @@ class ContainerWithMetaWriter extends ComponentWithMetaWriter {
 	}
 }
 
+class DefaultMutableTreeNodeAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+		if (baseType == null) baseType = macro : org.aswing.tree.DefaultMutableTreeNode;
+		if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+		super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+		return [new DefaultMutableTreeNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+	}
+}
+
+class DefaultMutableTreeNodeWithMetaWriter extends ComponentWithMetaWriter {
+	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+		method.push('$scope.append(${universalGet(child)});');
+	}
+}
 #end

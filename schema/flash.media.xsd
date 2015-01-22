@@ -4,6 +4,10 @@ xmlns:flash="flash"
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="CameraSchemaTypeValue">
 <xs:sequence><xs:element ref="Camera"/></xs:sequence></xs:complexType>
 

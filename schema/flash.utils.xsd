@@ -2,6 +2,8 @@
 xmlns:empty="empty"
 xmlns:haxe-ds="haxe.ds"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
 <xs:complexType name="IDataOutputSchemaTypeValue">
 <xs:choice>
 <xs:element ref="IDataOutput2" />

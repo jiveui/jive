@@ -2,6 +2,8 @@
 xmlns:flash-utils="flash.utils"
 xmlns:empty="empty"
 >
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ApplicationDomainSchemaTypeValue">
 <xs:sequence><xs:element ref="ApplicationDomain"/></xs:sequence></xs:complexType>
 

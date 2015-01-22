@@ -2,6 +2,8 @@
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="TitleIconSchemaTypeValue">
 <xs:sequence><xs:element ref="TitleIcon"/></xs:sequence></xs:complexType>
 

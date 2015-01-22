@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.cursor" xmlns="org.aswing.plaf.basic.cursor" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:flash-display="flash.display"
 >
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:complexType name="V_ResizeCursorSchemaTypeValue">
 <xs:sequence><xs:element ref="V_ResizeCursor"/></xs:sequence></xs:complexType>
 

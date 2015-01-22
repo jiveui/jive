@@ -2,6 +2,8 @@
 xmlns:org-aswing-event="org.aswing.event"
 xmlns:empty="empty"
 >
+<xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="AsWingManagerNotInitedSchemaTypeValue">
 <xs:sequence><xs:element ref="AsWingManagerNotInited"/></xs:sequence></xs:complexType>
 

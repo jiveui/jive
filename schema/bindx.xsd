@@ -8,6 +8,14 @@ xmlns:empty="empty"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:org-aswing-table="org.aswing.table"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
+<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:complexType name="IBindableSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing:AbstractButton" />

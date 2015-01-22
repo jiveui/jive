@@ -696,7 +696,7 @@ class FHTreeStateNode extends DefaultMutableTreeNode {
 			else
 			    retCount += aChild.getTotalChildCount();
 	    }
-	    if (parent != null) { 	
+	    if (_parent != null) {
 			return retCount + (AsWingUtils.as( getParent(), FHTreeStateNode)).getCountTo(childIndex);
 	    }
 	    if(!layoutCache.isRootVisible()){

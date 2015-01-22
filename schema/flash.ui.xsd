@@ -5,6 +5,11 @@ xmlns:flash-net="flash.net"
 xmlns:flash="flash"
 xmlns:empty="empty"
 >
+<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ContextMenuBuiltInItemsSchemaTypeValue">
 <xs:sequence><xs:element ref="ContextMenuBuiltInItems"/></xs:sequence></xs:complexType>
 

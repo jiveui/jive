@@ -1,5 +1,4 @@
 <xs:schema targetNamespace="org.aswing" xmlns="org.aswing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:bindx="bindx"
 xmlns:flash-text="flash.text"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
@@ -22,6 +21,27 @@ xmlns:flash-events="flash.events"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
+<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="DecoratorSchemaTypeValue">
 <xs:choice>
 <xs:element ref="Icon" />
@@ -1213,7 +1233,41 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:sequence>
+<xs:element name="treeModel" type="org-aswing-tree:TreeModelSchemaTypeValue"/>
+<xs:element name="selectionModel" type="org-aswing-tree:TreeSelectionModelSchemaTypeValue"/>
+<xs:element name="rootVisible" type="xs:boolean"/>
+<xs:element name="cellFactory" type="org-aswing-tree:TreeCellFactorySchemaTypeValue"/>
+<xs:element name="rowHeight" type="xs:int"/>
+<xs:element name="rowHeightSet" type="xs:boolean"/>
+<xs:element name="fixedCellWidth" type="xs:int"/>
+<xs:element name="selectionForeground" type="ASColorSchemaTypeValue"/>
+<xs:element name="selectionBackground" type="ASColorSchemaTypeValue"/>
+<xs:element name="cellEditor" type="org-aswing-tree:TreeCellEditorSchemaTypeValue"/>
+<xs:element name="editable" type="xs:boolean"/>
+<xs:element name="visibleRowCount" type="xs:int"/>
+<xs:element name="invokesStopCellEditing" type="xs:boolean"/>
+<xs:element name="scrollsOnExpand" type="xs:boolean"/>
+<xs:element name="scrollsOnExpandSet" type="xs:boolean"/>
+<xs:element name="toggleClickCount" type="xs:int"/>
+<xs:element name="expandsSelectedPaths" type="xs:boolean"/>
 </xs:sequence>
+<xs:attribute name="treeModel" type="xs:string"/>
+<xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="rootVisible" type="xs:boolean"/>
+<xs:attribute name="cellFactory" type="xs:string"/>
+<xs:attribute name="rowHeight" type="xs:int"/>
+<xs:attribute name="rowHeightSet" type="xs:boolean"/>
+<xs:attribute name="fixedCellWidth" type="xs:int"/>
+<xs:attribute name="selectionForeground" type="xs:string"/>
+<xs:attribute name="selectionBackground" type="xs:string"/>
+<xs:attribute name="cellEditor" type="xs:string"/>
+<xs:attribute name="editable" type="xs:boolean"/>
+<xs:attribute name="visibleRowCount" type="xs:int"/>
+<xs:attribute name="invokesStopCellEditing" type="xs:boolean"/>
+<xs:attribute name="scrollsOnExpand" type="xs:boolean"/>
+<xs:attribute name="scrollsOnExpandSet" type="xs:boolean"/>
+<xs:attribute name="toggleClickCount" type="xs:int"/>
+<xs:attribute name="expandsSelectedPaths" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1266,8 +1320,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="dragEnabled" type="xs:boolean"/>
 <xs:element name="dropTrigger" type="xs:boolean"/>
 <xs:element name="resizerMargin" type="InsetsSchemaTypeValue"/>
-<xs:element name="__fieldBindings__" type="bindx:FieldsBindSignalSchemaTypeValue"/>
-<xs:element name="__methodBindings__" type="bindx:MethodsBindSignalSchemaTypeValue"/>
 </xs:sequence>
 <xs:attribute name="ui" type="xs:string"/>
 <xs:attribute name="clipBounds" type="xs:string"/>
@@ -1300,8 +1352,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="dragEnabled" type="xs:boolean"/>
 <xs:attribute name="dropTrigger" type="xs:boolean"/>
 <xs:attribute name="resizerMargin" type="xs:string"/>
-<xs:attribute name="__fieldBindings__" type="xs:string"/>
-<xs:attribute name="__methodBindings__" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1922,11 +1972,27 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:sequence>
+<xs:element name="verticalUnitIncrement" type="xs:int"/>
+<xs:element name="verticalBlockIncrement" type="xs:int"/>
+<xs:element name="horizontalUnitIncrement" type="xs:int"/>
+<xs:element name="horizontalBlockIncrement" type="xs:int"/>
 <xs:element name="fitViewHeight" type="xs:boolean"/>
 <xs:element name="fitViewWidth" type="xs:boolean"/>
+<xs:element name="verticalAlignment" type="xs:int"/>
+<xs:element name="horizontalAlignment" type="xs:int"/>
+<xs:element name="view" type="ComponentSchemaTypeValue"/>
+<xs:element name="viewPosition" type="org-aswing-geom:IntPointSchemaTypeValue"/>
 </xs:sequence>
+<xs:attribute name="verticalUnitIncrement" type="xs:int"/>
+<xs:attribute name="verticalBlockIncrement" type="xs:int"/>
+<xs:attribute name="horizontalUnitIncrement" type="xs:int"/>
+<xs:attribute name="horizontalBlockIncrement" type="xs:int"/>
 <xs:attribute name="fitViewHeight" type="xs:boolean"/>
 <xs:attribute name="fitViewWidth" type="xs:boolean"/>
+<xs:attribute name="verticalAlignment" type="xs:int"/>
+<xs:attribute name="horizontalAlignment" type="xs:int"/>
+<xs:attribute name="view" type="xs:string"/>
+<xs:attribute name="viewPosition" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

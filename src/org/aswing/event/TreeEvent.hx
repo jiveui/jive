@@ -82,6 +82,8 @@ class TreeEvent extends AWEvent{
      *       Object listening for the event.</td></tr>
      *  </table>
      *
+     * You can throw a <code>ExpandVetoException</code> in this event handler to indicate that this action is veto.
+     *
      *  @eventType treeWillExpand
 	 */
 	inline public static var TREE_WILL_EXPAND:String= "treeWillExpand";

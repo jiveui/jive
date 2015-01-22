@@ -2,6 +2,8 @@
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
 <xs:complexType name="TabBackgroundSchemaTypeValue">
 <xs:sequence><xs:element ref="TabBackground"/></xs:sequence></xs:complexType>
 

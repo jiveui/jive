@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="flash.xml" xmlns="flash.xml" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="XMLSchemaTypeValue">
 <xs:sequence><xs:element ref="XML"/></xs:sequence></xs:complexType>
 

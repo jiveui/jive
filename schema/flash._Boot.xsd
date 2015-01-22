@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="flash._Boot" xmlns="flash._Boot" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:flash="flash"
 >
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:complexType name="RealBootSchemaTypeValue">
 <xs:sequence><xs:element ref="RealBoot"/></xs:sequence></xs:complexType>
 

@@ -3,6 +3,9 @@ xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 xmlns:flash-media="flash.media"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
 <xs:complexType name="URLRequestHeaderSchemaTypeValue">
 <xs:sequence><xs:element ref="URLRequestHeader"/></xs:sequence></xs:complexType>
 

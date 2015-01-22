@@ -48,6 +48,54 @@ xmlns:flash-events="flash.events"
 xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 xmlns:flash-accessibility="flash.accessibility"
 >
+<xs:import namespace="bindx" schemaLocation="bindx.xsd" />
+<xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
+<xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
+<xs:import namespace="org.aswing.util" schemaLocation="org.aswing.util.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
+<xs:import namespace="flash.errors" schemaLocation="flash.errors.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
+<xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
+<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
+<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="flash.external" schemaLocation="flash.external.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
+<xs:import namespace="org.aswing.dnd" schemaLocation="org.aswing.dnd.xsd" />
+<xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
+<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
+<xs:import namespace="haxe" schemaLocation="haxe.xsd" />
+<xs:import namespace="org.aswing.graphics" schemaLocation="org.aswing.graphics.xsd" />
+<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
+<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
+<xs:import namespace="flash.xml" schemaLocation="flash.xml.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
+<xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
 <xs:complexType name="TypeSchemaTypeValue">
 <xs:sequence><xs:element ref="Type"/></xs:sequence></xs:complexType>
 

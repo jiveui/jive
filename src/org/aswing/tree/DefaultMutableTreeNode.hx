@@ -41,18 +41,25 @@ import org.aswing.util.ArrayList;
  * 
  * @author paling
  */
-class DefaultMutableTreeNode implements MutableTreeNode{
+class DefaultMutableTreeNode implements MutableTreeNode {
 	private static var AWML_INDEX:Int= 0;
 	 
 	private var awmlIndex:Int;
+
     /** this node's parent, or null if this node has no parent */
-    private var parent:MutableTreeNode;
+	public var parent(get, set): MutableTreeNode;
+	private var _parent: MutableTreeNode;
+	private function get_parent(): MutableTreeNode { return getParent(); }
+	private function set_parent(v: MutableTreeNode): MutableTreeNode { setParent(v); return v; }
 
     /** array of children, may be null if this node has no children */
     private var _children:ArrayList;
 
     /** optional user object */
-    private var userObject:Dynamic;
+	public var content(get, set): Dynamic;
+	private var userObject:Dynamic;
+	private function get_content(): Dynamic { return getUserObject(); }
+	private function set_content(v: Dynamic): Dynamic { setUserObject(v); return v; }
 
     /** true if the node is able to have children */
     private var allowsChildren:Bool;
@@ -67,10 +74,10 @@ class DefaultMutableTreeNode implements MutableTreeNode{
      * @param allowsChildren (optional)if true, the node is allowed to have child
      *        nodes -- otherwise, it is always a leaf node. Default is true.
      */
-    public function new(userObject:Dynamic, allowsChildren:Bool = true) {
+    public function new(userObject:Dynamic = null, allowsChildren:Bool = true) {
 		AWML_INDEX++;
 		awmlIndex = AWML_INDEX;
-		parent = null;
+		_parent = null;
 		this.allowsChildren = allowsChildren;
 		this.userObject = userObject;
     }
@@ -148,8 +155,9 @@ class DefaultMutableTreeNode implements MutableTreeNode{
      *
      * @param	newParent	this node's new parent
      */
+	@:dox(hide)
     public function setParent(newParent:MutableTreeNode):Void{
-		parent = newParent;
+		_parent = newParent;
     }
 
     /**
@@ -157,8 +165,9 @@ class DefaultMutableTreeNode implements MutableTreeNode{
      *
      * @return	this node's parent TreeNode, or null if this node has no parent
      */
-    public function getParent():TreeNode {
-		return parent;
+	@:dox(hide)
+    public function getParent():MutableTreeNode {
+		return _parent;
     }
 
     /**
@@ -268,6 +277,7 @@ class DefaultMutableTreeNode implements MutableTreeNode{
      * @see	#getUserObject
      * @see	#toString
      */
+	@:dox(hide)
     public function setUserObject(userObject:TreeNode):Void{
 		this.userObject = userObject;
     }
@@ -279,6 +289,7 @@ class DefaultMutableTreeNode implements MutableTreeNode{
      * @see	#setUserObject
      * @see	#toString
      */
+	@:dox(hide)
     public function getUserObject():TreeNode{
 		return userObject;
     }

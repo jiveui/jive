@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.background" xmlns="org.aswing.plaf.basic.background" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ProgressBarBackgroundSchemaTypeValue">
 <xs:sequence><xs:element ref="ProgressBarBackground"/></xs:sequence></xs:complexType>
 

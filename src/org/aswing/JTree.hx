@@ -36,86 +36,22 @@ import org.aswing.util.Stack;
 import org.aswing.util.ArrayList;
 
 /**
- * Dispatched when a property changed.
- * @eventType org.aswing.event.PropertyChangeEvent.PROPERTY_CHANGE
- */
-// [Event(name="propertyChange", type="org.aswing.event.PropertyChangeEvent")]
-
-/**
- * Dispatched when tree items selection changed.
- * @eventType org.aswing.event.TreeSelectionEvent.TREE_SELECTION_CHANGED
- */
-// [Event(name="treeSelectionChanged", type="org.aswing.event.TreeSelectionEvent")]
-
-
-/**
- * Dispatched when an item in the tree has been expanded.
- * @eventType org.aswing.event.TreeEvent.TREE_EXPANDED
- */
-// [Event(name="treeExpanded", type="org.aswing.event.TreeEvent")]
-/**
- * Dispatched when an item in the tree has been collapsed.
- * @eventType org.aswing.event.TreeEvent.TREE_COLLAPSED
- */
-// [Event(name="treeCollapsed", type="org.aswing.event.TreeEvent")]
-/**
- * Dispatched whenever a node in the tree is about to be expanded.<br>
- * 
- * You can throw a <code>ExpandVetoException</code> in this event handler to indicate that this 
- * action is veto.
- * @eventType org.aswing.event.TreeEvent.TREE_WILL_EXPAND
- */
-// [Event(name="treeWillExpand", type="org.aswing.event.TreeEvent")]
-/**
- * Dispatched whenever a node in the tree is about to be expanded.<br>
- * 
- * You can throw a <code>ExpandVetoException</code> in this event handler to indicate that this 
- * action is veto.
- * @eventType org.aswing.event.TreeEvent.TREE_WILL_COLLAPSE
- */
-// [Event(name="treeWillCollapse", type="org.aswing.event.TreeEvent")]
-
-
-/**
- * Dispatched when the cell editing started.
- * @eventType org.aswing.event.TreeCellEditEvent.EDITING_STARTED
- */
-// [Event(name="treeCellEditingStarted", type="org.aswing.event.TreeCellEditEvent")]
-
-/**
- * Dispatched when the cell editing canceled.
- * @eventType org.aswing.event.TreeCellEditEvent.EDITING_CANCELED
- */
-// [Event(name="treeCellEditingCanceled", type="org.aswing.event.TreeCellEditEvent")]
-
-/**
- * Dispatched when the cell editing finished.
- * @eventType org.aswing.event.TreeCellEditEvent.EDITING_STOPPED
- */
-// [Event(name="treeCellEditingStopped", type="org.aswing.event.TreeCellEditEvent")]
-
-
-/**
  * A control that displays a set of hierarchical data as an outline.
- * <a name="jtree_description">
- * A control that displays a set of hierarchical data as an outline.
- * You can find task-oriented documentation and examples of using trees in
- * <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/tree.html">How to Use Trees</a>,
- * a section in <em>The Java Tutorial.</em>
- * <p>
+ *
  * A specific node in a tree can be identified either by a
- * <code>TreePath</code> (an object
- * that encapsulates a node and all of its ancestors), or by its
+ * `TreePath` (an object that encapsulates a node and all of its ancestors), or by its
  * display row, where each row in the display area displays one node.
+ *
  * An <i>expanded</i> node is a non-leaf node (as identified by
  * <code>TreeModel.isLeaf(node)</code> returning false) that will displays
  * its children when all its ancestors are <i>expanded</i>.
+ *
  * A <i>collapsed</i>
  * node is one which hides them. A <i>hidden</i> node is one which is
  * under a collapsed ancestor. All of a <i>viewable</i> nodes parents
  * are expanded, but may or may not be displayed. A <i>displayed</i> node
  * is both viewable and in the display area, where it can be seen.
- * </p>
+ *
  * The following <code>JTree</code> methods use "visible" to mean "displayed":
  * <ul>
  * <li><code>isRootVisible()</code>
@@ -125,44 +61,51 @@ import org.aswing.util.ArrayList;
  * <li><code>getVisibleRowCount()</code>
  * <li><code>setVisibleRowCount()</code>
  * </ul>
- * </p>
+ *
  * The next group of <code>JTree</code> methods use "visible" to mean
  * "viewable" (under an expanded parent):
  * <ul>
  * <li><code>isPathVisible()</code>
  * <li><code>makePathVisible()</code>
  * </ul>
- * <p>
+ *
  * If you are interested in knowing when the selection listen the
- * the <code>TreeSelectionEvent.TREE_SELECTION_CHANGED</code> event.
- * </p>
+ * the `TreeSelectionEvent.TREE_SELECTION_CHANGED` event.
+ *
  * If you are interested in detecting either double-click events or when
  * a user clicks on a node, regardless of whether or not it was selected,
  * we recommend you do the following:
- * <listing>
+ * <pre>
  *     yourTree.addEventListener(MouseEvent.MOUSE_DOWN, __onPressed);
  *     ....
- *     
  *     public function __onPressed(e:Event):void {
  *         var selPath:TreePath = tree.getMousePointedPath();
  *         ....
  *     }
- * };
- * </listing>
- * <p>
- * To use <code>JTree</code> to display compound nodes
+ * </pre>
+ *
+ * To use `JTree` to display compound nodes
  * (for example, nodes containing both
- * a graphic icon and text), subclass {@link TreeCell} and {@link TreeCellFactory} and use 
- * {@link #setCellFactory} to tell the tree to use it. To edit such nodes,
- * subclass {@link TreeCellEditor} and use {@link #setCellEditor}.
- * </p>
+ * a graphic icon and text), subclass `TreeCell` and `TreeCellFactory` and use
+ * `setCellFactory` to tell the tree to use it. To edit such nodes,
+ * subclass `TreeCellEditor` and use `setCellEditor`.
+ *
  * For a big model tree, there's two way to speed up the performance.
- * <br>
- * call JTree.setFixedCellWidth(width:int) to fix the cell width.
+ * E.g. call JTree.setFixedCellWidth(width:int) to fix the cell width.
  * 
- * @see TreeModel
- * @author paling
+ * See `TreeModel`
+ *
+ * Authors: paling, ngrebenshikov
  */
+@:event("org.aswing.event.PropertyChangeEvent", "Dispatched when a property changed")
+@:event("org.aswing.event.TreeSelectionEvent.TREE_SELECTION_CHANGED","Dispatched when tree items selection changed")
+@:event("org.aswing.event.TreeEvent.TREE_EXPANDED","Dispatched when an item in the tree has been expanded")
+@:event("org.aswing.event.TreeEvent.TREE_COLLAPSED","Dispatched when an item in the tree has been collapsed")
+@:event("org.aswing.event.TreeEvent.TREE_WILL_EXPAND","Dispatched whenever a node in the tree is about to be expanded")
+@:event("org.aswing.event.TreeEvent.TREE_WILL_COLLAPSE","Dispatched whenever a node in the tree is about to be expanded")
+@:event("org.aswing.event.TreeCellEditEvent.EDITING_STARTED","Dispatched when the cell editing started")
+@:event("org.aswing.event.TreeCellEditEvent.EDITING_CANCELED","Dispatched when the cell editing canceled")
+@:event("org.aswing.event.TreeCellEditEvent.EDITING_STOPPED","Dispatched when the cell editing finished")
 class JTree extends Container  implements Viewportable implements TreeModelListener implements CellEditorListener{
 	
     /** Selection can only contain one path at a time. */
@@ -185,36 +128,97 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     /**
      * The model that defines the tree displayed by this object.
      */
-    private var treeModel:TreeModel;
+    public var treeModel(get, set): TreeModel;
+    private var _treeModel: TreeModel;
+    private function get_treeModel(): TreeModel { return getModel(); }
+    private function set_treeModel(v: TreeModel): TreeModel { setModel(v); return v; }
 
     /**
      * Models the set of selected nodes in this tree.
      */
-    private var selectionModel:TreeSelectionModel;
+    public var selectionModel(get, set): TreeSelectionModel;
+    private var _selectionModel: TreeSelectionModel;
+    private function get_selectionModel(): TreeSelectionModel { return getSelectionModel(); }
+    private function set_selectionModel(v: TreeSelectionModel): TreeSelectionModel { setSelectionModel(v); return v; }
 
     /**
      * True if the root node is displayed, false if its children are
      * the highest visible nodes.
      */
-    private var rootVisible:Bool;
+    public var rootVisible(get, set): Bool;
+    private var _rootVisible: Bool;
+    private function get_rootVisible(): Bool { return isRootVisible(); }
+    private function set_rootVisible(v: Bool): Bool { setRootVisible(v); return v; }
 
     /**
-     * The cell used to draw nodes. If <code>null</code>, the UI uses a default
-     * <code>cellRenderer</code>.
+     * The cell used to draw nodes. If <code>null</code>, the UI uses a default `cellRenderer`.
      */
-    private var cellFactory:TreeCellFactory;
+    public var cellFactory(get, set): TreeCellFactory;
+    private var _cellFactory: TreeCellFactory;
+    private function get_cellFactory(): TreeCellFactory { return getCellFactory(); }
+    private function set_cellFactory(v: TreeCellFactory): TreeCellFactory { setCellFactory(v); return v; }
 
     /**
      * Height to use for each display row. If this is <= 0 the renderer 
      * determines the height for each row.
      */
-    private var rowHeight:Int;
-    private var rowHeightSet:Bool;
-    
-    private var fixedCellWidth:Int;
+    public var rowHeight(get, set): Int;
+    private var _rowHeight: Int;
+    private function get_rowHeight(): Int { return getRowHeight(); }
+    private function set_rowHeight(v: Int): Int { setRowHeight(v); return v; }
 
-	private var selectionForeground:ASColor;
-	private var selectionBackground:ASColor;
+    /**
+     * Whether or not row height is set by user.
+     * If it is set by user, the LAF will not change the row height value.
+     */
+    public var rowHeightSet: Bool;
+
+    /**
+     * The width of every cell in the list.
+     * If `width` is -1,
+     * cell widths are computed by applying `TreeCell.getPreferredSize()` for each list element.
+     *
+     * The default value of this property is -1.
+     *
+     * If your tree model is very large or all of your tree item has same width,
+     * we recommend you set a fixed cell with it will speed up the performance.
+     *
+     * See `setRowHeight()`
+     */
+    public var fixedCellWidth(get, set): Int;
+    private var _fixedCellWidth: Int;
+    private function get_fixedCellWidth(): Int { return getFixedCellWidth(); }
+    private function set_fixedCellWidth(v: Int): Int { setFixedCellWidth(v); return v; }
+
+    /**
+     * The foreground color for selected cells.  Cell renderers
+     * can use this color to render text and graphics for selected
+     * cells.
+     *
+     * The default value of this property is defined by the look
+     * and feel implementation.
+     *
+     * See `selectionBackground`, `foreground`, `background`, `font`
+     */
+    public var selectionForeground(get, set): ASColor;
+    private var _selectionForeground: ASColor;
+    private function get_selectionForeground(): ASColor { return getSelectionForeground(); }
+    private function set_selectionForeground(v: ASColor): ASColor { setSelectionForeground(v); return v; }
+
+    /**
+     * The background color for selected cells.  Cell renderers
+     * can use this color to render text and graphics for selected
+     * cells.
+     *
+     * The default value of this property is defined by the look
+     * and feel implementation.
+     *
+     * See `selectionForeground`, `foreground`, `background`, `font`
+     */
+    public var selectionBackground(get, set): ASColor;
+    private var _selectionBackground: ASColor;
+    private function get_selectionBackground(): ASColor { return getSelectionBackground(); }
+    private function set_selectionBackground(v: ASColor): ASColor { setSelectionBackground(v); return v; }
 	
     /**
      * Maps from <code>TreePath</code> to <code>Boolean</code>
@@ -230,19 +234,28 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Editor for the entries.  Default is <code>null</code>
      * (tree is not editable).
      */
-    private var cellEditor:TreeCellEditor;
+    public var cellEditor(get, set): TreeCellEditor;
+    private var _cellEditor: TreeCellEditor;
+    private function get_cellEditor(): TreeCellEditor { return getCellEditor(); }
+    private function set_cellEditor(v: TreeCellEditor): TreeCellEditor { setCellEditor(v); return v; }
 
     /**
      * Is the tree editable? Default is false.
      */
-    private var editable:Bool;
+    public var editable(get, set): Bool;
+    private var _editable: Bool;
+    private function get_editable(): Bool { return isEditable(); }
+    private function set_editable(v: Bool): Bool { setEditable(v); return v; }
 
     /**
      * Number of rows to make visible at one time. This value is used for
      * the <code>Scrollable</code> interface. It determines the preferred
      * size of the display area.
      */
-    private var visibleRowCount:Int;
+    public var visibleRowCount(get, set): Int;
+    private var _visibleRowCount: Int;
+    private function get_visibleRowCount(): Int { return getVisibleRowCount(); }
+    private function set_visibleRowCount(v: Int): Int { setVisibleRowCount(v); return v; }
 
     /**
      * If true, when editing is to be stopped by way of selection changing,
@@ -251,19 +264,33 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * <code>cancelCellEditing</code> is invoked, and changes
      * are discarded. Default is false.
      */
-    private var invokesStopCellEditing:Bool;
+    public var invokesStopCellEditing(get, set): Bool;
+    private var _invokesStopCellEditing: Bool;
+    private function get_invokesStopCellEditing(): Bool { return isInvokesStopCellEditing(); }
+    private function set_invokesStopCellEditing(v: Bool): Bool { setInvokesStopCellEditing(v); return v; }
 
     /**
      * If true, when a node is expanded, as many of the descendants are 
      * scrolled to be visible.
      */
-    private var scrollsOnExpand:Bool;
-    private var scrollsOnExpandSet:Bool;
+    public var scrollsOnExpand(get, set): Bool;
+    private var _scrollsOnExpand: Bool;
+    private function get_scrollsOnExpand(): Bool { return isScrollsOnExpand(); }
+    private function set_scrollsOnExpand(v: Bool): Bool { setScrollsOnExpand(v); return v; }
+
+    /**
+     * Whether or not scrolls on expand is set by user.
+     * If it is set by user, the LAF will not change the scrolls on expand value.
+     */
+    public var scrollsOnExpandSet:Bool;
 
     /**
      * Number of mouse clicks before a node is expanded.
      */
-    private var toggleClickCount:Int;
+    public var toggleClickCount(get, set): Int;
+    private var _toggleClickCount: Int;
+    private function get_toggleClickCount(): Int { return getToggleClickCount(); }
+    private function set_toggleClickCount(v: Int): Int { setToggleClickCount(v); return v; }
 
     /**
      * Used when <code>setExpandedState</code> is invoked,
@@ -282,9 +309,20 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     private var anchorPath:TreePath;
 
     /**
-     * True if paths in the selection should be expanded.
+     * If true, any time the selection is changed, either via the
+     * <code>TreeSelectionModel</code>, or the cover methods provided by
+     * <code>JTree</code>, the <code>TreePath</code>s parents will be
+     * expanded to make them visible (visible meaning the parent path is
+     * expanded, not necessarily in the visible rectangle of the
+     * <code>JTree</code>). If false, when the selection
+     * changes the nodes parent is not made visible (all its parents expanded).
+     * This is useful if you wish to have your selection model maintain paths
+     * that are not always visible (all parents expanded).
      */
-    private var expandsSelectedPaths:Bool;
+    public var expandsSelectedPaths(get, set): Bool;
+    private var _expandsSelectedPaths: Bool;
+    private function get_expandsSelectedPaths(): Bool { return isExpandsSelectedPaths(); }
+    private function set_expandsSelectedPaths(v: Bool): Bool { setExpandsSelectedPaths(v); return v; }
 
     /**
      * This is set to true for the life of the <code>setUI</code> call.
@@ -345,41 +383,43 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      */
     private static function getDefaultTreeModel():TreeModel {
         var root:DefaultMutableTreeNode = new DefaultMutableTreeNode("JTree");
-		var parent:DefaultMutableTreeNode;
-	
-		parent = new DefaultMutableTreeNode("colors");
-		root.append(parent);
-		parent.append(new DefaultMutableTreeNode("blue"));
-		parent.append(new DefaultMutableTreeNode("violet"));
-		parent.append(new DefaultMutableTreeNode("red"));
-		parent.append(new DefaultMutableTreeNode("yellow"));
-	
-		parent = new DefaultMutableTreeNode("sports");
-		root.append(parent);
-		parent.append(new DefaultMutableTreeNode("basketball"));
-		parent.append(new DefaultMutableTreeNode("soccer"));
-		parent.append(new DefaultMutableTreeNode("football"));
-		parent.append(new DefaultMutableTreeNode("hockey"));
-			
-		parent = new DefaultMutableTreeNode("food");
-		root.append(parent);
-		parent.append(new DefaultMutableTreeNode("hot dogs"));
-		parent.append(new DefaultMutableTreeNode("pizza"));
-		parent.append(new DefaultMutableTreeNode("ravioli"));
-		parent.append(new DefaultMutableTreeNode("bananas"));
-		root.append(parent);
+//		var parent:DefaultMutableTreeNode;
+//
+//		parent = new DefaultMutableTreeNode("colors");
+//		root.append(parent);
+//		parent.append(new DefaultMutableTreeNode("blue"));
+//		parent.append(new DefaultMutableTreeNode("violet"));
+//		parent.append(new DefaultMutableTreeNode("red"));
+//		parent.append(new DefaultMutableTreeNode("yellow"));
+//
+//		parent = new DefaultMutableTreeNode("sports");
+//		root.append(parent);
+//		parent.append(new DefaultMutableTreeNode("basketball"));
+//		parent.append(new DefaultMutableTreeNode("soccer"));
+//		parent.append(new DefaultMutableTreeNode("football"));
+//		parent.append(new DefaultMutableTreeNode("hockey"));
+//
+//		parent = new DefaultMutableTreeNode("food");
+//		root.append(parent);
+//		parent.append(new DefaultMutableTreeNode("hot dogs"));
+//		parent.append(new DefaultMutableTreeNode("pizza"));
+//		parent.append(new DefaultMutableTreeNode("ravioli"));
+//		parent.append(new DefaultMutableTreeNode("bananas"));
+//		root.append(parent);
+
         return new DefaultTreeModel(root);
     }
 
     /**
-     * JTree(newModel:TreeModel) <br>;
-     * JTree() a defaul model will be created<br>
-     * Returns an instance of <code>JTree</code> which displays the root node 
-     * -- the tree is created using the specified data model.
+     * `JTree(newModel:TreeModel);`
      *
-     * @param newModel  (optional)the <code>TreeModel</code> to use as the data model. If miss 
-     * 					it, a defaul model will be created.
-     * @see DefaultTreeModel#asksAllowsChildren
+     * `JTree()` a defaul model will be created
+     *
+     * See `DefaultTreeModel.asksAllowsChildren`
+     *
+     * @returns an instance of `JTree` which displays the root node (the tree is created using the specified data model).
+     *
+     * @param newModel (optional) the `TreeModel` to use as the data model. If miss it, the empty model will be created.
      */
     public function new(newModel:TreeModel=null) {
         super();
@@ -393,19 +433,19 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
         if(newModel == null) newModel = getDefaultTreeModel();
         viewPosition = new IntPoint();
 		expandedStack = new Stack();
-		toggleClickCount = 3;
+		_toggleClickCount = 3;
 		expandedState = new TreePathMap();
-        rowHeight = 16;
+        _rowHeight = 16;
         rowHeightSet = false;
-        fixedCellWidth = -1;
-        visibleRowCount = 16;
-        rootVisible = true;
-        editable = false;
+        _fixedCellWidth = -1;
+        _visibleRowCount = 16;
+        _rootVisible = true;
+        _editable = false;
         setSelectionModel(new DefaultTreeSelectionModel());
-        cellFactory = null;
-		scrollsOnExpand = true;
+        _cellFactory = null;
+		_scrollsOnExpand = true;
 		scrollsOnExpandSet = false;
-		expandsSelectedPaths = false;
+		_expandsSelectedPaths = false;
 		setCellFactory(new GeneralTreeCellFactoryUIResource(DefaultTreeCell));
         setCellEditor(new DefaultTextFieldCellEditor());
         setModel(newModel);
@@ -427,6 +467,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @param ui  the <code>TreeUI</code> L&F object
      * @see UIDefaults#getUI()
      */
+    @:dox(hide)
     override public function setUI(ui:ComponentUI):Void{
 	    settingUI = true;
 	    //TODO check if need add expand/collpase listener to first
@@ -441,11 +482,13 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @see JComponent#updateUI
      */
+    @:dox(hide)
     override public function updateUI():Void{
         setUI(UIManager.getUI(this));
         invalidate();
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicTreeUI;
     }
@@ -458,6 +501,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see org.aswing.Component#getUIClassID()
      * @see org.aswing.UIDefaults#getUI()
      */
+    @:dox(hide)
     override public function getUIClassID():String{
         return "TreeUI";
     }
@@ -466,6 +510,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	 * You can not set layout to JTree, it's handled by TreeUI.
 	 * @throws Error when set any layout.
 	 */
+    @:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		throw new Error("You can not set layout to JTree, it's handled by TreeUI");
 	}
@@ -476,8 +521,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return the <code>TreeCellFactory</code> that is rendering each cell
      */
+    @:dox(hide)
     public function getCellFactory():TreeCellFactory {
-        return cellFactory;
+        return _cellFactory;
     }
 
     /**
@@ -486,15 +532,17 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param x  the <code>TreeCellFactory</code> that is to render each cell
      */
+    @:dox(hide)
     public function setCellFactory(x:TreeCellFactory):Void{
-        var oldValue:TreeCellFactory = cellFactory;
-		if(cellFactory != x){
-	        cellFactory = x;
-	        firePropertyChange(CELL_FACTORY_PROPERTY, oldValue, cellFactory);
+        var oldValue:TreeCellFactory = _cellFactory;
+		if(_cellFactory != x){
+	        _cellFactory = x;
+	        firePropertyChange(CELL_FACTORY_PROPERTY, oldValue, _cellFactory);
 	        invalidate();
 		}
     }
-    
+
+    @:dox(hide)
     override public function setFont(f:ASFont):Void{
     	var old:ASFont = getFont();
     	if(old != f){
@@ -510,10 +558,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
       *
       * @param flag  a boolean value, true if the tree is editable
       */
+    @:dox(hide)
     public function setEditable(flag:Bool):Void{
-        var oldValue:Bool= editable;
-		if(editable != flag){
-	        editable = flag;
+        var oldValue:Bool= _editable;
+		if(_editable != flag){
+	        _editable = flag;
 	        firePropertyChange(EDITABLE_PROPERTY, oldValue, flag);
 		}
     }
@@ -523,8 +572,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return true if the tree is editable
      */
+    @:dox(hide)
     public function isEditable():Bool{
-        return editable;
+        return _editable;
     }
 
     /**
@@ -535,13 +585,14 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param cellEditor the <code>TreeCellEditor</code> to use
      */
+    @:dox(hide)
     public function setCellEditor(cellEditor:TreeCellEditor):Void{
-        var oldEditor:TreeCellEditor = this.cellEditor;
+        var oldEditor:TreeCellEditor = this._cellEditor;
 		if(oldEditor != cellEditor){
 			if(oldEditor != null){
 				oldEditor.removeCellEditorListener(this);
 			}
-	        this.cellEditor = cellEditor;
+	        this._cellEditor = cellEditor;
 	        cellEditor.addCellEditorListener(this);
 	        firePropertyChange(CELL_EDITOR_PROPERTY, oldEditor, cellEditor);
 	        invalidate();
@@ -554,8 +605,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the <code>TreeCellEditor</code> in use,
      *		or <code>null</code> if the tree cannot be edited
      */
+    @:dox(hide)
     public function getCellEditor():TreeCellEditor {
-        return cellEditor;
+        return _cellEditor;
     }
 
     /**
@@ -563,8 +615,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return the <code>TreeModel</code> that is providing the data
      */
+    @:dox(hide)
     public function getModel():TreeModel {
-        return treeModel;
+        return _treeModel;
     }
 
     /**
@@ -572,27 +625,28 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param newModel the <code>TreeModel</code> that is to provide the data
      */
+    @:dox(hide)
     public function setModel(newModel:TreeModel):Void{
-    	if(treeModel == newModel){
+    	if(_treeModel == newModel){
     		return;
     	}
         clearSelection();
 
-        var oldModel:TreeModel = treeModel;
+        var oldModel:TreeModel = _treeModel;
 
-		if(treeModel != null)
-		    treeModel.removeTreeModelListener(this);
+		if(_treeModel != null)
+		    _treeModel.removeTreeModelListener(this);
 
-        treeModel = newModel;
+        _treeModel = newModel;
 		clearToggledPaths();
-		if(treeModel != null) {
-			treeModel.addTreeModelListener(this);
+		if(_treeModel != null) {
+			_treeModel.addTreeModelListener(this);
 		    // Mark the root as expanded, if it isn't a leaf.
-		    if(treeModel.getRoot() != null && !treeModel.isLeaf(treeModel.getRoot())) {
-				expandedState.put(new TreePath([treeModel.getRoot()]), true);
+		    if(_treeModel.getRoot() != null && !_treeModel.isLeaf(_treeModel.getRoot())) {
+				expandedState.put(new TreePath([_treeModel.getRoot()]), true);
 	        }
 		}
-        firePropertyChange(TREE_MODEL_PROPERTY, oldModel, treeModel);
+        firePropertyChange(TREE_MODEL_PROPERTY, oldModel, _treeModel);
         invalidate();
     }
 
@@ -601,8 +655,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return true if the root node of the tree is displayed
      */
+    @:dox(hide)
     public function isRootVisible():Bool{
-        return rootVisible;
+        return _rootVisible;
     }
 
     /**
@@ -611,11 +666,12 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param rootVisible true if the root node of the tree is to be displayed
      */
+    @:dox(hide)
     public function setRootVisible(rootVisible:Bool):Void{
-        var oldValue:Bool= this.rootVisible;
+        var oldValue:Bool= this._rootVisible;
 		if(oldValue != rootVisible){
-	        this.rootVisible = rootVisible;
-	        firePropertyChange(ROOT_VISIBLE_PROPERTY, oldValue, this.rootVisible);
+	        this._rootVisible = rootVisible;
+	        firePropertyChange(ROOT_VISIBLE_PROPERTY, oldValue, this._rootVisible);
 		}
     }
 
@@ -624,15 +680,16 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * is less than or equal to zero nothing will changed.(the current cell height will not change.)
      * @param rowHeight the height of each cell, in pixels
      */
+    @:dox(hide)
     public function setRowHeight(rowHeight:Int):Void{
-    	if(rowHeight <= 0 || this.rowHeight == rowHeight){
+    	if(rowHeight <= 0 || this._rowHeight == rowHeight){
     		return;
     	}
-        var oldValue:Int= this.rowHeight;
+        var oldValue:Int= this._rowHeight;
 
-        this.rowHeight = rowHeight;
+        this._rowHeight = rowHeight;
 		rowHeightSet = true;
-        firePropertyChange(ROW_HEIGHT_PROPERTY, oldValue, this.rowHeight);
+        firePropertyChange(ROW_HEIGHT_PROPERTY, oldValue, this._rowHeight);
         invalidate();
     }
 
@@ -640,8 +697,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Returns the height of each row. Default is 16.
      *
      */
+    @:dox(hide)
     public function getRowHeight():Int{
-        return rowHeight;
+        return _rowHeight;
     }
     
     /**
@@ -649,6 +707,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * If it is set by user, the LAF will not change the row height value.
      * @param b set or not
      */
+    @:dox(hide)
+    @:deprecated
 	public function setRowHeightSet(b:Bool):Void{
 		this.rowHeightSet = b;
 	}
@@ -658,6 +718,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * If it is set by user, the LAF will not change the row height value.
 	 * @return set or not
 	 */
+    @:dox(hide)
+    @:deprecated
 	public function isRowHeightSet():Bool{
 		return rowHeightSet;
 	}
@@ -671,8 +733,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see #setFixedCellWidth()
      * @see #getRowHeight()
      */
+    @:dox(hide)
     public function getFixedCellWidth():Int{
-        return fixedCellWidth;
+        return _fixedCellWidth;
     }
 
     /**
@@ -689,9 +752,10 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see #setFixedCellWidth()
      * @see #setRowHeight()
      */
+    @:dox(hide)
     public function setFixedCellWidth(width:Int):Void{
-    	if(width != fixedCellWidth){
-	        fixedCellWidth = width;
+    	if(width != _fixedCellWidth){
+	        _fixedCellWidth = width;
 	        treeDidChange();
     	}
     }    
@@ -703,8 +767,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see #setSelectionForeground()
      * @see #setSelectionBackground()
      */
+    @:dox(hide)
 	public function getSelectionForeground():ASColor{
-		return selectionForeground;
+		return _selectionForeground;
 	}
 	
     /**
@@ -722,10 +787,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see #setForeground()
      * @see #setBackground()
      * @see #setFont()
-     */	
+     */
+    @:dox(hide)
 	public function setSelectionForeground(selectionForeground:ASColor):Void{
-		var old:ASColor = this.selectionForeground;
-		this.selectionForeground = selectionForeground;
+		var old:ASColor = this._selectionForeground;
+		this._selectionForeground = selectionForeground;
 		if (! selectionForeground.equals(old)){
 			repaint();
 			revalidate();
@@ -738,9 +804,10 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the <code>Color</code> used for the background of selected list items
      * @see #setSelectionBackground()
      * @see #setSelectionForeground()
-     */	
+     */
+    @:dox(hide)
 	public function getSelectionBackground():ASColor{
-		return selectionBackground;
+		return _selectionBackground;
 	}
 	
     /**
@@ -756,10 +823,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @see #setForeground()
      * @see #setBackground()
      * @see #setFont()
-     */	
+     */
+    @:dox(hide)
 	public function setSelectionBackground(selectionBackground:ASColor):Void{
-		var old:ASColor = this.selectionBackground;
-		this.selectionBackground = selectionBackground;
+		var old:ASColor = this._selectionBackground;
+		this._selectionBackground = selectionBackground;
 		if (! selectionBackground.equals(old)){
 			repaint();
 			revalidate();
@@ -778,10 +846,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *        when editing is interrupted, and data is saved; false means that
      *        <code>cancelCellEditing</code> is invoked, and changes are lost
      */
+    @:dox(hide)
     public function setInvokesStopCellEditing(newValue:Bool):Void{
-        var oldValue:Bool= invokesStopCellEditing;
+        var oldValue:Bool= _invokesStopCellEditing;
 		if(oldValue != newValue){
-	        invokesStopCellEditing = newValue;
+	        _invokesStopCellEditing = newValue;
 	        firePropertyChange(INVOKES_STOP_CELL_EDITING_PROPERTY, oldValue, newValue);
 		}
     }
@@ -794,8 +863,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *         interrupted
      * @see #setInvokesStopCellEditing()
      */
+    @:dox(hide)
     public function isInvokesStopCellEditing():Bool{
-        return invokesStopCellEditing;
+        return _invokesStopCellEditing;
     }
 
     /**
@@ -813,10 +883,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *                 <code>true</code> to enable it
      * @see #getScrollsOnExpand()
      */
+    @:dox(hide)
     public function setScrollsOnExpand(newValue:Bool):Void{
-		var oldValue:Bool= scrollsOnExpand;
+		var oldValue:Bool= _scrollsOnExpand;
 		if(oldValue != newValue){
-			scrollsOnExpand = newValue;
+			_scrollsOnExpand = newValue;
 			scrollsOnExpandSet = true;
 	        firePropertyChange(SCROLLS_ON_EXPAND_PROPERTY, oldValue, newValue);
 		}
@@ -827,8 +898,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return the value of the <code>scrollsOnExpand</code> property
      */
+    @:dox(hide)
     public function isScrollsOnExpand():Bool{
-		return scrollsOnExpand;
+		return _scrollsOnExpand;
     }
     
     /**
@@ -836,6 +908,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * If it is set by user, the LAF will not change the scrolls on expand value.
      * @param b set or not 
      */
+    @:dox(hide)
     public function setScrollsOnExpandSet(b:Bool):Void{
     	scrollsOnExpandSet = b;
     }
@@ -845,6 +918,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * If it is set by user, the LAF will not change the scrolls on expand value.
      * @return set or not 
      */
+    @:dox(hide)
     public function isScrollsOnExpandSet():Bool{
     	return scrollsOnExpandSet;
     }
@@ -853,10 +927,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Sets the number of mouse clicks before a node will expand or close.
      * The default is 3. 
      */
+    @:dox(hide)
     public function setToggleClickCount(clickCount:Int):Void{
-		var oldCount:Int= toggleClickCount;
+		var oldCount:Int= _toggleClickCount;
 		if(oldCount != clickCount){
-			toggleClickCount = clickCount;
+			_toggleClickCount = clickCount;
 			firePropertyChange(TOGGLE_CLICK_COUNT_PROPERTY, oldCount, clickCount);
 		}
     }
@@ -866,8 +941,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return number of mouse clicks before node is expanded
      */
+    @:dox(hide)
     public function getToggleClickCount():Int{
-		return toggleClickCount;
+		return _toggleClickCount;
     }
 
     /**
@@ -885,10 +961,11 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @param newValue the new value for <code>expandsSelectedPaths</code>
      *               the parent of the path visible.
      */
+    @:dox(hide)
     public function setExpandsSelectedPaths(newValue:Bool):Void{
-		var oldValue:Bool= expandsSelectedPaths;
+		var oldValue:Bool= _expandsSelectedPaths;
 		if(oldValue != newValue){
-			expandsSelectedPaths = newValue;
+			_expandsSelectedPaths = newValue;
 			firePropertyChange(EXPANDS_SELECTED_PATHS_PROPERTY, oldValue, newValue);
 		}
     }
@@ -899,18 +976,20 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *         expanded
      * @see #setExpandsSelectedPaths()
      */
+    @:dox(hide)
     public function isExpandsSelectedPaths():Bool{
-		return expandsSelectedPaths;
+		return _expandsSelectedPaths;
     }
 
     /**
-     * Returns <code>isEditable</code>. This is invoked from the UI before
+     * This is invoked from the UI before
      * editing begins to insure that the given path can be edited. This
      * is provided as an entry point for subclassers to add filtered
      * editing without having to resort to creating a new editor.
      *
+     * See `editable`
+     *
      * @return true if every parent node and the node itself is editable
-     * @see #isEditable()
      */
     public function isPathEditable(path:TreePath):Bool{
         return isEditable();
@@ -922,7 +1001,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     //
 
     /**
-     * Returns the number of rows that are currently being displayed.
+     * The number of rows that are currently being displayed.
      *
      * @return the number of rows that are being displayed
      */
@@ -1181,7 +1260,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the number of nodes selected
      */
     public function getSelectionCount():Int{
-        return selectionModel.getSelectionCount();
+        return _selectionModel.getSelectionCount();
     }
 
     /**
@@ -1786,22 +1865,23 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *		or <code>null</code> to disable selections
      * @see TreeSelectionModel
      */
+    @:dox(hide)
     public function setSelectionModel(selectionModel:TreeSelectionModel):Void{
-    	if(this.selectionModel == selectionModel){
+    	if(this._selectionModel == selectionModel){
     		return;
     	}
         if(selectionModel == null){
             selectionModel = EmptySelectionModel.sharedInstance();
         }
-        var oldValue:TreeSelectionModel = this.selectionModel;
+        var oldValue:TreeSelectionModel = this._selectionModel;
 
-		if (this.selectionModel != null) {
-			this.selectionModel.removeTreeSelectionListener(__valueChangedTreeSelectionRedirector);
+		if (this._selectionModel != null) {
+			this._selectionModel.removeTreeSelectionListener(__valueChangedTreeSelectionRedirector);
 		}
 
-        this.selectionModel = selectionModel;
-	    this.selectionModel.addTreeSelectionListener(__valueChangedTreeSelectionRedirector);
-        firePropertyChange(SELECTION_MODEL_PROPERTY, oldValue, this.selectionModel);
+        this._selectionModel = selectionModel;
+	    this._selectionModel.addTreeSelectionListener(__valueChangedTreeSelectionRedirector);
+        firePropertyChange(SELECTION_MODEL_PROPERTY, oldValue, this._selectionModel);
     }
 
     /**
@@ -1813,8 +1893,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @see #setSelectionModel()
      */
+    @:dox(hide)
     public function getSelectionModel():TreeSelectionModel {
-        return selectionModel;
+        return _selectionModel;
     }
 
 	/**
@@ -1823,7 +1904,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	 * @param mode the selection mode identifier
 	 */
 	public function setSelectionMode(mode:Int):Void{
-		selectionModel.setSelectionMode(mode);	
+		_selectionModel.setSelectionMode(mode);
 	}
 
     /**
@@ -2081,12 +2162,13 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @param newCount the number of rows to display
      */
+    @:dox(hide)
     public function setVisibleRowCount(newCount:Int):Void{
-        var oldCount:Int= visibleRowCount;
+        var oldCount:Int= _visibleRowCount;
 		if(oldCount != newCount){
-	        visibleRowCount = newCount;
+	        _visibleRowCount = newCount;
 	        firePropertyChange(VISIBLE_ROW_COUNT_PROPERTY, oldCount,
-	                           visibleRowCount);
+	                           _visibleRowCount);
 	        invalidate();
 		}
     }
@@ -2096,8 +2178,9 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * @return the number of rows displayed
      */
+    @:dox(hide)
     public function getVisibleRowCount():Int{
-        return visibleRowCount;
+        return _visibleRowCount;
     }
 
     /**
@@ -2449,7 +2532,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	    if (parent.getPathCount() == 1) {
 			// New root, remove everything!
 			clearToggledPaths();
-			if(treeModel.getRoot() != null && !treeModel.isLeaf(treeModel.getRoot())) {
+			if(_treeModel.getRoot() != null && !_treeModel.isLeaf(_treeModel.getRoot())) {
 			    // Mark the root as expanded, if it isn't a leaf.
 			    expandedState.put(parent, true);
 			}

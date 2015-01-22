@@ -3,6 +3,9 @@ xmlns:flash-display="flash.display"
 xmlns:empty="empty"
 xmlns:flash-_Boot="flash._Boot"
 >
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
 <xs:complexType name="VectorSchemaTypeValue">
 <xs:sequence><xs:element ref="Vector"/></xs:sequence></xs:complexType>
 

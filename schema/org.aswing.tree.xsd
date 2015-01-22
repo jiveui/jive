@@ -4,6 +4,10 @@ xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="TreePathMapSchemaTypeValue">
 <xs:sequence><xs:element ref="TreePathMap"/></xs:sequence></xs:complexType>
 

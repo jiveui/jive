@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.frame" xmlns="org.aswing.plaf.basic.frame" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="BasicFrameTitleBarBGSchemaTypeValue">
 <xs:sequence><xs:element ref="BasicFrameTitleBarBG"/></xs:sequence></xs:complexType>
 

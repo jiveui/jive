@@ -21,8 +21,13 @@ import org.aswing.util.ArrayUtils;
  * @author paling
  */
 class DefaultTreeModel implements TreeModel {
+
     /** Root of the tree. */
-    private var root:TreeNode;
+    public var root(get, set): TreeNode;
+    private var _root: TreeNode;
+    private function get_root(): TreeNode { return getRoot(); }
+    private function set_root(v: TreeNode): TreeNode { setRoot(v); return v; }
+
     /** Listeners. */
     private var listenerList:Array<Dynamic>;
     /**
@@ -53,8 +58,8 @@ class DefaultTreeModel implements TreeModel {
       *        it can have children. Default is false.
       * @see #asksAllowsChildren
       */
-    public function new(root:TreeNode, asc:Bool=false) {
-        this.root = root;
+    public function new(root:TreeNode = null, asc:Bool=false) {
+        this._root = root;
         _asksAllowsChildren = asc;
         listenerList = new Array<Dynamic>();
     }
@@ -84,9 +89,10 @@ class DefaultTreeModel implements TreeModel {
      * Sets the root to <code>root</code>. A null <code>root</code> implies
      * the tree is to display nothing, and is legal.
      */
+    @:dox(hide)
     public function setRoot(root:TreeNode):Void{
-        var oldRoot:Dynamic= this.root;
-		this.root = root;
+        var oldRoot:Dynamic= this._root;
+		this._root = root;
         if (root == null && oldRoot != null) {
             fireTreeStructureChanged2(this, null);
         }else {
@@ -100,8 +106,9 @@ class DefaultTreeModel implements TreeModel {
      *
      * @return  the root of the tree
      */
+    @:dox(hide)
     public function getRoot():TreeNode{
-        return root;
+        return _root;
     }
 
     /**
@@ -233,7 +240,7 @@ class DefaultTreeModel implements TreeModel {
      * @param node (optional). Default is root.
      */
     public function reload(node:TreeNode=null):Void{
-    	if(node == null) node = root;
+    	if(node == null) node = _root;
         if(node != null) {
             fireTreeStructureChanged(this, getPathToRoot(node), null, null);
         }
@@ -328,7 +335,7 @@ class DefaultTreeModel implements TreeModel {
             }
         } else {
             depth++;
-            if(aNode == root){
+            if(aNode == _root){
                 retNodes = new Array<TreeNode>();
             }else{
                 retNodes = getPathToRoot(aNode.getParent(), depth);
@@ -504,6 +511,6 @@ class DefaultTreeModel implements TreeModel {
     }
     
     public function toString():String{
-    	return "DefaultTreeModel[root:" + root + "]";
+    	return "DefaultTreeModel[root:" + _root + "]";
     }
 }

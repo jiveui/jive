@@ -4,6 +4,10 @@ xmlns:org-aswing-plaf="org.aswing.plaf"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="BasicAdjusterUISchemaTypeValue">
 <xs:sequence><xs:element ref="BasicAdjusterUI"/></xs:sequence></xs:complexType>
 

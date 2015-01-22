@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="org.aswing.dnd" xmlns="org.aswing.dnd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DropMotionSchemaTypeValue">
 <xs:choice>
 <xs:element ref="DirectlyRemoveMotion" />

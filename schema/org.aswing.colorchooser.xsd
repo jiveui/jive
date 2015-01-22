@@ -3,6 +3,9 @@ xmlns:org-aswing="org.aswing"
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="NoColorIconSchemaTypeValue">
 <xs:sequence><xs:element ref="NoColorIcon"/></xs:sequence></xs:complexType>
 
