@@ -9,8 +9,9 @@ import flash.display.InteractiveObject;
 import flash.errors.Error; 
 	
 /**
- * Shared instance Tooltip to saving instances.
- * @author paling
+ * Shared instance of `JTooltip` to saving instances.
+ *
+ * Author: paling
  */
 class JSharedToolTip extends JToolTip{
 	
@@ -27,10 +28,10 @@ class JSharedToolTip extends JToolTip{
 	
 	/**
 	 * Returns the shared JSharedToolTip instance.
-	 * <p>
+	 *
 	 * You can create a your shared tool tip instance too, if you want to 
 	 * shared by the default.
-	 * </p>
+	 *
 	 * @return a singlton shared instance.
 	 */
 	public static function getSharedInstance():JSharedToolTip{
@@ -42,11 +43,11 @@ class JSharedToolTip extends JToolTip{
 	
 	/**
 	 * Sets the shared JSharedToolTip instance.
-	 * <p>
+	 *
 	 * You can only call this before any <code>getSharedInstance()</code> invoke, and 
 	 * you can only set it once. This is means, you'd better to call this at the beginning 
 	 * of your program.
-	 * </p>
+	 *
 	 * @param ins the shared JSharedToolTip instance you want to use.
 	 */
 	public static function setSharedInstance(ins:JSharedToolTip):Void{
@@ -97,10 +98,12 @@ class JSharedToolTip extends JToolTip{
 	/**
 	 * Registers a component that the tooltip describes. 
 	 * The component c may be null and will have no effect. 
-	 * <p>
+	 *
 	 * This method is overrided just to call registerComponent of this class.
+	 *
+	 * See `registerComponent()`
+	 *
 	 * @param the InteractiveObject being described
-	 * @see #registerComponent()
 	 */
 	override public function setTargetComponent(c:Component):Void{
 		registerComponent(c);
@@ -110,6 +113,7 @@ class JSharedToolTip extends JToolTip{
 	 * Returns the lastest targeted component. 
 	 * @return the lastest targeted component. 
 	 */
+	@:dox(hide)
 	override public function getTargetComponent():Component{
 		return targetedComponent;
 	}
@@ -124,6 +128,7 @@ class JSharedToolTip extends JToolTip{
 	}
 	
 	//-------------
+	@:dox(hide)
 	override private function __compRollOver(source:Component):Void{
 		var tipText:String= getTargetToolTipText(source);
 		if(tipText != null && isWaitThenPopupEnabled()){
@@ -132,7 +137,7 @@ class JSharedToolTip extends JToolTip{
 			startWaitToPopup();
 		}
 	}
-	
+	@:dox(hide)
 	override private function __compRollOut(source:Component):Void{
 		if(source == targetedComponent && isWaitThenPopupEnabled()){
 			disposeToolTip();
