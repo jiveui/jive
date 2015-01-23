@@ -1265,7 +1265,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="margin" type="InsetsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="gap" type="xs:int"/>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
 </xs:all>
+<xs:attribute name="margin" type="xs:string"/>
+<xs:attribute name="gap" type="xs:int"/>
+<xs:attribute name="orientation" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2540,7 +2546,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="containerRoot" type="flash-display:DisplayObjectContainerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="targetComponent" type="ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="offsets" type="org-aswing-geom:IntPointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="offsetsRelatedToMouse" type="xs:boolean"/>
+<xs:element minOccurs="0" name="waitThenPopupEnabled" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="containerRoot" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="targetComponent" type="xs:string"/>
+<xs:attribute name="offsets" type="xs:string"/>
+<xs:attribute name="offsetsRelatedToMouse" type="xs:boolean"/>
+<xs:attribute name="waitThenPopupEnabled" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
