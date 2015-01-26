@@ -23,9 +23,10 @@ import org.aswing.error.ImpMissError;
  * It manages the key accelerator and mnemonic for a pane.
  *
  * @see #registerMnemonic()
+ *
  * @author paling
  */	
-class JRootPane extends Container{
+class JRootPane extends Container {
 	
     public var defaultButton(get, set): JButton;
     private var _defaultButton: JButton;
@@ -72,11 +73,14 @@ class JRootPane extends Container{
 	
 	/**
 	 * Sets the main menuBar of this root pane.(Main menu bar means that 
-	 * if user press Alt key, the first menu of the menu bar will be actived)
+	 * if user press Alt key, the first menu of the menu bar will be actived).
+	 *
 	 * The menuBar must be located in this root pane(or in its child), 
 	 * otherwise, it will not have the main menu bar ability.
-	 * @menuBar the menu bar, or null 
+	 *
+	 * @param menuBar the menu bar, or null
 	 */
+    @:dox(hide)
 	public function setMenuBar(menuBar:Dynamic):Void{
 		//TODO imp
 		throw new ImpMissError();
@@ -84,9 +88,11 @@ class JRootPane extends Container{
 	
 	/**
 	 * Returns the key -> action map of this window.
+	 *
 	 * When a window is actived, it's keymap will be in working, or it is out of working.
+	 *
 	 * @see org.aswing.KeyMap
-	 * @see org.aswing.KeyboardController
+	 * @see org.aswing.KeyboardManager
 	 */
 	public function getKeyMap():KeyMap{
 		return keyManager.getKeyMap();
@@ -104,20 +110,11 @@ class JRootPane extends Container{
 		keyManager.setEnabled(b);
 	}
 	
-	/**
-	 * Sets the mnemonic be forced to work or not.
-	 *
-	 * true, to make the mnemonic be forced to work, it means what ever the root pane and
-	 * it children has focused or not, it will listen the key to make mnemonic works.<br>
-	 * false, to make the mnemonic works in normal way, it means the mnenonic will only works 
-	 * when the root pane or its children has focus.
-	 *
-	 * @param b forced work or not.
-	 */
+
 	public function setMnemonicTriggerProxy(trigger:InteractiveObject):Void{
 		if(trigger != triggerProxy){
 			if (triggerProxy != null)	{
-				#if(flash9 || html5 || cpp)
+				#if(flash9)
 				triggerProxy.removeEventListener(TextEvent.TEXT_INPUT, __textInput);
 				
 				triggerProxy.removeEventListener(KeyboardEvent.KEY_DOWN, __keyDown);
@@ -127,7 +124,7 @@ class JRootPane extends Container{
 			if(trigger == null){
 				trigger = this;
 			}
-			#if(flash9 || html5 || cpp)
+			#if(flash9)
 			trigger.addEventListener(TextEvent.TEXT_INPUT, __textInput, true, 0, true);
 
 			trigger.addEventListener(KeyboardEvent.KEY_DOWN, __keyDown, true, 0, true);
@@ -143,7 +140,10 @@ class JRootPane extends Container{
 			mnemonics.set(button.getMnemonic(), button);
 		}
 	}
-	
+
+    /**
+	 * Unregister a button with its mnemonic.
+	 */
 	public function unregisterMnemonic(button:AbstractButton):Void{
 		if(mnemonics.get(button.getMnemonic()) == button){
 			mnemonics.remove(button.getMnemonic());
