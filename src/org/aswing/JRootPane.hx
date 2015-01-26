@@ -7,11 +7,11 @@ package org.aswing;
 
 import flash.display.InteractiveObject;
 import flash.events.KeyboardEvent;
-	#if(flash9)
-	import flash.events.TextEvent;
-	#end
-	import flash.events.Event;
-	import flash.text.TextField;
+#if(flash9)
+import flash.events.TextEvent;
+#end
+import flash.events.Event;
+import flash.text.TextField;
 import org.aswing.AWKeyboard;
 
 import org.aswing.error.ImpMissError;
@@ -19,13 +19,19 @@ import org.aswing.error.ImpMissError;
 
 /**
  * The general AsWing window root container, it is the popup, window and frame's ancestor.
+ *
  * It manages the key accelerator and mnemonic for a pane.
+ *
  * @see #registerMnemonic()
  * @author paling
  */	
 class JRootPane extends Container{
 	
-	private var defaultButton:JButton;
+    public var defaultButton(get, set): JButton;
+    private var _defaultButton: JButton;
+    private function get_defaultButton(): JButton { return getDefaultButton(); }
+    private function set_defaultButton(v: JButton): JButton { setDefaultButton(v); return v; }
+
 	private var mnemonics:haxe.ds.IntMap<AbstractButton>;
 	private var mnemonicJustActed:Bool;
 	private var keyManager:KeyboardManager;
@@ -34,7 +40,7 @@ class JRootPane extends Container{
 	
 	//TODO imp
 	//private var menuBar:*;
-	
+
 	public function new(){
 		super();
 		setName("JRootPane");
@@ -48,18 +54,20 @@ class JRootPane extends Container{
 		//addEventListener(Event.REMOVED_FROM_STAGE, __removedFromStage);
 	}
 	
-	public function setDefaultButton(button:JButton):Void{
-		if(defaultButton != button){
-			if(defaultButton != null){
-				defaultButton.repaint();
+	@:dox(hide)
+    public function setDefaultButton(button:JButton):Void{
+		if(_defaultButton != button){
+			if(_defaultButton != null){
+				_defaultButton.repaint();
 			}
-			defaultButton = button;
-			defaultButton.repaint();
+			_defaultButton = button;
+			_defaultButton.repaint();
 		}
 	}
-	
+
+    @:dox(hide)
 	public function getDefaultButton():JButton{
-		return defaultButton;
+		return _defaultButton;
 	}
 	
 	/**
@@ -98,18 +106,18 @@ class JRootPane extends Container{
 	
 	/**
 	 * Sets the mnemonic be forced to work or not.
-	 * <p>
-	 * true, to make the mnemonic be forced to work, it means what ever the root pane and 
+	 *
+	 * true, to make the mnemonic be forced to work, it means what ever the root pane and
 	 * it children has focused or not, it will listen the key to make mnemonic works.<br>
 	 * false, to make the mnemonic works in normal way, it means the mnenonic will only works 
 	 * when the root pane or its children has focus.
-	 * </p>
+	 *
 	 * @param b forced work or not.
 	 */
 	public function setMnemonicTriggerProxy(trigger:InteractiveObject):Void{
 		if(trigger != triggerProxy){
 			if (triggerProxy != null)	{
-				#if(flash9)
+				#if(flash9 || html5 || cpp)
 				triggerProxy.removeEventListener(TextEvent.TEXT_INPUT, __textInput);
 				
 				triggerProxy.removeEventListener(KeyboardEvent.KEY_DOWN, __keyDown);
@@ -119,9 +127,9 @@ class JRootPane extends Container{
 			if(trigger == null){
 				trigger = this;
 			}
-			#if(flash9)
+			#if(flash9 || html5 || cpp)
 			trigger.addEventListener(TextEvent.TEXT_INPUT, __textInput, true, 0, true);
-			
+
 			trigger.addEventListener(KeyboardEvent.KEY_DOWN, __keyDown, true, 0, true);
 			#end
 		}

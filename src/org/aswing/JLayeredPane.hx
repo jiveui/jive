@@ -1,53 +1,35 @@
 package org.aswing;
 
- 
-
-
 /**
- * <code>JLayeredPane</code> adds depth to a JFC/Swing container,
+ * `JLayeredPane` adds depth to a container,
  * allowing components to overlap each other when needed.
- * An <code>Integer</code> object specifies each component's depth in the
+ *
+ * An `Integer` specifies each component's depth in the
  * container, where higher-numbered components sit &quot;on top&quot; of other
  * components.
- * For task-oriented documentation and examples of using layered panes see
- * <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/layeredpane.html">How to Use a Layered Pane</a>,
- * a section in <em>The Java Tutorial</em>.
- * <P>
- * <TABLE ALIGN="RIGHT" BORDER="0" SUMMARY="layout">
- * <TR>
- *   <TD ALIGN="CENTER">
- *     <P ALIGN="CENTER"><IMG SRC="doc-files/JLayeredPane-1.gif"
- *     alt="The following text describes this image."
- *     WIDTH="269" HEIGHT="264" ALIGN="BOTTOM" BORDER="0">
- *   </TD>
- * </TR>
- * </TABLE>
- * For convenience, <code>JLayeredPane</code> divides the depth-range
+ *
+ * For convenience, `JLayeredPane` divides the depth-range
  * into several different layers. Putting a component into one of those
  * layers makes it easy to ensure that components overlap properly,
  * without having to worry about specifying numbers for specific depths:
- * <DL>
- *    <DT><FONT SIZE="2">DEFAULT_LAYER</FONT></DT>
- *         <DD>The standard layer, where most components go. This the bottommost
- *         layer.
- *    <DT><FONT SIZE="2">PALETTE_LAYER</FONT></DT>
- *         <DD>The palette layer sits over the default layer. Useful for floating
- *         toolbars and palettes, so they can be positioned above other components.
- *    <DT><FONT SIZE="2">MODAL_LAYER</FONT></DT>
- *         <DD>The layer used for modal dialogs. They will appear on top of any
- *         toolbars, palettes, or standard components in the container.
- *    <DT><FONT SIZE="2">POPUP_LAYER</FONT></DT>
- *         <DD>The popup layer displays above dialogs. That way, the popup windows
+ *
+ * <ul>
+ *     <li>`JLayeredPane.DEFAULT_LAYER` - The standard layer, where most components go.
+ *          This the bottommost layer.</li>
+ *     <li>`JLayeredPane.PALETTE_LAYER` - The palette layer sits over the default layer. Useful for floating
+ *         toolbars and palettes, so they can be positioned above other components.</li>
+ *     <li>`JLayeredPane.MODAL_LAYER` - The layer used for modal dialogs. They will appear on top of any
+ *         toolbars, palettes, or standard components in the container.</li>
+ *     <li>`JLayeredPane.POPUP_LAYER` - The popup layer displays above dialogs. That way, the popup windows
  *         associated with combo boxes, tooltips, and other help text will appear
- *         above the component, palette, or dialog that generated them.
- *    <DT><FONT SIZE="2">DRAG_LAYER</FONT></DT>
- *         <DD>When dragging a component, reassigning it to the drag layer ensures
+ *         above the component, palette, or dialog that generated them.</li>
+ *     <li>`JLayeredPane.DRAG_LAYER` - When dragging a component, reassigning it to the drag layer ensures
  *         that it is positioned over every other component in the container. When
- *         finished dragging, it can be reassigned to its normal layer.
- * </DL>
- * The <code>JLayeredPane</code> methods <code>moveToFront(Component)</code>,
- * <code>moveToBack(Component)</code> and <code>setPosition</code> can be used
- * to reposition a component within its layer. The <code>setLayer</code> method
+ *         finished dragging, it can be reassigned to its normal layer.</li>
+ * </ul>
+ *
+ * The methods `this.moveToFront`, `this.moveToBack` and `this.setPosition` can be used
+ * to reposition a component within its layer. The `this.setLayer` method
  * can also be used to change the component's current layer.
  *
  * <h2>Details</h2>
@@ -194,7 +176,7 @@ class JLayeredPane extends   Container  {
       * @see JFrame
       * @see JRootPane
       */
-    public static function getLayeredPaneAbove( c:Component):JLayeredPane {
+    public static function getLayeredPaneAbove( c:Component): JLayeredPane {
         if(c == null) return null;
 
         var parent:Component = c.getParent();
