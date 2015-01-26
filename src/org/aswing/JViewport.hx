@@ -155,8 +155,8 @@ class JViewport extends Container  implements Viewportable {
 	 *
 	 * It returns (0,0) if view is null.
 	 *
-	 * See `setViewPosition` to set view position loudly (to trigger events).
-	 * See `Viewportable.setViewPosition`
+	 * @see setViewPosition to set view position loudly (to trigger events).
+	 * @see Viewportable.setViewPosition
 	 */
 	public var viewPosition(get, set): IntPoint;
 	private var _viewPosition: IntPoint;
@@ -685,7 +685,7 @@ class JViewport extends Container  implements Viewportable {
 	 * <li>`horizontalBlockIncrement`</li>
 	 * </ul>
 	 *
-	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
+	 * @see org.aswing.event.InteractiveEvent.STATE_CHANGED
 	 *
 	 * @param listener the listener
 	 * @param priority the priority
@@ -698,7 +698,7 @@ class JViewport extends Container  implements Viewportable {
 	/**
 	 * Removes a state listener.
 	 *
-	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
+	 * @see org.aswing.event.InteractiveEvent.STATE_CHANGED
 	 *
 	 * @param listener the listener to be removed.
 	 */

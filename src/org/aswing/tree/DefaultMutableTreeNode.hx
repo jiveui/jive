@@ -104,7 +104,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      *				<code>newChild</code> is null or is an ancestor of this node, 
      *				or if <code>childIndex</code> is out of bounds, or if this 
      *				node does not allow children
-     * See `DefaultMiutableTreeNode.isNodeDescendant`
+     * @see DefaultMiutableTreeNode.isNodeDescendant
      */
     public function insert(newChild:MutableTreeNode, childIndex:Int):Void{
 		if(allowsChildren == false) {
@@ -275,8 +275,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      *
      * @param	userObject	the Object that constitutes this node's 
      *                          user-specified data
-     * See `DefaultMiutableTreeNode.getUserObject`
-     * See `DefaultMiutableTreeNode.toString`
+     * @see DefaultMiutableTreeNode.getUserObject
+     * @see DefaultMiutableTreeNode.toString
      */
 	@:dox(hide)
     public function setUserObject(userObject:TreeNode):Void{
@@ -287,8 +287,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns this node's user object.
      *
      * @return	the Object stored at this node by the user
-     * See `DefaultMiutableTreeNode.setUserObject`
-     * See `DefaultMiutableTreeNode.toString`
+     * @see DefaultMiutableTreeNode.setUserObject
+     * @see DefaultMiutableTreeNode.toString
      */
 	@:dox(hide)
     public function getUserObject():TreeNode{
@@ -394,8 +394,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * false.  This operation is at worst O(h) where h is the distance from the
      * root to <code>anotherNode</code>.
      *
-     * See `DefaultMiutableTreeNode.isNodeAncestor`
-     * See `DefaultMiutableTreeNode.getSharedAncestor`
+     * @see DefaultMiutableTreeNode.isNodeAncestor
+     * @see DefaultMiutableTreeNode.getSharedAncestor
      * @param	anotherNode	node to test as descendant of this node
      * @return	true if this node is an ancestor of <code>anotherNode</code>
      */
@@ -412,8 +412,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * <code>aNode</code> are in different trees or if <code>aNode</code> is
      * null.  A node is considered an ancestor of itself.
      *
-     * See `DefaultMiutableTreeNode.isNodeAncestor`
-     * See `DefaultMiutableTreeNode.isNodeDescendant`
+     * @see DefaultMiutableTreeNode.isNodeAncestor
+     * @see DefaultMiutableTreeNode.isNodeDescendant
      * @param	aNode	node to find common ancestor with
      * @return	nearest ancestor common to this node and <code>aNode</code>,
      *		or null if none
@@ -474,8 +474,8 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns true if and only if <code>aNode</code> is in the same tree
      * as this node.  Returns false if <code>aNode</code> is null.
      *
-     * See `DefaultMiutableTreeNode.getSharedAncestor`
-     * See `DefaultMiutableTreeNode.getRoot`
+     * @see DefaultMiutableTreeNode.getSharedAncestor
+     * @see DefaultMiutableTreeNode.getRoot
      * @return	true if <code>aNode</code> is in the same tree as this node;
      *		false if <code>aNode</code> is null
      */
@@ -491,7 +491,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * <code>getLevel()</code> because it must effectively traverse the entire
      * tree rooted at this node.
      *
-     * See `DefaultMiutableTreeNode.getLevel`
+     * @see DefaultMiutableTreeNode.getLevel
      * @return	the depth of the tree whose root is this node
      */
     public function getDepth():Int{
@@ -514,7 +514,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns the number of levels above this node -- the distance from
      * the root to this node.  If this node is the root, returns 0.
      *
-     * See `DefaultMiutableTreeNode.getDepth`
+     * @see DefaultMiutableTreeNode.getDepth
      * @return	the number of levels above this node
      */
     public function getLevel():Int{
@@ -591,7 +591,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * Returns the root of the tree that contains this node.  The root is
      * the ancestor with a null parent.
      *
-     * See `DefaultMiutableTreeNode.isNodeAncestor`
+     * @see DefaultMiutableTreeNode.isNodeAncestor
      * @return	the root of the tree that contains this node
      */
     public function getRoot():TreeNode {
@@ -625,7 +625,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * traversal.  This is an inefficient way to traverse the entire tree; use
      * an enumeration, instead.
      *
-     * See `DefaultMiutableTreeNode.preorderEnumeration`
+     * @see DefaultMiutableTreeNode.preorderEnumeration
      * @return	the node that follows this node in a preorder traversal, or
      *		null if this node is last
      */
@@ -663,7 +663,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * This is an inefficient way to
      * traverse the entire tree; use an enumeration, instead.
      *
-     * See `DefaultMiutableTreeNode.preorderEnumeration`
+     * @see DefaultMiutableTreeNode.preorderEnumeration
      * @return	the node that precedes this node in a preorder traversal, or
      *		null if this node is the first
      */
@@ -1015,7 +1015,7 @@ class DefaultMutableTreeNode implements MutableTreeNode {
      * of children; to traverse the entire array, use the parent's child
      * enumeration instead.
      *
-     * See `DefaultMiutableTreeNode.children`
+     * @see DefaultMiutableTreeNode.children
      * @return	the sibling of this node that immediately follows this node
      */
     public function getNextSibling():DefaultMutableTreeNode {

@@ -11,7 +11,8 @@ import org.aswing.plaf.basic.BasicButtonUI;
 
 /**
  * An implementation of a "push" button.
- * @author paling
+ *
+ * Author paling, ngrebenshikov
  */
 class JButton extends AbstractButton
 {
@@ -54,14 +55,17 @@ class JButton extends AbstractButton
 		return this;
 	}
 	
-    override public function updateUI():Void{
+    @:dox(hide)
+	override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+	@:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicButtonUI;
     }
-    
+
+	@:dox(hide)
 	override public function getUIClassID():String{
 		return "ButtonUI";
 	}

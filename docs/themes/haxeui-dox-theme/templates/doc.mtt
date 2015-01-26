@@ -20,3 +20,21 @@
 		</tr>
 	</tbody>
 </table>
+
+<div ::cond info.see.length > 0:: class="see">
+<h3>See Also</h3>
+<ul>
+    ::foreach s info.see::
+    <li>::raw s.value::</li>
+    ::end::
+</ul>
+</div>
+
+<div ::cond info.authors.length > 0:: class="authors">
+<h3>Authors</h3>
+<ul>
+    ::foreach a info.authors::
+    <li>::raw a.doc::</li>
+    ::end::
+</ul>
+</div>

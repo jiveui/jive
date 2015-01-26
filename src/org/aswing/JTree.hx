@@ -93,7 +93,7 @@ import org.aswing.util.ArrayList;
  * For a big model tree, there's two way to speed up the performance.
  * E.g. call JTree.setFixedCellWidth(width:int) to fix the cell width.
  * 
- * See `TreeModel`
+ * @see TreeModel
  *
  * Authors: paling, ngrebenshikov
  */
@@ -450,7 +450,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *
      * `JTree()` a defaul model will be created
      *
-     * See `DefaultTreeModel.asksAllowsChildren`
+     * @see DefaultTreeModel.asksAllowsChildren
      *
      * @returns an instance of `JTree` which displays the root node (the tree is created using the specified data model).
      *
@@ -515,7 +515,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * Replaces the current UI object with the latest version from the 
      * <code>UIManager</code>.
      *
-     * See `JComponent.updateUI`
+     * @see JComponent.updateUI
      */
     @:dox(hide)
     override public function updateUI():Void{
@@ -1022,7 +1022,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * is provided as an entry point for subclassers to add filtered
      * editing without having to resort to creating a new editor.
      *
-     * See `editable`
+     * @see editable
      *
      * @return true if every parent node and the node itself is editable
      */
@@ -1214,7 +1214,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the last <code>Object</code> in the first selected node's
      *		<code>TreePath</code>,
      *		or <code>null</code> if nothing is selected
-     * See `TreePath.getLastPathComponent`
+     * @see TreePath.getLastPathComponent
      */
     public function getLastSelectedPathComponent():Dynamic{
         var selPath:TreePath = getSelectionModel().getSelectionPath();
@@ -1750,7 +1750,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      *          the top of the display area, minus any top margin
      * @return the row corresponding to the location, or -1 if the
      *         location is not within the bounds of a displayed cell
-     * See `getClosestRowForLocation`
+     * @see getClosestRowForLocation
      */
     public function getRowForLocation(x:Int, y:Int):Int{
 		return getRowForPath(getPathForLocation(x, y));
@@ -1770,8 +1770,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return  the <code>TreePath</code> for the node closest to that location,
      *          <code>null</code> if nothing is viewable or there is no model
      *
-     * See `getPathForLocation`
-     * See `getPathBounds`
+     * @see getPathForLocation
+     * @see getPathBounds
      */
     public function getClosestPathForLocation(x:Int, y:Int):TreePath {
         var tree:TreeUI = getTreeUI();
@@ -1795,8 +1795,8 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * @return the row closest to the location, -1 if nothing is
      *         viewable or there is no model
      *
-     * See `getRowForLocation`
-     * See `getRowBounds`
+     * @see getRowForLocation
+     * @see getRowBounds
      */
     public function getClosestRowForLocation(x:Int, y:Int):Int{
 		return getRowForPath(getClosestPathForLocation(x, y));
@@ -1807,7 +1807,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
      * edited can be obtained using <code>getSelectionPath</code>.
      *
      * @return true if the user is currently editing a node
-     * See `getSelectionPath`
+     * @see getSelectionPath
      */
     public function isEditing():Bool{
         var tree:TreeUI = getTreeUI();
@@ -2769,7 +2769,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	 * @param listener the listener
 	 * @param priority the priority
 	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * See `org.aswing.event.InteractiveEvent.STATE_CHANGED`
+	 * @see org.aswing.event.InteractiveEvent.STATE_CHANGED
 	 */
 	public function addStateListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
 		addEventListener(InteractiveEvent.STATE_CHANGED, listener, false, priority);
@@ -2778,7 +2778,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	/**
 	 * Removes a state listener.
 	 * @param listener the listener to be removed.
-	 * See `org.aswing.event.AWEvent.STATE_CHANGED`
+	 * @see org.aswing.event.AWEvent.STATE_CHANGED
 	 */	
 	public function removeStateListener(listener:Dynamic -> Void):Void{
 		removeEventListener(InteractiveEvent.STATE_CHANGED, listener);

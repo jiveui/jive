@@ -46,7 +46,7 @@ class JToolBar extends Container  implements Orientable{
       * appropriate margin space (otherwise this property will
       * effectively be ignored).
       *
-      * See `Insets`
+      * @see Insets
       */
 	public var margin(get, set): Insets;
 	private var _margin: Insets;
@@ -134,7 +134,7 @@ class JToolBar extends Container  implements Orientable{
       * appropriate margin space (otherwise this property will
       * effectively be ignored).
       *
-      * See `Insets`
+      * @see Insets
       *
       * @param m an 'Insets' object that defines the space
       * 	between the border and the buttons
@@ -153,7 +153,7 @@ class JToolBar extends Container  implements Orientable{
       * its buttons.
       *
       * @return an 'Insets' object containing the margin values
-      * See `Insets`
+      * @see Insets
       */
 	@:dox(hide)
 	public function getMargin():Insets{

@@ -130,7 +130,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	* The minimum size of a `Component'.
 	*
-	* If it's `null` it'll be calculated. See `ComponentUI.getMinimumSize`
+	* If it's `null` it'll be calculated. @see ComponentUI.getMinimumSize
 	**/
 	public var minimumSize(get, set):IntDimension;
 	private var _minimumSize:IntDimension;
@@ -140,7 +140,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	* The maximum size of a `Component'.
 	*
-	* If it's `null` it'll be calculated. See `ComponentUI.getMaximumSize`
+	* If it's `null` it'll be calculated. @see ComponentUI.getMaximumSize
 	**/
 	public var maximumSize(get, set):IntDimension;
 	private var _maximumSize:IntDimension;
@@ -266,7 +266,7 @@ class Component extends AWSprite implements IBindable {
 	*
 	* If it is `null` then this component will use `DefaultEmptyDecoraterResource.NULL_STYLE_TUNE`
 	*
-	* See `StyleTune`
+	* @see StyleTune
 	*/
 	public var styleTune(get,set): StyleTune;
 	private var _styleTune: StyleTune;
@@ -290,7 +290,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * A decorator represents the component background with a `DisplayObject`.
 	 *
-	 * See `GroundDecorator`.
+	 * @see GroundDecorator.
 	 */
 	public var backgroundDecorator(get,set): GroundDecorator;
 	private var _backgroundDecorator: GroundDecorator;
@@ -300,7 +300,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * A decorator represents the component foreground with a `DisplayObject`.
 	 *
-	 * See `GroundDecorator`.
+	 * @see GroundDecorator.
 	 */
 	public var foregroundDecorator(get,set): GroundDecorator;
 	private var _foregroundDecorator: GroundDecorator;
@@ -334,7 +334,7 @@ class Component extends AWSprite implements IBindable {
      * should override this method and return true.
      *
      *
-     * See `Component.opaqueSet`
+     * @see Component.opaqueSet
      */
 	public var opaque(get,set): Bool;
 	private var _opaque:Bool;
@@ -595,7 +595,7 @@ class Component extends AWSprite implements IBindable {
      * return a `UIDefaults` key that maps to the
      * `ComponentUI` subclass that defines their look and feel.
      *
-     * See `org.aswing.UIDefaults.getUI`
+     * @see org.aswing.UIDefaults.getUI
 
      * @return the `UIDefaults` key for a `ComponentUI` subclass
      **/
@@ -1412,7 +1412,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	* Converts global coordinates to the local space (inside component space).
 	*
-	* See `Component.localToGlobal`
+	* @see Component.localToGlobal
 	**/
 	public function globalToComponent(p:IntPoint):IntPoint{
 		var np:Point = new Point(p.x, p.y);
@@ -1423,7 +1423,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	* Converts local (inside component space) coordinates to the global space.
 	*
-	* See `Component.globalToLocal`
+	* @see Component.globalToLocal
 	**/
 	public function componentToGlobal(p:IntPoint):IntPoint{
 		var np:Point = new Point(p.x, p.y);
@@ -1465,7 +1465,7 @@ class Component extends AWSprite implements IBindable {
 		}
 	}
 	/**
-	 * See `Component.currentSize`
+	 * @see Component.currentSize
 	 */
 	@:dox(hide)
 	public function setSizeWH(w:Int, h:Int):Void{
@@ -1623,7 +1623,7 @@ class Component extends AWSprite implements IBindable {
 	 *
 	 * This will be only in effect after component created and before next layout time.
 	 *
-	 * See `Component.clipBounds`
+	 * @see Component.clipBounds
 	 */	
 	public function setClipSize(size:IntDimension):Void{
 		var bounds:IntRectangle = new IntRectangle();
@@ -1755,7 +1755,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * Removes a component to be the acceptable drag initiator to this component.
 	 *
-	 * See `Component.addDragAcceptableInitiator`
+	 * @see Component.addDragAcceptableInitiator
 	 *
 	 * @param com the acceptable drag initiator
 	 */
@@ -1993,7 +1993,7 @@ class Component extends AWSprite implements IBindable {
      * Returns the value of the property with the specified key. 
      * Only properties added with putClientProperty will return a non-null value.
      *
-     * See `Component.putClientProperty`
+     * @see Component.putClientProperty
      *
      * @param key the being queried
      * @param defaultValue if the value doesn't exists, the defaultValue will be returned
@@ -2025,7 +2025,7 @@ class Component extends AWSprite implements IBindable {
      * componentA.putClientProperty("to the left of", componentB);
      * `
      *
-     * See `Component.getClientProperty`
+     * @see Component.getClientProperty
      *
      * @param key the new client property key
      * @param value the new client property value
@@ -2384,7 +2384,7 @@ class Component extends AWSprite implements IBindable {
 	 * Redraws the component face next `RENDER` event.
 	 *
 	 * This method can be called often, so it needs to execute quickly.
-	 * See `org.aswing.RepaintManager`
+	 * @see org.aswing.RepaintManager
 	 */
 	public function repaint():Void{
 		if(isVisible() && isReadyToPaint()){
@@ -2651,7 +2651,7 @@ class Component extends AWSprite implements IBindable {
 	
 	/**
 	 * Calls parent reAppendChildren if parent is a container.
-	 * See `Container.reAppendChildren`
+	 * @see Container.reAppendChildren
 	 */
 	public function parentReAppendChildren():Void{
 		if(container!=null){
@@ -2719,7 +2719,7 @@ class Component extends AWSprite implements IBindable {
     /**
      * Transfers the focus to the next component, as though this Component were
      * the focus owner.
-     * See `Component.requestFocus`
+     * @see Component.requestFocus
      * @return true if transfered, false otherwise
      */
     public function transferFocus():Bool{
@@ -2729,7 +2729,7 @@ class Component extends AWSprite implements IBindable {
     /**
      * Transfers the focus to the previous component, as though this Component
      * were the focus owner.
-     * See `Component.requestFocus`
+     * @see Component.requestFocus
      * @return true if transfered, false otherwise
      */
     public function transferFocusBackward():Bool{
@@ -2779,7 +2779,7 @@ class Component extends AWSprite implements IBindable {
      * that this Component is the focus owner until this Component receives a
      * `org.aswing.event.AWEvent.FOCUS_GAINED` event.
      *
-     * See `Component.focusable`
+     * @see Component.focusable
      *
      * @return true if the request is made successful, false if the request is denied.
      */
@@ -2799,7 +2799,7 @@ class Component extends AWSprite implements IBindable {
      * You'd better to call `Component.requestFocus()` generally, this method is only
      * used to some internal implementation at most time.
      *
-     * See `Component.requestFocus`, `Component.getInternalFocusObject`
+     * @see Component.requestFocus, `Component.getInternalFocusObject`
      */
     public function makeFocus():Void{
     	if(getFocusTransmit() != null){
@@ -2822,7 +2822,7 @@ class Component extends AWSprite implements IBindable {
      * Other component may return a child object, for example `JTextComponent` will return
      * its `TextField` object.
      *
-     * See `org.aswing.plaf.ComponentUI.getInternalFocusObject`
+     * @see org.aswing.plaf.ComponentUI.getInternalFocusObject
      *
      * @return the object to receive the focus.
      */

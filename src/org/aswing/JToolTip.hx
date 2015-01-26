@@ -29,7 +29,7 @@ import org.aswing.util.Timer;
  * display can create an owner `ToolTip` and apply it to a component by 
  * `JToolTip.setComponent` method.
  *
- * See `JSharedToolTip`
+ * @see JSharedToolTip
  *
  * Author paling
  */

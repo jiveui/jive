@@ -60,34 +60,34 @@ class AssetPane extends Container{
 	inline public static var SCALE_FIT_HEIGHT:Int= 4;
 	/**
 	 * Custom scaling of the image.
-	 * See `AssetPane.setCustomScale`
+	 * @see AssetPane.setCustomScale
 	 */
 	inline public static var SCALE_CUSTOM:Int= 5;
 	
 	
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * See `AsWingConstants`
+	 * @see AsWingConstants
 	 */
 	inline public static var CENTER:Int= AsWingConstants.CENTER;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * See `AsWingConstants`
+	 * @see AsWingConstants
 	 */
 	inline public static var TOP:Int= AsWingConstants.TOP;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * See `AsWingConstants`
+	 * @see AsWingConstants
 	 */
     inline public static var LEFT:Int= AsWingConstants.LEFT;
 	/**
 	 * A fast access to AsWingConstants Constant
-	 * See `AsWingConstants`
+	 * @see AsWingConstants
 	 */
     inline public static var BOTTOM:Int= AsWingConstants.BOTTOM;
  	/**
 	 * A fast access to AsWingConstants Constant
-	 * See `AsWingConstants`
+	 * @see AsWingConstants
 	 */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
 
@@ -224,7 +224,7 @@ class AssetPane extends Container{
 	 * <li> `AssetPane.PREFER_SIZE_LAYOUT`
 	 * </ul>
 	 *
-	 * See `AssetPane.asset`
+	 * @see AssetPane.asset
 	 */
 	public function new(asset:DisplayObject=null, prefferSizeStrategy:Int=PREFER_SIZE_IMAGE) {
 		super();

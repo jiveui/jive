@@ -50,7 +50,7 @@ class ASFont{
 	/**
 	* Create a font.
 	*
-	* See `ASFontAdvProperties`
+	* @see ASFontAdvProperties
 	*
 	* @param embedFontsOrAdvancedPros a boolean to indicate whether or not embedFonts or a `ASFontAdvProperties` instance.
 	*/
@@ -171,7 +171,7 @@ class ASFont{
 	/**
 	 * Computes text size with this font.
 	 *
-	 * See `AsWingUtils.computeStringSizeWithFont`
+	 * @see AsWingUtils.computeStringSizeWithFont
 	 *
 	 * @param text the text to be compute
 	 * @param includeGutters whether or not include the 2-pixels gutters in the result

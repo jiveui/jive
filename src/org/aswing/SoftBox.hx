@@ -73,7 +73,7 @@ class SoftBox extends JPanel {
 	 *
 	 * Creates a panel with a `SoftBoxLayout`.
 	 *
-	 * See `org.aswing.SoftBoxLayout`
+	 * @see org.aswing.SoftBoxLayout
 	 *
 	 * @param axis the axis of layout. `SoftBoxLayout.X_AXIS` or `SoftBoxLayout.Y_AXIS`
 	 * @param gap (optional) the gap between each component, default 0
@@ -161,14 +161,14 @@ class SoftBox extends JPanel {
 	}
 	
 	/**
-	 * See `org.aswing.JSpacer.createHorizontalGlue`
+	 * @see org.aswing.JSpacer.createHorizontalGlue
 	 */
 	public static function createHorizontalGlue(width:Int=4):Component{
 		return JSpacer.createHorizontalSpacer(width);
 	}
 	
 	/**
-	 * See `org.aswing.JSpacer.createVerticalGlue`
+	 * @see org.aswing.JSpacer.createVerticalGlue
 	 */
 	public static function createVerticalGlue(height:Int=4):Component{
 		return JSpacer.createVerticalSpacer(height);

@@ -24,7 +24,7 @@ import org.aswing.JSpacer;
  *
  * <br/>
  *
- * See `SoftBox`.
+ * @see SoftBox.
  * 
  * Authors paling, ngrebenshikov
  */
@@ -40,7 +40,7 @@ class Box extends JPanel {
 	/**
 	* A gap between children in pixels
 	*
-	* See `BoxLayout`
+	* @see BoxLayout
 	**/
 	public var gap(get, set): Int;
 	private function get_gap(): Int { return getGap(); }
@@ -56,7 +56,7 @@ class Box extends JPanel {
 	 * @param axis (optional) the axis of layout, default is `X_AXIS`. Values: `org.aswing.BoxLayout.X_AXIS` or `org.aswing.BoxLayout.Y_AXIS`
      * @param gap (optional) the gap between each component, default 0
 	 *
-	 * See `org.aswing.SoftBox`
+	 * @see org.aswing.SoftBox
 	 */
 	public function new(axis:Int=0, gap:Int=0){
 		super();
@@ -122,7 +122,7 @@ class Box extends JPanel {
 	/**
 	 * Creates a glue that displays its components from left to right.
 	 *
-	 * See `org.aswing.JSpacer.createVerticalGlue`
+	 * @see org.aswing.JSpacer.createVerticalGlue
 	 */
 	public static function createHorizontalGlue():Component{
 		return JSpacer.createHorizontalSpacer(0);
@@ -131,7 +131,7 @@ class Box extends JPanel {
 	/**
 	 * Creates a glue that displays its components from top to bottom.
 	 *
-	 * See `org.aswing.JSpacer.createVerticalGlue`
+	 * @see org.aswing.JSpacer.createVerticalGlue
 	 */
 	public static function createVerticalGlue():Component{
 		return JSpacer.createVerticalSpacer(0);

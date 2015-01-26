@@ -186,7 +186,7 @@ class GridLayout extends EmptyLayout{
     }
 
     /**
-	* See `LayoutManager.preferredLayoutSize`
+	* @see LayoutManager.preferredLayoutSize
 	**/
 	@:dox(hide)
     override public function preferredLayoutSize(target:Container):IntDimension{
@@ -215,7 +215,7 @@ class GridLayout extends EmptyLayout{
     }
 
 	/**
-	* See `LayoutManager.minimumLayoutSize`
+	* @see LayoutManager.minimumLayoutSize
 	**/
 	@:dox(hide)
     override public function minimumLayoutSize(target:Container):IntDimension{
@@ -223,7 +223,7 @@ class GridLayout extends EmptyLayout{
     }
 	
 	/**
-	 * See `LayoutManager.maximumLayoutSize`
+	 * @see LayoutManager.maximumLayoutSize
 	 * @return new IntDimension(1000000, 1000000);
 	 */
 	@:dox(hide)
@@ -232,7 +232,7 @@ class GridLayout extends EmptyLayout{
     }
 
 	/**
-	* See `LayoutManager.layoutContainer`
+	* @see LayoutManager.layoutContainer
 	**/
 	@:dox(hide)
 	override public function layoutContainer(target:Container):Void{
@@ -273,7 +273,7 @@ class GridLayout extends EmptyLayout{
 	}
     
 	/**
-	 * See `LayoutManager.getLayoutAlignmentX`
+	 * @see LayoutManager.getLayoutAlignmentX
 	 * @return 0.5
 	 */
 	@:dox(hide)
@@ -282,7 +282,7 @@ class GridLayout extends EmptyLayout{
     }
 
 	/**
-	 * See `LayoutManager.getLayoutAlignmentY`
+	 * @see LayoutManager.getLayoutAlignmentY
 	 * @return 0.5
 	 */
 	@:dox(hide)

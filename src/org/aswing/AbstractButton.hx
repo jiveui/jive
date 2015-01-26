@@ -11,49 +11,21 @@ import flash.events.MouseEvent;
 import org.aswing.util.StringUtils;
 import org.aswing.error.ImpMissError;
 import org.aswing.event.ReleaseEvent;
-	import org.aswing.event.AWEvent;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.ArrayUIResource;
-	import org.aswing.plaf.UIResource;
-	import org.aswing.plaf.InsetsUIResource;
-	/**
- * Dispatched when the button's model take action, generally when user click the 
- * button or <code>doClick()</code> method is called.
- * @eventType org.aswing.event.AWEvent.ACT
- * @see org.aswing.AbstractButton#addActionListener()
- */
-// [Event(name="act", type="org.aswing.event.AWEvent")]
-
-/**
- * Dispatched when the button's state changed. the state is all about:
- * <ul>
- * <li>enabled</li>
- * <li>rollOver</li>
- * <li>pressed</li>
- * <li>released</li>
- * <li>selected</li>
- * </ul>
- * </p>
- * <p>
- * Buttons always fire <code>programmatic=false</code> InteractiveEvent.
- * </p>
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
-	
-/**
- *  Dispatched when the button's selection changed.
- * <p>
- * Buttons always fire <code>programmatic=false</code> InteractiveEvent.
- * </p>
- *  @eventType org.aswing.event.InteractiveEvent.SELECTION_CHANGED
- */
-// [Event(name="selectionChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.event.AWEvent;
+import org.aswing.event.InteractiveEvent;
+import org.aswing.plaf.ArrayUIResource;
+import org.aswing.plaf.UIResource;
+import org.aswing.plaf.InsetsUIResource;
 
 /**
  * Defines common behaviors for buttons and menu items.
+ * 
  * @author paling
+ * @author ngrebenshikov
  */
+@:event("org.aswing.event.InteractiveEvent.SELECTION_CHANGED", "Dispatched when the button's selection changed. Buttons always fire `programmatic=false` InteractiveEvent")
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the button's state changed. The state is all about:`enabled`, `rollOver`, `pressed`, `released`, `selected`")
+@:evemt("org.aswing.event.AWEvent.ACT", "Dispatched when the button's model take action, generally when user click the button or `>doClick()` method is called.")
 class AbstractButton extends Component{
 	
 	/**
@@ -90,94 +62,315 @@ class AbstractButton extends Component{
 	 * A fast access to AsWingConstants Constant
 	 * @see org.aswing.AsWingConstants
 	 */
-	inline public static var VERTICAL:Int= AsWingConstants.VERTICAL;	
-	
+	inline public static var VERTICAL:Int= AsWingConstants.VERTICAL;
 
-    /** The data model that determines the button's state. */
-    private var model:ButtonModel;
-    
+
+	/**
+     * The model that this button represents.
+     */
+	public var model(get, set): ButtonModel;
+	private var _model: ButtonModel;
+	private function get_model(): ButtonModel { return getModel(); }
+	private function set_model(v: ButtonModel): ButtonModel { setModel(v); return v; }
+
+    /**
+	 * The text include the "&"(mnemonic modifier char). For example,
+	 * if you set "&File" to be the text, then "File" will be displayed, and "F"
+	 * will be the mnemonic.
+	 *
+	 * The set operation will make button repaint, but will not make button relayout,
+	 * so if you sets a different size text, you may need to call `this.revalidate()`
+	 * to make this button to be relayouted by his container.
+	 *
+	 * @see #displayText
+	 * @see #mnemonic
+	 * @see #mnemonicIndex
+	 */
     private var _text:String;
 	public var text(get, set): String;
 	private function get_text(): String { return getText(); }
 	private function set_text(s: String): String { setText(s); return s; }
 
-	private var displayText:String;
-	private var mnemonic:Int;
-	private var mnemonicIndex:Int;
-	private var mnemonicEnabled:Bool;
-    private var margin:Insets;
+    /**
+	 * The text to be displayed, it is a text that removed the "&"(mnemonic modifier char).
+	 */
+    public var displayText(default, null):String;
+
+    /**
+	 * The keyboard mnemonic for this button, -1 means no mnemonic.
+	 * @see #text
+	 * @see #displayText
+	 * @see #mnemonicIndex
+	 */
+    public var mnemonic(default, null):Int;
+
+    /**
+	 * The mnemonic char index in the display text, -1 means no mnemonic.
+	 * @see #text
+	 * @see #displayText
+	 * @see #mnemonic
+	 */
+    public var mnemonicIndex(default, null):Int;
+
+    /**
+	 * Whether or not enabled mnemonic.
+	 */
+    public var mnemonicEnabled(get, set): Bool;
+    private var _mnemonicEnabled: Bool;
+    private function get_mnemonicEnabled(): Bool { return isMnemonicEnabled(); }
+    private function set_mnemonicEnabled(v: Bool): Bool { setMnemonicEnabled(v); return v; }
+
+    /**
+	 * The space for margin between the button's border and
+     * the label.
+     *
+     * Setting to `null` will cause the button to
+     * use the default margin.  The button's default `Border`
+     * object will use this value to create the proper margin.
+     *
+     * However, if a non-default border is set on the button,
+     * it is that `Border` object's responsibility to create the
+     * appropriate margin space (else this property will
+     * effectively be ignored).
+	 */
+    public var margin(get, set): Insets;
+    private var _margin: Insets;
+    private function get_margin(): Insets { return getMargin(); }
+    private function set_margin(v: Insets): Insets { setMargin(v); return v; }
+
     private var defaultMargin:Insets;
 
+    /*************************************************************************************************************/
     // Button icons
-    private var       defaultIcon:Icon;
-    private var       pressedIcon:Icon;
-    private var       disabledIcon:Icon;
+    /*************************************************************************************************************/
 
-    private var       selectedIcon:Icon;
-    private var       disabledSelectedIcon:Icon;
+    /**
+	 * The default icon for the button.
+	 *
+	 * A setting will make button repaint, but will not make button relayout,
+	 * so if you sets a different size icon, you may need to call `this.revalidate()`
+	 * to make this button to be relayouted by his container.
+	 */
+    public var icon(get, set): Icon;
+    private var _defaultIcon:Icon;
+    private function get_icon(): Icon { return getIcon(); }
+    private function set_icon(v: Icon): Icon { setIcon(v); return v; }
 
-    private var       rolloverIcon:Icon;
-    private var       rolloverSelectedIcon:Icon;
+    /**
+     * The pressed icon for the button.
+     */
+    public var pressedIcon(get, set): Icon;
+    private var _pressedIcon: Icon;
+    private function get_pressedIcon(): Icon { return getPressedIcon(); }
+    private function set_pressedIcon(v: Icon): Icon { setPressedIcon(v); return v; }
+
+    /**
+     * The disabled icon for the button.
+     */
+    public var disabledIcon(get, set): Icon;
+    private var _disabledIcon: Icon;
+    private function get_disabledIcon(): Icon { return getDisabledIcon(); }
+    private function set_disabledIcon(v: Icon): Icon { setDisabledIcon(v); return v; }
+
+    /**
+     * The selected icon for the button.
+     */
+    public var selectedIcon(get, set): Icon;
+    private var _selectedIcon: Icon;
+    private function get_selectedIcon(): Icon { return getSelectedIcon(); }
+    private function set_selectedIcon(v: Icon): Icon { setSelectedIcon(v); return v; }
+
+
+    /**
+     * The disabled selection icon for the button.
+     */
+    public var disabledSelectedIcon(get, set): Icon;
+    private var _disabledSelectedIcon: Icon;
+    private function get_disabledSelectedIcon(): Icon { return getDisabledSelectedIcon(); }
+    private function set_disabledSelectedIcon(v: Icon): Icon { setDisabledSelectedIcon(v); return v; }
+
+    /**
+     * The rollover icon for the button.
+     */
+    public var rolloverIcon(get, set): Icon;
+    private var _rolloverIcon: Icon;
+    private function get_rolloverIcon(): Icon { return getRollOverIcon(); }
+    private function set_rolloverIcon(v: Icon): Icon { setRollOverIcon(v); return v; }
+
+    /**
+     * The rollover selected icon for the button.
+     */
+    public var rolloverSelectedIcon(get, set): Icon;
+    private var _rolloverSelectedIcon: Icon;
+    private function get_rolloverSelectedIcon(): Icon { return getRollOverSelectedIcon(); }
+    private function set_rolloverSelectedIcon(v: Icon): Icon { setRollOverSelectedIcon(v); return v; }
     
+    /*************************************************************************************************************/
     // Display properties
-    private var    rolloverEnabled:Bool;
+    /*************************************************************************************************************/
 
+    /**
+     * Must be `true` for rollover effects to occur.
+     *
+     * The default value is `false`.
+     *
+     * Some look and feels might not implement rollover effects;
+     * they will ignore this property.
+     */
+    public var rolloverEnabled(get, set): Bool;
+    private var _rolloverEnabled: Bool;
+    private function get_rolloverEnabled(): Bool { return isRollOverEnabled(); }
+    private function set_rolloverEnabled(v: Bool): Bool { setRollOverEnabled(v); return v; }
+
+    /*************************************************************************************************************/
     // Icon/Label Alignment
-    private var        verticalAlignment:Int;
-    private var        horizontalAlignment:Int;
-    
-    private var        verticalTextPosition:Int;
-    private var        horizontalTextPosition:Int;
+    /*************************************************************************************************************/
 
-    private var        iconTextGap:Int;	
-    private var shiftOffset:Int;
-    private var shiftOffsetSet:Bool;
+    /**
+     * The vertical alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`org.aswing.AsWingConstants.CENTER` (the default)
+     * <li>`org.aswing.AsWingConstants.TOP`
+     * <li>`org.aswing.AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalAlignment(get, set): Int;
+    private var _verticalAlignment: Int;
+    private function get_verticalAlignment(): Int { return getVerticalAlignment(); }
+    private function set_verticalAlignment(v: Int): Int { setVerticalAlignment(v); return v; }
+
+    /**
+     * The horizontal alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`org.aswing.AsWingConstants.RIGHT` (the default)
+     * <li>`org.aswing.AsWingConstants.LEFT`
+     * <li>`org.aswing.AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalAlignment(get, set): Int;
+    private var _horizontalAlignment: Int;
+    private function get_horizontalAlignment(): Int { return getHorizontalAlignment(); }
+    private function set_horizontalAlignment(v: Int): Int { setHorizontalAlignment(v); return v; }
+
+    /**
+     * The vertical position of the text relative to the icon.
+     * One of the following values:
+     * <ul>
+     * <li>`org.aswing.AsWingConstants.CENTER` (the default)
+     * <li>`org.aswing.AsWingConstants.TOP`
+     * <li>`org.aswing.AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalTextPosition(get, set): Int;
+    private var _verticalTextPosition: Int;
+    private function get_verticalTextPosition(): Int { return getVerticalTextPosition(); }
+    private function set_verticalTextPosition(v: Int): Int { setVerticalTextPosition(v); return v; }
+
+    /**
+     * The horizontal position of the text relative to the icon.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`org.aswing.AsWingConstants.RIGHT` (the default)
+     * <li>`org.aswing.AsWingConstants.LEFT`
+     * <li>`org.aswing.AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalTextPosition(get, set): Int;
+    private var _horizontalTextPosition: Int;
+    private function get_horizontalTextPosition(): Int { return getHorizontalTextPosition(); }
+    private function set_horizontalTextPosition(v: Int): Int { setHorizontalTextPosition(v); return v; }
+
+    /**
+     * If both the icon and text properties are set, this property
+     * defines the space between them.
+     *
+     * The default value of this property is 4 pixels.
+     */
+    public var iconTextGap(get, set): Int;
+    private var _iconTextGap: Int;
+    private function get_iconTextGap(): Int { return getIconTextGap(); }
+    private function set_iconTextGap(v: Int): Int { setIconTextGap(v); return v; }
+
+    /**
+     * The shift offset of the content when mouse press.
+     */
+    public var shiftOffset(get, set): Int;
+    private var _shiftOffset: Int;
+    private function get_shiftOffset(): Int { return getShiftOffset(); }
+    private function set_shiftOffset(v: Int): Int { setShiftOffset(v); return v; }
+
+    /**
+    * Whether or not the shiftOffset has set by user. The LAF will not change this value if it is true.
+    **/
+    public var shiftOffsetSet:Bool;
     
-    private var        textFilters:Array<BitmapFilter>;
+    public var textFilters(get, set): Array<BitmapFilter>;
+    private var _textFilters: Array<BitmapFilter>;
+    private function get_textFilters(): Array<BitmapFilter> { return getTextFilters(); }
+    private function set_textFilters(v: Array<BitmapFilter>): Array<BitmapFilter> { setTextFilters(v); return v; }
+
+
+    /**
+     * The state of the button.
+     *
+     * Note that setting does not trigger `ACT` Event for users (will of course trigger `STATE_CHANGED` event).
+     * Call `this.doClick()` to perform a programatic action change.
+     */
+    public var selected(get, set): Bool;
+    private var _selected: Bool;
+    private function get_selected(): Bool { return isSelected(); }
+    private function set_selected(v: Bool): Bool { setSelected(v); return v; }
 	
 	public function new(text:String="", icon:Icon=null){
-		this.shiftOffset=0;
+		this._shiftOffset=0;
 		this.shiftOffsetSet=false;
 			super();
 	 	
 		setName("AbstractButton");
 	
-    	rolloverEnabled = true;
+    	_rolloverEnabled = true;
     	
-    	verticalAlignment = CENTER;
-    	horizontalAlignment = CENTER;
-    	verticalTextPosition = CENTER;
-    	horizontalTextPosition = RIGHT;
+    	_verticalAlignment = CENTER;
+    	_horizontalAlignment = CENTER;
+    	_verticalTextPosition = CENTER;
+    	_horizontalTextPosition = RIGHT;
     		
-    	textFilters = new Array<BitmapFilter>();
+    	_textFilters = new Array<BitmapFilter>();
     	
-    	iconTextGap = 2;
-    	mnemonicEnabled = true;
+    	_iconTextGap = 2;
+    	_mnemonicEnabled = true;
     	this._text = text;
     	this.analyzeMnemonic();
-    	this.defaultIcon = icon;
+    	this._defaultIcon = icon;
     	//setText(text);
     	//setIcon(icon);
     	initSelfHandlers();
     	
     	updateUI(); 
-    	installIcon(defaultIcon);
+    	installIcon(_defaultIcon);
 	}
 
     /**
      * Returns the model that this button represents.
      * @return the <code>model</code> property
-     * @see #setModel()
+     * @see `#setModel()`
      */
+	@:dox(hide)
     public function getModel():ButtonModel{
-        return model;
+        return _model;
     }
     
     /**
      * Sets the model that this button represents.
      * @param m the new <code>ButtonModel</code>
-     * @see #getModel()
+     * See `#getModel()`
      */
+	@:dox(hide)
     public function setModel(newModel:ButtonModel):Void{
         
         var oldModel:ButtonModel = getModel();
@@ -188,7 +381,7 @@ class AbstractButton extends Component{
             oldModel.removeSelectionListener(__modelSelectionListener);
         }
         
-        model = newModel;
+        _model = newModel;
         
         if (newModel != null) {
         	newModel.addActionListener(__modelActionListener);
@@ -204,9 +397,11 @@ class AbstractButton extends Component{
          
     /**
      * Resets the UI property to a value from the current look
-     * and feel.  Subtypes of <code>AbstractButton</code>
+     * and feel.
+     *
+     * Subtypes of `AbstractButton`
      * should override this to update the UI. For
-     * example, <code>JButton</code> might do the following:
+     * example, `JButton` might do the following:
      * <pre>
      *      setUI(ButtonUI(UIManager.getUI(this)));
      * </pre>
@@ -216,7 +411,7 @@ class AbstractButton extends Component{
     }
     
     /**
-     * Programmatically perform a "click".
+     * Programmatically perform a click.
      */
     public function doClick():Void{
     	dispatchEvent(new MouseEvent(MouseEvent.ROLL_OVER, true, false, 0, 0));
@@ -231,20 +426,22 @@ class AbstractButton extends Component{
     }
     
     /**
-     * Adds a action listener to this button. Buttons fire a action event when 
+     * Adds a action listener to this button. Buttons fire a action event when
      * user clicked on it.
-	 * @param listener the listener
-	 * @param priority the priority
-	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.AWEvent#ACT
+     *
+     * See `org.aswing.event.AWEvent#ACT`
+     *
+     * @param listener the listener
+     * @param priority the priority
+     * @param useWeakReference Determines whether the reference to the listener is strong or weak.
      */
     public function addActionListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
     	addEventListener(AWEvent.ACT, listener, false, priority, useWeakReference);
     }
+
 	/**
 	 * Removes a action listener.
 	 * @param listener the listener to be removed.
-	 * @see org.aswing.event.AWEvent#ACT
 	 */
 	public function removeActionListener(listener:Dynamic -> Void):Void{
 		removeEventListener(AWEvent.ACT, listener);
@@ -256,7 +453,7 @@ class AbstractButton extends Component{
 	 * @param listener the listener
 	 * @param priority the priority
 	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.InteractiveEvent#SELECTION_CHANGED
+	 * See `org.aswing.event.InteractiveEvent#SELECTION_CHANGED`
 	 */	
 	public function addSelectionListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
 		addEventListener(InteractiveEvent.SELECTION_CHANGED, listener, false, priority);
@@ -265,7 +462,7 @@ class AbstractButton extends Component{
 	/**
 	 * Removes a selection listener.
 	 * @param listener the listener to be removed.
-	 * @see org.aswing.event.InteractiveEvent#SELECTION_CHANGED
+	 * See `org.aswing.event.InteractiveEvent#SELECTION_CHANGED`
 	 */
 	public function removeSelectionListener(listener:Dynamic -> Void):Void{
 		removeEventListener(InteractiveEvent.SELECTION_CHANGED, listener);
@@ -276,11 +473,11 @@ class AbstractButton extends Component{
 	 * <p>
 	 * When the button's state changed, the state is all about:
 	 * <ul>
-	 * <li>enabled</li>
-	 * <li>rollOver</li>
-	 * <li>pressed</li>
-	 * <li>released</li>
-	 * <li>selected</li>
+	 * <li>`this.enabled`</li>
+	 * <li>`this.rollOver`</li>
+	 * <li>`this.pressed`</li>
+	 * <li>`this.released`</li>
+	 * <li>`this.selected`</li>
 	 * </ul>
 	 * </p>
 	 * @param listener the listener
@@ -305,12 +502,13 @@ class AbstractButton extends Component{
      * Enabled (or disabled) the button.
      * @param b  true to enable the button, otherwise false
      */
+    @:dox(hide)
 	override public function setEnabled(b:Bool):Void{
-		if (!b && model.isRollOver()) {
-	    	model.setRollOver(false);
+		if (!b && _model.isRollOver()) {
+	    	_model.setRollOver(false);
 		}
         super.setEnabled(b);
-        model.setEnabled(b);
+        _model.setEnabled(b);
     }    
 
     /**
@@ -318,8 +516,9 @@ class AbstractButton extends Component{
      * toggle button is selected, false if it's not.
      * @return true if the toggle button is selected, otherwise false
      */
+    @:dox(hide)
     public function isSelected():Bool{
-        return model.isSelected();
+        return _model.isSelected();
     }
     
     /**
@@ -329,8 +528,9 @@ class AbstractButton extends Component{
      *
      * @param b  true if the button is selected, otherwise false
      */
+    @:dox(hide)
     public function setSelected(b:Bool):Void{
-        model.setSelected(b);
+        _model.setSelected(b);
     }
     
     /**
@@ -342,11 +542,12 @@ class AbstractButton extends Component{
      * they will ignore this property.
      * 
      * @param b if <code>true</code>, rollover effects should be painted
-     * @see #isRollOverEnabled()
+     * See `#isRollOverEnabled()`
      */
+    @:dox(hide)
     public function setRollOverEnabled(b:Bool):Void{
-    	if(rolloverEnabled != b){
-    		rolloverEnabled = b;
+    	if(_rolloverEnabled != b){
+    		_rolloverEnabled = b;
     		repaint();
     	}
     }
@@ -355,10 +556,11 @@ class AbstractButton extends Component{
      * Gets the <code>rolloverEnabled</code> property.
      *
      * @return the value of the <code>rolloverEnabled</code> property
-     * @see #setRollOverEnabled()
-     */    
+     * See `#setRollOverEnabled()`
+     */
+    @:dox(hide)
     public function isRollOverEnabled():Bool{
-    	return rolloverEnabled;
+    	return _rolloverEnabled;
     }
 
 	/**
@@ -373,6 +575,7 @@ class AbstractButton extends Component{
      *
      * @param m the space between the border and the label
 	 */
+    @:dox(hide)
 	public function setMargin(m:Insets):Void{
         // Cache the old margin if it comes from the UI
         if(Std.is(m,UIResource)) {
@@ -385,17 +588,18 @@ class AbstractButton extends Component{
             m = defaultMargin;
         }
 
-        var old:Insets = margin;
-        margin = m;
+        var old:Insets = _margin;
+        _margin = m;
         if (old == null || !m.equals(old)) {
             revalidate();
         	repaint();
         }
 	}
-	
+
+    @:dox(hide)
 	public function getMargin():Insets{
-		var m:Insets = margin;
-		if(margin == null){
+		var m:Insets = _margin;
+		if(_margin == null){
 			m = defaultMargin;
 		}
 		if(m == null){
@@ -407,13 +611,15 @@ class AbstractButton extends Component{
 		}
 	}
 	
-	public function setTextFilters(fs:Array<BitmapFilter>):Void{
-		textFilters = fs;
+	@:dox(hide)
+    public function setTextFilters(fs:Array<BitmapFilter>):Void{
+		_textFilters = fs;
 		repaint();
 	}
-	
+
+    @:dox(hide)
 	public function getTextFilters():Array<BitmapFilter>{
-		return textFilters;
+		return _textFilters;
 	}
 	
 	/**
@@ -441,10 +647,11 @@ class AbstractButton extends Component{
 	 * to make this button to be relayouted by his container.
 	 * </p>
 	 * @param text the text.
-	 * @see #getDisplayText()
-	 * @see #getMnemonic()
-	 * @see #getMnemonicIndex()
+	 * See `#getDisplayText()`
+	 * See `#getMnemonic()`
+	 * See `#getMnemonicIndex()`
 	 */
+    @:dox(hide)
 	public function setText(text:String):Void{
 		if(this._text != text){
 			this._text = text;
@@ -457,18 +664,20 @@ class AbstractButton extends Component{
 	/**
 	 * Sets whether or not enabled mnemonic.
 	 */
+    @:dox(hide)
 	public function setMnemonicEnabled(b:Bool):Void{
-		if(mnemonicEnabled != b){
-			mnemonicEnabled = b;
+		if(_mnemonicEnabled != b){
+			_mnemonicEnabled = b;
 			analyzeMnemonic();
 		}
 	}
 	
 	/**
 	 * Returns whether or not enabled mnemonic.
-	 */	
+	 */
+    @:dox(hide)
 	public function isMnemonicEnabled():Bool{
-		return mnemonicEnabled;
+		return _mnemonicEnabled;
 	}
 	
 	private function analyzeMnemonic():Void{
@@ -478,7 +687,7 @@ class AbstractButton extends Component{
 		if(_text == null){
 			return;
 		}
-		if(mnemonicEnabled!=true){
+		if(_mnemonicEnabled!=true){
 			return;
 		}
 		var mi:Int= _text.indexOf("&");
@@ -507,8 +716,9 @@ class AbstractButton extends Component{
 	/**
 	 * Returns the text include the "&"(mnemonic modifier char).
 	 * @return the text.
-	 * @see #getDisplayText()
+	 * See `#getDisplayText()`
 	 */
+    @:dox(hide)
 	public function getText():String{
 		return _text;
 	}
@@ -517,6 +727,7 @@ class AbstractButton extends Component{
 	 * Returns the text to be displayed, it is a text that removed the "&"(mnemonic modifier char).
 	 * @return the text to be displayed.
 	 */
+    @:dox(hide)
 	public function getDisplayText():String{
 		return displayText;	
 	}
@@ -524,8 +735,9 @@ class AbstractButton extends Component{
 	/**
 	 * Returns the mnemonic char index in the display text, -1 means no mnemonic.
 	 * @return the mnemonic char index or -1.
-	 * @see #getDisplayText()
+	 * See `#getDisplayText()`
 	 */
+    @:dox(hide)
 	public function getMnemonicIndex():Int{
 		return mnemonicIndex;
 	}
@@ -534,6 +746,7 @@ class AbstractButton extends Component{
 	 * Returns the keyboard mnemonic for this button, -1 means no mnemonic.
 	 * @return the keyboard mnemonic or -1.
 	 */
+    @:dox(hide)
 	public function getMnemonic():Int{
 		return mnemonic;
 	}
@@ -560,37 +773,41 @@ class AbstractButton extends Component{
 	 * </p>
 	 * @param defaultIcon the default icon for the button.
 	 */
+    @:dox(hide)
 	public function setIcon(defaultIcon:Icon):Void{
-		if(this.defaultIcon != defaultIcon){
-			uninstallIcon(this.defaultIcon);
-			this.defaultIcon = defaultIcon;
+		if(this._defaultIcon != defaultIcon){
+			uninstallIcon(this._defaultIcon);
+			this._defaultIcon = defaultIcon;
 			installIcon(defaultIcon);
 			repaint();
 			invalidate();
 		}
 	}
 
+    @:dox(hide)
 	public function getIcon():Icon{
-		return defaultIcon;
+		return _defaultIcon;
 	}
     
     /**
      * Returns the pressed icon for the button.
      * @return the <code>pressedIcon</code> property
-     * @see #setPressedIcon()
+     * See `#setPressedIcon()`
      */
+    @:dox(hide)
     public function getPressedIcon():Icon {
-        return pressedIcon;
+        return _pressedIcon;
     }
     
     /**
      * Sets the pressed icon for the button.
      * @param pressedIcon the icon used as the "pressed" image
-     * @see #getPressedIcon()
+     * See `#getPressedIcon()`
      */
+    @:dox(hide)
     public function setPressedIcon(pressedIcon:Icon):Void{
-        var oldValue:Icon = this.pressedIcon;
-        this.pressedIcon = pressedIcon;
+        var oldValue:Icon = this._pressedIcon;
+        this._pressedIcon = pressedIcon;
         if (pressedIcon != oldValue) {
         	uninstallIcon(oldValue);
         	installIcon(pressedIcon);
@@ -603,20 +820,22 @@ class AbstractButton extends Component{
     /**
      * Returns the selected icon for the button.
      * @return the <code>selectedIcon</code> property
-     * @see #setSelectedIcon()
+     * See `#setSelectedIcon()`
      */
+    @:dox(hide)
     public function getSelectedIcon():Icon {
-        return selectedIcon;
+        return _selectedIcon;
     }
     
     /**
      * Sets the selected icon for the button.
      * @param selectedIcon the icon used as the "selected" image
-     * @see #getSelectedIcon()
+     * See `#getSelectedIcon()`
      */
+    @:dox(hide)
     public function setSelectedIcon(selectedIcon:Icon):Void{
-        var oldValue:Icon = this.selectedIcon;
-        this.selectedIcon = selectedIcon;
+        var oldValue:Icon = this._selectedIcon;
+        this._selectedIcon = selectedIcon;
         if (selectedIcon != oldValue) {
         	uninstallIcon(oldValue);
         	installIcon(selectedIcon);
@@ -629,20 +848,22 @@ class AbstractButton extends Component{
     /**
      * Returns the rollover icon for the button.
      * @return the <code>rolloverIcon</code> property
-     * @see #setRollOverIcon()
+     * See `#setRollOverIcon()`
      */
+    @:dox(hide)
     public function getRollOverIcon():Icon {
-        return rolloverIcon;
+        return _rolloverIcon;
     }
     
     /**
      * Sets the rollover icon for the button.
      * @param rolloverIcon the icon used as the "rollover" image
-     * @see #getRollOverIcon()
+     * See `#getRollOverIcon()`
      */
+    @:dox(hide)
     public function setRollOverIcon(rolloverIcon:Icon):Void{
-        var oldValue:Icon = this.rolloverIcon;
-        this.rolloverIcon = rolloverIcon;
+        var oldValue:Icon = this._rolloverIcon;
+        this._rolloverIcon = rolloverIcon;
         setRollOverEnabled(true);
         if (rolloverIcon != oldValue) {
         	uninstallIcon(oldValue);
@@ -657,21 +878,23 @@ class AbstractButton extends Component{
     /**
      * Returns the rollover selection icon for the button.
      * @return the <code>rolloverSelectedIcon</code> property
-     * @see #setRollOverSelectedIcon()
+     * See `#setRollOverSelectedIcon()`
      */
+    @:dox(hide)
     public function getRollOverSelectedIcon():Icon {
-        return rolloverSelectedIcon;
+        return _rolloverSelectedIcon;
     }
     
     /**
      * Sets the rollover selected icon for the button.
      * @param rolloverSelectedIcon the icon used as the
      *		"selected rollover" image
-     * @see #getRollOverSelectedIcon()
+     * See `#getRollOverSelectedIcon()`
      */
+    @:dox(hide)
     public function setRollOverSelectedIcon(rolloverSelectedIcon:Icon):Void{
-        var oldValue:Icon = this.rolloverSelectedIcon;
-        this.rolloverSelectedIcon = rolloverSelectedIcon;
+        var oldValue:Icon = this._rolloverSelectedIcon;
+        this._rolloverSelectedIcon = rolloverSelectedIcon;
         setRollOverEnabled(true);
         if (rolloverSelectedIcon != oldValue) {
         	uninstallIcon(oldValue);
@@ -691,28 +914,30 @@ class AbstractButton extends Component{
      * (if necessary) by the L&F.-->
      *
      * @return the <code>disabledIcon</code> property
-     * @see #getPressedIcon()
-     * @see #setDisabledIcon()
+     * See `#getPressedIcon()`
+     * See `#setDisabledIcon()`
      */
+    @:dox(hide)
     public function getDisabledIcon():Icon {
-        if(disabledIcon == null) {
-            if(defaultIcon != null) {
+        if(_disabledIcon == null) {
+            if(_defaultIcon != null) {
             	//TODO imp with UIResource??
                 //return new GrayFilteredIcon(defaultIcon);
-                return defaultIcon;
+                return _defaultIcon;
             }
         }
-        return disabledIcon;
+        return _disabledIcon;
     }
     
     /**
      * Sets the disabled icon for the button.
      * @param disabledIcon the icon used as the disabled image
-     * @see #getDisabledIcon()
+     * See `#getDisabledIcon()`
      */
+    @:dox(hide)
     public function setDisabledIcon(disabledIcon:Icon):Void{
-        var oldValue:Icon = this.disabledIcon;
-        this.disabledIcon = disabledIcon;
+        var oldValue:Icon = this._disabledIcon;
+        this._disabledIcon = disabledIcon;
         if (disabledIcon != oldValue) {
         	uninstallIcon(oldValue);
         	installIcon(disabledIcon);
@@ -731,30 +956,32 @@ class AbstractButton extends Component{
      * created (if necessary) by the L&F. -->
      *
      * @return the <code>disabledSelectedIcon</code> property
-     * @see #getPressedIcon()
-     * @see #setDisabledIcon()
+     * See `#getPressedIcon()`
+     * See `#setDisabledIcon()`
      */
+    @:dox(hide)
     public function getDisabledSelectedIcon():Icon {
-        if(disabledSelectedIcon == null) {
-            if(selectedIcon != null) {
+        if(_disabledSelectedIcon == null) {
+            if(_selectedIcon != null) {
             	//TODO imp with UIResource??
                 //disabledSelectedIcon = new GrayFilteredIcon(selectedIcon);
             } else {
                 return getDisabledIcon();
             }
         }
-        return disabledSelectedIcon;
+        return _disabledSelectedIcon;
     }
 
     /**
      * Sets the disabled selection icon for the button.
      * @param disabledSelectedIcon the icon used as the disabled
      * 		selection image
-     * @see #getDisabledSelectedIcon()
+     * See `#getDisabledSelectedIcon()`
      */
+    @:dox(hide)
     public function setDisabledSelectedIcon(disabledSelectedIcon:Icon):Void{
-        var oldValue:Icon = this.disabledSelectedIcon;
-        this.disabledSelectedIcon = disabledSelectedIcon;
+        var oldValue:Icon = this._disabledSelectedIcon;
+        this._disabledSelectedIcon = disabledSelectedIcon;
         if (disabledSelectedIcon != oldValue) {
         	uninstallIcon(oldValue);
         	installIcon(disabledSelectedIcon);
@@ -776,8 +1003,9 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalAlignment():Int{
-        return verticalAlignment;
+        return _verticalAlignment;
     }
     
     /**
@@ -789,11 +1017,12 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalAlignment(alignment:Int):Void{
-        if (alignment == verticalAlignment){
+        if (alignment == _verticalAlignment){
         	return;
         }else{
-        	verticalAlignment = alignment;
+        	_verticalAlignment = alignment;
         	repaint();
         }
     }
@@ -808,8 +1037,9 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalAlignment():Int{
-        return horizontalAlignment;
+        return _horizontalAlignment;
     }
     
     /**
@@ -821,11 +1051,12 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalAlignment(alignment:Int):Void{
-        if (alignment == horizontalAlignment){
+        if (alignment == _horizontalAlignment){
         	return;
         }else{
-        	horizontalAlignment = alignment;     
+        	_horizontalAlignment = alignment;
         	repaint();
         }
     }
@@ -841,8 +1072,9 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalTextPosition():Int{
-        return verticalTextPosition;
+        return _verticalTextPosition;
     }
     
     /**
@@ -854,11 +1086,12 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalTextPosition(textPosition:Int):Void{
-        if (textPosition == verticalTextPosition){
+        if (textPosition == _verticalTextPosition){
 	        return;
         }else{
-        	verticalTextPosition = textPosition;
+        	_verticalTextPosition = textPosition;
         	repaint();
         	revalidate();
         }
@@ -874,8 +1107,9 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalTextPosition():Int{
-        return horizontalTextPosition;
+        return _horizontalTextPosition;
     }
     
     /**
@@ -887,11 +1121,12 @@ class AbstractButton extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalTextPosition(textPosition:Int):Void{
-        if (textPosition == horizontalTextPosition){
+        if (textPosition == _horizontalTextPosition){
         	return;
         }else{
-        	horizontalTextPosition = textPosition;
+        	_horizontalTextPosition = textPosition;
         	repaint();
         	revalidate();
         }
@@ -903,10 +1138,11 @@ class AbstractButton extends Component{
      *
      * @return an int equal to the number of pixels between the text
      *         and the icon.
-     * @see #setIconTextGap()
+     * See `#setIconTextGap()`
      */
+    @:dox(hide)
     public function getIconTextGap():Int{
-        return iconTextGap;
+        return _iconTextGap;
     }
 
     /**
@@ -915,11 +1151,12 @@ class AbstractButton extends Component{
      * <p>
      * The default value of this property is 4 pixels.
      * 
-     * @see #getIconTextGap()
+     * See `#getIconTextGap()`
      */
+    @:dox(hide)
     public function setIconTextGap(iconTextGap:Int):Void{
-        var oldValue:Int= this.iconTextGap;
-        this.iconTextGap = iconTextGap;
+        var oldValue:Int= this._iconTextGap;
+        this._iconTextGap = iconTextGap;
         if (iconTextGap != oldValue) {
             revalidate();
             repaint();
@@ -931,16 +1168,18 @@ class AbstractButton extends Component{
      *
      * @return the shift offset when mouse press.
      */
+    @:dox(hide)
     public function getShiftOffset():Int{
-        return shiftOffset;
+        return _shiftOffset;
     }
 
     /**
      * Set the shift offset when mouse press.
      */
+    @:dox(hide)
     public function setShiftOffset(shiftOffset:Int):Void{
-        var oldValue:Int= this.shiftOffset;
-        this.shiftOffset = shiftOffset;
+        var oldValue:Int= this._shiftOffset;
+        this._shiftOffset = shiftOffset;
         setShiftOffsetSet(true);
         if (shiftOffset != oldValue) {
             revalidate();
@@ -951,6 +1190,7 @@ class AbstractButton extends Component{
     /**
      * Return whether or not the shiftOffset has set by user. The LAF will not change this value if it is true.
      */
+    @:dox(hide)
     public function isShiftOffsetSet():Bool{
     	return shiftOffsetSet;
     }
@@ -958,6 +1198,7 @@ class AbstractButton extends Component{
    /**
     * Set whether or not the shiftOffset has set by user. The LAF will not change this value if it is true.
     */
+    @:dox(hide)
     public function setShiftOffsetSet(b:Bool):Void{
     	shiftOffsetSet = b;
     }

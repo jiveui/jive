@@ -41,7 +41,7 @@ import org.aswing.Insets;
  * <strong>Note:</strong> the container itself who applied `SoftBoxLayout` is not affected by the `X_AXIS` or `Y_AXIS` you set for `SoftBoxLayout`.
  * The container's size will be determined by its parents' layout manager.
  *
- * See `BoxLayout`
+ * @see BoxLayout
  *
  * Author paling
  */
