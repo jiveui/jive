@@ -7,17 +7,19 @@ package org.aswing;
 
 import org.aswing.plaf.basic.BasicLabelUI;
 import flash.display.DisplayObject;
-import flash.filters.BitmapFilter;	
+import flash.filters.BitmapFilter;
+
 /**
  * A display area for a short text string or an image, 
  * or both.
+ *
  * A label does not react to input events.
  * As a result, it cannot get the keyboard focus.
  * A label can, however, display a keyboard alternative
  * as a convenience for a nearby component
  * that has a keyboard alternative but can't display it.
- * <p>
- * A <code>JLabel</code> object can display
+ *
+ * A `JLabel` object can display
  * either text, an image, or both.
  * You can specify where in the label's display area
  * the label's contents are aligned
@@ -26,22 +28,20 @@ import flash.filters.BitmapFilter;
  * in their display area.
  * Text-only labels are leading edge aligned, by default;
  * image-only labels are horizontally centered, by default.
- * </p>
- * <p>
+ *
  * You can also specify the position of the text
  * relative to the image.
  * By default, text is on the trailing edge of the image,
  * with the text and image vertically aligned.
- * </p>
- * <p>
- * Finally, you can use the <code>setIconTextGap</code> method
+ *
+ * Finally, you can use the `this.setIconTextGap` method
  * to specify how many pixels
  * should appear between the text and the image.
  * The default is 4 pixels.
- * </p>
+ *
  * @author paling
  */
-class JLabel extends Component{
+class JLabel extends Component {
 	
 	/**
 	 * A fast access to AsWingConstants Constant
@@ -80,49 +80,143 @@ class JLabel extends Component{
 	inline public static var VERTICAL:Int= AsWingConstants.VERTICAL;
 	
 	
-	private var icon:Icon;
-	private var _text:String;
-	public var text(get, set): String;
-	private var disabledIcon:Icon;
-	
-	// Icon/Label Alignment
-    private var verticalAlignment:Int;
-    private var horizontalAlignment:Int;
-    
-    private var verticalTextPosition:Int;
-    private var horizontalTextPosition:Int;
+    public var icon(get, set): Icon;
+    private var _icon: Icon;
+    private function get_icon(): Icon { return getIcon(); }
+    private function set_icon(v: Icon): Icon { setIcon(v); return v; }
 
-    private var iconTextGap:Int;
-    private var selectable:Bool;
-    private var textFilters:Array<BitmapFilter>;
+	public var text(get, set): String;
+    private var _text:String;
+    private function get_text(): String { return getText(); }
+    private function set_text(text: String): String { setText(text); return text; }
+
+    /**
+     * The icon used by the label when it's disabled.
+     *
+     * If no disabled icon has been set, the button constructs
+     * one from the default icon if defalut icon setted otherwise returns null.
+     *
+     * The disabled icon really should be created
+     * (if necessary) by the L&F
+     *
+     * @see #enabled
+     */
+    public var disabledIcon(get, set): Icon;
+    private var _disabledIcon: Icon;
+    private function get_disabledIcon(): Icon { return getDisabledIcon(); }
+    private function set_disabledIcon(v: Icon): Icon { setDisabledIcon(v); return v; }
+	
+    /******************************************************************************************************************/
+	// Icon/Label Alignment
+    /******************************************************************************************************************/
+
+    /**
+     * The vertical alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.CENTER` (the default)
+     * <li>`AsWingConstants.TOP`
+     * <li>`AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalAlignment(get, set): Int;
+    private var _verticalAlignment: Int;
+    private function get_verticalAlignment(): Int { return Std.int(getVerticalAlignment()); }
+    private function set_verticalAlignment(v: Int): Int { setVerticalAlignment(v); return v; }
+
+    /**
+     * The horizontal alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalAlignment(get, set): Int;
+    private var _horizontalAlignment: Int;
+    private function get_horizontalAlignment(): Int { return Std.int(getHorizontalAlignment()); }
+    private function set_horizontalAlignment(v: Int): Int { setHorizontalAlignment(v); return v; }
+
+    /**
+     * The vertical position of the text relative to the icon.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.CENTER` (the default)
+     * <li>`AsWingConstants.TOP`
+     * <li>`AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalTextPosition(get, set): Int;
+    private var _verticalTextPosition: Int;
+    private function get_verticalTextPosition(): Int { return Std.int(getVerticalTextPosition()); }
+    private function set_verticalTextPosition(v: Int): Int { setVerticalTextPosition(v); return v; }
+
+    /**
+     * The horizontal position of the text relative to the icon.
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalTextPosition(get, set): Int;
+    private var _horizontalTextPosition: Int;
+    private function get_horizontalTextPosition(): Int { return Std.int(getHorizontalTextPosition()); }
+    private function set_horizontalTextPosition(v: Int): Int { setHorizontalTextPosition(v); return v; }
+
+    /**
+     * If both the icon and text properties are set, this property
+     * defines the space between them.
+     *
+     * The default value of this property is 4 pixels.
+     */
+    public var iconTextGap(get, set): Int;
+    private var _iconTextGap: Int;
+    private function get_iconTextGap(): Int { return Std.int(getIconTextGap()); }
+    private function set_iconTextGap(v: Int): Int { setIconTextGap(v); return v; }
+
+    public var selectable(get, set): Bool;
+    private var _selectable: Bool;
+    private function get_selectable(): Bool { return isSelectable(); }
+    private function set_selectable(v: Bool): Bool { setSelectable(v); return v; }
+
+    public var textFilters(get, set): Array<BitmapFilter>;
+    private var _textFilters: Array<BitmapFilter>;
+    private function get_textFilters(): Array<BitmapFilter> { return getTextFilters(); }
+    private function set_textFilters(v: Array<BitmapFilter>): Array<BitmapFilter> { setTextFilters(v); return v; }
     
     /**
      * Creates a label.
      * @param text the text
      * @param icon the icon
-     * @param horizontalAlignment the horizontal alignment, default is <code>CENTER</code>
+     * @param horizontalAlignment the horizontal alignment, default is `AsWingConstants.CENTER`
      */
 	public function new(?text:String="", ?icon:Icon=null, ?horizontalAlignment:Int=0) {
-		textFilters=null;
+		_textFilters=null;
 			super();
 			setClipMasked(true);
 		setName("JLabel");
 		//default
-    	this.verticalAlignment = CENTER;
-    	this.verticalTextPosition = CENTER;
-    	this.horizontalTextPosition = RIGHT;
+    	this._verticalAlignment = CENTER;
+    	this._verticalTextPosition = CENTER;
+    	this._horizontalTextPosition = RIGHT;
     	
     	this.text = text;
-    	this.icon = icon;
+    	this._icon = icon;
     	installIcon(icon);
-    	this.horizontalAlignment = horizontalAlignment;
+    	this._horizontalAlignment = horizontalAlignment;
     	
-    	iconTextGap = 4;
-    	selectable = false;
+    	_iconTextGap = 4;
+    	_selectable = false;
 		
 		updateUI();
 	}
 	
+    @:dox(hide)
     override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
@@ -148,50 +242,56 @@ class JLabel extends Component{
 			//org.aswing.table.sorter.SortableTextHeaderCell err;
 		}
 	}
-	
+
+    @:dox(hide)
 	public function setText(text:String):Void {
-		
 		if(this._text != text){
 			this._text = text;
 			repaint();
 			invalidate();
 		}
 	}
-	
-	public function getText():String {
 
+    @:dox(hide)
+	public function getText():String {
 		return _text;
 	}
 	
-	public function setSelectable(b:Bool):Void{
-		selectable = b;
+	@:dox(hide)
+    public function setSelectable(b:Bool):Void{
+		_selectable = b;
 	}
 	
-	public function isSelectable():Bool{
-		return selectable;
+	@:dox(hide)
+    public function isSelectable():Bool{
+		return _selectable;
 	}
 	
-	public function setTextFilters(fs:Array < BitmapFilter > ):Void {	
-		textFilters = fs;
+	@:dox(hide)
+    public function setTextFilters(fs:Array < BitmapFilter > ):Void {
+		_textFilters = fs;
 		repaint();
 	}
 	
-	public function getTextFilters():Array<BitmapFilter>{
-		return textFilters;
+	@:dox(hide)
+    public function getTextFilters():Array<BitmapFilter>{
+		return _textFilters;
 	}
 	
-	public function setIcon(icon:Icon):Void{
-		if(this.icon != icon){
-			uninstallIcon(this.icon);
-			this.icon = icon;
-			installIcon(this.icon);
+	@:dox(hide)
+    public function setIcon(icon:Icon):Void{
+		if(this._icon != icon){
+			uninstallIcon(this._icon);
+			this._icon = icon;
+			installIcon(this._icon);
 			repaint();
 			invalidate();
 		}
 	}
 
-	public function getIcon():Icon{
-		return icon;
+	@:dox(hide)
+    public function getIcon():Icon{
+		return _icon;
 	}
 
     /**
@@ -207,14 +307,15 @@ class JLabel extends Component{
      * @see #setDisabledIcon()
      * @see #getEnabled()
      */
+    @:dox(hide)
     public function getDisabledIcon():Icon {
-        if(disabledIcon == null) {
-            if(icon != null) {
+        if(_disabledIcon == null) {
+            if(_icon != null) {
             	//TODO imp
                 //disabledIcon = new GrayFilteredIcon(icon);
             }
         }
-        return disabledIcon;
+        return _disabledIcon;
     }
     
     /**
@@ -223,9 +324,10 @@ class JLabel extends Component{
      * @see #getDisabledIcon()
      * @see #setEnabled()
      */
+    @:dox(hide)
     public function setDisabledIcon(disabledIcon:Icon):Void{
-        var oldValue:Icon = this.disabledIcon;
-        this.disabledIcon = disabledIcon;
+        var oldValue:Icon = this._disabledIcon;
+        this._disabledIcon = disabledIcon;
         if (disabledIcon != oldValue) {
         	uninstallIcon(oldValue);
         	installIcon(disabledIcon);
@@ -242,13 +344,14 @@ class JLabel extends Component{
      * @return the <code>verticalAlignment</code> property, one of the
      *		following values: 
      * <ul>
-     * <li>AsWingConstants.CENTER (the default)
-     * <li>AsWingConstants.TOP
-     * <li>AsWingConstants.BOTTOM
+     * <li>`AsWingConstants.CENTER`</li> (the default)
+     * <li>AsWingConstants.TOP</li>
+     * <li>AsWingConstants.BOTTOM</li>
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalAlignment():Float{
-        return verticalAlignment;
+        return _verticalAlignment;
     }
     
     /**
@@ -260,11 +363,12 @@ class JLabel extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalAlignment(alignment:Float):Void{
-        if (alignment == verticalAlignment){
+        if (alignment == _verticalAlignment){
         	return;
         }else{
-        	verticalAlignment = Std.int(alignment);
+        	_verticalAlignment = Std.int(alignment);
         	repaint();
         }
     }
@@ -279,8 +383,9 @@ class JLabel extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalAlignment():Float{
-        return horizontalAlignment;
+        return _horizontalAlignment;
     }
     
     /**
@@ -292,11 +397,12 @@ class JLabel extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalAlignment(alignment:Float):Void{
-        if (alignment == horizontalAlignment){
+        if (alignment == _horizontalAlignment){
         	return;
         }else{
-        	horizontalAlignment =Std.int( alignment);     
+        	_horizontalAlignment =Std.int( alignment);
         	repaint();
         }
     }
@@ -312,8 +418,9 @@ class JLabel extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalTextPosition():Float{
-        return verticalTextPosition;
+        return _verticalTextPosition;
     }
     
     /**
@@ -325,11 +432,12 @@ class JLabel extends Component{
      * <li>AsWingConstants.BOTTOM
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalTextPosition(textPosition:Float):Void{
-        if (textPosition == verticalTextPosition){
+        if (textPosition == _verticalTextPosition){
 	        return;
         }else{
-        	verticalTextPosition = Std.int(textPosition);
+        	_verticalTextPosition = Std.int(textPosition);
         	repaint();
         	revalidate();
         }
@@ -345,8 +453,9 @@ class JLabel extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalTextPosition():Float{
-        return horizontalTextPosition;
+        return _horizontalTextPosition;
     }
     
     /**
@@ -358,11 +467,12 @@ class JLabel extends Component{
      * <li>AsWingConstants.CENTER
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalTextPosition(textPosition:Float):Void{
-        if (textPosition == horizontalTextPosition){
+        if (textPosition == _horizontalTextPosition){
         	return;
         }else{
-        	horizontalTextPosition = Std.int(textPosition);
+        	_horizontalTextPosition = Std.int(textPosition);
         	repaint();
         	revalidate();
         }
@@ -377,7 +487,7 @@ class JLabel extends Component{
      * @see #setIconTextGap()
      */
     public function getIconTextGap():Float{
-        return iconTextGap;
+        return _iconTextGap;
     }
 
     /**
@@ -389,23 +499,13 @@ class JLabel extends Component{
      * @see #getIconTextGap()
      */
     public function setIconTextGap(iconTextGap:Float):Void{
-        var oldValue:Float= this.iconTextGap;
-        this.iconTextGap = Std.int(iconTextGap);
+        var oldValue:Float= this._iconTextGap;
+        this._iconTextGap = Std.int(iconTextGap);
         if (iconTextGap != oldValue) {
             revalidate();
             repaint();
         }
     }
 
-	/* Bindable  getters/setters */
 
-	private function get_text(): String {
-		return getText();
-	}
-
-	private function set_text(text: String): String {
-		setText(text);
-		return text;
-	}
-	
 }

@@ -1674,9 +1674,27 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="icon" type="IconSchemaTypeValue"/>
 <xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="disabledIcon" type="IconSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalAlignment" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalAlignment" type="xs:int"/>
+<xs:element minOccurs="0" name="verticalTextPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalTextPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="iconTextGap" type="xs:int"/>
+<xs:element minOccurs="0" name="selectable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="textFilters" type="empty:ArraySchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="icon" type="xs:string"/>
 <xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="disabledIcon" type="xs:string"/>
+<xs:attribute name="verticalAlignment" type="xs:int"/>
+<xs:attribute name="horizontalAlignment" type="xs:int"/>
+<xs:attribute name="verticalTextPosition" type="xs:int"/>
+<xs:attribute name="horizontalTextPosition" type="xs:int"/>
+<xs:attribute name="iconTextGap" type="xs:int"/>
+<xs:attribute name="selectable" type="xs:boolean"/>
+<xs:attribute name="textFilters" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
