@@ -8,10 +8,13 @@ package org.aswing;
 import org.aswing.plaf.basic.BasicPanelUI;
 	
 /**
- * The general container - panel.
+ * The general container - a panel.
+ *
+ * The default layout is `FlowLayout`.
+ *
  * @author paling
  */
-class JPanel extends Container{
+class JPanel extends Container {
 	
 	public function new(?layout:LayoutManager=null){
 		super();
@@ -21,14 +24,17 @@ class JPanel extends Container{
 		updateUI();
 	}
 	
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicPanelUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "PanelUI";
 	}
