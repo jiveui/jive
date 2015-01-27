@@ -4,14 +4,18 @@ xmlns:flash-display="flash.display"
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="StyleSheetSchemaTypeValue">
-<xs:sequence><xs:element ref="StyleSheet"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="StyleSheet"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextSnapshotSchemaTypeValue">
-<xs:sequence><xs:element ref="TextSnapshot"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TextSnapshot"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextLineMetricsSchemaTypeValue">
-<xs:sequence><xs:element ref="TextLineMetrics"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TextLineMetrics"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextFieldSchemaTypeValue">
 <xs:choice>
@@ -21,14 +25,14 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="TextFormatSchemaTypeValue">
-<xs:sequence><xs:element ref="TextFormat"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TextFormat"/></xs:all></xs:complexType>
 
 <xs:complexType name="StyleSheetSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="styleNames" type="empty:ArraySchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="styleNames" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="styleNames" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -37,9 +41,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextSnapshotSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="charCount" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="charCount" type="xs:int"/>
+</xs:all>
 <xs:attribute name="charCount" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -48,14 +52,14 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextLineMetricsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="ascent" type="xs:double"/>
-<xs:element name="descent" type="xs:double"/>
-<xs:element name="height" type="xs:double"/>
-<xs:element name="leading" type="xs:double"/>
-<xs:element name="width" type="xs:double"/>
-<xs:element name="x" type="xs:double"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="ascent" type="xs:double"/>
+<xs:element minOccurs="0" name="descent" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="leading" type="xs:double"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+</xs:all>
 <xs:attribute name="ascent" type="xs:double"/>
 <xs:attribute name="descent" type="xs:double"/>
 <xs:attribute name="height" type="xs:double"/>
@@ -69,47 +73,47 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextFieldSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:InteractiveObjectSchemaType">
-<xs:sequence>
-<xs:element name="alwaysShowSelection" type="xs:boolean"/>
-<xs:element name="antiAliasType" type="xs:string"/>
-<xs:element name="autoSize" type="xs:string"/>
-<xs:element name="background" type="xs:boolean"/>
-<xs:element name="backgroundColor" type="xs:string"/>
-<xs:element name="border" type="xs:boolean"/>
-<xs:element name="borderColor" type="xs:string"/>
-<xs:element name="bottomScrollV" type="xs:int"/>
-<xs:element name="caretIndex" type="xs:int"/>
-<xs:element name="condenseWhite" type="xs:boolean"/>
-<xs:element name="defaultTextFormat" type="TextFormatSchemaTypeValue"/>
-<xs:element name="displayAsPassword" type="xs:boolean"/>
-<xs:element name="embedFonts" type="xs:boolean"/>
-<xs:element name="gridFitType" type="xs:string"/>
-<xs:element name="htmlText" type="xs:string"/>
-<xs:element name="length" type="xs:int"/>
-<xs:element name="maxChars" type="xs:int"/>
-<xs:element name="maxScrollH" type="xs:int"/>
-<xs:element name="maxScrollV" type="xs:int"/>
-<xs:element name="mouseWheelEnabled" type="xs:boolean"/>
-<xs:element name="multiline" type="xs:boolean"/>
-<xs:element name="numLines" type="xs:int"/>
-<xs:element name="restrict" type="xs:string"/>
-<xs:element name="scrollH" type="xs:int"/>
-<xs:element name="scrollV" type="xs:int"/>
-<xs:element name="selectable" type="xs:boolean"/>
-<xs:element name="selectedText" type="xs:string"/>
-<xs:element name="selectionBeginIndex" type="xs:int"/>
-<xs:element name="selectionEndIndex" type="xs:int"/>
-<xs:element name="sharpness" type="xs:double"/>
-<xs:element name="styleSheet" type="StyleSheetSchemaTypeValue"/>
-<xs:element name="text" type="xs:string"/>
-<xs:element name="textColor" type="xs:string"/>
-<xs:element name="textHeight" type="xs:double"/>
-<xs:element name="textWidth" type="xs:double"/>
-<xs:element name="thickness" type="xs:double"/>
-<xs:element name="type" type="xs:string"/>
-<xs:element name="useRichTextClipboard" type="xs:boolean"/>
-<xs:element name="wordWrap" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alwaysShowSelection" type="xs:boolean"/>
+<xs:element minOccurs="0" name="antiAliasType" type="xs:string"/>
+<xs:element minOccurs="0" name="autoSize" type="xs:string"/>
+<xs:element minOccurs="0" name="background" type="xs:boolean"/>
+<xs:element minOccurs="0" name="backgroundColor" type="xs:string"/>
+<xs:element minOccurs="0" name="border" type="xs:boolean"/>
+<xs:element minOccurs="0" name="borderColor" type="xs:string"/>
+<xs:element minOccurs="0" name="bottomScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="caretIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="condenseWhite" type="xs:boolean"/>
+<xs:element minOccurs="0" name="defaultTextFormat" type="TextFormatSchemaTypeValue"/>
+<xs:element minOccurs="0" name="displayAsPassword" type="xs:boolean"/>
+<xs:element minOccurs="0" name="embedFonts" type="xs:boolean"/>
+<xs:element minOccurs="0" name="gridFitType" type="xs:string"/>
+<xs:element minOccurs="0" name="htmlText" type="xs:string"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="maxChars" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="mouseWheelEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="multiline" type="xs:boolean"/>
+<xs:element minOccurs="0" name="numLines" type="xs:int"/>
+<xs:element minOccurs="0" name="restrict" type="xs:string"/>
+<xs:element minOccurs="0" name="scrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="scrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="selectable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="selectedText" type="xs:string"/>
+<xs:element minOccurs="0" name="selectionBeginIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="selectionEndIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="sharpness" type="xs:double"/>
+<xs:element minOccurs="0" name="styleSheet" type="StyleSheetSchemaTypeValue"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="textColor" type="xs:string"/>
+<xs:element minOccurs="0" name="textHeight" type="xs:double"/>
+<xs:element minOccurs="0" name="textWidth" type="xs:double"/>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="useRichTextClipboard" type="xs:boolean"/>
+<xs:element minOccurs="0" name="wordWrap" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="alwaysShowSelection" type="xs:boolean"/>
 <xs:attribute name="antiAliasType" type="xs:string"/>
 <xs:attribute name="autoSize" type="xs:string"/>
@@ -156,27 +160,27 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextFormatSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="align" type="xs:string"/>
-<xs:element name="blockIndent" type="xs:string"/>
-<xs:element name="bold" type="xs:string"/>
-<xs:element name="bullet" type="xs:string"/>
-<xs:element name="color" type="xs:string"/>
-<xs:element name="display" type="xs:string"/>
-<xs:element name="font" type="xs:string"/>
-<xs:element name="indent" type="xs:string"/>
-<xs:element name="italic" type="xs:string"/>
-<xs:element name="kerning" type="xs:string"/>
-<xs:element name="leading" type="xs:string"/>
-<xs:element name="leftMargin" type="xs:string"/>
-<xs:element name="letterSpacing" type="xs:string"/>
-<xs:element name="rightMargin" type="xs:string"/>
-<xs:element name="size" type="xs:string"/>
-<xs:element name="tabStops" type="empty:ArraySchemaTypeValue"/>
-<xs:element name="target" type="xs:string"/>
-<xs:element name="underline" type="xs:string"/>
-<xs:element name="url" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="align" type="xs:string"/>
+<xs:element minOccurs="0" name="blockIndent" type="xs:string"/>
+<xs:element minOccurs="0" name="bold" type="xs:string"/>
+<xs:element minOccurs="0" name="bullet" type="xs:string"/>
+<xs:element minOccurs="0" name="color" type="xs:string"/>
+<xs:element minOccurs="0" name="display" type="xs:string"/>
+<xs:element minOccurs="0" name="font" type="xs:string"/>
+<xs:element minOccurs="0" name="indent" type="xs:string"/>
+<xs:element minOccurs="0" name="italic" type="xs:string"/>
+<xs:element minOccurs="0" name="kerning" type="xs:string"/>
+<xs:element minOccurs="0" name="leading" type="xs:string"/>
+<xs:element minOccurs="0" name="leftMargin" type="xs:string"/>
+<xs:element minOccurs="0" name="letterSpacing" type="xs:string"/>
+<xs:element minOccurs="0" name="rightMargin" type="xs:string"/>
+<xs:element minOccurs="0" name="size" type="xs:string"/>
+<xs:element minOccurs="0" name="tabStops" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="target" type="xs:string"/>
+<xs:element minOccurs="0" name="underline" type="xs:string"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+</xs:all>
 <xs:attribute name="align" type="xs:string"/>
 <xs:attribute name="blockIndent" type="xs:string"/>
 <xs:attribute name="bold" type="xs:string"/>

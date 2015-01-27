@@ -1,23 +1,24 @@
 <xs:schema targetNamespace="haxe" xmlns="haxe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="EnumValueToolsSchemaTypeValue">
-<xs:sequence><xs:element ref="EnumValueTools"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="EnumValueTools"/></xs:all></xs:complexType>
 
 <xs:complexType name="TimerSchemaTypeValue">
-<xs:sequence><xs:element ref="Timer"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Timer"/></xs:all></xs:complexType>
 
 <xs:complexType name="EnumToolsSchemaTypeValue">
-<xs:sequence><xs:element ref="EnumTools"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="EnumTools"/></xs:all></xs:complexType>
 
 <xs:complexType name="LogSchemaTypeValue">
-<xs:sequence><xs:element ref="Log"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Log"/></xs:all></xs:complexType>
 
 <xs:complexType name="EnumValueToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -25,9 +26,9 @@ xmlns:empty="empty"
 <xs:complexType name="TimerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="run" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="run" type="xs:string"/>
+</xs:all>
 <xs:attribute name="run" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -36,8 +37,8 @@ xmlns:empty="empty"
 <xs:complexType name="EnumToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -45,8 +46,8 @@ xmlns:empty="empty"
 <xs:complexType name="LogSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

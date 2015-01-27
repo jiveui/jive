@@ -2,17 +2,19 @@
 xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 >
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
 <xs:complexType name="PopupSliderUISchemaTypeValue">
-<xs:sequence><xs:element ref="PopupSliderUI"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PopupSliderUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="PopupSliderThumbIconSchemaTypeValue">
-<xs:sequence><xs:element ref="PopupSliderThumbIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PopupSliderThumbIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="PopupSliderUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic:BasicSliderUISchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -20,8 +22,8 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:complexType name="PopupSliderThumbIconSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic-icon:SliderThumbIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

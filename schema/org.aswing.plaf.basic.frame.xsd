@@ -1,14 +1,15 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.frame" xmlns="org.aswing.plaf.basic.frame" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="BasicFrameTitleBarBGSchemaTypeValue">
-<xs:sequence><xs:element ref="BasicFrameTitleBarBG"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="BasicFrameTitleBarBG"/></xs:all></xs:complexType>
 
 <xs:complexType name="BasicFrameTitleBarBGSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

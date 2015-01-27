@@ -1,17 +1,18 @@
 <xs:schema targetNamespace="flash.errors" xmlns="flash.errors" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ErrorSchemaTypeValue">
-<xs:sequence><xs:element ref="Error"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Error"/></xs:all></xs:complexType>
 
 <xs:complexType name="ErrorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="errorID" type="xs:int"/>
-<xs:element name="message" type="xs:string"/>
-<xs:element name="name" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="errorID" type="xs:int"/>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:all>
 <xs:attribute name="errorID" type="xs:int"/>
 <xs:attribute name="message" type="xs:string"/>
 <xs:attribute name="name" type="xs:string"/>

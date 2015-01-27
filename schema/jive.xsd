@@ -1,15 +1,16 @@
 <xs:schema targetNamespace="jive" xmlns="jive" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DataContextControllableSchemaTypeValue">
-<xs:sequence><xs:element ref="DataContextControllable"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
 <xs:complexType name="DataContextControllableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="dataContext" type="xs:string"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="dataContext" type="xs:string"/>
+</xs:all>
 <xs:attribute name="dataContext" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>

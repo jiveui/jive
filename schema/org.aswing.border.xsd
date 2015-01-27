@@ -3,6 +3,9 @@ xmlns:org-aswing="org.aswing"
 xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
 xmlns:empty="empty"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="EmptyBorderSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
@@ -30,16 +33,16 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="SimpleTitledBorderSchemaTypeValue">
-<xs:sequence><xs:element ref="SimpleTitledBorder"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="SimpleTitledBorder"/></xs:all></xs:complexType>
 
 <xs:complexType name="SideLineBorderSchemaTypeValue">
-<xs:sequence><xs:element ref="SideLineBorder"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="SideLineBorder"/></xs:all></xs:complexType>
 
 <xs:complexType name="CaveBorderSchemaTypeValue">
-<xs:sequence><xs:element ref="CaveBorder"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="CaveBorder"/></xs:all></xs:complexType>
 
 <xs:complexType name="TitledBorderSchemaTypeValue">
-<xs:sequence><xs:element ref="TitledBorder"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TitledBorder"/></xs:all></xs:complexType>
 
 <xs:complexType name="BevelBorderSchemaTypeValue">
 <xs:choice>
@@ -59,12 +62,12 @@ xmlns:empty="empty"
 <xs:complexType name="EmptyBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-<xs:element name="top" type="xs:int"/>
-<xs:element name="left" type="xs:int"/>
-<xs:element name="bottom" type="xs:int"/>
-<xs:element name="right" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="top" type="xs:int"/>
+<xs:element minOccurs="0" name="left" type="xs:int"/>
+<xs:element minOccurs="0" name="bottom" type="xs:int"/>
+<xs:element minOccurs="0" name="right" type="xs:int"/>
+</xs:all>
 <xs:attribute name="top" type="xs:int"/>
 <xs:attribute name="left" type="xs:int"/>
 <xs:attribute name="bottom" type="xs:int"/>
@@ -76,8 +79,8 @@ xmlns:empty="empty"
 <xs:complexType name="DecorateBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -85,8 +88,8 @@ xmlns:empty="empty"
 <xs:complexType name="SimpleTitledBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -94,8 +97,8 @@ xmlns:empty="empty"
 <xs:complexType name="SideLineBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -103,10 +106,10 @@ xmlns:empty="empty"
 <xs:complexType name="CaveBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-<xs:element name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
-<xs:element name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="DEFAULT_LINE_LIGHT_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_LINE_COLOR" type="xs:string"/>
 </xs:extension>
@@ -116,12 +119,12 @@ xmlns:empty="empty"
 <xs:complexType name="TitledBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-<xs:element name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
-<xs:element name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
-<xs:element name="DEFAULT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
-<xs:element name="DEFAULT_FONT" type="org-aswing:ASFontSchemaTypeValue"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="DEFAULT_LINE_LIGHT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="DEFAULT_LINE_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="DEFAULT_COLOR" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="DEFAULT_FONT" type="org-aswing:ASFontSchemaTypeValue"/>
+</xs:all>
 <xs:attribute name="DEFAULT_LINE_LIGHT_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_LINE_COLOR" type="xs:string"/>
 <xs:attribute name="DEFAULT_COLOR" type="xs:string"/>
@@ -133,8 +136,8 @@ xmlns:empty="empty"
 <xs:complexType name="BevelBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -142,8 +145,8 @@ xmlns:empty="empty"
 <xs:complexType name="LineBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

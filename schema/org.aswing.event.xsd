@@ -8,8 +8,16 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:flash-events="flash.events"
 xmlns:org-aswing-table="org.aswing.table"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:complexType name="MovedEventSchemaTypeValue">
-<xs:sequence><xs:element ref="MovedEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MovedEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="InteractiveEventSchemaTypeValue">
 <xs:choice>
@@ -23,19 +31,19 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="TreeEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TreeEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TreeEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TreeModelEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TreeModelEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TreeModelEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="PopupEventSchemaTypeValue">
-<xs:sequence><xs:element ref="PopupEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PopupEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableModelEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TableModelEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TableModelEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="DragAndDropEventSchemaTypeValue">
-<xs:sequence><xs:element ref="DragAndDropEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="DragAndDropEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="CellEditorListenerSchemaTypeValue">
 <xs:choice>
@@ -45,16 +53,16 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="ReleaseEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ReleaseEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ReleaseEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ScrollPaneEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ScrollPaneEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ScrollPaneEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TabCloseEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TabCloseEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TabCloseEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ClickCountEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ClickCountEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ClickCountEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ModelEventSchemaTypeValue">
 <xs:choice>
@@ -67,25 +75,25 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="WindowEventSchemaTypeValue">
-<xs:sequence><xs:element ref="WindowEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="WindowEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ExpandVetoExceptionSchemaTypeValue">
-<xs:sequence><xs:element ref="ExpandVetoException"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ExpandVetoException"/></xs:all></xs:complexType>
 
 <xs:complexType name="ToolTipEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ToolTipEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ToolTipEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="AttachEventSchemaTypeValue">
-<xs:sequence><xs:element ref="AttachEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="AttachEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableCellEditEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TableCellEditEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TableCellEditEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TreeSelectionEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TreeSelectionEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TreeSelectionEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="FocusKeyEventSchemaTypeValue">
-<xs:sequence><xs:element ref="FocusKeyEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FocusKeyEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TreeModelListenerSchemaTypeValue">
 <xs:choice>
@@ -95,13 +103,13 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="ColorChooserEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ColorChooserEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ColorChooserEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="SelectionEventSchemaTypeValue">
-<xs:sequence><xs:element ref="SelectionEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="SelectionEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ResizedEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ResizedEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ResizedEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ListDataListenerSchemaTypeValue">
 <xs:choice>
@@ -112,7 +120,7 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="ContainerEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ContainerEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ContainerEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="AWEventSchemaTypeValue">
 <xs:choice>
@@ -141,19 +149,19 @@ xmlns:org-aswing-table="org.aswing.table"
 </xs:complexType>
 
 <xs:complexType name="ListItemEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ListItemEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ListItemEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TreeCellEditEventSchemaTypeValue">
-<xs:sequence><xs:element ref="TreeCellEditEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TreeCellEditEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameEventSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ListDataEventSchemaTypeValue">
-<xs:sequence><xs:element ref="ListDataEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ListDataEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="PropertyChangeEventSchemaTypeValue">
-<xs:sequence><xs:element ref="PropertyChangeEvent"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="PropertyChangeEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableModelListenerSchemaTypeValue">
 <xs:choice>
@@ -165,8 +173,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="MovedEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -174,8 +182,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="InteractiveEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -183,8 +191,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TreeEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -192,8 +200,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TreeModelEventSchemaType">
 <xs:complexContent>
 <xs:extension base="ModelEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -201,8 +209,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="PopupEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -210,8 +218,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TableModelEventSchemaType">
 <xs:complexContent>
 <xs:extension base="ModelEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -219,8 +227,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="DragAndDropEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -228,8 +236,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="CellEditorListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -237,8 +245,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ReleaseEventSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:MouseEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -246,8 +254,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ScrollPaneEventSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -255,8 +263,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TabCloseEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -264,8 +272,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ClickCountEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -273,8 +281,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ModelEventSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -282,8 +290,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="WindowEventSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -291,8 +299,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ExpandVetoExceptionSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-error:ErrorSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -300,8 +308,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ToolTipEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -309,8 +317,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="AttachEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -318,8 +326,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TableCellEditEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -327,8 +335,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TreeSelectionEventSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -336,8 +344,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="FocusKeyEventSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:KeyboardEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -345,8 +353,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TreeModelListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -354,8 +362,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ColorChooserEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -363,8 +371,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="SelectionEventSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -372,8 +380,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ResizedEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -381,8 +389,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ListDataListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -390,8 +398,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ContainerEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -399,8 +407,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="AWEventSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -408,8 +416,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ListItemEventSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:MouseEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -417,8 +425,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TreeCellEditEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -426,8 +434,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="FrameEventSchemaType">
 <xs:complexContent>
 <xs:extension base="InteractiveEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -435,8 +443,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ListDataEventSchemaType">
 <xs:complexContent>
 <xs:extension base="ModelEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -444,8 +452,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="PropertyChangeEventSchemaType">
 <xs:complexContent>
 <xs:extension base="AWEventSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -453,8 +461,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TableModelListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

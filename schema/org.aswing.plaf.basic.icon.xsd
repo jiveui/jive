@@ -2,20 +2,22 @@
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="TitleIconSchemaTypeValue">
-<xs:sequence><xs:element ref="TitleIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="TitleIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrowIconSchemaTypeValue">
-<xs:sequence><xs:element ref="ArrowIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ArrowIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="CheckBoxMenuItemCheckIconSchemaTypeValue">
-<xs:sequence><xs:element ref="CheckBoxMenuItemCheckIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="CheckBoxMenuItemCheckIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="MenuItemCheckIconSchemaTypeValue">
-<xs:sequence><xs:element ref="MenuItemCheckIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MenuItemCheckIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameMaximizeIconSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameMaximizeIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameMaximizeIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="SliderThumbIconSchemaTypeValue">
 <xs:choice>
@@ -25,10 +27,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="CheckBoxIconSchemaTypeValue">
-<xs:sequence><xs:element ref="CheckBoxIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="CheckBoxIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="ScrollBarArrowIconSchemaTypeValue">
-<xs:sequence><xs:element ref="ScrollBarArrowIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="ScrollBarArrowIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="SolidArrowIconSchemaTypeValue">
 <xs:choice>
@@ -38,10 +40,10 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="FrameIconifiedIconSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameIconifiedIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameIconifiedIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="MenuItemArrowIconSchemaTypeValue">
-<xs:sequence><xs:element ref="MenuItemArrowIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MenuItemArrowIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="MenuCheckIconSchemaTypeValue">
 <xs:choice>
@@ -54,19 +56,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="RadioButtonMenuItemCheckIconSchemaTypeValue">
-<xs:sequence><xs:element ref="RadioButtonMenuItemCheckIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="RadioButtonMenuItemCheckIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameNormalIconSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameNormalIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameNormalIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameCloseIconSchemaTypeValue">
-<xs:sequence><xs:element ref="FrameCloseIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="FrameCloseIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="MenuArrowIconSchemaTypeValue">
-<xs:sequence><xs:element ref="MenuArrowIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="MenuArrowIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="RadioButtonIconSchemaTypeValue">
-<xs:sequence><xs:element ref="RadioButtonIcon"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="RadioButtonIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="FrameIconSchemaTypeValue">
 <xs:choice>
@@ -81,8 +83,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="TitleIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -90,8 +92,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -99,8 +101,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CheckBoxMenuItemCheckIconSchemaType">
 <xs:complexContent>
 <xs:extension base="MenuCheckIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -108,8 +110,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuItemCheckIconSchemaType">
 <xs:complexContent>
 <xs:extension base="MenuCheckIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -117,8 +119,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameMaximizeIconSchemaType">
 <xs:complexContent>
 <xs:extension base="FrameIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -126,8 +128,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SliderThumbIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -135,8 +137,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CheckBoxIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -144,8 +146,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ScrollBarArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -153,8 +155,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SolidArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -162,8 +164,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameIconifiedIconSchemaType">
 <xs:complexContent>
 <xs:extension base="FrameIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -171,8 +173,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuItemArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="MenuCheckIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -180,8 +182,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuCheckIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -189,8 +191,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="RadioButtonMenuItemCheckIconSchemaType">
 <xs:complexContent>
 <xs:extension base="MenuCheckIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -198,8 +200,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameNormalIconSchemaType">
 <xs:complexContent>
 <xs:extension base="FrameIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -207,8 +209,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameCloseIconSchemaType">
 <xs:complexContent>
 <xs:extension base="FrameIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -216,8 +218,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="SolidArrowIconSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -225,8 +227,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="RadioButtonIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -234,8 +236,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

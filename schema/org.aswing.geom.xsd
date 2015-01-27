@@ -1,22 +1,23 @@
 <xs:schema targetNamespace="org.aswing.geom" xmlns="org.aswing.geom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="IntDimensionSchemaTypeValue">
-<xs:sequence><xs:element ref="IntDimension"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IntDimension"/></xs:all></xs:complexType>
 
 <xs:complexType name="IntRectangleSchemaTypeValue">
-<xs:sequence><xs:element ref="IntRectangle"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IntRectangle"/></xs:all></xs:complexType>
 
 <xs:complexType name="IntPointSchemaTypeValue">
-<xs:sequence><xs:element ref="IntPoint"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IntPoint"/></xs:all></xs:complexType>
 
 <xs:complexType name="IntDimensionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="width" type="xs:int"/>
-<xs:element name="height" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+</xs:all>
 <xs:attribute name="width" type="xs:int"/>
 <xs:attribute name="height" type="xs:int"/>
 </xs:extension>
@@ -26,12 +27,12 @@ xmlns:empty="empty"
 <xs:complexType name="IntRectangleSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="x" type="xs:int"/>
-<xs:element name="y" type="xs:int"/>
-<xs:element name="width" type="xs:int"/>
-<xs:element name="height" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+</xs:all>
 <xs:attribute name="x" type="xs:int"/>
 <xs:attribute name="y" type="xs:int"/>
 <xs:attribute name="width" type="xs:int"/>
@@ -43,10 +44,10 @@ xmlns:empty="empty"
 <xs:complexType name="IntPointSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-<xs:element name="x" type="xs:int"/>
-<xs:element name="y" type="xs:int"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+</xs:all>
 <xs:attribute name="x" type="xs:int"/>
 <xs:attribute name="y" type="xs:int"/>
 </xs:extension>

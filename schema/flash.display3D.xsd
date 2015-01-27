@@ -2,23 +2,25 @@
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="Program3DSchemaTypeValue">
-<xs:sequence><xs:element ref="Program3D"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Program3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="VertexBuffer3DSchemaTypeValue">
-<xs:sequence><xs:element ref="VertexBuffer3D"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="VertexBuffer3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="IndexBuffer3DSchemaTypeValue">
-<xs:sequence><xs:element ref="IndexBuffer3D"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="IndexBuffer3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="Context3DSchemaTypeValue">
-<xs:sequence><xs:element ref="Context3D"/></xs:sequence></xs:complexType>
+<xs:all><xs:element ref="Context3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="Program3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -26,8 +28,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="VertexBuffer3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -35,8 +37,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="IndexBuffer3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:sequence>
-</xs:sequence>
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -44,10 +46,10 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Context3DSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:sequence>
-<xs:element name="driverInfo" type="xs:string"/>
-<xs:element name="enableErrorChecking" type="xs:boolean"/>
-</xs:sequence>
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="driverInfo" type="xs:string"/>
+<xs:element minOccurs="0" name="enableErrorChecking" type="xs:boolean"/>
+</xs:all>
 <xs:attribute name="driverInfo" type="xs:string"/>
 <xs:attribute name="enableErrorChecking" type="xs:boolean"/>
 </xs:extension>
