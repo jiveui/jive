@@ -2747,7 +2747,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="defaultButton" type="JButtonSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="defaultButton" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
