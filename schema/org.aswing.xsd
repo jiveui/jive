@@ -1,4 +1,5 @@
 <xs:schema targetNamespace="org.aswing" xmlns="org.aswing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:bindx="bindx"
 xmlns:flash-text="flash.text"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
@@ -21,6 +22,7 @@ xmlns:flash-events="flash.events"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="bindx" schemaLocation="bindx.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
@@ -1470,6 +1472,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="dragEnabled" type="xs:boolean"/>
 <xs:element minOccurs="0" name="dropTrigger" type="xs:boolean"/>
 <xs:element minOccurs="0" name="resizerMargin" type="InsetsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__fieldBindings__" type="bindx:FieldsBindSignalSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__methodBindings__" type="bindx:MethodsBindSignalSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="ui" type="xs:string"/>
 <xs:attribute name="clipBounds" type="xs:string"/>
@@ -1502,6 +1506,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="dragEnabled" type="xs:boolean"/>
 <xs:attribute name="dropTrigger" type="xs:boolean"/>
 <xs:attribute name="resizerMargin" type="xs:string"/>
+<xs:attribute name="__fieldBindings__" type="xs:string"/>
+<xs:attribute name="__methodBindings__" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2927,7 +2933,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
 </xs:all>
+<xs:attribute name="orientation" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
