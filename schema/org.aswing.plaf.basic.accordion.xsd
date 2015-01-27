@@ -1,15 +1,14 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.accordion" xmlns="org.aswing.plaf.basic.accordion" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="BasicAccordionHeaderSchemaTypeValue">
-<xs:all><xs:element ref="BasicAccordionHeader"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="BasicAccordionHeader"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BasicAccordionHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

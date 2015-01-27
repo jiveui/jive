@@ -48,65 +48,17 @@ xmlns:flash-events="flash.events"
 xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 xmlns:flash-accessibility="flash.accessibility"
 >
-<xs:import namespace="bindx" schemaLocation="bindx.xsd" />
-<xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
-<xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
-<xs:import namespace="flash" schemaLocation="flash.xsd" />
-<xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
-<xs:import namespace="jive" schemaLocation="jive.xsd" />
-<xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
-<xs:import namespace="org.aswing.util" schemaLocation="org.aswing.util.xsd" />
-<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
-<xs:import namespace="flash.errors" schemaLocation="flash.errors.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
-<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
-<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
-<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
-<xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
-<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
-<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
-<xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
-<xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
-<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
-<xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
-<xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
-<xs:import namespace="flash.external" schemaLocation="flash.external.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
-<xs:import namespace="org.aswing.dnd" schemaLocation="org.aswing.dnd.xsd" />
-<xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
-<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
-<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
-<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
-<xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
-<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
-<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
-<xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
-<xs:import namespace="haxe" schemaLocation="haxe.xsd" />
-<xs:import namespace="org.aswing.graphics" schemaLocation="org.aswing.graphics.xsd" />
-<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
-<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
-<xs:import namespace="flash.xml" schemaLocation="flash.xml.xsd" />
-<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
-<xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
 <xs:complexType name="TypeSchemaTypeValue">
-<xs:all><xs:element ref="Type"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Type"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaTypeValue">
-<xs:all><xs:element ref="ArrayAccess"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="ArrayAccess"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringSchemaTypeValue">
-<xs:all><xs:element ref="String"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="String"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StdSchemaTypeValue">
-<xs:all><xs:element ref="Std"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Std"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IMapSchemaTypeValue">
 <xs:choice>
@@ -699,28 +651,28 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexType>
 
 <xs:complexType name="ReflectSchemaTypeValue">
-<xs:all><xs:element ref="Reflect"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Reflect"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ArraySchemaTypeValue">
-<xs:all><xs:element ref="Array"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Array"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringBufSchemaTypeValue">
-<xs:all><xs:element ref="StringBuf"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="StringBuf"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DateSchemaTypeValue">
-<xs:all><xs:element ref="Date"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Date"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="StringToolsSchemaTypeValue">
-<xs:all><xs:element ref="StringTools"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="StringTools"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MathSchemaTypeValue">
-<xs:all><xs:element ref="Math"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Math"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TypeSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -728,8 +680,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ArrayAccessSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -737,9 +689,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -748,8 +700,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StdSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -757,8 +709,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="IMapSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -768,8 +720,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ReflectSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -777,9 +729,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="ArraySchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
@@ -788,8 +740,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringBufSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -797,8 +749,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="DateSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -806,8 +758,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -815,8 +767,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="MathSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

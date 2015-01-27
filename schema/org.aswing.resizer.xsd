@@ -1,7 +1,6 @@
 <xs:schema targetNamespace="org.aswing.resizer" xmlns="org.aswing.resizer" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="ResizeStrategySchemaTypeValue">
 <xs:choice>
 <xs:element ref="ResizeStrategyImp" />
@@ -9,16 +8,16 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="ResizerControllerSchemaTypeValue">
-<xs:all><xs:element ref="ResizerController"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="ResizerController"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultResizerSchemaTypeValue">
-<xs:all><xs:element ref="DefaultResizer"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultResizer"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultResizeBarHandlerSchemaTypeValue">
-<xs:all><xs:element ref="DefaultResizeBarHandler"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultResizeBarHandler"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ResizeStrategyImpSchemaTypeValue">
-<xs:all><xs:element ref="ResizeStrategyImp"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="ResizeStrategyImp"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="ResizerSchemaTypeValue">
 <xs:choice>
@@ -29,8 +28,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizeStrategySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -38,8 +37,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizerControllerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -47,8 +46,8 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultResizerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -56,8 +55,8 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultResizeBarHandlerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -65,8 +64,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizeStrategyImpSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -74,8 +73,8 @@ xmlns:empty="empty"
 <xs:complexType name="ResizerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

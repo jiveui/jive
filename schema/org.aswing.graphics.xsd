@@ -1,7 +1,6 @@
 <xs:schema targetNamespace="org.aswing.graphics" xmlns="org.aswing.graphics" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="IBrushSchemaTypeValue">
 <xs:choice>
 <xs:element ref="BitmapBrush" />
@@ -11,13 +10,13 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="PenSchemaTypeValue">
-<xs:all><xs:element ref="Pen"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Pen"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BitmapBrushSchemaTypeValue">
-<xs:all><xs:element ref="BitmapBrush"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="BitmapBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GradientBrushSchemaTypeValue">
-<xs:all><xs:element ref="GradientBrush"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="GradientBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IPenSchemaTypeValue">
 <xs:choice>
@@ -27,19 +26,19 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="GradientPenSchemaTypeValue">
-<xs:all><xs:element ref="GradientPen"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="GradientPen"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SolidBrushSchemaTypeValue">
-<xs:all><xs:element ref="SolidBrush"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="SolidBrush"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="Graphics2DSchemaTypeValue">
-<xs:all><xs:element ref="Graphics2D"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Graphics2D"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="IBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -47,8 +46,8 @@ xmlns:empty="empty"
 <xs:complexType name="PenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -56,8 +55,8 @@ xmlns:empty="empty"
 <xs:complexType name="BitmapBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -65,8 +64,8 @@ xmlns:empty="empty"
 <xs:complexType name="GradientBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -74,8 +73,8 @@ xmlns:empty="empty"
 <xs:complexType name="IPenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -83,8 +82,8 @@ xmlns:empty="empty"
 <xs:complexType name="GradientPenSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -92,8 +91,8 @@ xmlns:empty="empty"
 <xs:complexType name="SolidBrushSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -101,8 +100,8 @@ xmlns:empty="empty"
 <xs:complexType name="Graphics2DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

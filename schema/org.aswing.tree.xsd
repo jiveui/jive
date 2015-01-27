@@ -4,12 +4,8 @@ xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:flash-events="flash.events"
 >
-<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
-<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="TreePathMapSchemaTypeValue">
-<xs:all><xs:element ref="TreePathMap"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TreePathMap"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TreeCellSchemaTypeValue">
 <xs:choice>
@@ -18,10 +14,10 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="EmptySelectionModelSchemaTypeValue">
-<xs:all><xs:element ref="EmptySelectionModel"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="EmptySelectionModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PathPlaceHolderSchemaTypeValue">
-<xs:all><xs:element ref="PathPlaceHolder"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="PathPlaceHolder"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractLayoutCacheSchemaTypeValue">
 <xs:choice>
@@ -61,19 +57,19 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="TreePathSchemaTypeValue">
-<xs:all><xs:element ref="TreePath"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TreePath"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTreeCellSchemaTypeValue">
-<xs:all><xs:element ref="DefaultTreeCell"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultTreeCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="FixedHeightLayoutCacheSchemaTypeValue">
-<xs:all><xs:element ref="FixedHeightLayoutCache"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="FixedHeightLayoutCache"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GeneralTreeCellFactoryUIResourceSchemaTypeValue">
-<xs:all><xs:element ref="GeneralTreeCellFactoryUIResource"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="GeneralTreeCellFactoryUIResource"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTreeModelSchemaTypeValue">
-<xs:all><xs:element ref="DefaultTreeModel"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultTreeModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TreeModelSchemaTypeValue">
 <xs:choice>
@@ -82,10 +78,10 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="SearchInfoSchemaTypeValue">
-<xs:all><xs:element ref="SearchInfo"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="SearchInfo"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TreeLeafIconSchemaTypeValue">
-<xs:all><xs:element ref="TreeLeafIcon"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TreeLeafIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="MutableTreeNodeSchemaTypeValue">
 <xs:choice>
@@ -109,7 +105,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="EnumerationInfoSchemaTypeValue">
-<xs:all><xs:element ref="EnumerationInfo"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="EnumerationInfo"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TreeCellFactorySchemaTypeValue">
 <xs:choice>
@@ -119,7 +115,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="FHTreeStateNodeSchemaTypeValue">
-<xs:all><xs:element ref="FHTreeStateNode"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="FHTreeStateNode"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GeneralTreeCellFactorySchemaTypeValue">
 <xs:choice>
@@ -130,20 +126,18 @@ xmlns:flash-events="flash.events"
 
 <xs:complexType name="TreeNodeSchemaTypeValue">
 <xs:choice>
-<xs:element ref="DefaultMutableTreeNode" />
-<xs:element ref="FHTreeStateNode" />
 <xs:element ref="MutableTreeNode" />
 </xs:choice>
 </xs:complexType>
 
 <xs:complexType name="TreeFolderIconSchemaTypeValue">
-<xs:all><xs:element ref="TreeFolderIcon"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TreeFolderIcon"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TreePathMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -151,8 +145,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:CellSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -160,8 +154,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="EmptySelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultTreeSelectionModelSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -169,10 +163,10 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PathPlaceHolderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="isNew" type="xs:boolean"/>
-<xs:element minOccurs="0" name="path" type="TreePathSchemaTypeValue"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="isNew" type="xs:boolean"/>
+<xs:element name="path" type="TreePathSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="isNew" type="xs:boolean"/>
 <xs:attribute name="path" type="xs:string"/>
 </xs:extension>
@@ -182,8 +176,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractLayoutCacheSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -191,8 +185,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:CellEditorSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -200,8 +194,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -209,8 +203,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="NodeDimensionsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -218,8 +212,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="RowMapperSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -227,8 +221,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreePathSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -236,8 +230,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -245,8 +239,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FixedHeightLayoutCacheSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractLayoutCacheSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -254,8 +248,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTreeCellFactoryUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="GeneralTreeCellFactorySchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -263,9 +257,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="root" type="TreeNodeSchemaTypeValue"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="root" type="TreeNodeSchemaTypeValue"/>
+</xs:sequence>
 <xs:attribute name="root" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
@@ -274,8 +268,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -283,11 +277,11 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="SearchInfoSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="node" type="FHTreeStateNodeSchemaTypeValue"/>
-<xs:element minOccurs="0" name="isNodeParentNode" type="xs:boolean"/>
-<xs:element minOccurs="0" name="childIndex" type="xs:double"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="node" type="FHTreeStateNodeSchemaTypeValue"/>
+<xs:element name="isNodeParentNode" type="xs:boolean"/>
+<xs:element name="childIndex" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="node" type="xs:string"/>
 <xs:attribute name="isNodeParentNode" type="xs:boolean"/>
 <xs:attribute name="childIndex" type="xs:double"/>
@@ -298,8 +292,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeLeafIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -307,8 +301,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="MutableTreeNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="TreeNodeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -316,8 +310,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -325,12 +319,12 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultMutableTreeNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" ref="DefaultMutableTreeNode" />
-<xs:element minOccurs="0" ref="FHTreeStateNode" />
-<xs:element minOccurs="0" name="parent" type="MutableTreeNodeSchemaTypeValue"/>
-<xs:element minOccurs="0" name="content" type="xs:string"/>
-</xs:all>
+<xs:sequence>
+<xs:element ref="DefaultMutableTreeNode" />
+<xs:element ref="FHTreeStateNode" />
+<xs:element name="parent" type="MutableTreeNodeSchemaTypeValue"/>
+<xs:element name="content" type="xs:string"/>
+</xs:sequence>
 <xs:attribute name="parent" type="xs:string"/>
 <xs:attribute name="content" type="xs:string"/>
 </xs:extension>
@@ -340,12 +334,12 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="EnumerationInfoSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="parent" type="FHTreeStateNodeSchemaTypeValue"/>
-<xs:element minOccurs="0" name="nextIndex" type="xs:double"/>
-<xs:element minOccurs="0" name="childCount" type="xs:double"/>
-<xs:element minOccurs="0" name="enumCount" type="xs:double"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="parent" type="FHTreeStateNodeSchemaTypeValue"/>
+<xs:element name="nextIndex" type="xs:double"/>
+<xs:element name="childCount" type="xs:double"/>
+<xs:element name="enumCount" type="xs:double"/>
+</xs:sequence>
 <xs:attribute name="parent" type="xs:string"/>
 <xs:attribute name="nextIndex" type="xs:double"/>
 <xs:attribute name="childCount" type="xs:double"/>
@@ -357,8 +351,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -366,8 +360,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FHTreeStateNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultMutableTreeNodeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -375,8 +369,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTreeCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -384,8 +378,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -393,8 +387,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeFolderIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

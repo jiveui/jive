@@ -5,13 +5,8 @@ xmlns:org-aswing-event="org.aswing.event"
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
-<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
-<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
-<xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:complexType name="GeneralTableCellFactoryUIResourceSchemaTypeValue">
-<xs:all><xs:element ref="GeneralTableCellFactoryUIResource"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="GeneralTableCellFactoryUIResource"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTextCellSchemaTypeValue">
 <xs:choice>
@@ -43,13 +38,13 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="SelectablePoorTextCellSchemaTypeValue">
-<xs:all><xs:element ref="SelectablePoorTextCell"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="SelectablePoorTextCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="Resizable3Imp1SchemaTypeValue">
-<xs:all><xs:element ref="Resizable3Imp1"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Resizable3Imp1"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTableModelSchemaTypeValue">
-<xs:all><xs:element ref="DefaultTableModel"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultTableModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultTextHeaderCellSchemaTypeValue">
 <xs:choice>
@@ -69,13 +64,11 @@ xmlns:flash-events="flash.events"
 <xs:choice>
 <xs:element ref="Resizable2Imp1" />
 <xs:element ref="Resizable3" />
-<xs:element ref="Resizable3Imp1" />
-<xs:element ref="Resizable3Imp2" />
 </xs:choice>
 </xs:complexType>
 
 <xs:complexType name="Resizable2Imp1SchemaTypeValue">
-<xs:all><xs:element ref="Resizable2Imp1"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Resizable2Imp1"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableCellEditorSchemaTypeValue">
 <xs:choice>
@@ -88,10 +81,10 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="TableColumnModelEventSchemaTypeValue">
-<xs:all><xs:element ref="TableColumnModelEvent"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TableColumnModelEvent"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableColumnSchemaTypeValue">
-<xs:all><xs:element ref="TableColumn"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="TableColumn"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableModelSchemaTypeValue">
 <xs:choice>
@@ -103,10 +96,10 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="PropertyTranslatorSchemaTypeValue">
-<xs:all><xs:element ref="PropertyTranslator"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="PropertyTranslator"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractTableCellSchemaTypeValue">
-<xs:all><xs:element ref="AbstractTableCell"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="AbstractTableCell"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableColumnModelListenerSchemaTypeValue">
 <xs:choice>
@@ -123,7 +116,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="JTableHeaderSchemaTypeValue">
-<xs:all><xs:element ref="JTableHeader"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="JTableHeader"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="TableCellSchemaTypeValue">
 <xs:choice>
@@ -137,7 +130,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="Resizable3Imp2SchemaTypeValue">
-<xs:all><xs:element ref="Resizable3Imp2"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Resizable3Imp2"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="AbstractTableModelSchemaTypeValue">
 <xs:choice>
@@ -149,16 +142,16 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 <xs:complexType name="DefaultTableColumnModelSchemaTypeValue">
-<xs:all><xs:element ref="DefaultTableColumnModel"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultTableColumnModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="PropertyTableModelSchemaTypeValue">
-<xs:all><xs:element ref="PropertyTableModel"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="PropertyTableModel"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="GeneralTableCellFactoryUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="GeneralTableCellFactorySchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -166,8 +159,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTextCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -175,8 +168,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableColumnModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -184,8 +177,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable3SchemaType">
 <xs:complexContent>
 <xs:extension base="Resizable2SchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -193,8 +186,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -202,8 +195,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="SelectablePoorTextCellSchemaType">
 <xs:complexContent>
 <xs:extension base="PoorTextCellSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -211,8 +204,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable3Imp1SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -220,8 +213,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractTableModelSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -229,8 +222,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTextHeaderCellSchemaType">
 <xs:complexContent>
 <xs:extension base="DefaultTextCellSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -238,8 +231,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PoorTextCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ComponentSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -247,8 +240,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable2SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -256,8 +249,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable2Imp1SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -265,8 +258,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableCellEditorSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:CellEditorSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -274,8 +267,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableColumnModelEventSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-event:ModelEventSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -283,8 +276,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableColumnSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -292,8 +285,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -301,8 +294,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PropertyTranslatorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -310,8 +303,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractTableCellSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -319,8 +312,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableColumnModelListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -328,8 +321,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTableCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -337,8 +330,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JTableHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -346,8 +339,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TableCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:CellSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -355,8 +348,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable3Imp2SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -364,8 +357,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractTableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -373,8 +366,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTableColumnModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -382,8 +375,8 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PropertyTableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractTableModelSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

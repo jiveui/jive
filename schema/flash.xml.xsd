@@ -1,18 +1,17 @@
 <xs:schema targetNamespace="flash.xml" xmlns="flash.xml" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="XMLSchemaTypeValue">
-<xs:all><xs:element ref="XML"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="XML"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="XMLListSchemaTypeValue">
-<xs:all><xs:element ref="XMLList"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="XMLList"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="XMLSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -20,8 +19,8 @@ xmlns:empty="empty"
 <xs:complexType name="XMLListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -3,14 +3,11 @@ xmlns:flash-display="flash.display"
 xmlns:empty="empty"
 xmlns:flash-_Boot="flash._Boot"
 >
-<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
 <xs:complexType name="VectorSchemaTypeValue">
-<xs:all><xs:element ref="Vector"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Vector"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="LibSchemaTypeValue">
-<xs:all><xs:element ref="Lib"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="Lib"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="BootSchemaTypeValue">
 <xs:choice>
@@ -22,10 +19,10 @@ xmlns:flash-_Boot="flash._Boot"
 <xs:complexType name="VectorSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-<xs:element minOccurs="0" name="fixed" type="xs:boolean"/>
-</xs:all>
+<xs:sequence>
+<xs:element name="length" type="xs:int"/>
+<xs:element name="fixed" type="xs:boolean"/>
+</xs:sequence>
 <xs:attribute name="length" type="xs:int"/>
 <xs:attribute name="fixed" type="xs:boolean"/>
 </xs:extension>
@@ -35,8 +32,8 @@ xmlns:flash-_Boot="flash._Boot"
 <xs:complexType name="LibSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -44,8 +41,8 @@ xmlns:flash-_Boot="flash._Boot"
 <xs:complexType name="BootSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-display:MovieClipSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

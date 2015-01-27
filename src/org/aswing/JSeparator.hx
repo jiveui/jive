@@ -28,11 +28,11 @@ class JSeparator extends Component  implements Orientable{
 	*/
     inline public static var HORIZONTAL:Int= AsWingConstants.HORIZONTAL;
 
-    /**
-     * Vertical orientation.
-     *
-	 * A fast access to `AsWingConstants` Constant
-     */
+	/**
+	* Vertical orientation.
+	*
+	* A fast access to `AsWingConstants` Constant
+	*/
     inline public static var VERTICAL:Int= AsWingConstants.VERTICAL;
 	
 	private var _orientation:Int;
@@ -45,7 +45,6 @@ class JSeparator extends Component  implements Orientable{
 	 *
 	 * `JSeparator()` default orientation to `AsWingConstants.HORIZONTAL`;
 	 */
-
 	public function new(orientation:Int=AsWingConstants.HORIZONTAL){
 		super();
 		setName("JSeparator");
@@ -59,10 +58,12 @@ class JSeparator extends Component  implements Orientable{
 		setUI(UIManager.getUI(this));
 	}
 	
+	@:dox(hide)
 	override public function getUIClassID():String{
 		return "SeparatorUI";
 	}
-	
+
+	@:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicSeparatorUI;
     }

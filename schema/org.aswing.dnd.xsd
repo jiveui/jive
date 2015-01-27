@@ -1,7 +1,6 @@
 <xs:schema targetNamespace="org.aswing.dnd" xmlns="org.aswing.dnd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 >
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DropMotionSchemaTypeValue">
 <xs:choice>
 <xs:element ref="DirectlyRemoveMotion" />
@@ -10,7 +9,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="RejectedMotionSchemaTypeValue">
-<xs:all><xs:element ref="RejectedMotion"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="RejectedMotion"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DraggingImageSchemaTypeValue">
 <xs:choice>
@@ -19,25 +18,25 @@ xmlns:empty="empty"
 </xs:complexType>
 
 <xs:complexType name="DragListenerSchemaTypeValue">
-<xs:all><xs:element ref="DragListener"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DragListener"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="SourceDataSchemaTypeValue">
-<xs:all><xs:element ref="SourceData"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="SourceData"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DirectlyRemoveMotionSchemaTypeValue">
-<xs:all><xs:element ref="DirectlyRemoveMotion"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DirectlyRemoveMotion"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DragManagerSchemaTypeValue">
-<xs:all><xs:element ref="DragManager"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DragManager"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DefaultDragImageSchemaTypeValue">
-<xs:all><xs:element ref="DefaultDragImage"/></xs:all></xs:complexType>
+<xs:sequence><xs:element ref="DefaultDragImage"/></xs:sequence></xs:complexType>
 
 <xs:complexType name="DropMotionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -45,8 +44,8 @@ xmlns:empty="empty"
 <xs:complexType name="RejectedMotionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -54,8 +53,8 @@ xmlns:empty="empty"
 <xs:complexType name="DraggingImageSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -63,8 +62,8 @@ xmlns:empty="empty"
 <xs:complexType name="DragListenerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -72,8 +71,8 @@ xmlns:empty="empty"
 <xs:complexType name="SourceDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,8 +80,8 @@ xmlns:empty="empty"
 <xs:complexType name="DirectlyRemoveMotionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -90,8 +89,8 @@ xmlns:empty="empty"
 <xs:complexType name="DragManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -99,8 +98,8 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultDragImageSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
+<xs:sequence>
+</xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
