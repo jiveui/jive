@@ -276,7 +276,7 @@ class JViewport extends Container  implements Viewportable {
      */
 	@:dox(hide)
     public function getVerticalAlignment():Int{
-        return verticalAlignment;
+        return _verticalAlignment;
     }
     
     /**
@@ -290,10 +290,10 @@ class JViewport extends Container  implements Viewportable {
      */
 	@:dox(hide)
     public function setVerticalAlignment(alignment:Int):Void{
-        if (alignment == verticalAlignment){
+        if (alignment == _verticalAlignment){
         	return;
         }else{
-        	verticalAlignment = alignment;
+        	_verticalAlignment = alignment;
         	setViewPosition(getViewPosition());//make it to be restricted
         }
     }
