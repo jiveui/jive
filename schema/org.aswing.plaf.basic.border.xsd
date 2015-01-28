@@ -57,6 +57,7 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ProgressBarBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -66,6 +67,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="TableHeaderCellBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -75,6 +78,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="TextComponentBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -84,6 +89,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ComboBoxPopupBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -102,6 +109,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="PopupMenuBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -111,6 +120,7 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ComboBoxBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:BevelBorderSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -120,6 +130,8 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="FrameBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -129,6 +141,7 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="EmptyBorderResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -138,6 +151,7 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ColorChooserBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -147,6 +161,7 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexType name="ToolTipBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

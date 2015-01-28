@@ -10,6 +10,7 @@ package org.aswing.util;
  * 
  * @author paling
  */
+@:children("any")
 interface List
 {
 	/**

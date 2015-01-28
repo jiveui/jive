@@ -14,6 +14,7 @@ import org.aswing.FlowWrapLayoutTest;
 import org.aswing.GridLayoutTest;
 import org.aswing.InsetsTest;
 import org.aswing.JLabelTest;
+import org.aswing.JListTest;
 import org.aswing.JSeparatorTest;
 import org.aswing.JToolBarTest;
 import org.aswing.JToolTipTest;
@@ -47,6 +48,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.GridLayoutTest);
 		add(org.aswing.InsetsTest);
 		add(org.aswing.JLabelTest);
+		add(org.aswing.JListTest);
 		add(org.aswing.JSeparatorTest);
 		add(org.aswing.JToolBarTest);
 		add(org.aswing.JToolTipTest);

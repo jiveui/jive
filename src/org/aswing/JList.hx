@@ -4,78 +4,22 @@
 
 package org.aswing;
 
-
 import org.aswing.error.Error;
 import flash.events.MouseEvent;
 import flash.geom.Rectangle;
 import org.aswing.event.ListDataListener;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.event.ListDataEvent;
-	import org.aswing.event.SelectionEvent;
-	import org.aswing.event.ListItemEvent;
-	import org.aswing.event.ReleaseEvent;
-	import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.plaf.basic.BasicListUI; 
-	import org.aswing.util.ArrayList;
-	import org.aswing.dnd.DragManager;
-	/**
- * Dispatched when the list selection changed.
- * @eventType org.aswing.event.SelectionEvent.LIST_SELECTION_CHANGED
- */
-// [Event(name="listSelectionChanged", type="org.aswing.event.SelectionEvent")]
+import org.aswing.event.InteractiveEvent;
+import org.aswing.event.ListDataEvent;
+import org.aswing.event.SelectionEvent;
+import org.aswing.event.ListItemEvent;
+import org.aswing.event.ReleaseEvent;
+import org.aswing.geom.IntPoint;
+import org.aswing.geom.IntDimension;
+import org.aswing.geom.IntRectangle;
+import org.aswing.plaf.basic.BasicListUI;
+import org.aswing.util.ArrayList;
+import org.aswing.dnd.DragManager;
 
-/**
- * Dispatched when the list item be click.
- * @eventType org.aswing.event.ListItemEvent.ITEM_CLICK
- */
-// [Event(name="itemClick", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the list item be double click.
- * @eventType org.aswing.event.ListItemEvent.ITEM_DOUBLE_CLICK
- */
-// [Event(name="itemDoubleClick", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the list item be mouse down.
- * @eventType org.aswing.event.ListItemEvent.ITEM_MOUSE_DOWN
- */
-// [Event(name="itemMouseDown", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the list item be roll over.
- * @eventType org.aswing.event.ListItemEvent.ITEM_ROLL_OVER
- */
-// [Event(name="itemRollOver", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the list item be roll out.
- * @eventType org.aswing.event.ListItemEvent.ITEM_ROLL_OUT
- */
-// [Event(name="itemRollOut", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the list item be released out side.
- * @eventType org.aswing.event.ListItemEvent.ITEM_RELEASE_OUT_SIDE
- */
-// [Event(name="itemReleaseOutSide", type="org.aswing.event.ListItemEvent")]
-
-/**
- * Dispatched when the viewport's state changed. the state is all about:
- * <ul>
- * <li>view position</li>
- * <li>verticalUnitIncrement</li>
- * <li>verticalBlockIncrement</li>
- * <li>horizontalUnitIncrement</li>
- * <li>horizontalBlockIncrement</li>
- * </ul>
- * </p>
- * 
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
 
 /** 
  * A component that allows the user to select one or more objects from a
@@ -87,16 +31,16 @@ import org.aswing.event.ListDataListener;
  * // Create a JList that displays the strings in data[]
  *
  * var data:Array = ["one", "two", "three", "four"];
- * var dataList:JList = new JList(data);
+ * var dataList:JList = new JList(data);`
  * 
  * // The value of the JList model property is an object that provides
  * // a read-only view of the data.  It was constructed automatically.
  *
  * for(int i = 0; i < dataList.getModel().getSize(); i++) {
- *     System.out.println(dataList.getModel().getElementAt(i));
+ *   System.out.println(dataList.getModel().getElementAt(i));
  * }
  *
- * // Create a JList that displays the values in a IVector--<code>VectorListModel</code>.
+ * // Create a JList that displays the values in a <code>VectorListModel</code>.
  *
  * var vec:VectorListModel = new VectorListModel(["one", "two", "three", "four"]);
  * var vecList:JList = new JList(vec);
@@ -104,7 +48,7 @@ import org.aswing.event.ListDataListener;
  * //When you add elements to the vector, the JList will be automatically updated.
  * vec.append("five");
  * </pre>
- * <p>
+ *
  * <code>JList</code> doesn't support scrolling directly. 
  * To create a scrolling
  * list you make the <code>JList</code> the viewport of a
@@ -115,9 +59,9 @@ import org.aswing.event.ListDataListener;
  * JScrollPane scrollPane = new JScrollPane();
  * scrollPane.setView(dataList);
  * </pre>
- * <p>
+ *
  * By default the <code>JList</code> selection model is 
- * <code>SINGLE_SELECTION</code>.
+ * <code>this.SINGLE_SELECTION</code>.
  * <pre>
  * String[] data = {"one", "two", "three", "four"};
  * JList dataList = new JList(data);
@@ -125,7 +69,7 @@ import org.aswing.event.ListDataListener;
  * dataList.setSelectedIndex(1);  // select "two"
  * dataList.getSelectedValue();   // returns "two"
  * </pre>
- * <p>
+ *
  * The contents of a <code>JList</code> can be dynamic,
  * in other words, the list elements can
  * change value and the size of the list can change after the
@@ -143,20 +87,22 @@ import org.aswing.event.ListDataListener;
  * provide custom <code>ListModel</code> implementations can subclass 
  * <code>AbstractListModel</code>, which provides basic 
  * <code>ListDataListener</code> support.
- * <p>
+ *
  * <code>JList</code> uses a <code>Component</code> provision, provided by 
  * a delegate called the
  * <code>ListCell</code>, to paint the visible cells in the list.
- * <p>
+ *
  * <code>ListCell</code> created by a <code>ListCellFactory</code>, to custom 
  * the item representation of the list, you need a custom <code>ListCellFactory</code>.
+ *
  * For example a IconListCellFactory create IconListCells.
- * <p>
+ *
  * <code>ListCellFactory</code> is related to the List's performace too, see the doc 
  * comments of <code>ListCellFactory</code> for the details.
- * And if you want a horizontal scrollvar visible when item width is bigger than the visible 
- * width, you need a not <code>shareCells</code> Factory(and of course the List should located 
- * in a JScrollPane first). <code>shareCells</code> Factory 
+ *
+ * And if you want a horizontal scrollbar visible when item width is bigger than the visible
+ * width, you need a not <code>ListCellFactory.isShareCells</code> Factory(and of course the List should located
+ * in a JScrollPane first). <code>ListCellFactory.isShareCells</code> Factory
  * can not count the maximum width of list items.
  * @author paling
  * @see ListCellFactory
@@ -164,6 +110,14 @@ import org.aswing.event.ListDataListener;
  * @see ListModel
  * @see VectorListModel
  */
+@:event("org.aswing.event.SelectionEvent.LIST_SELECTION_CHANGED", "Dispatched when the list selection changed")
+@:event("org.aswing.event.ListItemEvent.ITEM_CLICK", "Dispatched when the list item be click")
+@:event("org.aswing.event.ListItemEvent.ITEM_DOUBLE_CLICK", "Dispatched when the list item be double click")
+@:event("org.aswing.event.ListItemEvent.ITEM_MOUSE_DOWN", "Dispatched when the list item be mouse down")
+@:event("org.aswing.event.ListItemEvent.ITEM_ROLL_OVER", "Dispatched when the list item be roll over")
+@:event("org.aswing.event.ListItemEvent.ITEM_ROLL_OUT", "Dispatched when the list item be roll out")
+@:event("org.aswing.event.ListItemEvent.ITEM_RELEASE_OUT_SIDE", "Dispatched when the list item be released out side")
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the viewport's state changed.")
 class JList extends Container  implements LayoutManager implements Viewportable implements ListDataListener{
 	
  	/**
@@ -201,26 +155,137 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	private var maxWidthCell:ListCell;
 	private var cellPrefferSizes:haxe.ds.IntMap<IntDimension>; //use for catche sizes when not all cells same height
 	private var comToCellMap:haxe.ds.IntMap<ListCell>;
-	private var visibleRowCount:Int;
-	private var visibleCellWidth:Int;
-	//--
-	
-	private var preferredWidthWhenNoCount:Int;
-	
-	private var tracksWidth:Bool;
+    //----------------------------------------------
+
+    /**
+     * The preferred number of rows in the list that can be displayed.
+     * -1 means prefer to display all rows.
+     *
+     * The default value of this property is -1.
+     * The rowHeight will be counted as 20 if the cell factory produces not same height cells.
+     * @see #visibleCellWidth()
+     */
+    public var visibleRowCount(get, set): Int;
+    private var _visibleRowCount: Int;
+    private function get_visibleRowCount(): Int { return getVisibleRowCount(); }
+    private function set_visibleRowCount(v: Int): Int { setVisibleRowCount(v); return v; }
+
+    /**
+     * The preferred width the list that can be displayed.
+     *
+     * The default value of this property is -1.
+     * -1 means the width that can display all content.
+     *
+     * @see #visibleRowCount
+     * @see #preferredCellWidthWhenNoCount
+     */
+    public var visibleCellWidth(get, set): Int;
+    private var _visibleCellWidth: Int;
+    private function get_visibleCellWidth(): Int { return getVisibleCellWidth(); }
+    private function set_visibleCellWidth(v: Int): Int { setVisibleCellWidth(v); return v; }
+
+    /**
+	 * The preferred with of the List, it is only used when List have no counting for its prefferredWidth.
+	 *
+	 * When <code>ListCellFactory.isShareCells</code> == true, List will not count prefferred width.
+	 */
+    public var preferredWidthWhenNoCount(get, set): Int;
+    private var _preferredWidthWhenNoCount: Int;
+    private function get_preferredWidthWhenNoCount(): Int { return getPreferredCellWidthWhenNoCount(); }
+    private function set_preferredWidthWhenNoCount(v: Int): Int { setPreferredCellWidthWhenNoCount(v); return v; }
+
+    /**
+	 * True to make the cell always have same width with the List container,
+	 * and the horizontal scrollbar will not shown if the list is in a <code>JScrollPane</code>;
+	  *
+	 * False to make it as same as its preffered width.
+	 */
+    public var fitWidth(get, set): Bool;
+    private var tracksWidth:Bool;
+    private function get_fitWidth(): Bool { return isTracksWidth(); }
+    private function set_fitWidth(v: Bool): Bool { setTracksWidth(v); return v; }
+
 	private var verticalUnitIncrement:Int;
 	private var verticalBlockIncrement:Int;
 	private var horizontalUnitIncrement:Int;
 	private var horizontalBlockIncrement:Int;
 	
 	private var viewPosition:IntPoint;
-	private var selectionForeground:ASColor;
-	private var selectionBackground:ASColor;
+
+    /**
+     * A foreground color for selected cells.
+     *
+     * Cell renderers
+     * can use this color to render text and graphics for selected
+     * cells.
+     *
+     * The default value of this property is defined by the look
+     * and feel implementation.
+     *
+     * @see #selectionBackground
+     * @see Component.foreground
+     * @see Component.background
+     * @see Component.font
+     */
+    public var selectionForeground(get, set): ASColor;
+    private var _selectionForeground: ASColor;
+    private function get_selectionForeground(): ASColor { return getSelectionForeground(); }
+    private function set_selectionForeground(v: ASColor): ASColor { setSelectionForeground(v); return v; }
+
+    /**
+     * A background color for selected cells.
+     *
+     * Cell renderers
+     * can use this color to the fill selected cells.
+     *
+     * The default value of this property is defined by the look
+     * and feel implementation.
+     *
+     * @see #selectionForeground
+     * @see Component.foreground
+     * @see Component.background
+     * @see Component.font
+     */
+    public var selectionBackground(get, set): ASColor;
+    private var _selectionBackground: ASColor;
+    private function get_selectionBackground(): ASColor { return getSelectionBackground(); }
+    private function set_selectionBackground(v: ASColor): ASColor { setSelectionBackground(v); return v; }
 	
 	private var cellPane:CellPane;
-	private var cellFactory:ListCellFactory;
-	private var model:ListModel;
-	private var selectionModel:ListSelectionModel;
+
+    /**
+	 * A cell factory for this List
+	 *
+	 * Setting will cause all cells recreating by new factory.
+	 * @see ListCellFactory
+	 */
+    public var cellFactory(get, set): ListCellFactory;
+    private var _cellFactory: ListCellFactory;
+    private function get_cellFactory(): ListCellFactory { return getCellFactory(); }
+    private function set_cellFactory(v: ListCellFactory): ListCellFactory { setCellFactory(v); return v; }
+
+    /**
+	 * The list model to provide the data to JList.
+	 * @see org.aswing.ListModel
+	 */
+    public var model(get, set): ListModel;
+    private var _model: ListModel;
+    private function get_model(): ListModel { return getModel(); }
+    private function set_model(v: ListModel): ListModel { setModel(v); return v; }
+
+    /**
+     * A non-<code>null</code> <code>ListSelectionModel</code> implementation.
+     *
+     * The selection model handles the task of making single
+     * selections, multiple selections.
+     *
+     * @param selectionModel  the <code>ListSelectionModel</code> that implements the selections, if it is null, nothing will be done.
+     */
+    public var selectionModel(get, set): ListSelectionModel;
+    private var _selectionModel: ListSelectionModel;
+    private function get_selectionModel(): ListSelectionModel { return getSelectionModel(); }
+    private function set_selectionModel(v: ListSelectionModel): ListSelectionModel { setSelectionModel(v); return v; }
+
 	private var cells:ArrayList;
 	
 	private var firstVisibleIndex:Int;
@@ -229,6 +294,17 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	private var lastVisibleIndexOffset:Int;
 	
 	private var autoDragAndDropType:Int;
+
+    /**
+	 * Determines whether single-item or multiple-item selections are allowed.
+	 * If selection mode changed, will cause clear selection;
+	 * @see #SINGLE_SELECTION
+	 * @see #MULTIPLE_SELECTION
+	 */
+    public var selectionMode(get, set): Int;
+    private var _selectionMode: Int;
+    private function get_selectionMode(): Int { return getSelectionMode(); }
+    private function set_selectionMode(v: Int): Int { setSelectionMode(v); return v; }
 	
 	/**
 	 * Create a list.
@@ -250,9 +326,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		lastVisibleIndex = -1;
 		firstVisibleIndexOffset = 0;
 		lastVisibleIndexOffset = 0;
-		visibleRowCount = -1;
-		visibleCellWidth = -1;
-		preferredWidthWhenNoCount = 20; //Default 20
+		_visibleRowCount = -1;
+		_visibleCellWidth = -1;
+		_preferredWidthWhenNoCount = 20; //Default 20
 		
 		verticalUnitIncrement = AUTO_INCREMENT;
 		verticalBlockIncrement = AUTO_INCREMENT;
@@ -266,14 +342,14 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		cellPrefferSizes = new haxe.ds.IntMap<IntDimension>();
 		comToCellMap = new haxe.ds.IntMap<ListCell>();
 		cells = new ArrayList();
-		model = null;
+		_model = null;
 		autoDragAndDropType = DND_NONE;
 		
 		if(cellFactory == null){
-			this.cellFactory = new DefaultListCellFactory(true);
+			this._cellFactory = new DefaultListCellFactory(true);
 		}
 		else {
-			this.cellFactory = cellFactory;
+			this._cellFactory = cellFactory;
 			
 		}
 		
@@ -288,6 +364,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		updateUI();
 	}
 	
+    @:dox(hide)
     override public function updateUI():Void{
     	//update cells ui
     	for(i in 0...cells.size() ){
@@ -297,11 +374,13 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     	
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicListUI;
     }
-    	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ListUI";
 	}
@@ -311,6 +390,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * Can not set layout to JList, its layout is itself.
 	 * @throws ArgumentError when set any layout.
 	 */
+    @:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		throw new  Error("Can not set layout to JList, its layout is itself!");
 	}	
@@ -322,6 +402,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #setModel()
 	 * @see org.aswing.ListModel
 	 */
+    @:dox(hide)
 	public function setListData(ld:Array<Dynamic>):Void{
 		var m:ListModel = new VectorListModel(ld);
 		setModel(m);
@@ -331,13 +412,14 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * Set the list mode to provide the data to JList.
 	 * @see org.aswing.ListModel
 	 */
+    @:dox(hide)
 	public function setModel(m:ListModel):Void{
-		if(m != model){
-			if(model != null){
-				model.removeListDataListener(this);
+		if(m != _model){
+			if(_model != null){
+				_model.removeListDataListener(this);
 			}
-			model = m;
-			model.addListDataListener(this);
+			_model = m;
+			_model.addListDataListener(this);
 			updateListView();
 		}
 	}
@@ -345,8 +427,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	/**
 	 * @return the model of this List
 	 */
+    @:dox(hide)
 	public function getModel():ListModel{
-		return model;
+		return _model;
 	}
 
     /**
@@ -359,13 +442,14 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      *				implements the selections, if it is null, nothing will be done.
      * @see #getSelectionModel()
      */
+    @:dox(hide)
 	public function setSelectionModel(m:ListSelectionModel):Void{
-		if(m != selectionModel){
-			if(selectionModel != null){
-				selectionModel.removeListSelectionListener(__selectionListener);
+		if(m != _selectionModel){
+			if(_selectionModel != null){
+				_selectionModel.removeListSelectionListener(__selectionListener);
 			}
-			selectionModel = m;
-			selectionModel.addListSelectionListener(__selectionListener);
+			_selectionModel = m;
+			_selectionModel.addListSelectionListener(__selectionListener);
 		}
 	}
 	
@@ -378,23 +462,26 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @see #setSelectionModel()
      * @see ListSelectionModel
      */
+    @:dox(hide)
 	public function getSelectionModel():ListSelectionModel{
-		return selectionModel;
+		return _selectionModel;
 	}
 		
 	/**
 	 * @return the cellFactory of this List
 	 */
+    @:dox(hide)
 	public function getCellFactory():ListCellFactory{
-		return cellFactory;
+		return _cellFactory;
 	}
 	
 	/**
 	 * This will cause all cells recreating by new factory.
 	 * @param newFactory the new cell factory for this List
 	 */
+    @:dox(hide)
 	public function setCellFactory(newFactory:ListCellFactory):Void{
-		cellFactory = newFactory;
+		_cellFactory = newFactory;
 		removeAllCells();
 		updateListView();
 	}
@@ -423,18 +510,20 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #setPreferredWidthWhenNoCount()
 	 * @return the default preferred with of the List when <code>shareCelles</code>.
 	 */
+    @:dox(hide)
 	public function getPreferredCellWidthWhenNoCount():Int{
-		return preferredWidthWhenNoCount;
+		return _preferredWidthWhenNoCount;
 	}
 
 	/**
 	 * The preferred with of the List, it is only used when List have no counting for its prefferredWidth.
 	 * <p>
-	 * When <code>ListCellFactory</code> is <code>shareCelles</code>, List will not count prefferred width.
+	 * When <code>ListCellFactory.isShareCells</code> == true, List will not count prefferred width.
 	 * @param preferredWidthWhenNoCount the preferred with of the List.
 	 */
+    @:dox(hide)
 	public function setPreferredCellWidthWhenNoCount(preferredWidthWhenNoCount:Int):Void{
-		this.preferredWidthWhenNoCount = preferredWidthWhenNoCount;
+		this._preferredWidthWhenNoCount = preferredWidthWhenNoCount;
 	}	
 	
 	/**
@@ -447,11 +536,11 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		validateCells();
 	}
 	
-	/**
-	 * Clears the selection - after calling this method isSelectionEmpty will return true. 
-	 * This is a convenience method that just delegates to the selectionModel.
+    /**
+     * Clears the selection - after calling this method isSelectionEmpty will return true.
+     * This is a convenience method that just delegates to the selectionModel.
      * @param programmatic indicate if this is a programmatic change.
-	 */
+     */
 	public function clearSelection(programmatic:Bool=true):Void{
 		getSelectionModel().clearSelection(programmatic);
 	}
@@ -462,6 +551,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #SINGLE_SELECTION
 	 * @see #MULTIPLE_SELECTION
 	 */
+    @:dox(hide)
 	public function setSelectionMode(sm:Int):Void{
 		getSelectionModel().setSelectionMode(sm);
 	}
@@ -470,7 +560,8 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * Return whether single-item or multiple-item selections are allowed.
 	 * @see #SINGLE_SELECTION
 	 * @see #MULTIPLE_SELECTION
-	 */	
+	 */
+    @:dox(hide)
 	public function getSelectionMode():Int{
 		return getSelectionModel().getSelectionMode();
 	}
@@ -483,8 +574,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @see #setSelectionForeground()
      * @see #setSelectionBackground()
      */
+    @:dox(hide)
 	public function getSelectionForeground():ASColor{
-		return selectionForeground;
+		return _selectionForeground;
 	}
 	
     /**
@@ -502,10 +594,11 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @see #setForeground()
      * @see #setBackground()
      * @see #setFont()
-     */	
+     */
+    @:dox(hide)
 	public function setSelectionForeground(selectionForeground:ASColor):Void{
-		var old:ASColor = this.selectionForeground;
-		this.selectionForeground = selectionForeground;
+		var old:ASColor = this._selectionForeground;
+		this._selectionForeground = selectionForeground;
 		if (!selectionForeground.equals(old)){
 			repaint();
 			validateCells();
@@ -518,9 +611,10 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @return the <code>Color</code> used for the background of selected list items
      * @see #setSelectionBackground()
      * @see #setSelectionForeground()
-     */	
+     */
+    @:dox(hide)
 	public function getSelectionBackground():ASColor{
-		return selectionBackground;
+		return _selectionBackground;
 	}
 	
     /**
@@ -536,10 +630,11 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @see #setForeground()
      * @see #setBackground()
      * @see #setFont()
-     */	
+     */
+    @:dox(hide)
 	public function setSelectionBackground(selectionBackground:ASColor):Void{
-		var old:ASColor = this.selectionBackground;
-		this.selectionBackground = selectionBackground;
+		var old:ASColor = this._selectionBackground;
+		this._selectionBackground = selectionBackground;
 		if (!selectionBackground.equals(old)){
 			repaint();
 			validateCells();
@@ -564,7 +659,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 
     /**
      * Returns the second index argument from the most recent
-     * <code>addSelectionInterval</code> or <code>setSelectionInterval</code>
+     * <code>#addSelectionInterval</code> or <code>#setSelectionInterval</code>
      * call.
      * This is a convenience method that just  delegates to the 
      * <code>selectionModel</code>.
@@ -674,7 +769,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		if(i < 0){
 			return null;
 		}else{
-			return model.getElementAt(i);
+			return _model.getElementAt(i);
 		}
 	}
 	
@@ -716,16 +811,18 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		getSelectionModel().setSelectionInterval(index, index, programmatic);
 	}
 	
-	/**
-	 * Selects a set of cells. 
-	 * <p> This will not cause a scroll, if you want to 
-	 * scroll to visible the selected value, call ensureIndexIsVisible().
-	 * @param indices an array of the indices of the cells to select.
-     * @param programmatic indicate if this is a programmatic change.
-     * @see #isSelectedIndex()
-     * @see #addSelectionListener()
-	 * @see #ensureIndexIsVisible()
-	 */	
+    /**
+    * Selects a set of cells.
+    *
+    * This will not cause a scroll, if you want to
+    * scroll to visible the selected value, call '#ensureIndexIsVisible'.
+    *
+    * @param indices an array of the indices of the cells to select.
+    * @param programmatic indicate if this is a programmatic change.
+    * @see #isSelectedIndex()
+    * @see #addSelectionListener()
+    * @see #ensureIndexIsVisible()
+    */
 	public function setSelectedIndices(indices:Array<Dynamic>, programmatic:Bool=true):Void{
         var sm:ListSelectionModel = getSelectionModel();
         sm.clearSelection();
@@ -746,9 +843,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #ensureIndexIsVisible()
 	 */
 	public function setSelectedValue(value:Dynamic, programmatic:Bool=true):Void{
-		var n:Int= model.getSize();
+		var n:Int= _model.getSize();
 		for(i in 0...n){
-			if(model.getElementAt(i) == value){
+			if(_model.getElementAt(i) == value){
 				setSelectedIndex(i, programmatic);
 				return;
 			}
@@ -756,16 +853,16 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		setSelectedIndex(-1, programmatic); //there is not this value
 	}
 	
-	/**
-	 * Selects a set of cells. 
-	 * <p> This will not cause a scroll, if you want to 
-	 * scroll to visible the selected value, call ensureIndexIsVisible().
-	 * @param values an array of the values to select.
-     * @param programmatic indicate if this is a programmatic change.
-     * @see #isSelectedIndex()
-     * @see #addSelectionListener()
-	 * @see #ensureIndexIsVisible()
-	 */	
+    /**
+    * Selects a set of cells.
+    * <p> This will not cause a scroll, if you want to
+    * scroll to visible the selected value, call ensureIndexIsVisible().
+    * @param values an array of the values to select.
+    * @param programmatic indicate if this is a programmatic change.
+    * @see #isSelectedIndex()
+    * @see #addSelectionListener()
+    * @see #ensureIndexIsVisible()
+    */
 	public function setSelectedValues(values:Array<Dynamic>, programmatic:Bool=true):Void{
         var sm:ListSelectionModel = getSelectionModel();
         sm.clearSelection();
@@ -867,8 +964,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      *         without using a scroll bar, -1 means perffered number is <code>model.getSize()</code>
      * @see #setVisibleRowCount()
      */
+    @:dox(hide)
 	public function getVisibleRowCount():Int{
-		return visibleRowCount;
+		return _visibleRowCount;
 	}
 	
     /**
@@ -883,10 +981,11 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      *                         visible rows
      * @see #setVisibleCellWidth()
      * @see #getVisibleRowCount()
-     */	
+     */
+    @:dox(hide)
 	public function setVisibleRowCount(c:Int):Void{
-		if(c != visibleRowCount){
-			visibleRowCount = c;
+		if(c != _visibleRowCount){
+			_visibleRowCount = c;
 			revalidate();
 		}
 	}
@@ -897,8 +996,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @return an integer indicating the preferred width to display.
      * @see #setVisibleCellWidth()
      */
+    @:dox(hide)
 	public function getVisibleCellWidth():Int{
-		return visibleCellWidth;
+		return _visibleCellWidth;
 	}
 	
     /**
@@ -912,20 +1012,22 @@ class JList extends Container  implements LayoutManager implements Viewportable 
      * @see #setVisibleRowCount()
      * @see #getVisibleCellWidth()
      * @see #setPreferredCellWidthWhenNoCount()
-     */	
+     */
+    @:dox(hide)
 	public function setVisibleCellWidth(w:Int):Void{
-		if(w != visibleCellWidth){
-			visibleCellWidth = w;
+		if(w != _visibleCellWidth){
+			_visibleCellWidth = w;
 			revalidate();
 		}
 	}
 	
 	/**
 	 * Sets true to make the cell always have same width with the List container, 
-	 * and the herizontal scrollbar will not shown if the list is in a <code>JScrollPane</code>; 
+	 * and the horizontal scrollbar will not shown if the list is in a <code>JScrollPane</code>;
 	 * false to make it as same as its preffered width.
 	 * @param b tracks width, default value is false
 	 */
+    @:dox(hide)
 	public function setTracksWidth(b:Bool):Void{
 		if(b != tracksWidth){
 			tracksWidth = b;
@@ -937,6 +1039,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @return tracks width
 	 * @see #setTracksWidth()
 	 */
+    @:dox(hide)
 	public function isTracksWidth():Bool{
 		return tracksWidth;
 	}
@@ -977,6 +1080,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	/**
      * Enables the list so that items can be selected.
      */
+    @:dox(hide)
 	override public function setEnabled(b:Bool):Void{
 		super.setEnabled(b);
 		mouseChildren = b;
@@ -1015,6 +1119,8 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #DND_MOVE
 	 * @see #DND_COPY
 	 */
+    //TODO: uncomment
+    @:dox(hide)
 	public function getAutoDragAndDropType():Int{
 		return autoDragAndDropType;
 	}
@@ -1191,14 +1297,19 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	private function validateCells():Void{
 		revalidate();
 	}
-	
-	//--------------------------------------------------------
-	
+
+    //--------------------------------------------------------
+
 	private function fireStateChanged(programmatic:Bool=true):Void{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, programmatic));
 	}
-	
-	public function getVerticalUnitIncrement() : Int{
+
+    //--------------------------------------------------------
+    // Viewportable implementation
+    //--------------------------------------------------------
+
+	@:dox(hide)
+    public function getVerticalUnitIncrement() : Int{
 		if(verticalUnitIncrement != AUTO_INCREMENT){
 			return verticalUnitIncrement;
 		}else if(getCellFactory().isAllCellHasSameHeight()){
@@ -1208,6 +1319,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		}
 	}
 
+    @:dox(hide)
 	public function getVerticalBlockIncrement() : Int{
 		if(verticalBlockIncrement != AUTO_INCREMENT){
 			return verticalBlockIncrement;
@@ -1218,6 +1330,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		}
 	}
 
+    @:dox(hide)
 	public function getHorizontalUnitIncrement() : Int{
 		if(horizontalUnitIncrement == AUTO_INCREMENT){
 			return 1;
@@ -1226,6 +1339,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		}
 	}
 
+    @:dox(hide)
 	public function getHorizontalBlockIncrement() : Int{
 		if(horizontalBlockIncrement == AUTO_INCREMENT){
 			return getExtentSize().width - 1;
@@ -1233,53 +1347,62 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 			return horizontalBlockIncrement;
 		}
 	}
-	
+
+    @:dox(hide)
     public function setVerticalUnitIncrement(increment:Int):Void{
     	if(verticalUnitIncrement != increment){
     		verticalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setVerticalBlockIncrement(increment:Int):Void{
     	if(verticalBlockIncrement != increment){
     		verticalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalUnitIncrement(increment:Int):Void{
     	if(horizontalUnitIncrement != increment){
     		horizontalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalBlockIncrement(increment:Int):Void{
     	if(horizontalBlockIncrement != increment){
     		horizontalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }
- 
+
+    @:dox(hide)
     public function setViewportTestSize(s:IntDimension):Void{
     	setSize(s); 
 		 
-    }	
-		
-	public function getExtentSize() : IntDimension {	
+    }
+
+    @:dox(hide)
+	public function getExtentSize() : IntDimension {
     	return getInsets().getInsideSize(getSize());
 	}
 
+    @:dox(hide)
 	public function getViewSize() : IntDimension {
 		var w:Int= isTracksWidth() ? getExtentSize().width : viewWidth;
 		return new IntDimension(w, viewHeight);
 	}
 
+    @:dox(hide)
 	public function getViewPosition() : IntPoint {
 		return new IntPoint(viewPosition.x, viewPosition.y);
 	}
 
+    @:dox(hide)
 	public function setViewPosition(p : IntPoint, programmatic:Bool=true) : Void{
 		restrictionViewPos(p);
 		if(!viewPosition.equals(p)){
@@ -1291,17 +1414,18 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		}
 	}
 
+    @:dox(hide)
 	public function scrollRectToVisible(contentRect : IntRectangle, programmatic:Bool=true) : Void{
 		setViewPosition(new IntPoint(contentRect.x, contentRect.y), programmatic);
 	}
-	
+
 	private function restrictionViewPos(p:IntPoint):IntPoint{
 		var maxPos:IntPoint = getViewMaxPos();
 		p.x = Std.int(Math.max(0, Math.min(maxPos.x, p.x)));
 		p.y = Std.int(Math.max(0, Math.min(maxPos.y, p.y)));
 		return p;
 	}
-	
+
 	private function getViewMaxPos():IntPoint{
 		var showSize:IntDimension = getExtentSize();
 		var viewSize:IntDimension = getViewSize();
@@ -1311,16 +1435,24 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		return p;
 	}
 
+    /**
+    * Implementation of `Viewportable` interface
+    * @see Viewportable.getViewportPane
+    **/
+    public function getViewportPane() : Component {
+        return this;
+    }
+
 	/**
 	 * Add a listener to listen the viewpoat state change event.
 	 * <p>
 	 * When the viewpoat's state changed, the state is all about:
 	 * <ul>
-	 * <li>viewPosition</li>
-	 * <li>verticalUnitIncrement</li>
-	 * <li>verticalBlockIncrement</li>
-	 * <li>horizontalUnitIncrement</li>
-	 * <li>horizontalBlockIncrement</li>
+	 * <li>`this.viewPosition`</li>
+	 * <li>`this.verticalUnitIncrement`</li>
+	 * <li>`this.verticalBlockIncrement`</li>
+	 * <li>`this.horizontalUnitIncrement`</li>
+	 * <li>`this.horizontalBlockIncrement`</li>
 	 * </ul>
 	 * @param listener the listener
 	 * @param priority the priority
@@ -1340,24 +1472,24 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		removeEventListener(InteractiveEvent.STATE_CHANGED, listener);
 	}
 
-	public function getViewportPane() : Component {
-		return this;
-	}
 	//------------------------Layout implementation---------------------
-	
 
     /**
-     * do nothing
-     */
-    public function addLayoutComponent(comp:Component, constraints:Dynamic):Void{
-    }
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.addLayoutComponent
+    **/
+    public function addLayoutComponent(comp:Component, constraints:Dynamic):Void {}
 
     /**
-     * do nothing
-     */
-    public function removeLayoutComponent(comp:Component):Void{
-    }
-	
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.removeLayoutComponent
+    **/
+    public function removeLayoutComponent(comp:Component):Void {}
+
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.preferredLayoutSize
+    **/
     public function preferredLayoutSize(target:Container):IntDimension{
     	var viewSize:IntDimension = getViewSize();
     	var rowCount:Int= getVisibleRowCount();
@@ -1375,17 +1507,26 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     	return getInsets().getOutsideSize(viewSize);
     }
 
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.minimumLayoutSize
+    **/
     public function minimumLayoutSize(target:Container):IntDimension{
     	return getInsets().getOutsideSize();
     }
-	
+
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.maximumLayoutSize
+    **/
     public function maximumLayoutSize(target:Container):IntDimension{
     	return IntDimension.createBigDimension();
     }
-    
+
     /**
-     * position and fill cells here
-     */
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.layoutContainer
+    **/
     public function layoutContainer(target:Container):Void{
     	var factory:ListCellFactory = getCellFactory();
     	
@@ -1596,27 +1737,34 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		firstVisibleIndexOffset = lastVisibleIndexOffset = 0;
     }
     
-	/**
-	 * return 0
-	 */
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.getLayoutAlignmentX
+    * @return AsWingConstants.CENTER
+    **/
     public function getLayoutAlignmentX(target:Container):Float{
     	return 0;
     }
 
-	/**
-	 * return 0
-	 */
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.getLayoutAlignmentY
+    * @return 0
+    **/
     public function getLayoutAlignmentY(target:Container):Float{
-    	return 0;
+    	return AsWingConstants.CENTER;
     }
 
-    public function invalidateLayout(target:Container):Void{
-    }
+    /**
+    * Implementation of LayoutManager interface
+    * @see LayoutManager.invalidateLayout
+    **/
+    public function invalidateLayout(target:Container):Void {}
 	
 	//------------------------ListMode Listener Methods-----------------
 	
 	/**
-	 * data in list has changed, update JList if needed.
+	 * Data in the list has changed, update JList if needed.
 	 */
     public function intervalAdded(e:ListDataEvent):Void{
     	var factory:ListCellFactory = getCellFactory();
@@ -1671,7 +1819,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     }
     
 	/**
-	 * data in list has changed, update JList if needed.
+	 * Data in the list has changed, update JList if needed.
 	 */
     public function intervalRemoved(e:ListDataEvent):Void{
     	var factory:ListCellFactory = getCellFactory();
@@ -1745,7 +1893,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     }
     
 	/**
-	 * data in list has changed, update JList if needed.
+	 * Data in the list has changed, update JList if needed.
 	 */
     public function contentsChanged(e:ListDataEvent):Void{
     	var factory:ListCellFactory = getCellFactory();
@@ -1869,9 +2017,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	/**
 	 * Returns the index of the cell.
 	 */
-	//why
-	private function  cellsIndexOf(cell:ListCell):Int
-	{ 
+	private function cellsIndexOf(cell:ListCell):Int {
 		for(i in 0...cells.size()){
 			if(cells.get(i).getAwmlIndex() ==cell.getAwmlIndex()){
 				return i;
@@ -1880,6 +2026,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		return -1;
 		
 	}
+
 	public function getItemIndexByCell(cell:ListCell):Int {
 		var itemIndex:Int; 
 		if(getCellFactory().isShareCells()){
@@ -1904,8 +2051,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 			return AsWingUtils.as(cells.get(index),ListCell);
 		}
 	}
-	
-	
+
     /**
      * Event Listener For All Items
      */

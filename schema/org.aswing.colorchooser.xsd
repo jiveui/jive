@@ -45,6 +45,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="NoColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -54,6 +55,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PreviewColorIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -63,6 +65,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ColorRectIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -72,6 +75,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultColorSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:extension base="ColorSelectionModelSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

@@ -181,6 +181,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicAdjusterUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:AdjusterUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -190,6 +191,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTableUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:TableUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -262,6 +264,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicMenuItemUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:MenuElementUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -298,6 +301,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSplitPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:SplitPaneUISchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -307,6 +311,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTabbedPaneUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -343,6 +348,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicFrameUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:FrameUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -361,6 +367,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicSliderUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:SliderUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -370,6 +377,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicComboBoxUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:ComboBoxUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -397,6 +405,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicTreeUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-event:TreeModelListenerSchemaType">
+<xs:extension base="org-aswing-tree:NodeDimensionsSchemaType">
+<xs:extension base="org-aswing-plaf:TreeUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -424,6 +435,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicMenuBarUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:MenuElementUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -433,6 +445,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicAccordionUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -442,6 +455,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicPopupMenuUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:MenuElementUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -469,6 +483,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicColorSwatchesUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:extension base="org-aswing-plaf:ColorSwatchesUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -478,6 +493,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ToolBarButtonBgAdapterSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="org-aswing:GroundDecoratorSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -577,6 +594,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="DefaultMenuLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:SoftBoxLayoutSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

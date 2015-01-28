@@ -24,12 +24,13 @@ using Lambda;
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
+			new VectorListModelNodeAdapter(),
 			new DefaultMutableTreeNodeAdapter(),
 			new ContainerAdapter(),
 			new ComponentAdapter(),
 			new DisplayObjectAdapter(),
 			new IEventDispatcherAdapter(),
-			new hml.xml.adapters.DefaultXMLAdapter()
+			new JiveXMLAdapter()
 		]);
 	}
 
@@ -157,6 +158,24 @@ class DefaultMutableTreeNodeAdapter extends ComponentAdapter {
 }
 
 class DefaultMutableTreeNodeWithMetaWriter extends ComponentWithMetaWriter {
+	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+		method.push('$scope.append(${universalGet(child)});');
+	}
+}
+
+class VectorListModelNodeAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+		if (baseType == null) baseType = macro : org.aswing.VectorListModel;
+		if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+		super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+		return [new VectorListModelNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+	}
+}
+
+class VectorListModelNodeWithMetaWriter extends ComponentWithMetaWriter {
 	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
 		method.push('$scope.append(${universalGet(child)});');
 	}

@@ -63,6 +63,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GridListSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JViewportSchemaType">
+<xs:extension base="org-aswing-event:ListDataListenerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -81,6 +82,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultGridCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
+<xs:extension base="GridListCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -108,6 +110,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FormRowSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -117,6 +120,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DateGridLayoutSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -153,6 +157,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralGridListCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="GridListCellFactorySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -171,6 +176,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="FormSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
+<xs:extension base="org-aswing:LayoutManagerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

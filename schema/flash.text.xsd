@@ -78,9 +78,9 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="antiAliasType" type="xs:string"/>
 <xs:element minOccurs="0" name="autoSize" type="xs:string"/>
 <xs:element minOccurs="0" name="background" type="xs:boolean"/>
-<xs:element minOccurs="0" name="backgroundColor" type="xs:string"/>
+<xs:element minOccurs="0" name="backgroundColor" type="xs:int"/>
 <xs:element minOccurs="0" name="border" type="xs:boolean"/>
-<xs:element minOccurs="0" name="borderColor" type="xs:string"/>
+<xs:element minOccurs="0" name="borderColor" type="xs:int"/>
 <xs:element minOccurs="0" name="bottomScrollV" type="xs:int"/>
 <xs:element minOccurs="0" name="caretIndex" type="xs:int"/>
 <xs:element minOccurs="0" name="condenseWhite" type="xs:boolean"/>
@@ -106,7 +106,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="sharpness" type="xs:double"/>
 <xs:element minOccurs="0" name="styleSheet" type="StyleSheetSchemaTypeValue"/>
 <xs:element minOccurs="0" name="text" type="xs:string"/>
-<xs:element minOccurs="0" name="textColor" type="xs:string"/>
+<xs:element minOccurs="0" name="textColor" type="xs:int"/>
 <xs:element minOccurs="0" name="textHeight" type="xs:double"/>
 <xs:element minOccurs="0" name="textWidth" type="xs:double"/>
 <xs:element minOccurs="0" name="thickness" type="xs:double"/>
@@ -118,9 +118,9 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="antiAliasType" type="xs:string"/>
 <xs:attribute name="autoSize" type="xs:string"/>
 <xs:attribute name="background" type="xs:boolean"/>
-<xs:attribute name="backgroundColor" type="xs:string"/>
+<xs:attribute name="backgroundColor" type="xs:int"/>
 <xs:attribute name="border" type="xs:boolean"/>
-<xs:attribute name="borderColor" type="xs:string"/>
+<xs:attribute name="borderColor" type="xs:int"/>
 <xs:attribute name="bottomScrollV" type="xs:int"/>
 <xs:attribute name="caretIndex" type="xs:int"/>
 <xs:attribute name="condenseWhite" type="xs:boolean"/>
@@ -146,7 +146,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="sharpness" type="xs:double"/>
 <xs:attribute name="styleSheet" type="xs:string"/>
 <xs:attribute name="text" type="xs:string"/>
-<xs:attribute name="textColor" type="xs:string"/>
+<xs:attribute name="textColor" type="xs:int"/>
 <xs:attribute name="textHeight" type="xs:double"/>
 <xs:attribute name="textWidth" type="xs:double"/>
 <xs:attribute name="thickness" type="xs:double"/>

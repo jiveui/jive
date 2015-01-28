@@ -39,7 +39,7 @@ interface ListCellFactory{
 	 * <p>If this return false, the List component will create cells instances for every value 
 	 * of the list. 
 	 * This may cause the List component have hard time to create with huge list, but may get fast when scrolling. 
-	 * <p>Ordinary, if your List component will hold a very huge list(more than 100), you many need a <code>allCellHasSameHeight</code> 
+	 * <p>Ordinary, if your List component will hold a very huge list(more than 100), you many need a <code>isAllCellHasSameHeight</code>
 	 * and <code>shareCells</code> factory. If your list will just hold a small list(less than 50), and you want a smooth scrolling, 
 	 * you may need a not <code>shareCells</code> factory, and in this case, <code>allCellHasSameHeight</code> is not matter 
 	 * with speed, just matter whether you need different height items.
