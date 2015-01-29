@@ -5,12 +5,12 @@ import org.aswing.border.EmptyBorder;
 import flash.Lib;
 import massive.munit.Assert;
 
-class JTextFieldTest
+class JTextAreaTest
 {
     @Test
     public function testXmlCreation() {
         AsWingManager.initAsStandard(Lib.current);
-        var WINDOW: decl.JTextFieldTest = new decl.JTextFieldTest();
+        var WINDOW: decl.JTextAreaTest = new decl.JTextAreaTest();
 
         Assert.isNotNull(WINDOW);
 

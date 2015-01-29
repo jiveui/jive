@@ -7,19 +7,19 @@
                         <layout>
                             <FlowLayout/>
                         </layout>
-                        <JTextField text="'First'" columns="50"/>
+                        <JTextArea text="'First'" columns="50" rows="10"/>
                     </JPanel>
                     <JPanel>
                         <layout>
                             <FlowLayout/>
                         </layout>
-                        <JTextField text="'Second'" columns="20"/>
+                        <JTextArea text="'Second'" columns="20" rows="5"/>
                     </JPanel>
                     <JPanel>
                         <layout>
                             <FlowLayout/>
                         </layout>
-                        <JTextField text="'Third'" columns="5" maxChars="10"/>
+                        <JTextArea text="'Third'" columns="5" rows="3" maxChars="10"/>
                     </JPanel>
                 </SoftBox>
         </content>

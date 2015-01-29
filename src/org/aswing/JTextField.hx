@@ -4,31 +4,37 @@
 
 package org.aswing;
 
-
 import org.aswing.geom.IntDimension;
-	import org.aswing.event.FocusKeyEvent;
+import org.aswing.event.FocusKeyEvent;
 import org.aswing.AWKeyboard;
 import org.aswing.event.AWEvent;
 import org.aswing.plaf.basic.BasicTextFieldUI;
 
 /**
- * Dispatched when the user input ENTER in the textfield.
- * @eventType org.aswing.event.AWEvent.ACT
- * @see org.aswing.JTextField#addActionListener()
+ * `JTextField` is a component that allows the editing of a single line of text.
+ * @author Tomato
+ * @author paling
  */
-// [Event(name="act", type="org.aswing.event.AWEvent")]
-
-/**
- * JTextField is a component that allows the editing of a single line of text. 
- * @author Tomato, paling
- */
+@:event("org.aswing.event.AWEvent.ACT", "Dispatched when the user input ENTER in the textfield")
 class JTextField extends JTextComponent{
-	
-	private static var defaultMaxChars:Int= 0;
-	
-	private var _columns:Int;
-	@bindable public var columns(get, set): Int;
-	
+
+    /**
+	* A default value of `this.maxChars`
+    **/
+    public static var defaultMaxChars:Int= 0;
+
+    /**
+	 * A number of columns in this JTextField, if it changed then call parent to do layout.
+	 *
+	 * If columns is set to zero or min than zero, the preferred width will be matched just to view all of the text.
+	 *
+	 * The default value is zero.
+	 */
+    @bindable public var columns(get, set): Int;
+    private var _columns:Int;
+    private function get_columns(): Int { return Math.floor(getColumns()); }
+    private function set_columns(c: Int) { setColumns(c); return c; }
+
 	public function new(text:String="", columns:Int=0){
 		super(); 
 		setName("JTextField");
@@ -42,15 +48,17 @@ class JTextField extends JTextComponent{
 		updateUI();
 	}
 	
-	override public function updateUI():Void {
- 
+	@:dox(hide)
+    override public function updateUI():Void {
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicTextFieldUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "TextFieldUI";
 	}
@@ -60,6 +68,7 @@ class JTextField extends JTextComponent{
 	 * By default it is 0, you can change it by this method.
 	 * @param n the default maxChars to set
 	 */
+    @:dox(hide)
 	public static function setDefaultMaxChars(n:Int):Void{
 		defaultMaxChars = n;
 	}
@@ -68,6 +77,7 @@ class JTextField extends JTextComponent{
 	 * Returns the maxChars property for default value when <code>JTextFeild</code> be created.
 	 * @return the default maxChars value.
 	 */
+    @:dox(hide)
 	public static function getDefaultMaxChars():Int{
 		return defaultMaxChars;
 	}	
@@ -78,6 +88,7 @@ class JTextField extends JTextComponent{
 	 * if columns is set to zero or min than zero, the preferred width will be matched just to view all of the text.
 	 * default value is zero if missed this param.
 	 */
+    @:dox(hide)
 	public inline function setColumns(columns:Int=0):Void{
 		if(columns < 0) columns = 0;
 		if(this._columns != columns){
@@ -89,18 +100,19 @@ class JTextField extends JTextComponent{
 	/**
 	 * @see #setColumns
 	 */
+    @:dox(hide)
 	public inline function getColumns():Float{
 		return _columns;
 	}	
 	
     /**
-     * Adds a action listener to this text field. JTextField fire a action event when 
-     * user press Enter Key when input to text field.
-	 * @param listener the listener
-	 * @param priority the priority
-	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.AWEvent#ACT
-     */
+    * Adds a action listener to this text field. JTextField fire a action event when
+    * user press Enter Key when input to text field.
+    * @param listener the listener
+    * @param priority the priority
+    * @param useWeakReference Determines whether the reference to the listener is strong or weak.
+    * @see org.aswing.event.AWEvent#ACT
+    */
     public function addActionListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
     	 addEventListener(AWEvent.ACT, listener, false, priority, useWeakReference);
     }
@@ -114,7 +126,8 @@ class JTextField extends JTextComponent{
 		removeEventListener(AWEvent.ACT, listener);
 	}   	
 	
-	override private function isAutoSize():Bool{
+	@:dox(hide)
+    override private function isAutoSize():Bool{
 		return _columns == 0;
 	}
 	
@@ -144,17 +157,9 @@ class JTextField extends JTextComponent{
 		}
 	}
 
+    @:dox(hide)
     public override function paintFocusRect(force:Bool=false) {
         FocusManager.getManager(stage).setTraversalEnabled(true);
         super.paintFocusRect(true);
     }
-
-	private function get_columns(): Int {
-		return Math.floor(getColumns());
-	}
-
-	private function set_columns(c: Int) {
-		setColumns(c);
-		return c;
-	}
 }

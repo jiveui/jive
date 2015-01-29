@@ -2304,12 +2304,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="JTextComponentSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="columns" type="xs:int"/>
-<xs:element minOccurs="0" name="setColumns" type="xs:string"/>
-<xs:element minOccurs="0" name="getColumns" type="xs:string"/>
 </xs:all>
 <xs:attribute name="columns" type="xs:int"/>
-<xs:attribute name="setColumns" type="xs:string"/>
-<xs:attribute name="getColumns" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2874,17 +2870,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="columns" type="xs:int"/>
 <xs:element minOccurs="0" name="rows" type="xs:int"/>
-<xs:element minOccurs="0" name="setColumns" type="xs:string"/>
-<xs:element minOccurs="0" name="getColumns" type="xs:string"/>
-<xs:element minOccurs="0" name="setRows" type="xs:string"/>
-<xs:element minOccurs="0" name="getRows" type="xs:string"/>
+<xs:element minOccurs="0" name="viewPosition" type="org-aswing-geom:IntPointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="verticalBlockIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalBlockIncrement" type="xs:int"/>
 </xs:all>
 <xs:attribute name="columns" type="xs:int"/>
 <xs:attribute name="rows" type="xs:int"/>
-<xs:attribute name="setColumns" type="xs:string"/>
-<xs:attribute name="getColumns" type="xs:string"/>
-<xs:attribute name="setRows" type="xs:string"/>
-<xs:attribute name="getRows" type="xs:string"/>
+<xs:attribute name="viewPosition" type="xs:string"/>
+<xs:attribute name="verticalUnitIncrement" type="xs:int"/>
+<xs:attribute name="verticalBlockIncrement" type="xs:int"/>
+<xs:attribute name="horizontalUnitIncrement" type="xs:int"/>
+<xs:attribute name="horizontalBlockIncrement" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
