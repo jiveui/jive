@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="org.aswing" xmlns="org.aswing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:flash-text="flash.text"
 xmlns:org-aswing-geom="org.aswing.geom"
+xmlns:flash-net="flash.net"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
 xmlns:empty="empty"
@@ -23,6 +24,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
+<xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
@@ -1955,7 +1957,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="AssetPaneSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="loader" type="flash-display:LoaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="error" type="xs:boolean"/>
+<xs:element minOccurs="0" name="urlRequest" type="flash-net:URLRequestSchemaTypeValue"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
 </xs:all>
+<xs:attribute name="loader" type="xs:string"/>
+<xs:attribute name="error" type="xs:boolean"/>
+<xs:attribute name="urlRequest" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

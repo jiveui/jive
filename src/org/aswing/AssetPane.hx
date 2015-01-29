@@ -18,9 +18,10 @@ import flash.display.DisplayObjectContainer;
  *
  * External content will be load automatically when the pane was created if floorEnabled.
  *
- * See `JLoadPane`, `JAttachPane`
+ * @ee `JLoadPane`
  *
- * Author paling, ngrebenshikov
+ * @author paling
+ * @author ngrebenshikov
  */	
 class AssetPane extends Container{
 	

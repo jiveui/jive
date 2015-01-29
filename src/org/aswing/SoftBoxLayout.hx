@@ -141,7 +141,6 @@ class SoftBoxLayout extends EmptyLayout{
      */
 	@:dox(hide)
     public function setAxis(axis:Int= X_AXIS):Void{
-		untyped console.log("setAxis " + axis);
     	this.axis = axis ;
     }
     
@@ -242,7 +241,6 @@ class SoftBoxLayout extends EmptyLayout{
      */
 	@:dox(hide)
     override public function layoutContainer(target:Container):Void{
-		untyped console.log('layoutContainer ' + axis);
     	var count:Int= target.getComponentCount();
     	var size:IntDimension = target.getSize();
     	var insets:Insets = target.getInsets();

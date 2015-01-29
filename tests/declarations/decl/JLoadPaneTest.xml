@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing" xmlns:geom="org.aswing.geom">
+        <content>
+                <JPanel>
+                        <layout>
+                                <FlowLayout>
+                                        <align>org.aswing.FlowLayout.LEFT</align>
+                                        <hgap>30</hgap>
+                                        <vgap>30</vgap>
+                                        <margin>true</margin>
+                                </FlowLayout>
+                        </layout>
+                    <JLoadPane url="'2.jpg'">
+                        <prefferSizeStrategy>org.aswing.AssetPane.PREFER_SIZE_LAYOUT</prefferSizeStrategy>
+                        <scaleMode>org.aswing.AssetPane.SCALE_FIT_PANE</scaleMode>
+                        <preferredSize>
+                            <geom:IntDimension width="100" height="100"/>
+                        </preferredSize>
+                    </JLoadPane>
+                </JPanel>
+        </content>
+</JWindow>

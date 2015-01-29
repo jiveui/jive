@@ -13,79 +13,62 @@ import flash.events.Event;
  
 import flash.events.IOErrorEvent; 
 import flash.net.URLRequest; 
-	/**
- * Dispatched when data has loaded successfully. The complete event is always dispatched after the init event. 
- * @eventType flash.events.Event.COMPLETE
- */
-// [Event(name="complete", type="flash.events.Event")]
-
-/**
- * Dispatched when a network request is made over HTTP and Flash Player can detect the HTTP status code.  
- * @eventType flash.events.HTTPStatusEvent.HTTP_STATUS
- */
-// [Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
-
-/**
- * Dispatched when the properties and methods of a loaded SWF file are accessible. A LoaderInfo object dispatches the init event when the following two conditions exist:  
- * @eventType flash.events.Event.INIT 
- */
-// [Event(name="init", type="flash.events.Event")]
-
-/**
- * Dispatched when an input or output error occurs that causes a load operation to fail. 
- * @eventType flash.events.IOErrorEvent.IO_ERROR 
- */
-// [Event(name="ioError", type="flash.events.IOErrorEvent")]
-
-/**
- * Dispatched when a load operation starts. 
- * @eventType  flash.events.Event.OPEN
- */
-// [Event(name="open", type="flash.events.Event")]
-
-/**
- * Dispatched when data is received as the download operation progresses. 
- * @eventType flash.events.ProgressEvent.PROGRESS 
- */
-// [Event(name="progress", type="flash.events.ProgressEvent")]
-
-/**
- * Dispatched by a LoaderInfo object whenever a loaded object is removed by using the unload() method of the Loader object, 
- * or when a second load is performed by the same Loader object and the original content is removed prior to the load beginning. 
- * @eventType flash.events.Event.UNLOAD
- */
-// [Event(name="unload", type="flash.events.Event")]
 
 /**
  * JLoadPane, a container load a external image/animation to be its asset.
- * @see org.aswing.JAttachPane
  * @author paling
- */	
-class JLoadPane extends AssetPane{
+ */
+@:event("flash.events.Event.COMPLETE","Dispatched when data has loaded successfully. The complete event is always dispatched after the init event")
+@:event("flash.events.HTTPStatusEvent.HTTP_STATUS", "Dispatched when a network request is made over HTTP and Flash Player can detect the HTTP status code")
+@:event("flash.events.Event.INIT", "Dispatched when the properties and methods of a loaded SWF file are accessible. A LoaderInfo object dispatches the init event when the following two conditions exist")
+@:event("flash.events.IOErrorEvent.IO_ERROR", "Dispatched when an input or output error occurs that causes a load operation to fail")
+@:event("flash.events.Event.OPEN", "Dispatched when a load operation starts")
+@:event("flash.events.ProgressEvent.PROGRESS", "Dispatched when data is received as the download operation progresses")
+@:event("flash.events.Event.UNLOAD", "Dispatched by a LoaderInfo object whenever a loaded object is removed by using the unload() method of the Loader object or when a second load is performed by the same Loader object and the original content is removed prior to the load beginning")
+class JLoadPane extends AssetPane {
 	
-	private var loader:Loader;
-	private var loadedError:Bool;
-	private var urlRequest:URLRequest;  
+	public var loader(default, null):Loader;
+
+    /**
+	 * @see flash.events.IOErrorEvent.IO_ERROR
+	 */
+    public var error(default, null):Bool;
+
+	public var urlRequest(default, null):URLRequest;
+
+    public var url(get, set): String;
+    private var _url: String;
+    private function get_url(): String { return if (null != urlRequest) urlRequest.url else null;  }
+    private function set_url(v: String): String {
+        error = false;
+        if(v == null){
+            urlRequest = null;
+        }else{
+            urlRequest = new URLRequest(v);
+        }
+        loadAsset();
+        return v;
+    }
+
 	private var regularAssetContainer:DisplayObjectContainer;
 	
 	/**
 	 * Creates a JLoadPane with a path to load external image or animation file.
 	 * <p>The asset of the JLoadPane will only be available after load completed. It mean 
-	 * <code>getAsset()</code> will return null before load completed.</p>
+	 * <code>AssetPane.asset</code> will return null before load completed.</p>
 	 * @param url the path string or a URLRequst instance, null to make it do not load any thing.
 	 * @param prefferSizeStrategy the prefferedSize count strategy. Must be one of below:
 	 * <ul>
-	 * <li>{@link org.aswing.AssetPane#PREFER_SIZE_BOTH}
-	 * <li>{@link org.aswing.AssetPane#PREFER_SIZE_IMAGE}
-	 * <li>{@link org.aswing.AssetPane#PREFER_SIZE_LAYOUT}
+	 * <li>`org.aswing.AssetPane#PREFER_SIZE_BOTH`
+	 * <li>`org.aswing.AssetPane#PREFER_SIZE_IMAGE`
+	 * <li>`org.aswing.AssetPane#PREFER_SIZE_LAYOUT`
 	 * </ul>
 	 * @param context the loader context.
-	 * @see #setPath()
 	 */
 	public function new(url:Dynamic=null, prefferSizeStrategy:Int=1 ) {
 		super(null, prefferSizeStrategy);
 		setName("JLoadPane");
-		loadedError = false;
+		error = false;
 		if(url == null){
 			urlRequest = null;
 		}else if(Std.is(url,URLRequest)){
@@ -99,7 +82,8 @@ class JLoadPane extends AssetPane{
 		loadAsset();
 	}
 	
-	override public function setAsset(asset:DisplayObject):Void{
+	@:dox(hide)
+    override public function setAsset(asset:DisplayObject):Void{
 		if(assetContainer == loader){
 			assetContainer = regularAssetContainer;
 			removeChild(loader);
@@ -137,22 +121,22 @@ class JLoadPane extends AssetPane{
 	/**
 	 * Load the asset.
 	 * <p>The asset of the JLoadPane will only be available after load completed. It mean 
-	 * <code>getAsset()</code> will return null before load completed.</p>
+	 * <code>AssetPane.asset</code> will return null before load completed.</p>
 	 * @param request The absolute or relative URL of the SWF, JPEG, GIF, or PNG file to be loaded. 
 	 * 		A relative path must be relative to the main SWF file. Absolute URLs must include 
 	 * 		the protocol reference, such as http:// or file:///. Filenames cannot include disk drive specifications. 
-	 * @param context (default = null) �?A LoaderContext object.
+	 * @param context (default = null) A LoaderContext object.
 	 * @see flash.display.Loader#load()
 	 */
 	public function load(request:URLRequest ):Void{
 		this.urlRequest = request;
-	 
 		loadAsset();
 	}
 	
 	/**
 	 * unload the loaded asset;
-	 */ 
+	 */
+    @:dox(hide)
 	override public function unloadAsset():Void{
 		this.urlRequest = null;
 		 
@@ -168,13 +152,14 @@ class JLoadPane extends AssetPane{
 	/**
 	 * return the path of image/animation file
 	 * @return the path of image/animation file
-	 */ 
+	 */
+    @:dox(hide)
 	public function getURLRequest():URLRequest{
 		return urlRequest;
 	}	
 	
 	/**
-	 * Re load the asset from with last url request and context.
+	 * Reload the asset with the last url request and context.
 	 */
 	override public function reload():Void{
 		loadAsset();
@@ -184,13 +169,14 @@ class JLoadPane extends AssetPane{
 	 * Returns is error loaded.
 	 * @see #ON_LOAD_ERROR
 	 */
+    @:dox(hide)
 	public function isLoadedError():Bool{
-		return loadedError;
+		return error;
 	}
 	
 	private function loadAsset():Void{
 		if(urlRequest != null){
-			loadedError = false;
+			error = false;
 			setLoaded(false);
 			loader.load(urlRequest);
 		}
@@ -220,11 +206,13 @@ class JLoadPane extends AssetPane{
 			loader.contentLoaderInfo.bytesTotal);
 	}
 	*/
+    @:dox(hide)
 	public function getAssetLoaderInfo():LoaderInfo{
 		return loader.contentLoaderInfo;
 	}
 	
-	public function getLoader():Loader{
+	@:dox(hide)
+    public function getLoader():Loader{
 		return loader;
 	}
 	
@@ -236,7 +224,7 @@ class JLoadPane extends AssetPane{
 	}
 	
 	private function __onLoadError(e:IOErrorEvent):Void{
-		loadedError = true;
+		error = true;
 		setLoadedAsset(loader.content);
 		dispatchEvent(new IOErrorEvent(IOErrorEvent.IO_ERROR, false, false, e.toString()));
 	}
