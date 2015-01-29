@@ -1247,9 +1247,31 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="ComponentSchemaType">
 <xs:extension base="EditableComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="textField" type="flash-text:TextFieldSchemaTypeValue"/>
+<xs:element minOccurs="0" name="wordWrap" type="xs:boolean"/>
+<xs:element minOccurs="0" name="defaultTextFormat" type="flash-text:TextFormatSchemaTypeValue"/>
+<xs:element minOccurs="0" name="editable" type="xs:boolean"/>
 <xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="htmlText" type="xs:string"/>
+<xs:element minOccurs="0" name="displayAsPassword" type="xs:boolean"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="maxChars" type="xs:int"/>
+<xs:element minOccurs="0" name="restrict" type="xs:string"/>
+<xs:element minOccurs="0" name="selectionBeginIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="selectionEndIndex" type="xs:int"/>
 </xs:all>
+<xs:attribute name="textField" type="xs:string"/>
+<xs:attribute name="wordWrap" type="xs:boolean"/>
+<xs:attribute name="defaultTextFormat" type="xs:string"/>
+<xs:attribute name="editable" type="xs:boolean"/>
 <xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="htmlText" type="xs:string"/>
+<xs:attribute name="displayAsPassword" type="xs:boolean"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="maxChars" type="xs:int"/>
+<xs:attribute name="restrict" type="xs:string"/>
+<xs:attribute name="selectionBeginIndex" type="xs:int"/>
+<xs:attribute name="selectionEndIndex" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

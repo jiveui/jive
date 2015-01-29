@@ -21,17 +21,18 @@ import org.aswing.AWKeyboard;
 
 import org.aswing.geom.IntDimension;
 import org.aswing.geom.IntRectangle;
-	/**
+
+/**
  * JTextComponent is the base class for text components. 
  * <p>
  * <code>JTextComponent</code> can be formated by <code>ASFont</code>, 
  * but some times you need complex format,then <code>ASFont</code> is 
  * not enough, so you can set a <code>EmptyFont</code> instance to the 
  * <code>JTextComponent</code>, it will do nothing for the format, then 
- * you can call <code>setTextFormat</code>, <code>setDefaultTextFormat</code> 
+ * you can call <code>this.setTextFormat</code>, <code>this.defaultTextFormat</code>
  * to format the text with <code>TextFormat</code> instances. And don't forgot 
- * to call <code>revalidate</code> if you think the component size should be 
- * change after that. Because these method will not call <code>revalidate</code>
+ * to call <code>Component.revalidate</code> if you think the component size should be
+ * change after that. Because these method will not call <code>Component.revalidate</code>
  * automatically.
  * </p>
  * 
@@ -42,10 +43,31 @@ import org.aswing.geom.IntRectangle;
  * @see JTextArea
  */
 class JTextComponent extends Component  implements EditableComponent{
-	
-	private var textField:TextField;
 
-	private var editable:Bool;
+    /**
+	 * The internal <code>TextField</code> instance.
+	 */
+	public var textField(default, null):TextField;
+
+	/**
+    * @see TextField.wordWrap
+    **/
+    public var wordWrap(get, set): Bool;
+    private function get_wordWrap(): Bool { return isWordWrap(); }
+    private function set_wordWrap(v: Bool): Bool { setWordWrap(v); return v; }
+
+    /**
+    * @see TextField.defaultTextFormat
+    **/
+    public var defaultTextFormat(get, set): TextFormat;
+    private var _defaultTextFormat: TextFormat;
+    private function get_defaultTextFormat(): TextFormat { return getDefaultTextFormat(); }
+    private function set_defaultTextFormat(v: TextFormat): TextFormat { setDefaultTextFormat(v); return v; }
+
+    public var editable(get, set): Bool;
+    private var _editable: Bool;
+    private function get_editable(): Bool { return isEditable(); }
+    private function set_editable(v: Bool): Bool { setEditable(v); return v; }
 	
 	private var columnWidth:Int;
 	private var rowHeight:Int;
@@ -54,36 +76,89 @@ class JTextComponent extends Component  implements EditableComponent{
 	private var columnRowCounted:Bool;
 
 	@bindable public var text(get, set): String;
-	
-	public function new(){
+    private function get_text(): String { return getText();  }
+    private function set_text(val: String): String { setText(val); return val; }
+
+    public var htmlText(get, set): String;
+    private var _htmlText: String;
+    private function get_htmlText(): String { return getHtmlText(); }
+    private function set_htmlText(v: String): String { setHtmlText(v); return v; }
+
+    /**
+    * @see TextField.displayAsPassword
+    **/
+    public var displayAsPassword(get, set): Bool;
+    private function get_displayAsPassword(): Bool { return isDisplayAsPassword(); }
+    private function set_displayAsPassword(v: Bool): Bool { setDisplayAsPassword(v); return v; }
+
+    /**
+    * @see TextField.length
+    **/
+    public var length(get, null): Int;
+    private function get_length(): Int { return getLength(); }
+
+    /**
+    * @see TextField.maxChars
+    **/
+    public var maxChars(get, set): Int;
+    private function get_maxChars(): Int { return getMaxChars(); }
+    private function set_maxChars(v: Int): Int { setMaxChars(v); return v; }
+
+    /**
+    * @see TextField.restrict
+    **/
+    public var restrict(get, set): String;
+    private function get_restrict(): String { return getRestrict(); }
+    private function set_restrict(v: String): String { setRestrict(v); return v; }
+
+    /**
+    * @see TextField.selectionBeginIndex
+    **/
+    public var selectionBeginIndex(get, null): Int;
+    private function get_selectionBeginIndex(): Int { return getSelectionBeginIndex(); }
+
+    /**
+    * @see TextField.selectionEndIndex
+    **/
+    public var selectionEndIndex(get, null): Int;
+    private function get_selectionEndIndex(): Int { return getSelectionEndIndex(); }
+
+    public function new(){
 		super();
 		
 		textField = new TextField();
 		textField.type = TextFieldType.INPUT;
 		textField.autoSize = TextFieldAutoSize.NONE;
 		textField.background = false;
-		editable = true;
+		_editable = true;
 		columnRowCounted = false;
 		addChild(textField);
 		textField.addEventListener(Event.CHANGE, function(e) { bindx.Bind.notify(this.text);});
+
 		#if(flash9)
 		textField.addEventListener(TextEvent.TEXT_INPUT, __onTextComponentTextInput);
 		#end
 	}
+
+    @:dox(hide)
 	public function setDefaultTextFormat(dtf:TextFormat):Void{
 	 	getTextField().defaultTextFormat = dtf;
 	}
-	
+
+    @:dox(hide)
 	public function getDefaultTextFormat():TextFormat{
 		return getTextField().defaultTextFormat;
 	}
-	public function setWordWrap(b:Bool):Void{
+
+	@:dox(hide)
+    public function setWordWrap(b:Bool):Void{
 		getTextField().wordWrap = b;
 		if(isAutoSize()){
 			revalidate();
 		}
 	}
-	
+
+    @:dox(hide)
 	public function isWordWrap():Bool{
 		return getTextField().wordWrap;
 	}
@@ -92,6 +167,7 @@ class JTextComponent extends Component  implements EditableComponent{
 	 * Returns the internal <code>TextField</code> instance.
 	 * @return the internal <code>TextField</code> instance.
 	 */
+    @:dox(hide)
 	public function getTextField():TextField{
 		return textField;
 	}
@@ -103,16 +179,18 @@ class JTextComponent extends Component  implements EditableComponent{
 		return false;
 	}
 	
-	override public function setEnabled(b:Bool):Void{
+	@:dox(hide)
+    override public function setEnabled(b:Bool):Void{
 		super.setEnabled(b);
 		getTextField().selectable = b;
 		getTextField().mouseEnabled = b;
 	}
 	
-	public function setEditable(b:Bool):Void {
+	@:dox(hide)
+    public function setEditable(b:Bool):Void {
 	 
-		if(b != editable){
-			editable = b;
+		if(b != _editable){
+			_editable = b;
 			if(b)	{
 				getTextField().type = TextFieldType.INPUT;
 			}else{
@@ -124,9 +202,9 @@ class JTextComponent extends Component  implements EditableComponent{
 		}
 	}
 	
-	public function isEditable():Bool {
-		
-		return editable;
+	@:dox(hide)
+    public function isEditable():Bool {
+		return _editable;
 	}
 		/**
 	 * Sets the default textFormat to the text.
@@ -142,6 +220,7 @@ class JTextComponent extends Component  implements EditableComponent{
 	 * @param f the font.
 	 * @see EmptyFont
 	 */
+    @:dox(hide)
 	override public function setFont(f:ASFont):Void {
 	#if (flash9 || cpp)
 		super.setFont(f);
@@ -155,7 +234,8 @@ class JTextComponent extends Component  implements EditableComponent{
 		#end
 	}
 
-	
+
+    @:dox(hide)
 	override public function setForeground(c:ASColor):Void{
 		super.setForeground(c);
 		if (getForeground() != null) { 
@@ -163,7 +243,8 @@ class JTextComponent extends Component  implements EditableComponent{
     		getTextField().alpha = getForeground().getAlpha();
   		}
 	}
-		
+
+    @:dox(hide)
 	public function setText(text:String):Void{
 		if(getTextField().text != text){
 			getTextField().text = text;
@@ -173,19 +254,22 @@ class JTextComponent extends Component  implements EditableComponent{
 			bindx.Bind.notify(this.text);
 		}
 	}
-	
+
+    @:dox(hide)
 	public function getText():String{
 		return getTextField().text;
 	}
 	
-	public function setHtmlText(ht:String):Void{
+	@:dox(hide)
+    public function setHtmlText(ht:String):Void{
 		getTextField().htmlText = ht;
 		if(isAutoSize()){
 			revalidate();
 		}
 	}
 	
-	public function getHtmlText():String{
+	@:dox(hide)
+    public function getHtmlText():String{
 		return getTextField().htmlText;
 	}
 	
@@ -300,6 +384,7 @@ class JTextComponent extends Component  implements EditableComponent{
      * Returns the text field to receive the focus for this component.
      * @return the object to receive the focus.
      */
+    @:dox(hide)
     override public function getInternalFocusObject():InteractiveObject{
     	return getTextField();
     }
@@ -315,11 +400,83 @@ class JTextComponent extends Component  implements EditableComponent{
 		t.y = b.y;
 		t.width = b.width;
 		t.height = b.height;
-    }	
-	
+    }
+
+    #if (flash9 || cpp || html5)
+	public function setSelection(beginIndex:Int, endIndex:Int):Void {
+		getTextField().setSelection(beginIndex, endIndex);
+	}
+
+	public function selectAll():Void {
+		getTextField().setSelection(0, getTextField().length);
+	}
+
+	/**
+	 * Sets the textFormat to the specified range.
+	 * <p>
+	 * You should set a <code>EmptyFont</code> instance to be the component
+	 * font before this call to make sure the textFormat will be effective.
+	 * </p>
+	 * @param tf the default textformat.
+	 * @param beginIndex the begin index.
+	 * @param endIndex the end index.
+	 * @see Component.font
+	 */
+	public function setTextFormat(tf:TextFormat, beginIndex:Int= -1, endIndex:Int= -1):Void{
+		getTextField().setTextFormat(tf, beginIndex, endIndex);
+	}
+
+	public function getTextFormat(beginIndex:Int = -1, endIndex:Int = -1):TextFormat {
+		return getTextField().getTextFormat(beginIndex, endIndex);
+	}
+
+	@:dox(hide)
+    public function setDisplayAsPassword(b:Bool):Void {
+		getTextField().displayAsPassword = b;
+	}
+
+    @:dox(hide)
+	public function isDisplayAsPassword():Bool {
+		return getTextField().displayAsPassword;
+	}
+
+	@:dox(hide)
+    public function getLength():Int {
+		return getTextField().length;
+	}
+
+	@:dox(hide)
+    public function setMaxChars(n:Int):Void {
+		getTextField().maxChars = n;
+	}
+
+    @:dox(hide)
+	public function getMaxChars():Int {
+		return getTextField().maxChars;
+	}
+
+	@:dox(hide)
+    public function setRestrict(res:String):Void {
+		getTextField().restrict = res;
+	}
+
+    @:dox(hide)
+	public function getRestrict():String {
+		return getTextField().restrict;
+	}
+
+    @:dox(hide)
+	public function getSelectionBeginIndex():Int {
+		return getTextField().selectionBeginIndex;
+	}
+
+    @:dox(hide)
+	public function getSelectionEndIndex():Int {
+		return getTextField().selectionEndIndex;
+	}
+    #end
+
 	#if (flash9)
-	
-		 
 	private function __onTextComponentTextInput(e:TextEvent):Void {
 	
     	if(!getTextField().multiline){ //fix the bug that fp in interenet browser single line TextField Ctrl+Enter will entered a newline bug
@@ -336,144 +493,44 @@ class JTextComponent extends Component  implements EditableComponent{
     	}
 
 	}
+
 	/**
 	 * Append text implemented by <code>replaceText</code> to avoid the 
 	 * <code>appendText()</code> method bug(the bug will make the text not be append at 
 	 * the end of the text, some times it appends to a middle position).
 	 * @param newText the text to be append to the end of the text field.
 	 */
+    @:dox(hide)
 	public function appendByReplace(newText:String):Void{
 		var n:Int = getLength();
-		
 		getTextField().replaceText(n, n, newText);
-		 
 	}
 	
+    @:dox(hide)
 	public function replaceSelectedText(value:String):Void {
- 
 		getTextField().replaceSelectedText(value);
-	 
 	}
 	
+    @:dox(hide)
 	public function replaceText(beginIndex:Int, endIndex:Int, newText:String):Void {
- 
 		getTextField().replaceText(beginIndex, endIndex, newText);
- 
 	}
 	
-	public function setSelection(beginIndex:Int, endIndex:Int):Void {
- 
-		getTextField().setSelection(beginIndex, endIndex);
- 
-	}
-	
-	public function selectAll():Void {
- 
-		getTextField().setSelection(0, getTextField().length);
- 
-	}
-	
+    @:dox(hide)
 	public function setCondenseWhite(b:Bool):Void {
- 
 		if(getTextField().condenseWhite != b){
 			getTextField().condenseWhite = b;
 			revalidate();
 		}
-		
 	}
 	
+    @:dox(hide)
 	public function isCondenseWhite():Bool {
- 
 		return getTextField().condenseWhite;
-	 
-		return true;
 	}
 	 
-
-	
-	
-	/**
-	 * Sets the textFormat to the specified range.
-	 * <p>
-	 * You should set a <code>EmptyFont</code> instance to be the component 
-	 * font before this call to make sure the textFormat will be effective.
-	 * </p>
-	 * @param tf the default textformat.
-	 * @param beginIndex the begin index.
-	 * @param endIndex the end index.
-	 * @see #setFont()
-	 */	
- 
-	public function setTextFormat(tf:TextFormat, beginIndex:Int= -1, endIndex:Int= -1):Void{
-		
-		getTextField().setTextFormat(tf, beginIndex, endIndex);
-		 
-	}
-	
-	public function getTextFormat(beginIndex:Int = -1, endIndex:Int = -1):TextFormat {
-	 
-	
-		return getTextField().getTextFormat(beginIndex, endIndex);
-	 
-	}
-	
-	public function setDisplayAsPassword(b:Bool):Void {
- 
-		getTextField().displayAsPassword = b;
- 
-	}
-	
-	public function isDisplayAsPassword():Bool {
-	 
-		return getTextField().displayAsPassword;
-	 
-	}
-	
-	public function getLength():Int {
- 	
-		return getTextField().length;
- 
-	}
-	
-	public function setMaxChars(n:Int):Void {
- 
-		getTextField().maxChars = n;
- 
-	}
-	
-	
-	public function getMaxChars():Int {
- 		
-		return getTextField().maxChars;
- 
-	}
-	
-	public function setRestrict(res:String):Void {
-		 
-		getTextField().restrict = res;
- 
-	} 
-	
-	public function getRestrict():String {
- 
-		return getTextField().restrict;
- 
-	}
-	
-	public function getSelectionBeginIndex():Int {
- 	
-		return getTextField().selectionBeginIndex;
-	 
-	}
-	
-	public function getSelectionEndIndex():Int {
- 	
-		return getTextField().selectionEndIndex;
- 
-	}
-	
+    @:dox(hide)
 	public function setCSS(css:Dynamic):Void {
- 	
 		getTextField().styleSheet = css;
 			
 		if(isAutoSize()){
@@ -481,32 +538,21 @@ class JTextComponent extends Component  implements EditableComponent{
 		} 
 	}
 	
+    @:dox(hide)
 	public function getCSS():Dynamic {
- 	
 		return getTextField().styleSheet;
- 
 	}
 	
 
+    @:dox(hide)
 	public function setUseRichTextClipboard(b:Bool):Void {
-	 	
 		getTextField().useRichTextClipboard = b;
-		 
 	}
 	
+    @:dox(hide)
 	public function isUseRichTextClipboard():Bool {
- 	
 		return getTextField().useRichTextClipboard;
-	 
 	}
-		#end
-		
-	private function get_text(): String {
-		return getText();
-	}
+	#end
 
-	private function set_text(val: String): String {
-		setText(val);
-		return val;
-	}
 }

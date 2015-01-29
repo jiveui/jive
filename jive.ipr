@@ -70,7 +70,7 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
-  <component name="HaxeProjectSettings" defines="" />
+  <component name="HaxeProjectSettings" defines="html5" />
   <component name="IdProvider" IDEtalkID="C85B4E78C0B9F4BB3ED0A561EA269812" />
   <component name="Palette2">
     <group name="Swing">
