@@ -2135,7 +2135,21 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="TabInfo" />
+<xs:element minOccurs="0" name="selectionModel" type="SingleSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalAlignment" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalAlignment" type="xs:int"/>
+<xs:element minOccurs="0" name="verticalTextPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalTextPosition" type="xs:int"/>
+<xs:element minOccurs="0" name="iconTextGap" type="xs:int"/>
+<xs:element minOccurs="0" name="margin" type="InsetsSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="verticalAlignment" type="xs:int"/>
+<xs:attribute name="horizontalAlignment" type="xs:int"/>
+<xs:attribute name="verticalTextPosition" type="xs:int"/>
+<xs:attribute name="horizontalTextPosition" type="xs:int"/>
+<xs:attribute name="iconTextGap" type="xs:int"/>
+<xs:attribute name="margin" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2904,7 +2918,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="AbstractTabbedPaneSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="tabPlacement" type="xs:int"/>
+<xs:element minOccurs="0" name="leadingOffset" type="xs:int"/>
 </xs:all>
+<xs:attribute name="tabPlacement" type="xs:int"/>
+<xs:attribute name="leadingOffset" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

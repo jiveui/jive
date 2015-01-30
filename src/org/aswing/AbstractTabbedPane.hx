@@ -8,21 +8,18 @@ package org.aswing;
 import org.aswing.error.Error;
 import flash.events.Event; 
 import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.InsetsUIResource;
-	import org.aswing.plaf.UIResource;
-	import org.aswing.util.ArrayUtils;
-	/**
- *  Dispatched when the selected tab changed.
- *
- *  @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.plaf.InsetsUIResource;
+import org.aswing.plaf.UIResource;
+import org.aswing.util.ArrayUtils;
 
 /**
  * An abstract class for all Container pane class that have title, icon, tip for every sub pane.
- * For example JAccordion, JTabbedPane.
+ *
+ * For example `JAccordion`, `JTabbedPane`.
+ *
  * @author paling
  */
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the selected tab changed")
 @:children("org.aswing.TabInfo")
 class AbstractTabbedPane extends Container {
 	
@@ -67,26 +64,102 @@ class AbstractTabbedPane extends Container {
     private var tips:Array<Dynamic>;
     private var enables:Array<Dynamic>;
     private var visibles:Array<Dynamic>;
-    private var model:SingleSelectionModel;
-    
+
+    public var selectionModel(get, set): SingleSelectionModel;
+    private var _selectionModel: SingleSelectionModel;
+    private function get_selectionModel(): SingleSelectionModel { return getModel(); }
+    private function set_selectionModel(v: SingleSelectionModel): SingleSelectionModel { setModel(v); return v; }
+
 	// Icon/Label Alignment
-    private var verticalAlignment:Int;
-    private var horizontalAlignment:Int;
-    private var verticalTextPosition:Int;
-    private var horizontalTextPosition:Int;
-    private var iconTextGap:Int;
-    private var margin:Insets;
+
+    /**
+     * The vertical alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.CENTER` (the default)
+     * <li>`AsWingConstants.TOP`
+     * <li>`AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalAlignment(get, set): Int;
+    private var _verticalAlignment: Int;
+    private function get_verticalAlignment(): Int { return Std.int(getVerticalAlignment()); }
+    private function set_verticalAlignment(v: Int): Int { setVerticalAlignment(v); return v; }
+
+    /**
+     * The horizontal alignment of the icon and text.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalAlignment(get, set): Int;
+    private var _horizontalAlignment: Int;
+    private function get_horizontalAlignment(): Int { return Std.int(getHorizontalAlignment()); }
+    private function set_horizontalAlignment(v: Int): Int { setHorizontalAlignment(v); return v; }
+
+    /**
+     * The vertical position of the text relative to the icon.
+     *
+     * One of the following values:
+     * <ul>
+     * <li>`AsWingConstants.CENTER` (the default)
+     * <li>`AsWingConstants.TOP`
+     * <li>`AsWingConstants.BOTTOM`
+     * </ul>
+     */
+    public var verticalTextPosition(get, set): Int;
+    private var _verticalTextPosition: Int;
+    private function get_verticalTextPosition(): Int { return Std.int(getVerticalTextPosition()); }
+    private function set_verticalTextPosition(v: Int): Int { setVerticalTextPosition(v); return v; }
+
+/**
+     * The horizontal position of the text relative to the icon.
+     * <ul>
+     * <li>`AsWingConstants.RIGHT` (the default)
+     * <li>`AsWingConstants.LEFT`
+     * <li>`AsWingConstants.CENTER`
+     * </ul>
+     */
+    public var horizontalTextPosition(get, set): Int;
+    private var _horizontalTextPosition: Int;
+    private function get_horizontalTextPosition(): Int { return Std.int(getHorizontalTextPosition()); }
+    private function set_horizontalTextPosition(v: Int): Int { setHorizontalTextPosition(v); return v; }
+
+/**
+     * If both the icon and text properties are set, this property
+     * defines the space between them.
+     *
+     * The default value of this property is 4 pixels.
+     */
+    public var iconTextGap(get, set): Int;
+    private var _iconTextGap: Int;
+    private function get_iconTextGap(): Int { return Std.int(getIconTextGap()); }
+    private function set_iconTextGap(v: Int): Int { setIconTextGap(v); return v; }
+
+    /**
+	 * The space for the margin between the tab border and the tab label.
+	 */
+    public var margin(get, set): Insets;
+    private var _margin: Insets;
+    private function get_margin(): Insets { return getMargin(); }
+    private function set_margin(v: Insets): Insets { setMargin(v); return v; }
+
     
 	public function new() {
 		
 		//default
 		super();
 		setClipMasked(true);
-    	verticalAlignment = CENTER;
-    	horizontalAlignment = CENTER;
-    	verticalTextPosition = CENTER;
-    	horizontalTextPosition = RIGHT;
-    	iconTextGap = 4;
+    	_verticalAlignment = CENTER;
+    	_horizontalAlignment = CENTER;
+    	_verticalTextPosition = CENTER;
+    	_horizontalTextPosition = RIGHT;
+    	_iconTextGap = 4;
     	
 		titles = new Array<Dynamic>();
 		icons = new Array<Dynamic>();
@@ -103,12 +176,13 @@ class AbstractTabbedPane extends Container {
      * @param model the model to be used
      * @see #getModel()
      */
+    @:dox(hide)
 	public function setModel(model:SingleSelectionModel):Void{
         var oldModel:SingleSelectionModel = getModel();
         if (oldModel != null) {
             oldModel.removeStateListener(__modelStateChanged);
         }
-        this.model = model;
+        this._selectionModel = model;
         if (model != null) {
             model.addStateListener(__modelStateChanged);
         }
@@ -119,8 +193,9 @@ class AbstractTabbedPane extends Container {
      * Returns the model associated with this tabbedpane.
      * @see #setModel()
      */
+    @:dox(hide)
 	public function getModel():SingleSelectionModel{
-		return model;
+		return _selectionModel;
 	}
 	
 	/**
@@ -206,6 +281,9 @@ class AbstractTabbedPane extends Container {
 		insertTab(-1, com, title, icon, tip);
 	}
 
+	/**
+    * Adds a tab by `TabInfo`
+    **/
     public function appendTabInfo(t: TabInfo) {
         if (null != t) {
             insertTab(-1, t.content, t.title, t.icon, t.tooltip);
@@ -353,6 +431,7 @@ class AbstractTabbedPane extends Container {
 	 * @see Container#remove()
 	 * @see #removeTabAt()
 	 */
+    @:dox(hide)
 	override public function remove(com:Component):Component{
 		var index:Int= getIndex(com);
 		if(index >= 0){
@@ -367,7 +446,8 @@ class AbstractTabbedPane extends Container {
 	 * Cover method for removeTabAt. 
 	 * @see #removeTabAt() 
 	 * @see Container#removeAt()
-	 */	
+	 */
+    @:dox(hide)
 	override public function removeAt(index:Int):Component{
 		return removeAtImp(index);
 	}
@@ -379,6 +459,7 @@ class AbstractTabbedPane extends Container {
 	 * @see #removeTabAt()
 	 * @see Container#removeAll()
 	 */
+    @:dox(hide)
 	override public function removeAll():Void{
 		while(children.length > 0){
 			removeAt(children.length - 1);
@@ -551,8 +632,9 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.BOTTOM</li>
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalAlignment():Int{
-        return verticalAlignment;
+        return _verticalAlignment;
     }
     
     /**
@@ -564,11 +646,12 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.BOTTOM</li>
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalAlignment(alignment:Int):Void{
-        if (alignment == verticalAlignment){
+        if (alignment == _verticalAlignment){
         	return;
         }else{
-        	verticalAlignment = alignment;
+        	_verticalAlignment = alignment;
         	revalidate();
         	repaint();
         }
@@ -584,8 +667,9 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.CENTER</li>
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalAlignment():Int{
-        return horizontalAlignment;
+        return _horizontalAlignment;
     }
     
     /**
@@ -597,11 +681,12 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.CENTER</li>
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalAlignment(alignment:Int):Void{
-        if (alignment == horizontalAlignment){
+        if (alignment == _horizontalAlignment){
         	return;
         }else{
-        	horizontalAlignment = alignment;     
+        	_horizontalAlignment = alignment;
         	revalidate();
         	repaint();
         }
@@ -618,8 +703,9 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.BOTTOM</li>
      * </ul>
      */
+    @:dox(hide)
     public function getVerticalTextPosition():Int{
-        return verticalTextPosition;
+        return _verticalTextPosition;
     }
     
     /**
@@ -631,11 +717,12 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.BOTTOM</li>
      * </ul>
      */
+    @:dox(hide)
     public function setVerticalTextPosition(textPosition:Int):Void{
-        if (textPosition == verticalTextPosition){
+        if (textPosition == _verticalTextPosition){
 	        return;
         }else{
-        	verticalTextPosition = textPosition;
+        	_verticalTextPosition = textPosition;
         	revalidate();
         	repaint();
         }
@@ -651,8 +738,9 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.CENTER</li>
      * </ul>
      */
+    @:dox(hide)
     public function getHorizontalTextPosition():Int{
-        return horizontalTextPosition;
+        return _horizontalTextPosition;
     }
     
     /**
@@ -664,11 +752,12 @@ class AbstractTabbedPane extends Container {
      * <li>AsWingConstants.CENTER</li>
      * </ul>
      */
+    @:dox(hide)
     public function setHorizontalTextPosition(textPosition:Int):Void{
-        if (textPosition == horizontalTextPosition){
+        if (textPosition == _horizontalTextPosition){
         	return;
         }else{
-        	horizontalTextPosition = textPosition;
+        	_horizontalTextPosition = textPosition;
         	revalidate();
         	repaint();
         }
@@ -682,8 +771,9 @@ class AbstractTabbedPane extends Container {
      *         and the icon.
      * @see #setIconTextGap()
      */
+    @:dox(hide)
     public function getIconTextGap():Int{
-        return iconTextGap;
+        return _iconTextGap;
     }
 
     /**
@@ -695,8 +785,8 @@ class AbstractTabbedPane extends Container {
      * @see #getIconTextGap()
      */
     public function setIconTextGap(iconTextGap:Int):Void{
-        var oldValue:Int= this.iconTextGap;
-        this.iconTextGap = iconTextGap;
+        var oldValue:Int= this._iconTextGap;
+        this._iconTextGap = iconTextGap;
         if (iconTextGap != oldValue) {
             revalidate();
             repaint();
@@ -709,9 +799,10 @@ class AbstractTabbedPane extends Container {
      *
      * @param m the space between the border and the label
 	 */
+    @:dox(hide)
 	public function setMargin(m:Insets):Void{
-        if (m!=null && !m.equals(margin)) {
-        	margin = m;
+        if (m!=null && !m.equals(_margin)) {
+        	_margin = m;
             revalidate();
             repaint();
         }
@@ -721,14 +812,15 @@ class AbstractTabbedPane extends Container {
 	 * Returns the space for margin between the tab border and
      * the tab label.
 	 */
+    @:dox(hide)
 	public function getMargin():Insets{
-		if(margin == null){
+		if(_margin == null){
 			return new InsetsUIResource();//make it can be replaced by LAF
 		}else{
-			if(Std.is(margin,UIResource)){//make it can be replaced by LAF
-				return new InsetsUIResource(margin.top, margin.left, margin.bottom, margin.right);
+			if(Std.is(_margin,UIResource)){//make it can be replaced by LAF
+				return new InsetsUIResource(_margin.top, _margin.left, _margin.bottom, _margin.right);
 			}else{
-				return new Insets(margin.top, margin.left, margin.bottom, margin.right);
+				return new Insets(_margin.top, _margin.left, _margin.bottom, _margin.right);
 			}
 		}
 	}    

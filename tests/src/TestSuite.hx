@@ -19,6 +19,7 @@ import org.aswing.JLabelTest;
 import org.aswing.JListTest;
 import org.aswing.JLoadPaneTest;
 import org.aswing.JSeparatorTest;
+import org.aswing.JTabbedPaneTest;
 import org.aswing.JTextAreaTest;
 import org.aswing.JTextFieldTest;
 import org.aswing.JToolBarTest;
@@ -58,6 +59,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.JListTest);
 		add(org.aswing.JLoadPaneTest);
 		add(org.aswing.JSeparatorTest);
+		add(org.aswing.JTabbedPaneTest);
 		add(org.aswing.JTextAreaTest);
 		add(org.aswing.JTextFieldTest);
 		add(org.aswing.JToolBarTest);

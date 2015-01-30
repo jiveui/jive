@@ -42,32 +42,51 @@ class JTabbedPane extends AbstractTabbedPane{
 	 * A fast access to AsWingConstants Constant
 	 * @see org.aswing.AsWingConstants
 	 */
-    inline public static var RIGHT:Int= AsWingConstants.RIGHT;	
-	
-	private var tabPlacement:Int;
-	private var leadingOffset:Int;
-	
+    inline public static var RIGHT:Int= AsWingConstants.RIGHT;
+
     /**
-     * JTabbedPane()
-     * <p>
+     * A tab placement for this tabbedpane.
+     * Possible values are:<ul>
+     * <li><code>JTabbedPane.TOP</code>
+     * <li><code>JTabbedPane.BOTTOM</code>
+     * <li><code>JTabbedPane.LEFT</code>
+     * <li><code>JTabbedPane.RIGHT</code>
+     * </ul>
+     * The default value, if not set, is <code>AsSwingConstants.TOP</code>.
      */
+    public var tabPlacement(get, set): Int;
+    private var _tabPlacement: Int;
+    private function get_tabPlacement(): Int { return getTabPlacement(); }
+    private function set_tabPlacement(v: Int): Int { setTabPlacement(v); return v; }
+
+    /**
+     * The offset of the first tab.
+     */
+    public var leadingOffset(get, set): Int;
+    private var _leadingOffset: Int;
+    private function get_leadingOffset(): Int { return getLeadingOffset(); }
+    private function set_leadingOffset(v: Int): Int { setLeadingOffset(v); return v; }
+	
 	public function new() {
 		super();
 		setName("JTabbedPane");
-		tabPlacement = TOP;
-		leadingOffset = 0;
+		_tabPlacement = TOP;
+		_leadingOffset = 0;
 		
 		updateUI();
 	}
 
+    @:dox(hide)
 	override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicTabbedPaneUI;
     }
-		
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "TabbedPaneUI";
 	}
@@ -84,9 +103,10 @@ class JTabbedPane extends AbstractTabbedPane{
      *
      * @param tabPlacement the placement for the tabs relative to the content
      */
+    @:dox(hide)
     public function setTabPlacement(tabPlacement:Int):Void{
-    	if(this.tabPlacement != tabPlacement){
-    		this.tabPlacement = tabPlacement;
+    	if(this._tabPlacement != tabPlacement){
+    		this._tabPlacement = tabPlacement;
     		revalidate();
     		repaint();
     	}
@@ -96,8 +116,9 @@ class JTabbedPane extends AbstractTabbedPane{
      * Returns the placement of the tabs for this tabbedpane.
      * @see #setTabPlacement()
      */
+    @:dox(hide)
     public function getTabPlacement():Int{
-    	return tabPlacement;
+    	return _tabPlacement;
     }
 	
     /**
@@ -105,9 +126,10 @@ class JTabbedPane extends AbstractTabbedPane{
      *
      * @param offset the offset of the first tab.
      */
+    @:dox(hide)
     public function setLeadingOffset(offset:Int):Void{
-    	if(leadingOffset != offset){
-    		leadingOffset = offset;
+    	if(_leadingOffset != offset){
+    		_leadingOffset = offset;
     		revalidate();
     		repaint();
     	}
@@ -117,8 +139,9 @@ class JTabbedPane extends AbstractTabbedPane{
      * Returns the offset of the first tab.
      * @see #setLeadingOffset()
      */
+    @:dox(hide)
     public function getLeadingOffset():Int{
-    	return leadingOffset;
+    	return _leadingOffset;
     }
     
 	/**
@@ -126,6 +149,7 @@ class JTabbedPane extends AbstractTabbedPane{
 	 * @param layout layoutManager for JTabbedPane
 	 * @throws ArgumentError when you set a non-TabbedPaneUI layout to JTabbedPane.
 	 */
+    @:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		if(Std.is(layout,ComponentUI)){
 			super.setLayout(layout);
@@ -138,6 +162,7 @@ class JTabbedPane extends AbstractTabbedPane{
      * Not support this function.
      * @throws Error("Not supported setVisibleAt!")
      */
+    @:dox(hide)
     override public function setVisibleAt(index:Int, visible:Bool):Void{
     	throw new Error("Not supported setVisibleAt!");  
     }	

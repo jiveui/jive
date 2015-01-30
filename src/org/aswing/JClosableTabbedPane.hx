@@ -4,17 +4,14 @@ package org.aswing;
 import org.aswing.plaf.basic.BasicClosableTabbedPaneUI;	
 
 /**
- * Dispatched when a tab clos button is clicked. 
- * @eventType org.aswing.event.TabCloseEvent.TAB_CLOSING
- */
-// [Event(name="tabClosing", type="org.aswing.event.TabCloseEvent")]
-
-/**
- * A TabbedPane with each tab a close button, you must listen the TabCloseEvent 
- * and then remove the related tab component if you want. 
- * By default, any thing will happen for close button click.
+ * A `JTabbedPane` where a each tab has a close button, you must listen the `TabCloseEvent`
+ * and then remove the related tab component if you want.
+ *
+ * By default, nothing will happen for close button click.
+ *
  * @author paling
  */
+@:event("org.aswing.event.TabCloseEvent.TAB_CLOSING", "Dispatched when a tab clos button is clicked")
 class JClosableTabbedPane extends JTabbedPane{
 	
     private var closeEnables:Array<Dynamic>;
@@ -24,11 +21,13 @@ class JClosableTabbedPane extends JTabbedPane{
 		closeEnables = new Array<Dynamic>();
 		setName("JClosableTabbedPane");
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicClosableTabbedPaneUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ClosableTabbedPaneUI";
 	}
@@ -56,7 +55,7 @@ class JClosableTabbedPane extends JTabbedPane{
 	public function isCloseEnabledAt(index:Int):Bool{
 		return closeEnables[index] == true;
 	}
-	
+
 	override private function insertProperties(i:Int, title:String="", icon:Icon=null, tip:String=null):Void{
 		super.insertProperties(i, title, icon, tip);
 		insertToArray(closeEnables, i, true);
