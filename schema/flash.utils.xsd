@@ -116,8 +116,6 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexType name="ByteArraySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="IDataInput2SchemaType">
-<xs:extension base="IDataOutput2SchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="bytesAvailable" type="xs:int"/>
 <xs:element minOccurs="0" name="endian" type="xs:string"/>

@@ -677,6 +677,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="empty:StringTools" />
 <xs:element minOccurs="0" ref="org-aswing:UIManager" />
 <xs:element minOccurs="0" ref="org-aswing-event:PropertyChangeEvent" />
+<xs:element minOccurs="0" ref="org-aswing:TabInfo" />
 <xs:element minOccurs="0" ref="org-aswing-table:AbstractTableModel" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicMenuUI" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:UIResource" />
@@ -761,7 +762,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TimerSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractImpulserSchemaType">
-<xs:extension base="ImpulserSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="currentCount" type="xs:int"/>
 <xs:element minOccurs="0" name="running" type="xs:boolean"/>
@@ -784,7 +784,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractImpulserSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:extension base="ImpulserSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -803,7 +802,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ArrayListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="ListSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -822,7 +820,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="LinkedListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="ListSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

@@ -1,15 +1,16 @@
 package componetset;
-	import org.aswing.JAccordion;
-	import org.aswing.JLabel;
-	import org.aswing.JPanel;
-	import org.aswing.JTextArea;
-	import org.aswing.JButton;
-	import org.aswing.JToolBar;
-	import org.aswing.JToggleButton;
-	import org.aswing.JSeparator;
-	import org.aswing.BorderLayout;
- 
-	import org.aswing.JSplitPane;
+
+import org.aswing.JAccordion;
+import org.aswing.JLabel;
+import org.aswing.JPanel;
+import org.aswing.JTextArea;
+import org.aswing.JButton;
+import org.aswing.JToolBar;
+import org.aswing.JToggleButton;
+import org.aswing.JSeparator;
+import org.aswing.BorderLayout;
+import org.aswing.JSplitPane;
+
 class Containers extends JPanel
 {
 	public function new(){

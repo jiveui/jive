@@ -23,7 +23,8 @@ import org.aswing.event.InteractiveEvent;
  * For example JAccordion, JTabbedPane.
  * @author paling
  */
-class AbstractTabbedPane extends Container{
+@:children("org.aswing.TabInfo")
+class AbstractTabbedPane extends Container {
 	
 	/**
 	 * A fast access to AsWingConstants Constant
@@ -204,6 +205,12 @@ class AbstractTabbedPane extends Container{
 	public function appendTab(com:Component, title:String="", icon:Icon=null, tip:String=null):Void{
 		insertTab(-1, com, title, icon, tip);
 	}
+
+    public function appendTabInfo(t: TabInfo) {
+        if (null != t) {
+            insertTab(-1, t.content, t.title, t.icon, t.tooltip);
+        }
+    }
 	
 	/**
 	 * Inserts a component, at index, represented by a title and/or icon, 

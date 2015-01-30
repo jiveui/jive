@@ -13,6 +13,7 @@ import org.aswing.FlowLayoutTest;
 import org.aswing.FlowWrapLayoutTest;
 import org.aswing.GridLayoutTest;
 import org.aswing.InsetsTest;
+import org.aswing.JAccordionTest;
 import org.aswing.JLabelButtonTest;
 import org.aswing.JLabelTest;
 import org.aswing.JListTest;
@@ -51,6 +52,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.FlowWrapLayoutTest);
 		add(org.aswing.GridLayoutTest);
 		add(org.aswing.InsetsTest);
+		add(org.aswing.JAccordionTest);
 		add(org.aswing.JLabelButtonTest);
 		add(org.aswing.JLabelTest);
 		add(org.aswing.JListTest);

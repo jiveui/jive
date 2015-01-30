@@ -8,7 +8,6 @@ xmlns:empty="empty"
 <xs:complexType name="BasicAccordionHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf-basic-tabbedpane:TabSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

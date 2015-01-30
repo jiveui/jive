@@ -182,7 +182,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractLayoutCacheSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="RowMapperSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -237,7 +236,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
-<xs:extension base="TreeCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -256,7 +254,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTreeCellFactoryUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="GeneralTreeCellFactorySchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -266,7 +263,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="TreeModelSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="root" type="TreeNodeSchemaTypeValue"/>
 </xs:all>
@@ -302,8 +298,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeLeafIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -322,7 +316,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTreeSelectionModelSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:extension base="TreeSelectionModelSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -332,7 +325,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultMutableTreeNodeSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="MutableTreeNodeSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="DefaultMutableTreeNode" />
 <xs:element minOccurs="0" ref="FHTreeStateNode" />
@@ -383,7 +375,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTreeCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="TreeCellFactorySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -402,8 +393,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TreeFolderIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

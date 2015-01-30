@@ -47,8 +47,6 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultResizerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="ResizerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -67,7 +65,6 @@ xmlns:empty="empty"
 <xs:complexType name="ResizeStrategyImpSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="ResizeStrategySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

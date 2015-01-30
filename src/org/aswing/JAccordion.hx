@@ -13,7 +13,7 @@ import org.aswing.plaf.basic.BasicAccordionUI;
  * Accordion Container.
  * @author paling
  */
-class JAccordion extends AbstractTabbedPane{
+class JAccordion extends AbstractTabbedPane {
 	
     /**
      * Create an accordion.
@@ -21,18 +21,18 @@ class JAccordion extends AbstractTabbedPane{
 	public function new() {
 		super();
 		setName("JAccordion");
-		
 		updateUI();
 	}
 	
+    @:dox(hide)
 	override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+	@:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicAccordionUI;
     }
-	
+	@:dox(hide)
 	override public function getUIClassID():String{
 		return "AccordionUI";
 	}
@@ -42,6 +42,7 @@ class JAccordion extends AbstractTabbedPane{
 	 * @param layout layoutManager for JAccordion
 	 * @throws ArgumentError when you set a non-AccordionUI layout to JAccordion.
 	 */
+    @:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		if(Std.is(layout,ComponentUI)){
 			super.setLayout(layout);

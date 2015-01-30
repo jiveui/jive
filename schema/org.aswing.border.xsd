@@ -79,7 +79,6 @@ xmlns:empty="empty"
 <xs:complexType name="DecorateBorderSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing:BorderSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

@@ -24,6 +24,7 @@ using Lambda;
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
+		    new AbstractTabbedPaneAdapter(),
 			new VectorListModelNodeAdapter(),
 			new DefaultMutableTreeNodeAdapter(),
 			new ContainerAdapter(),
@@ -142,6 +143,24 @@ class ContainerWithMetaWriter extends ComponentWithMetaWriter {
 		if (t.indexOf("JPopup") >= 0 || t.indexOf("JWindow") >= 0 || t.indexOf("JFrame") >= 0) return;
 
 		method.push('$scope.append(${universalGet(child)});');
+	}
+}
+
+class AbstractTabbedPaneAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+		if (baseType == null) baseType = macro : org.aswing.AbstractTabbedPane;
+		if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 40);
+		super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+		return [new AbstractTabbedPaneWithMetaWriter(baseType, metaWriter, matchLevel)];
+	}
+}
+
+class AbstractTabbedPaneWithMetaWriter extends ComponentWithMetaWriter {
+	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+		method.push('$scope.appendTabInfo(${universalGet(child)});');
 	}
 }
 

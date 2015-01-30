@@ -467,7 +467,6 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="EventDispatcherSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="IEventDispatcherSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

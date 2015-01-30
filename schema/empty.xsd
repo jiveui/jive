@@ -659,6 +659,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="StringTools" />
 <xs:element ref="org-aswing:UIManager" />
 <xs:element ref="org-aswing-event:PropertyChangeEvent" />
+<xs:element ref="org-aswing:TabInfo" />
 <xs:element ref="org-aswing-table:AbstractTableModel" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
 <xs:element ref="org-aswing-plaf:UIResource" />

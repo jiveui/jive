@@ -651,7 +651,6 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="DisplayObjectSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:extension base="IBitmapDrawableSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="accessibilityProperties" type="flash-accessibility:AccessibilityPropertiesSchemaTypeValue"/>
 <xs:element minOccurs="0" name="alpha" type="xs:double"/>
@@ -861,7 +860,6 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="BitmapDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="IBitmapDrawableSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="height" type="xs:int"/>
 <xs:element minOccurs="0" name="rect" type="flash-geom:RectangleSchemaTypeValue"/>

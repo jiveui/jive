@@ -38,7 +38,6 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="ArrowSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -70,7 +69,6 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="TableSorterSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-table:AbstractTableModelSchemaType">
-<xs:extension base="org-aswing-event:TableModelListenerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -80,7 +78,6 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexType name="SortableHeaderRendererSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-table:TableCellFactorySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
