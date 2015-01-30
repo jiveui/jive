@@ -1649,7 +1649,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="rolloverColor" type="ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="pressedColor" type="ASColorSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="rolloverColor" type="xs:string"/>
+<xs:attribute name="pressedColor" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
