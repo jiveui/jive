@@ -1,1 +1,1 @@
-ant -f build/build.xml test.oneTest -Dtest=org.aswing.JSeparatorTest
+ant -f build/build.xml test.oneTest -Dtest=org.aswing.JCheckBoxTest
