@@ -2071,7 +2071,37 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="model" type="BoundedRangeModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="xs:int"/>
+<xs:element minOccurs="0" name="extent" type="xs:int"/>
+<xs:element minOccurs="0" name="minimum" type="xs:int"/>
+<xs:element minOccurs="0" name="maximum" type="xs:int"/>
+<xs:element minOccurs="0" name="isAdjusting" type="xs:boolean"/>
+<xs:element minOccurs="0" name="majorTickSpacing" type="xs:int"/>
+<xs:element minOccurs="0" name="minorTickSpacing" type="xs:int"/>
+<xs:element minOccurs="0" name="isInverted" type="xs:boolean"/>
+<xs:element minOccurs="0" name="snapToTicks" type="xs:boolean"/>
+<xs:element minOccurs="0" name="paintTrack" type="xs:boolean"/>
+<xs:element minOccurs="0" name="paintTicks" type="xs:boolean"/>
+<xs:element minOccurs="0" name="valueTip" type="JToolTipSchemaTypeValue"/>
+<xs:element minOccurs="0" name="showValueTip" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="value" type="xs:int"/>
+<xs:attribute name="extent" type="xs:int"/>
+<xs:attribute name="minimum" type="xs:int"/>
+<xs:attribute name="maximum" type="xs:int"/>
+<xs:attribute name="isAdjusting" type="xs:boolean"/>
+<xs:attribute name="majorTickSpacing" type="xs:int"/>
+<xs:attribute name="minorTickSpacing" type="xs:int"/>
+<xs:attribute name="isInverted" type="xs:boolean"/>
+<xs:attribute name="snapToTicks" type="xs:boolean"/>
+<xs:attribute name="paintTrack" type="xs:boolean"/>
+<xs:attribute name="paintTicks" type="xs:boolean"/>
+<xs:attribute name="valueTip" type="xs:string"/>
+<xs:attribute name="showValueTip" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
