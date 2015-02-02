@@ -14,18 +14,23 @@ package org.aswing;
  * @author paling
  */	
 class JCheckBox extends JToggleButton{
-	
+/**
+ * Add a new component CheckBox.
+ */
 	public function new(text:String="", icon:Icon=null)
 	{
 		super(text, icon);
 		setName("JCheckBox");
 		setIconTextGap(1); 
 	}
-    
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "CheckBoxUI";
 	}
-	
+	/**
+    * @see 'BasicCheckBoxUI'
+    */
+	@:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicCheckBoxUI;
     }

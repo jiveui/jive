@@ -15,6 +15,7 @@ import org.aswing.GridLayoutTest;
 import org.aswing.InsetsTest;
 import org.aswing.JAccordionTest;
 import org.aswing.JLabelButtonTest;
+import org.aswing.JCheckBoxTest;
 import org.aswing.JLabelTest;
 import org.aswing.JListTest;
 import org.aswing.JLoadPaneTest;
@@ -55,6 +56,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.InsetsTest);
 		add(org.aswing.JAccordionTest);
 		add(org.aswing.JLabelButtonTest);
+		add(org.aswing.JCheckBoxTest);
 		add(org.aswing.JLabelTest);
 		add(org.aswing.JListTest);
 		add(org.aswing.JLoadPaneTest);
