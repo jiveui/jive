@@ -38,17 +38,17 @@ class JSharedToolTip extends JToolTip{
 	 */
     private static function set_sharedInstance(q:JSharedToolTip):JSharedToolTip { setSharedInstance(q); return q; }
 
-
 	private var targetedComponent:Component;
 	private var textMap:haxe.ds.IntMap<String>;
-	
+
+	/**
+    * Create a new component `JSharedToolTip`.
+    */
 	public function new() {
 		super();
 		setName("JSharedToolTip");
 		textMap = new  haxe.ds.IntMap<String>();
 	}
-	
-
     @:dox(hide)
 	public static function getSharedInstance():JSharedToolTip{
 		if(_sharedInstance == null){
@@ -56,8 +56,6 @@ class JSharedToolTip extends JToolTip{
 		}
 		return _sharedInstance;
 	}
-	
-
     @:dox(hide)
 	public static function setSharedInstance(ins:JSharedToolTip):Void{
 		if(_sharedInstance!=null)	{
@@ -84,7 +82,6 @@ class JSharedToolTip extends JToolTip{
 			setTipText(getTargetToolTipText(c));
 		}
 	}
-	
 
     /**
      * Removes a component from tooltip control.
@@ -127,7 +124,13 @@ class JSharedToolTip extends JToolTip{
 	override public function getTargetComponent():Component{
 		return targetedComponent;
 	}
-	
+
+	/**
+    * Get target tooltip.
+    *
+    * @return tooltip.
+    * @return the component index in the AWML.
+    */
 	private function getTargetToolTipText(c:Component):String{
 		if(Std.is(c,Component)){
 			var co:Component = AsWingUtils.as(c,Component)	;
