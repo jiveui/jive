@@ -1928,7 +1928,27 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="editable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="maximumRowCount" type="xs:int"/>
+<xs:element minOccurs="0" name="editor" type="ComboBoxEditorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="popupList" type="JListSchemaTypeValue"/>
+<xs:element minOccurs="0" name="listCellFactory" type="ListCellFactorySchemaTypeValue"/>
+<xs:element minOccurs="0" name="model" type="ListModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="popupVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="selectedItem" type="xs:string"/>
+<xs:element minOccurs="0" name="selectedIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
 </xs:all>
+<xs:attribute name="editable" type="xs:boolean"/>
+<xs:attribute name="maximumRowCount" type="xs:int"/>
+<xs:attribute name="editor" type="xs:string"/>
+<xs:attribute name="popupList" type="xs:string"/>
+<xs:attribute name="listCellFactory" type="xs:string"/>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="popupVisible" type="xs:boolean"/>
+<xs:attribute name="selectedItem" type="xs:string"/>
+<xs:attribute name="selectedIndex" type="xs:int"/>
+<xs:attribute name="length" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

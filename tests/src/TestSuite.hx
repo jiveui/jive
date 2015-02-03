@@ -1,6 +1,6 @@
 import massive.munit.TestSuite;
 
-import org.aswing.JAdjusterTest;
+import org.aswing.JComboBoxTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -14,6 +14,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(org.aswing.JAdjusterTest);
+		add(org.aswing.JComboBoxTest);
 	}
 }

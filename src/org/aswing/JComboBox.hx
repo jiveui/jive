@@ -5,28 +5,16 @@
 package org.aswing;
 
 
+import bindx.Bind;
 import org.aswing.error.Error;
 import org.aswing.event.AWEvent;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.ComboBoxUI;
-	import flash.events.Event;
+import org.aswing.event.InteractiveEvent;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.ComboBoxUI;
+import flash.events.Event;
 import flash.display.InteractiveObject;
 import org.aswing.plaf.basic.BasicComboBoxUI;
 import org.aswing.util.Reflection;
-/**
- * Dispatched when the combobox act, when value set or selection changed.
- * @eventType org.aswing.event.AWEvent.ACT
- * @see org.aswing.JComboBox#addActionListener()
- */
-// [Event(name="act", type="org.aswing.event.AWEvent")]
-		
-/**
- *  Dispatched when the combobox's selection changed.
- * 
- *  @eventType org.aswing.event.InteractiveEvent.SELECTION_CHANGED
- */
-// [Event(name="selectionChanged", type="org.aswing.event.InteractiveEvent")]
 
 /**
  * A component that combines a button or editable field and a drop-down list.
@@ -48,13 +36,111 @@ import org.aswing.util.Reflection;
  * @see DefaultComboBoxEditor
  * @author paling
  */
+@:event("org.aswing.event.AWEvent.ACT", "Dispatched when the combobox act, when value set or selection changed")
+@:event("org.aswing.event.InteractiveEvent.SELECTION_CHANGED", "Dispatched when the combobox's selection changed")
 class JComboBox extends Component  implements EditableComponent{
-	
-	private var editable:Bool;
-	private var maximumRowCount:Int;
-	private var editor:ComboBoxEditor;
-	private var popupList:JList;
-	
+
+    /**
+     * Determines whether the <code>JComboBox</code> field is editable.
+     *
+     * An editable <code>JComboBox</code> allows the user to type into the
+     * field or selected an item from the list to initialize the field,
+     * after which it can be edited. (The editing affects only the field,
+     * the list item remains intact.) A non editable <code>JComboBox</code>
+     * displays the selected item in the field,
+     * but the selection cannot be modified.
+     */
+    public var editable(get, set): Bool;
+    private var _editable: Bool;
+    private function get_editable(): Bool { return isEditable(); }
+    private function set_editable(v: Bool): Bool { setEditable(v); return v; }
+
+    /**
+     * A maximum number of rows the <code>JComboBox</code> displays.
+     *
+     * If the number of objects in the model is greater than count,
+     * the combo box uses a scrollbar.
+     */
+    public var maximumRowCount(get, set): Int;
+    private var _maximumRowCount: Int;
+    private function get_maximumRowCount(): Int { return getMaximumRowCount(); }
+    private function set_maximumRowCount(v: Int): Int { setMaximumRowCount(v); return v; }
+
+    /**
+     * An editor used to paint and edit the selected item in the
+     * <code>JComboBox</code> field.
+     *
+     * The editor is used both if the
+     * receiving <code>JComboBox</code> is editable and not editable.
+     */
+    public var editor(get, set): ComboBoxEditor;
+    private var _editor: ComboBoxEditor;
+    private function get_editor(): ComboBoxEditor { return getEditor(); }
+    private function set_editor(v: ComboBoxEditor): ComboBoxEditor { setEditor(v); return v; }
+
+    /**
+	 * The popup list that display the items.
+	 */
+    public var popupList(get, null): JList;
+    private var _popupList:JList;
+    private function get_popupList(): JList { return getPopupList(); }
+
+    /**
+	 * A cell factory for the popup List.
+	 *
+	 * Setting will cause all cells recreating by new factory.
+	 */
+    public var listCellFactory(get, set): ListCellFactory;
+    private function get_listCellFactory(): ListCellFactory { return getListCellFactory(); }
+    private function set_listCellFactory(v: ListCellFactory): ListCellFactory { setListCellFactory(v); return v; }
+
+    /**
+	 * A list model to provide the data to JList.
+	 * @see org.aswing.ListModel
+	 */
+    public var model(get, set): ListModel;
+    private function get_model(): ListModel { return getModel(); }
+    private function set_model(v: ListModel): ListModel { setModel(v); return v; }
+
+    /**
+     * A visibility of the popup, open or close.
+     */
+    public var popupVisible(get, set): Bool;
+    private var _popupVisible: Bool;
+    private function get_popupVisible(): Bool { return isPopupVisible(); }
+    private function set_popupVisible(v: Bool): Bool { setPopupVisible(v); return v; }
+
+    /**
+     * The selected item in the combo box display area.
+     *
+     * If <code>item</code> is in the list, the display area shows
+     * <code>item</code> selected.
+     * >
+     * If <code>item</code> is <i>not</i> in the list and the combo box is
+     * uneditable, it will not change the current selection. For editable
+     * combo boxes, the selection will change to <code>item</code>.
+     *
+     * <code>AWEvent.ACT</code> (<code>this.addActionListener()</code>)events added to the combo box will be notified
+     * when this method is called.
+     *
+     * <code>InteractiveEvent.SELECTION_CHANGED</code> (<code>this.addSelectionListener()</code>)events added to the combo box will be notified
+     * when this method is called only when the item is different from current selected item,
+     * it means that only when the selected item changed.
+     */
+    @bindable public var selectedItem(get, set): Dynamic;
+    private function get_selectedItem(): Dynamic { return getSelectedItem(); }
+    private function set_selectedItem(v: Dynamic): Dynamic { setSelectedItem(v); return v; }
+
+    /**
+    * -1 if no item is selected or the selected item is not in the list.
+    **/
+    @bindable public var selectedIndex(get, set): Int;
+    private function get_selectedIndex(): Int { return getSelectedIndex(); }
+    private function set_selectedIndex(v: Int): Int { setSelectedIndex(v); return v; }
+
+    public var length(get, null): Int;
+    private function get_length(): Int { return getItemCount(); }
+
 	/**
 	 * Create a combobox with specified data.
 	 */
@@ -62,8 +148,8 @@ class JComboBox extends Component  implements EditableComponent{
 		super();
 		
 		setName("JComboBox");
-		maximumRowCount = 7;
-		editable = false;
+		_maximumRowCount = 7;
+		_editable = false;
 		setEditor(new DefaultComboBoxEditor());
 		if(listData != null){
 		 if(Std.is(listData,Array)){
@@ -89,6 +175,7 @@ class JComboBox extends Component  implements EditableComponent{
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>ComboBoxUI</code> instance.
 	 */
+    @:dox(hide)
 	override public function setUI(newUI:ComponentUI):Void{
 		if(Std.is(newUI,ComboBoxUI)){
 			super.setUI(newUI);
@@ -98,17 +185,20 @@ class JComboBox extends Component  implements EditableComponent{
 			throw new Error("JComboBox ui should implemented ComboBoxUI interface!"); 
 		}
 	}
-	
+
+    @:dox(hide)
 	override public function updateUI():Void{
 		getPopupList().updateUI();
-		editor.getEditorComponent().updateUI();
+		_editor.getEditorComponent().updateUI();
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicComboBoxUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ComboBoxUI";
 	}
@@ -117,6 +207,7 @@ class JComboBox extends Component  implements EditableComponent{
      * Returns the ui for this combobox with <code>ComboBoxUI</code> instance
      * @return the combobox ui.
      */
+    @:dox(hide)
     public function getComboBoxUI():ComboBoxUI{
     	return AsWingUtils.as(getUI() , ComboBoxUI);
     }
@@ -167,12 +258,13 @@ class JComboBox extends Component  implements EditableComponent{
 	/**
 	 * Returns the popup list that display the items.
 	 */
-	public function getPopupList():JList{
-		if(popupList == null){
-			popupList = new JList(null, new DefaultComboBoxListCellFactory());
-			popupList.setSelectionMode(JList.SINGLE_SELECTION);
+    @:dox(hide)
+	public function getPopupList():JList {
+		if(_popupList == null){
+			_popupList = new JList(null, new DefaultComboBoxListCellFactory());
+			_popupList.setSelectionMode(JList.SINGLE_SELECTION);
 		}
-		return popupList;
+		return _popupList;
 	}
 	
 	/**
@@ -182,8 +274,9 @@ class JComboBox extends Component  implements EditableComponent{
      * @param count an integer specifying the maximum number of items to
      *              display in the list before using a scrollbar
      */
+    @:dox(hide)
 	public function setMaximumRowCount(count:Int):Void{
-		maximumRowCount = count;
+		_maximumRowCount = count;
 	}
 	
 	/**
@@ -192,13 +285,15 @@ class JComboBox extends Component  implements EditableComponent{
      * @return an integer specifying the maximum number of items that are 
      *         displayed in the list before using a scrollbar
      */
+    @:dox(hide)
 	public function getMaximumRowCount():Int{
-		return maximumRowCount;
+		return _maximumRowCount;
 	}
 	
 	/**
 	 * @return the cellFactory for the popup List
 	 */
+    @:dox(hide)
 	public function getListCellFactory():ListCellFactory{
 		return getPopupList().getCellFactory();
 	}
@@ -207,6 +302,7 @@ class JComboBox extends Component  implements EditableComponent{
 	 * This will cause all cells recreating by new factory.
 	 * @param newFactory the new cell factory for the popup List
 	 */
+    @:dox(hide)
 	public function setListCellFactory(newFactory:ListCellFactory):Void{
 		getPopupList().setCellFactory(newFactory);
 	}
@@ -218,23 +314,24 @@ class JComboBox extends Component  implements EditableComponent{
      * @param anEditor  the <code>ComboBoxEditor</code> that
      *			displays the selected item
      */
+    @:dox(hide)
 	public function setEditor(anEditor:ComboBoxEditor):Void{
 		if(anEditor == null) return;
 		
-		var oldEditor:ComboBoxEditor = editor;
+		var oldEditor:ComboBoxEditor = _editor;
 		if (oldEditor != null){
 			oldEditor.removeActionListener(__editorActed);
 			oldEditor.getEditorComponent().removeFromContainer();
 		}
-		editor = anEditor;
-		editor.setEditable(isEditable());
-		addChild(editor.getEditorComponent());
+		_editor = anEditor;
+		_editor.setEditable(isEditable());
+		addChild(_editor.getEditorComponent());
 		if(_ui != null){//means ui installed
-			editor.getEditorComponent().setFont(getFont());
-			editor.getEditorComponent().setForeground(getForeground());
-			editor.getEditorComponent().setBackground(getBackground());
+			_editor.getEditorComponent().setFont(getFont());
+			_editor.getEditorComponent().setForeground(getForeground());
+			_editor.getEditorComponent().setBackground(getBackground());
 		}
-		editor.addActionListener(__editorActed);
+		_editor.addActionListener(__editorActed);
 		revalidate();
 	}
 	
@@ -243,13 +340,15 @@ class JComboBox extends Component  implements EditableComponent{
      * <code>JComboBox</code> field.
      * @return the <code>ComboBoxEditor</code> that displays the selected item
      */
+    @:dox(hide)
 	public function getEditor():ComboBoxEditor{
-		return editor;
+		return _editor;
 	}
 	
 	/**
 	 * Returns the editor component internal focus object.
 	 */
+    @:dox(hide)
 	override public function getInternalFocusObject():InteractiveObject{
 		if(isEditable()){
 			return getEditor().getEditorComponent().getInternalFocusObject();
@@ -261,6 +360,7 @@ class JComboBox extends Component  implements EditableComponent{
 	/**
 	 * Apply a new font to combobox and its editor and its popup list.
 	 */
+    @:dox(hide)
 	override public function setFont(newFont:ASFont):Void{
 		super.setFont(newFont);
 		getPopupList().setFont(newFont);
@@ -272,6 +372,7 @@ class JComboBox extends Component  implements EditableComponent{
 	 * It will not apply this to popup list from 2.0, you can call <code>getPopupList()</code> 
 	 * to operate manually.
 	 */
+    @:dox(hide)
 	override public function setForeground(c:ASColor):Void{
 		super.setForeground(c);
 		getEditor().getEditorComponent().setForeground(c);
@@ -282,6 +383,7 @@ class JComboBox extends Component  implements EditableComponent{
 	 * It will not apply this to popup list from 2.0, you can call <code>getPopupList()</code> 
 	 * to operate manually.
 	 */
+    @:dox(hide)
 	override public function setBackground(c:ASColor):Void{
 		super.setBackground(c);
 		getEditor().getEditorComponent().setBackground(c);
@@ -299,9 +401,10 @@ class JComboBox extends Component  implements EditableComponent{
      * @param b a boolean value, where true indicates that the
      *			field is editable
      */
+    @:dox(hide)
 	public function setEditable(b:Bool):Void{
-		if(editable != b){
-			editable = b;
+		if(_editable != b){
+			_editable = b;
 			getEditor().setEditable(b);
 			//editable changed, internal focus object will change too, so change the focus
 			if (isFocusable() && isFocusOwner() && stage != null) {
@@ -319,8 +422,9 @@ class JComboBox extends Component  implements EditableComponent{
      * By default, a combo box is not editable.
      * @return true if the <code>JComboBox</code> is editable, else false
      */
+    @:dox(hide)
 	public function isEditable():Bool{
-		return editable;
+		return _editable;
 	}
 	
 	/**
@@ -331,6 +435,7 @@ class JComboBox extends Component  implements EditableComponent{
      * @param b a boolean value, where true enables the component and
      *          false disables it
      */
+    @:dox(hide)
 	override public function setEnabled(b:Bool):Void{
 		super.setEnabled(b);
 		if(!b && isPopupVisible()){
@@ -348,6 +453,7 @@ class JComboBox extends Component  implements EditableComponent{
 	 * @see #setMode()
 	 * @see org.aswing.ListModel
 	 */
+    @:dox(hide)
 	public function setListData(ld:Array<Dynamic>):Void{
 		getPopupList().setListData(ld);
 	}
@@ -356,15 +462,16 @@ class JComboBox extends Component  implements EditableComponent{
 	 * Set the list mode to provide the data to JList.
 	 * @see org.aswing.ListModel
 	 */
+    @:dox(hide)
 	public function setModel(?m:ListModel):Void {
-		 
-		//why 
+		//why
 		if (m != null)   getPopupList().setModel(m);
 	}
 	
 	/**
 	 * @return the model of this List
 	 */
+    @:dox(hide)
 	public function getModel():ListModel{
 		return getPopupList().getModel();
 	}	
@@ -383,9 +490,11 @@ class JComboBox extends Component  implements EditableComponent{
 	public function hidePopup():Void{
 		setPopupVisible(false);
 	}
+
 	/**
      * Sets the visibility of the popup, open or close.
      */
+    @:dox(hide)
 	public function setPopupVisible(v:Bool):Void{
 		getComboBoxUI().setPopupVisible(this, v);
 	}
@@ -395,6 +504,7 @@ class JComboBox extends Component  implements EditableComponent{
      *
      * @return true if the popup is visible, otherwise returns false
      */
+    @:dox(hide)
 	public function isPopupVisible():Bool{
 		return getComboBoxUI().isPopupVisible(this);
 	}
@@ -420,6 +530,7 @@ class JComboBox extends Component  implements EditableComponent{
      *              clear the selection.
      * @param programmatic indicate if this is a programmatic change.
      */
+    @:dox(hide)
 	public function setSelectedItem(item:Dynamic, programmatic:Bool=true):Void{
 		var fireChanged:Bool= false;
 		if(item !=getSelectedItem()){
@@ -437,6 +548,8 @@ class JComboBox extends Component  implements EditableComponent{
 		if(isFocusOwner()){
 			getEditor().selectAll();
 		}
+        Bind.notify(this.selectedItem);
+        Bind.notify(this.selectedIndex);
 		dispatchEvent(new AWEvent(AWEvent.ACT));
 		if(fireChanged)	{
 			dispatchEvent(new InteractiveEvent(InteractiveEvent.SELECTION_CHANGED, programmatic));
@@ -451,6 +564,7 @@ class JComboBox extends Component  implements EditableComponent{
      * @return the current selected item
      * @see #setSelectedItem()
      */
+    @:dox(hide)
 	public function getSelectedItem():Dynamic{
 		return getEditor().getValue();
 	}
@@ -466,6 +580,7 @@ class JComboBox extends Component  implements EditableComponent{
      *			 indicates empty selection.
      * @param programmatic indicate if this is a programmatic change.
      */
+    @:dox(hide)
 	public function setSelectedIndex(anIndex:Int, programmatic:Bool=true):Void{
 		var size:Int= getModel().getSize();
 		if(anIndex < 0 || anIndex >= size){
@@ -478,7 +593,9 @@ class JComboBox extends Component  implements EditableComponent{
 			getPopupList().setSelectedIndex(anIndex, programmatic);
 			getPopupList().ensureIndexIsVisible(anIndex);
 		}
-		dispatchEvent(new AWEvent(AWEvent.ACT));
+        Bind.notify(this.selectedIndex);
+        Bind.notify(this.selectedItem);
+        dispatchEvent(new AWEvent(AWEvent.ACT));
 	}
 	
 	/**
@@ -493,6 +610,7 @@ class JComboBox extends Component  implements EditableComponent{
      *			or -1 if no item is selected or if
      *                	the currently selected item is not in the list
      */
+    @:dox(hide)
 	public function getSelectedIndex():Int{
 		return indexInModel(getEditor().getValue());
 	}
@@ -501,6 +619,7 @@ class JComboBox extends Component  implements EditableComponent{
      * Returns the number of items in the list.
      * @return an integer equal to the number of items in the list
      */
+    @:dox(hide)
 	public function getItemCount():Int{
 		return getModel().getSize();
 	}
