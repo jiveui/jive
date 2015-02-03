@@ -4,26 +4,14 @@
 
 package org.aswing;
 
-		
+
+import bindx.Bind;
 import flash.errors.Error;
 import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.AdjusterUI;
-	import org.aswing.plaf.basic.BasicAdjusterUI;
-	import org.aswing.event.AWEvent; 
-/**
- * Dispatched when when user finish a adjusting.
- * @eventType org.aswing.event.AWEvent.ACT
- * @see #addActionListener()
- */
-// [Event(name="act", type="org.aswing.event.AWEvent")]
-
-/**
- * Dispatched when the adjuster's state changed. 
- * @see BoundedRangeModel
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.AdjusterUI;
+import org.aswing.plaf.basic.BasicAdjusterUI;
+import org.aswing.event.AWEvent;
 
 /**
  * A component that combine a input text and a button to drop-down a popup slider to let 
@@ -31,6 +19,8 @@ import org.aswing.event.InteractiveEvent;
  * 
  * @author paling
  */
+@:event("org.aswing.event.AWEvent.ACT", "Dispatched when when user finish a adjusting")
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the adjuster's state changed")
 class JAdjuster extends Component  implements Orientable implements EditableComponent{
 
 	/** 
@@ -59,13 +49,101 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 		}
 		return value;
 	};
-		
-	private var model:BoundedRangeModel;
-	private var columns:Int;
-	private var orientation:Int;
-	private var editable:Bool;
-	private var valueTranslator:Int -> String;
-	private var valueParser:String -> Int;
+
+    /**
+	 * The model that handles the slider's four fundamental properties: minimum, maximum, value, extent.
+	 */
+    public var model(get, set): BoundedRangeModel;
+    private var _model: BoundedRangeModel;
+    private function get_model(): BoundedRangeModel { return getModel(); }
+    private function set_model(v: BoundedRangeModel): BoundedRangeModel { setModel(v); return v; }
+
+    /**
+     * The slider's orientation: `JSlider.VERTICAL` or `JSlider.HORIZONTAL`.
+	 */
+    public var orientation(get, set): Int;
+    private var _orientation: Int;
+    private function get_orientation(): Int { return getOrientation(); }
+    private function set_orientation(v: Int): Int { setOrientation(v); return v; }
+
+    /**
+	 * The slider's value. It just forwards the value to the model.
+	 * @see #setValue()
+	 * @see BoundedRangeModel#setValue()
+	 */
+    @bindable public var value(get, set): Int;
+    private function get_value(): Int { return getValue(); }
+    private function set_value(v: Int): Int { setValue(v); return v; }
+
+    /**
+     * Sets the size of the range "covered" by the knob.  Most look
+     * and feel implementations will change the value by this amount
+     * if the user clicks on either side of the knob.
+     *
+     * @see BoundedRangeModel#extent
+	 */
+    public var extent(get, set): Int;
+    private function get_extent(): Int { return getExtent(); }
+    private function set_extent(v: Int): Int { setExtent(v); return v; }
+
+    /**
+	 * The model's minimum property.
+	 * @see BoundedRangeModel#minimum
+	 */
+    public var minimum(get, set): Int;
+    private function get_minimum(): Int { return getMinimum(); }
+    private function set_minimum(v: Int): Int { setMinimum(v); return v; }
+
+    /**
+	 * The model's maximum property.
+	 * @see BoundedRangeModel#maximum
+	 */
+    public var maximum(get, set): Int;
+    private function get_maximum(): Int { return getMaximum(); }
+    private function set_maximum(v: Int): Int { setMaximum(v); return v; }
+
+    /**
+	 * True if the slider knob is being dragged.
+	 */
+    public var isAdjusting(get, null): Bool;
+    private function get_isAdjusting(): Bool { return getValueIsAdjusting(); }
+
+    public var columns(get, set): Int;
+    private var _columns: Int;
+    private function get_columns(): Int { return getColumns(); }
+    private function set_columns(v: Int): Int { setColumns(v); return v; }
+
+    /**
+	 * Whether the adjuster is editable to adjust, both the input text and pop-up slider.
+	 */
+    public var editable(get, set): Bool;
+    private var _editable: Bool;
+    private function get_editable(): Bool { return isEditable(); }
+    private function set_editable(v: Bool): Bool { setEditable(v); return v; }
+
+    /**
+	 * A function(int):String to translator the value to the string representation in
+	 * the input text.
+	 *
+	 * Generally, if you changed translator, you should change a right valueParser to suit it.
+	 * @see #valueParser
+	 */
+    public var valueTranslator(get, set): Int -> String;
+    private var _valueTranslator: Int -> String;
+    private function get_valueTranslator(): Int -> String { return getValueTranslator(); }
+    private function set_valueTranslator(v: Int -> String): Int -> String { setValueTranslator(v); return v; }
+
+    /**
+	 * A function(String):int to parse the value from the string in
+	 * the input text.
+	 *
+	 * Generally, if you changed parser, you should change a right valueTranslator to suit it.
+	 * @see #valueTranslator
+	 */
+    public var valueParser(get, set): String -> Int;
+    private var _valueParser: String -> Int;
+    private function get_valueParser(): String -> Int { return getValueParser(); }
+    private function set_valueParser(v: String -> Int): String -> Int { setValueParser(v); return v; }
 
 	/**
 	 * Creates a adjuster with the specified columns input text and orientation<p>
@@ -79,9 +157,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 		setColumns(columns);
 		setOrientation(orientation);
 		
-		editable = true;
-		valueTranslator = DEFAULT_VALUE_TRANSLATOR;
-		valueParser	 = DEFAULT_VALUE_PARSER;
+		_editable = true;
+		_valueTranslator = DEFAULT_VALUE_TRANSLATOR;
+		_valueParser	 = DEFAULT_VALUE_PARSER;
 		
 		setModel(new DefaultBoundedRangeModel(50, 0, 0, 100));
 		updateUI();
@@ -100,6 +178,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>AdjusterUI</code> instance.
 	 */
+    @:dox(hide)
 	override public function setUI(newUI:ComponentUI):Void{
 		if(Std.is(newUI,AdjusterUI)){
 			super.setUI(newUI);
@@ -112,18 +191,22 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
      * Returns the ui for this combobox with <code>ComboBoxUI</code> instance
      * @return the combobox ui.
      */
+    @:dox(hide)
     public function getAdjusterUI():AdjusterUI{
     	return AsWingUtils.as(getUI() , AdjusterUI);
     }
 
+    @:dox(hide)
 	override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicAdjusterUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "AdjusterUI";
 	}
@@ -132,10 +215,11 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * Sets the number of columns for the input text. 
 	 * @param columns the number of columns to use to calculate the preferred width.
 	 */
+    @:dox(hide)
 	public function setColumns(columns:Int):Void{
 		if(columns < 0) columns = 0;
-		if(this.columns != columns){
-			this.columns = columns;
+		if(this._columns != columns){
+			this._columns = columns;
 			if(getInputText() != null){
 				getInputText().setColumns(columns);
 			}
@@ -146,8 +230,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	/**
 	 * @see #setColumns
 	 */
+    @:dox(hide)
 	public function getColumns():Int{
-		return columns;
+		return _columns;
 	}	
 	
 	/**
@@ -155,8 +240,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @return VERTICAL or HORIZONTAL
 	 * @see #setOrientation()
 	 */
+    @:dox(hide)
 	public function getOrientation():Int{
-		return orientation;
+		return _orientation;
 	}
 	
 	
@@ -164,8 +250,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * Set the slider's orientation to either VERTICAL or HORIZONTAL.
 	 * @param orientation the orientation to either VERTICAL orf HORIZONTAL
 	 */
+    @:dox(hide)
 	public function setOrientation(orientation:Int):Void{
-		this.orientation = orientation;
+		this._orientation = orientation;
 		if(getPopupSlider() != null){
 			getPopupSlider().setOrientation(orientation);
 		}
@@ -175,28 +262,31 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * Returns data model that handles the slider's four fundamental properties: minimum, maximum, value, extent.
 	 * @return the data model
 	 */
+    @:dox(hide)
 	public function getModel():BoundedRangeModel{
-		return model;
+		return _model;
 	}
 	
 	/**
 	 * Sets the model that handles the slider's four fundamental properties: minimum, maximum, value, extent. 
 	 * @param the data model
 	 */
+    @:dox(hide)
 	public function setModel(newModel:BoundedRangeModel):Void{
-		if (model != null){
-			model.removeStateListener(__onModelStateChanged);
+		if (_model != null){
+			_model.removeStateListener(__onModelStateChanged);
 		}
-		model = newModel;
-		if (model != null){
-			model.addStateListener(__onModelStateChanged);
+		_model = newModel;
+		if (_model != null){
+			_model.addStateListener(__onModelStateChanged);
 			if(_ui != null){
-				getPopupSlider().setModel(model);
+				getPopupSlider().setModel(_model);
 			}
 		}
 	}
 		
-	private function __onModelStateChanged(event:InteractiveEvent):Void{
+	private function __onModelStateChanged(event:InteractiveEvent):Void {
+        if (!isAdjusting) Bind.notify(this.value);
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, event.isProgrammatic()));
 	}
 	
@@ -235,9 +325,10 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #getValueTranslator()
 	 * @see #setValueParser()
 	 */
+    @:dox(hide)
 	public function setValueTranslator(translator:Int->String):Void{
-		if(valueTranslator != translator){
-			valueTranslator = translator;
+		if(_valueTranslator != translator){
+			_valueTranslator = translator;
 			repaint();
 		}
 	}
@@ -246,8 +337,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * Returns the value translator function(int):String.
 	 * @see #setValueTranslator()
 	 */
+    @:dox(hide)
 	public function getValueTranslator():Int->String{
-		return valueTranslator;
+		return _valueTranslator;
 	}
 	
 	/**
@@ -259,9 +351,10 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #getValueParser()
 	 * @see #setValueTranslator()
 	 */
+    @:dox(hide)
 	public function setValueParser(parser:String -> Int):Void{
-		if(valueParser != parser){
-			valueParser = parser;
+		if(_valueParser != parser){
+			_valueParser = parser;
 			repaint();
 		}
 	}
@@ -271,8 +364,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #setValueParser()
 	 * @see #getValueTranslator()
 	 */
+    @:dox(hide)
 	public function getValueParser():String -> Int{
-		return valueParser;
+		return _valueParser;
 	}
 	
 	/**
@@ -280,9 +374,10 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @param b true to make the adjuster can be edited the value, no to not.
 	 * @see #isEditable()
 	 */
+    @:dox(hide)
 	public function setEditable(b:Bool):Void{
-		if(editable != b){
-			editable = b;
+		if(_editable != b){
+			_editable = b;
 			repaint();
 			revalidate();
 		}
@@ -293,8 +388,9 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @return whether the adjuster is editable.
 	 * @see #setEditable()
 	 */
+    @:dox(hide)
 	public function isEditable():Bool{
-		return editable;
+		return _editable;
 	}
 	
 	/**
@@ -303,6 +399,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #setValue()
 	 * @see BoundedRangeModel#getValue()
 	 */
+    @:dox(hide)
 	public function getValue():Int{
 		return getModel().getValue();
 	}
@@ -313,6 +410,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #getValue()
 	 * @see BoundedRangeModel#setValue()
 	 */
+    @:dox(hide)
 	public function setValue(value:Int):Void{
 		var m:BoundedRangeModel = getModel();
 		m.setValue(value);
@@ -324,6 +422,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #setExtent()
 	 * @see BoundedRangeModel#getExtent()
 	 */
+    @:dox(hide)
 	public function getExtent():Int{
 		return getModel().getExtent();
 	}
@@ -336,6 +435,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #getExtent()
 	 * @see BoundedRangeModel#setExtent()
 	 */
+    @:dox(hide)
 	public function setExtent(extent:Int):Void{
 		getModel().setExtent(extent);
 	}
@@ -346,6 +446,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #setMinimum()
 	 * @see BoundedRangeModel#getMinimum()
 	 */
+    @:dox(hide)
 	public function getMinimum():Int{
 		return getModel().getMinimum();
 	}
@@ -356,6 +457,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #getMinimum()
 	 * @see BoundedRangeModel#setMinimum()
 	 */
+    @:dox(hide)
 	public function setMinimum(minimum:Int):Void{
 		getModel().setMinimum(minimum);
 	}
@@ -366,6 +468,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @see #setMaximum()
 	 * @see BoundedRangeModel#getMaximum()
 	 */
+    @:dox(hide)
 	public function getMaximum():Int{
 		return getModel().getMaximum();
 	}
@@ -375,7 +478,8 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * @param maximum the maximum to set.
 	 * @see #getMaximum()
 	 * @see BoundedRangeModel#setMaximum()
-	 */	
+	 */
+    @:dox(hide)
 	public function setMaximum(maximum:Int):Void{
 		getModel().setMaximum(maximum);
 	}
@@ -384,6 +488,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * True if the slider knob is being dragged. 
 	 * @return the value of the model's valueIsAdjusting property
 	 */
+    @:dox(hide)
 	public function getValueIsAdjusting():Bool{
 		return getModel().getValueIsAdjusting();
 	}
@@ -395,6 +500,7 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	 * ChangeEvents while valueIsAdjusting is true. 
 	 * @see BoundedRangeModel#setValueIsAdjusting()
 	 */
+    @:dox(hide)
 	public function setValueIsAdjusting(b:Bool):Void{
 		var m:BoundedRangeModel = getModel();
 		m.setValueIsAdjusting(b);
@@ -411,13 +517,13 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
 	}
 	
     /**
-     * Adds a action listener to this adjuster. Adjuster fire a <code>AWEvent.ACT</code> 
-     * event when user finished a adjusting.
-	 * @param listener the listener
-	 * @param priority the priority
-	 * @param useWeakReference Determines whether the reference to the listener is strong or weak.
-	 * @see org.aswing.event.AWEvent#ACT
-     */
+    * Adds a action listener to this adjuster. Adjuster fire a <code>AWEvent.ACT</code>
+    * event when user finished a adjusting.
+    * @param listener the listener
+    * @param priority the priority
+    * @param useWeakReference Determines whether the reference to the listener is strong or weak.
+    * @see org.aswing.event.AWEvent#ACT
+    */
     public function addActionListener(listener:Dynamic -> Void, priority:Int=0, useWeakReference:Bool=false):Void{
     	addEventListener(AWEvent.ACT, listener, false, priority, useWeakReference);
     }

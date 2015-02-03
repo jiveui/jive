@@ -4,7 +4,8 @@
 
 package org.aswing;
 
-	
+
+import bindx.Bind;
 import org.aswing.event.InteractiveEvent;
 import org.aswing.plaf.basic.BasicSliderUI;
 
@@ -76,7 +77,6 @@ class JSlider extends Component  implements Orientable{
 	 * @see BoundedRangeModel#maximum
 	 */
     public var maximum(get, set): Int;
-    private var _maximum: Int;
     private function get_maximum(): Int { return getMaximum(); }
     private function set_maximum(v: Int): Int { setMaximum(v); return v; }
 
@@ -264,7 +264,8 @@ class JSlider extends Component  implements Orientable{
 	}
 	
 	private function __onModelStateChanged(event:InteractiveEvent):Void{
-		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, event.isProgrammatic()));
+        if (!isAdjusting) Bind.notify(this.value);
+        dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, event.isProgrammatic()));
 	}
 	
 	/**

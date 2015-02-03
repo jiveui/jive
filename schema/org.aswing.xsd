@@ -3041,7 +3041,29 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="model" type="BoundedRangeModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="xs:int"/>
+<xs:element minOccurs="0" name="extent" type="xs:int"/>
+<xs:element minOccurs="0" name="minimum" type="xs:int"/>
+<xs:element minOccurs="0" name="maximum" type="xs:int"/>
+<xs:element minOccurs="0" name="isAdjusting" type="xs:boolean"/>
+<xs:element minOccurs="0" name="columns" type="xs:int"/>
+<xs:element minOccurs="0" name="editable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="valueTranslator" type="xs:string"/>
+<xs:element minOccurs="0" name="valueParser" type="xs:string"/>
 </xs:all>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="value" type="xs:int"/>
+<xs:attribute name="extent" type="xs:int"/>
+<xs:attribute name="minimum" type="xs:int"/>
+<xs:attribute name="maximum" type="xs:int"/>
+<xs:attribute name="isAdjusting" type="xs:boolean"/>
+<xs:attribute name="columns" type="xs:int"/>
+<xs:attribute name="editable" type="xs:boolean"/>
+<xs:attribute name="valueTranslator" type="xs:string"/>
+<xs:attribute name="valueParser" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
