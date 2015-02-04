@@ -51,10 +51,10 @@ xmlns:haxe-ds="haxe.ds"
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="endian" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
 </xs:all>
 <xs:attribute name="endian" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -117,17 +117,17 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesAvailable" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesAvailable" type="xs:int"/>
 <xs:element minOccurs="0" name="endian" type="xs:string"/>
-<xs:element minOccurs="0" name="length" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:string"/>
-<xs:element minOccurs="0" name="position" type="xs:string"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+<xs:element minOccurs="0" name="position" type="xs:int"/>
 </xs:all>
-<xs:attribute name="bytesAvailable" type="xs:string"/>
+<xs:attribute name="bytesAvailable" type="xs:int"/>
 <xs:attribute name="endian" type="xs:string"/>
-<xs:attribute name="length" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:string"/>
-<xs:attribute name="position" type="xs:string"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
+<xs:attribute name="position" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -145,13 +145,13 @@ xmlns:haxe-ds="haxe.ds"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesAvailable" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesAvailable" type="xs:int"/>
 <xs:element minOccurs="0" name="endian" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
 </xs:all>
-<xs:attribute name="bytesAvailable" type="xs:string"/>
+<xs:attribute name="bytesAvailable" type="xs:int"/>
 <xs:attribute name="endian" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

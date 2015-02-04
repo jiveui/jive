@@ -11,31 +11,19 @@ import flash.errors.Error;
 /**
  * Shared instance of `JTooltip` to saving instances.
  *
- * Author: paling
+ * @author paling
  */
 class JSharedToolTip extends JToolTip{
 
-
-	private static var _sharedInstance:JSharedToolTip;
-    public static var sharedInstance(get, set): JSharedToolTip;
     /**
-	 * Returns the shared `JSharedToolTip` instance.
+	 * The shared `JSharedToolTip` instance.
 	 *
 	 * You can create a your shared tool tip instance too, if you want to
 	 * shared by the default.
-	 *
-	 * @return a singlton shared instance.
 	 */
+    public static var sharedInstance(get, set): JSharedToolTip;
+    private static var _sharedInstance:JSharedToolTip;
     private static function get_sharedInstance():JSharedToolTip { return getSharedInstance(); }
-    /**
-	 * Sets the shared `JSharedToolTip` instance.
-	 *
-	 * You can only call this before any <code>getSharedInstance()</code> invoke, and
-	 * you can only set it once. This is means, you'd better to call this at the beginning
-	 * of your program.
-	 *
-	 * @param ins the shared JSharedToolTip instance you want to use.
-	 */
     private static function set_sharedInstance(q:JSharedToolTip):JSharedToolTip { setSharedInstance(q); return q; }
 
 	private var targetedComponent:Component;
@@ -49,6 +37,15 @@ class JSharedToolTip extends JToolTip{
 		setName("JSharedToolTip");
 		textMap = new  haxe.ds.IntMap<String>();
 	}
+
+    /**
+	 * Returns the shared `JSharedToolTip` instance.
+	 *
+	 * You can create a your shared tool tip instance too, if you want to
+	 * shared by the default.
+	 *
+	 * @return a singlton shared instance.
+	 */
     @:dox(hide)
 	public static function getSharedInstance():JSharedToolTip{
 		if(_sharedInstance == null){
@@ -56,6 +53,16 @@ class JSharedToolTip extends JToolTip{
 		}
 		return _sharedInstance;
 	}
+
+    /**
+	 * Sets the shared `JSharedToolTip` instance.
+	 *
+	 * You can only call this before any <code>getSharedInstance()</code> invoke, and
+	 * you can only set it once. This is means, you'd better to call this at the beginning
+	 * of your program.
+	 *
+	 * @param ins the shared JSharedToolTip instance you want to use.
+	 */
     @:dox(hide)
 	public static function setSharedInstance(ins:JSharedToolTip):Void{
 		if(_sharedInstance!=null)	{
@@ -141,7 +148,6 @@ class JSharedToolTip extends JToolTip{
 	}
 	
 	//-------------
-	@:dox(hide)
 	override private function __compRollOver(source:Component):Void{
 		var tipText:String= getTargetToolTipText(source);
 		if(tipText != null && isWaitThenPopupEnabled()){
@@ -150,7 +156,6 @@ class JSharedToolTip extends JToolTip{
 			startWaitToPopup();
 		}
 	}
-	@:dox(hide)
 	override private function __compRollOut(source:Component):Void{
 		if(source == targetedComponent && isWaitThenPopupEnabled()){
 			disposeToolTip();
