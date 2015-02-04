@@ -1767,7 +1767,53 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="dataModel" type="org-aswing-table:TableModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="columnModel" type="org-aswing-table:TableColumnModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="selectionModel" type="ListSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="tableHeader" type="org-aswing-table:JTableHeaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="footer" type="ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rowHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="rowMargin" type="xs:int"/>
+<xs:element minOccurs="0" name="cellSpacing" type="org-aswing-geom:IntDimensionSchemaTypeValue"/>
+<xs:element minOccurs="0" name="gridColor" type="ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="showHorizontalLines" type="xs:boolean"/>
+<xs:element minOccurs="0" name="showVerticalLines" type="xs:boolean"/>
+<xs:element minOccurs="0" name="autoResizeMode" type="xs:int"/>
+<xs:element minOccurs="0" name="autoCreateColumnsFromModel" type="xs:boolean"/>
+<xs:element minOccurs="0" name="preferredViewportSize" type="org-aswing-geom:IntDimensionSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rowSelectionAllowed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="columnSelectionAllowed" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cellSelectionEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cellEditor" type="org-aswing-table:TableCellEditorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="viewPosition" type="org-aswing-geom:IntPointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="verticalBlockIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalUnitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalBlockIncrement" type="xs:int"/>
 </xs:all>
+<xs:attribute name="dataModel" type="xs:string"/>
+<xs:attribute name="columnModel" type="xs:string"/>
+<xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="tableHeader" type="xs:string"/>
+<xs:attribute name="footer" type="xs:string"/>
+<xs:attribute name="rowHeight" type="xs:int"/>
+<xs:attribute name="rowMargin" type="xs:int"/>
+<xs:attribute name="cellSpacing" type="xs:string"/>
+<xs:attribute name="gridColor" type="xs:string"/>
+<xs:attribute name="showHorizontalLines" type="xs:boolean"/>
+<xs:attribute name="showVerticalLines" type="xs:boolean"/>
+<xs:attribute name="autoResizeMode" type="xs:int"/>
+<xs:attribute name="autoCreateColumnsFromModel" type="xs:boolean"/>
+<xs:attribute name="preferredViewportSize" type="xs:string"/>
+<xs:attribute name="rowSelectionAllowed" type="xs:boolean"/>
+<xs:attribute name="columnSelectionAllowed" type="xs:boolean"/>
+<xs:attribute name="cellSelectionEnabled" type="xs:boolean"/>
+<xs:attribute name="cellEditor" type="xs:string"/>
+<xs:attribute name="viewPosition" type="xs:string"/>
+<xs:attribute name="verticalUnitIncrement" type="xs:int"/>
+<xs:attribute name="verticalBlockIncrement" type="xs:int"/>
+<xs:attribute name="horizontalUnitIncrement" type="xs:int"/>
+<xs:attribute name="horizontalBlockIncrement" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
