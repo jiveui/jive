@@ -77,7 +77,7 @@ class JViewport extends Container  implements Viewportable {
 	private function set_verticalBlockIncrement(v: Int): Int { setVerticalBlockIncrement(v); return v; }
 
 	/**
-	 * Returns the unit value for the Horizontal scrolling.
+	 * The unit value for the Horizontal scrolling.
 	 */
 	public var horizontalUnitIncrement(get, set): Int;
 	private var _horizontalUnitIncrement:Int;

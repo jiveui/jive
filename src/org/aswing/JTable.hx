@@ -7,66 +7,35 @@ package org.aswing;
 import flash.geom.Rectangle;
 import org.aswing.error.Error;
 import org.aswing.event.TableModelListener;
-	import org.aswing.event.CellEditorListener;
-	import org.aswing.event.TableCellEditEvent;
-	import org.aswing.event.TableModelEvent;
-	import org.aswing.event.SelectionEvent;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.geom.IntDimension;
-	import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.TableUI;
-	import org.aswing.plaf.basic.BasicTableUI;
+import org.aswing.event.CellEditorListener;
+import org.aswing.event.TableCellEditEvent;
+import org.aswing.event.TableModelEvent;
+import org.aswing.event.SelectionEvent;
+import org.aswing.event.InteractiveEvent;
+import org.aswing.geom.IntDimension;
+import org.aswing.geom.IntPoint;
+import org.aswing.geom.IntRectangle;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.TableUI;
+import org.aswing.plaf.basic.BasicTableUI;
 import org.aswing.table.TableColumnModelListener;
-	import org.aswing.table.TableModel;
-	import org.aswing.table.TableColumnModel;
-	import org.aswing.table.JTableHeader;
-	import org.aswing.table.TableCellEditor;
-	import org.aswing.table.TableColumn;
-	import org.aswing.table.TableCell;
-	import org.aswing.table.TableCellFactory;
-	import org.aswing.table.Resizable3;
-	import org.aswing.table.Resizable3Imp1;
-	import org.aswing.table.Resizable3Imp2;
-	import org.aswing.table.Resizable2;
-	import org.aswing.table.Resizable2Imp1;
-	import org.aswing.table.TableColumnModelEvent;
-	import org.aswing.table.DefaultTableModel;
-	import org.aswing.table.DefaultTableColumnModel;
-	import org.aswing.table.GeneralTableCellFactoryUIResource;
-	import org.aswing.table.PoorTextCell;
- 
-	/**
- * Dispatched when the row selection changed.
- * @eventType org.aswing.event.SelectionEvent.ROW_SELECTION_CHANGED
- * @see #addSelectionListener()
- */
-// [Event(name="rowSelectionChanged", type="org.aswing.event.SelectionEvent")]
-
-/**
- * Dispatched when the column selection changed.
- * @eventType org.aswing.event.SelectionEvent.COLUMN_SELECTION_CHANGED
- */
-// [Event(name="columnSelectionChanged", type="org.aswing.event.SelectionEvent")]
-
-/**
- * Dispatched when the cell editing started.
- * @eventType org.aswing.event.TableCellEditEvent.EDITING_STARTED
- */
-// [Event(name="tableCellEditingStarted", type="org.aswing.event.TableCellEditEvent")]
-
-/**
- * Dispatched when the cell editing canceled.
- * @eventType org.aswing.event.TableCellEditEvent.EDITING_CANCELED
- */
-// [Event(name="tableCellEditingCanceled", type="org.aswing.event.TableCellEditEvent")]
-
-/**
- * Dispatched when the cell editing finished.
- * @eventType org.aswing.event.TableCellEditEvent.EDITING_STOPPED
- */
-// [Event(name="tableCellEditingStopped", type="org.aswing.event.TableCellEditEvent")]
+import org.aswing.table.TableModel;
+import org.aswing.table.TableColumnModel;
+import org.aswing.table.JTableHeader;
+import org.aswing.table.TableCellEditor;
+import org.aswing.table.TableColumn;
+import org.aswing.table.TableCell;
+import org.aswing.table.TableCellFactory;
+import org.aswing.table.Resizable3;
+import org.aswing.table.Resizable3Imp1;
+import org.aswing.table.Resizable3Imp2;
+import org.aswing.table.Resizable2;
+import org.aswing.table.Resizable2Imp1;
+import org.aswing.table.TableColumnModelEvent;
+import org.aswing.table.DefaultTableModel;
+import org.aswing.table.DefaultTableColumnModel;
+import org.aswing.table.GeneralTableCellFactoryUIResource;
+import org.aswing.table.PoorTextCell;
 
 /**
  * The <code>JTable</code> is used to display and edit regular two-dimensional tables
@@ -79,14 +48,14 @@ import org.aswing.table.TableColumnModelListener;
  * columns of numbers:
  * <p>
  * <pre>
- *      class MyTableModel extends AbstractTableModel{
- *          public function getColumnCount():int { return 10; }
- *          public function getRowCount():int { return 10;}
- *          public getValueAt(row:int, col:int) { return row*col; }
- *      };
- *      var dataModel:MyTableModel = new MyTableModel();
- *      var table:JTable = new JTable(dataModel);
- *      var scrollpane:JScrollPane = new JScrollPane(table);
+ *  class MyTableModel extends AbstractTableModel{
+ *    public function getColumnCount():int { return 10; }
+ *    public function getRowCount():int { return 10;}
+ *    public getValueAt(row:int, col:int) { return row*col; }
+ *  };
+ *  var dataModel:MyTableModel = new MyTableModel();
+ *  var table:JTable = new JTable(dataModel);
+ *  var scrollpane:JScrollPane = new JScrollPane(table);
  * </pre>
  * <p>
  * Note that if you wish to use a <code>JTable</code> in a standalone
@@ -121,11 +90,16 @@ import org.aswing.table.TableColumnModelListener;
  * columns are reordered, the <code>JTable</code> maintains the new order of the columns
  * internally and converts its column indices before querying the model.
  * <p>
- * To listen table row selection change event, by <code>addSelectionListener()</code>
- * To listen column selection see {@link org.aswing.table.TableColumnModel#addColumnModelListener} <br>
- * To listen other Table events see {@link org.aswing.table.TableModel#addTableModelListener}
+ * To listen table row selection change event, by <code>this.addSelectionListener()</code>
+ * To listen column selection see `org.aswing.table.TableColumnModel#addColumnModelListener` <br>
+ * To listen other Table events see `org.aswing.table.TableModel#addTableModelListener`
  * @author paling
  */
+@:event("org.aswing.event.SelectionEvent.ROW_SELECTION_CHANGED", "Dispatched when the row selection changed")
+@:event("org.aswing.event.SelectionEvent.COLUMN_SELECTION_CHANGED", "Dispatched when the column selection changed")
+@:event("org.aswing.event.TableCellEditEvent.EDITING_STARTED", " Dispatched when the cell editing started")
+@:event("org.aswing.event.TableCellEditEvent.EDITING_CANCELED", "Dispatched when the cell editing canceled")
+@:event("org.aswing.event.TableCellEditEvent.EDITING_STOPPED", "Dispatched when the cell editing finished")
 class JTable extends Container  implements Viewportable implements TableModelListener implements TableColumnModelListener implements CellEditorListener implements LayoutManager{
 		
  	/**
@@ -163,28 +137,177 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * Can select any item at a time.
 	 */
 	inline public static var MULTIPLE_SELECTION:Int= 1;
-	
-	private var dataModel:TableModel;
-	
-	private var columnModel:TableColumnModel;
-	private var selectionModel:ListSelectionModel;
+
+    /**
+	 * The data model for this table to <code>newModel</code> and registers
+	 * with it for listener notifications from the new data model.
+	 */
+    public var dataModel(get, set): TableModel;
+    private var _dataModel: TableModel;
+    private function get_dataModel(): TableModel { return getModel(); }
+    private function set_dataModel(v: TableModel): TableModel { setModel(v); return v; }
+
+    /**
+	 * The column model for this table
+	 */
+    public var columnModel(get, set): TableColumnModel;
+    private var _columnModel: TableColumnModel;
+    private function get_columnModel(): TableColumnModel { return getColumnModel(); }
+    private function set_columnModel(v: TableColumnModel): TableColumnModel { setColumnModel(v); return v; }
+
+    /**
+	 * The row selection model for this table
+	 */
+    public var selectionModel(get, set): ListSelectionModel;
+    private var _selectionModel: ListSelectionModel;
+    private function get_selectionModel(): ListSelectionModel { return getSelectionModel(); }
+    private function set_selectionModel(v: ListSelectionModel): ListSelectionModel { setSelectionModel(v); return v; }
 	
 	private var cellPane:Container;
 	private var headerPane:Container;
-	private var tableHeader:JTableHeader;
-	private var footer:Component;
+
+    public var tableHeader(get, set): JTableHeader;
+    private var _tableHeader: JTableHeader;
+    private function get_tableHeader(): JTableHeader { return getTableHeader(); }
+    private function set_tableHeader(v: JTableHeader): JTableHeader { setTableHeader(v); return v; }
+
+    public var footer(get, set): Component;
+    private var _footer: Component;
+    private function get_footer(): Component { return getFooter(); }
+    private function set_footer(v: Component): Component { setFooter(v); return v; }
+
 	private var rowCells:Array<Array<Dynamic>>;
-	private var rowHeight:Int;
-	private var rowMargin:Int;
-	private var gridColor:ASColor;
-	private var showHorizontalLines:Bool;
-	private var showVerticalLines:Bool;
-	private var autoResizeMode:Int;
-	private var autoCreateColumnsFromModel:Bool;
-	private var preferredViewportSize:IntDimension;
-	private var rowSelectionAllowed:Bool;
-	private var cellSelectionEnabled:Bool;
-	private var cellEditor:TableCellEditor;
+
+    /**
+	 * The height, in pixels, of all cells.
+	 *
+	 * The height of the cells will be equal to the row height minus
+	 * the row margin.
+	 *
+	 * @default 20
+     */
+    public var rowHeight(get, set): Int;
+    private var _rowHeight: Int;
+    private function get_rowHeight(): Int { return getRowHeight(); }
+    private function set_rowHeight(v: Int): Int { setRowHeight(v); return v; }
+
+    /**
+	 * The amount of empty space between cells in adjacent rows.
+	 */
+    public var rowMargin(get, set): Int;
+    private var _rowMargin: Int;
+    private function get_rowMargin(): Int { return getRowMargin(); }
+    private function set_rowMargin(v: Int): Int { setRowMargin(v); return v; }
+
+    /**
+	 * The height and width of the space between cells.
+	 */
+    public var cellSpacing(get, set): IntDimension;
+    private function get_cellSpacing(): IntDimension { return getIntercellSpacing(); }
+    private function set_cellSpacing(v: IntDimension): IntDimension { setIntercellSpacing(v); return v; }
+
+    /**
+	 * The color used to draw grid lines.
+	 *
+	 * The default color is look and feel dependent.
+	 */
+    public var gridColor(get, set): ASColor;
+    private var _gridColor: ASColor;
+    private function get_gridColor(): ASColor { return getGridColor(); }
+    private function set_gridColor(v: ASColor): ASColor { setGridColor(v); return v; }
+
+    /**
+	 *  Whether the table draws horizontal lines between cells.
+	 *
+	 *  You may also need to use `cellSpacing` to set a proper gap of
+	 *  columns and rows to avoid lines effect caused by different bgs between table and cell.
+	 *
+	 * @see	 #showGrid
+	 * @see	 #showVerticalLines
+	 * @see  #cellSpacing
+	 */
+    public var showHorizontalLines(get, set): Bool;
+    private var _showHorizontalLines: Bool;
+    private function get_showHorizontalLines(): Bool { return getShowHorizontalLines(); }
+    private function set_showHorizontalLines(v: Bool): Bool { setShowHorizontalLines(v); return v; }
+
+    /**
+	 * Whether the table draws vertical lines between cells.
+	 * If <code>this.showVerticalLines</code> is true it does; if it is false it doesn't.
+	 *
+	 * You may also need to call setIntercellSpacing() to set a proper gap of
+	 * columns and rows to avoid lines effect caused by different bgs between table and cell.
+	 *
+	 * @see     #showHorizontalLines
+	 * @see 	#showIntercellSpacing
+	 */
+    public var showVerticalLines(get, set): Bool;
+    private var _showVerticalLines: Bool;
+    private function get_showVerticalLines(): Bool { return getShowVerticalLines(); }
+    private function set_showVerticalLines(v: Bool): Bool { setShowVerticalLines(v); return v; }
+
+    /**
+	 * The table's auto resize mode when the table is resized.
+	 *
+	 * One of 5 legal values:
+	 *  `this.AUTO_RESIZE_OFF`,
+	 *  `this.AUTO_RESIZE_NEXT_COLUMN`,
+	 *  `this.AUTO_RESIZE_SUBSEQUENT_COLUMNS`,
+	 *  `this.AUTO_RESIZE_LAST_COLUMN`,
+	 *  `this.AUTO_RESIZE_ALL_COLUMNS`
+	 *
+	 *  The default mode is `this.AUTO_RESIZE_SUBSEQUENT_COLUMNS`.
+	 */
+    public var autoResizeMode(get, set): Int;
+    private var _autoResizeMode: Int;
+    private function get_autoResizeMode(): Int { return getAutoResizeMode(); }
+    private function set_autoResizeMode(v: Int): Int { setAutoResizeMode(v); return v; }
+
+    public var autoCreateColumnsFromModel(get, set): Bool;
+    private var _autoCreateColumnsFromModel: Bool;
+    private function get_autoCreateColumnsFromModel(): Bool { return getAutoCreateColumnsFromModel(); }
+    private function set_autoCreateColumnsFromModel(v: Bool): Bool { setAutoCreateColumnsFromModel(v); return v; }
+
+    /**
+	 * The preferred size of the viewport for this table.
+	 */
+    public var preferredViewportSize(get, set): IntDimension;
+    private var _preferredViewportSize: IntDimension;
+    private function get_preferredViewportSize(): IntDimension { return getPreferredScrollableViewportSize(); }
+    private function set_preferredViewportSize(v: IntDimension): IntDimension { setPreferredScrollableViewportSize(v); return v; }
+
+    public var rowSelectionAllowed(get, set): Bool;
+    private var _rowSelectionAllowed: Bool;
+    private function get_rowSelectionAllowed(): Bool { return getRowSelectionAllowed(); }
+    private function set_rowSelectionAllowed(v: Bool): Bool { setRowSelectionAllowed(v); return v; }
+
+    public var columnSelectionAllowed(get, set): Bool;
+    private function get_columnSelectionAllowed(): Bool { return getColumnSelectionAllowed(); }
+    private function set_columnSelectionAllowed(v: Bool): Bool { setColumnSelectionAllowed(v); return v; }
+
+    /**
+	 * Whether this table allows both a column selection and a
+	 * row selection to exist simultaneously.
+	 *
+	 * When set, the table treats the intersection of the row and column selection
+	 * models as the selected cells.
+	 *
+	 * Override <code>this.isCellSelected</code> to
+	 * change this default behavior.
+	 *
+	 * This property is equivalent to setting
+	 * both the <code>this.rowSelectionAllowed</code> property and
+	 * <code>this.columnSelectionAllowed</code> property to the supplied value.
+	 *
+	 * @see #isCellSelected()
+	 */
+    public var cellSelectionEnabled(get, set): Bool;
+    private var _cellSelectionEnabled: Bool;
+    private function get_cellSelectionEnabled(): Bool { return getCellSelectionEnabled(); }
+    private function set_cellSelectionEnabled(v: Bool): Bool { setCellSelectionEnabled(v); return v; }
+
+	public var cellEditor:TableCellEditor;
+
 	private var editingColumn:Int;
 	private var editingRow:Int;
 	private var defaultRenderersByColumnClass:haxe.ds.StringMap<TableCellFactory>;
@@ -194,32 +317,70 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	//private var surrendersFocusOnKeystroke:Boolean;
 	private var columnSelectionAdjusting:Bool;
 	private var rowSelectionAdjusting:Bool;
-	
-	//viewport
-	private var viewPosition:IntPoint;
-	private var verticalUnitIncrement:Int;
-	private var verticalBlockIncrement:Int;
-	private var horizontalUnitIncrement:Int;
-	private var horizontalBlockIncrement:Int;
+
+	/***************************************************************************************/
+	// Viewport
+    /***************************************************************************************/
+
+    /**
+	 * The view's position.
+	 *
+	 * It returns (0,0) if view is null.
+	 *
+	 * @see setViewPosition to set view position loudly (to trigger events).
+	 * @see Viewportable.setViewPosition
+	 */
+    public var viewPosition(get, set): IntPoint;
+    private var _viewPosition: IntPoint;
+    private function get_viewPosition(): IntPoint { return getViewPosition(); }
+    private function set_viewPosition(v: IntPoint): IntPoint { setViewPosition(v); return v; }
+
+    /**
+	 * The unit value for the Vertical scrolling.
+	 */
+    public var verticalUnitIncrement(get, set):Int;
+    private var _verticalUnitIncrement:Int;
+    private function get_verticalUnitIncrement():Int { return getVerticalUnitIncrement(); }
+    private function set_verticalUnitIncrement(v:Int):Int { setVerticalUnitIncrement(v); return v; }
+
+    /**
+     * The block value for the Vertical scrolling.
+     */
+    public var verticalBlockIncrement(get, set): Int;
+    private var _verticalBlockIncrement: Int;
+    private function get_verticalBlockIncrement(): Int { return getVerticalBlockIncrement(); }
+    private function set_verticalBlockIncrement(v: Int): Int { setVerticalBlockIncrement(v); return v; }
+
+    /**
+	 * The unit value for the Horizontal scrolling.
+	 */
+    public var horizontalUnitIncrement(get, set): Int;
+    private var _horizontalUnitIncrement:Int;
+    private function get_horizontalUnitIncrement(): Int { return getHorizontalUnitIncrement(); }
+    private function set_horizontalUnitIncrement(v: Int): Int { setHorizontalUnitIncrement(v); return v; }
+
+    /**
+     * The block value for the Horizontal scrolling.
+     */
+    public var horizontalBlockIncrement(get, set): Int;
+    private var _horizontalBlockIncrement: Int;
+    private function get_horizontalBlockIncrement(): Int { return getHorizontalBlockIncrement(); }
+    private function set_horizontalBlockIncrement(v: Int): Int { setHorizontalBlockIncrement(v); return v; }
+
 	/** Stored cell value before any edition. */
 	private var _storedValue:Dynamic;
 
 	/**
 	 * Constructs a default <code>JTable</code>.
-	 * 
-	 * @see #initWithEmptyParam()
-	 * @see #initWithDataNames()
-	 * @see #initWithRowColumn()
-	 * @see #initWithModels()
 	 */
 	public function new(dm:TableModel=null){
 		super();
 		setName("JTable");
 		
-		verticalUnitIncrement = AUTO_INCREMENT;
-		verticalBlockIncrement = AUTO_INCREMENT;
-		horizontalUnitIncrement = AUTO_INCREMENT;
-		horizontalBlockIncrement = AUTO_INCREMENT;
+		_verticalUnitIncrement = AUTO_INCREMENT;
+		_verticalBlockIncrement = AUTO_INCREMENT;
+		_horizontalUnitIncrement = AUTO_INCREMENT;
+		_horizontalBlockIncrement = AUTO_INCREMENT;
 		
 		initWithModels(dm);
 		lastTotalColumnWidth = -1;
@@ -255,11 +416,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		append(headerPane);
 		
 		rowCells = new Array<Array<Dynamic>>();
-		viewPosition = new IntPoint();
+		_viewPosition = new IntPoint();
 		
 		if (cm == null){
 			cm = createDefaultColumnModel();
-			autoCreateColumnsFromModel = true;
+			_autoCreateColumnsFromModel = true;
 		}
 		//trace("cm = " + cm);
 		setColumnModel(cm);
@@ -287,6 +448,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param ui  the TableUI L&F object
 	 * @throws ArgumentError when the newUI is not an <code>TableUI</code> instance.
 	 */
+    @:dox(hide)
 	override public function setUI(newUI:ComponentUI):Void{
 		if (Std.is(newUI,TableUI)){
 			super.setUI(newUI);
@@ -296,7 +458,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		}
 	}
 	
-	public function getTableUI():TableUI{
+	@:dox(hide)
+    public function getTableUI():TableUI{
 		return AsWingUtils.as(getUI() , TableUI);
 	}
 
@@ -321,6 +484,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @see org.aswing.Component#updateUI
 	 */
+    @:dox(hide)
 	override public function updateUI():Void{
 		// Update the UIs of the cell editors
 		var cm:TableColumnModel = getColumnModel();
@@ -344,14 +508,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		}
 
 		// Update the UI of the table header
-		if (tableHeader != null && tableHeader.getParent() == null){
-			tableHeader.updateUI();
+		if (_tableHeader != null && _tableHeader.getParent() == null){
+			_tableHeader.updateUI();
 		}
 		
 		setUI(UIManager.getUI(this));
 		//resizeAndRepaint();
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicTableUI;
     }
@@ -364,6 +529,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see JComponent#getUIClassID
 	 * @see UIDefaults#getUI
 	 */
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "TableUI";
 	}
@@ -380,14 +546,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param   tableHeader  new tableHeader
 	 * @see	 #getTableHeader()
 	 */
+    @:dox(hide)
 	public function setTableHeader(tableHeader:JTableHeader):Void{
-		if (this.tableHeader != tableHeader){
-			var old:JTableHeader = this.tableHeader;
+		if (this._tableHeader != tableHeader){
+			var old:JTableHeader = this._tableHeader;
 			if (old != null){
 				old.setTable(null);
 				old.removeFromContainer();
 			}
-			this.tableHeader = tableHeader;
+			this._tableHeader = tableHeader;
 			if (tableHeader != null){
 				tableHeader.setTable(this);
 				headerPane.append(tableHeader);
@@ -401,9 +568,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the <code>tableHeader</code> used by this table
 	 * @see	 #setTableHeader()
-	 */	
+	 */
+    @:dox(hide)
 	public function getTableHeader():JTableHeader{
-		return tableHeader;
+		return _tableHeader;
 	}
 	
 	/**
@@ -411,22 +579,24 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the footer component, null if no footer set
 	 * @see #setFooter()
 	 */
+    @:dox(hide)
 	public function getFooter():Component{
-		return footer;
+		return _footer;
 	}
 	
 	/**
 	 * Sets a component to be locate at the bottome of the table
 	 * @param footer a component to be the footer of the table
 	 */
+    @:dox(hide)
 	public function setFooter(c:Component):Void{
-		if(footer != c){
-			if(footer!=null)	{
-				remove(footer);
+		if(_footer != c){
+			if(_footer!=null)	{
+				remove(_footer);
 			}
-			footer = c;
-			if(footer!=null)	{
-				append(footer);
+			_footer = c;
+			if(_footer!=null)	{
+				append(_footer);
 			}
 			revalidate();
 		}
@@ -449,13 +619,14 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param   rowHeight new row height
 	 * @throws  RangeError if <code>rowHeight</code> is less than 1
      * @see     #getAllRowHeight()
-     */	
+     */
+    @:dox(hide)
 	public function setRowHeight(rowHeight:Int):Void{
 		if (rowHeight < 1){
 			throw new Error("New row height less than 1"); 
 		}
 		//var old:int = this.rowHeight;
-		this.rowHeight = rowHeight;
+		this._rowHeight = rowHeight;
 		resizeAndRepaint();
 		//firePropertyChange("rowHeight", old, rowHeight);
 	}
@@ -466,9 +637,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the height in pixels of a table row
 	 * @see #setAllRowHeight()
-	 */	
+	 */
+    @:dox(hide)
 	public function getRowHeight():Int{
-		return rowHeight;
+		return _rowHeight;
 	}
 		
 	/**
@@ -476,10 +648,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param  rowMargin  the number of pixels between cells in a row
 	 * @see	 #getRowMargin()
-	 */	
+	 */
+    @:dox(hide)
 	public function setRowMargin(rowMargin:Int):Void{
 		//var old:int = this.rowMargin;
-		this.rowMargin = rowMargin;
+		this._rowMargin = rowMargin;
 		resizeAndRepaint();
 		//firePropertyChange("rowMargin", old, rowMargin);
 	}
@@ -490,9 +663,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the number of pixels between cells in a row
 	 *
 	 * @see	 #setRowMargin()
-	 */	
+	 */
+    @:dox(hide)
 	public function getRowMargin():Int{
-		return rowMargin;
+		return _rowMargin;
 	}
 	
 	/**
@@ -504,7 +678,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *					specifying the new width
 	 *					and height between cells
 	 * @see	 #getIntercellSpacing()
-	 */	
+	 */
+    @:dox(hide)
 	public function setIntercellSpacing(intercellSpacing:IntDimension):Void{
 		setRowMargin(intercellSpacing.height);
 		getColumnModel().setColumnMargin(intercellSpacing.width);
@@ -517,9 +692,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the horizontal and vertical spacing between cells
 	 * @see	 #setIntercellSpacing()
-	 */	
+	 */
+    @:dox(hide)
 	public function getIntercellSpacing():IntDimension{
-		return new IntDimension(getColumnModel().getColumnMargin(), rowMargin);
+		return new IntDimension(getColumnModel().getColumnMargin(), _rowMargin);
 	}
 	
 	/**
@@ -528,14 +704,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param  gridColor the new color of the grid lines
 	 * @see #getGridColor()
-	 */	
+	 */
+    @:dox(hide)
 	public function setGridColor(gridColor:ASColor):Void{
 		if (gridColor == null){
 			trace("New color is null, Ignored");
 			return;
 		}
 		//var old:ASColor = this.gridColor;
-		this.gridColor = gridColor;
+		this._gridColor = gridColor;
 		//firePropertyChange("gridColor", old, gridColor);
 		repaint();
 	}
@@ -546,9 +723,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the color used to draw grid lines
 	 * @see	 #setGridColor()
-	 */	
+	 */
+    @:dox(hide)
 	public function getGridColor():ASColor{
-		return gridColor;
+		return _gridColor;
 	}
 	
 	/**
@@ -565,7 +743,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see #setShowVerticalLines()
 	 * @see #setShowHorizontalLines()
 	 * @see #setIntercellSpacing()
-	 */	
+	 */
+    @:dox(hide)
 	public function setShowGrid(showGrid:Bool, affectCellSpacing:Bool=true):Void{
 		setShowHorizontalLines(showGrid);
 		setShowVerticalLines(showGrid);
@@ -592,10 +771,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see	 #setShowGrid()
 	 * @see	 #setShowVerticalLines()
 	 * @see  #setIntercellSpacing()
-	 */	
+	 */
+    @:dox(hide)
 	public function setShowHorizontalLines(showHorizontalLines:Bool, affectCellSpacing:Bool=true):Void{
-		var old:Bool= this.showHorizontalLines;
-		this.showHorizontalLines = showHorizontalLines;
+		var old:Bool= this._showHorizontalLines;
+		this._showHorizontalLines = showHorizontalLines;
 		if(affectCellSpacing)	{
 			setIntercellSpacing(new IntDimension(
 				getIntercellSpacing().width, 
@@ -619,10 +799,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see     #setShowGrid()
 	 * @see     #setShowHorizontalLines()
 	 * @see 	#setIntercellSpacing()
-	 */	
+	 */
+    @:dox(hide)
 	public function setShowVerticalLines(showVerticalLines:Bool, affectCellSpacing:Bool=true):Void{
-		var old:Bool= this.showVerticalLines;
-		this.showVerticalLines = showVerticalLines;
+		var old:Bool= this._showVerticalLines;
+		this._showVerticalLines = showVerticalLines;
 		if(affectCellSpacing)	{
 			setIntercellSpacing(new IntDimension(
 				showVerticalLines ? 1 : 0, 
@@ -640,9 +821,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return  true if the table draws horizontal lines between cells, false if it
 	 *          doesn't
 	 * @see	 #setShowHorizontalLines()
-	 */	
+	 */
+    @:dox(hide)
 	public function getShowHorizontalLines():Bool{
-		return showHorizontalLines;
+		return _showHorizontalLines;
 	}
 	
 	/**
@@ -652,9 +834,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return  true if the table draws vertical lines between cells, false if it
 	 *          doesn't
 	 * @see	 #setShowVerticalLines()
-	 */	
+	 */
+    @:dox(hide)
 	public function getShowVerticalLines():Bool{
-		return showVerticalLines;
+		return _showVerticalLines;
 	}
 	
 	/**
@@ -669,7 +852,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @see     #getAutoResizeMode()
 	 * @see     #doLayout()
-	 */	
+	 */
+    @:dox(hide)
 	public function setAutoResizeMode(mode:Int):Void{
 		if (mode == AUTO_RESIZE_OFF 
 			|| mode == AUTO_RESIZE_NEXT_COLUMN 
@@ -677,12 +861,12 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 			|| mode == AUTO_RESIZE_LAST_COLUMN 
 			|| mode == AUTO_RESIZE_ALL_COLUMNS)
 		{
-			if(mode != autoResizeMode){
+			if(mode != _autoResizeMode){
 				//var old:int = autoResizeMode;
-				autoResizeMode = mode;
+				_autoResizeMode = mode;
 				resizeAndRepaint();
-				if (tableHeader != null){
-					tableHeader.resizeAndRepaint();
+				if (_tableHeader != null){
+					_tableHeader.resizeAndRepaint();
 				}
 				//firePropertyChange("autoResizeMode", old, autoResizeMode);
 			}
@@ -697,9 +881,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @see	 #setAutoResizeMode()
 	 * @see	 #doLayout()
-	 */	
+	 */
+    @:dox(hide)
 	public function getAutoResizeMode():Int{
-		return autoResizeMode;
+		return _autoResizeMode;
 	}
 	
 	/**
@@ -710,11 +895,12 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param   autoCreateColumnsFromModel   true if <code>JTable</code> should automatically create columns
 	 * @see #getAutoCreateColumnsFromModel()
 	 * @see #createDefaultColumnsFromModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function setAutoCreateColumnsFromModel(autoCreateColumnsFromModel:Bool):Void{
-		if (this.autoCreateColumnsFromModel != autoCreateColumnsFromModel){
+		if (this._autoCreateColumnsFromModel != autoCreateColumnsFromModel){
 			//var old:Boolean = this.autoCreateColumnsFromModel;
-			this.autoCreateColumnsFromModel = autoCreateColumnsFromModel;
+			this._autoCreateColumnsFromModel = autoCreateColumnsFromModel;
 			if(autoCreateColumnsFromModel)	{
 				createDefaultColumnsFromModel();
 			}
@@ -733,20 +919,21 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return  the autoCreateColumnsFromModel of the table
 	 * @see	 #setAutoCreateColumnsFromModel()
 	 * @see	 #createDefaultColumnsFromModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function getAutoCreateColumnsFromModel():Bool{
-		return autoCreateColumnsFromModel;
+		return _autoCreateColumnsFromModel;
 	}
 	
 	/**
 	 * Creates default columns for the table from
-	 * the data model using the <code>getColumnCount</code> method
+	 * the data model using the <code>this.getColumnCount</code> method
 	 * defined in the <code>TableModel</code> interface.
-	 * <p>
+	 *
 	 * Clears any existing columns before creating the
 	 * new columns based on information from the model.
 	 *
-	 * @see #getAutoCreateColumnsFromModel()
+	 * @see #autoCreateColumnsFromModel
 	 */	
 	public function createDefaultColumnsFromModel():Void{
 		var m:TableModel = getModel();
@@ -893,10 +1080,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param rowSelectionAllowed   true if this model will allow row selection
 	 * @see #getRowSelectionAllowed()
-	 */	
+	 */
+    @:dox(hide)
 	public function setRowSelectionAllowed(rowSelectionAllowed:Bool):Void{
-		var old:Bool= this.rowSelectionAllowed;
-		this.rowSelectionAllowed = rowSelectionAllowed;
+		var old:Bool= this._rowSelectionAllowed;
+		this._rowSelectionAllowed = rowSelectionAllowed;
 		if (old != rowSelectionAllowed){
 			repaint();
 		}
@@ -908,9 +1096,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return true if rows can be selected, otherwise false
 	 * @see #setRowSelectionAllowed()
-	 */	
+	 */
+    @:dox(hide)
 	public function getRowSelectionAllowed():Bool{
-		return rowSelectionAllowed;
+		return _rowSelectionAllowed;
 	}
 	
 	/**
@@ -918,10 +1107,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param columnSelectionAllowed   true if this model will allow column selection
 	 * @see #getColumnSelectionAllowed()
-	 */	
+	 */
+    @:dox(hide)
 	public function setColumnSelectionAllowed(columnSelectionAllowed:Bool):Void{
-		var old:Bool= columnModel.getColumnSelectionAllowed();
-		columnModel.setColumnSelectionAllowed(columnSelectionAllowed);
+		var old:Bool= _columnModel.getColumnSelectionAllowed();
+		_columnModel.setColumnSelectionAllowed(columnSelectionAllowed);
 		if (old != columnSelectionAllowed){
 			repaint();
 		}
@@ -933,9 +1123,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return true if columns can be selected, otherwise false
 	 * @see #setColumnSelectionAllowed()
-	 */	
+	 */
+    @:dox(hide)
 	public function getColumnSelectionAllowed():Bool{
-		return columnModel.getColumnSelectionAllowed();
+		return _columnModel.getColumnSelectionAllowed();
 	}
 	
 	/**
@@ -952,12 +1143,13 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *					selection is allowed
 	 * @see #getCellSelectionEnabled()
 	 * @see #isCellSelected()
-	 */	
+	 */
+    @:dox(hide)
 	public function setCellSelectionEnabled(cellSelectionEnabled:Bool):Void{
 		setRowSelectionAllowed(cellSelectionEnabled);
 		setColumnSelectionAllowed(cellSelectionEnabled);
 		//var old:Boolean = this.cellSelectionEnabled;
-		this.cellSelectionEnabled = cellSelectionEnabled;
+		this._cellSelectionEnabled = cellSelectionEnabled;
 		//firePropertyChange("cellSelectionEnabled", old, cellSelectionEnabled);
 	}
 	
@@ -969,7 +1161,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return true if both row and column selection models are enabled
 	 *
 	 * @see #setCellSelectionEnabled()
-	 */	
+	 */
+    @:dox(hide)
 	public function getCellSelectionEnabled():Bool{
 		return (getRowSelectionAllowed() && getColumnSelectionAllowed());
 	}
@@ -986,7 +1179,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 			var oldLead:Int;
 			var oldAnchor:Int;
 			var selModel:ListSelectionModel;
-			selModel = selectionModel;
+			selModel = _selectionModel;
 			//TODO adjusting needed?
 			//selModel.setValueIsAdjusting(true);
 			oldLead = selModel.getLeadSelectionIndex();
@@ -994,7 +1187,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 			setRowSelectionInterval(0, getRowCount() - 1, programmatic);
 			selModel.addSelectionInterval(oldAnchor, oldLead, programmatic);
 			//selModel.setValueIsAdjusting(false);
-			selModel = columnModel.getSelectionModel();
+			selModel = _columnModel.getSelectionModel();
 			//selModel.setValueIsAdjusting(true);
 			oldLead = selModel.getLeadSelectionIndex();
 			oldAnchor = selModel.getAnchorSelectionIndex();
@@ -1009,8 +1202,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
      * @param programmatic indicate if this is a programmatic change
 	 */	
 	public function clearSelection(programmatic:Bool=true):Void{
-		selectionModel.clearSelection(programmatic);
-		columnModel.getSelectionModel().clearSelection(programmatic);
+		_selectionModel.clearSelection(programmatic);
+		_columnModel.getSelectionModel().clearSelection(programmatic);
 	}
 	
 	private function boundRow(row:Int):Int{
@@ -1027,34 +1220,28 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		return col;
 	}
 	
-	/**
-	 * Selects the rows from <code>index0</code> to <code>index1</code>,
-	 * inclusive.
-	 *
-	 * @exception Error      if <code>index0</code> or
-	 *						<code>index1</code> lie outside
-	 *                                          [0, <code>getRowCount()</code>-1]
-	 * @param   index0 one end of the interval
-	 * @param   index1 the other end of the interval
-     * @param programmatic indicate if this is a programmatic change
-	 */	
+    /**
+    * Selects the rows from <code>index0</code> to <code>index1</code>,
+    * inclusive.
+    *
+    * @param index0 one end of the interval
+    * @param index1 the other end of the interval
+    * @param programmatic indicate if this is a programmatic change
+    */
 	public function setRowSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		selectionModel.setSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
+		_selectionModel.setSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
 	}
 	
-	/**
-	 * Selects the columns from <code>index0</code> to <code>index1</code>,
-	 * inclusive.
-	 *
-	 * @exception Error      if <code>index0</code> or
-	 *						<code>index1</code> lie outside
-	 *                                          [0, <code>getColumnCount()</code>-1]
-	 * @param   index0 one end of the interval
-	 * @param   index1 the other end of the interval
-     * @param programmatic indicate if this is a programmatic change
-	 */	
+    /**
+    * Selects the columns from <code>index0</code> to <code>index1</code>,
+    * inclusive.
+    *
+    * @param   index0 one end of the interval
+    * @param   index1 the other end of the interval
+    * @param programmatic indicate if this is a programmatic change
+    */
 	public function setColumnSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		columnModel.getSelectionModel().setSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
+		_columnModel.getSelectionModel().setSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
 	}
 	
 	/**
@@ -1068,7 +1255,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
      * @param programmatic indicate if this is a programmatic change
 	 */	
 	public function addRowSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		selectionModel.addSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
+		_selectionModel.addSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
 	}
 	
 	/**
@@ -1083,35 +1270,29 @@ class JTable extends Container  implements Viewportable implements TableModelLis
      * @param programmatic indicate if this is a programmatic change
 	 */	
 	public function addColumnSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		columnModel.getSelectionModel().addSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
+		_columnModel.getSelectionModel().addSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
 	}
 	
-	/**
-	 * Deselects the rows from <code>index0</code> to <code>index1</code>, inclusive.
-	 *
-	 * @exception Error      if <code>index0</code> or
-	 *						<code>index1</code> lie outside
-	 *                                          [0, <code>getRowCount()</code>-1]
-	 * @param   index0 one end of the interval
-	 * @param   index1 the other end of the interval
-     * @param programmatic indicate if this is a programmatic change
-	 */	
+    /**
+    * Deselects the rows from <code>index0</code> to <code>index1</code>, inclusive.
+    *
+    * @param   index0 one end of the interval
+    * @param   index1 the other end of the interval
+    * @param programmatic indicate if this is a programmatic change
+    */
 	public function removeRowSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		selectionModel.removeSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
+		_selectionModel.removeSelectionInterval(boundRow(index0), boundRow(index1), programmatic);
 	}
 	
-	/**
-	 * Deselects the columns from <code>index0</code> to <code>index1</code>, inclusive.
-	 *
-	 * @exception Error      if <code>index0</code> or
-	 *						<code>index1</code> lie outside
-	 *                                          [0, <code>getColumnCount()</code>-1]
-	 * @param   index0 one end of the interval
-	 * @param   index1 the other end of the interval
-     * @param programmatic indicate if this is a programmatic change
-	 */	
+    /**
+    * Deselects the columns from <code>index0</code> to <code>index1</code>, inclusive.
+    *
+    * @param index0 one end of the interval
+    * @param index1 the other end of the interval
+    * @param programmatic indicate if this is a programmatic change
+    */
 	public function removeColumnSelectionInterval(index0:Int, index1:Int, programmatic:Bool=true):Void{
-		columnModel.getSelectionModel().removeSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
+		_columnModel.getSelectionModel().removeSelectionInterval(boundColumn(index0), boundColumn(index1), programmatic);
 	}
 	
 	/**
@@ -1119,7 +1300,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the index of the first selected row
 	 */	
 	public function getSelectedRow():Int{
-		return selectionModel.getMinSelectionIndex();
+		return _selectionModel.getMinSelectionIndex();
 	}
 	
 	/**
@@ -1128,7 +1309,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the index of the first selected column
 	 */	
 	public function getSelectedColumn():Int{
-		return columnModel.getSelectionModel().getMinSelectionIndex();
+		return _columnModel.getSelectionModel().getMinSelectionIndex();
 	}
 	
 	/**
@@ -1139,15 +1320,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see #getSelectedRow
 	 */	
 	public function getSelectedRows():Array<Dynamic>{
-		var iMin:Int= selectionModel.getMinSelectionIndex();
-		var iMax:Int= selectionModel.getMaxSelectionIndex();
+		var iMin:Int= _selectionModel.getMinSelectionIndex();
+		var iMax:Int= _selectionModel.getMaxSelectionIndex();
 		if ((iMin == (- 1)) || (iMax == (- 1))){
 			return new Array<Dynamic>();
 		}
 		
 		var rvTmp:Array<Dynamic>= new Array<Dynamic>();
 		for (i in iMin...iMax+1){
-			if (selectionModel.isSelectedIndex(i)){
+			if (_selectionModel.isSelectedIndex(i)){
 				rvTmp.push(i);
 			}
 		}
@@ -1162,7 +1343,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @see #getSelectedColumn
 	 */	
 	public function getSelectedColumns():Array<Dynamic>{
-		return columnModel.getSelectedColumns();
+		return _columnModel.getSelectedColumns();
 	}
 	
 	/**
@@ -1171,11 +1352,11 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the number of selected rows, 0 if no rows are selected
 	 */	
 	public function getSelectedRowCount():Int{
-		var iMin:Int= selectionModel.getMinSelectionIndex();
-		var iMax:Int= selectionModel.getMaxSelectionIndex();
+		var iMin:Int= _selectionModel.getMinSelectionIndex();
+		var iMax:Int= _selectionModel.getMaxSelectionIndex();
 		var count:Int= 0;
 		for (i in iMin...iMax+1){
-			if (selectionModel.isSelectedIndex(i)){
+			if (_selectionModel.isSelectedIndex(i)){
 				count++;
 			}
 		}
@@ -1188,7 +1369,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return the number of selected columns, 0 if no columns are selected
 	 */	
 	public function getSelectedColumnCount():Int{
-		return columnModel.getSelectedColumnCount();
+		return _columnModel.getSelectedColumnCount();
 	}
 	
 	/**
@@ -1199,7 +1380,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *              that index is selected (where 0 is the first row)
 	 */	
 	public function isRowSelected(row:Int):Bool{
-		return selectionModel.isSelectedIndex(row);
+		return _selectionModel.isSelectedIndex(row);
 	}
 	
 	/**
@@ -1211,7 +1392,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *              that index is selected (where 0 is the first column)
 	 */	
 	public function isColumnSelected(column:Int):Bool{
-		return columnModel.getSelectionModel().isSelectedIndex(column);
+		return _columnModel.getSelectionModel().isSelectedIndex(column);
 	}
 	
 	/**
@@ -1296,20 +1477,20 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * This implementation uses the following conventions:
 	 * <ul>
 	 * <li> <code>toggle</code>: <em>false</em>, <code>extend</code>: <em>false</em>.
-	 *      Clear the previous selection and ensure the new cell is selected.
+	 *  Clear the previous selection and ensure the new cell is selected.
 	 * <li> <code>toggle</code>: <em>false</em>, <code>extend</code>: <em>true</em>.
-	 *      Extend the previous selection from the anchor to the specified cell,
-	 *      clearing all other selections.
+	 *  Extend the previous selection from the anchor to the specified cell,
+	 *  clearing all other selections.
 	 * <li> <code>toggle</code>: <em>true</em>, <code>extend</code>: <em>false</em>.
-	 *      If the specified cell is selected, deselect it. If it is not selected, select it.
+	 *  If the specified cell is selected, deselect it. If it is not selected, select it.
 	 * <li> <code>toggle</code>: <em>true</em>, <code>extend</code>: <em>true</em>.
-	 *      Leave the selection state as it is, but move the anchor index to the specified location.
+	 *  Leave the selection state as it is, but move the anchor index to the specified location.
 	 * </ul>
 	 * @param  rowIndex   affects the selection at <code>row</code>
 	 * @param  columnIndex  affects the selection at <code>column</code>
 	 * @param  toggle  see description above
 	 * @param  extend  if true, extend the current selection
-     * @param programmatic indicate if this is a programmatic change
+     * @param  programmatic indicate if this is a programmatic change
 	 */	
 	public function changeSelection(rowIndex:Int, columnIndex:Int, toggle:Bool, 
 		extend:Bool, programmatic:Bool=true):Void{
@@ -1532,14 +1713,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	
 	/**
 	 * Returns the cell value at <code>row</code> and <code>column</code>.
-	 * <p>
+	 *
 	 * <b>Note</b>: The column is specified in the table view's display
-	 *              order, and not in the <code>TableModel</code>'s column
-	 *		    order.  This is an important distinction because as the
-	 *		    user rearranges the columns in the table,
-	 *		    the column at a given index in the view will change.
-	 *              Meanwhile the user's actions never affect the model's
-	 *              column ordering.
+	 * order, and not in the <code>TableModel</code>'s column
+	 * order. This is an important distinction because as the
+	 * user rearranges the columns in the table,
+	 * the column at a given index in the view will change.
+	 *
+	 * Meanwhile the user's actions never affect the model's
+	 * column ordering.
 	 *
 	 * @param   row             the row whose value is to be queried
 	 * @param   column          the column whose value is to be queried
@@ -1552,14 +1734,14 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	/**
 	 * Sets the value for the cell in the table model at <code>row</code>
 	 * and <code>column</code>.
-	 * <p>
+	 *
 	 * <b>Note</b>: The column is specified in the table view's display
-	 *              order, and not in the <code>TableModel</code>'s column
-	 *		    order.  This is an important distinction because as the
-	 *		    user rearranges the columns in the table,
-	 *		    the column at a given index in the view will change.
-	 *              Meanwhile the user's actions never affect the model's
-	 *              column ordering.
+	 * order, and not in the <code>TableModel</code>'s column
+	 * order.  This is an important distinction because as the
+	 * user rearranges the columns in the table,
+	 * the column at a given index in the view will change.
+	 * Meanwhile the user's actions never affect the model's
+	 * column ordering.
 	 *
 	 * <code>aValue</code> is the new value.
 	 *
@@ -1572,25 +1754,25 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		getModel().setValueAt(aValue, row, convertColumnIndexToModel(column));
 	}
 	
-	/**
-	 * Returns true if the cell at <code>row</code> and <code>column</code>
-	 * is editable.  Otherwise, invoking <code>setValueAt</code> on the cell
-	 * will have no effect.
-	 * <p>
-	 * <b>Note</b>: The column is specified in the table view's display
-	 *              order, and not in the <code>TableModel</code>'s column
-	 *		    order.  This is an important distinction because as the
-	 *		    user rearranges the columns in the table,
-	 *		    the column at a given index in the view will change.
-	 *              Meanwhile the user's actions never affect the model's
-	 *              column ordering.
-	 *
-	 *
-	 * @param   row      the row whose value is to be queried
-	 * @param   column   the column whose value is to be queried
-	 * @return  true if the cell is editable
-	 * @see #setValueAt()
-	 */	
+    /**
+    * Returns true if the cell at <code>row</code> and <code>column</code>
+    * is editable.  Otherwise, invoking <code>this.setValueAt</code> on the cell
+    * will have no effect.
+    *
+    * <b>Note</b>: The column is specified in the table view's display
+    * order, and not in the <code>TableModel</code>'s column
+    * order.  This is an important distinction because as the
+    * user rearranges the columns in the table,
+    * the column at a given index in the view will change.
+    *
+    * Meanwhile the user's actions never affect the model's
+    * column ordering.
+    *
+    * @param   row      the row whose value is to be queried
+    * @param   column   the column whose value is to be queried
+    * @return  true if the cell is editable
+    * @see #setValueAt()
+    */
 	public function isCellEditable(row:Int, column:Int):Bool{
 		return getModel().isCellEditable(row, convertColumnIndexToModel(column));
 	}
@@ -1698,12 +1880,13 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	/**
 	 * Returns a rectangle for the cell that lies at the intersection of
 	 * <code>row</code> and <code>column</code>.
+	 *
 	 * If <code>includeSpacing</code> is true then the value returned
 	 * has the full height and width of the row and column
 	 * specified. If it is false, the returned rectangle is inset by the
 	 * intercell spacing to return the true bounds of the rendering or
 	 * editing component as it will be set during rendering.
-	 * <p>
+	 *
 	 * If the column index is valid but the row index is less
 	 * than zero the method returns a rectangle with the
 	 * <code>y</code> and <code>height</code> values set appropriately
@@ -1714,26 +1897,24 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * the table's range. When both row and column indices are out
 	 * of range the returned rectangle covers the closest
 	 * point of the closest cell.
-	 * <p>
+	 *
 	 * In all cases, calculations that use this method to calculate
 	 * results along one axis will not fail because of anomalies in
 	 * calculations along the other axis. When the cell is not valid
 	 * the <code>includeSpacing</code> parameter is ignored.
 	 *
-	 * @param   row                   the row index where the desired cell
-	 *                                is located
-	 * @param   column                the column index where the desired cell
-	 *                                is located in the display; this is not
-	 *                                necessarily the same as the column index
-	 *                                in the data model for the table; the
-	 *                                {@link #convertColumnIndexToView(int)}
-	 *                                method may be used to convert a data
-	 *                                model column index to a display
-	 *                                column index
-	 * @param   includeSpacing        if false, return the true cell bounds -
-	 *                                computed by subtracting the intercell
-	 *				      spacing from the height and widths of
-	 *				      the column and row models
+	 * @param  row  the row index where the desired cell is located
+	 * @param  column  the column index where the desired cell is located in the display; this is not
+	 *                 necessarily the same as the column index
+	 *                 in the data model for the table; the
+	 *                 `#convertColumnIndexToView(int)`
+	 *                 method may be used to convert a data
+	 *                 model column index to a display
+	 *                 column index
+	 * @param  includeSpacing  if false, return the true cell bounds -
+	 *                         computed by subtracting the intercell
+	 *                         spacing from the height and widths of
+	 *                         the column and row models
 	 *
 	 * @return  the rectangle containing the cell at location
 	 *          <code>row</code>,<code>column</code>
@@ -1825,16 +2006,16 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	}
 	
 	private function getResizingColumn():TableColumn{
-		return (((tableHeader == null) ? null : tableHeader.getResizingColumn()));
+		return (((_tableHeader == null) ? null : _tableHeader.getResizingColumn()));
 	}
 	
 	private function setWidthsFromPreferredWidths(inverse:Bool):Void{
 		var insets:Insets = getInsets();
-		var totalWidth:Int= (autoResizeMode == AUTO_RESIZE_OFF ? getLastTotalColumnWidth() : (getWidth() - insets.getMarginWidth()));
+		var totalWidth:Int= (_autoResizeMode == AUTO_RESIZE_OFF ? getLastTotalColumnWidth() : (getWidth() - insets.getMarginWidth()));
 		var totalPreferred:Int= getPreferredSize().width - insets.getMarginWidth();
 		var target:Int= ((!inverse) ? totalWidth : totalPreferred);
 		
-		var cm:TableColumnModel = columnModel;
+		var cm:TableColumnModel = _columnModel;
 		var r:Resizable3 = new Resizable3Imp1(cm, inverse);
 		adjustSizes3(target, r, inverse);
 	}
@@ -2012,19 +2193,20 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param   dataModel        the new data source for this table
 	 * @see     #getModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function setModel(dataModel:TableModel):Void{
 		if (dataModel == null){
 			trace("Can't set null TableModel to JTable, Ignored");
 			return;
 		}
-		if (this.dataModel != dataModel){
-			var old:TableModel = this.dataModel;
+		if (this._dataModel != dataModel){
+			var old:TableModel = this._dataModel;
 			if (old != null)
 			{
 				old.removeTableModelListener(this);
 			}
-			this.dataModel = dataModel;
+			this._dataModel = dataModel;
 			dataModel.addTableModelListener(this);
 			tableChanged(new TableModelEvent(dataModel, TableModelEvent.HEADER_ROW));
 			//firePropertyChange("model", old, dataModel);
@@ -2037,9 +2219,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the <code>TableModel</code> that provides the data displayed by this <code>JTable</code>
 	 * @see     #setModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function getModel():TableModel{
-		return dataModel;
+		return _dataModel;
 	}
 	
 	/**
@@ -2049,23 +2232,24 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param   columnModel        the new data source for this table
 	 * @see     #getColumnModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function setColumnModel(columnModel:TableColumnModel):Void{
 		if (columnModel == null){
 			trace("Cannot set a null ColumnModel to JTable, Ignored");
 			return;
 		}
-		var old:TableColumnModel = this.columnModel;
+		var old:TableColumnModel = this._columnModel;
 		if (columnModel != old){
 			if (old != null)
 			{
 				old.removeColumnModelListener(this);
 			}
-			this.columnModel = columnModel;
+			this._columnModel = columnModel;
 			columnModel.addColumnModelListener(this);
-			if (tableHeader != null)
+			if (_tableHeader != null)
 			{
-				tableHeader.setColumnModel(columnModel);
+				_tableHeader.setColumnModel(columnModel);
 			}
 			//firePropertyChange("columnModel", old, columnModel);
 			resizeAndRepaint();
@@ -2078,9 +2262,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @return  the object that provides the column state of the table
 	 * @see     #setColumnModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function getColumnModel():TableColumnModel{
-		return columnModel;
+		return _columnModel;
 	}
 	
 	/**
@@ -2089,18 +2274,19 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param   newModel        the new selection model, if it is null, nothing change.
 	 * @see     #getSelectionModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function setSelectionModel(newModel:ListSelectionModel):Void{
 		if (newModel == null){
 			trace("Cannot set a null SelectionModel to JTable, Ignored");
 			return;
 		}
-		var oldModel:ListSelectionModel = selectionModel;
+		var oldModel:ListSelectionModel = _selectionModel;
 		if (newModel != oldModel){
 			if (oldModel != null){
 				oldModel.removeListSelectionListener(__listSelectionChanged);
 			}
-			selectionModel = newModel;
+			_selectionModel = newModel;
 			newModel.addListSelectionListener(__listSelectionChanged);
 			//firePropertyChange("selectionModel", oldModel, newModel);
 			repaint();
@@ -2115,9 +2301,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return  the object that provides row selection state, <code>null</code>
 	 *          if row selection is not allowed
 	 * @see     #setSelectionModel()
-	 */	
+	 */
+    @:dox(hide)
 	public function getSelectionModel():ListSelectionModel{
-		return selectionModel;
+		return _selectionModel;
 	}
 	
 	private function checkLeadAnchor():Void{
@@ -2125,22 +2312,22 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		if (model == null){
 			return ;
 		}
-		var lead:Int= selectionModel.getLeadSelectionIndex();
+		var lead:Int= _selectionModel.getLeadSelectionIndex();
 		var count:Int= model.getRowCount();
 		if (count == 0){
 			if (lead != (- 1)){
 				//TODO adjusting
 				//selectionModel.setValueIsAdjusting(true);
-				selectionModel.setAnchorSelectionIndex(- 1);
-				selectionModel.setLeadSelectionIndex(- 1);
+				_selectionModel.setAnchorSelectionIndex(- 1);
+				_selectionModel.setLeadSelectionIndex(- 1);
 				//selectionModel.setValueIsAdjusting(false);
 			}
 		}else{
 			if (lead == (- 1)){
-				if (selectionModel.isSelectedIndex(0)){
-					selectionModel.addSelectionInterval(0, 0, true);
+				if (_selectionModel.isSelectedIndex(0)){
+					_selectionModel.addSelectionInterval(0, 0, true);
 				}else{
-					selectionModel.removeSelectionInterval(0, 0, true);
+					_selectionModel.removeSelectionInterval(0, 0, true);
 				}
 			}
 		}
@@ -2160,7 +2347,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * <p>
 	 * Application code will not use these methods explicitly, they
 	 * are used internally by <code>JTable</code>.
-	 */	
+	 */
+    @:dox(hide)
 	public function tableChanged(e:TableModelEvent):Void{
 		if ((e == null) || (e.getFirstRow() == TableModelEvent.HEADER_ROW)){
 			clearSelection();
@@ -2198,7 +2386,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 			end = (getRowCount() - 1);
 		}
 		var length:Int= ((end - start) + 1);
-		selectionModel.insertIndexInterval(start, length, true);
+		_selectionModel.insertIndexInterval(start, length, true);
 		checkLeadAnchor();
 		resizeAndRepaint();
 	}
@@ -2213,7 +2401,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		}
 		//var deletedCount:int = ((end - start) + 1);
 		//var previousRowCount:int = (getRowCount() + deletedCount);
-		selectionModel.removeIndexInterval(start, end);
+		_selectionModel.removeIndexInterval(start, end);
 		checkLeadAnchor();
 		//var rh:int = getAllRowHeight();
 		//var drawRect:IntRectangle = new IntRectangle(0, (start * rh), getColumnModel().getTotalColumnWidth(), ((previousRowCount - start) * rh));
@@ -2230,7 +2418,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * are used internally by JTable.
 	 *
 	 * @see TableColumnModelListener
-	 */		
+	 */
+    @:dox(hide)
 	public function columnAdded(e:TableColumnModelEvent):Void{
 		if (isEditing()){
 			removeEditor();
@@ -2244,7 +2433,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * are used internally by JTable.
 	 *
 	 * @see TableColumnModelListener
-	 */	
+	 */
+    @:dox(hide)
 	public function columnRemoved(e:TableColumnModelEvent):Void{
 		if (isEditing()){
 			removeEditor();
@@ -2261,6 +2451,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param e   the event received
 	 * @see TableColumnModelListener
 	 */
+    @:dox(hide)
 	public function columnMoved(e:TableColumnModelEvent):Void{
 		if (isEditing()){
 			removeEditor();
@@ -2278,12 +2469,13 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param  e    the event received
 	 * @see TableColumnModelListener
 	 */
+    @:dox(hide)
 	public function columnMarginChanged(source:TableColumnModel):Void{
 		if (isEditing()){
 			removeEditor();
 		}
 		var resizingColumn:TableColumn = getResizingColumn();
-		if ((resizingColumn != null) && (autoResizeMode == AUTO_RESIZE_OFF)){
+		if ((resizingColumn != null) && (_autoResizeMode == AUTO_RESIZE_OFF)){
 			resizingColumn.setPreferredWidth(resizingColumn.getWidth());
 		}
 		resizeAndRepaint();
@@ -2299,6 +2491,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param  e  the event received
 	 * @see TableColumnModelListener
 	 */
+    @:dox(hide)
 	public function columnSelectionChanged(source:TableColumnModel, firstIndex:Int, lastIndex:Int, programmatic:Bool):Void{
 		dispatchEvent(new SelectionEvent(SelectionEvent.COLUMN_SELECTION_CHANGED, firstIndex, lastIndex, programmatic));
 		
@@ -2327,6 +2520,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param e   the event received
 	 */
+    @:dox(hide)
 	public function __listSelectionChanged(e:SelectionEvent):Void{
 		var isAdjusting:Bool= false;//e.getValueIsAdjusting();
 		if (rowSelectionAdjusting && (!isAdjusting))
@@ -2354,6 +2548,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param  e  the event received
 	 * @see CellEditorListener
 	 */
+    @:dox(hide)
 	public function editingStopped(source:CellEditor):Void{
 		var editor:TableCellEditor = getCellEditor();
 		if (editor != null){
@@ -2374,6 +2569,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @param  e  the event received
 	 * @see CellEditorListener
 	 */
+    @:dox(hide)
 	public function editingCanceled(source:CellEditor):Void{
 		dispatchEvent(new TableCellEditEvent(TableCellEditEvent.EDITING_CANCELED, editingRow, editingColumn));
 		removeEditor();
@@ -2384,9 +2580,10 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 *
 	 * @param size  a <code>IntDimension</code> object specifying the <code>preferredSize</code> of a
 	 *              <code>JViewport</code> whose view is this table
-	 */	
+	 */
+    @:dox(hide)
 	public function setPreferredScrollableViewportSize(size:IntDimension):Void{
-		preferredViewportSize = size.clone();
+		_preferredViewportSize = size.clone();
 	}
 	
 	/**
@@ -2395,8 +2592,9 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * @return a <code>IntDimension</code> object containing the <code>preferredSize</code> of the <code>JViewport</code>
 	 *         which displays this table
 	 */
+    @:dox(hide)
 	public function getPreferredScrollableViewportSize():IntDimension{
-		return preferredViewportSize;
+		return _preferredViewportSize;
 	}	
 	
 	//*********************************************************
@@ -2429,7 +2627,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		return new DefaultListSelectionModel();
 	}
 	public function createDefaultTableHeader():JTableHeader{
-		return new JTableHeader(columnModel);
+		return new JTableHeader(_columnModel);
 	}
 	public function createDefaultCellFactories():Void{
 		defaultRenderersByColumnClass = new haxe.ds.StringMap<TableCellFactory>();
@@ -2447,10 +2645,14 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		repaint();
 	}
 	
-	public function getCellEditor():TableCellEditor{
+	@:dox(hide)
+    @:deprecated
+    public function getCellEditor():TableCellEditor{
 		return cellEditor;
 	}
 	
+    @:dox(hide)
+    @:deprecated
 	public function setCellEditor(anEditor:TableCellEditor):Void{
 		//var oldEditor:TableCellEditor = cellEditor;
 		cellEditor = anEditor;
@@ -2639,8 +2841,9 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * the algorithm sets all sizes to their appropriate limiting value
 	 * (maximum or minimum).
 	 *
-	 */	
-	override public function doLayout():Void{	
+	 */
+    @:dox(hide)
+	override public function doLayout():Void{
 		//trace("doLayout");	
 		var resizingColumn:TableColumn = getResizingColumn();
 		if (resizingColumn == null){
@@ -2661,7 +2864,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
         	// columns after it, and hence nowhere to distribute the delta.
         	// It would then be given entirely back to the resizing column,
         	// preventing it from changing size.			
-			if (delta != 0 && (autoResizeMode != AUTO_RESIZE_OFF)){
+			if (delta != 0 && (_autoResizeMode != AUTO_RESIZE_OFF)){
 				resizingColumn.setWidth(resizingColumn.getWidth() + delta);
 			}
 			setWidthsFromPreferredWidths(true);
@@ -2672,7 +2875,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	
 	private function getLastTotalColumnWidth():Int{
 		if(-1 == lastTotalColumnWidth){
-			if(autoResizeMode == AUTO_RESIZE_OFF){
+			if(_autoResizeMode == AUTO_RESIZE_OFF){
 				lastTotalColumnWidth = getPreferredSize().width - getInsets().getMarginWidth();
 			}else{
 				lastTotalColumnWidth = getWidth() - getInsets().getMarginWidth();
@@ -2701,7 +2904,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		);
 		
 		//layout table header
-		getTableHeader().setLocationXY(- viewPosition.x, 0);
+		getTableHeader().setLocationXY(- _viewPosition.x, 0);
 		getTableHeader().setSizeWH(
 			getLastTotalColumnWidth(), 
 			headerHeight);
@@ -2718,7 +2921,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		
 		var b:IntRectangle = new IntRectangle();
 		b.setSize(getExtentSize());
-		b.setLocation(viewPosition);
+		b.setLocation(_viewPosition);
 		
 		var cellPaneBounds:IntRectangle = new IntRectangle();
 		cellPaneBounds.setSize(b.getSize());
@@ -2780,8 +2983,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		var cr:Int= 0; //row in visible cell table
 		var cc:Int= 0; //column in visible cell table
 		
-		var startX:Int= - viewPosition.x;
-		var startY:Int= - viewPosition.y;
+		var startX:Int= - _viewPosition.x;
+		var startY:Int= - _viewPosition.y;
 		
 		var row:Int= rMin-1;
 		var showHL:Bool= getShowHorizontalLines();
@@ -2960,6 +3163,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	//*****************************************************
 	//           Viewportable Implementation
 	//*****************************************************
+    @:dox(hide)
 	override public function setSize(newSize:IntDimension):Void{
 		super.setSize(newSize);
 		if(testingSize!=true){
@@ -2971,62 +3175,70 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, programmatic));
 	}
 	
+    @:dox(hide)
     public function getVerticalUnitIncrement():Int{
-    	if(verticalUnitIncrement == AUTO_INCREMENT){
+    	if(_verticalUnitIncrement == AUTO_INCREMENT){
     		return getRowHeight();
     	}else{
-    		return verticalUnitIncrement;
+    		return _verticalUnitIncrement;
     	}
     }
-    
+
+    @:dox(hide)
     public function getVerticalBlockIncrement():Int{
-    	if(verticalBlockIncrement == AUTO_INCREMENT){
+    	if(_verticalBlockIncrement == AUTO_INCREMENT){
     		return getRowHeight()*5;
     	}else{
-    		return verticalBlockIncrement;
+    		return _verticalBlockIncrement;
     	}
     }
-    
+
+    @:dox(hide)
     public function getHorizontalUnitIncrement():Int{
-    	if(horizontalUnitIncrement == AUTO_INCREMENT){
+    	if(_horizontalUnitIncrement == AUTO_INCREMENT){
     		return 1;
     	}else{
-    		return horizontalUnitIncrement;
+    		return _horizontalUnitIncrement;
     	}
     }
-    
+
+    @:dox(hide)
     public function getHorizontalBlockIncrement():Int{
-    	if(horizontalBlockIncrement == AUTO_INCREMENT){
+    	if(_horizontalBlockIncrement == AUTO_INCREMENT){
     		return 10;
     	}else{
-    		return horizontalBlockIncrement;
+    		return _horizontalBlockIncrement;
     	}
     }
-    
+
+    @:dox(hide)
     public function setVerticalUnitIncrement(increment:Int):Void{
-    	if(verticalUnitIncrement != increment){
-    		verticalUnitIncrement = increment;
+    	if(_verticalUnitIncrement != increment){
+    		_verticalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setVerticalBlockIncrement(increment:Int):Void{
-    	if(verticalBlockIncrement != increment){
-    		verticalBlockIncrement = increment;
+    	if(_verticalBlockIncrement != increment){
+    		_verticalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalUnitIncrement(increment:Int):Void{
-    	if(horizontalUnitIncrement != increment){
-    		horizontalUnitIncrement = increment;
+    	if(_horizontalUnitIncrement != increment){
+    		_horizontalUnitIncrement = increment;
 			fireStateChanged();
     	}
     }
-    
+
+    @:dox(hide)
     public function setHorizontalBlockIncrement(increment:Int):Void{
-    	if(horizontalBlockIncrement != increment){
-    		horizontalBlockIncrement = increment;
+    	if(_horizontalBlockIncrement != increment){
+    		_horizontalBlockIncrement = increment;
 			fireStateChanged();
     	}
     }	
@@ -3054,17 +3266,19 @@ class JTable extends Container  implements Viewportable implements TableModelLis
     	return getTableUI().getViewSize(this);
     }
     
+    @:dox(hide)
     public function getViewPosition():IntPoint{
-		return new IntPoint(viewPosition.x, viewPosition.y);
+		return new IntPoint(_viewPosition.x, _viewPosition.y);
     }
     
+    @:dox(hide)
     public function setViewPosition(p:IntPoint, programmatic:Bool=true):Void{
-		if(!viewPosition.equals(p)){
+		if(!_viewPosition.equals(p)){
 			restrictionViewPos(p);
-			if(viewPosition.equals(p)){
+			if(_viewPosition.equals(p)){
 				return;
 			}
-			viewPosition.setLocation(p);
+			_viewPosition.setLocation(p);
 			fireStateChanged(programmatic);
 			//revalidate();
 			valid = false;
@@ -3173,30 +3387,40 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	//******************************************************************
 	
 	/**
-	 * do nothing
+	 * @see LayoutManager.addLayoutComponent
 	 */
     public function addLayoutComponent(comp:Component, constraints:Dynamic):Void{
     }
-	/**
-	 * do nothing
+
+    /**
+	 * @see LayoutManager.removeLayoutComponent
 	 */
     public function removeLayoutComponent(comp:Component):Void{
     }
-	
+
+    /**
+	 * @see LayoutManager.preferredLayoutSize
+	 */
     public function preferredLayoutSize(target:Container):IntDimension{
     	return getViewSize();
     }
 
+    /**
+	 * @see LayoutManager.minimumLayoutSize
+	 */
     public function minimumLayoutSize(target:Container):IntDimension{
     	return getInsets().getOutsideSize();
     }
-	
+
+    /**
+	 * @see LayoutManager.maximumLayoutSize
+	 */
     public function maximumLayoutSize(target:Container):IntDimension{
     	return IntDimension.createBigDimension();
     }
-    
-	/**
-	 * position and fill cells here
+
+    /**
+	 * @see LayoutManager.layoutContainer
 	 */
     public function layoutContainer(target:Container):Void{
 		synCreateCellInstances();
@@ -3204,6 +3428,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
     }
     
 	/**
+	 * @see LayoutManager.getLayoutAlignmentX
 	 * return 0
 	 */
     public function getLayoutAlignmentX(target:Container):Float{
@@ -3211,12 +3436,16 @@ class JTable extends Container  implements Viewportable implements TableModelLis
     }
 
 	/**
+	 * @see LayoutManager.getLayoutAlignmentY
 	 * return 0
 	 */
     public function getLayoutAlignmentY(target:Container):Float{
     	return 0;
     }
 
+    /**
+	 * @see LayoutManager.
+	 */
     public function invalidateLayout(target:Container):Void{
     }
 }

@@ -1,6 +1,6 @@
 import massive.munit.TestSuite;
 
-import org.aswing.JComboBoxTest;
+import org.aswing.JTableTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -14,6 +14,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(org.aswing.JComboBoxTest);
+		add(org.aswing.JTableTest);
 	}
 }

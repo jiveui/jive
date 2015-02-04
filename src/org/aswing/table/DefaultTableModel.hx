@@ -405,8 +405,8 @@ class DefaultTableModel extends AbstractTableModel{
 	} 
 
 	/**
-	 * addColumn(columnName:Object, columnData:Array)<br>
-	 * addColumn(columnName:Object)
+	 * addColumn(columnName:Dynamic, columnData:Array)<br>
+	 * addColumn(columnName:Dynamic)
 	 * <p>
 	 * 
 	 *  Adds a column to the model.  The new column will have the
@@ -420,7 +420,7 @@ class DefaultTableModel extends AbstractTableModel{
 	 * @param   columnName the name of the column being added
 	 * @param   columnData	   optional data of the column being added
 	 */
-	public function addColumn(columnName:Dynamic, columnData:Array<Dynamic>):Void{
+	public function addColumn(columnName:Dynamic, ?columnData:Array<Dynamic> = null):Void{
 		columnNames.push(columnName);
 		if (columnData != null) { 
 			var columnSize:Int= columnData.length; 
