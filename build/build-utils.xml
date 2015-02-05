@@ -64,7 +64,7 @@
 				<isset property="dir"/>
 			</not>
 		</condition>
-		<echo level="info">Executing dox for "${dir}/${input.path}"</echo>
+		<echo level="info">Executing openfl ${command} ${options} for "${dir}"</echo>
 		<exec dir="${dir}" executable="haxelib" failonerror="true">
 			<arg line="run openfl ${command} ${options}"/>
 		</exec>
