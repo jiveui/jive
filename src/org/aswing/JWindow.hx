@@ -187,7 +187,7 @@ class JWindow extends JPopup{
 	 * this window's owner is a JWindow, else return null;
 	 */
 	public function getWindowOwner():JWindow{
-		return AsWingUtils.as(owner,JWindow)	;
+		return AsWingUtils.as(_owner,JWindow)	;
 	}
 	
 	/**

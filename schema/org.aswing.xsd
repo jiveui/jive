@@ -2429,7 +2429,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="selectionModel" type="SingleSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="invoker" type="ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="inUse" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="invoker" type="xs:string"/>
+<xs:attribute name="inUse" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2851,7 +2857,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="JRootPaneSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="owner" type="xs:string"/>
+<xs:element minOccurs="0" name="modal" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="owner" type="xs:string"/>
+<xs:attribute name="modal" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

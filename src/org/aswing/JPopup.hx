@@ -7,62 +7,71 @@ package org.aswing;
 
 import haxe.CallStack;
 import flash.display.Sprite;
-	import flash.display.DisplayObjectContainer;
-	import flash.display.Stage;
-	import org.aswing.error.Error;
-	import flash.events.Event;
-	import flash.events.MouseEvent;
-	import flash.geom.Rectangle;
-	import org.aswing.util.DepthManager;
-	import org.aswing.event.PopupEvent;
-	import org.aswing.event.MovedEvent;
-	import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.graphics.Graphics2D;
-	import org.aswing.graphics.SolidBrush;
-	import org.aswing.util.ArrayList;
-	/**
- * Dispatched when the popup opened.
- * @eventType org.aswing.event.PopupEvent.POPUP_OPENED
- */
-// [Event(name="popupOpened", type="org.aswing.event.PopupEvent")]
-	
-/**
- *  Dispatched when the popup closed(hidden or disposed).
- *  @eventType org.aswing.event.PopupEvent.POPUP_CLOSED
- */
-// [Event(name="popupClosed", type="org.aswing.event.PopupEvent")]
+import flash.display.DisplayObjectContainer;
+import flash.display.Stage;
+import org.aswing.error.Error;
+import flash.events.Event;
+import flash.events.MouseEvent;
+import flash.geom.Rectangle;
+import org.aswing.util.DepthManager;
+import org.aswing.event.PopupEvent;
+import org.aswing.event.MovedEvent;
+import org.aswing.geom.IntPoint;
+import org.aswing.geom.IntRectangle;
+import org.aswing.graphics.Graphics2D;
+import org.aswing.graphics.SolidBrush;
+import org.aswing.util.ArrayList;
 
 /**
  * JPopup is a component that generally be a base container of a window panel.
- * <p>
+ *
  * <b>Note:</b>
- * You should call <code>dispose()</code> to remove a JPopup from stage.<br>
- * You'd better call <code>AsWingManager.setRoot(theRoot)</code> to set a root 
- * for all popup as default root when application initialization.
- * </p>
+ * You should call `this.dispose()` to remove a `JPopup` from stage.
+ * You'd better call `AsWingManager.setRoot(theRoot)` to set a root for all popup as default root when application initialization.
+ *
  * @see org.aswing.JWindow
  * @author paling
  */
-class JPopup extends JRootPane{
+@:event("org.aswing.event.PopupEvent.POPUP_OPENED", "Dispatched when the popup opened")
+@:event("org.aswing.event.PopupEvent.POPUP_CLOSED", "Dispatched when the popup closed(hidden or disposed)")
+class JPopup extends JRootPane {
 		
 	private var ground_mc:Sprite;
 	private var modalMC:Sprite;
-	private var owner:Dynamic;
-	private var modal:Bool;
+
+    /**
+	 * An owner of the `JPopup`, it maybe a `DisplayObjectContainer` maybe a `JPopup`.
+	 *
+	 * While the popup is displayable, you can't change the owner of it.
+	 *
+	 * If null passed, it will be <code>AsWingManager.getRoot()</code>
+	 */
+    public var owner(get, set): Dynamic;
+    private var _owner: Dynamic;
+    private function get_owner(): Dynamic { return getOwner(); }
+    private function set_owner(v: Dynamic): Dynamic { changeOwner(v); return v; }
+
+    /**
+	 * Specifies whether this dialog should be modal.
+	 */
+    public var modal(get, set): Bool;
+    private var _modal: Bool;
+    private function get_modal(): Bool { return isModal(); }
+    private function set_modal(v: Bool): Bool { setModal(v); return v; }
 	
 	private var ownedEquipedPopups:Array<JPopup>;
 	private var lastLAF:Dynamic;	
 	
 	/**
 	 * Create a JPopup
-	 * @param owner the owner of this popup, it can be a DisplayObjectContainer or a JPopup, default it is default 
+	 * @param owner the owner of this popup, it can be a `DisplayObjectContainer` or a `JPopup`, default it is default
 	 * is <code>AsWingManager.getRoot()</code>
+	 *
 	 * @param modal true for a modal dialog, false for one that allows other windows to be active at the same time,
 	 *  default is false.
 	 * @see org.aswing.AsWingManager#getRoot()
-	 * @throw AsWingManagerNotInited if not specified the owner, and aswing default root is not specified either.
-	 * @throw TypeError if the owner is not a JPopup nor DisplayObjectContainer
+	 * @throws AsWingManagerNotInited if not specified the owner, and aswing default root is not specified either.
+	 * @throws TypeError if the owner is not a JPopup nor DisplayObjectContainer
 	 */
 	public function new(owner:Dynamic=null, modal:Bool=false){
 		super();
@@ -70,11 +79,11 @@ class JPopup extends JRootPane{
 			owner = AsWingManager.getRoot(false);
 		}
 		if(Std.is(owner,JPopup)|| Std.is(owner,DisplayObjectContainer)){
-			this.owner = owner;
+			this._owner = owner;
 		}else if(owner != null){
 			throw new Error(this + " JPopup's owner is not a DisplayObjectContainer or JPopup, owner is : " + owner);
 		}
-		this.modal = modal;
+		this._modal = modal;
 		setName("JPopup");
 		
 		ground_mc = new Sprite();
@@ -125,6 +134,7 @@ class JPopup extends JRootPane{
 	/**
 	 * @return true always here.
 	 */
+    @:dox(hide)
 	override public function isValidateRoot():Bool{
 		return true;
 	}
@@ -133,6 +143,7 @@ class JPopup extends JRootPane{
 	 * Sets the mouse enabled of the popup.
 	 * @param b true enabled, false, disabled.
 	 */
+    @:dox(hide)
 	override public function setEnabled(b:Bool):Void{
 		super.setEnabled(b);
 		ground_mc.mouseEnabled = isEnabled();
@@ -141,8 +152,9 @@ class JPopup extends JRootPane{
 	/**
 	 * This will return the owner of this JPopup, it maybe a DisplayObjectContainer maybe a JPopup.
 	 */
+    @:dox(hide)
 	public function getOwner():Dynamic{
-		return owner;
+		return _owner;
 	}
 	
 	/**
@@ -150,16 +162,18 @@ class JPopup extends JRootPane{
 	 * this window's owner is a JPopup, else return null;
 	 * @return the owner.
 	 */
+    @:dox(hide)
 	public function getPopupOwner():JPopup{
-		return AsWingUtils.as(owner,JPopup)	;
+		return AsWingUtils.as(_owner,JPopup)	;
 	}
 	
 	/**
 	 * Returns the owner as <code>DisplayObjectContainer</code>, null if it is not <code>DisplayObjectContainer</code>.
 	 * @return the owner.
 	 */
+    @:dox(hide)
 	public function getDisplayOwner():DisplayObjectContainer{
-		return AsWingUtils.as(owner,DisplayObjectContainer)	;
+		return AsWingUtils.as(_owner,DisplayObjectContainer)	;
 	}
 	
 	/**
@@ -170,12 +184,13 @@ class JPopup extends JRootPane{
 	 * @param owner the new owner to apply, if null passed, it will be <code>AsWingManager.getRoot()</code>
 	 * @return true if changed successfully, false otherwise
 	 */
+    @:dox(hide)
 	public function changeOwner(owner:Dynamic):Void{
 		if(owner == null){
 			owner = AsWingManager.getRoot(false);
 		}
-		if(this.owner != owner){
-			this.owner = owner;
+		if(this._owner != owner){
+			this._owner = owner;
 			if(isAddedToList()){
 				if(owner == null){
 					throw new Error("This popup is alreay on display list, can't be owned to null, please dispose it first.");
@@ -189,10 +204,11 @@ class JPopup extends JRootPane{
 	/**
 	 * Specifies whether this dialog should be modal.
 	 */
+    @:dox(hide)
 	public function setModal(m:Bool):Void{
-		if(modal != m){
-			modal = m;
-			modalMC.visible = modal;
+		if(_modal != m){
+			_modal = m;
+			modalMC.visible = _modal;
 			resetModalMC();
 		}
 	}
@@ -200,14 +216,11 @@ class JPopup extends JRootPane{
 	/**
 	 * Returns is this dialog modal.
 	 */
+    @:dox(hide)
 	public function isModal():Bool{
-		return modal;
+		return _modal;
 	}	
 	
-			
-	/**
-	 * Shortcut of <code>setVisible(true)</code>
-	 */
 	public function show():Void{
 		setVisible(true);
 	}
@@ -226,7 +239,8 @@ class JPopup extends JRootPane{
 	 * generally this should be never occur since the default owner is <code>_root</code>.
 	 * @see #show()
 	 * @see #hide()
-	 */	
+	 */
+    @:dox(hide)
 	override public function setVisible(v:Bool):Void{
 		if(v != visible || (v && !isAddedToList())){
 			super.setVisible(v);
@@ -251,6 +265,7 @@ class JPopup extends JRootPane{
 	 * JPopup pack will revalidate if necessary. 
 	 * So JPopup pack call will always make effect if preferred size has changed.
 	 */
+    @:dox(hide)
 	override public function pack():Void{
 		super.pack();
 		revalidateIfNecessary();
@@ -297,15 +312,10 @@ class JPopup extends JRootPane{
 	 * override this method to do process when disposing
 	 */
 	private function disposeProcess(st:Stage):Void{
-		 
-			 
-		 
 			removeEventListener(Event.REMOVED_FROM_STAGE, __popupOfffromDisplayList);
-	 
 			removeEventListener(Event.ADDED_TO_STAGE, __popupOpennedAddToList);
-			 
-		 
 	}
+
 	/**
 	 * Returns should ground be visible through.
 	 * This method will call <code>owner.shouldOwnedPopupGroundVisible()</code>.
@@ -365,6 +375,7 @@ class JPopup extends JRootPane{
 	}
 	
 	private var lastDragPos:IntPoint;
+    @:dox(hide)
 	override public function startDrag(lockCenter:Bool=false, bounds:Rectangle=null):Void{
 		if(AsWingManager.getStage()!=null)	{
 			super.startDrag(lockCenter, bounds);
@@ -373,7 +384,8 @@ class JPopup extends JRootPane{
 			lastDragPos = getLocation();
 		}
 	}
-	
+
+    @:dox(hide)
 	override public function stopDrag():Void{
 		super.stopDrag();
 		if(AsWingManager.getStage()!=null)	{
@@ -492,7 +504,7 @@ class JPopup extends JRootPane{
 		#if(flash9)
 		modalMC.tabEnabled = false;
 		#end
-		modalMC.visible = modal;
+		modalMC.visible = _modal;
     	modalMC.graphics.clear();
     	var modalColor:ASColor = new ASColor(0, 0);
 		var g:Graphics2D = new Graphics2D(modalMC.graphics);
@@ -516,15 +528,15 @@ class JPopup extends JRootPane{
 	}
 	
 	private function equipPopupContents():Void{
-		if(Std.is(owner,JPopup)){
-			var jwo:JPopup = AsWingUtils.as(owner,JPopup);
+		if(Std.is(_owner,JPopup)){
+			var jwo:JPopup = AsWingUtils.as(_owner,JPopup);
 			jwo.ground_mc.addChild(ground_mc);
 			jwo.addOwnedEquipedPopup(this);
-		}else if(Std.is(owner,DisplayObjectContainer)){
-			var ownerMC:DisplayObjectContainer = AsWingUtils.as(owner,DisplayObjectContainer);
+		}else if(Std.is(_owner,DisplayObjectContainer)){
+			var ownerMC:DisplayObjectContainer = AsWingUtils.as(_owner,DisplayObjectContainer);
 			ownerMC.addChild(ground_mc);
 		}else{
-			throw new  Error(this + " JPopup's owner is not a mc or JPopup, owner is : " + owner);
+			throw new  Error(this + " JPopup's owner is not a mc or JPopup, owner is : " + _owner);
 			 
 		}
 		if(lastLAF != UIManager.getLookAndFeel()){

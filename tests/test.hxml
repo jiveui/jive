@@ -1,5 +1,4 @@
 ## JavaScript
-##-cmd haxe tests/gen.hxml
 -cmd haxelib run openfl build tests/project.xml html5 -Dtest --haxelib="munit" --haxelib="hamcrest" --source="tests/src" --source="tests/gen" --app-main="TestMain"
 -cmd cp tests/bin/html5/bin/snap.svg.js tests/resources/snap.svg.js
 -js tests/bin/html5/bin/jive-tests.js

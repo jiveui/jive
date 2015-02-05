@@ -12,15 +12,17 @@ import flash.events.MouseEvent;
 import org.aswing.event.ContainerEvent;
 import org.aswing.event.PopupEvent;
 import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.plaf.EmptyLayoutUIResourse;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.MenuElementUI;
-	import org.aswing.plaf.basic.BasicPopupMenuUI;
+import org.aswing.geom.IntRectangle;
+import org.aswing.plaf.EmptyLayoutUIResourse;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.MenuElementUI;
+import org.aswing.plaf.basic.BasicPopupMenuUI;
 import org.aswing.util.HashSet;
-	/**
+/**
  * An implementation of a popup menu -- a small window that pops up
- * and displays a series of choices. A <code>JPopupMenu</code> is used for the
+ * and displays a series of choices.
+ *
+ * A <code>JPopupMenu</code> is used for the
  * menu that appears when the user selects an item on the menu bar.
  * It is also used for "pull-right" menu that appears when the
  * selects a menu item that activates it. Finally, a <code>JPopupMenu</code>
@@ -34,11 +36,23 @@ class JPopupMenu extends Container  implements MenuElement{
 	private static var popupMenuMouseDownListening:Bool= false;
 	private static var showingMenuPopups:Array<JPopup> = new Array<JPopup>();
 	//why
-	private var selectionModel:SingleSelectionModel;
-	
-	private var invoker:Component;
+	public var selectionModel:SingleSelectionModel;
+
+    /**
+	 * The invoker of this popup menu -- the component in which
+	 * the popup menu is to be displayed.
+	 */
+    public var invoker(get, set): Component;
+    private var _invoker: Component;
+    private function get_invoker(): Component { return getInvoker(); }
+    private function set_invoker(v: Component): Component { setInvoker(v); return v; }
+
 	private var popup:JPopup;
-	private var menuInUse:Bool;
+
+    public var inUse(get, set): Bool;
+    private var _inUse: Bool;
+    private function get_inUse(): Bool { return isInUse(); }
+    private function set_inUse(v: Bool): Bool { setInUse(v); return v; }
 	
 	/**
 	 * Create a popup menu
@@ -47,7 +61,7 @@ class JPopupMenu extends Container  implements MenuElement{
 	public function new() {
 		super();
 		setName("JPopupMenu");
-		menuInUse = false;
+		_inUse = false;
 		
 		_layout = new EmptyLayoutUIResourse();
 		setSelectionModel(new DefaultSingleSelectionModel());
@@ -66,10 +80,12 @@ class JPopupMenu extends Container  implements MenuElement{
 	}
 
 
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
 	override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicPopupMenuUI;
     }
@@ -82,6 +98,7 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>MenuElementUI</code> instance.
 	 */
+    @:dox(hide)
     override public function setUI(newUI:ComponentUI):Void{
     	if(Std.is(newUI,MenuElementUI)){
     		super.setUI(newUI);
@@ -94,10 +111,12 @@ class JPopupMenu extends Container  implements MenuElement{
      * Returns the ui for this frame with <code>MenuElementUI</code> instance
      * @return the menu element ui.
      */
+    @:dox(hide)
     public function getMenuElementUI():MenuElementUI{
     	return AsWingUtils.as(getUI() , MenuElementUI);
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "PopupMenuUI";
 	}
@@ -120,6 +139,7 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @return the <code>SingleSelectionModel</code> property
 	 * @see SingleSelectionModel
 	 */
+    @:dox(hide)
 	public function getSelectionModel():SingleSelectionModel {
 		return selectionModel;
 	}
@@ -130,6 +150,7 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @param model the <code>SingleSelectionModel</code> to use
 	 * @see SingleSelectionModel
 	 */
+    @:dox(hide)
 	public function setSelectionModel(model:SingleSelectionModel):Void{
 		selectionModel = model;
 	}	
@@ -161,11 +182,12 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @param b true to make the popup visible, or false to
 	 *		  hide it
 	 */
+    @:dox(hide)
 	override public function setVisible(b:Bool):Void{
 		if (b == isVisible())
 			return;
 		//ensure the owner will be applied here
-		var owner:Dynamic= AsWingUtils.getOwnerAncestor(invoker);
+		var owner:Dynamic= AsWingUtils.getOwnerAncestor(_invoker);
 		popup.changeOwner(owner);
 		if(b)	{
 			popup.setVisible(true);
@@ -196,7 +218,8 @@ class JPopupMenu extends Container  implements MenuElement{
 			popup.setMnemonicTriggerProxy(null);
 		}
 	}
-	
+
+    @:dox(hide)
 	override public function isVisible():Bool{
 		return popup.isVisible();
 	}
@@ -207,8 +230,9 @@ class JPopupMenu extends Container  implements MenuElement{
 	 *
 	 * @return the <code>Component</code> in which the popup menu is displayed
 	 */
+    @:dox(hide)
 	public function getInvoker():Component {
-		return invoker;
+		return _invoker;
 	}
 
 	/**
@@ -218,9 +242,10 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @param invoker the <code>Component</code> in which the popup
 	 *		menu is displayed
 	 */
+    @:dox(hide)
 	public function setInvoker(invoker:Component):Void{
 		//var oldInvoker:Component = this.invoker;
-		this.invoker = invoker;
+		this._invoker = invoker;
 		popup.changeOwner(AsWingUtils.getOwnerAncestor(invoker));
 //		if ((oldInvoker != this.invoker) && (ui != null)) {
 //			ui.uninstallUI(this);
@@ -262,7 +287,8 @@ class JPopupMenu extends Container  implements MenuElement{
 	/**
 	 * Causes this Popup Menu to be sized to fit the preferred size.
 	 */
-	override public function pack():Void{
+    @:dox(hide)
+    override public function pack():Void{
 		popup.pack();
 	}
 	
@@ -328,7 +354,7 @@ class JPopupMenu extends Container  implements MenuElement{
 	 * @return true if this menu is a standalone popup menu, otherwise false
 	 */	
 	private function isPopupMenu():Bool{
-		return (!(Std.is(invoker,JMenu)));
+		return (!(Std.is(_invoker,JMenu)));
 	}
 	
 	private function adjustPopupLocationToFitScreen(gp:IntPoint):IntPoint{
@@ -367,8 +393,8 @@ class JPopupMenu extends Container  implements MenuElement{
 	}
 	
 	public function menuSelectionChanged(isIncluded : Bool) : Void{
-		if(Std.is(invoker,JMenu)) {
-			var m:JMenu = AsWingUtils.as(invoker,JMenu);
+		if(Std.is(_invoker,JMenu)) {
+			var m:JMenu = AsWingUtils.as(_invoker,JMenu);
 			if(isIncluded)	{
 				m.setPopupMenuVisible(true);
 			}else{
@@ -399,9 +425,10 @@ class JPopupMenu extends Container  implements MenuElement{
 		getMenuElementUI().processKeyEvent(code);
 	}
 
+    @:dox(hide)
     public function setInUse(b:Bool):Void{
-    	if(menuInUse != b){
-	    	menuInUse = b;
+    	if(_inUse != b){
+	    	_inUse = b;
 	    	var subs:Array<Dynamic>= getSubElements();
 	    	for(i in 0...subs.length){
 	    		var ele:MenuElement = AsWingUtils.as(subs[i],MenuElement);
@@ -410,9 +437,10 @@ class JPopupMenu extends Container  implements MenuElement{
 	    	}
     	}
     }
-    
+
+    @:dox(hide)
     public function isInUse():Bool{
-    	return menuInUse;
+    	return _inUse;
     }
 	
 	//----------------------
