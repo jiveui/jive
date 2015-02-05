@@ -3,17 +3,17 @@
         xmlns="org.aswing"
         xmlns:geom="org.aswing.geom"
         xmlns:haxe="http://haxe.org/"
-        title="'I\'m a title'">
+        title="'Title'"
+        width="500"
+        height="300">
 
     <content>
         <JPanel>
             <layout>
-                    <FlowLayout>
-                            <align>org.aswing.FlowLayout.LEFT</align>
+                    <BorderLayout>
                             <hgap>30</hgap>
                             <vgap>30</vgap>
-                            <margin>true</margin>
-                    </FlowLayout>
+                    </BorderLayout>
             </layout>
             <JLabel text="'Hello world!'"/>
         </JPanel>
