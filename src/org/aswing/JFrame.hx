@@ -11,70 +11,29 @@ import flash.events.Event;
 import flash.events.MouseEvent;
 
 import org.aswing.event.PropertyChangeEvent;
-	import org.aswing.event.FrameEvent;
-	import org.aswing.event.MovedEvent;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.geom.IntDimension;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.FrameUI;
-	import org.aswing.plaf.basic.BasicFrameUI;
+import org.aswing.event.FrameEvent;
+import org.aswing.event.MovedEvent;
+import org.aswing.event.InteractiveEvent;
+import org.aswing.geom.IntRectangle;
+import org.aswing.geom.IntDimension;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.FrameUI;
+import org.aswing.plaf.basic.BasicFrameUI;
 import org.aswing.resizer.Resizer;
-	import org.aswing.resizer.ResizerController;
-	import org.aswing.plaf.DefaultEmptyDecoraterResource;
-	/**
- * Dispatched when the frame's state changed. the state is all about:
- * <ul>
- * <li>NORMAL</li>
- * <li>ICONIFIED</li>
- * <li>MAXIMIZED</li>
- * <li>MAXIMIZED_HORIZ</li>
- * <li>MAXIMIZED_VERT</li>
- * </ul>
- * </p>
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.resizer.ResizerController;
+import org.aswing.plaf.DefaultEmptyDecoraterResource;
 
 /**
- * Dispatched when the frame be iconified.
- * @eventType org.aswing.event.FrameEvent.FRAME_ICONIFIED
- */
-// [Event(name="frameIconified", type="org.aswing.event.FrameEvent")]
-	
-/**
- * Dispatched when the frame be restored.
- * @eventType org.aswing.event.FrameEvent.FRAME_RESTORED
- */
-// [Event(name="frameRestored", type="org.aswing.event.FrameEvent")]
-
-/**
- * Dispatched when the frame be maximized.
- * @eventType org.aswing.event.FrameEvent.FRAME_MAXIMIZED
- */
-// [Event(name="frameMaximized", type="org.aswing.event.FrameEvent")]
-
-/**
- * Dispatched when the frame is closing by user.
- * @eventType org.aswing.event.FrameEvent.FRAME_CLOSING
- */
-// [Event(name="frameClosing", type="org.aswing.event.FrameEvent")]
-
-/**
- * Dispatched When the frame's ability changed. Include:
- * <ul>
- * <li> resizable </li>
- * <li> closable </li>
- * <li> dragable </li>
- * </ul>
- * @eventType org.aswing.event.FrameEvent.FRAME_ABILITY_CHANGED
- */
-// [Event(name="frameAbilityChanged", type="org.aswing.event.FrameEvent")]
-
-/**
- * JFrame is a window with title and maximized/iconified/normal state, and resizer. 
+ * `JFrame` is a window with title and maximized/iconified/normal state, and resizer.
  * @author paling
  */
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the frame's state changed")
+@:event("org.aswing.event.FrameEvent.FRAME_ICONIFIED", "Dispatched when the frame be iconified")
+@:event("org.aswing.event.FrameEvent.FRAME_RESTORED", "Dispatched when the frame be restored")
+@:event("org.aswing.event.FrameEvent.FRAME_MAXIMIZED", "Dispatched when the frame be maximized")
+@:event("org.aswing.event.FrameEvent.FRAME_CLOSING", "Dispatched when the frame is closing by user")
+@:event("org.aswing.event.FrameEvent.FRAME_ABILITY_CHANGED", "Dispatched When the frame's ability (resizeable, closable, dragable) changed")
+@:event("", "")
 class JFrame extends JWindow{
 		
 	/**
@@ -118,45 +77,111 @@ class JFrame extends JWindow{
 	inline public static var PROPERTY_TITLE_BAR:String= "titleBar";
 	//--------------------------------------------------------
 	
-	private var titleBar:FrameTitleBar;
-	private var title:String;
-	private var icon:Icon;
+    public var titleBar(get, set): FrameTitleBar;
+    private var _titleBar: FrameTitleBar;
+    private function get_titleBar(): FrameTitleBar { return getTitleBar(); }
+    private function set_titleBar(v: FrameTitleBar): FrameTitleBar { setTitleBar(v); return v; }
+
+    /**
+	 * The text to be displayed in the title bar for this frame.
+	 *
+	 * null to display no text in the title bar.
+	 */
+    public var title(get, set): String;
+    private var _title: String;
+    private function get_title(): String { return getTitle(); }
+    private function set_title(v: String): String { setTitle(v); return v; }
+
+    /**
+	 * The icon to be displayed in the title bar for this frame.
+	 *
+	 * null to display no icon in the title bar.
+	 */
+    public var icon(get, set): Icon;
+    private var _icon: Icon;
+    private function get_icon(): Icon { return getIcon(); }
+    private function set_icon(v: Icon): Icon { setIcon(v); return v; }
+
 	private var state:Int;
 	private var defaultCloseOperation:Int;
 	private var maximizedBounds:IntRectangle;
 	private var lastNormalStateBounds:IntRectangle;
-	
-	private var dragable:Bool;
-	private var resizable:Bool;
-	private var closable:Bool;
-	private var dragDirectly:Bool;
-	private var dragDirectlySet:Bool;
+
+    /**
+	 * Whether this frame can be dragged by the user.  By default, it's true.
+	 *
+	 * "dragable" means drag to move the frame.
+	 */
+    public var dragable(get, set): Bool;
+    private var _dragable: Bool;
+    private function get_dragable(): Bool { return isDragable(); }
+    private function set_dragable(v: Bool): Bool { setDragable(v); return v; }
+
+    /**
+	 * Whether this frame is resizable by the user.
+	 *
+	 * <p>"resizable" means include capability of restore normal resize, maximize, iconified and resize by drag.
+	 */
+    public var resizable(get, set): Bool;
+    private var _resizable: Bool;
+    private function get_resizable(): Bool { return isResizable(); }
+    private function set_resizable(v: Bool): Bool { setResizable(v); return v; }
+
+    /**
+	 * Whether this frame can be closed by the user. By default, it's true.
+	 *
+	 * Whether the frame will be hide or dispose, depend on the value returned by <code>this.getDefaultCloseOperation</code>.
+	 */
+    public var closable(get, set): Bool;
+    private var _closable: Bool;
+    private function get_closable(): Bool { return isClosable(); }
+    private function set_closable(v: Bool): Bool { setClosable(v); return v; }
+
+    /**
+	 * Indicate whether need move frame directly when drag the frame.
+	 *
+	 * if set to false, there will be a rectange to represent then bounds what will be move to.
+	 * if set to true, the frame will be move directly when drag, but this is need more cpu counting.<br>
+	 * Default is false.
+	 */
+    public var dragDirectly(get, set): Bool;
+    private var _dragDirectly: Bool;
+    private function get_dragDirectly(): Bool { return isDragDirectly(); }
+    private function set_dragDirectly(v: Bool): Bool { setDragDirectly(v); return v; }
+
+    /**
+	 * Whether dragDirectly property is set by user.
+	 */
+    public var dragDirectlySet(get, set): Bool;
+    private var _dragDirectlySet: Bool;
+    private function get_dragDirectlySet(): Bool { return isDragDirectlySet(); }
+    private function set_dragDirectlySet(v: Bool): Bool { setDragDirectlySet(v); return v; }
 	
 	private var resizer:Resizer;
 	private var resizerController:ResizerController;
 	
 	/**
-	 * Create a JWindow
-	 * @param owner the owner of this popup, it can be a DisplayObjectContainer or a JPopup, default it is default 
+	 * Create a `JWindow`
+	 * @param owner the owner of this popup, it can be a `DisplayObjectContainer` or a `JPopup`, default it is default
 	 * is <code>AsWingManager.getRoot()</code>
 	 * @param title the title, default is "".
 	 * @param modal true for a modal dialog, false for one that allows other windows to be active at the same time,
 	 *  default is false.
 	 * @see org.aswing.AsWingManager#getRoot()
-	 * @throw AsWingManagerNotInited if not specified the owner, and aswing default root is not specified either.
-	 * @throw TypeError if the owner is not a JPopup nor DisplayObjectContainer
+	 * @throws AsWingManagerNotInited if not specified the owner, and aswing default root is not specified either.
+	 * @throws TypeError if the owner is not a JPopup nor DisplayObjectContainer
 	 */	
 	public function new(owner:Dynamic=null, title:String="", modal:Bool=false) {
 		super(owner, modal);
 		setClipMasked(true);
-		this.title = title;
+		this._title = title;
 		
 		state = NORMAL;
 		defaultCloseOperation = DISPOSE_ON_CLOSE;
-		dragable  = true;
-		resizable = true;
-		closable  = true;
-		icon = DefaultEmptyDecoraterResource.INSTANCE;
+		_dragable  = true;
+		_resizable = true;
+		_closable  = true;
+		_icon = DefaultEmptyDecoraterResource.INSTANCE;
 		lastNormalStateBounds = new IntRectangle(0, 0, 200, 100);
 		setName("JFrame");
 		addEventListener(Event.ADDED_TO_STAGE, __frameAddedToStage);
@@ -167,10 +192,12 @@ class JFrame extends JWindow{
 		
 	}
 	
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicFrameUI;
     }
@@ -184,6 +211,7 @@ class JFrame extends JWindow{
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>FrameUI</code> instance.
 	 */
+    @:dox(hide)
     override public function setUI(newUI:ComponentUI):Void{
     	if(Std.is(newUI,FrameUI)){
     		super.setUI(newUI);
@@ -193,23 +221,25 @@ class JFrame extends JWindow{
     	}
     }
     
+    @:dox(hide)
     public function getTitleBar():FrameTitleBar{
-    	return titleBar;
+    	return _titleBar;
     }
-    
+
+    @:dox(hide)
     public function setTitleBar(t:FrameTitleBar):Void{
-    	if(titleBar != t){
-    		var old:FrameTitleBar = titleBar;
-    		if(titleBar!=null)	{
-    			titleBar.setFrame(null);
-    			remove(titleBar.getSelf());
+    	if(_titleBar != t){
+    		var old:FrameTitleBar = _titleBar;
+    		if(_titleBar!=null)	{
+    			_titleBar.setFrame(null);
+    			remove(_titleBar.getSelf());
     		}
-    		titleBar = t;
-    		if(titleBar!=null)	{
-    			titleBar.setText(getTitle());
-    			titleBar.setIcon(getIcon());
-	    		insert(0, titleBar.getSelf(), WindowLayout.TITLE);
-	    		titleBar.setFrame(this);
+    		_titleBar = t;
+    		if(_titleBar!=null)	{
+    			_titleBar.setText(getTitle());
+    			_titleBar.setIcon(getIcon());
+	    		insert(0, _titleBar.getSelf(), WindowLayout.TITLE);
+	    		_titleBar.setFrame(this);
     		}
     		dispatchEvent(new PropertyChangeEvent(PROPERTY_TITLE_BAR, old, t));
     	}
@@ -219,10 +249,12 @@ class JFrame extends JWindow{
      * Returns the ui for this frame with <code>FrameUI</code> instance
      * @return the frame ui.
      */
+    @:dox(hide)
     public function getFrameUI():FrameUI{
     	return AsWingUtils.as(getUI() , FrameUI);
     }
-    
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "FrameUI";
 	}
@@ -232,9 +264,10 @@ class JFrame extends JWindow{
 	 * @param t the text to be displayed in the title bar, 
 	 * null to display no text in the title bar.
 	 */
+    @:dox(hide)
 	public function setTitle(t:String):Void{
-		if(title != t){
-			title = t;
+		if(_title != t){
+			_title = t;
 			if(getTitleBar()!=null){
 				getTitleBar().setText(t);
 			}
@@ -247,18 +280,20 @@ class JFrame extends JWindow{
 	 * Returns the text displayed in the title bar for this frame.
 	 * @return the text displayed in the title bar for this frame.
 	 */
+    @:dox(hide)
 	public function getTitle():String{
-		return title;
+		return _title;
 	}
 	
 	/**
 	 * Sets the icon to be displayed in the title bar for this frame.
 	 * @param ico the icon to be displayed in the title bar, 
 	 * null to display no icon in the title bar.
-	 */	
+	 */
+    @:dox(hide)
 	public function setIcon(ico:Icon):Void{
-		if(icon != ico){
-			icon = ico;
+		if(_icon != ico){
+			_icon = ico;
 			if(getTitleBar()!=null){
 				getTitleBar().setIcon(ico);
 			}
@@ -271,8 +306,9 @@ class JFrame extends JWindow{
 	 * Returns the icon displayed in the title bar for this frame.
 	 * @return the icon displayed in the title bar for this frame.
 	 */
+    @:dox(hide)
 	public function getIcon():Icon{
-		return icon;
+		return _icon;
 	}
 		
 	/**
@@ -283,8 +319,8 @@ class JFrame extends JWindow{
 	 * @see #isResizable()
 	 */
 	public function setResizable(b:Bool):Void{
-		if(resizable != b){
-			resizable = b;
+		if(_resizable != b){
+			_resizable = b;
 			getResizer().setEnabled(b);
 			repaint();
 			dispatchEvent(new FrameEvent(FrameEvent.FRAME_ABILITY_CHANGED, true));
@@ -298,7 +334,7 @@ class JFrame extends JWindow{
 	 * @see #setResizable()
 	 */
 	public function isResizable():Bool{
-		return resizable;
+		return _resizable;
 	}
 	
 	/**
@@ -308,9 +344,10 @@ class JFrame extends JWindow{
 	 * @param b 
 	 * @see #isDragable()
 	 */
+    @:dox(hide)
 	public function setDragable(b:Bool):Void{
-		if(dragable != b){
-			dragable = b;
+		if(_dragable != b){
+			_dragable = b;
 			repaint();
 			revalidate();
 			dispatchEvent(new FrameEvent(FrameEvent.FRAME_ABILITY_CHANGED, true));
@@ -321,8 +358,9 @@ class JFrame extends JWindow{
 	 * Returns whether this frame can be dragged by the user. By default, it's true.
 	 * @see #setDragnable()
 	 */
+    @:dox(hide)
 	public function isDragable():Bool{
-		return dragable;
+		return _dragable;
 	}
 	
 
@@ -331,10 +369,11 @@ class JFrame extends JWindow{
 	 * Whether the frame will be hide or dispose, depend on the value returned by <code>getDefaultCloseOperation</code>.
 	 * @param b true user can click close button to generate the close event, false user can't.
 	 * @see #getClosable()
-	 */	
+	 */
+    @:dox(hide)
 	public function setClosable(b:Bool):Void{
-		if(closable != b){
-			closable = b;
+		if(_closable != b){
+			_closable = b;
 			repaint();
 			dispatchEvent(new FrameEvent(FrameEvent.FRAME_ABILITY_CHANGED, true));
 		}
@@ -343,14 +382,16 @@ class JFrame extends JWindow{
 	/**
 	 * Returns whether this frame can be closed by the user. By default, it's true.
 	 * @see #setClosable()
-	 */		
+	 */
+    @:dox(hide)
 	public function isClosable():Bool{
-		return closable;
+		return _closable;
 	}
 	
 	/**
 	 * Only did effect when state is <code>NORMAL</code>
 	 */
+    @:dox(hide)
 	override public function pack():Void{
 		if(getState() == NORMAL){
 			super.pack();
@@ -463,8 +504,8 @@ class JFrame extends JWindow{
 	private function doStateChange():Void{
 		if(state == ICONIFIED){
 			var iconifiedSize:IntDimension = new IntDimension(60, 20);
-			if(titleBar!=null)	{
-				iconifiedSize = titleBar.getSelf().getMinimumSize();
+			if(_titleBar!=null)	{
+				iconifiedSize = _titleBar.getSelf().getMinimumSize();
 			}
 			setSize(getInsets().getOutsideSize(iconifiedSize));
     		var frameMaxBounds:IntRectangle = getMaximizedBounds();
@@ -608,32 +649,36 @@ class JFrame extends JWindow{
 	 * if set to false, there will be a rectange to represent then bounds what will be move to.
 	 * if set to true, the frame will be move directly when drag, but this is need more cpu counting.<br>
 	 * Default is false.
-	 */	
+	 */
+    @:dox(hide)
 	public function setDragDirectly(b:Bool):Void{
-		dragDirectly = b;
+		_dragDirectly = b;
 		setDragDirectlySet(true);
 	}
 	
 	/**
 	 * Return whether need move frame directly when drag the frame.
 	 * @see #setDragDirectly()
-	 */	
+	 */
+    @:dox(hide)
 	public function isDragDirectly():Bool{
-		return dragDirectly;
+		return _dragDirectly;
 	}
 	
 	/**
 	 * Sets is dragDirectly property is set by user.
 	 */
+    @:dox(hide)
 	public function setDragDirectlySet(b:Bool):Void{
-		dragDirectlySet = b;
+		_dragDirectlySet = b;
 	}
 	
 	/**
 	 * Return is dragDirectly property is set by user.
-	 */	
+	 */
+    @:dox(hide)
 	public function isDragDirectlySet():Bool{
-		return dragDirectlySet;
+		return _dragDirectlySet;
 	}
 	
 	/**
@@ -665,7 +710,8 @@ class JFrame extends JWindow{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED, programmatic));
 	}
 	
-	override private function initModalMC():Void{
+	@:dox(hide)
+    override private function initModalMC():Void{
 		super.initModalMC();
 		getModalMC().addEventListener(MouseEvent.MOUSE_DOWN, __flashModelFrame);
 	}

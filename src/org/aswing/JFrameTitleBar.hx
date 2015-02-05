@@ -15,27 +15,63 @@ import org.aswing.plaf.basic.BasicFrameTitleBarUI;
  */
 class JFrameTitleBar extends Container  implements FrameTitleBar implements UIResource{
 	
-	private var iconifiedButton:AbstractButton;
-	private var maximizeButton:AbstractButton;
-	private var restoreButton:AbstractButton;
-	private var closeButton:AbstractButton;
+    public var iconifiedButton(get, set): AbstractButton;
+    private var _iconifiedButton: AbstractButton;
+    private function get_iconifiedButton(): AbstractButton { return getIconifiedButton(); }
+    private function set_iconifiedButton(v: AbstractButton): AbstractButton { setIconifiedButton(v); return v; }
+
+    public var maximizeButton(get, set): AbstractButton;
+    private var _maximizeButton: AbstractButton;
+    private function get_maximizeButton(): AbstractButton { return getMaximizeButton(); }
+    private function set_maximizeButton(v: AbstractButton): AbstractButton { setMaximizeButton(v); return v; }
+
+    public var restoreButton(get, set): AbstractButton;
+    private var _restoreButton: AbstractButton;
+    private function get_restoreButton(): AbstractButton { return getRestoreButton(); }
+    private function set_restoreButton(v: AbstractButton): AbstractButton { setRestoreButton(v); return v; }
+
+    public var closeButton(get, set): AbstractButton;
+    private var _closeButton: AbstractButton;
+    private function get_closeButton(): AbstractButton { return getCloseButton(); }
+    private function set_closeButton(v: AbstractButton): AbstractButton { setCloseButton(v); return v; }
+
 	private var titleLabel:JLabel;
-	private var icon:Icon;
-	private var text:String;
-	private var titleEnabled:Bool;
-	private var minimizeHeight:Int;
+
+    public var icon(get, set): Icon;
+    private var _icon: Icon;
+    private function get_icon(): Icon { return getIcon(); }
+    private function set_icon(v: Icon): Icon { setIcon(v); return v; }
+
+    public var text(get, set): String;
+    private var _text: String;
+    private function get_text(): String { return getText(); }
+    private function set_text(v: String): String { setText(v); return v; }
+
+    public var titleEnabled(get, set): Bool;
+    private var _titleEnabled: Bool;
+    private function get_titleEnabled(): Bool { return isTitleEnabled(); }
+    private function set_titleEnabled(v: Bool): Bool { setTitleEnabled(v); return v; }
+
+    public var minimizeHeight(get, set): Int;
+    private var _minimizeHeight: Int;
+    private function get_minimizeHeight(): Int { return getMinimizeHeight(); }
+    private function set_minimizeHeight(v: Int): Int { setMinimizeHeight(v); return v; }
 	
 	private var buttonPane:Container;
 	private var buttonPaneLayout:SoftBoxLayout;
 	
-	private var owner:JWindow;
+    public var owner(get, set): JWindow;
+    private var _owner: JWindow;
+    private function get_owner(): JWindow { return getFrame(); }
+    private function set_owner(v: JWindow): JWindow { setFrame(v); return v; }
+
 	private var frame:JFrame;
 	
 	public function new(){
 		super();
 		setClipMasked(true);
-		titleEnabled = true;
-		minimizeHeight = 22;
+		_titleEnabled = true;
+		_minimizeHeight = 22;
 		setLayout(new FrameTitleBarLayout());
 			
 		buttonPane = new Container();
@@ -68,16 +104,18 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		setRestoreButton(createRestoreButton());
 		setCloseButton(createCloseButton());
 		setMaximizeButtonVisible(false);
-		buttonPane.appendAll([iconifiedButton, restoreButton, maximizeButton, closeButton]);
+		buttonPane.appendAll([_iconifiedButton, _restoreButton, _maximizeButton, _closeButton]);
 		buttonPane.setUIElement(true);
 	
 		updateUI();
 	}
 	
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicFrameTitleBarUI;
     }
@@ -114,47 +152,54 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		buttonPaneLayout.setGap(gap);
 	}
 	
-	public function getSelf():Component{
+	@:dox(hide)
+    public function getSelf():Component{
 		return this;
 	}
-	
+
+    @:dox(hide)
 	public function setFrame(f:JWindow):Void{
-		if(owner!=null)	{
-			owner.removeEventListener(FrameEvent.FRAME_ABILITY_CHANGED, __frameAbilityChanged);
-			owner.removeEventListener(InteractiveEvent.STATE_CHANGED, __stateChanged);
-			owner.removeEventListener(WindowEvent.WINDOW_ACTIVATED, __activeChange);
-			owner.removeEventListener(WindowEvent.WINDOW_DEACTIVATED, __activeChange);
+		if(_owner!=null)	{
+			_owner.removeEventListener(FrameEvent.FRAME_ABILITY_CHANGED, __frameAbilityChanged);
+			_owner.removeEventListener(InteractiveEvent.STATE_CHANGED, __stateChanged);
+			_owner.removeEventListener(WindowEvent.WINDOW_ACTIVATED, __activeChange);
+			_owner.removeEventListener(WindowEvent.WINDOW_DEACTIVATED, __activeChange);
 		}
-		owner = f;
+		_owner = f;
 		frame = AsWingUtils.as(f,JFrame)	;
-		if(owner!=null)	{
-			owner.addEventListener(FrameEvent.FRAME_ABILITY_CHANGED, __frameAbilityChanged, false, 0, false);
-			owner.addEventListener(InteractiveEvent.STATE_CHANGED, __stateChanged, false, 0, false);
-			owner.addEventListener(WindowEvent.WINDOW_ACTIVATED, __activeChange, false, 0, false);
-			owner.addEventListener(WindowEvent.WINDOW_DEACTIVATED, __activeChange, false, 0, false);
+		if(_owner!=null)	{
+			_owner.addEventListener(FrameEvent.FRAME_ABILITY_CHANGED, __frameAbilityChanged, false, 0, false);
+			_owner.addEventListener(InteractiveEvent.STATE_CHANGED, __stateChanged, false, 0, false);
+			_owner.addEventListener(WindowEvent.WINDOW_ACTIVATED, __activeChange, false, 0, false);
+			_owner.addEventListener(WindowEvent.WINDOW_DEACTIVATED, __activeChange, false, 0, false);
 		}
 		__stateChanged(null);
 		repaint();
 	}
-	
+
+    @:dox(hide)
 	public function getFrame():JWindow{
-		return owner;
+		return _owner;
 	}
 	
-	public function setTitleEnabled(b:Bool):Void{
-		titleEnabled = b;
+	@:dox(hide)
+    public function setTitleEnabled(b:Bool):Void{
+		_titleEnabled = b;
 	}
-	
+
+    @:dox(hide)
 	public function isTitleEnabled():Bool{
-		return titleEnabled;
+		return _titleEnabled;
 	}
 	
-	public function setMinimizeHeight(h:Int):Void{
-		minimizeHeight = h;
+	@:dox(hide)
+    public function setMinimizeHeight(h:Int):Void{
+		_minimizeHeight = h;
 	}
 	
-	public function getMinimizeHeight():Int{
-		return minimizeHeight;
+	@:dox(hide)
+    public function getMinimizeHeight():Int{
+		return _minimizeHeight;
 	}
 		
 	public function addExtraControl(c:Component, position:Int):Void{
@@ -173,133 +218,149 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		return titleLabel;
 	}
 	
-	public function setIcon(i:Icon):Void{
-		icon = i;
+	@:dox(hide)
+    public function setIcon(i:Icon):Void {
+		_icon = i;
 		if(titleLabel!=null)	{
 			titleLabel.setIcon(i);
 		}
 	}
-	
-	public function getIcon():Icon{
-		return icon;
+
+    @:dox(hide)
+	public function getIcon():Icon {
+		return _icon;
 	}
 	
-	public function setText(t:String):Void{
-		text = t;
+	@:dox(hide)
+    public function setText(t:String):Void{
+		_text = t;
 		if(titleLabel!=null)	{
 			titleLabel.setText(t);
 		}
 	}
-	
+
+    @:dox(hide)
 	public function getText():String{
-		return text;
+		return _text;
 	}
 	
 	public function isActive():Bool{
-		if(owner!=null)	{
-			return owner.isActive();
+		if(_owner!=null)	{
+			return _owner.isActive();
 		}
 		return true;
 	}
-	
-	public function setIconifiedButton(b:AbstractButton):Void{
-		if(iconifiedButton != b){
+
+	@:dox(hide)
+	public function setIconifiedButton(b:AbstractButton):Void {
+		if(_iconifiedButton != b){
 			var index:Int= -1;
-			if(iconifiedButton!=null)	{
-				index = buttonPane.getIndex(iconifiedButton);
+			if(_iconifiedButton!=null)	{
+				index = buttonPane.getIndex(_iconifiedButton);
 				buttonPane.removeAt(index);
-				iconifiedButton.removeActionListener(__iconifiedPressed);
+				_iconifiedButton.removeActionListener(__iconifiedPressed);
 			}
-			iconifiedButton = b;
-			if(iconifiedButton!=null)	{
-				buttonPane.insert(index, iconifiedButton);
-				iconifiedButton.addActionListener(__iconifiedPressed);
+			_iconifiedButton = b;
+			if(_iconifiedButton!=null)	{
+				buttonPane.insert(index, _iconifiedButton);
+				_iconifiedButton.addActionListener(__iconifiedPressed);
+			}
+		}
+	}
+
+    @:dox(hide)
+	public function setMaximizeButton(b:AbstractButton):Void {
+		if(_maximizeButton != b){
+			var index:Int= -1;
+			if(_maximizeButton!=null)	{
+				index = buttonPane.getIndex(_maximizeButton);
+				buttonPane.removeAt(index);
+				_maximizeButton.removeActionListener(__maximizePressed);
+			}
+			_maximizeButton = b;
+			if(_maximizeButton!=null)	{
+				buttonPane.insert(index, _maximizeButton);
+				_maximizeButton.addActionListener(__maximizePressed);
+			}
+		}
+	}
+
+    @:dox(hide)
+	public function setRestoreButton(b:AbstractButton):Void {
+		if(_restoreButton != b){
+			var index:Int= -1;
+			if(_restoreButton!=null)	{
+				index = buttonPane.getIndex(_restoreButton);
+				buttonPane.removeAt(index);
+				_restoreButton.removeActionListener(__restorePressed);
+			}
+			_restoreButton = b;
+			if(_restoreButton!=null)	{
+				buttonPane.insert(index, _restoreButton);
+				_restoreButton.addActionListener(__restorePressed);
 			}
 		}
 	}
 	
-	public function setMaximizeButton(b:AbstractButton):Void{
-		if(maximizeButton != b){
+	@:dox(hide)
+    public function setCloseButton(b:AbstractButton):Void{
+		if(_closeButton != b){
 			var index:Int= -1;
-			if(maximizeButton!=null)	{
-				index = buttonPane.getIndex(maximizeButton);
+			if(_closeButton!=null)	{
+				index = buttonPane.getIndex(_closeButton);
 				buttonPane.removeAt(index);
-				maximizeButton.removeActionListener(__maximizePressed);
+				_closeButton.removeActionListener(__closePressed);
 			}
-			maximizeButton = b;
-			if(maximizeButton!=null)	{
-				buttonPane.insert(index, maximizeButton);
-				maximizeButton.addActionListener(__maximizePressed);
+			_closeButton = b;
+			if(_closeButton!=null)	{
+				buttonPane.insert(index, _closeButton);
+				_closeButton.addActionListener(__closePressed);
 			}
 		}
 	}
-	
-	public function setRestoreButton(b:AbstractButton):Void{
-		if(restoreButton != b){
-			var index:Int= -1;
-			if(restoreButton!=null)	{
-				index = buttonPane.getIndex(restoreButton);
-				buttonPane.removeAt(index);
-				restoreButton.removeActionListener(__restorePressed);
-			}
-			restoreButton = b;
-			if(restoreButton!=null)	{
-				buttonPane.insert(index, restoreButton);
-				restoreButton.addActionListener(__restorePressed);
-			}
-		}
-	}
-	
-	public function setCloseButton(b:AbstractButton):Void{
-		if(closeButton != b){
-			var index:Int= -1;
-			if(closeButton!=null)	{
-				index = buttonPane.getIndex(closeButton);
-				buttonPane.removeAt(index);
-				closeButton.removeActionListener(__closePressed);
-			}
-			closeButton = b;
-			if(closeButton!=null)	{
-				buttonPane.insert(index, closeButton);
-				closeButton.addActionListener(__closePressed);
-			}
-		}
-	}
-	
+
+    @:dox(hide)
 	public function getIconifiedButton():AbstractButton{
-		return iconifiedButton;
+		return _iconifiedButton;
 	}
-	
+
+    @:dox(hide)
 	public function getMaximizeButton():AbstractButton{
-		return maximizeButton;
+		return _maximizeButton;
 	}
-	
+
+    @:dox(hide)
 	public function getRestoreButton():AbstractButton{
-		return restoreButton;
+		return _restoreButton;
 	}
-	
+
+    @:dox(hide)
 	public function getCloseButton():AbstractButton{
-		return closeButton;
+		return _closeButton;
 	}
-	
-	public function setIconifiedButtonVisible(b:Bool):Void{
+
+	@:dox(hide)
+    public function setIconifiedButtonVisible(b:Bool):Void{
 		if(getIconifiedButton()!=null){
 			getIconifiedButton().setVisible(b);
 		}
 	}
-	
+
+    @:dox(hide)
 	public function setMaximizeButtonVisible(b:Bool):Void{
 		if(getMaximizeButton()!=null){
 			getMaximizeButton().setVisible(b);
 		}
 	}
-	
+
+    @:dox(hide)
 	public function setRestoreButtonVisible(b:Bool):Void{
 		if(getRestoreButton()!=null){
 			getRestoreButton().setVisible(b);
 		}
 	}
-	
+
+    @:dox(hide)
 	public function setCloseButtonVisible(b:Bool):Void{
 		if(getCloseButton()!=null){
 			getCloseButton().setVisible(b);

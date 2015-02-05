@@ -2003,7 +2003,25 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="iconifiedButton" type="AbstractButtonSchemaTypeValue"/>
+<xs:element minOccurs="0" name="maximizeButton" type="AbstractButtonSchemaTypeValue"/>
+<xs:element minOccurs="0" name="restoreButton" type="AbstractButtonSchemaTypeValue"/>
+<xs:element minOccurs="0" name="closeButton" type="AbstractButtonSchemaTypeValue"/>
+<xs:element minOccurs="0" name="icon" type="IconSchemaTypeValue"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="titleEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="minimizeHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="owner" type="JWindowSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="iconifiedButton" type="xs:string"/>
+<xs:attribute name="maximizeButton" type="xs:string"/>
+<xs:attribute name="restoreButton" type="xs:string"/>
+<xs:attribute name="closeButton" type="xs:string"/>
+<xs:attribute name="icon" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="titleEnabled" type="xs:boolean"/>
+<xs:attribute name="minimizeHeight" type="xs:int"/>
+<xs:attribute name="owner" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2728,7 +2746,23 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="JWindowSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="titleBar" type="FrameTitleBarSchemaTypeValue"/>
+<xs:element minOccurs="0" name="title" type="xs:string"/>
+<xs:element minOccurs="0" name="icon" type="IconSchemaTypeValue"/>
+<xs:element minOccurs="0" name="dragable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="resizable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="closable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dragDirectly" type="xs:boolean"/>
+<xs:element minOccurs="0" name="dragDirectlySet" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="titleBar" type="xs:string"/>
+<xs:attribute name="title" type="xs:string"/>
+<xs:attribute name="icon" type="xs:string"/>
+<xs:attribute name="dragable" type="xs:boolean"/>
+<xs:attribute name="resizable" type="xs:boolean"/>
+<xs:attribute name="closable" type="xs:boolean"/>
+<xs:attribute name="dragDirectly" type="xs:boolean"/>
+<xs:attribute name="dragDirectlySet" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
