@@ -22,6 +22,7 @@ import org.aswing.JLabelButtonTest;
 import org.aswing.JLabelTest;
 import org.aswing.JListTest;
 import org.aswing.JLoadPaneTest;
+import org.aswing.JScrollPaneTest;
 import org.aswing.JSeparatorTest;
 import org.aswing.JSharedToolTipTest;
 import org.aswing.JSliderTest;
@@ -69,6 +70,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.JLabelTest);
 		add(org.aswing.JListTest);
 		add(org.aswing.JLoadPaneTest);
+		add(org.aswing.JScrollPaneTest);
 		add(org.aswing.JSeparatorTest);
 		add(org.aswing.JSharedToolTipTest);
 		add(org.aswing.JSliderTest);

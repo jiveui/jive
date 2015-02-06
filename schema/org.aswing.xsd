@@ -1956,7 +1956,23 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="model" type="BoundedRangeModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="unitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="blockIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="xs:int"/>
+<xs:element minOccurs="0" name="extent" type="xs:int"/>
+<xs:element minOccurs="0" name="minimum" type="xs:int"/>
+<xs:element minOccurs="0" name="maximum" type="xs:int"/>
 </xs:all>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="unitIncrement" type="xs:int"/>
+<xs:attribute name="blockIncrement" type="xs:int"/>
+<xs:attribute name="value" type="xs:int"/>
+<xs:attribute name="extent" type="xs:int"/>
+<xs:attribute name="minimum" type="xs:int"/>
+<xs:attribute name="maximum" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -3202,7 +3218,17 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="viewport" type="ViewportableSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalScrollBar" type="JScrollBarSchemaTypeValue"/>
+<xs:element minOccurs="0" name="horizontalScrollBar" type="JScrollBarSchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalScrollBarPolicy" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalScrollBarPolicy" type="xs:int"/>
 </xs:all>
+<xs:attribute name="viewport" type="xs:string"/>
+<xs:attribute name="verticalScrollBar" type="xs:string"/>
+<xs:attribute name="horizontalScrollBar" type="xs:string"/>
+<xs:attribute name="verticalScrollBarPolicy" type="xs:int"/>
+<xs:attribute name="horizontalScrollBarPolicy" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -7,35 +7,25 @@ package org.aswing;
 
 import org.aswing.error.Error;
 import org.aswing.geom.IntRectangle;
-	import org.aswing.event.ScrollPaneEvent;
-	import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.basic.BasicScrollPaneUI;
-
-/**
- * Dispatched when one of the scrollpane's scrollbar state changed.
- * @eventType org.aswing.event.ScrollPaneEvent.SCROLLBAR_STATE_CHANGED
- */
-// [Event(name="scrollbarStateChanged", type="org.aswing.event.ScrollPaneEvent")]
-	
-/**
- *  Dispatched when the viewport changed.
- *  @eventType org.aswing.event.ScrollPaneEvent.VIEWPORT_CHANGED
- */
-// [Event(name="viewportChanged", type="org.aswing.event.ScrollPaneEvent")]
+import org.aswing.event.ScrollPaneEvent;
+import org.aswing.event.InteractiveEvent;
+import org.aswing.plaf.basic.BasicScrollPaneUI;
 
 /**
  * JScrollPane is a container with two scrollbar controllin the viewport's beeing viewed area.
  * <p>
  * If you want to change the unit or block increment of the scrollbars in a scrollpane, you shoud 
  * controll it with viewport instead of scrollbar directly, because the scrollbar's increment will 
- * be set to same to viewport's always. I mean use <code>JViewport.setHorizontalUnitIncrement()</code> instead of 
- * <code>JScrollBar.setUnitIncrement()</code>
+ * be set to same to viewport's always. I mean use <code>JViewport.horizontalUnitIncrement</code> instead of
+ * <code>JScrollBar.unitIncrement</code>
  * 
  * @see org.aswing.Viewportable
  * @see org.aswing.JViewport
  * @see org.aswing.JScrollBar
  * @author paling
  */
+@:event("org.aswing.event.ScrollPaneEvent.SCROLLBAR_STATE_CHANGED", "Dispatched when one of the scrollpane's scrollbar state changed")
+@:event("org.aswing.event.ScrollPaneEvent.VIEWPORT_CHANGED", "Dispatched when the viewport changed")
 class JScrollPane extends Container {
 		
     /**
@@ -50,30 +40,68 @@ class JScrollPane extends Container {
      * scrollbar are always displayed.
      */
     inline public static var SCROLLBAR_ALWAYS:Int= 2;
-	
-	private var viewport:Viewportable;
-	private var vScrollBar:JScrollBar;
-	private var hScrollBar:JScrollBar;
-	private var vsbPolicy:Int;
-	private var hsbPolicy:Int;
-	
+
+    /**
+     * The viewport
+     *
+     * Most applications will find it more convenient to use
+     * <code>#setView</code>
+     * to add a viewport or a view to the scrollpane.
+     *
+     * @see #view
+     * @see org.aswing.JList
+     * @see org.aswing.JTextArea
+     * @see org.aswing.JTable
+     */
+    public var viewport(get, set): Viewportable;
+    private var _viewport: Viewportable;
+    private function get_viewport(): Viewportable { return getViewport(); }
+    private function set_viewport(v: Viewportable): Viewportable { setViewport(v); return v; }
+
+    public var verticalScrollBar(get, set): JScrollBar;
+    private var vScrollBar:JScrollBar;
+    private function get_verticalScrollBar(): JScrollBar { return getVerticalScrollBar(); }
+    private function set_verticalScrollBar(v: JScrollBar): JScrollBar { setVerticalScrollBar(v); return v; }
+
+    public var horizontalScrollBar(get, set): JScrollBar;
+    private var hScrollBar:JScrollBar;
+    private function get_horizontalScrollBar(): JScrollBar { return getHorizontalScrollBar(); }
+    private function set_horizontalScrollBar(v: JScrollBar): JScrollBar { setHorizontalScrollBar(v); return v; }
+
+    /**
+    * Values:
+    *
+    * - `#SCROLLBAR_AS_NEEDED`
+    * - `#SCROLLBAR_NEVER`
+    * - `#SCROLLBAR_ALWAYS`
+    **/
+    public var verticalScrollBarPolicy(get, set): Int;
+    private var vsbPolicy:Int;
+    private function get_verticalScrollBarPolicy(): Int { return Std.int(getVerticalScrollBarPolicy()); }
+    private function set_verticalScrollBarPolicy(v: Int): Int { setVerticalScrollBarPolicy(v); return v; }
+
+    /**
+    * Values:
+    *
+    * - `#SCROLLBAR_AS_NEEDED`
+    * - `#SCROLLBAR_NEVER`
+    * - `#SCROLLBAR_ALWAYS`
+    **/
+    public var horizontalScrollBarPolicy(get, set): Int;
+    private var hsbPolicy:Int;
+    private function get_horizontalScrollBarPolicy(): Int { return Std.int(getHorizontalScrollBarPolicy()); }
+    private function set_horizontalScrollBarPolicy(v: Int): Int { setHorizontalScrollBarPolicy(v); return v; }
+
+
 	/**
-	 * JScrollPane(view:Component, vsbPolicy:Number, hsbPolicy:Number)<br>
-	 * JScrollPane(view:Component, vsbPolicy:Number)<br>
-	 * JScrollPane(view:Component)<br>
-	 * JScrollPane(viewport:Viewportable, vsbPolicy:Number, hsbPolicy:Number)<br>
-	 * JScrollPane(viewport:Viewportable, vsbPolicy:Number)<br>
-	 * JScrollPane(viewport:Viewportable)<br>
-	 * JScrollPane()
-	 * <p>
 	 * Create a JScrollPane, you can specified a Component to be view,
-	 * then here will create a JViewport to manager the view's scroll,
+	 * then here will create a `JViewport` to manager the view's scroll,
 	 * or a Viewportable to be the view, it mananger the scroll itself.
 	 * If view is not instanceof either, no view will be viewed.
 	 * 
 	 * @param viewOrViewport the scroll content component or a Viewportable
-	 * @param vsbPolicy SCROLLBAR_AS_NEEDED or SCROLLBAR_NEVER or SCROLLBAR_ALWAYS, default SCROLLBAR_AS_NEEDED
-	 * @param hsbPolicy SCROLLBAR_AS_NEEDED or SCROLLBAR_NEVER or SCROLLBAR_ALWAYS, default SCROLLBAR_AS_NEEDED
+	 * @param vsbPolicy `#SCROLLBAR_AS_NEEDED` or `#SCROLLBAR_NEVER` or `#SCROLLBAR_ALWAYS`, default `#SCROLLBAR_AS_NEEDED`
+	 * @param hsbPolicy `#SCROLLBAR_AS_NEEDED` or `#SCROLLBAR_NEVER` or `#SCROLLBAR_ALWAYS`, default `#SCROLLBAR_AS_NEEDED`
 	 * @throw TypeError when viewOrViewport is not component or viewportable.
 	 * @see #SCROLLBAR_AS_NEEDED
 	 * @see #SCROLLBAR_NEVER
@@ -101,15 +129,18 @@ class JScrollPane extends Container {
 		setLayout(new ScrollPaneLayout());
 		updateUI();
 	}
-	
+
+    @:dox(hide)
     override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicScrollPaneUI;
     }
-    	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ScrollPaneUI";
 	}	
@@ -117,6 +148,7 @@ class JScrollPane extends Container {
 	/**
 	 * @throws ArgumentError when the layout is not ScrollPaneLayout instance.
 	 */
+    @:dox(hide)
 	override public function setLayout(layout:LayoutManager):Void{
 		if(Std.is(layout,ScrollPaneLayout)){
 			super.setLayout(layout);
@@ -128,13 +160,12 @@ class JScrollPane extends Container {
 	/**
 	 * @return true always here.
 	 */
+    @:dox(hide)
 	override public function isValidateRoot():Bool{
 		return true;
 	}
 	
 	/**
-	 * setView(view:Component)<br>
-	 * setView(view:Viewportable)<br>
 	 * Sets the view to viewed and scrolled by this scrollpane.
 	 * if this view is not a Viewportable implementation,
 	 * then here will create a JViewport to manager the view's scroll,
@@ -224,22 +255,24 @@ class JScrollPane extends Container {
      * @see org.aswing.JTextArea
      * @see org.aswing.JTable
      */
+    @:dox(hide)
 	public function setViewport(vp:Viewportable):Void{
-		if(viewport != vp){
-			if(viewport != null){
-				remove(viewport.getViewportPane());
+		if(_viewport != vp){
+			if(_viewport != null){
+				remove(_viewport.getViewportPane());
 			}
-			viewport = vp;
-			if(viewport != null){
-				insertImp(-1, viewport.getViewportPane());
+			_viewport = vp;
+			if(_viewport != null){
+				insertImp(-1, _viewport.getViewportPane());
 			}
 			revalidate();
 			dispatchEvent(new ScrollPaneEvent(ScrollPaneEvent.VIEWPORT_CHANGED, true, null, true));
 		}
 	}
 	
-	public function getViewport():Viewportable{
-		return viewport;
+	@:dox(hide)
+    public function getViewport():Viewportable{
+		return _viewport;
 	}
 	
 	/**
@@ -284,6 +317,7 @@ class JScrollPane extends Container {
 	/**
 	 * Adds the scrollbar that controls the viewport's horizontal view position to the scrollpane. 
 	 */
+    @:dox(hide)
 	public function setHorizontalScrollBar(horizontalScrollBar:JScrollBar):Void{
 		if(hScrollBar != horizontalScrollBar){
 			if(hScrollBar != null){
@@ -299,15 +333,18 @@ class JScrollPane extends Container {
 			revalidate();
 		}
 	}
-	
+
+    @:dox(hide)
 	public function getHorizontalScrollBar():JScrollBar{
 		return hScrollBar;
 	}
-	
+
+    @:dox(hide)
 	public function setHorizontalScrollBarPolicy(policy:Float):Void{
 		hsbPolicy = Std.int(policy);
-	} 
- 
+	}
+
+    @:dox(hide)
 	public function getHorizontalScrollBarPolicy():Float{
 		return hsbPolicy;
 	} 
@@ -315,6 +352,7 @@ class JScrollPane extends Container {
  	/**
 	 * Adds the scrollbar that controls the viewport's vertical view position to the scrollpane. 
 	 */
+    @:dox(hide)
 	public function setVerticalScrollBar(verticalScrollBar:JScrollBar):Void{
 		if(vScrollBar != verticalScrollBar){
 			if(vScrollBar != null){
@@ -330,33 +368,39 @@ class JScrollPane extends Container {
 			revalidate();
 		}
 	}
-	
+
+    @:dox(hide)
 	public function getVerticalScrollBar():JScrollBar{
 		return vScrollBar;
 	}
-	
+
+    @:dox(hide)
 	public function setVerticalScrollBarPolicy(policy:Float):Void{
 		vsbPolicy = Std.int(policy);
 	} 
 
-	public function getVerticalScrollBarPolicy():Float{
+	@:dox(hide)
+    public function getVerticalScrollBarPolicy():Float{
 		return vsbPolicy;
 	}
 	
 	/**
 	 * Sets the com to be the view.
-	 */	
+	 */
+    @:dox(hide)
 	override public function append(com:Component, constraints:Dynamic=null):Void{
 		setView(com);
 	}
 	
 	/**
 	 * Sets the com to be the view.
-	 */	
+	 */
+    @:dox(hide)
 	override public function insert(i:Int, com:Component, constraints:Dynamic=null):Void{
 		setView(com);
 	}
-	
+
+    @:dox(hide)
 	override private function getFocusTransmit():Component{
 		return getViewport().getViewportPane();
 	}	
