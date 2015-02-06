@@ -6,15 +6,9 @@ package org.aswing;
 
 	
 import org.aswing.plaf.SplitPaneUI;
-	import flash.events.Event;
+import flash.events.Event;
 import org.aswing.event.InteractiveEvent;
-	import org.aswing.plaf.basic.BasicSplitPaneUI;
-
-/**
- * Dispatched when the divider moved.
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
+import org.aswing.plaf.basic.BasicSplitPaneUI;
 
 /**
  * <code>JSplitPane</code> is used to divide two (and only two)
@@ -42,7 +36,7 @@ import org.aswing.event.InteractiveEvent;
  * can be set to. If the minimum size of the two
  * components is greater than the size of the split pane the divider
  * will not allow you to resize it. To alter the minimum size of a
- * <code>JComponent</code>, see {@link JComponent#setMinimumSize}.
+ * <code>JComponent</code>, see `JComponent#minimumSize`.
  * <p>
  * When the user resizes the split pane the new space is distributed between
  * the two components based on the <code>resizeWeight</code> property.
@@ -86,25 +80,111 @@ class JSplitPane extends Container  implements Orientable{
      * <code>Component</code>.
      */
     inline public static var DIVIDER:String= "divider";
-	
-	private var orientation:Int;
-	private var continuousLayout:Bool;
-	private var leftComponent:Component;
-	private var rightComponent:Component;
+
+    /**
+     * The orientation, or how the splitter is divided. The options
+     * are:<ul>
+     * <li>JSplitPane.VERTICAL_SPLIT  (above/below orientation of components)</li>
+     * <li>JSplitPane.HORIZONTAL_SPLIT  (left/right orientation of components)</li>
+     * </ul>
+     */
+    public var orientation(get, set): Int;
+    private var _orientation: Int;
+    private function get_orientation(): Int { return getOrientation(); }
+    private function set_orientation(v: Int): Int { setOrientation(v); return v; }
+
+    /**
+     * <code>true</code> for the child components
+     * to be continuously redisplayed and laid out during user intervention.
+     *
+     * The default value of this property is <code>false</code>.
+     * Some look and feels might not support continuous layout;
+     * they will ignore this property.
+     */
+    public var continuousLayout(get, set): Bool;
+    private var _continuousLayout: Bool;
+    private function get_continuousLayout(): Bool { return isContinuousLayout(); }
+    private function set_continuousLayout(v: Bool): Bool { setContinuousLayout(v); return v; }
+
+    /**
+     * The component to the left (or above) the divider.
+     */
+    public var leftComponent(get, set): Component;
+    private var _leftComponent: Component;
+    private function get_leftComponent(): Component { return getLeftComponent(); }
+    private function set_leftComponent(v: Component): Component { setLeftComponent(v); return v; }
+
+    /**
+     * The component to the right (or below) the divider.
+     */
+    public var rightComponent(get, set): Component;
+    private var _rightComponent: Component;
+    private function get_rightComponent(): Component { return getRightComponent(); }
+    private function set_rightComponent(v: Component): Component { setRightComponent(v); return v; }
+
+
 	private var dividerComponent:Component;
-    private var oneTouchExpandable:Bool;
-    private var lastDividerLocation:Int;
-    private var resizeWeight:Float;
-    private var dividerLocation:Int;
-    private var dividerSize:Int;
+
+    /**
+     * <code>true</code> for the
+     * <code>JSplitPane</code> to provide a UI widget
+     * on the divider to quickly expand/collapse the divider.
+     *
+     * The default value of this property is <code>false</code>.
+     * Some look and feels might not support one-touch expanding;
+     * they will ignore this property.
+     */
+    public var oneTouchExpandable(get, set): Bool;
+    private var _oneTouchExpandable: Bool;
+    private function get_oneTouchExpandable(): Bool { return isOneTouchExpandable(); }
+    private function set_oneTouchExpandable(v: Bool): Bool { setOneTouchExpandable(v); return v; }
+
+    public var lastDividerLocation(default, null):Int;
+
+    /**
+     * Specifies how to distribute extra space when the size of the split pane
+     * changes.
+     *
+     * A value of 0, the default,
+     * indicates the right/bottom component gets all the extra space (the
+     * left/top component acts fixed), where as a value of 1 specifies the
+     * left/top component gets all the extra space (the right/bottom component
+     * acts fixed). Specifically, the left/top component gets (weight * diff)
+     * extra space and the right/bottom component gets (1 - weight) * diff
+     * extra space.
+     */
+    public var resizeWeight(get, set): Float;
+    private var _resizeWeight: Float;
+    private function get_resizeWeight(): Float { return getResizeWeight(); }
+    private function set_resizeWeight(v: Float): Float { setResizeWeight(v); return v; }
+
+
+    /**
+     * The location of the divider.
+     *
+     * Setting is passed off to the
+     * look and feel implementation, and then listeners are notified.
+     *
+     * A value
+     * less than 0 means collapse left/top component. A value equals
+     * `AsWingConstants.MAX_VALUE` means collapse right/top component.
+     */
+    public var dividerLocation(get, set): Int;
+    private var _dividerLocation: Int;
+    private function get_dividerLocation(): Int { return getDividerLocation(); }
+    private function set_dividerLocation(v: Int): Int { setDividerLocation(v); return v; }
+
+
+    /**
+     * The divider's size, this size is width when the orientation is horizontal
+     * it is height when the orientation is vertical.
+     */
+    public var dividerSize(get, set): Int;
+    private var _dividerSize: Int;
+    private function get_dividerSize(): Int { return getDividerSize(); }
+    private function set_dividerSize(v: Int): Int { setDividerSize(v); return v; }
 	
 	/**
-	 * JSplitPane(orientation:int, continuousLayout:Boolean, leftComponent:Component, rightComponent:Component)<br>
-	 * JSplitPane(orientation:int, continuousLayout:Boolean)<br>
-	 * JSplitPane(orientation:int)<br>
-	 * JSplitPane()
-	 * <p>
-	 * 
      * Creates a new <code>JSplitPane</code> with the specified
      * orientation and
      * redrawing style, and with the specified components.
@@ -116,34 +196,37 @@ class JSplitPane extends Container  implements Orientable{
      *        to wait until the divider position stops changing to redraw. Default is false
      * @param leftComponent (Optional)the <code>Component</code> that will
      *		appear on the left
-     *        	of a horizontally-split pane, or at the top of a
-     *        	vertically-split pane. Default is null.
+     *      of a horizontally-split pane, or at the top of a
+     *      vertically-split pane. Default is null.
      * @param rightComponent (Optional)the <code>Component</code> that will
      *		appear on the right
-     *        	of a horizontally-split pane, or at the bottom of a
-     *        	vertically-split pane. Default is null.
+     *      of a horizontally-split pane, or at the bottom of a
+     *      vertically-split pane. Default is null.
      */
 	public function new(orientation:Int=AsWingConstants.HORIZONTAL, continuousLayout:Bool=false, leftComponent:Component=null, rightComponent:Component=null) {
 		super();
-		this.orientation = orientation;
-		this.continuousLayout = continuousLayout;
+		this._orientation = orientation;
+		this._continuousLayout = continuousLayout;
 		this.setLeftComponent(leftComponent);
 		this.setRightComponent(rightComponent);
-		resizeWeight = 0.5;
-		lastDividerLocation = dividerLocation = 1;
-		dividerSize = -1;
-		oneTouchExpandable = false;
+		_resizeWeight = 0.5;
+		lastDividerLocation = _dividerLocation = 1;
+		_dividerSize = -1;
+		_oneTouchExpandable = false;
 		updateUI();
 	}
 
+    @:dox(hide)
     override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicSplitPaneUI;
     }
 
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "SplitPaneUI";
 	}
@@ -153,11 +236,12 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
     public function setLeftComponent(comp:Component):Void{
         if (comp == null) {
-            if (leftComponent != null) {
-                remove(leftComponent);
-                leftComponent = null;
+            if (_leftComponent != null) {
+                remove(_leftComponent);
+                _leftComponent = null;
             }
         } else {
             append(comp, LEFT);
@@ -170,8 +254,9 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
     public function getLeftComponent():Component {
-        return leftComponent;
+        return _leftComponent;
     }
 
 
@@ -180,6 +265,7 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
     public function setTopComponent(comp:Component):Void{
         setLeftComponent(comp);
     }
@@ -190,8 +276,9 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
     public function getTopComponent():Component {
-        return leftComponent;
+        return _leftComponent;
     }
 
 
@@ -200,11 +287,12 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
     public function setRightComponent(comp:Component):Void{
         if (comp == null) {
-            if (rightComponent != null) {
-                remove(rightComponent);
-                rightComponent = null;
+            if (_rightComponent != null) {
+                remove(_rightComponent);
+                _rightComponent = null;
             }
         } else {
             append(comp, RIGHT);
@@ -217,8 +305,9 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
     public function getRightComponent():Component {
-        return rightComponent;
+        return _rightComponent;
     }
 
 
@@ -227,6 +316,7 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
     public function setBottomComponent(comp:Component):Void{
         setRightComponent(comp);
     }
@@ -237,8 +327,9 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
     public function getBottomComponent():Component {
-        return rightComponent;
+        return _rightComponent;
     }
 
 
@@ -256,9 +347,10 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @see #isOneTouchExpandable()
      */
+    @:dox(hide)
     public function setOneTouchExpandable(newValue:Bool):Void{
-    	if(oneTouchExpandable != newValue){
-	        oneTouchExpandable = newValue;
+    	if(_oneTouchExpandable != newValue){
+	        _oneTouchExpandable = newValue;
 	        repaint();
     	}
     }
@@ -270,8 +362,9 @@ class JSplitPane extends Container  implements Orientable{
      * @return the value of the <code>oneTouchExpandable</code> property
      * @see #setOneTouchExpandable()
      */
+    @:dox(hide)
     public function isOneTouchExpandable():Bool{
-        return oneTouchExpandable;
+        return _oneTouchExpandable;
     }
 
 
@@ -295,6 +388,7 @@ class JSplitPane extends Container  implements Orientable{
      *       of pixels from the left (or upper) edge of the pane to the 
      *       left (or upper) edge of the divider
      */
+    @:dox(hide)
     public function getLastDividerLocation():Int{
         return lastDividerLocation;
     }
@@ -308,9 +402,10 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param orientation an integer specifying the orientation
      */
+    @:dox(hide)
     public function setOrientation(ori:Int):Void{
-        if(ori != orientation){
-        	orientation = ori;
+        if(ori != _orientation){
+        	_orientation = ori;
         	revalidate();
         	repaint();
         }
@@ -322,8 +417,9 @@ class JSplitPane extends Container  implements Orientable{
      * @return an integer giving the orientation
      * @see #setOrientation()
      */
+    @:dox(hide)
     public function getOrientation():Int{
-        return orientation;
+        return _orientation;
     }
 
 
@@ -340,9 +436,10 @@ class JSplitPane extends Container  implements Orientable{
      *        should continuously be redrawn as the divider changes position
      * @see #isContinuousLayout()
      */
+    @:dox(hide)
     public function setContinuousLayout(newContinuousLayout:Bool):Void{
-    	if(continuousLayout != newContinuousLayout){
-        	continuousLayout = newContinuousLayout;
+    	if(_continuousLayout != newContinuousLayout){
+        	_continuousLayout = newContinuousLayout;
         	revalidate();
         	repaint();
     	}
@@ -355,8 +452,9 @@ class JSplitPane extends Container  implements Orientable{
      * @return the value of the <code>continuousLayout</code> property
      * @see #setContinuousLayout()
      */
+    @:dox(hide)
     public function isContinuousLayout():Bool{
-        return continuousLayout;
+        return _continuousLayout;
     }
 
     /**
@@ -371,12 +469,13 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param value as described above, limit[0, 1]
      */
+    @:dox(hide)
     public function setResizeWeight(value:Float):Void{
     	if(value < 0) value = 0;
     	else if(value > 1) value = 1;
     	
-    	if(resizeWeight != value){
-			resizeWeight = value;
+    	if(_resizeWeight != value){
+			_resizeWeight = value;
     	}
     }
 
@@ -386,8 +485,9 @@ class JSplitPane extends Container  implements Orientable{
      *         split pane
      * @see #setResizeWeight()
      */
+    @:dox(hide)
     public function getResizeWeight():Float{
-		return resizeWeight;
+		return _resizeWeight;
     }
 
     /**
@@ -403,18 +503,19 @@ class JSplitPane extends Container  implements Orientable{
     }
 
     /**
-     * Sets the location of the divider. This is passed off to the 
+     * Sets the location of the divider. This is passed off to the
      * look and feel implementation, and then listeners are notified. A value
-     * less than 0 means collapse left/top component. A value equals 
+     * less than 0 means collapse left/top component. A value equals
      * AsWingConstants.MAX_VALUE means collapse right/top component.
      *
-     * @param location an int specifying a UI-specific value (typically a 
+     * @param location an int specifying a UI-specific value (typically a
      *        pixel count)
      */
+    @:dox(hide)
     public function setDividerLocation(location:Int, programmatic:Bool=false):Void{
-		var oldValue:Int= dividerLocation;
+		var oldValue:Int= _dividerLocation;
 		if(oldValue != location){
-			dividerLocation = location;
+			_dividerLocation = location;
 			// And update the last divider location.
 			if(oldValue >= 0 && oldValue != AsWingConstants.MAX_VALUE){
 				setLastDividerLocation(oldValue);
@@ -431,8 +532,9 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return an integer specifying the location of the divider
      */
+    @:dox(hide)
     public function getDividerLocation():Int{
-		return dividerLocation;
+		return _dividerLocation;
     }
     
     /**
@@ -440,9 +542,10 @@ class JSplitPane extends Container  implements Orientable{
      * it is height when the orientation is vertical.
      * @param newSize the size of the divider
      */
+    @:dox(hide)
     public function setDividerSize(newSize:Int):Void{
-    	if(dividerSize != newSize){
-    		dividerSize = newSize;
+    	if(_dividerSize != newSize){
+    		_dividerSize = newSize;
     		repaint();
     		revalidate();
     	}
@@ -453,10 +556,12 @@ class JSplitPane extends Container  implements Orientable{
      * @return the divider size
      * @see #setDividerSize()
      */
+    @:dox(hide)
     public function getDividerSize():Int{
-    	return dividerSize;
+    	return _dividerSize;
     }
     
+    @:dox(hide)
     override public function setEnabled(b:Bool):Void{
     	super.setEnabled(b);
     	if(dividerComponent!=null)	{
@@ -467,21 +572,21 @@ class JSplitPane extends Container  implements Orientable{
 	override private function insertImp(i:Int, com:Component, constraints:Dynamic=null):Void{
 		var toRemove:Component=null;
 		if(constraints == LEFT){
-			toRemove = leftComponent;
-			leftComponent = com;
+			toRemove = _leftComponent;
+			_leftComponent = com;
 		}else if(constraints == RIGHT){
-			toRemove = rightComponent;
-			rightComponent = com;
+			toRemove = _rightComponent;
+			_rightComponent = com;
 		}else if(constraints == DIVIDER){
 			toRemove = dividerComponent;
 			dividerComponent = com;
-		}else if(leftComponent == null){
-			leftComponent = com;
-		}else if(rightComponent == null){
-			rightComponent = com;
+		}else if(_leftComponent == null){
+			_leftComponent = com;
+		}else if(_rightComponent == null){
+			_rightComponent = com;
 		}else{
-			toRemove = leftComponent;
-			leftComponent = com;
+			toRemove = _leftComponent;
+			_leftComponent = com;
 		}
 		if(toRemove != null){
 			remove(toRemove);
@@ -496,11 +601,12 @@ class JSplitPane extends Container  implements Orientable{
      * 
      * @param component the <code>Component</code> to remove
      */
+    @:dox(hide)
     override public function remove(component:Component):Component {
-        if (component == leftComponent) {
-            leftComponent = null;
-        } else if (component == rightComponent) {
-            rightComponent = null;
+        if (component == _leftComponent) {
+            _leftComponent = null;
+        } else if (component == _rightComponent) {
+            _rightComponent = null;
         }
         var removed:Component = super.remove(component);
 
@@ -523,10 +629,10 @@ class JSplitPane extends Container  implements Orientable{
     override public function removeAt(index:Int):Component {
         var comp:Component = getComponent(index);
 
-        if (comp == leftComponent) {
-            leftComponent = null;
-        } else if (comp == rightComponent) {
-            rightComponent = null;
+        if (comp == _leftComponent) {
+            _leftComponent = null;
+        } else if (comp == _rightComponent) {
+            _rightComponent = null;
         }
         var removed:Component = super.removeAt(index);
 
@@ -542,6 +648,7 @@ class JSplitPane extends Container  implements Orientable{
      * <code>leftComonent</code> and <code>rightComponent</code>
      * instance variables.
      */
+    @:dox(hide)
     override public function removeAll():Void{
         setLeftComponent(null);
         setRightComponent(null);
@@ -561,6 +668,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return true
      * @see JComponent#revalidate()
      */
+    @:dox(hide)
     override public function isValidateRoot():Bool{
         return true;
     }

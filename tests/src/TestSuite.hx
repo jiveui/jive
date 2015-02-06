@@ -26,6 +26,7 @@ import org.aswing.JScrollPaneTest;
 import org.aswing.JSeparatorTest;
 import org.aswing.JSharedToolTipTest;
 import org.aswing.JSliderTest;
+import org.aswing.JSplitPaneTest;
 import org.aswing.JTabbedPaneTest;
 import org.aswing.JTableTest;
 import org.aswing.JTextAreaTest;
@@ -74,6 +75,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.JSeparatorTest);
 		add(org.aswing.JSharedToolTipTest);
 		add(org.aswing.JSliderTest);
+		add(org.aswing.JSplitPaneTest);
 		add(org.aswing.JTabbedPaneTest);
 		add(org.aswing.JTableTest);
 		add(org.aswing.JTextAreaTest);
