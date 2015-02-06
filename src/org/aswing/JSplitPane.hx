@@ -87,7 +87,11 @@ class JSplitPane extends Container  implements Orientable{
      */
     inline public static var DIVIDER:String= "divider";
 	
-	private var orientation:Int;
+	private var _orientation:Int;
+    public var orientation(get, set):Int;
+    public function get_Orientation():Int { return getOrientation(); }
+    public function set_Orientation(v:Int):Int { setOrientation(v); return v; }
+
 	private var continuousLayout:Bool;
 	private var leftComponent:Component;
 	private var rightComponent:Component;
@@ -125,7 +129,7 @@ class JSplitPane extends Container  implements Orientable{
      */
 	public function new(orientation:Int=AsWingConstants.HORIZONTAL, continuousLayout:Bool=false, leftComponent:Component=null, rightComponent:Component=null) {
 		super();
-		this.orientation = orientation;
+		this._orientation = orientation;
 		this.continuousLayout = continuousLayout;
 		this.setLeftComponent(leftComponent);
 		this.setRightComponent(rightComponent);
@@ -135,15 +139,15 @@ class JSplitPane extends Container  implements Orientable{
 		oneTouchExpandable = false;
 		updateUI();
 	}
-
+    @:dox(hide)
     override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicSplitPaneUI;
     }
-
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "SplitPaneUI";
 	}
@@ -308,9 +312,11 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param orientation an integer specifying the orientation
      */
+    @:dox(hide)
+    @:deprecated
     public function setOrientation(ori:Int):Void{
-        if(ori != orientation){
-        	orientation = ori;
+        if(ori != _orientation){
+        	_orientation = ori;
         	revalidate();
         	repaint();
         }
@@ -322,8 +328,10 @@ class JSplitPane extends Container  implements Orientable{
      * @return an integer giving the orientation
      * @see #setOrientation()
      */
+    @:dox(hide)
+    @:deprecated
     public function getOrientation():Int{
-        return orientation;
+        return _orientation;
     }
 
 
@@ -456,14 +464,14 @@ class JSplitPane extends Container  implements Orientable{
     public function getDividerSize():Int{
     	return dividerSize;
     }
-    
+    @:dox(hide)
     override public function setEnabled(b:Bool):Void{
     	super.setEnabled(b);
     	if(dividerComponent!=null)	{
     		dividerComponent.setEnabled(b);
     	}
     }
-    
+    @:dox(hide)
 	override private function insertImp(i:Int, com:Component, constraints:Dynamic=null):Void{
 		var toRemove:Component=null;
 		if(constraints == LEFT){
@@ -496,6 +504,7 @@ class JSplitPane extends Container  implements Orientable{
      * 
      * @param component the <code>Component</code> to remove
      */
+    @:dox(hide)
     override public function remove(component:Component):Component {
         if (component == leftComponent) {
             leftComponent = null;
@@ -520,6 +529,7 @@ class JSplitPane extends Container  implements Orientable{
      *        1 specifies the left/top component and 2 specifies the 
      *        bottom/right component
      */
+    @:dox(hide)
     override public function removeAt(index:Int):Component {
         var comp:Component = getComponent(index);
 
@@ -542,6 +552,7 @@ class JSplitPane extends Container  implements Orientable{
      * <code>leftComonent</code> and <code>rightComponent</code>
      * instance variables.
      */
+    @:dox(hide)
     override public function removeAll():Void{
         setLeftComponent(null);
         setRightComponent(null);
@@ -561,6 +572,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return true
      * @see JComponent#revalidate()
      */
+    @:dox(hide)
     override public function isValidateRoot():Bool{
         return true;
     }

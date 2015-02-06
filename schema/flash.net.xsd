@@ -66,47 +66,47 @@ xmlns:flash-media="flash.media"
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="audioCodec" type="xs:int"/>
+<xs:element minOccurs="0" name="audioCodec" type="xs:string"/>
 <xs:element minOccurs="0" name="bufferLength" type="xs:double"/>
 <xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
-<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:string"/>
 <xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
 <xs:element minOccurs="0" name="client" type="xs:string"/>
 <xs:element minOccurs="0" name="currentFPS" type="xs:double"/>
-<xs:element minOccurs="0" name="decodedFrames" type="xs:int"/>
+<xs:element minOccurs="0" name="decodedFrames" type="xs:string"/>
 <xs:element minOccurs="0" name="farID" type="xs:string"/>
 <xs:element minOccurs="0" name="farNonce" type="xs:string"/>
 <xs:element minOccurs="0" name="info" type="NetStreamInfoSchemaTypeValue"/>
 <xs:element minOccurs="0" name="liveDelay" type="xs:double"/>
 <xs:element minOccurs="0" name="maxPauseBufferTime" type="xs:double"/>
 <xs:element minOccurs="0" name="nearNonce" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:string"/>
 <xs:element minOccurs="0" name="peerStreams" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
 <xs:element minOccurs="0" name="time" type="xs:double"/>
-<xs:element minOccurs="0" name="videoCodec" type="xs:int"/>
+<xs:element minOccurs="0" name="videoCodec" type="xs:string"/>
 </xs:all>
-<xs:attribute name="audioCodec" type="xs:int"/>
+<xs:attribute name="audioCodec" type="xs:string"/>
 <xs:attribute name="bufferLength" type="xs:double"/>
 <xs:attribute name="bufferTime" type="xs:double"/>
-<xs:attribute name="bytesLoaded" type="xs:int"/>
-<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="bytesLoaded" type="xs:string"/>
+<xs:attribute name="bytesTotal" type="xs:string"/>
 <xs:attribute name="checkPolicyFile" type="xs:boolean"/>
 <xs:attribute name="client" type="xs:string"/>
 <xs:attribute name="currentFPS" type="xs:double"/>
-<xs:attribute name="decodedFrames" type="xs:int"/>
+<xs:attribute name="decodedFrames" type="xs:string"/>
 <xs:attribute name="farID" type="xs:string"/>
 <xs:attribute name="farNonce" type="xs:string"/>
 <xs:attribute name="info" type="xs:string"/>
 <xs:attribute name="liveDelay" type="xs:double"/>
 <xs:attribute name="maxPauseBufferTime" type="xs:double"/>
 <xs:attribute name="nearNonce" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:int"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
 <xs:attribute name="peerStreams" type="xs:string"/>
 <xs:attribute name="soundTransform" type="xs:string"/>
 <xs:attribute name="time" type="xs:double"/>
-<xs:attribute name="videoCodec" type="xs:int"/>
+<xs:attribute name="videoCodec" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -141,10 +141,10 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="connectedProxyType" type="xs:string"/>
 <xs:element minOccurs="0" name="farID" type="xs:string"/>
 <xs:element minOccurs="0" name="farNonce" type="xs:string"/>
-<xs:element minOccurs="0" name="maxPeerConnections" type="xs:int"/>
+<xs:element minOccurs="0" name="maxPeerConnections" type="xs:string"/>
 <xs:element minOccurs="0" name="nearID" type="xs:string"/>
 <xs:element minOccurs="0" name="nearNonce" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:string"/>
 <xs:element minOccurs="0" name="protocol" type="xs:string"/>
 <xs:element minOccurs="0" name="proxyType" type="xs:string"/>
 <xs:element minOccurs="0" name="unconnectedPeerStreams" type="empty:ArraySchemaTypeValue"/>
@@ -156,10 +156,10 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="connectedProxyType" type="xs:string"/>
 <xs:attribute name="farID" type="xs:string"/>
 <xs:attribute name="farNonce" type="xs:string"/>
-<xs:attribute name="maxPeerConnections" type="xs:int"/>
+<xs:attribute name="maxPeerConnections" type="xs:string"/>
 <xs:attribute name="nearID" type="xs:string"/>
 <xs:attribute name="nearNonce" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:int"/>
+<xs:attribute name="objectEncoding" type="xs:string"/>
 <xs:attribute name="protocol" type="xs:string"/>
 <xs:attribute name="proxyType" type="xs:string"/>
 <xs:attribute name="unconnectedPeerStreams" type="xs:string"/>
