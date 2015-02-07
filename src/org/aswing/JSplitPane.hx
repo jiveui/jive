@@ -89,12 +89,21 @@ class JSplitPane extends Container  implements Orientable{
 	
 	private var _orientation:Int;
     public var orientation(get, set):Int;
-    public function get_Orientation():Int { return getOrientation(); }
-    public function set_Orientation(v:Int):Int { setOrientation(v); return v; }
+    private function get_orientation():Int { return getOrientation(); }
+    private function set_orientation(c:Int):Int { setOrientation(c); return c; }
 
 	private var continuousLayout:Bool;
-	private var leftComponent:Component;
-	private var rightComponent:Component;
+
+	private var _leftComponent:Component;
+    public var leftComponent(get, set):Component;
+    private function get_leftComponent():Component { return getLeftComponent(); }
+    private function set_leftComponent(b:Component):Component { setLeftComponent(b); return b; }
+
+	private var _rightComponent:Component;
+    public var rightComponent(get, set):Component;
+    private function get_rightComponent():Component { return getRightComponent(); }
+    private function set_rightComponent(m:Component):Component { setRightComponent(m); return m; }
+
 	private var dividerComponent:Component;
     private var oneTouchExpandable:Bool;
     private var lastDividerLocation:Int;
@@ -157,11 +166,13 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
+    @:deprecated
     public function setLeftComponent(comp:Component):Void{
         if (comp == null) {
-            if (leftComponent != null) {
-                remove(leftComponent);
-                leftComponent = null;
+            if (_leftComponent != null) {
+                remove(_leftComponent);
+                _leftComponent = null;
             }
         } else {
             append(comp, LEFT);
@@ -174,8 +185,10 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
+    @:deprecated
     public function getLeftComponent():Component {
-        return leftComponent;
+        return _leftComponent;
     }
 
 
@@ -195,7 +208,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     public function getTopComponent():Component {
-        return leftComponent;
+        return _leftComponent;
     }
 
 
@@ -204,11 +217,13 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @param comp the <code>Component</code> to display in that position
      */
+    @:dox(hide)
+    @:deprecated
     public function setRightComponent(comp:Component):Void{
         if (comp == null) {
-            if (rightComponent != null) {
-                remove(rightComponent);
-                rightComponent = null;
+            if (_rightComponent != null) {
+                remove(_rightComponent);
+                _rightComponent = null;
             }
         } else {
             append(comp, RIGHT);
@@ -221,8 +236,10 @@ class JSplitPane extends Container  implements Orientable{
      *
      * @return the <code>Component</code> displayed in that position
      */
+    @:dox(hide)
+    @:deprecated
     public function getRightComponent():Component {
-        return rightComponent;
+        return _rightComponent;
     }
 
 
@@ -242,7 +259,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     public function getBottomComponent():Component {
-        return rightComponent;
+        return _rightComponent;
     }
 
 
@@ -475,21 +492,21 @@ class JSplitPane extends Container  implements Orientable{
 	override private function insertImp(i:Int, com:Component, constraints:Dynamic=null):Void{
 		var toRemove:Component=null;
 		if(constraints == LEFT){
-			toRemove = leftComponent;
-			leftComponent = com;
+			toRemove = _leftComponent;
+			_leftComponent = com;
 		}else if(constraints == RIGHT){
-			toRemove = rightComponent;
-			rightComponent = com;
+			toRemove = _rightComponent;
+			_rightComponent = com;
 		}else if(constraints == DIVIDER){
 			toRemove = dividerComponent;
 			dividerComponent = com;
-		}else if(leftComponent == null){
-			leftComponent = com;
-		}else if(rightComponent == null){
-			rightComponent = com;
+		}else if(_leftComponent == null){
+			_leftComponent = com;
+		}else if(_rightComponent == null){
+			_rightComponent = com;
 		}else{
-			toRemove = leftComponent;
-			leftComponent = com;
+			toRemove = _leftComponent;
+			_leftComponent = com;
 		}
 		if(toRemove != null){
 			remove(toRemove);
@@ -506,10 +523,10 @@ class JSplitPane extends Container  implements Orientable{
      */
     @:dox(hide)
     override public function remove(component:Component):Component {
-        if (component == leftComponent) {
-            leftComponent = null;
-        } else if (component == rightComponent) {
-            rightComponent = null;
+        if (component == _leftComponent) {
+            _leftComponent = null;
+        } else if (component == _rightComponent) {
+            _rightComponent = null;
         }
         var removed:Component = super.remove(component);
 
@@ -533,10 +550,10 @@ class JSplitPane extends Container  implements Orientable{
     override public function removeAt(index:Int):Component {
         var comp:Component = getComponent(index);
 
-        if (comp == leftComponent) {
-            leftComponent = null;
-        } else if (comp == rightComponent) {
-            rightComponent = null;
+        if (comp == _leftComponent) {
+            _leftComponent = null;
+        } else if (comp == _rightComponent) {
+            _rightComponent = null;
         }
         var removed:Component = super.removeAt(index);
 
