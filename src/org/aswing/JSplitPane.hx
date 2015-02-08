@@ -12,12 +12,6 @@ import org.aswing.event.InteractiveEvent;
 	import org.aswing.plaf.basic.BasicSplitPaneUI;
 
 /**
- * Dispatched when the divider moved.
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
-
-/**
  * <code>JSplitPane</code> is used to divide two (and only two)
  * <code>Component</code>s. The two <code>Component</code>s
  * are graphically divided based on the look and feel
@@ -28,23 +22,19 @@ import org.aswing.event.InteractiveEvent;
  * left to right using
  * <code>JSplitPane.HORIZONTAL_SPLIT</code>, or top to bottom using 
  * <code>JSplitPane.VERTICAL_SPLIT</code>.
+ *
  * The preferred way to change the size of the <code>Component</code>s
  * is to invoke
  * <code>setDividerLocation</code> where <code>location</code> is either
  * the new x or y position, depending on the orientation of the
  * <code>JSplitPane</code>.
- * <p>
+ *
  * To resize the <code>Component</code>s to their preferred sizes invoke
  * <code>resetToPreferredSizes</code>.
- * <p>
- * When the user is resizing the <code>Component</code>s the minimum
- * size of the <code>Components</code> is used to determine the
- * maximum/minimum position the <code>Component</code>s
- * can be set to. If the minimum size of the two
- * components is greater than the size of the split pane the divider
- * will not allow you to resize it. To alter the minimum size of a
- * <code>JComponent</code>, see {@link JComponent#setMinimumSize}.
- * <p>
+ *
+ * To alter the minimum size of a
+ * <code>JComponent</code>, @see `Component.setMinimumSize`.
+ *
  * When the user resizes the split pane the new space is distributed between
  * the two components based on the <code>resizeWeight</code> property.
  * A value of 0,
@@ -57,16 +47,13 @@ class JSplitPane extends Container  implements Orientable{
 	
     /**
      * Vertical split indicates the <code>Component</code>s are
-     * split along the y axis.  For example the two
-     * <code>Component</code>s will be split one on top of the other.
+     * split along the y axis.
      */
     inline public static var VERTICAL_SPLIT:Int= AsWingConstants.VERTICAL;
 
     /**
      * Horizontal split indicates the <code>Component</code>s are
-     * split along the x axis.  For example the two
-     * <code>Component</code>s will be split one to the left of the
-     * other.
+     * split along the x axis.
      */
     inline public static var HORIZONTAL_SPLIT:Int= AsWingConstants.HORIZONTAL;
 
@@ -87,78 +74,69 @@ class JSplitPane extends Container  implements Orientable{
      * <code>Component</code>.
      */
     inline public static var DIVIDER:String= "divider";
-	
-	private var _orientation:Int;
+
+
     public var orientation(get, set):Int;
+    private var _orientation:Int;
     private function get_orientation():Int { return getOrientation(); }
     private function set_orientation(c:Int):Int { setOrientation(c); return c; }
 
-	private var _continuousLayout:Bool;
     public var continuousLayout(get, set):Bool;
+    private var _continuousLayout:Bool;
     private function get_continuousLayout():Bool { return isContinuousLayout(); }
     private function set_continuousLayout(s:Bool):Bool { setContinuousLayout(s); return s; }
 
-	private var _leftComponent:Component;
     public var leftComponent(get, set):Component;
+    private var _leftComponent:Component;
     private function get_leftComponent():Component { return getLeftComponent(); }
     private function set_leftComponent(b:Component):Component { setLeftComponent(b); return b; }
 
-	private var _rightComponent:Component;
     public var rightComponent(get, set):Component;
+    private var _rightComponent:Component;
     private function get_rightComponent():Component { return getRightComponent(); }
     private function set_rightComponent(m:Component):Component { setRightComponent(m); return m; }
 
 	private var dividerComponent:Component;
 
-    private var _oneTouchExpandable:Bool;
     public var oneTouchExpandable(get, set):Bool;
+    private var _oneTouchExpandable:Bool;
     private function get_oneTouchExpandable():Bool { return isOneTouchExpandable(); }
     private function set_oneTouchExpandable(x:Bool):Bool { setOneTouchExpandable(x); return x;}
 
-    private var _lastDividerLocation:Int;
     public var lastDividerLocation(get, set):Int;
+    private var _lastDividerLocation:Int;
     private function get_lastDividerLocation():Int { return getLastDividerLocation(); }
     private function set_lastDividerLocation(c:Int):Int { setLastDividerLocation(c); return c; }
 
-    private var _resizeWeight:Float;
     public var resizeWeight(get, set):Float;
+    private var _resizeWeight:Float;
     private function get_resizeWeight():Float { return getResizeWeight(); }
     private function set_resizeWeight(a:Float):Float { setResizeWeight(a); return a; }
 
-    private var _dividerLocation:Int;
     public var dividerLocation(get, set):Int;
+    private var _dividerLocation:Int;
     private function get_dividerLocation():Int { return getDividerLocation(); }
     private function set_dividerLocation(n:Int):Int { setDividerLocation(n); return n; }
 
-    private var _dividerSize:Int;
     public var dividerSize(get, set):Int;
+    private var _dividerSize:Int;
     private function get_dividerSize():Int { return getDividerSize(); }
     private function set_dividerSize(z:Int):Int { setDividerSize(z); return z; }
 	
-	/**
-	 * JSplitPane(orientation:int, continuousLayout:Boolean, leftComponent:Component, rightComponent:Component)<br>
-	 * JSplitPane(orientation:int, continuousLayout:Boolean)<br>
-	 * JSplitPane(orientation:int)<br>
-	 * JSplitPane()
-	 * <p>
-	 * 
+    /**
      * Creates a new <code>JSplitPane</code> with the specified
      * orientation and
      * redrawing style, and with the specified components.
      *
      * @param orientation  (Optional)<code>JSplitPane.HORIZONTAL_SPLIT</code> or
      *                        <code>JSplitPane.VERTICAL_SPLIT</code>.Default is <code>JSplitPane.HORIZONTAL_SPLIT</code>
-     * @param continuousLayout (Optional) a boolean, true for the components to 
+     * @param continuousLayout (Optional) a boolean, true for the components to
      *        redraw continuously as the divider changes position, false
-     *        to wait until the divider position stops changing to redraw. Default is false
+     *        to wait until the divider position stops changing to redraw. Default is false.
      * @param leftComponent (Optional)the <code>Component</code> that will
-     *		appear on the left
-     *        	of a horizontally-split pane, or at the top of a
-     *        	vertically-split pane. Default is null.
+     *		appear on the left of a horizontally-split pane, or at the top of a vertically-split pane. Default is null.
      * @param rightComponent (Optional)the <code>Component</code> that will
-     *		appear on the right
-     *        	of a horizontally-split pane, or at the bottom of a
-     *        	vertically-split pane. Default is null.
+     *		appear on the right of a horizontally-split pane, or at the bottom of a vertically-split pane. Default is null.
      */
 	public function new(orientation:Int=AsWingConstants.HORIZONTAL, continuousLayout:Bool=false, leftComponent:Component=null, rightComponent:Component=null) {
 		super();

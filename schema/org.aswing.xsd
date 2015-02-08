@@ -2989,12 +2989,24 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="OrientableSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="continuousLayout" type="xs:boolean"/>
 <xs:element minOccurs="0" name="leftComponent" type="ComponentSchemaTypeValue"/>
 <xs:element minOccurs="0" name="rightComponent" type="ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="oneTouchExpandable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="lastDividerLocation" type="xs:int"/>
+<xs:element minOccurs="0" name="resizeWeight" type="xs:double"/>
+<xs:element minOccurs="0" name="dividerLocation" type="xs:int"/>
+<xs:element minOccurs="0" name="dividerSize" type="xs:int"/>
 </xs:all>
 <xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="continuousLayout" type="xs:boolean"/>
 <xs:attribute name="leftComponent" type="xs:string"/>
 <xs:attribute name="rightComponent" type="xs:string"/>
+<xs:attribute name="oneTouchExpandable" type="xs:boolean"/>
+<xs:attribute name="lastDividerLocation" type="xs:int"/>
+<xs:attribute name="resizeWeight" type="xs:double"/>
+<xs:attribute name="dividerLocation" type="xs:int"/>
+<xs:attribute name="dividerSize" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
