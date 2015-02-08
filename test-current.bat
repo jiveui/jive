@@ -1,1 +1,1 @@
-ant -f build/build.xml test.oneTest -Dtest=org.aswing.JSharedToolTipTest
+ant -f build/build.xml test.oneTest -Dtest=org.aswing.JSplitPaneTest

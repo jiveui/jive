@@ -108,7 +108,7 @@ class JSplitPane extends Container  implements Orientable{
 
     /**
      * Shows the last location of the divider.
-     **/
+     */
     public var lastDividerLocation(get, set):Int;
     private var _lastDividerLocation:Int;
     private function get_lastDividerLocation():Int { return getLastDividerLocation(); }
@@ -116,7 +116,7 @@ class JSplitPane extends Container  implements Orientable{
 
     /**
     * Changes the size of the `Component`s.
-    **/
+    */
     public var resizeWeight(get, set):Float;
     private var _resizeWeight:Float;
     private function get_resizeWeight():Float { return getResizeWeight(); }
@@ -124,7 +124,7 @@ class JSplitPane extends Container  implements Orientable{
 
     /**
      * Shows the location of the divider.
-     **/
+     */
     public var dividerLocation(get, set):Int;
     private var _dividerLocation:Int;
     private function get_dividerLocation():Int { return getDividerLocation(); }
@@ -132,7 +132,7 @@ class JSplitPane extends Container  implements Orientable{
 
     /**
      * Shows the size of the divider.
-     **/
+     */
     public var dividerSize(get, set):Int;
     private var _dividerSize:Int;
     private function get_dividerSize():Int { return getDividerSize(); }
