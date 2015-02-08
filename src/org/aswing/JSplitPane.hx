@@ -75,7 +75,9 @@ class JSplitPane extends Container  implements Orientable{
      */
     inline public static var DIVIDER:String= "divider";
 
-
+    /**
+    * The Orientation of a `JSplitPane`.
+    */
     public var orientation(get, set):Int;
     private var _orientation:Int;
     private function get_orientation():Int { return getOrientation(); }
@@ -85,6 +87,7 @@ class JSplitPane extends Container  implements Orientable{
     private var _continuousLayout:Bool;
     private function get_continuousLayout():Bool { return isContinuousLayout(); }
     private function set_continuousLayout(s:Bool):Bool { setContinuousLayout(s); return s; }
+
 
     public var leftComponent(get, set):Component;
     private var _leftComponent:Component;
@@ -103,21 +106,33 @@ class JSplitPane extends Container  implements Orientable{
     private function get_oneTouchExpandable():Bool { return isOneTouchExpandable(); }
     private function set_oneTouchExpandable(x:Bool):Bool { setOneTouchExpandable(x); return x;}
 
+    /**
+     * Shows the last location of the divider.
+     **/
     public var lastDividerLocation(get, set):Int;
     private var _lastDividerLocation:Int;
     private function get_lastDividerLocation():Int { return getLastDividerLocation(); }
     private function set_lastDividerLocation(c:Int):Int { setLastDividerLocation(c); return c; }
 
+    /**
+    * Changes the size of the `Component`s.
+    **/
     public var resizeWeight(get, set):Float;
     private var _resizeWeight:Float;
     private function get_resizeWeight():Float { return getResizeWeight(); }
     private function set_resizeWeight(a:Float):Float { setResizeWeight(a); return a; }
 
+    /**
+     * Shows the location of the divider.
+     **/
     public var dividerLocation(get, set):Int;
     private var _dividerLocation:Int;
     private function get_dividerLocation():Int { return getDividerLocation(); }
     private function set_dividerLocation(n:Int):Int { setDividerLocation(n); return n; }
 
+    /**
+     * Shows the size of the divider.
+     **/
     public var dividerSize(get, set):Int;
     private var _dividerSize:Int;
     private function get_dividerSize():Int { return getDividerSize(); }
