@@ -2988,7 +2988,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="ContainerSchemaType">
 <xs:extension base="OrientableSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="leftComponent" type="ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rightComponent" type="ComponentSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="leftComponent" type="xs:string"/>
+<xs:attribute name="rightComponent" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
