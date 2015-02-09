@@ -9,26 +9,15 @@ import org.aswing.event.InteractiveEvent;
 	import org.aswing.plaf.basic.BasicStepperUI;
 
 /**
- * Dispatched when when user finish a stepper input such as 
- * stepper arrow button is released, Enter key is entered, Focus transfered.
- * @eventType org.aswing.event.AWEvent.ACT
- * @see #addActionListener()
- */
-// [Event(name="act", type="org.aswing.event.AWEvent")]
-
-/**
- * Dispatched when the stepper's value changed, number inputed arrow button pressed etc. 
- * @see BoundedRangeModel
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
-
-/**
  * A component that combine a input text and two arrow button to let user change a 
  * number value step by step.
  * 
  * @author paling
  */
+@:event("org.aswing.event.AWEvent.ACT", "Dispatched when when user finish a stepper input such as
+        stepper arrow button is released, Enter key is entered, Focus transfered.")
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the stepper's value changed,
+        number inputed arrow button pressed etc.")
 class JStepper extends Component  implements EditableComponent{
 
 	/**
@@ -47,16 +36,71 @@ class JStepper extends Component  implements EditableComponent{
 			value = 0;
 		}
 		return value;
-	};	
-	
-	private var model:BoundedRangeModel;
-	private var columns:Int;
-	private var editable:Bool;
-	private var valueTranslator:Int -> String;
-	private var valueParser:String -> Int;
-	private var unit:Int;
-	private var maxChars:Int;
-	private var restrict:String;
+	};
+
+    /**
+	 * The model that handles the slider's four fundamental properties: minimum, maximum, value, extent.
+	 */
+    public var model(get, set): BoundedRangeModel;
+    private var _model: BoundedRangeModel;
+    private function get_model(): BoundedRangeModel { return getModel(); }
+    private function set_model(v: BoundedRangeModel): BoundedRangeModel { setModel(v); return v; }
+
+    /**
+	 * The number of columns for the input text.
+	 */
+    public var columns(get, set): Int;
+    private var _columns: Int;
+    private function get_columns(): Int { return getColumns(); }
+    private function set_columns(v: Int): Int { setColumns(v); return v; }
+
+    /**
+	 * Whether the stepper is editable to adjust, both the input text and pop-up slider.
+	 */
+    public var editable(get, set): Bool;
+    private var _editable: Bool;
+    private function get_editable(): Bool { return isEditable(); }
+    private function set_editable(v: Bool): Bool { setEditable(v); return v; }
+
+    /**
+	 * A function(int):String to translator the value to the string representation in
+	 * the input text.
+	 *
+	 * Generally, if you changed translator, you should change a right valueParser to suit it.
+	 */
+    public var valueTranslator(get, set): Int -> String;
+    private var _valueTranslator: Int -> String;
+    private function get_valueTranslator(): Int -> String { return getValueTranslator(); }
+    private function set_valueTranslator(v: Int -> String): Int -> String { setValueTranslator(v); return v; }
+
+    /**
+	 * A function(String):int to parse the value from the string in
+	 * the input text.
+	 *
+	 * Generally, if you changed parser, you should change a right valueTranslator to suit it.
+	 */
+    public var valueParser(get, set): String -> Int;
+    private var _valueParser: String -> Int;
+    private function get_valueParser(): String -> Int { return getValueParser(); }
+    private function set_valueParser(v: String -> Int): String -> Int { setValueParser(v); return v; }
+
+    public var unitIncrement(get, set): Int;
+    private var _unitIncrement: Int;
+    private function get_unitIncrement(): Int { return getUnitIncrement(); }
+    private function set_unitIncrement(v: Int): Int { setUnitIncrement(v); return v; }
+
+    /**
+    * The max number of chars for the text field
+    **/
+    public var maxChars(get, set): Int;
+    private var _maxChars: Int;
+    private function get_maxChars(): Int { return getMaxChars(); }
+    private function set_maxChars(v: Int): Int { setMaxChars(v); return v; }
+
+    public var restrict(get, set): String;
+    private var _restrict: String;
+    private function get_restrict(): String { return getRestrict(); }
+    private function set_restrict(v: String): String { setRestrict(v); return v; }
 
 	/**
 	 * Creates a stepper with the specified columns input text.
@@ -68,26 +112,29 @@ class JStepper extends Component  implements EditableComponent{
 		super();
 		setColumns(columns);
 		
-		editable = true;
-		valueTranslator = DEFAULT_VALUE_TRANSLATOR;
-		valueParser	 = DEFAULT_VALUE_PARSER;
-		unit = 1;
-		maxChars = 0;
-		restrict = "0123456789";
+		_editable = true;
+		_valueTranslator = DEFAULT_VALUE_TRANSLATOR;
+		_valueParser	 = DEFAULT_VALUE_PARSER;
+		_unitIncrement = 1;
+		_maxChars = 0;
+		_restrict = "0123456789";
 		
 		setModel(new DefaultBoundedRangeModel(50, 0, 0, 100));
 		updateUI();
 	}
 
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
 	
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicStepperUI;
     }
 	
-	override public function getUIClassID():String{
+	@:dox(hide)
+    override public function getUIClassID():String{
 		return "StepperUI";
 	}
 	
@@ -95,10 +142,11 @@ class JStepper extends Component  implements EditableComponent{
 	 * Sets the number of columns for the input text. 
 	 * @param columns the number of columns to use to calculate the preferred width.
 	 */
+    @:dox(hide)
 	public function setColumns(columns:Int):Void{
 		if(columns < 0) columns = 0;
-		if(this.columns != columns){
-			this.columns = columns;
+		if(this._columns != columns){
+			this._columns = columns;
 			repaint();
 			revalidate();
 		}
@@ -107,51 +155,58 @@ class JStepper extends Component  implements EditableComponent{
 	/**
 	 * @see #setColumns
 	 */
+    @:dox(hide)
 	public function getColumns():Int{
-		return columns;
+		return _columns;
 	}
 	
-	public function setMaxChars(n:Int):Void{
-		if(maxChars != n){
-			maxChars = n;
+	@:dox(hide)
+    public function setMaxChars(n:Int):Void{
+		if(_maxChars != n){
+			_maxChars = n;
 			repaint();
 		}
 	}
 	
-	public function getMaxChars():Int{
-		return maxChars;
+	@:dox(hide)
+    public function getMaxChars():Int{
+		return _maxChars;
 	}
 	
-	public function setRestrict(r:String):Void{
-		if(restrict != r){
-			restrict = r;
+	@:dox(hide)
+    public function setRestrict(r:String):Void{
+		if(_restrict != r){
+			_restrict = r;
 			repaint();
 		}
 	}
 	
-	public function getRestrict():String{
-		return restrict;
+	@:dox(hide)
+    public function getRestrict():String{
+		return _restrict;
 	}	
 		
 	/**
 	 * Returns data model that handles the slider's four fundamental properties: minimum, maximum, value, extent.
 	 * @return the data model
 	 */
+    @:dox(hide)
 	public function getModel():BoundedRangeModel{
-		return model;
+		return _model;
 	}
 	
 	/**
 	 * Sets the model that handles the slider's four fundamental properties: minimum, maximum, value, extent. 
 	 * @param the data model
 	 */
+    @:dox(hide)
 	public function setModel(newModel:BoundedRangeModel):Void{
-		if (model != null){
-			model.removeStateListener(__onModelStateChanged);
+		if (_model != null){
+			_model.removeStateListener(__onModelStateChanged);
 		}
-		model = newModel;
-		if (model != null){
-			model.addStateListener(__onModelStateChanged);
+		_model = newModel;
+		if (_model != null){
+			_model.addStateListener(__onModelStateChanged);
 		}
 	}
 		
@@ -168,9 +223,10 @@ class JStepper extends Component  implements EditableComponent{
 	 * @see #getValueTranslator()
 	 * @see #setValueParser()
 	 */
+    @:dox(hide)
 	public function setValueTranslator(translator:Int -> String):Void{
-		if(valueTranslator != translator){
-			valueTranslator = translator;
+		if(_valueTranslator != translator){
+			_valueTranslator = translator;
 			repaint();
 		}
 	}
@@ -179,8 +235,9 @@ class JStepper extends Component  implements EditableComponent{
 	 * Returns the value translator function(int):String.
 	 * @see #setValueTranslator()
 	 */
+    @:dox(hide)
 	public function getValueTranslator():Int -> String{
-		return valueTranslator;
+		return _valueTranslator;
 	}
 	
 	/**
@@ -192,9 +249,10 @@ class JStepper extends Component  implements EditableComponent{
 	 * @see #getValueParser()
 	 * @see #setValueTranslator()
 	 */
+    @:dox(hide)
 	public function setValueParser(parser:String -> Int):Void{
-		if(valueParser != parser){
-			valueParser = parser;
+		if(_valueParser != parser){
+			_valueParser = parser;
 			repaint();
 		}
 	}
@@ -204,16 +262,19 @@ class JStepper extends Component  implements EditableComponent{
 	 * @see #setValueParser()
 	 * @see #getValueTranslator()
 	 */
+    @:dox(hide)
 	public function getValueParser():String -> Int{
-		return valueParser;
+		return _valueParser;
 	}
 	
-	public function getUnitIncrement():Int{
-		return unit;
+	@:dox(hide)
+    public function getUnitIncrement():Int{
+		return _unitIncrement;
 	}
 	
-	public function setUnitIncrement(u:Int):Void{
-		unit = u;
+	@:dox(hide)
+    public function setUnitIncrement(u:Int):Void{
+		_unitIncrement = u;
 	}
 	
 	/**
@@ -221,9 +282,10 @@ class JStepper extends Component  implements EditableComponent{
 	 * @param b true to make the stepper can be edited the value, no to not.
 	 * @see #isEditable()
 	 */
+    @:dox(hide)
 	public function setEditable(b:Bool):Void{
-		if(editable != b){
-			editable = b;
+		if(_editable != b){
+			_editable = b;
 			repaint();
 			revalidate();
 		}
@@ -234,8 +296,9 @@ class JStepper extends Component  implements EditableComponent{
 	 * @return whether the stepper is editable.
 	 * @see #setEditable()
 	 */
+    @:dox(hide)
 	public function isEditable():Bool{
-		return editable;
+		return _editable;
 	}
 	
 	/**

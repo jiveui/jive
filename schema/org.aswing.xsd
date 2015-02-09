@@ -2775,7 +2775,23 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="model" type="BoundedRangeModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="columns" type="xs:int"/>
+<xs:element minOccurs="0" name="editable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="valueTranslator" type="xs:string"/>
+<xs:element minOccurs="0" name="valueParser" type="xs:string"/>
+<xs:element minOccurs="0" name="unitIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="maxChars" type="xs:int"/>
+<xs:element minOccurs="0" name="restrict" type="xs:string"/>
 </xs:all>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="columns" type="xs:int"/>
+<xs:attribute name="editable" type="xs:boolean"/>
+<xs:attribute name="valueTranslator" type="xs:string"/>
+<xs:attribute name="valueParser" type="xs:string"/>
+<xs:attribute name="unitIncrement" type="xs:int"/>
+<xs:attribute name="maxChars" type="xs:int"/>
+<xs:attribute name="restrict" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
