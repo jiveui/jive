@@ -100,7 +100,17 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alphaSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="hexSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="noColorSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="model" type="ColorSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="selectedColor" type="org-aswing:ASColorSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="alphaSectionVisible" type="xs:boolean"/>
+<xs:attribute name="hexSectionVisible" type="xs:boolean"/>
+<xs:attribute name="noColorSectionVisible" type="xs:boolean"/>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="selectedColor" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

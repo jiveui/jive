@@ -8,22 +8,22 @@ import org.aswing.event.FrameEvent;
 import flash.events.Event;
 import org.aswing.colorchooser.AbstractColorChooserPanel;
 import org.aswing.geom.IntPoint;
-	import org.aswing.plaf.basic.BasicColorChooserUI;
+import org.aswing.plaf.basic.BasicColorChooserUI;
 
 /**
- * JColorChooser provides a pane of controls designed to allow a user to manipulate and 
+ * `JColorChooser` provides a pane of controls designed to allow a user to manipulate and
  * select a color. 
- * <p>
+ *
  * You can add your color chooser pane to the chooser panels' tabbedPane container, or 
  * remove defaults.
  * @author paling
  */
 class JColorChooser extends AbstractColorChooserPanel {
 	
-	private var chooserPanels:Array<Dynamic>;
-	private var tabbedPane:JTabbedPane;
-	private var okButton:JButton;
-	private var cancelButton:JButton;
+	public var chooserPanels(default, null):Array<Dynamic>;
+	public var tabbedPane(default, null):JTabbedPane;
+	public var okButton(default, null):JButton;
+	public var cancelButton(default, null):JButton;
 	 
 	public function new() {
 		super();
@@ -34,14 +34,17 @@ class JColorChooser extends AbstractColorChooserPanel {
 		updateUI();
 	}
 	
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicColorChooserUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ColorChooserUI";
 	}
@@ -50,6 +53,7 @@ class JColorChooser extends AbstractColorChooserPanel {
 	 * Returns the tabbedPane which contains the color chooser panels.
 	 * @return the tabbedPane 
 	 */
+    @:dox(hide)
 	public function getTabbedPane():JTabbedPane{
 		return tabbedPane;
 	}
@@ -58,6 +62,7 @@ class JColorChooser extends AbstractColorChooserPanel {
 	 * Returns the ok button to finish the choosing.
 	 * @return the ok button
 	 */
+    @:dox(hide)
 	public function getOkButton():JButton{
 		return okButton;
 	}
@@ -66,6 +71,7 @@ class JColorChooser extends AbstractColorChooserPanel {
 	 * Returns the cancel button which use to cancel the choosing.
 	 * @return the cancel button
 	 */
+    @:dox(hide)
 	public function getCancelButton():JButton{
 		return cancelButton;
 	}

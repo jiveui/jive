@@ -16,6 +16,7 @@ import org.aswing.InsetsTest;
 import org.aswing.JAccordionTest;
 import org.aswing.JAdjusterTest;
 import org.aswing.JCheckBoxTest;
+import org.aswing.JColorChooserTest;
 import org.aswing.JComboBoxTest;
 import org.aswing.JFrameTest;
 import org.aswing.JLabelButtonTest;
@@ -65,6 +66,7 @@ class TestSuite extends massive.munit.TestSuite
 		add(org.aswing.JAccordionTest);
 		add(org.aswing.JAdjusterTest);
 		add(org.aswing.JCheckBoxTest);
+		add(org.aswing.JColorChooserTest);
 		add(org.aswing.JComboBoxTest);
 		add(org.aswing.JFrameTest);
 		add(org.aswing.JLabelButtonTest);

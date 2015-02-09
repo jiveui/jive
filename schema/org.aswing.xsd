@@ -2487,7 +2487,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="org-aswing-colorchooser:AbstractColorChooserPanelSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="chooserPanels" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="tabbedPane" type="JTabbedPaneSchemaTypeValue"/>
+<xs:element minOccurs="0" name="okButton" type="JButtonSchemaTypeValue"/>
+<xs:element minOccurs="0" name="cancelButton" type="JButtonSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="chooserPanels" type="xs:string"/>
+<xs:attribute name="tabbedPane" type="xs:string"/>
+<xs:attribute name="okButton" type="xs:string"/>
+<xs:attribute name="cancelButton" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
