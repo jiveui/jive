@@ -237,6 +237,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param comp the <code>Component</code> to display in that position
      */
     @:dox(hide)
+    @:deprecated
     public function setLeftComponent(comp:Component):Void{
         if (comp == null) {
             if (_leftComponent != null) {
@@ -255,6 +256,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     @:dox(hide)
+    @:deprecated
     public function getLeftComponent():Component {
         return _leftComponent;
     }
@@ -266,6 +268,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param comp the <code>Component</code> to display in that position
      */
     @:dox(hide)
+    @:deprecated
     public function setTopComponent(comp:Component):Void{
         setLeftComponent(comp);
     }
@@ -277,6 +280,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     @:dox(hide)
+    @:deprecated
     public function getTopComponent():Component {
         return _leftComponent;
     }
@@ -288,6 +292,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param comp the <code>Component</code> to display in that position
      */
     @:dox(hide)
+    @:deprecated
     public function setRightComponent(comp:Component):Void{
         if (comp == null) {
             if (_rightComponent != null) {
@@ -306,6 +311,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     @:dox(hide)
+    @:deprecated
     public function getRightComponent():Component {
         return _rightComponent;
     }
@@ -317,6 +323,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param comp the <code>Component</code> to display in that position
      */
     @:dox(hide)
+    @:deprecated
     public function setBottomComponent(comp:Component):Void{
         setRightComponent(comp);
     }
@@ -328,6 +335,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return the <code>Component</code> displayed in that position
      */
     @:dox(hide)
+    @:deprecated
     public function getBottomComponent():Component {
         return _rightComponent;
     }
@@ -348,6 +356,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #isOneTouchExpandable()
      */
     @:dox(hide)
+    @:deprecated
     public function setOneTouchExpandable(newValue:Bool):Void{
     	if(_oneTouchExpandable != newValue){
 	        _oneTouchExpandable = newValue;
@@ -363,6 +372,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #setOneTouchExpandable()
      */
     @:dox(hide)
+    @:deprecated
     public function isOneTouchExpandable():Bool{
         return _oneTouchExpandable;
     }
@@ -389,6 +399,7 @@ class JSplitPane extends Container  implements Orientable{
      *       left (or upper) edge of the divider
      */
     @:dox(hide)
+    @:deprecated
     public function getLastDividerLocation():Int{
         return lastDividerLocation;
     }
@@ -403,6 +414,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param orientation an integer specifying the orientation
      */
     @:dox(hide)
+    @:deprecated
     public function setOrientation(ori:Int):Void{
         if(ori != _orientation){
         	_orientation = ori;
@@ -418,6 +430,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #setOrientation()
      */
     @:dox(hide)
+    @:deprecated
     public function getOrientation():Int{
         return _orientation;
     }
@@ -437,6 +450,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #isContinuousLayout()
      */
     @:dox(hide)
+    @:deprecated
     public function setContinuousLayout(newContinuousLayout:Bool):Void{
     	if(_continuousLayout != newContinuousLayout){
         	_continuousLayout = newContinuousLayout;
@@ -453,6 +467,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #setContinuousLayout()
      */
     @:dox(hide)
+    @:deprecated
     public function isContinuousLayout():Bool{
         return _continuousLayout;
     }
@@ -470,6 +485,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param value as described above, limit[0, 1]
      */
     @:dox(hide)
+    @:deprecated
     public function setResizeWeight(value:Float):Void{
     	if(value < 0) value = 0;
     	else if(value > 1) value = 1;
@@ -486,6 +502,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see #setResizeWeight()
      */
     @:dox(hide)
+    @:deprecated
     public function getResizeWeight():Float{
 		return _resizeWeight;
     }
@@ -512,6 +529,7 @@ class JSplitPane extends Container  implements Orientable{
      *        pixel count)
      */
     @:dox(hide)
+    @:deprecated
     public function setDividerLocation(location:Int, programmatic:Bool=false):Void{
 		var oldValue:Int= _dividerLocation;
 		if(oldValue != location){
@@ -533,6 +551,7 @@ class JSplitPane extends Container  implements Orientable{
      * @return an integer specifying the location of the divider
      */
     @:dox(hide)
+    @:deprecated
     public function getDividerLocation():Int{
 		return _dividerLocation;
     }
@@ -543,6 +562,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param newSize the size of the divider
      */
     @:dox(hide)
+    @:deprecated
     public function setDividerSize(newSize:Int):Void{
     	if(_dividerSize != newSize){
     		_dividerSize = newSize;
@@ -557,11 +577,13 @@ class JSplitPane extends Container  implements Orientable{
      * @see #setDividerSize()
      */
     @:dox(hide)
+    @:deprecated
     public function getDividerSize():Int{
     	return _dividerSize;
     }
     
     @:dox(hide)
+    @:deprecated
     override public function setEnabled(b:Bool):Void{
     	super.setEnabled(b);
     	if(dividerComponent!=null)	{
@@ -602,6 +624,7 @@ class JSplitPane extends Container  implements Orientable{
      * @param component the <code>Component</code> to remove
      */
     @:dox(hide)
+    @:deprecated
     override public function remove(component:Component):Component {
         if (component == _leftComponent) {
             _leftComponent = null;
@@ -649,6 +672,7 @@ class JSplitPane extends Container  implements Orientable{
      * instance variables.
      */
     @:dox(hide)
+    @:deprecated
     override public function removeAll():Void{
         setLeftComponent(null);
         setRightComponent(null);
@@ -669,6 +693,7 @@ class JSplitPane extends Container  implements Orientable{
      * @see JComponent#revalidate()
      */
     @:dox(hide)
+    @:deprecated
     override public function isValidateRoot():Bool{
         return true;
     }
