@@ -7,8 +7,8 @@ package org.aswing;
 
 import org.aswing.error.Error;
 import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.MenuElementUI;
-	import org.aswing.plaf.basic.BasicMenuItemUI;
+import org.aswing.plaf.MenuElementUI;
+import org.aswing.plaf.basic.BasicMenuItemUI;
 
 /**
  * An implementation of an item in a menu. A menu item is essentially a button
@@ -20,8 +20,22 @@ import org.aswing.plaf.ComponentUI;
  */
 class JMenuItem extends AbstractButton  implements MenuElement{
 	
-	private var menuInUse:Bool;
-	private var accelerator:KeyType;
+    public var menuInUse(get, set): Bool;
+    private var _menuInUse: Bool;
+    private function get_menuInUse(): Bool { return isInUse(); }
+    private function set_menuInUse(v: Bool): Bool { setInUse(v); return v; }
+
+    /**
+     * The key combination which invokes the menu item's
+     * action listeners without navigating the menu hierarchy. It is the
+     * UI's responsibility to install the correct action.  Note that
+     * when the keyboard accelerator is typed, it will work whether or
+     * not the menu is currently displayed.
+     */
+    public var accelerator(get, set): KeyType;
+    private var _accelerator: KeyType;
+    private function get_accelerator(): KeyType { return getAccelerator(); }
+    private function set_accelerator(v: KeyType): KeyType { setAccelerator(v); return v; }
 	
 	public function new(text:String="", icon:Icon=null){
 		super(text, icon);
@@ -29,16 +43,18 @@ class JMenuItem extends AbstractButton  implements MenuElement{
 		setName("JMenuItem");
 		setModel(new DefaultButtonModel());
 		initFocusability();
-		menuInUse = false;
-		accelerator = null;
+		_menuInUse = false;
+		_accelerator = null;
 		
 	}
 	
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
 	
-	override public function getDefaultBasicUIClass():Class<Dynamic>{
+	@:dox(hide)
+    override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicMenuItemUI;
     }
 	
@@ -50,6 +66,7 @@ class JMenuItem extends AbstractButton  implements MenuElement{
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>MenuElementUI</code> instance.
 	 */
+    @:dox(hide)
     override public function setUI(newUI:ComponentUI):Void{
     	if(Std.is(newUI,MenuElementUI)){
     		super.setUI(newUI);
@@ -62,11 +79,13 @@ class JMenuItem extends AbstractButton  implements MenuElement{
      * Returns the ui for this frame with <code>MenuElementUI</code> instance
      * @return the menu element ui.
      */
+    @:dox(hide)
     public function getMenuElementUI():MenuElementUI{
     	return AsWingUtils.as(getUI() , MenuElementUI);
     }
 	
-	override public function getUIClassID():String{
+	@:dox(hide)
+    override public function getUIClassID():String{
 		return "MenuItemUI";
 	}
 	
@@ -80,9 +99,10 @@ class JMenuItem extends AbstractButton  implements MenuElement{
      * @param keyStroke the <code>KeyType</code> which will
      *		serve as an accelerator 
      */
+    @:dox(hide)
 	public function setAccelerator(acc:KeyType):Void{
-		if(accelerator != acc){
-			accelerator = acc;
+		if(_accelerator != acc){
+			_accelerator = acc;
 			revalidate();
 			repaint();
 		}
@@ -93,9 +113,10 @@ class JMenuItem extends AbstractButton  implements MenuElement{
      * for the menu item.
      * @return a <code>KeyType</code> object identifying the
      *		accelerator key
-     */	
+     */
+    @:dox(hide)
 	public function getAccelerator():KeyType{
-		return accelerator;
+		return _accelerator;
 	}
 	
 	/**
@@ -153,14 +174,14 @@ class JMenuItem extends AbstractButton  implements MenuElement{
 	//--------------------------------
 	
     public function setInUse(b:Bool):Void{
-    	if(menuInUse != b){
-	    	menuInUse = b;
+    	if(_menuInUse != b){
+	    	_menuInUse = b;
 	    	inUseChanged();
     	}
     }
     
     public function isInUse():Bool{
-    	return menuInUse;
+    	return _menuInUse;
     }
     
 	public function menuSelectionChanged(isIncluded : Bool) : Void{

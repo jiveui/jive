@@ -7,9 +7,9 @@ package org.aswing;
 
 import org.aswing.error.Error;
 import org.aswing.plaf.EmptyLayoutUIResourse;
-	import org.aswing.plaf.ComponentUI;
-	import org.aswing.plaf.MenuElementUI;
-	import org.aswing.plaf.basic.BasicMenuBarUI;
+import org.aswing.plaf.ComponentUI;
+import org.aswing.plaf.MenuElementUI;
+import org.aswing.plaf.basic.BasicMenuBarUI;
 import flash.events.Event;
 import org.aswing.event.ContainerEvent;
 
@@ -17,10 +17,11 @@ import org.aswing.event.ContainerEvent;
  * An implementation of a menu bar. You add <code>JMenu</code> objects to the
  * menu bar to construct a menu. When the user selects a <code>JMenu</code>
  * object, its associated <code>JPopupMenu</code> is displayed, allowing the
- * user to select one of the <code>JMenuItems</code> on it.
+ * user to select one of the <code>JMenuItem</code> on it.
  * @author paling
  */
-class JMenuBar extends Container  implements MenuElement{
+@:children("org.aswing.JMenu")
+class JMenuBar extends Container implements MenuElement{
 	
 	private var selectionModel:SingleSelectionModel;
 	private var menuInUse:Bool;
@@ -39,7 +40,8 @@ class JMenuBar extends Container  implements MenuElement{
 		updateUI();
 	}
 
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
 	
@@ -51,6 +53,7 @@ class JMenuBar extends Container  implements MenuElement{
 	 * @param newUI the newUI
 	 * @throws ArgumentError when the newUI is not an <code>MenuElementUI</code> instance.
 	 */
+    @:dox(hide)
     override public function setUI(newUI:ComponentUI):Void{
     	if(Std.is(newUI,MenuElementUI)){
     		super.setUI(newUI);
@@ -63,15 +66,18 @@ class JMenuBar extends Container  implements MenuElement{
      * Returns the ui for this frame with <code>MenuElementUI</code> instance
      * @return the menu element ui.
      */
+    @:dox(hide)
     public function getMenuElementUI():MenuElementUI{
     	return AsWingUtils.as( getUI() , MenuElementUI);
     }
 	
-	override public function getUIClassID():String{
+	@:dox(hide)
+    override public function getUIClassID():String{
 		return "MenuBarUI";
 	}
 	
-	override public function getDefaultBasicUIClass():Class<Dynamic>{
+	@:dox(hide)
+    override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicMenuBarUI;
     }
 	

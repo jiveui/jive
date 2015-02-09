@@ -24,6 +24,8 @@ using Lambda;
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
+		    new JMenuBarNodeAdapter(),
+		    new JMenuNodeAdapter(),
 		    new AbstractTabbedPaneAdapter(),
 			new VectorListModelNodeAdapter(),
 			new DefaultMutableTreeNodeAdapter(),
@@ -195,6 +197,42 @@ class VectorListModelNodeAdapter extends ComponentAdapter {
 }
 
 class VectorListModelNodeWithMetaWriter extends ComponentWithMetaWriter {
+	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+		method.push('$scope.append(${universalGet(child)});');
+	}
+}
+
+class JMenuBarNodeAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+		if (baseType == null) baseType = macro : org.aswing.JMenuBar;
+		if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 40);
+		super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+		return [new JMenuBarNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+	}
+}
+
+class JMenuBarNodeWithMetaWriter extends ComponentWithMetaWriter {
+	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+		method.push('$scope.addMenu(${universalGet(child)});');
+	}
+}
+
+class JMenuNodeAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+		if (baseType == null) baseType = macro : org.aswing.JMenu;
+		if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 60);
+		super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+		return [new JMenuNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+	}
+}
+
+class JMenuNodeWithMetaWriter extends ComponentWithMetaWriter {
 	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
 		method.push('$scope.append(${universalGet(child)});');
 	}

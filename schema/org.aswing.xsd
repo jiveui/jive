@@ -1575,6 +1575,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="JMenu" />
 </xs:all>
 </xs:extension>
 </xs:complexContent>
@@ -2107,7 +2108,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="menuInUse" type="xs:boolean"/>
+<xs:element minOccurs="0" name="accelerator" type="KeyTypeSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="menuInUse" type="xs:boolean"/>
+<xs:attribute name="accelerator" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2752,7 +2757,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="JMenuItemSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="JRadioButtonMenuItem" />
+<xs:element minOccurs="0" ref="JCheckBoxMenuItem" />
+<xs:element minOccurs="0" ref="JMenu" />
+<xs:element minOccurs="0" ref="JMenuItem" />
+<xs:element minOccurs="0" ref="JSeparator" />
+<xs:element minOccurs="0" name="delay" type="xs:int"/>
+<xs:element minOccurs="0" name="popupMenuVisible" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="delay" type="xs:int"/>
+<xs:attribute name="popupMenuVisible" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

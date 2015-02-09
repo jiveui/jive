@@ -7,9 +7,9 @@ package org.aswing;
 
 import org.aswing.plaf.basic.BasicMenuUI;
 import org.aswing.geom.IntPoint;
-	import org.aswing.geom.IntRectangle;
-	import org.aswing.geom.IntDimension;
-	import flash.events.Event;
+import org.aswing.geom.IntRectangle;
+import org.aswing.geom.IntDimension;
+import flash.events.Event;
 
 /**
  * An implementation of a menu -- a popup window containing
@@ -17,43 +17,72 @@ import org.aswing.geom.IntPoint;
  * is displayed when the user selects an item on the <code>JMenuBar</code>.
  * In addition to <code>JMenuItem</code>s, a <code>JMenu</code> can
  * also contain <code>JSeparator</code>s. 
- * <p>
+ *
  * In essence, a menu is a button with an associated <code>JPopupMenu</code>.
  * When the "button" is pressed, the <code>JPopupMenu</code> appears. If the
  * "button" is on the <code>JMenuBar</code>, the menu is a top-level window.
  * If the "button" is another menu item, then the <code>JPopupMenu</code> is
  * "pull-right" menu.
- * </p>
+ *
  * @author paling
  */
-class JMenu extends JMenuItem  implements MenuElement{
+@:children("org.aswing.JMenuItem")
+@:children("org.aswing.JSeparator")
+class JMenu extends JMenuItem  implements MenuElement {
 	
 	/*
 	 * The popup menu portion of the menu.
 	 */
 	private var popupMenu:JPopupMenu;
-	
-	private var delay:Int;
-		
+
+    /**
+	 * The suggested delay, in milliseconds, before submenus
+	 * are popped up or down.
+	 *
+	 * Each look and feel (L&F) may determine its own policy for
+	 * observing the <code>delay</code> property.
+	 *
+	 * In most cases, the delay is not observed for top level menus
+	 * or while dragging.  The default for <code>delay</code> is 0.
+	 * This method is a property of the look and feel code and is used
+	 * to manage the idiosyncracies of the various UI implementations.
+	 */
+    public var delay(get, set): Int;
+    private var _delay: Int;
+    private function get_delay(): Int { return getDelay(); }
+    private function set_delay(v: Int): Int { setDelay(v); return v; }
+
+    /**
+	 * The visibility of the menu's popup.  If the menu is
+	 * not enabled, this method will have no effect.
+	 */
+    public var popupMenuVisible(get, set): Bool;
+    private var _popupMenuVisible: Bool;
+    private function get_popupMenuVisible(): Bool { return isPopupMenuVisible(); }
+    private function set_popupMenuVisible(v: Bool): Bool { setPopupMenuVisible(v); return v; }
+
 	public function new(text:String="", icon:Icon=null){
 		super(text, icon);
 		setName("JMenu");
-		delay = 200;
-		menuInUse = false;
+		_delay = 200;
+		_menuInUse = false;
 		addEventListener(Event.REMOVED_FROM_STAGE, __menuDestroied);
 	}
 
-	override public function updateUI():Void{
+	@:dox(hide)
+    override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 		if(popupMenu != null){
 			popupMenu.updateUI();
 		}
 	}
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "MenuUI";
 	}
-	
+
+    @:dox(hide)
 	override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicMenuUI;
     }
@@ -215,8 +244,9 @@ class JMenu extends JMenuItem  implements MenuElement{
 	 * 
 	 * @return the <code>delay</code> property
 	 */
+    @:dox(hide)
 	public function getDelay():Int{
-		return delay;
+		return _delay;
 	}
 	
 	/**
@@ -229,12 +259,13 @@ class JMenu extends JMenuItem  implements MenuElement{
 	 *
 	 * @param d the number of milliseconds to delay
 	 */
+    @:dox(hide)
 	public function setDelay(d:Int):Void{
 		if (d < 0){
 			trace("/e/Delay must be a positive integer, ignored.");
 			return;
 		}
-		delay = d;
+		_delay = d;
 	}
 			
 	/**
@@ -242,6 +273,7 @@ class JMenu extends JMenuItem  implements MenuElement{
 	 *
 	 * @return true if the menu is visible, else false
 	 */
+    @:dox(hide)
 	public function isPopupMenuVisible():Bool{
 		return popupMenu != null && popupMenu.isVisible();
 	}
@@ -253,6 +285,7 @@ class JMenu extends JMenuItem  implements MenuElement{
 	 * @param b  a boolean value -- true to make the menu visible,
 	 *		   false to hide it
 	 */
+    @:dox(hide)
 	public function setPopupMenuVisible(b:Bool):Void{
 		var isVisible:Bool= isPopupMenuVisible();
 		if (b != isVisible && (isEnabled() || !b)) {
@@ -266,6 +299,7 @@ class JMenu extends JMenuItem  implements MenuElement{
 			}
 		}
 	}
+
 	private function ensurePopupMenuCreated() : Void{
         if (popupMenu == null) {
             popupMenu = new JPopupMenu();
@@ -311,10 +345,10 @@ class JMenu extends JMenuItem  implements MenuElement{
 	}
 	
 	//--------------------------------
-	
+	@:dox(hide)
     override public function setInUse(b:Bool):Void{
-    	if(menuInUse != b){
-	    	menuInUse = b;
+    	if(_menuInUse != b){
+	    	_menuInUse = b;
 	    	if(b)	{
 	    		ensurePopupMenuCreated();
 	    	}
@@ -326,11 +360,11 @@ class JMenu extends JMenuItem  implements MenuElement{
 	    	inUseChanged();
     	}
     }
-    	
+    @:dox(hide)
 	override public function menuSelectionChanged(isIncluded : Bool) : Void{
 		setSelected(isIncluded);
 	}
-
+    @:dox(hide)
 	override public function getSubElements() : Array<Dynamic>{
         if(popupMenu == null){
             return [];
@@ -338,7 +372,7 @@ class JMenu extends JMenuItem  implements MenuElement{
             return [popupMenu];
         }
 	}
-
+    @:dox(hide)
 	override public function getMenuComponent() : Component {
 		return this;
 	}	
