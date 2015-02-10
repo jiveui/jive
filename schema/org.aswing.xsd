@@ -2615,7 +2615,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="indeterminateDelay" type="xs:int"/>
+<xs:element minOccurs="0" name="indeterminateDelaySet" type="xs:boolean"/>
+<xs:element minOccurs="0" name="orientation" type="xs:int"/>
+<xs:element minOccurs="0" name="indeterminate" type="xs:boolean"/>
+<xs:element minOccurs="0" name="string" type="xs:string"/>
+<xs:element minOccurs="0" name="model" type="BoundedRangeModelSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="indeterminateDelay" type="xs:int"/>
+<xs:attribute name="indeterminateDelaySet" type="xs:boolean"/>
+<xs:attribute name="orientation" type="xs:int"/>
+<xs:attribute name="indeterminate" type="xs:boolean"/>
+<xs:attribute name="string" type="xs:string"/>
+<xs:attribute name="model" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

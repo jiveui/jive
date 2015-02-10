@@ -4,26 +4,23 @@
 
 package org.aswing;
 
+import bindx.Bind;
 import org.aswing.event.InteractiveEvent;
-	import org.aswing.event.AWEvent;
-	import org.aswing.util.Timer;
+import org.aswing.event.AWEvent;
+import org.aswing.util.Timer;
 import flash.events.Event;
 import org.aswing.plaf.basic.BasicProgressBarUI;
 
 /**
- * Dispatched when the scrollBar's state changed. 
- * @see BoundedRangeModel
- * @eventType org.aswing.event.InteractiveEvent.STATE_CHANGED
- */
-// [Event(name="stateChanged", type="org.aswing.event.InteractiveEvent")]
-
-/**
  * A component that, by default, displays an integer value within a bounded 
- * interval. A progress bar typically communicates the progress of some 
+ * interval.
+ *
+ * A progress bar typically communicates the progress of some
  * work by displaying its percentage of completion and possibly a textual
  * display of this percentage.
  * @author paling
  */
+@:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the scrollBar's state changed")
 class JProgressBar extends Component  implements Orientable{
 
     /** 
@@ -35,19 +32,71 @@ class JProgressBar extends Component  implements Orientable{
      */
     inline public static var VERTICAL:Int= AsWingConstants.VERTICAL;
 	
-	private var orientation:Int;
-	private var indeterminate:Bool;
-	private var string:String;
-	private var model:BoundedRangeModel;
+	public var indeterminateDelay(get, set): Int;
+	private function get_indeterminateDelay(): Int { return getIndeterminateDelay(); }
+	private function set_indeterminateDelay(v: Int): Int { setIndeterminateDelay(v); return v; }
+
+    public var indeterminateDelaySet(get, set): Bool;
+    private var _indeterminateDelaySet: Bool;
+    private function get_indeterminateDelaySet(): Bool { return isIndeterminateDelaySet(); }
+    private function set_indeterminateDelaySet(v: Bool): Bool { setIndeterminateDelaySet(v); return v; }
+
+    /**
+     * The progress bar's orientation to <code>newOrientation</code>,
+     * which must be <code>JProgressBar.VERTICAL</code> or
+     * <code>JProgressBar.HORIZONTAL</code>. The default orientation
+     * is <code>HORIZONTAL</code>.
+     *
+     * Note that If the orientation is set to <code>VERTICAL</code>,
+     *  the progress string can only be displayable when the progress bar's font
+     *  is a embedFonts.
+     *
+     * @see org.aswing.ASFont#getEmbedFonts()
+     */
+    public var orientation(get, set): Int;
+    private var _orientation: Int;
+    private function get_orientation(): Int { return getOrientation(); }
+    private function set_orientation(v: Int): Int { setOrientation(v); return v; }
+
+    /**
+     * Determines whether the progress bar is in determinate
+     * or indeterminate mode.
+     *
+     * An indeterminate progress bar continuously displays animation
+     * indicating that an operation of unknown length is occurring.
+     *
+     * By default, this property is <code>false</code>.
+     *
+     * An indeterminate progress bar will start a <code>Timer</code> to
+     * call repaint continuously when it is displayable, it make the progress can paint continuously.
+     * Make sure the current <code>Icon</code> for this bar support indeterminate
+     * if you set indeterminate to true.
+     */
+    public var indeterminate(get, set): Bool;
+    private var _indeterminate: Bool;
+    private function get_indeterminate(): Bool { return isIndeterminate(); }
+    private function set_indeterminate(v: Bool): Bool { setIndeterminate(v); return v; }
+
+    /**
+     * The current value of the progress string.
+     */
+    public var string(get, set): String;
+    private var _string: String;
+    private function get_string(): String { return getString(); }
+    private function set_string(v: String): String { setString(v); return v; }
+
+    /**
+     * The data model used by the <code>JProgressBar</code>.
+     */
+    @bindable public var model(get, set): BoundedRangeModel;
+    private var _model: BoundedRangeModel;
+    private function get_model(): BoundedRangeModel { return getModel(); }
+    private function set_model(v: BoundedRangeModel): BoundedRangeModel { setModel(v); return v; }
+
 	private var indeterminatePaintTimer:Timer;
-	private var indeterminateDelaySet:Bool;
-	
+
 	/**
-	 * JProgressBar(orient:int, min:int, max:int)<br>
-	 * JProgressBar(orient:int)<br>
-	 * JProgressBar()
-	 * <p>
-	 * @param orient (optional)the desired orientation of the progress bar, 
+	 * @param orient (optional)the desired orientation of the progress bar,
 	 *  just can be <code>JProgressBar.HORIZONTAL</code> or <code>JProgressBar.VERTICAL</code>,
 	 *  default is <code>JProgressBar.HORIZONTAL</code>
 	 * @param min (optional)the minimum value of the progress bar, default is 0
@@ -57,48 +106,53 @@ class JProgressBar extends Component  implements Orientable{
 		super();
 		setName("ProgressBar");
 		
-		orientation = orient;
-		model = new DefaultBoundedRangeModel(min, 0, min, max);
+		_orientation = orient;
+		_model = new DefaultBoundedRangeModel(min, 0, min, max);
 		addListenerToModel();
 		
-		indeterminate = false;
-		string = null;
+		_indeterminate = false;
+		_string = null;
 		
-		indeterminateDelaySet = false;
+		_indeterminateDelaySet = false;
 		indeterminatePaintTimer = new Timer(40);
 		indeterminatePaintTimer.addActionListener(__indeterminateInterval);
 		addEventListener(Event.ADDED_TO_STAGE, __progressAddedToStage);
 		addEventListener(Event.REMOVED_FROM_STAGE, __progressRemovedFromStage);
 		updateUI();
 	}
-	
+
+	@:dox(hide)
 	override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 	}
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicProgressBarUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ProgressBarUI";
 	} 
 	
-	public function setIndeterminateDelay(delay:Int):Void{
+	@:dox(hide)
+    public function setIndeterminateDelay(delay:Int):Void{
 		indeterminatePaintTimer.setDelay(delay);
 		setIndeterminateDelaySet(true);
 	}
-	
+
+    @:dox(hide)
 	public function getIndeterminateDelay():Int{
 		return indeterminatePaintTimer.getDelay();
 	}
 	
 	public function setIndeterminateDelaySet(b:Bool):Void{
-		indeterminateDelaySet = b;
+		_indeterminateDelaySet = b;
 	}
 	
 	public function isIndeterminateDelaySet():Bool{
-		return indeterminateDelaySet;
+		return _indeterminateDelaySet;
 	}
 	    
 	/**
@@ -107,8 +161,9 @@ class JProgressBar extends Component  implements Orientable{
      * @return the <code>BoundedRangeModel</code> currently in use
      * @see    org.aswing.BoundedRangeModel
      */
+    @:dox(hide)
 	public function getModel():BoundedRangeModel {
-		return model;
+		return _model;
 	}
 	
     /**
@@ -116,12 +171,13 @@ class JProgressBar extends Component  implements Orientable{
      *
      * @param  newModel the <code>BoundedRangeModel</code> to use
      */
+    @:dox(hide)
 	public function setModel(newModel:BoundedRangeModel):Void{
-		if (model != null){
-			model.removeStateListener(__onModelStateChanged);
+		if (_model != null){
+			_model.removeStateListener(__onModelStateChanged);
 		}
-		model = newModel;
-		if (model != null){
+		_model = newModel;
+		if (_model != null){
 			addListenerToModel();
 		}
 	}
@@ -131,8 +187,9 @@ class JProgressBar extends Component  implements Orientable{
      * @return the value of the progress string
      * @see    #setString
      */
+    @:dox(hide)
 	public function getString():String{
-		return string;
+		return _string;
 	}
 
     /**
@@ -141,9 +198,10 @@ class JProgressBar extends Component  implements Orientable{
      * @param  s the value of the progress string
      * @see    #getString()
      */
+    @:dox(hide)
 	public function setString(s:String):Void{
-		if(string != s){
-			string = s;
+		if(_string != s){
+			_string = s;
 			repaint();
 		}
 	}
@@ -157,8 +215,9 @@ class JProgressBar extends Component  implements Orientable{
      * @return <code>HORIZONTAL</code> or <code>VERTICAL</code>
      * @see #setOrientation()
      */
+    @:dox(hide)
 	public function getOrientation():Int{
-		return orientation;
+		return _orientation;
 	}
 	
     /**
@@ -175,12 +234,13 @@ class JProgressBar extends Component  implements Orientable{
      * @see #getOrientation()
      * @see org.aswing.ASFont#getEmbedFonts()
      */
+    @:dox(hide)
 	public function setOrientation(newOrientation:Int):Void{
 		if(newOrientation != HORIZONTAL && newOrientation!= VERTICAL){
 			newOrientation = HORIZONTAL;
 		}
-		if(orientation != newOrientation){
-			orientation = newOrientation;
+		if(_orientation != newOrientation){
+			_orientation = newOrientation;
 			revalidate();
 			repaint();
 		}
@@ -193,9 +253,9 @@ class JProgressBar extends Component  implements Orientable{
      * @return the percent complete for this progress bar
      */
     public function getPercentComplete():Float{
-		var span:Int= model.getMaximum() - model.getMinimum();
-		var currentValue:Int= model.getValue();
-		var pc:Float= (currentValue - model.getMinimum()) / span;
+		var span:Int= _model.getMaximum() - _model.getMinimum();
+		var currentValue:Int= _model.getValue();
+		var pc:Float= (currentValue - _model.getMinimum()) / span;
 		return pc;
     }
     
@@ -308,9 +368,10 @@ class JProgressBar extends Component  implements Orientable{
      * 			<code>false</code> if it should revert to normal.
      *
      * @see #isIndeterminate()
-     */	
+     */
+    @:dox(hide)
 	public function setIndeterminate(newValue:Bool):Void{
-		indeterminate = newValue;
+		_indeterminate = newValue;
 		__validateIndeterminateIntervalIfNecessary();
 	}
     /**
@@ -318,15 +379,16 @@ class JProgressBar extends Component  implements Orientable{
      *
      * @return the value of the <code>indeterminate</code> property
      * @see    #setIndeterminate()
-     */	
+     */
+    @:dox(hide)
 	public function isIndeterminate():Bool{
-		return indeterminate;
+		return _indeterminate;
 	}
 	
 	//------------------
 	    
 	private function addListenerToModel():Void{
-		model.addStateListener(__onModelStateChanged);		
+		_model.addStateListener(__onModelStateChanged);
 	}
 	
 	private function __progressAddedToStage(e:Event):Void{
@@ -338,6 +400,7 @@ class JProgressBar extends Component  implements Orientable{
 	}
 	
 	private function __onModelStateChanged(event:InteractiveEvent):Void{
+        Bind.notify(this.model);
 		repaint();
 	}
 	

@@ -1,6 +1,6 @@
 import massive.munit.TestSuite;
 
-import org.aswing.JToggleButtonTest;
+import org.aswing.JProgressBarTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -14,6 +14,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(org.aswing.JToggleButtonTest);
+		add(org.aswing.JProgressBarTest);
 	}
 }
