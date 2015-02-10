@@ -33,10 +33,10 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="errno" type="xs:int"/>
+<xs:element minOccurs="0" name="errno" type="xs:string"/>
 <xs:element minOccurs="0" name="stub" type="xs:boolean"/>
 </xs:all>
-<xs:attribute name="errno" type="xs:int"/>
+<xs:attribute name="errno" type="xs:string"/>
 <xs:attribute name="stub" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>

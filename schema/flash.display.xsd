@@ -651,6 +651,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="DisplayObjectSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:extension base="IBitmapDrawableSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="accessibilityProperties" type="flash-accessibility:AccessibilityPropertiesSchemaTypeValue"/>
 <xs:element minOccurs="0" name="alpha" type="xs:double"/>
@@ -768,9 +769,9 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="displayState" type="xs:string"/>
 <xs:element minOccurs="0" name="focus" type="InteractiveObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="frameRate" type="xs:double"/>
-<xs:element minOccurs="0" name="fullScreenHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="fullScreenHeight" type="xs:string"/>
 <xs:element minOccurs="0" name="fullScreenSourceRect" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element minOccurs="0" name="fullScreenWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="fullScreenWidth" type="xs:string"/>
 <xs:element minOccurs="0" name="quality" type="xs:string"/>
 <xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
 <xs:element minOccurs="0" name="showDefaultContextMenu" type="xs:boolean"/>
@@ -784,9 +785,9 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="displayState" type="xs:string"/>
 <xs:attribute name="focus" type="xs:string"/>
 <xs:attribute name="frameRate" type="xs:double"/>
-<xs:attribute name="fullScreenHeight" type="xs:int"/>
+<xs:attribute name="fullScreenHeight" type="xs:string"/>
 <xs:attribute name="fullScreenSourceRect" type="xs:string"/>
-<xs:attribute name="fullScreenWidth" type="xs:int"/>
+<xs:attribute name="fullScreenWidth" type="xs:string"/>
 <xs:attribute name="quality" type="xs:string"/>
 <xs:attribute name="scaleMode" type="xs:string"/>
 <xs:attribute name="showDefaultContextMenu" type="xs:boolean"/>
@@ -817,8 +818,8 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="actionScriptVersion" type="xs:string"/>
 <xs:element minOccurs="0" name="applicationDomain" type="flash-system:ApplicationDomainSchemaTypeValue"/>
 <xs:element minOccurs="0" name="bytes" type="flash-utils:ByteArraySchemaTypeValue"/>
-<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
-<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:string"/>
 <xs:element minOccurs="0" name="childAllowsParent" type="xs:boolean"/>
 <xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="contentType" type="xs:string"/>
@@ -830,15 +831,15 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="parentAllowsChild" type="xs:boolean"/>
 <xs:element minOccurs="0" name="sameDomain" type="xs:boolean"/>
 <xs:element minOccurs="0" name="sharedEvents" type="flash-events:EventDispatcherSchemaTypeValue"/>
-<xs:element minOccurs="0" name="swfVersion" type="xs:int"/>
+<xs:element minOccurs="0" name="swfVersion" type="xs:string"/>
 <xs:element minOccurs="0" name="url" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:int"/>
 </xs:all>
 <xs:attribute name="actionScriptVersion" type="xs:string"/>
 <xs:attribute name="applicationDomain" type="xs:string"/>
 <xs:attribute name="bytes" type="xs:string"/>
-<xs:attribute name="bytesLoaded" type="xs:int"/>
-<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="bytesLoaded" type="xs:string"/>
+<xs:attribute name="bytesTotal" type="xs:string"/>
 <xs:attribute name="childAllowsParent" type="xs:boolean"/>
 <xs:attribute name="content" type="xs:string"/>
 <xs:attribute name="contentType" type="xs:string"/>
@@ -850,7 +851,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="parentAllowsChild" type="xs:boolean"/>
 <xs:attribute name="sameDomain" type="xs:boolean"/>
 <xs:attribute name="sharedEvents" type="xs:string"/>
-<xs:attribute name="swfVersion" type="xs:int"/>
+<xs:attribute name="swfVersion" type="xs:string"/>
 <xs:attribute name="url" type="xs:string"/>
 <xs:attribute name="width" type="xs:int"/>
 </xs:extension>
@@ -860,6 +861,7 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="BitmapDataSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="IBitmapDrawableSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="height" type="xs:int"/>
 <xs:element minOccurs="0" name="rect" type="flash-geom:RectangleSchemaTypeValue"/>

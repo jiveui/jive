@@ -583,7 +583,6 @@ class JSplitPane extends Container  implements Orientable{
     }
     
     @:dox(hide)
-    @:deprecated
     override public function setEnabled(b:Bool):Void{
     	super.setEnabled(b);
     	if(dividerComponent!=null)	{
@@ -624,7 +623,6 @@ class JSplitPane extends Container  implements Orientable{
      * @param component the <code>Component</code> to remove
      */
     @:dox(hide)
-    @:deprecated
     override public function remove(component:Component):Component {
         if (component == _leftComponent) {
             _leftComponent = null;
@@ -672,7 +670,6 @@ class JSplitPane extends Container  implements Orientable{
      * instance variables.
      */
     @:dox(hide)
-    @:deprecated
     override public function removeAll():Void{
         setLeftComponent(null);
         setRightComponent(null);
@@ -693,7 +690,6 @@ class JSplitPane extends Container  implements Orientable{
      * @see JComponent#revalidate()
      */
     @:dox(hide)
-    @:deprecated
     override public function isValidateRoot():Bool{
         return true;
     }

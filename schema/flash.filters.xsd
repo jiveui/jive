@@ -35,7 +35,7 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="alpha" type="xs:double"/>
 <xs:element minOccurs="0" name="blurX" type="xs:double"/>
 <xs:element minOccurs="0" name="blurY" type="xs:double"/>
-<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="color" type="xs:string"/>
 <xs:element minOccurs="0" name="inner" type="xs:boolean"/>
 <xs:element minOccurs="0" name="knockout" type="xs:boolean"/>
 <xs:element minOccurs="0" name="quality" type="xs:int"/>
@@ -44,7 +44,7 @@ xmlns:empty="empty"
 <xs:attribute name="alpha" type="xs:double"/>
 <xs:attribute name="blurX" type="xs:double"/>
 <xs:attribute name="blurY" type="xs:double"/>
-<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="color" type="xs:string"/>
 <xs:attribute name="inner" type="xs:boolean"/>
 <xs:attribute name="knockout" type="xs:boolean"/>
 <xs:attribute name="quality" type="xs:int"/>
@@ -61,7 +61,7 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="angle" type="xs:double"/>
 <xs:element minOccurs="0" name="blurX" type="xs:double"/>
 <xs:element minOccurs="0" name="blurY" type="xs:double"/>
-<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="color" type="xs:string"/>
 <xs:element minOccurs="0" name="distance" type="xs:double"/>
 <xs:element minOccurs="0" name="hideObject" type="xs:boolean"/>
 <xs:element minOccurs="0" name="inner" type="xs:boolean"/>
@@ -73,7 +73,7 @@ xmlns:empty="empty"
 <xs:attribute name="angle" type="xs:double"/>
 <xs:attribute name="blurX" type="xs:double"/>
 <xs:attribute name="blurY" type="xs:double"/>
-<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="color" type="xs:string"/>
 <xs:attribute name="distance" type="xs:double"/>
 <xs:attribute name="hideObject" type="xs:boolean"/>
 <xs:attribute name="inner" type="xs:boolean"/>
@@ -113,11 +113,11 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="blurY" type="xs:double"/>
 <xs:element minOccurs="0" name="distance" type="xs:double"/>
 <xs:element minOccurs="0" name="highlightAlpha" type="xs:double"/>
-<xs:element minOccurs="0" name="highlightColor" type="xs:int"/>
+<xs:element minOccurs="0" name="highlightColor" type="xs:string"/>
 <xs:element minOccurs="0" name="knockout" type="xs:boolean"/>
 <xs:element minOccurs="0" name="quality" type="xs:int"/>
 <xs:element minOccurs="0" name="shadowAlpha" type="xs:double"/>
-<xs:element minOccurs="0" name="shadowColor" type="xs:int"/>
+<xs:element minOccurs="0" name="shadowColor" type="xs:string"/>
 <xs:element minOccurs="0" name="strength" type="xs:double"/>
 <xs:element minOccurs="0" name="type" type="xs:string"/>
 </xs:all>
@@ -126,11 +126,11 @@ xmlns:empty="empty"
 <xs:attribute name="blurY" type="xs:double"/>
 <xs:attribute name="distance" type="xs:double"/>
 <xs:attribute name="highlightAlpha" type="xs:double"/>
-<xs:attribute name="highlightColor" type="xs:int"/>
+<xs:attribute name="highlightColor" type="xs:string"/>
 <xs:attribute name="knockout" type="xs:boolean"/>
 <xs:attribute name="quality" type="xs:int"/>
 <xs:attribute name="shadowAlpha" type="xs:double"/>
-<xs:attribute name="shadowColor" type="xs:int"/>
+<xs:attribute name="shadowColor" type="xs:string"/>
 <xs:attribute name="strength" type="xs:double"/>
 <xs:attribute name="type" type="xs:string"/>
 </xs:extension>

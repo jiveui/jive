@@ -157,6 +157,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTableCellFactoryUIResourceSchemaType">
 <xs:complexContent>
 <xs:extension base="GeneralTableCellFactorySchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -166,6 +167,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTextCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JLabelSchemaType">
+<xs:extension base="TableCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -211,6 +213,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable3Imp1SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="Resizable3SchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -238,6 +241,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PoorTextCellSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ComponentSchemaType">
+<xs:extension base="TableCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -256,6 +260,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable2Imp1SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="Resizable2SchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -310,6 +315,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractTableCellSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="TableCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -328,6 +334,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="GeneralTableCellFactorySchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="TableCellFactorySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -337,6 +344,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="JTableHeaderSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
+<xs:extension base="TableColumnModelListenerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -355,6 +363,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="Resizable3Imp2SchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="Resizable3SchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -364,6 +373,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractTableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="TableModelSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -373,6 +383,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="DefaultTableColumnModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="TableColumnModelSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -382,6 +393,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="PropertyTableModelSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractTableModelSchemaType">
+<xs:extension base="org-aswing-event:ListDataListenerSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
