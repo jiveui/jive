@@ -4,7 +4,7 @@
 
 package org.aswing;
 
-	import org.aswing.plaf.basic.BasicToggleButtonUI;
+import org.aswing.plaf.basic.BasicToggleButtonUI;
 	
 
 /**
@@ -25,14 +25,17 @@ class JToggleButton extends AbstractButton
 		//updateUI();
 	}
 	
+    @:dox(hide)
     override public function updateUI():Void{
     	setUI(UIManager.getUI(this));
     }
-	
+
+    @:dox(hide)
     override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicToggleButtonUI;
     }
-	
+
+    @:dox(hide)
 	override public function getUIClassID():String{
 		return "ToggleButtonUI";
 	}
