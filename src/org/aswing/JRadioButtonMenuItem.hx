@@ -14,7 +14,8 @@ import org.aswing.plaf.basic.BasicRadioButtonMenuItemUI;
  * item in the group can be selected. The selected item displays its
  * selected state. Selecting it causes any other selected item to
  * switch to the unselected state.
- * To control the selected state of a group of radio button menu items,  
+ *
+ * To control the selected state of a group of radio button menu items,
  * use a <code>ButtonGroup</code> object.
  * @author paling
  */
@@ -26,11 +27,13 @@ class JRadioButtonMenuItem extends JMenuItem{
     	setModel(new ToggleButtonModel());
 	}
 
-	override public function getUIClassID():String{
+	@:dox(hide)
+    override public function getUIClassID():String{
 		return "RadioButtonMenuItemUI";
 	}
 	
-	override public function getDefaultBasicUIClass():Class<Dynamic>{
+	@:dox(hide)
+    override public function getDefaultBasicUIClass():Class<Dynamic>{
     	return org.aswing.plaf.basic.BasicRadioButtonMenuItemUI;
     }
 	

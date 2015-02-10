@@ -2459,7 +2459,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="JToggleButtonSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="groupName" type="xs:string"/>
 </xs:all>
+<xs:attribute name="groupName" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
