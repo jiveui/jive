@@ -48,9 +48,14 @@
             <param name="command" value="build"/>
             <param name="options" value="project.xml html5 -Dtest"/>
         </antcall>
-        <copy
-                file="${project.root.path}/tests/bin/html5/bin/snap.svg.js"
-                tofile="${project.root.path}/tests/resources/snap.svg.js"/>
+
+        <copy file="${project.root.path}/tests/bin/html5/bin/snap.svg.js"
+              tofile="${project.root.path}/tests/resources/snap.svg.js"/>
+
+        <copy todir="${project.root.path}/tests/resources/assets">
+            <fileset dir="${project.root.path}/tests/bin/html5/bin/assets"/>
+        </copy>
+
         <antcall target="munit">
             <param name="dir" value="${project.root.path}"/>
             <param name="command" value="test"/>
@@ -76,9 +81,14 @@
             <param name="command" value="build"/>
             <param name="options" value="project.xml html5 -Dtest"/>
         </antcall>
-        <copy
-                file="${project.root.path}/tests/bin/html5/bin/snap.svg.js"
+
+        <copy file="${project.root.path}/tests/bin/html5/bin/snap.svg.js"
                 tofile="${project.root.path}/tests/resources/snap.svg.js"/>
+
+        <copy todir="${project.root.path}/tests/resources/assets">
+            <fileset dir="${project.root.path}/tests/bin/html5/bin/assets"/>
+        </copy>
+
         <antcall target="munit">
             <param name="dir" value="${project.root.path}"/>
             <param name="command" value="test"/>

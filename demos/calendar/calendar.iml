@@ -27,6 +27,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jive" level="project" />
     <orderEntry type="library" name="bindx" level="project" />
+    <orderEntry type="library" name="actuate" level="project" />
   </component>
 </module>
-

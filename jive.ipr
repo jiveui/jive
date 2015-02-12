@@ -166,6 +166,15 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="actuate" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../actuate" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../actuate" />
+      </SOURCES>
+    </library>
     <library name="bindx" type="Haxe">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/../bindx/src" />

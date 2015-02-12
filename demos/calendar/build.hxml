@@ -1,6 +1,7 @@
 -lib jive
 -lib bindx
 -lib hml
+-lib actuate
 -cp src
 -swf bin/empty.swf
 --no-output

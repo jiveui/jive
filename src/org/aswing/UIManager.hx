@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import jive.plaf.flat.FlatLookAndFeel;
 import org.aswing.plaf.ComponentUI;
 import org.aswing.plaf.basic.BasicLookAndFeel;
 	
@@ -53,7 +54,7 @@ class UIManager
 	
 	private static function checkLookAndFeel():Void{
 		if(lookAndFeel == null){
-			setLookAndFeel(new BasicLookAndFeel());
+			setLookAndFeel(new FlatLookAndFeel());
 		}
 	}
 	

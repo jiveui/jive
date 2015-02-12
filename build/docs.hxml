@@ -4,6 +4,7 @@
 -xml ../docs/jive.xml
 -lib bindx
 -lib hml
+-lib actuate
 --macro allowPackage('flash')
 --macro "include('org.aswing')"
 --macro "include('jive')"

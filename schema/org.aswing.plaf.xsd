@@ -1,31 +1,35 @@
 <xs:schema targetNamespace="org.aswing.plaf" xmlns="org.aswing.plaf" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
-xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
-xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
-xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-tree="org.aswing.plaf.basic.tree"
+xmlns:org-aswing-table="org.aswing.table"
+xmlns:org-aswing-resizer="org.aswing.resizer"
+xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
+xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
-xmlns:org-aswing-table="org.aswing.table"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
-xmlns:org-aswing-resizer="org.aswing.resizer"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
-<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
-<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
-<xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
 <xs:complexType name="ColorSwatchesUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
@@ -83,6 +87,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
@@ -198,6 +203,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
@@ -279,6 +285,7 @@ xmlns:org-aswing-resizer="org.aswing.resizer"
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="ASFontUIResource" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
 <xs:element ref="org-aswing-tree:TreeFolderIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />

@@ -10,6 +10,7 @@
   "dependencies": {
     "hml": "",
     "bindx": "",
-    "hml-xsd-gen": ""
+    "hml-xsd-gen": "",
+    "actuate": ""
   }
 }

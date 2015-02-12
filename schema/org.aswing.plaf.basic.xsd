@@ -1,11 +1,13 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic" xmlns="org.aswing.plaf.basic" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
 xmlns:org-aswing-plaf="org.aswing.plaf"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="BasicAdjusterUISchemaTypeValue">
@@ -113,6 +115,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:choice>
 <xs:element ref="BasicRadioButtonUI" />
 <xs:element ref="BasicToggleButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="BasicCheckBoxUI" />
 <xs:element ref="BasicLabelButtonUI" />
 <xs:element ref="BasicButtonUI" />

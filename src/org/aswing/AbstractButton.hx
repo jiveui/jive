@@ -3,6 +3,10 @@
 */
 
 package org.aswing;
+import motion.easing.Linear;
+import motion.easing.Back;
+import org.aswing.BackgroundState;
+import motion.Actuate;
 import flash.filters.BitmapFilter;
 import flash.display.DisplayObjectContainer;
 import flash.display.DisplayObject; 
@@ -1237,6 +1241,7 @@ class AbstractButton extends Component{
 		if(isRollOverEnabled()) {
 			if(m.isPressed() || !e.buttonDown){
 				m.setRollOver(true);
+                doBackgroundTransition(BackgroundState.rollover);
 			}
 		}
 		if(m.isPressed()){
@@ -1251,17 +1256,22 @@ class AbstractButton extends Component{
 			}
 		}
 		m.setArmed(false);
+        doBackgroundTransition(if (m.isPressed()) BackgroundState.pressed else BackgroundState.normal);
 	}
 	private function __mouseDownListener(e:Event):Void {
 	 
 		getModel().setArmed(true);
 		getModel().setPressed(true);
-		
+        doBackgroundTransition(BackgroundState.pressed);
+
 	}
 	private function __mouseUpListener(e:Event):Void{
 		if(isRollOverEnabled()) {
 			getModel().setRollOver(true);
-		}
+            doBackgroundTransition(BackgroundState.rollover);
+		} else {
+            doBackgroundTransition(BackgroundState.normal);
+        }
 	} 
 	private function __mouseReleaseListener(e:Event):Void {
  
@@ -1270,6 +1280,12 @@ class AbstractButton extends Component{
 		if(isRollOverEnabled() && !hitTestMouse()){
 			getModel().setRollOver(false);
 		}
+
+        if(isRollOverEnabled() && hitTestMouse()){
+            doBackgroundTransition(BackgroundState.rollover);
+        } else {
+            doBackgroundTransition(BackgroundState.normal);
+        }
 	}
 	
 	private function __modelActionListener(e:AWEvent):Void{
@@ -1283,5 +1299,26 @@ class AbstractButton extends Component{
 	private function __modelSelectionListener(e:AWEvent):Void{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.SELECTION_CHANGED));
 	}
+
+
+    public var transitBackgroundFactor: Float = 0.0;
+    private function doBackgroundTransition(targetState: BackgroundState) {
+
+        var targetFactor = switch(targetState) {
+            case BackgroundState.normal: 0.0;
+            case BackgroundState.pressed: -1.0;
+            case BackgroundState.rollover: 1.0;
+        };
+
+        if (transitBackgroundFactor != targetFactor) {
+            Actuate.stop(this, "transitBackgroundFactor");
+            Actuate.tween(this, 0.25, { transitBackgroundFactor: targetFactor })
+                .ease(Linear.easeNone)
+                .onUpdate(function() {
+                    repaint();
+                })
+                .onComplete(function() { transitBackgroundFactor = targetFactor; });
+        }
+    }
 	
 }

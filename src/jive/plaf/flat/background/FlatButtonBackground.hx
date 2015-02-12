@@ -17,6 +17,8 @@ import flash.display.Shape;
 
 class FlatButtonBackground implements GroundDecorator implements UIResource{
 
+    private static var luminanceFactor: Float = 0.04;
+
     private var shape:Shape;
 
     public function new(){
@@ -36,9 +38,21 @@ class FlatButtonBackground implements GroundDecorator implements UIResource{
         var color:ASColor = c.getBackground();
 
         if(c.opaque){
-            var model:ButtonModel = b.model;
-            var isPressing:Bool= model.isArmed() || model.isSelected();
+            if (Math.abs(b.transitBackgroundFactor) < 1) {
+                // The Model State is already changed but
+                // the background color is still transiting from one state to another (e.g. Normal to RollOver)
+                var factor = b.transitBackgroundFactor * luminanceFactor;
+                color = color.offsetHLS(0,factor,0);
+            } else {
+                var model:ButtonModel = b.model;
+                var isPressing:Bool= model.isArmed() || model.isSelected();
 
+                if (isPressing) {
+                    color = color.offsetHLS(0, -luminanceFactor, 0);
+                } else if (b.model.isRollOver()) {
+                    color = color.offsetHLS(0, luminanceFactor, 0);
+                }
+            }
             g.fillRoundRect(new SolidBrush(color), bounds.x, bounds.y, bounds.width, bounds.height, b.styleTune.round);
         }
     }

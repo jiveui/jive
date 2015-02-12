@@ -16,7 +16,6 @@
 
     <haxelib name="openfl" />
     <haxelib name="jive"/>
-    <haxelib name="hml"/>
     <haxelib name="bindx"/>
 
     <template path="templates" />

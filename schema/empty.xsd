@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="empty" xmlns="empty" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:bindx="bindx"
+xmlns:motion-actuators="motion.actuators"
 xmlns:flash-ui="flash.ui"
 xmlns:org-aswing-event="org.aswing.event"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
@@ -18,15 +19,19 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
 xmlns:flash-system="flash.system"
 xmlns:flash-media="flash.media"
+xmlns:motion="motion"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 xmlns:org-aswing="org.aswing"
 xmlns:flash-text="flash.text"
+xmlns:motion-_Actuate="motion._Actuate"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:flash-net="flash.net"
 xmlns:org-aswing-error="org.aswing.error"
 xmlns:flash-utils="flash.utils"
 xmlns:flash-external="flash.external"
+xmlns:haxe-ds-_ObjectMap="haxe.ds._ObjectMap"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:org-aswing-dnd="org.aswing.dnd"
 xmlns:flash-filters="flash.filters"
 xmlns:org-aswing-plaf-basic-tree="org.aswing.plaf.basic.tree"
@@ -37,11 +42,13 @@ xmlns:flash-geom="flash.geom"
 xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
 xmlns:org-aswing-plaf="org.aswing.plaf"
 xmlns:flash-display="flash.display"
+xmlns:motion-easing="motion.easing"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:haxe="haxe"
 xmlns:org-aswing-graphics="org.aswing.graphics"
 xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-xml="flash.xml"
 xmlns:flash-events="flash.events"
@@ -49,6 +56,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 xmlns:flash-accessibility="flash.accessibility"
 >
 <xs:import namespace="bindx" schemaLocation="bindx.xsd" />
+<xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
@@ -67,15 +75,19 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
 <xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="motion" schemaLocation="motion.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
+<xs:import namespace="motion._Actuate" schemaLocation="motion._Actuate.xsd" />
 <xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
 <xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
 <xs:import namespace="flash.external" schemaLocation="flash.external.xsd" />
+<xs:import namespace="haxe.ds._ObjectMap" schemaLocation="haxe.ds._ObjectMap.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="org.aswing.dnd" schemaLocation="org.aswing.dnd.xsd" />
 <xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
@@ -86,11 +98,13 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
 <xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="motion.easing" schemaLocation="motion.easing.xsd" />
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
 <xs:import namespace="haxe" schemaLocation="haxe.xsd" />
 <xs:import namespace="org.aswing.graphics" schemaLocation="org.aswing.graphics.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.xml" schemaLocation="flash.xml.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
@@ -133,6 +147,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarBackground" />
 <xs:element ref="org-aswing:Decorator" />
 <xs:element ref="org-aswing-tree:TreePathMap" />
+<xs:element ref="motion-easing:LinearEaseNone" />
 <xs:element ref="org-aswing:DefaultComboBoxCellEditor" />
 <xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
 <xs:element ref="flash-display3D-textures:TextureBase" />
@@ -140,6 +155,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-display:Graphics" />
 <xs:element ref="org-aswing:JList" />
 <xs:element ref="org-aswing:JAccordion" />
+<xs:element ref="motion-actuators:PropertyPathDetails" />
 <xs:element ref="org-aswing:FocusManager" />
 <xs:element ref="haxe:EnumValueTools" />
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
@@ -170,9 +186,12 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-media:Camera" />
 <xs:element ref="flash-display:MovieClip" />
 <xs:element ref="org-aswing-plaf-basic:BasicProgressBarUI" />
+<xs:element ref="motion-easing:Expo" />
+<xs:element ref="motion-actuators:PropertyDetails" />
 <xs:element ref="org-aswing-plaf:EmptyLayoutUIResourse" />
 <xs:element ref="Type" />
 <xs:element ref="flash-xml:XML" />
+<xs:element ref="motion:LinearPath" />
 <xs:element ref="org-aswing-plaf-basic:BasicScrollBarUI" />
 <xs:element ref="flash-events:ErrorEvent" />
 <xs:element ref="flash-ui:ContextMenuBuiltInItems" />
@@ -219,8 +238,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
 <xs:element ref="org-aswing-colorchooser:ColorRectIcon" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
-<xs:element ref="org-aswing:DefaultComboBoxListCellFactory" />
 <xs:element ref="org-aswing-plaf:ComponentUI" />
+<xs:element ref="org-aswing:DefaultComboBoxListCellFactory" />
 <xs:element ref="org-aswing-tree:TreeCellEditor" />
 <xs:element ref="org-aswing-table-sorter:Row" />
 <xs:element ref="org-aswing:JMenuBar" />
@@ -232,6 +251,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="org-aswing:WeightBoxLayout" />
 <xs:element ref="flash-display:Shader" />
+<xs:element ref="motion:Actuate" />
+<xs:element ref="motion-easing:BackEaseIn" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
@@ -243,6 +264,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-tree:TreeSelectionModel" />
 <xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="org-aswing-tree:NodeDimensions" />
+<xs:element ref="motion-easing:ExpoEaseOut" />
 <xs:element ref="org-aswing:JButton" />
 <xs:element ref="flash-geom:PerspectiveProjection" />
 <xs:element ref="org-aswing:AbstractCellEditor" />
@@ -257,6 +279,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-geom:Rectangle" />
 <xs:element ref="org-aswing:StyleResult" />
 <xs:element ref="org-aswing-graphics:Pen" />
+<xs:element ref="motion-actuators:TransformActuator" />
 <xs:element ref="org-aswing-plaf-basic-cursor:H_ResizeCursor" />
 <xs:element ref="org-aswing:EditableComponent" />
 <xs:element ref="org-aswing-tree:RowMapper" />
@@ -276,20 +299,25 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-utils:IDataOutput" />
 <xs:element ref="org-aswing-util:List" />
 <xs:element ref="org-aswing-event:TableModelEvent" />
+<xs:element ref="motion:MotionPath" />
 <xs:element ref="org-aswing:VectorListModel" />
 <xs:element ref="org-aswing:Insets" />
+<xs:element ref="motion-_Actuate:TransformOptions" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-event:DragAndDropEvent" />
 <xs:element ref="org-aswing-event:CellEditorListener" />
 <xs:element ref="org-aswing-plaf-basic-background:InputBackground" />
 <xs:element ref="org-aswing:JPanel" />
 <xs:element ref="org-aswing:DefaultNumberTextFieldCellEditor" />
+<xs:element ref="motion-actuators:SimpleActuator" />
 <xs:element ref="org-aswing-border:SimpleTitledBorder" />
 <xs:element ref="org-aswing:JClosableTabbedPane" />
 <xs:element ref="org-aswing-ext:FormRow" />
 <xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
 <xs:element ref="org-aswing-tree:FixedHeightLayoutCache" />
 <xs:element ref="flash-display:Stage3D" />
+<xs:element ref="motion-_Actuate:TweenTimer" />
+<xs:element ref="motion:BezierPath" />
 <xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element ref="String" />
 <xs:element ref="haxe:EnumTools" />
@@ -324,6 +352,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:DefaultButtonModel" />
 <xs:element ref="flash-display3D:Program3D" />
 <xs:element ref="flash-events:KeyboardEvent" />
+<xs:element ref="motion-easing:Linear" />
+<xs:element ref="jive-plaf-flat:FlatLookAndFeel" />
 <xs:element ref="org-aswing:ListSelectionModel" />
 <xs:element ref="org-aswing-table:TableCellFactory" />
 <xs:element ref="flash-ui:MouseCursorData" />
@@ -353,6 +383,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:JLoadPane" />
 <xs:element ref="org-aswing:AssetIcon" />
 <xs:element ref="flash-display:Sprite" />
+<xs:element ref="motion-actuators:FilterActuator" />
 <xs:element ref="org-aswing-ext:DateGridLayout" />
 <xs:element ref="flash-text:StyleSheet" />
 <xs:element ref="org-aswing-geom:IntRectangle" />
@@ -374,6 +405,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-tree:GeneralTreeCellFactoryUIResource" />
 <xs:element ref="flash-display3D:VertexBuffer3D" />
 <xs:element ref="org-aswing-plaf-basic:BasicColorMixerUI" />
+<xs:element ref="motion-easing:IEasing" />
 <xs:element ref="org-aswing:DefaultListSelectionModel" />
 <xs:element ref="org-aswing-colorchooser:JColorMixer" />
 <xs:element ref="org-aswing-event:WindowEvent" />
@@ -381,6 +413,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-tree:DefaultTreeModel" />
 <xs:element ref="org-aswing-event:ExpandVetoException" />
 <xs:element ref="org-aswing:Border" />
+<xs:element ref="motion-_Actuate:EffectsOptions" />
 <xs:element ref="org-aswing-event:ToolTipEvent" />
 <xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
 <xs:element ref="flash-utils:Namespace" />
@@ -409,6 +442,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table-sorter:Directive" />
 <xs:element ref="org-aswing-border:SideLineBorder" />
 <xs:element ref="org-aswing-event:FocusKeyEvent" />
+<xs:element ref="motion-actuators:IGenericActuator" />
 <xs:element ref="org-aswing-plaf-basic-background:ButtonBackground" />
 <xs:element ref="org-aswing-resizer:DefaultResizer" />
 <xs:element ref="org-aswing:ListCell" />
@@ -422,17 +456,20 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicClosableTabbedPaneTab" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuItemArrowIcon" />
 <xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
+<xs:element ref="motion-easing:BackEaseOut" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
 <xs:element ref="flash-utils:RegExp" />
 <xs:element ref="org-aswing-table:Resizable2Imp1" />
+<xs:element ref="motion-easing:ExpoEaseInOut" />
 <xs:element ref="org-aswing:MultipleAssetIcon" />
 <xs:element ref="org-aswing-plaf:TableUI" />
 <xs:element ref="flash-utils:IDataOutput2" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:Tab" />
-<xs:element ref="org-aswing:AssetBackground" />
 <xs:element ref="org-aswing:LookAndFeel" />
+<xs:element ref="org-aswing:AssetBackground" />
 <xs:element ref="org-aswing:DefaultComboBoxEditor" />
 <xs:element ref="flash-media:Microphone" />
+<xs:element ref="motion-easing:Back" />
 <xs:element ref="org-aswing-colorchooser:ColorSelectionModel" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
 <xs:element ref="flash-net:NetConnection" />
@@ -478,6 +515,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:JProgressBar" />
 <xs:element ref="org-aswing-table:TableColumnModelEvent" />
 <xs:element ref="org-aswing:BorderLayout" />
+<xs:element ref="motion-actuators:GenericActuator" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing-plaf:MenuElementUI" />
 <xs:element ref="flash-events:TextEvent" />
@@ -504,11 +542,13 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table-sorter:TableSorter" />
 <xs:element ref="haxe:Log" />
 <xs:element ref="haxe-ds:IntMap" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="org-aswing:AbstractListModel" />
 <xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
 <xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
 <xs:element ref="org-aswing:EmptyLayout" />
 <xs:element ref="org-aswing-plaf-basic:BasicListUI" />
+<xs:element ref="haxe-ds-_ObjectMap:NativeValueIterator" />
 <xs:element ref="org-aswing:Cursor" />
 <xs:element ref="org-aswing-error:UnsupportedError" />
 <xs:element ref="org-aswing-plaf:SplitPaneUI" />
@@ -523,18 +563,21 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
 <xs:element ref="org-aswing:JOptionPane" />
 <xs:element ref="flash-events:UncaughtErrorEvents" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
 <xs:element ref="org-aswing-dnd:DragListener" />
 <xs:element ref="haxe-ds:ObjectMap" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="org-aswing-graphics:GradientBrush" />
 <xs:element ref="Reflect" />
 <xs:element ref="flash-net:NetStreamInfo" />
+<xs:element ref="motion-easing:ExpoEaseIn" />
 <xs:element ref="org-aswing:ButtonModel" />
 <xs:element ref="org-aswing-graphics:IPen" />
 <xs:element ref="flash-net:Responder" />
 <xs:element ref="org-aswing:DefaultListTextCellFactory" />
-<xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing-plaf:BaseComponentUI" />
+<xs:element ref="motion-actuators:MethodActuator" />
+<xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing-event:SelectionEvent" />
 <xs:element ref="org-aswing-plaf:SliderUI" />
 <xs:element ref="flash-media:AVCaptionStyle" />
@@ -560,6 +603,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-dnd:SourceData" />
 <xs:element ref="org-aswing-event:ContainerEvent" />
 <xs:element ref="org-aswing-event:AWEvent" />
+<xs:element ref="motion-actuators:MotionPathActuator" />
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="flash-display:Bitmap" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameCloseIcon" />
@@ -624,9 +668,11 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-border:BevelBorder" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
 <xs:element ref="org-aswing-plaf-basic:BasicLookAndFeel" />
+<xs:element ref="motion-easing:BackEaseInOut" />
 <xs:element ref="org-aswing-dnd:DefaultDragImage" />
 <xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
 <xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="motion:RotationPath" />
 <xs:element ref="org-aswing-table:TableCell" />
 <xs:element ref="flash-text:TextLineMetrics" />
 <xs:element ref="org-aswing:GeneralListCellFactory" />
@@ -637,6 +683,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:CellEditor" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="flash-events:FocusEvent" />
+<xs:element ref="motion:IComponentPath" />
 <xs:element ref="org-aswing-event:ListDataEvent" />
 <xs:element ref="org-aswing-table:Resizable3Imp2" />
 <xs:element ref="org-aswing-ext:Form" />
@@ -662,6 +709,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:TabInfo" />
 <xs:element ref="org-aswing-table:AbstractTableModel" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
+<xs:element ref="motion:ComponentPath" />
 <xs:element ref="org-aswing-plaf:UIResource" />
 <xs:element ref="org-aswing-plaf-basic:DefaultMenuLayout" />
 <xs:element ref="org-aswing-tree:TreeNode" />

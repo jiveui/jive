@@ -4,6 +4,7 @@ xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:flash-net="flash.net"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:empty="empty"
 xmlns:org-aswing-border="org.aswing.border"
 xmlns:org-aswing-table="org.aswing.table"
@@ -17,6 +18,7 @@ xmlns:flash-display="flash.display"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-events="flash.events"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
@@ -27,6 +29,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
@@ -40,6 +43,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
 <xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
@@ -104,6 +108,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
 <xs:element ref="org-aswing-tree:TreeFolderIcon" />
 <xs:element ref="org-aswing-colorchooser:PreviewColorIcon" />
@@ -216,6 +221,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:TabBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
 <xs:element ref="GradientBackground" />
 <xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
@@ -610,15 +616,16 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MultipleAssetIconSchemaTypeValue">
 <xs:all><xs:element ref="MultipleAssetIcon"/></xs:all></xs:complexType>
 
-<xs:complexType name="AssetBackgroundSchemaTypeValue">
-<xs:all><xs:element ref="AssetBackground"/></xs:all></xs:complexType>
-
 <xs:complexType name="LookAndFeelSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicLookAndFeel" />
+<xs:element ref="jive-plaf-flat:FlatLookAndFeel" />
 <xs:element ref="LookAndFeel" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="AssetBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="AssetBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="DefaultComboBoxEditorSchemaTypeValue">
 <xs:all><xs:element ref="DefaultComboBoxEditor"/></xs:all></xs:complexType>
@@ -1387,6 +1394,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="shiftOffsetSet" type="xs:boolean"/>
 <xs:element minOccurs="0" name="textFilters" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="selected" type="xs:boolean"/>
+<xs:element minOccurs="0" name="transitBackgroundFactor" type="xs:double"/>
 </xs:all>
 <xs:attribute name="model" type="xs:string"/>
 <xs:attribute name="text" type="xs:string"/>
@@ -1412,6 +1420,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="shiftOffsetSet" type="xs:boolean"/>
 <xs:attribute name="textFilters" type="xs:string"/>
 <xs:attribute name="selected" type="xs:boolean"/>
+<xs:attribute name="transitBackgroundFactor" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2298,6 +2307,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="LookAndFeelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="AssetBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -2305,15 +2323,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="asset" type="flash-display:DisplayObjectSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="asset" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="LookAndFeelSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -3387,8 +3396,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="KeyMap" type="KeyMapSchemaType"/>
 <xs:element name="AbstractTabbedPane" type="AbstractTabbedPaneSchemaType"/>
 <xs:element name="MultipleAssetIcon" type="MultipleAssetIconSchemaType"/>
-<xs:element name="AssetBackground" type="AssetBackgroundSchemaType"/>
 <xs:element name="LookAndFeel" type="LookAndFeelSchemaType"/>
+<xs:element name="AssetBackground" type="AssetBackgroundSchemaType"/>
 <xs:element name="DefaultComboBoxEditor" type="DefaultComboBoxEditorSchemaType"/>
 <xs:element name="DefaultCheckBoxCellEditor" type="DefaultCheckBoxCellEditorSchemaType"/>
 <xs:element name="SimpleButtonIcon" type="SimpleButtonIconSchemaType"/>
