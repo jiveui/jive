@@ -183,7 +183,6 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-tree:TreeCell" />
 <xs:element minOccurs="0" ref="org-aswing-ext:GridList" />
 <xs:element minOccurs="0" ref="flash-media:Camera" />
-<xs:element minOccurs="0" ref="empty:UInt" />
 <xs:element minOccurs="0" ref="flash-display:MovieClip" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicProgressBarUI" />
 <xs:element minOccurs="0" ref="motion-easing:Expo" />
@@ -256,7 +255,6 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing:JLabelButton" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
 <xs:element minOccurs="0" ref="org-aswing-table:DefaultTextCell" />
-<xs:element minOccurs="0" ref="empty:Bool" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:AdjusterUI" />
 <xs:element minOccurs="0" ref="org-aswing:EmptyIcon" />
 <xs:element minOccurs="0" ref="org-aswing:JWindow" />
@@ -554,7 +552,6 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-error:UnsupportedError" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:SplitPaneUI" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicSpacerUI" />
-<xs:element minOccurs="0" ref="empty:Int" />
 <xs:element minOccurs="0" ref="org-aswing:StyleTune" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:DefaultsDecoratorBase" />
 <xs:element minOccurs="0" ref="LinkedList" />
@@ -689,7 +686,6 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="motion:IComponentPath" />
 <xs:element minOccurs="0" ref="org-aswing-event:ListDataEvent" />
 <xs:element minOccurs="0" ref="org-aswing-table:Resizable3Imp2" />
-<xs:element minOccurs="0" ref="empty:Float" />
 <xs:element minOccurs="0" ref="org-aswing-ext:Form" />
 <xs:element minOccurs="0" ref="flash-accessibility:AccessibilityProperties" />
 <xs:element minOccurs="0" ref="flash-text:TextFormat" />
@@ -796,6 +792,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TimerSchemaType">
 <xs:complexContent>
 <xs:extension base="AbstractImpulserSchemaType">
+<xs:extension base="ImpulserSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="currentCount" type="xs:int"/>
 <xs:element minOccurs="0" name="running" type="xs:boolean"/>
@@ -818,6 +815,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AbstractImpulserSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:extension base="ImpulserSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -836,6 +834,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ArrayListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="ListSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -854,6 +853,7 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="LinkedListSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="ListSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

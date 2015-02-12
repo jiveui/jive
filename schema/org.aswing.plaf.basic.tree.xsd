@@ -14,6 +14,8 @@ xmlns:empty="empty"
 <xs:complexType name="BasicExpandControlSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
+<xs:extension base="ExpandControlSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

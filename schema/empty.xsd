@@ -110,14 +110,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
 <xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
-<xs:complexType name="UIntSchemaTypeValue">
-<xs:all><xs:element ref="UInt"/></xs:all></xs:complexType>
-
 <xs:complexType name="TypeSchemaTypeValue">
 <xs:all><xs:element ref="Type"/></xs:all></xs:complexType>
-
-<xs:complexType name="BoolSchemaTypeValue">
-<xs:all><xs:element ref="Bool"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaTypeValue">
 <xs:all><xs:element ref="ArrayAccess"/></xs:all></xs:complexType>
@@ -136,9 +130,6 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="haxe-ds:ObjectMap" />
 </xs:choice>
 </xs:complexType>
-
-<xs:complexType name="IntSchemaTypeValue">
-<xs:all><xs:element ref="Int"/></xs:all></xs:complexType>
 
 <xs:complexType name="RootObjectTypeSchemaTypeValue">
 <xs:choice>
@@ -765,9 +756,6 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringBufSchemaTypeValue">
 <xs:all><xs:element ref="StringBuf"/></xs:all></xs:complexType>
 
-<xs:complexType name="FloatSchemaTypeValue">
-<xs:all><xs:element ref="Float"/></xs:all></xs:complexType>
-
 <xs:complexType name="DateSchemaTypeValue">
 <xs:all><xs:element ref="Date"/></xs:all></xs:complexType>
 
@@ -777,11 +765,6 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="MathSchemaTypeValue">
 <xs:all><xs:element ref="Math"/></xs:all></xs:complexType>
 
-<xs:complexType name="UIntSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:complexType>
-
 <xs:complexType name="TypeSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
@@ -789,11 +772,6 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:all>
 </xs:extension>
 </xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="BoolSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
 </xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaType">
@@ -834,11 +812,6 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="IntSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:complexType>
-
 <xs:complexType name="RootObjectTypeSchemaType"><xs:attribute name="id" type="xs:int"/>
 </xs:complexType>
 <xs:complexType name="ReflectSchemaType">
@@ -870,11 +843,6 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="FloatSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:complexType>
-
 <xs:complexType name="DateSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
@@ -903,18 +871,14 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexType>
 
 
-<xs:element name="UInt" type="UIntSchemaType"/>
 <xs:element name="Type" type="TypeSchemaType"/>
-<xs:element name="Bool" type="BoolSchemaType"/>
 <xs:element name="ArrayAccess" type="ArrayAccessSchemaType"/>
 <xs:element name="String" type="StringSchemaType"/>
 <xs:element name="Std" type="StdSchemaType"/>
 <xs:element name="IMap" type="IMapSchemaType"/>
-<xs:element name="Int" type="IntSchemaType"/>
 <xs:element name="Reflect" type="ReflectSchemaType"/>
 <xs:element name="Array" type="ArraySchemaType"/>
 <xs:element name="StringBuf" type="StringBufSchemaType"/>
-<xs:element name="Float" type="FloatSchemaType"/>
 <xs:element name="Date" type="DateSchemaType"/>
 <xs:element name="StringTools" type="StringToolsSchemaType"/>
 <xs:element name="Math" type="MathSchemaType"/>
