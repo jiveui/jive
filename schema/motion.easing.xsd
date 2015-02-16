@@ -1,0 +1,164 @@
+<xs:schema targetNamespace="motion.easing" xmlns="motion.easing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="LinearEaseNoneSchemaTypeValue">
+<xs:all><xs:element ref="LinearEaseNone"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoSchemaTypeValue">
+<xs:all><xs:element ref="Expo"/></xs:all></xs:complexType>
+
+<xs:complexType name="BackEaseInSchemaTypeValue">
+<xs:all><xs:element ref="BackEaseIn"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="LinearSchemaTypeValue">
+<xs:all><xs:element ref="Linear"/></xs:all></xs:complexType>
+
+<xs:complexType name="IEasingSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BackEaseIn" />
+<xs:element ref="ExpoEaseOut" />
+<xs:element ref="ExpoEaseIn" />
+<xs:element ref="BackEaseInOut" />
+<xs:element ref="ExpoEaseInOut" />
+<xs:element ref="LinearEaseNone" />
+<xs:element ref="BackEaseOut" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BackEaseOutSchemaTypeValue">
+<xs:all><xs:element ref="BackEaseOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseInOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="BackSchemaTypeValue">
+<xs:all><xs:element ref="Back"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseIn"/></xs:all></xs:complexType>
+
+<xs:complexType name="BackEaseInOutSchemaTypeValue">
+<xs:all><xs:element ref="BackEaseInOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="LinearEaseNoneSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="s" type="xs:double"/>
+</xs:all>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LinearSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IEasingSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="s" type="xs:double"/>
+</xs:all>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BackEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="s" type="xs:double"/>
+</xs:all>
+<xs:attribute name="s" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="LinearEaseNone" type="LinearEaseNoneSchemaType"/>
+<xs:element name="Expo" type="ExpoSchemaType"/>
+<xs:element name="BackEaseIn" type="BackEaseInSchemaType"/>
+<xs:element name="ExpoEaseOut" type="ExpoEaseOutSchemaType"/>
+<xs:element name="Linear" type="LinearSchemaType"/>
+<xs:element name="IEasing" type="IEasingSchemaType"/>
+<xs:element name="BackEaseOut" type="BackEaseOutSchemaType"/>
+<xs:element name="ExpoEaseInOut" type="ExpoEaseInOutSchemaType"/>
+<xs:element name="Back" type="BackSchemaType"/>
+<xs:element name="ExpoEaseIn" type="ExpoEaseInSchemaType"/>
+<xs:element name="BackEaseInOut" type="BackEaseInOutSchemaType"/>
+</xs:schema>

@@ -41,7 +41,8 @@ class Buttons extends JPanel{
 		top.append(jbuttons);
 			
 		var tfs:JPanel = new JPanel();
-		var tf1:JTextField = new JTextField("Input Text", 10);
+		var tf1:JTextField = new JTextField(null, 10);
+        tf1.inlineHint = "Enter text";
 		var tf2:JTextField = new JTextField("Not-Editable", 12);
 		tf2.setEditable(false);
 		var tf3:JTextField = new JTextField("Disabled");

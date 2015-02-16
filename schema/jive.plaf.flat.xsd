@@ -1,0 +1,34 @@
+<xs:schema targetNamespace="jive.plaf.flat" xmlns="jive.plaf.flat" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:complexType name="FlatLookAndFeelSchemaTypeValue">
+<xs:all><xs:element ref="FlatLookAndFeel"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatButtonUISchemaTypeValue">
+<xs:all><xs:element ref="FlatButtonUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatLookAndFeelSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:LookAndFeelSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="FlatLookAndFeel" type="FlatLookAndFeelSchemaType"/>
+<xs:element name="FlatButtonUI" type="FlatButtonUISchemaType"/>
+</xs:schema>

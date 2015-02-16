@@ -4,6 +4,11 @@
 
 package org.aswing;
 
+import flash.events.Event;
+import org.aswing.geom.IntRectangle;
+import flash.text.TextFieldAutoSize;
+import flash.text.TextFieldType;
+import flash.text.TextField;
 import org.aswing.geom.IntDimension;
 import org.aswing.event.FocusKeyEvent;
 import org.aswing.AWKeyboard;
@@ -17,6 +22,8 @@ import org.aswing.plaf.basic.BasicTextFieldUI;
  */
 @:event("org.aswing.event.AWEvent.ACT", "Dispatched when the user input ENTER in the textfield")
 class JTextField extends JTextComponent{
+
+    private var hintTextField: TextField;
 
     /**
 	* A default value of `this.maxChars`
@@ -35,8 +42,17 @@ class JTextField extends JTextComponent{
     private function get_columns(): Int { return Math.floor(getColumns()); }
     private function set_columns(c: Int) { setColumns(c); return c; }
 
-	public function new(text:String="", columns:Int=0){
-		super(); 
+    /**
+    * A hint that is displayed inside text field when `text` is empty.
+    **/
+    public var inlineHint(get, set): String;
+    private function get_inlineHint(): String { return hintTextField.text; }
+    private function set_inlineHint(v: String): String { hintTextField.text = v; return v; }
+
+
+    public function new(text:String="", columns:Int=0) {
+		super();
+
 		setName("JTextField");
 		getTextField().multiline = false;
 		getTextField().text = text;
@@ -44,8 +60,19 @@ class JTextField extends JTextComponent{
 		setMaxChars(defaultMaxChars);
 		#end
 		this._columns = columns;
+
 		//addEventListener(FocusKeyEvent.FOCUS_KEY_DOWN, __onFocusKeyDown);
-		updateUI();
+
+        hintTextField = new TextField();
+        hintTextField.type = TextFieldType.DYNAMIC;
+        hintTextField.autoSize = TextFieldAutoSize.NONE;
+        hintTextField.background = false;
+        addChildAt(hintTextField, 0);
+
+        getTextField().addEventListener(Event.CHANGE, function(e) { updateHintTextField(); });
+        updateHintTextField();
+
+        updateUI();
 	}
 	
 	@:dox(hide)
@@ -161,5 +188,42 @@ class JTextField extends JTextComponent{
     public override function paintFocusRect(force:Bool=false) {
         FocusManager.getManager(stage).setTraversalEnabled(true);
         super.paintFocusRect(true);
+    }
+
+    override private function applyBoundsToText(b:IntRectangle):Void{
+        super.applyBoundsToText(b);
+        var t:TextField = hintTextField;
+        t.x = b.x;
+        t.y = b.y;
+        t.width = b.width;
+        t.height = b.height;
+    }
+
+    override public function setForeground(c:ASColor):Void{
+        super.setForeground(c);
+        if (getForeground() != null) {
+            var c = getForeground().offsetHLS(0, 0.4, 0);
+            hintTextField.textColor = c.getRGB();
+            hintTextField.alpha = c.getAlpha();
+        }
+    }
+
+    @:dox(hide)
+    override public function setFont(f:ASFont):Void {
+        #if (flash9 || cpp || html5)
+		super.setFont(f);
+        if (getFont() != null) {
+            getFont().apply(hintTextField);
+        }
+        #end
+    }
+
+    override public function setText(text:String):Void{
+        super.setText(text);
+        updateHintTextField();
+    }
+
+    private function updateHintTextField() {
+        hintTextField.visible = (null == text || text == "");
     }
 }
