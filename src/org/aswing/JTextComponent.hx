@@ -5,6 +5,10 @@
 package org.aswing;
 
 
+import motion.easing.Linear;
+import motion.Actuate;
+import org.aswing.event.FocusKeyEvent;
+import flash.events.FocusEvent;
 import flash.events.Event;
 import flash.events.TextEvent;
 import flash.display.InteractiveObject;
@@ -138,7 +142,18 @@ class JTextComponent extends Component  implements EditableComponent{
 		#if(flash9)
 		textField.addEventListener(TextEvent.TEXT_INPUT, __onTextComponentTextInput);
 		#end
+
+        addEventListener(FocusEvent.FOCUS_IN, function(e) { doFocusTransition(true); });
+        addEventListener(FocusEvent.FOCUS_OUT, function(e) { doFocusTransition(false); });
 	}
+
+    inline private function updateTextForeground() {
+        var color: ASColor = foreground;
+        if (!editable || !enabled) {
+            color = color.offsetHLS(0, 0.4, -0.5);
+        }
+        textField.textColor = color.rgb;
+    }
 
     @:dox(hide)
 	public function setDefaultTextFormat(dtf:TextFormat):Void{
@@ -181,9 +196,10 @@ class JTextComponent extends Component  implements EditableComponent{
 	
 	@:dox(hide)
     override public function setEnabled(b:Bool):Void{
-		super.setEnabled(b);
+        super.setEnabled(b);
 		getTextField().selectable = b;
 		getTextField().mouseEnabled = b;
+        updateTextForeground();
 	}
 	
 	@:dox(hide)
@@ -196,6 +212,7 @@ class JTextComponent extends Component  implements EditableComponent{
 			}else{
 				getTextField().type = TextFieldType.DYNAMIC;
 			}
+            updateTextForeground();
 			invalidate();
 			invalidateColumnRowSize();
 			repaint();
@@ -222,7 +239,7 @@ class JTextComponent extends Component  implements EditableComponent{
 	 */
     @:dox(hide)
 	override public function setFont(f:ASFont):Void {
-	#if (flash9 || cpp)
+	#if (flash9 || cpp || html5)
 		super.setFont(f);
 		setFontValidated(true);
 		if (getFont() != null) {
@@ -349,7 +366,7 @@ class JTextComponent extends Component  implements EditableComponent{
 		}
 		tf.autoSize = TextFieldAutoSize.LEFT;
 		var size:IntDimension = new IntDimension(Std.int(tf.textWidth), Std.int(tf.textHeight));
-		#if(flash9)
+		#if(flash9 || cpp || html5)
 		size = new IntDimension(Std.int(tf.width), Std.int(tf.height));
 		#end		
 		tf.autoSize = old;
@@ -365,7 +382,7 @@ class JTextComponent extends Component  implements EditableComponent{
 	}
 	
 	private function countColumnRowSize():Void{
-		var str:String= "mmmmm";
+		var str:String= "Mmmmm";
 		var tf:TextFormat = getFont().getTextFormat();
 		var textFieldSize:IntDimension = AsWingUtils.computeStringSizeWithFont(getFont(), str, true);
 		var textSize:IntDimension = AsWingUtils.computeStringSizeWithFont(getFont(), str, false);
@@ -555,4 +572,19 @@ class JTextComponent extends Component  implements EditableComponent{
 	}
 	#end
 
+    public var transitFocusFactor: Float = 0.0;
+    private function doFocusTransition(focused: Bool) {
+
+        var targetFactor = if (focused) 1.0 else 0.0;
+
+        if (transitFocusFactor != targetFactor) {
+            Actuate.stop(this, "transitFocusFactor");
+            Actuate.tween(this, 0.25, { transitFocusFactor: targetFactor })
+            .ease(Linear.easeNone)
+            .onUpdate(function() {
+                repaint();
+            })
+            .onComplete(function() { transitFocusFactor = targetFactor; });
+        }
+    }
 }

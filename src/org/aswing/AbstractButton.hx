@@ -1300,7 +1300,6 @@ class AbstractButton extends Component{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.SELECTION_CHANGED));
 	}
 
-
     public var transitBackgroundFactor: Float = 0.0;
     private function doBackgroundTransition(targetState: BackgroundState) {
 
@@ -1320,5 +1319,4 @@ class AbstractButton extends Component{
                 .onComplete(function() { transitBackgroundFactor = targetFactor; });
         }
     }
-	
 }

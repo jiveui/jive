@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import haxe.CallStack;
 import bindx.IBindable;
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
@@ -2514,7 +2515,7 @@ class Component extends AWSprite implements IBindable {
 		if (_ui != null) {
 			_ui.paint(this, g, b.clone());
 		}
-		//paintFocusRect();
+		paintFocusRect();
 		//paint border at last to make it at the top depth
 		if(_border != null){
 			// not that border is not painted in b, is painted in component's full size bounds
@@ -2992,6 +2993,10 @@ class Component extends AWSprite implements IBindable {
 	}
 	
 	private function __focusIn(e:FocusEvent):Void{
+//        trace(CallStack.toString(CallStack.callStack()));
+//        trace(e.target);
+//        trace(isFocusable());
+//        trace(getInternalFocusObject());
 		if(e.target == getInternalFocusObject() && isFocusable()){
 			var fm:FocusManager = FocusManager.getManager(stage);
 			if(fm == null){

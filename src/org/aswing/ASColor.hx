@@ -439,4 +439,11 @@ class ASColor{
 	public function clone():ASColor{
 		return new ASColor(getRGB(), getAlpha());
 	}
+
+    public static function getColorBetween(begin:ASColor, end:ASColor, distance: Float) {
+        return ASColor.getASColor(
+            Math.floor((end.getRed() - begin.getRed()) * distance + begin.getRed()),
+            Math.floor((end.getGreen() - begin.getGreen()) * distance + begin.getGreen()),
+            Math.floor((end.getBlue() - begin.getBlue()) * distance + begin.getBlue()));
+    }
 }

@@ -34,7 +34,7 @@ class Buttons extends JPanel{
 		var jbtn1:JButton = new JButton("JButton");
 		var jbtn2:JButton = new JButton("JButton Disabled");
 		jbtn2.setEnabled(false);
-		var jbtn3:JButton = new JButton("With Icon", new ColorDotIcon(20, ASColor.RED));
+		var jbtn3:JButton = new JButton("With Icon", new ColorDotIcon(15, ASColor.RED));
 		jbuttons.append(jbtn1);
 		jbuttons.append(jbtn2);
 		jbuttons.append(jbtn3);

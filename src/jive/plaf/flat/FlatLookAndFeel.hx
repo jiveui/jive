@@ -57,8 +57,9 @@ class FlatLookAndFeel extends LookAndFeel {
 	
 	private function initClassDefaults(table:UIDefaults):Void{
 		var uiDefaults:Array<Dynamic>= [
-               "ButtonUI", jive.plaf.flat.FlatButtonUI
-				// Basic ui is referenced in component class
+               "ButtonUI", jive.plaf.flat.FlatButtonUI,
+               "TextFieldUI",jive.plaf.flat.FlatTextFieldUI
+                // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
 			   /*"ButtonUI", org.aswing.plaf.basic.BasicButtonUI, 
@@ -98,7 +99,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	
 	private function initSystemColorDefaults(table:UIDefaults):Void{
         var defaultSystemColors:Array<Dynamic>= [
-            "turquise", 0x1abc9c,
+            "turquoise", 0x1abc9c,
             "emerald", 0x2ecc71,
             "peter-river", 0x3498db,
             "amethyst", 0x9b59b6,
@@ -106,7 +107,8 @@ class FlatLookAndFeel extends LookAndFeel {
             "clouds", 0xecf0f1,
             "silver", 0xbdc3c7,
             "concrete", 0x95a5a6,
-            "asbestos", 0x7f8c8d
+            "asbestos", 0x7f8c8d,
+            "midnight-blue", 0x7f8c8d
         ];
 
         for(i in 0...defaultSystemColors.length){
@@ -114,14 +116,15 @@ class FlatLookAndFeel extends LookAndFeel {
         }
 
 		defaultSystemColors = [
-			"window", table.get("amethyst"),  //window panel background color
+			"window", new ASColorUIResource(0xffffff),  //window panel background color
 			"windowText", table.get("wet-asphalt"), /* ??? */
 			"menu", table.get("wet-asphalt"), /* Background color for menus */
 			"menuText", table.get("clouds"), /* Text color for menus  */
 			"control", table.get("asbestos"), /* Default color for background in controls */
 			"controlMide", table.get("silver"), /* Default color for thumb in controls */
 			"controlText", new ASColorUIResource(0xffffff), /* Default color for text in controls */
-			"selectionForeground", table.get("wet-asphalt")
+			"selectionForeground", table.get("wet-asphalt"),
+            "focusForeground", table.get("turquoise")
 		];
 		
 		for(i in 0...defaultSystemColors.length){
@@ -134,10 +137,10 @@ class FlatLookAndFeel extends LookAndFeel {
 	
 	private function initSystemFontDefaults(table:UIDefaults):Void{
 		var defaultSystemFonts:Array<Dynamic>= [
-			"systemFont", new ASFontUIResource("assets/Lato-Bold.ttf", 14),
-			"menuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 14),
-			"controlFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16, false),
-			"windowFont", new ASFontUIResource("assets/Lato-Bold.ttf", 14, true)
+			"systemFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
+			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
+			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false),
+			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14, true)
 		];
 		table.putDefaults(defaultSystemFonts);
 	}
@@ -164,7 +167,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	}
 	
 	private function initComponentDefaults(table:UIDefaults):Void{
-		var buttonBG:ASColorUIResource = table.get("turquise");
+		var buttonBG:ASColorUIResource = table.get("turquoise");
 		var textBG:ASColorUIResource = table.get("clouds");
 
 		// *** Button
@@ -247,15 +250,15 @@ class FlatLookAndFeel extends LookAndFeel {
 		table.putDefaults(comDefaults);
 		// *** TextField
 		comDefaults = [
-			"TextField.background", textBG,
-			"TextField.foreground", table.get("controlText"), 
-			"TextField.mideground", new ASColorUIResource(0x89bb00), 
+			"TextField.background", table.get("window"),
+			"TextField.foreground", table.get("wet-asphalt"),
+			"TextField.mideground", table.get("concrete"),
 			"TextField.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.30, 3), 
 			"TextField.opaque", true, 
 			"TextField.focusable", true, 
-			"TextField.font", table.getFont("controlFont"),
-			"TextField.bg", org.aswing.plaf.basic.background.TextComponentBackBround,
-			"TextField.border", new EmptyBorderResource(null, new Insets(1, 3, 2, 3))
+			"TextField.font", table.getFont("systemFont"),
+			"TextField.bg", jive.plaf.flat.background.FlatTextComponentBackground,
+			"TextField.border", new EmptyBorderResource(null, new Insets(7, 15, 7, 15)) // empty space to make padding 8)
 		];
 		table.putDefaults(comDefaults);
 		// *** CheckBox
