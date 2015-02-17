@@ -318,18 +318,17 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** ProgressBar
 		comDefaults = [
-			"ProgressBar.background", new ASColorUIResource(0xb5b5b5, 0.3),
+			"ProgressBar.background", new ASColorUIResource(0xebedef),
 			"ProgressBar.foreground", table.get("windowText"), 
-			"ProgressBar.mideground", new ASColorUIResource(0xcef65f), 
-			"ProgressBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 4, new UIStyleTune(0.34, -0.4, 0.01, 0.50, 4)), 
+			"ProgressBar.mideground", table.get("turquoise"),
+			"ProgressBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 6, new UIStyleTune(0.34, -0.4, 0.01, 0.50, 6)),
 			"ProgressBar.opaque", true, 
 			"ProgressBar.focusable", false,	
-			"ProgressBar.barWidth", 11, //means the size of bar
+			"ProgressBar.barWidth", 12, //means the size of bar
 			"ProgressBar.font", new ASFontUIResource("Tahoma", 9), 
-			"ProgressBar.bg", org.aswing.plaf.basic.background.ProgressBarBackground, 
-			"ProgressBar.fg", org.aswing.plaf.basic.background.ProgressBarIcon, 
-			"ProgressBar.progressColor", new ASColorUIResource(0x3366CC), 
-			"ProgressBar.indeterminateDelay", 40
+			"ProgressBar.bg", jive.plaf.flat.background.FlatProgressBarBackground,
+			"ProgressBar.fg", jive.plaf.flat.background.FlatProgressBarIcon,
+			"ProgressBar.indeterminateDelay", 100
 		];
 		table.putDefaults(comDefaults);
 		

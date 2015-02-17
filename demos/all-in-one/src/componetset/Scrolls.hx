@@ -1,6 +1,8 @@
 package componetset;
 
-	import org.aswing.JProgressBar;
+import org.aswing.AsWingConstants;
+import org.aswing.JScrollBar;
+import org.aswing.JProgressBar;
 	import flash.display.Loader;
 	import flash.net.URLRequest;
 	import org.aswing.JSlider;
@@ -46,7 +48,14 @@ class Scrolls extends JPanel{
 		
 		var progress:JProgressBar = new JProgressBar();
 		progress.setIndeterminate(true);
+        progress.setPreferredWidth(250);
 		append(progress);
+
+        var progress1:JProgressBar = new JProgressBar();
+        progress1.setPreferredHeight(250);
+        progress1.setValue(33);
+        progress1.orientation = JScrollBar.VERTICAL;
+        append(progress1);
 	}
 	
 }
