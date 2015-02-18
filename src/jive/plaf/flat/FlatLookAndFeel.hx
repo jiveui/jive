@@ -264,12 +264,12 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** CheckBox
 		comDefaults = [
 			"CheckBox.background", new ASColorUIResource(0xe1e5e5), ////0xd0f8fb
-			"CheckBox.foreground", table.get("controlText"), 
+			"CheckBox.foreground", table.get("windowText"),
 			"CheckBox.mideground", new ASColorUIResource(0x39afff), 
 			"CheckBox.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 2, new UIStyleTune(0.5, -0.2, 0.5, 0.70)), 
 			"CheckBox.opaque", false, 
 			"CheckBox.focusable", true, 
-			"CheckBox.font", table.getFont("controlFont"),
+			"CheckBox.font", table.getFont("systemFont"),
 			"CheckBox.icon", org.aswing.plaf.basic.icon.CheckBoxIcon,
 			"CheckBox.margin", new InsetsUIResource(0, 0, 0, 0), 
 			"CheckBox.textShiftOffset", 0, 

@@ -13,7 +13,7 @@ package org.aswing;
  * By convention, any number of check boxes in a group can be selected.
  * @author paling
  */	
-class JCheckBox extends JToggleButton{
+class JCheckBox extends JToggleButton {
 /**
  * Add a new component CheckBox.
  */

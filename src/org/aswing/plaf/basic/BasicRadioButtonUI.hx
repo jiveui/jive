@@ -16,7 +16,7 @@ import org.aswing.Icon;
  * @author paling
  * @private
  */	
-class BasicRadioButtonUI extends BasicToggleButtonUI{
+class BasicRadioButtonUI extends BasicToggleButtonUI {
 	
 	private var defaultIcon:Icon;
 	

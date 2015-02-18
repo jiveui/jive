@@ -16,7 +16,7 @@ import org.aswing.geom.IntDimension;
  * @author paling
  * @private
  */	
-class BasicToggleButtonUI extends BasicButtonUI{
+class BasicToggleButtonUI extends BasicButtonUI {
 	
 	public function new(){
 		super();

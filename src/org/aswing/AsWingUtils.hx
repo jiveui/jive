@@ -694,15 +694,15 @@ class AsWingUtils{
     
 	private static var TEXT_FIELD_INTERNAL = null;
     private static function inter_computeStringSize(font:ASFont, str:String):IntDimension {
-        #if(cpp || js)
+        #if(cpp || html5)
         if (null == TEXT_FIELD_INTERNAL) {
             TEXT_FIELD_INTERNAL = new flash.text.TextField();
             TEXT_FIELD_INTERNAL.autoSize = TextFieldAutoSize.LEFT;
             TEXT_FIELD_INTERNAL.type = TextFieldType.DYNAMIC;
         }
 
-        TEXT_FIELD_INTERNAL.text = str;
         font.apply(TEXT_FIELD_INTERNAL);
+        TEXT_FIELD_INTERNAL.text = str;
         return new IntDimension(Math.ceil(TEXT_FIELD_INTERNAL.width), Math.ceil(TEXT_FIELD_INTERNAL.height));
         #else
 
@@ -719,13 +719,13 @@ class AsWingUtils{
     }
  
     private static function inter_computeStringWidth(font:ASFont, str:String):Float{
-    	TEXT_FIELD.text = str;
-		#if (flash9)
+		#if (flash9 || cpp || html5)
     	if(TEXT_FONT != font){
     		font.apply(TEXT_FIELD);
     		TEXT_FONT = font;
     	} 
 		 #end
+        TEXT_FIELD.text = str;
         return TEXT_FIELD.textWidth;
     }
     
@@ -762,13 +762,13 @@ class AsWingUtils{
     		TEXT_FIELD_EXT.thickness = textField.thickness;
     	}
 		#end
-        #if(flash9 || cpp)
+        #if(flash9 || cpp || html5)
         TEXT_FIELD_EXT.setTextFormat(tf);
         #end
     	TEXT_FIELD_EXT.text = str;
     	
     	if (includeGutters)	{ 
-		#if(flash9 || cpp)
+		#if(flash9 || cpp || html5)
 			return new IntDimension(Math.ceil(TEXT_FIELD_EXT.width), Math.ceil(TEXT_FIELD_EXT.height));
 		#end
     		return new IntDimension(Math.ceil(TEXT_FIELD_EXT.textWidth), Math.ceil(TEXT_FIELD_EXT.textHeight));
