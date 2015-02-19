@@ -39,5 +39,13 @@ class JToggleButton extends AbstractButton
 	override public function getUIClassID():String{
 		return "ToggleButtonUI";
 	}
+
+    override private function calculateTargetBackgroundTransitionFactor(): Float {
+        return
+            if (model.isPressed() || model.isSelected()) -1.0
+            else if (model.isRollOver()) 1.0
+            else 0.0;
+    }
+
 	
 }

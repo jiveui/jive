@@ -5,7 +5,6 @@
 package org.aswing;
 import motion.easing.Linear;
 import motion.easing.Back;
-import org.aswing.BackgroundState;
 import motion.Actuate;
 import flash.filters.BitmapFilter;
 import flash.display.DisplayObjectContainer;
@@ -397,6 +396,7 @@ class AbstractButton extends Component{
             revalidate();
             repaint();
         }
+        doBackgroundTransition(true);
     }
          
     /**
@@ -1241,13 +1241,13 @@ class AbstractButton extends Component{
 		if(isRollOverEnabled()) {
 			if(m.isPressed() || !e.buttonDown){
 				m.setRollOver(true);
-                doBackgroundTransition(BackgroundState.rollover);
 			}
 		}
 		if(m.isPressed()){
 			m.setArmed(true);
 		}
 	}
+
 	private function __rollOutListener(e:MouseEvent):Void{
 		var m:ButtonModel = getModel();
 		if(isRollOverEnabled()) {
@@ -1256,23 +1256,22 @@ class AbstractButton extends Component{
 			}
 		}
 		m.setArmed(false);
-        doBackgroundTransition(if (m.isPressed()) BackgroundState.pressed else BackgroundState.normal);
 	}
+
 	private function __mouseDownListener(e:Event):Void {
 	 
 		getModel().setArmed(true);
 		getModel().setPressed(true);
-        doBackgroundTransition(BackgroundState.pressed);
 
 	}
+
 	private function __mouseUpListener(e:Event):Void{
 		if(isRollOverEnabled()) {
 			getModel().setRollOver(true);
-            doBackgroundTransition(BackgroundState.rollover);
-		} else {
-            doBackgroundTransition(BackgroundState.normal);
-        }
-	} 
+		}
+
+    }
+
 	private function __mouseReleaseListener(e:Event):Void {
  
 		getModel().setPressed(false);
@@ -1280,40 +1279,45 @@ class AbstractButton extends Component{
 		if(isRollOverEnabled() && !hitTestMouse()){
 			getModel().setRollOver(false);
 		}
-
-        if(isRollOverEnabled() && hitTestMouse()){
-            doBackgroundTransition(BackgroundState.rollover);
-        } else {
-            doBackgroundTransition(BackgroundState.normal);
-        }
 	}
 	
 	private function __modelActionListener(e:AWEvent):Void{
 		dispatchEvent(new AWEvent(AWEvent.ACT));
-	}
+        doBackgroundTransition();
+    }
 	
 	private function __modelStateListener(e:AWEvent):Void{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED));
+        doBackgroundTransition();
 	}
 	
 	private function __modelSelectionListener(e:AWEvent):Void{
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.SELECTION_CHANGED));
+        doBackgroundTransition();
 	}
 
     public var transitBackgroundFactor: Float = 0.0;
-    private function doBackgroundTransition(targetState: BackgroundState) {
 
-        var targetFactor = switch(targetState) {
-            case BackgroundState.normal: 0.0;
-            case BackgroundState.pressed: -1.0;
-            case BackgroundState.rollover: 1.0;
-        };
+    private function calculateTargetBackgroundTransitionFactor(): Float {
+        return
+            if (model.isPressed()) -1.0
+            else if (model.isRollOver()) 1.0
+            else 0.0;
+    }
 
+    private function doBackgroundTransition(immediately:Bool = false) {
+
+        var targetFactor: Float = calculateTargetBackgroundTransitionFactor();
         if (transitBackgroundFactor != targetFactor) {
+            if (immediately) {
+                transitBackgroundFactor = targetFactor;
+                return;
+            }
             Actuate.stop(this, "transitBackgroundFactor");
             Actuate.tween(this, 0.25, { transitBackgroundFactor: targetFactor })
                 .ease(Linear.easeNone)
                 .onUpdate(function() {
+                    trace(transitBackgroundFactor);
                     repaint();
                 })
                 .onComplete(function() { transitBackgroundFactor = targetFactor; });

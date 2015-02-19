@@ -58,7 +58,8 @@ class FlatLookAndFeel extends LookAndFeel {
 	private function initClassDefaults(table:UIDefaults):Void{
 		var uiDefaults:Array<Dynamic>= [
                "ButtonUI", jive.plaf.flat.FlatButtonUI,
-               "TextFieldUI",jive.plaf.flat.FlatTextFieldUI
+               "TextFieldUI",jive.plaf.flat.FlatTextFieldUI,
+               "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -243,7 +244,7 @@ class FlatLookAndFeel extends LookAndFeel {
 			"RadioButton.focusable", true, 
 			"RadioButton.font", table.getFont("controlFont"),
 			"RadioButton.icon", org.aswing.plaf.basic.icon.RadioButtonIcon,
-			"RadioButton.margin", new InsetsUIResource(0, 0, 0, 0), 
+			"RadioButton.margin", new InsetsUIResource(0, 0, 0, 0),
 			"RadioButton.textShiftOffset", 0, 
 			"RadioButton.textFilters", []
 		];
@@ -263,17 +264,19 @@ class FlatLookAndFeel extends LookAndFeel {
 		table.putDefaults(comDefaults);
 		// *** CheckBox
 		comDefaults = [
-			"CheckBox.background", new ASColorUIResource(0xe1e5e5), ////0xd0f8fb
+			"CheckBox.background", table.get("silver"),
 			"CheckBox.foreground", table.get("windowText"),
-			"CheckBox.mideground", new ASColorUIResource(0x39afff), 
-			"CheckBox.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 2, new UIStyleTune(0.5, -0.2, 0.5, 0.70)), 
+			"CheckBox.mideground", table.get("turquoise"),
+            "CheckBox.tickColor", new ASColorUIResource(0xffffff),
+			"CheckBox.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 5, new UIStyleTune(0.5, -0.2, 0.5, 0.70)),
 			"CheckBox.opaque", false, 
 			"CheckBox.focusable", true, 
 			"CheckBox.font", table.getFont("systemFont"),
-			"CheckBox.icon", org.aswing.plaf.basic.icon.CheckBoxIcon,
+			"CheckBox.icon", jive.plaf.flat.icon.FlatCheckBoxIcon,
 			"CheckBox.margin", new InsetsUIResource(0, 0, 0, 0), 
-			"CheckBox.textShiftOffset", 0, 
-			"CheckBox.textFilters", []
+			"CheckBox.textShiftOffset", 0,
+            "CheckBox.textGap", 10,
+            "CheckBox.textFilters", []
 		];
 		table.putDefaults(comDefaults);
 				
