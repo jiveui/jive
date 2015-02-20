@@ -5,6 +5,7 @@
 package jive.plaf.flat.icon;
 
 
+import org.aswing.JRadioButton;
 import org.aswing.JCheckBox;
 import org.aswing.AsWingUtils;
 import flash.display.DisplayObject;
@@ -28,7 +29,7 @@ import org.aswing.plaf.UIResource;
 import org.aswing.plaf.basic.BasicGraphicsUtils;
 import org.aswing.graphics.GradientBrush;
 
-class FlatCheckBoxIcon implements Icon implements UIResource{
+class FlatRadioButtonIcon implements Icon implements UIResource {
 	
 	private var sprite:Sprite;
 	private var box:Sprite;
@@ -45,7 +46,7 @@ class FlatCheckBoxIcon implements Icon implements UIResource{
 	}
 		
 	public function updateIcon(c:Component, g:Graphics2D, x:Int, y:Int):Void{
-		var b:JCheckBox = AsWingUtils.as(c,JCheckBox);
+		var b:JRadioButton = AsWingUtils.as(c,JRadioButton);
 		var model:ButtonModel = b.getModel();
 
 		box.graphics.clear();
@@ -65,21 +66,15 @@ class FlatCheckBoxIcon implements Icon implements UIResource{
       		cl = cl.offsetHLS(0, 0.1, -0.4);
     	}
 
-        g.fillRoundRect(new SolidBrush(cl), x, y, w, h, b.styleTune.round);
+        g.fillCircle(new SolidBrush(cl), w/2, h/2, w*10/20);
+        g.fillCircle(new SolidBrush(new ASColor(0xffffff)), w/2, h/2, w*6/20);
 
         // Draw dot
 		dot.graphics.clear();
 
         if(drawDot) {
 			g = new Graphics2D(dot.graphics);
-			cl = b.tickColor;
-
-			g.beginDraw(new Pen(cl, 1.6));
-			g.moveTo(x + w*5/20, y + h/2);
-			g.lineTo(x + w*9/20, y + h*14/20);
-			g.lineTo(x + w*15/20, y + h*7/20);
-			g.endDraw();
-		 	
+            g.fillCircle(new SolidBrush(cl), w/2, h/2, w*3/20);
 		}
 
 		dot.visible = drawDot;

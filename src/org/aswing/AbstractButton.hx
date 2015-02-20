@@ -3,6 +3,7 @@
 */
 
 package org.aswing;
+import haxe.CallStack;
 import motion.easing.Linear;
 import motion.easing.Back;
 import motion.Actuate;
@@ -298,6 +299,11 @@ class AbstractButton extends Component{
     private var _iconTextGap: Int;
     private function get_iconTextGap(): Int { return getIconTextGap(); }
     private function set_iconTextGap(v: Int): Int { setIconTextGap(v); return v; }
+
+    /**
+    * True if iconTextGap is set by user.
+    **/
+    public var iconTextGapSet: Bool = false;
 
     /**
      * The shift offset of the content when mouse press.
@@ -1317,7 +1323,6 @@ class AbstractButton extends Component{
             Actuate.tween(this, 0.25, { transitBackgroundFactor: targetFactor })
                 .ease(Linear.easeNone)
                 .onUpdate(function() {
-                    trace(transitBackgroundFactor);
                     repaint();
                 })
                 .onComplete(function() { transitBackgroundFactor = targetFactor; });

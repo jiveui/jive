@@ -59,7 +59,8 @@ class FlatLookAndFeel extends LookAndFeel {
 		var uiDefaults:Array<Dynamic>= [
                "ButtonUI", jive.plaf.flat.FlatButtonUI,
                "TextFieldUI",jive.plaf.flat.FlatTextFieldUI,
-               "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI
+               "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI,
+               "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -236,16 +237,17 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** RadioButton
 		comDefaults = [
-			"RadioButton.background", new ASColorUIResource(0xe1e5e5),
-			"RadioButton.foreground", table.get("controlText"), 
-			"RadioButton.mideground", new ASColorUIResource(0x39afff), 
+			"RadioButton.background", table.get("silver"),
+			"RadioButton.foreground", table.get("wet-asphalt"),
+			"RadioButton.mideground", table.get("turquoise"),
 			"RadioButton.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 0, new UIStyleTune(0.4, 0.1, 0.1, 0.00)), 
 			"RadioButton.opaque", false, 
 			"RadioButton.focusable", true, 
-			"RadioButton.font", table.getFont("controlFont"),
-			"RadioButton.icon", org.aswing.plaf.basic.icon.RadioButtonIcon,
+			"RadioButton.font", table.getFont("systemFont"),
+			"RadioButton.icon", jive.plaf.flat.icon.FlatRadioButtonIcon,
 			"RadioButton.margin", new InsetsUIResource(0, 0, 0, 0),
-			"RadioButton.textShiftOffset", 0, 
+			"RadioButton.textShiftOffset", 0,
+            "RadioButton.textGap", 10,
 			"RadioButton.textFilters", []
 		];
 		table.putDefaults(comDefaults);

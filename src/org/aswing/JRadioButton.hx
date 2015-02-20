@@ -24,7 +24,7 @@ import org.aswing.plaf.basic.BasicRadioButtonUI;
  * </blockquote>
  * @author paling
  */	
-class JRadioButton extends JToggleButton{
+class JRadioButton extends JToggleButton {
 	
     private static var groups: StringMap<ButtonGroup> = new StringMap<ButtonGroup>();
 

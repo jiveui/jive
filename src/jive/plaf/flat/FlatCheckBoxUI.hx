@@ -5,7 +5,7 @@ import org.aswing.JCheckBox;
 import org.aswing.AbstractButton;
 import org.aswing.plaf.basic.BasicRadioButtonUI;
 
-class FlatCheckBoxUI extends BasicRadioButtonUI {
+class FlatCheckBoxUI extends FlatRadioButtonUI {
 
 	public function new() {
 		super();
@@ -20,6 +20,5 @@ class FlatCheckBoxUI extends BasicRadioButtonUI {
         var checkBox: JCheckBox = AsWingUtils.as(b, JCheckBox);
         if (null == checkBox) return;
         checkBox.tickColor = getColor(getPropertyPrefix() + "tickColor");
-        checkBox.iconTextGap = getInt(getPropertyPrefix() + "textGap");
     }
 }

@@ -77,7 +77,7 @@ class BasicButtonUI extends BaseComponentUI{
         if(Std.is(b.getTextFilters() , UIResource)){
         	b.setTextFilters(getInstance(pp + "textFilters"));
         }
- 	}
+    }
 	
     override public function refreshStyleProperties():Void{
     	installDefaults(button);
@@ -187,6 +187,8 @@ class BasicButtonUI extends BaseComponentUI{
             b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
             viewRect, iconRect, textRect, 
 	    	b.getDisplayText() == null ? 0 : b.getIconTextGap());
+
+        trace(b.getIconTextGap());
 
     	paintIcon(b, g, iconRect);
     	
