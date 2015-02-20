@@ -216,21 +216,20 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Panel.font", table.getFont("windowFont")
 		];
 		table.putDefaults(comDefaults);
-		f= new Array<BitmapFilter>();
-		f.push(new  DropShadowFilter(1, 45, 0, 0.3, 1, 1, 1, 1));
+
 		// *** ToggleButton
 		comDefaults = [
 			"ToggleButton.background", buttonBG,
-			"ToggleButton.foreground", new ASColorUIResource(0xFFFFFE), 
+			"ToggleButton.foreground", table.get("clouds"),
 			"ToggleButton.mideground", table.get("controlMide"), 
 			"ToggleButton.colorAdjust", new UIStyleTune(0.18, -0.02, 0.34, 0.22, 5), 
 			"ToggleButton.opaque", true, 
 			"ToggleButton.focusable", true, 
 			"ToggleButton.font", table.getFont("controlFont"),
-			"ToggleButton.bg", org.aswing.plaf.basic.background.ToggleButtonBackground,
-			"ToggleButton.margin", new InsetsUIResource(2, 3, 5, 3), 
-			"ToggleButton.textShiftOffset", 1 
-			,"ToggleButton.textFilters", f
+			"ToggleButton.bg", jive.plaf.flat.background.FlatButtonBackground,
+			"ToggleButton.margin", new InsetsUIResource(7, 15, 7, 15),
+			"ToggleButton.textShiftOffset", 1,
+            "ToggleButton.textFilters", null
 			 
 		];
 		table.putDefaults(comDefaults);
