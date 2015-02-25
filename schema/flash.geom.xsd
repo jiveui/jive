@@ -57,7 +57,7 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="alphaOffset" type="xs:double"/>
 <xs:element minOccurs="0" name="blueMultiplier" type="xs:double"/>
 <xs:element minOccurs="0" name="blueOffset" type="xs:double"/>
-<xs:element minOccurs="0" name="color" type="xs:string"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
 <xs:element minOccurs="0" name="greenMultiplier" type="xs:double"/>
 <xs:element minOccurs="0" name="greenOffset" type="xs:double"/>
 <xs:element minOccurs="0" name="redMultiplier" type="xs:double"/>
@@ -67,7 +67,7 @@ xmlns:empty="empty"
 <xs:attribute name="alphaOffset" type="xs:double"/>
 <xs:attribute name="blueMultiplier" type="xs:double"/>
 <xs:attribute name="blueOffset" type="xs:double"/>
-<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="color" type="xs:int"/>
 <xs:attribute name="greenMultiplier" type="xs:double"/>
 <xs:attribute name="greenOffset" type="xs:double"/>
 <xs:attribute name="redMultiplier" type="xs:double"/>

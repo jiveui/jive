@@ -60,7 +60,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "ButtonUI", jive.plaf.flat.FlatButtonUI,
                "TextFieldUI",jive.plaf.flat.FlatTextFieldUI,
                "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI,
-               "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI
+               "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI,
+               "MenuUI", jive.plaf.flat.FlatMenuUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -125,14 +126,14 @@ class FlatLookAndFeel extends LookAndFeel {
 			"control", table.get("asbestos"), /* Default color for background in controls */
 			"controlMide", table.get("silver"), /* Default color for thumb in controls */
 			"controlText", new ASColorUIResource(0xffffff), /* Default color for text in controls */
-			"selectionForeground", table.get("wet-asphalt"),
+			"selectionForeground", new ASColorUIResource(0xffffff),
             "focusForeground", table.get("turquoise")
 		];
 		
 		for(i in 0...defaultSystemColors.length){
 			table.set(defaultSystemColors[i], defaultSystemColors[i+1]);
 		}
-		table.set("selectionBackground", new ASColorUIResource(0x93b858, 0.9));
+		table.set("selectionBackground", table.get("turquoise"));
 		table.set("focusInner", new ASColorUIResource(0x40FF40, 0.3));
 		table.set("focusOutter", new ASColorUIResource(0x40FF40, 0.4));
 	}
@@ -141,6 +142,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		var defaultSystemFonts:Array<Dynamic>= [
 			"systemFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
 			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
+            "topMenuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16),
 			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false),
 			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14, true)
 		];
@@ -183,7 +185,8 @@ class FlatLookAndFeel extends LookAndFeel {
             "Button.colorAdjust", new UIStyleTune(0.18, -0.02, 0.34, 0.22, 5),
             "Button.margin", new InsetsUIResource(7, 15, 7, 15),
 			"Button.textShiftOffset", 0,
-            "Button.textFilters", null
+            "Button.textFilters", null,
+            "Button.textGap", 5
 			 
 		];
 		table.putDefaults(comDefaults);
@@ -229,9 +232,9 @@ class FlatLookAndFeel extends LookAndFeel {
 			"ToggleButton.bg", jive.plaf.flat.background.FlatButtonBackground,
 			"ToggleButton.margin", new InsetsUIResource(7, 15, 7, 15),
 			"ToggleButton.textShiftOffset", 1,
-            "ToggleButton.textFilters", null
-			 
-		];
+            "ToggleButton.textFilters", null,
+            "ToggleButton.textGap", 5
+        ];
 		table.putDefaults(comDefaults);
 		
 		// *** RadioButton
@@ -703,7 +706,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		    "MenuItem.background", table.get("menu"),
 		    "MenuItem.foreground", table.get("menuText"), 
 			"MenuItem.mideground", table.get("controlMide"), 
-			"MenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 2), 
+			"MenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 5),
 	    	"MenuItem.opaque", false, 
 	    	"MenuItem.focusable", false, 
 	        "MenuItem.font", table.getFont("menuFont"),
@@ -716,7 +719,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	    	"MenuItem.border", null,
 	    	"MenuItem.arrowIcon", org.aswing.plaf.basic.icon.MenuItemArrowIcon,
 	    	"MenuItem.checkIcon", org.aswing.plaf.basic.icon.MenuItemCheckIcon,
-			"MenuItem.margin", new InsetsUIResource(0, 0, 0, 0)
+			"MenuItem.margin", new InsetsUIResource(7, 15, 7, 15)
 	    ];
 	    table.putDefaults(comDefaults);
 	    
@@ -725,7 +728,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		    "CheckBoxMenuItem.background", table.get("menu"),
 		    "CheckBoxMenuItem.foreground", table.get("menuText"), 
 			"CheckBoxMenuItem.mideground", new ASColorUIResource(0x5d5d5d), 
-			"CheckBoxMenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 2), 
+			"CheckBoxMenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 5),
 	    	"CheckBoxMenuItem.opaque", false,  
 	    	"CheckBoxMenuItem.focusable", false,
 	        "CheckBoxMenuItem.font", table.getFont("menuFont"),
@@ -738,7 +741,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	    	"CheckBoxMenuItem.border", null,
 	    	"CheckBoxMenuItem.arrowIcon", org.aswing.plaf.basic.icon.MenuItemArrowIcon,
 	    	"CheckBoxMenuItem.checkIcon", org.aswing.plaf.basic.icon.CheckBoxMenuItemCheckIcon,
-			"CheckBoxMenuItem.margin", new InsetsUIResource(0, 0, 0, 0)
+			"CheckBoxMenuItem.margin", new InsetsUIResource(7, 15, 7, 15)
 	    ];
 	    table.putDefaults(comDefaults);
 	    
@@ -747,7 +750,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		    "RadioButtonMenuItem.background", table.get("menu"),
 		    "RadioButtonMenuItem.foreground", table.get("menuText"), 
 			"RadioButtonMenuItem.mideground", new ASColorUIResource(0x5d5d5d), 
-			"RadioButtonMenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 2), 
+			"RadioButtonMenuItem.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 5),
 	    	"RadioButtonMenuItem.opaque", false,  
 	    	"RadioButtonMenuItem.focusable", false,
 	        "RadioButtonMenuItem.font", table.getFont("menuFont"),
@@ -760,7 +763,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	    	"RadioButtonMenuItem.border", null,
 	    	"RadioButtonMenuItem.arrowIcon", org.aswing.plaf.basic.icon.MenuItemArrowIcon,
 	    	"RadioButtonMenuItem.checkIcon", org.aswing.plaf.basic.icon.RadioButtonMenuItemCheckIcon,
-			"RadioButtonMenuItem.margin", new InsetsUIResource(0, 0, 0, 0)
+			"RadioButtonMenuItem.margin", new InsetsUIResource(7, 15, 7, 15)
 	    ];
 	    table.putDefaults(comDefaults);
 	    
@@ -769,39 +772,41 @@ class FlatLookAndFeel extends LookAndFeel {
 		    "Menu.background", table.get("menu"),
 		    "Menu.foreground", table.get("menuText"), 
 			"Menu.mideground", new ASColorUIResource(0x5d5d5d), 
-			"Menu.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 2), 
+			"Menu.colorAdjust", new UIStyleTune(0.0, 0.0, 0.0, 0.0, 5),
 	    	"Menu.opaque", false, 
 	    	"Menu.focusable", false, 
-	        "Menu.font", table.getFont("menuFont"), 
-		    "Menu.selectionBackground", table.get("selectionBackground"), 
-		    "Menu.selectionForeground", table.get("selectionForeground"), 
+	        "Menu.font", table.getFont("menuFont"),
+            "Menu.topMenuFont", table.getFont("topMenuFont"),
+		    "Menu.selectionBackground", table.get("turquoise"),
+		    "Menu.selectionForeground", table.get("menuText"),
 		    "Menu.disabledForeground", new ASColorUIResource(0x888888), 
 		    "Menu.acceleratorFont", table.getFont("menuFont"), 
 		    "Menu.acceleratorForeground", table.get("menuText"), 
 		    "Menu.acceleratorSelectionForeground", table.get("menu"), 
 	    	"Menu.border", null, 
-	    	"Menu.arrowIcon", org.aswing.plaf.basic.icon.MenuArrowIcon, 
+	    	"Menu.arrowIcon", jive.plaf.flat.icon.FlatMenuArrowIcon,
 	    	"Menu.checkIcon", org.aswing.plaf.basic.icon.MenuCheckIcon, 
-			"Menu.margin", new InsetsUIResource(0, 0, 0, 0), 
+			"Menu.margin", new InsetsUIResource(7, 15, 7, 15),
 			"Menu.useMenuBarBackgroundForTopLevel", true, 
 			"Menu.menuPopupOffsetX", 0, 
-			"Menu.menuPopupOffsetY", 0, 
-			"Menu.submenuPopupOffsetX", -4, 
-			"Menu.submenuPopupOffsetY", 0
+			"Menu.menuPopupOffsetY", 5,
+			"Menu.submenuPopupOffsetX", 3,
+			"Menu.submenuPopupOffsetY", 0,
+            "Menu.textGap", 10
 	    ];
 	    table.putDefaults(comDefaults);
 	    
 	     // *** PopupMenu
 	    comDefaults = [
-		    "PopupMenu.background", new ASColorUIResource(0xf0f0f0, 0.95),
+		    "PopupMenu.background", table.get("menu"),
 		    "PopupMenu.foreground", table.get("menuText"), 
 			"PopupMenu.mideground", table.get("controlMide"), 
-			"PopupMenu.colorAdjust", new UIStyleTune(0.14, -0.14, 0.06, 0.20, 0), 
+			"PopupMenu.colorAdjust", new UIStyleTune(0.14, -0.14, 0.06, 0.20, 5),
 	    	"PopupMenu.opaque", true, 
 	    	"PopupMenu.focusable", false, 
 	        "PopupMenu.font", table.getFont("menuFont"),
 	        "PopupMenu.borderColor", table.get("controlDkShadow"),
-	    	"PopupMenu.border", org.aswing.plaf.basic.border.PopupMenuBorder
+	    	"PopupMenu.border", jive.plaf.flat.border.FlatPopupMenuBorder
 	    ];
 	    table.putDefaults(comDefaults);
 	    
@@ -809,11 +814,11 @@ class FlatLookAndFeel extends LookAndFeel {
 	    comDefaults = [
 		    "MenuBar.background", table.get("menu"), 
 		    "MenuBar.foreground", table.get("menuText"), 
-			"MenuBar.mideground", table.get("controlMide"), 
-			"MenuBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20), 
-	    	"MenuBar.opaque", false, 
+			"MenuBar.mideground", table.get("turquoise"),
+			"MenuBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20, 5),
+	    	"MenuBar.opaque", true,
 	    	"MenuBar.focusable", true, 
-	        "MenuBar.font", table.getFont("menuFont"), 
+	        "MenuBar.font", table.getFont("menuFont"),
 	    	"MenuBar.border", null];
 	    table.putDefaults(comDefaults);
 	}

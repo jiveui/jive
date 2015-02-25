@@ -4,11 +4,61 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:complexType name="FlatMenuUISchemaTypeValue">
+<xs:all><xs:element ref="FlatMenuUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatRadioButtonUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="FlatCheckBoxUI" />
+<xs:element ref="FlatRadioButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FlatTextFieldUISchemaTypeValue">
+<xs:all><xs:element ref="FlatTextFieldUI"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatLookAndFeelSchemaTypeValue">
 <xs:all><xs:element ref="FlatLookAndFeel"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatButtonUISchemaTypeValue">
 <xs:all><xs:element ref="FlatButtonUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTextComponentUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="FlatTextFieldUI" />
+<xs:element ref="FlatTextComponentUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FlatCheckBoxUISchemaTypeValue">
+<xs:all><xs:element ref="FlatCheckBoxUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatMenuUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicMenuUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatRadioButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicToggleButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTextFieldUISchemaType">
+<xs:complexContent>
+<xs:extension base="FlatTextComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="FlatLookAndFeelSchemaType">
 <xs:complexContent>
@@ -28,7 +78,30 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatTextComponentUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicTextComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
+<xs:complexType name="FlatCheckBoxUISchemaType">
+<xs:complexContent>
+<xs:extension base="FlatRadioButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="FlatMenuUI" type="FlatMenuUISchemaType"/>
+<xs:element name="FlatRadioButtonUI" type="FlatRadioButtonUISchemaType"/>
+<xs:element name="FlatTextFieldUI" type="FlatTextFieldUISchemaType"/>
 <xs:element name="FlatLookAndFeel" type="FlatLookAndFeelSchemaType"/>
 <xs:element name="FlatButtonUI" type="FlatButtonUISchemaType"/>
+<xs:element name="FlatTextComponentUI" type="FlatTextComponentUISchemaType"/>
+<xs:element name="FlatCheckBoxUI" type="FlatCheckBoxUISchemaType"/>
 </xs:schema>

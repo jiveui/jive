@@ -385,8 +385,15 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 		background:ASColor, foreground:ASColor, textIconGap:Int):Void{
 		
 		var model:ButtonModel = b.getModel();
-		resetRects();
-		viewRect.setRect( r );
+
+        var bgRect = r;
+        var insets:Insets = b.getMargin();
+        if(insets != null){
+            r = insets.getInsideBounds(r);
+        }
+
+        resetRects();
+		viewRect.setRect(r);
 
 		var font:ASFont = b.getFont();
 
@@ -408,7 +415,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 		);
 		 
 		// Paint background
-		paintMenuBackground(b, g, r, background);
+		paintMenuBackground(b, g, bgRect, background);
 		
 		var isSelected:Bool= shouldPaintSelected();
 		
@@ -713,7 +720,11 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 			r.height++;
 		}
 
-		return r.getSize();
+        var size = b.getInsets().getOutsideSize(r.getSize());
+        if(b.getMargin() != null)
+            size = b.getMargin().getOutsideSize(size);
+
+		return size;
 	}
 	
 	private function getAcceleratorText(b:JMenuItem):String{

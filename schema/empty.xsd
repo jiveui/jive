@@ -14,6 +14,7 @@ xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:flash-errors="flash.errors"
 xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
 xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
 xmlns:flash-display3D="flash.display3D"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
@@ -45,10 +46,10 @@ xmlns:flash-display="flash.display"
 xmlns:motion-easing="motion.easing"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:haxe="haxe"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-graphics="org.aswing.graphics"
 xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
-xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-xml="flash.xml"
 xmlns:flash-events="flash.events"
@@ -70,6 +71,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="flash.errors" schemaLocation="flash.errors.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
 <xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
 <xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
 <xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
@@ -101,17 +103,23 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="motion.easing" schemaLocation="motion.easing.xsd" />
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
 <xs:import namespace="haxe" schemaLocation="haxe.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.graphics" schemaLocation="org.aswing.graphics.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
-<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.xml" schemaLocation="flash.xml.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
 <xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
+<xs:complexType name="UIntSchemaTypeValue">
+<xs:all><xs:element ref="UInt"/></xs:all></xs:complexType>
+
 <xs:complexType name="TypeSchemaTypeValue">
 <xs:all><xs:element ref="Type"/></xs:all></xs:complexType>
+
+<xs:complexType name="BoolSchemaTypeValue">
+<xs:all><xs:element ref="Bool"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaTypeValue">
 <xs:all><xs:element ref="ArrayAccess"/></xs:all></xs:complexType>
@@ -130,6 +138,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="haxe-ds:ObjectMap" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="IntSchemaTypeValue">
+<xs:all><xs:element ref="Int"/></xs:all></xs:complexType>
 
 <xs:complexType name="RootObjectTypeSchemaTypeValue">
 <xs:choice>
@@ -167,9 +178,11 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:SoftBoxLayout" />
 <xs:element ref="org-aswing:EmptyFont" />
 <xs:element ref="flash-filters:GlowFilter" />
+<xs:element ref="jive-plaf-flat-icon:FlatCheckBoxIcon" />
 <xs:element ref="org-aswing-geom:IntDimension" />
 <xs:element ref="org-aswing-plaf-basic:BasicTextAreaUI" />
 <xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="jive-plaf-flat-background:FlatProgressBarBackground" />
 <xs:element ref="org-aswing-graphics:IBrush" />
 <xs:element ref="org-aswing-event:TreeEvent" />
 <xs:element ref="org-aswing-tree:TreeCell" />
@@ -205,8 +218,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:AbstractButton" />
 <xs:element ref="org-aswing:JTree" />
 <xs:element ref="jive:DataContextControllable" />
-<xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing-plaf-basic:BasicToggleButtonUI" />
+<xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxUI" />
 <xs:element ref="org-aswing:ASColor" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
@@ -225,8 +238,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-net:URLRequestHeader" />
 <xs:element ref="flash-display:FrameLabel" />
 <xs:element ref="flash-events:IOErrorEvent" />
-<xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
+<xs:element ref="org-aswing-ext:Folder" />
+<xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
 <xs:element ref="org-aswing-colorchooser:ColorRectIcon" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
 <xs:element ref="org-aswing-plaf:ComponentUI" />
@@ -265,6 +279,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-event:TreeModelEvent" />
 <xs:element ref="org-aswing-event:PopupEvent" />
 <xs:element ref="org-aswing-util:ObjectUtils" />
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
 <xs:element ref="flash-events:IEventDispatcher" />
 <xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
 <xs:element ref="flash-geom:Rectangle" />
@@ -289,9 +304,11 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="ArrayAccess" />
 <xs:element ref="flash-utils:IDataOutput" />
 <xs:element ref="org-aswing-util:List" />
+<xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
 <xs:element ref="org-aswing-event:TableModelEvent" />
 <xs:element ref="motion:MotionPath" />
 <xs:element ref="org-aswing:VectorListModel" />
+<xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element ref="org-aswing:Insets" />
 <xs:element ref="motion-_Actuate:TransformOptions" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
@@ -321,6 +338,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:DefaultBoundedRangeModel" />
 <xs:element ref="org-aswing-plaf:UIStyleTune" />
 <xs:element ref="org-aswing-event:ReleaseEvent" />
+<xs:element ref="jive-plaf-flat:FlatTextFieldUI" />
 <xs:element ref="org-aswing-plaf-basic-background:PanelBackground" />
 <xs:element ref="flash:Vector" />
 <xs:element ref="org-aswing:KeySequence" />
@@ -389,6 +407,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-event:ModelEvent" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameUI" />
 <xs:element ref="flash-display3D-textures:Texture" />
+<xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
 <xs:element ref="org-aswing-util:StringUtils" />
 <xs:element ref="flash-display:Loader" />
 <xs:element ref="org-aswing:JMenuItem" />
@@ -404,9 +423,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-tree:DefaultTreeModel" />
 <xs:element ref="org-aswing-event:ExpandVetoException" />
 <xs:element ref="org-aswing:Border" />
+<xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
 <xs:element ref="motion-_Actuate:EffectsOptions" />
 <xs:element ref="org-aswing-event:ToolTipEvent" />
-<xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
 <xs:element ref="flash-utils:Namespace" />
 <xs:element ref="org-aswing-util:AbstractImpulser" />
 <xs:element ref="org-aswing-util:Reflection" />
@@ -512,6 +531,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-events:TextEvent" />
 <xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
 <xs:element ref="org-aswing-table:TableColumn" />
+<xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
 <xs:element ref="org-aswing-table:TableModel" />
 <xs:element ref="org-aswing-tree:DefaultMutableTreeNode" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuCheckIcon" />
@@ -578,6 +598,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-display:DisplayObjectContainer" />
 <xs:element ref="org-aswing:JFrame" />
 <xs:element ref="flash-system:ApplicationDomain" />
+<xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
 <xs:element ref="org-aswing:GradientBackground" />
 <xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
 <xs:element ref="Array" />
@@ -627,9 +648,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-error:Error" />
 <xs:element ref="org-aswing-plaf-basic-icon:RadioButtonIcon" />
 <xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextComponentUI" />
 <xs:element ref="org-aswing:AWKeyboard" />
 <xs:element ref="org-aswing:LayoutManager" />
-<xs:element ref="org-aswing-plaf-basic:BasicTextComponentUI" />
 <xs:element ref="org-aswing-event:TreeCellEditEvent" />
 <xs:element ref="org-aswing-graphics:Graphics2D" />
 <xs:element ref="org-aswing-util:ArrayUtils" />
@@ -652,6 +673,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:DefaultListCell" />
 <xs:element ref="org-aswing:Orientable" />
 <xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
 <xs:element ref="org-aswing:JRootPane" />
 <xs:element ref="org-aswing-plaf:ArrayUIResource" />
 <xs:element ref="org-aswing:FrameTitleBar" />
@@ -756,6 +778,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StringBufSchemaTypeValue">
 <xs:all><xs:element ref="StringBuf"/></xs:all></xs:complexType>
 
+<xs:complexType name="FloatSchemaTypeValue">
+<xs:all><xs:element ref="Float"/></xs:all></xs:complexType>
+
 <xs:complexType name="DateSchemaTypeValue">
 <xs:all><xs:element ref="Date"/></xs:all></xs:complexType>
 
@@ -765,6 +790,11 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="MathSchemaTypeValue">
 <xs:all><xs:element ref="Math"/></xs:all></xs:complexType>
 
+<xs:complexType name="UIntSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
 <xs:complexType name="TypeSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
@@ -772,6 +802,11 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:all>
 </xs:extension>
 </xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BoolSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:complexType>
 
 <xs:complexType name="ArrayAccessSchemaType">
@@ -812,7 +847,12 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="RootObjectTypeSchemaType"><xs:attribute name="id" type="xs:int"/>
+<xs:complexType name="IntSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="RootObjectTypeSchemaType">
 </xs:complexType>
 <xs:complexType name="ReflectSchemaType">
 <xs:complexContent>
@@ -843,6 +883,11 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FloatSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
 <xs:complexType name="DateSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
@@ -871,14 +916,19 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexType>
 
 
+<xs:element name="UInt" type="UIntSchemaType"/>
 <xs:element name="Type" type="TypeSchemaType"/>
+<xs:element name="Bool" type="BoolSchemaType"/>
 <xs:element name="ArrayAccess" type="ArrayAccessSchemaType"/>
 <xs:element name="String" type="StringSchemaType"/>
 <xs:element name="Std" type="StdSchemaType"/>
 <xs:element name="IMap" type="IMapSchemaType"/>
+<xs:element name="Int" type="IntSchemaType"/>
+<xs:element name="RootObjectType" type="RootObjectTypeSchemaType" />
 <xs:element name="Reflect" type="ReflectSchemaType"/>
 <xs:element name="Array" type="ArraySchemaType"/>
 <xs:element name="StringBuf" type="StringBufSchemaType"/>
+<xs:element name="Float" type="FloatSchemaType"/>
 <xs:element name="Date" type="DateSchemaType"/>
 <xs:element name="StringTools" type="StringToolsSchemaType"/>
 <xs:element name="Math" type="MathSchemaType"/>

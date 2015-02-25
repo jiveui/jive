@@ -2,8 +2,44 @@
 xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="FlatProgressBarBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatProgressBarBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTextComponentBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTextComponentBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatProgressBarIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatProgressBarIcon"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatButtonBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatButtonBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatProgressBarBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTextComponentBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatProgressBarIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="FlatButtonBackgroundSchemaType">
 <xs:complexContent>
@@ -15,5 +51,8 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="FlatProgressBarBackground" type="FlatProgressBarBackgroundSchemaType"/>
+<xs:element name="FlatTextComponentBackground" type="FlatTextComponentBackgroundSchemaType"/>
+<xs:element name="FlatProgressBarIcon" type="FlatProgressBarIconSchemaType"/>
 <xs:element name="FlatButtonBackground" type="FlatButtonBackgroundSchemaType"/>
 </xs:schema>

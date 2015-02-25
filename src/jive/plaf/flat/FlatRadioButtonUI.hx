@@ -24,9 +24,6 @@ class FlatRadioButtonUI extends BasicToggleButtonUI {
 	override private function installDefaults(b:AbstractButton):Void{
 		super.installDefaults(b);
 		defaultIcon = getIcon(getPropertyPrefix() + "icon");
-        if(!b.iconTextGapSet) {
-            b.iconTextGap = getInt(getPropertyPrefix() + "textGap");
-        }
 	}
 	
 	override private function uninstallDefaults(b:AbstractButton):Void{

@@ -86,7 +86,11 @@ class BaseComponentUI implements ComponentUI
     	
 	private function paintBackGround(c:Component, g:Graphics2D, b:IntRectangle):Void{
 		if(c.isOpaque()){
-			g.fillRectangle(new SolidBrush(c.getBackground()), b.x, b.y, b.width, b.height);
+            if (null != c.styleTune) {
+                g.fillRoundRect(new SolidBrush(c.getBackground()), b.x, b.y, b.width, b.height, c.styleTune.round);
+            } else {
+			    g.fillRectangle(new SolidBrush(c.getBackground()), b.x, b.y, b.width, b.height);
+            }
 		}
 	}
 	

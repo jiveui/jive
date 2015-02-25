@@ -45,7 +45,6 @@ xmlns:empty="empty"
 <xs:complexType name="RejectedMotionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="DropMotionSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -82,7 +81,6 @@ xmlns:empty="empty"
 <xs:complexType name="DirectlyRemoveMotionSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="DropMotionSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -101,7 +99,6 @@ xmlns:empty="empty"
 <xs:complexType name="DefaultDragImageSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="DraggingImageSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

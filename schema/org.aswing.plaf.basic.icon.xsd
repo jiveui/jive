@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.icon" xmlns="org.aswing.plaf.basic.icon" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="TitleIconSchemaTypeValue">
@@ -35,6 +37,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SolidArrowIconSchemaTypeValue">
 <xs:choice>
 <xs:element ref="MenuArrowIcon" />
+<xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
 <xs:element ref="SolidArrowIcon" />
 </xs:choice>
 </xs:complexType>
@@ -83,8 +86,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="TitleIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -94,8 +95,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -132,8 +131,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SliderThumbIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -143,8 +140,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="CheckBoxIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -154,8 +149,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ScrollBarArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -165,8 +158,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="SolidArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -194,8 +185,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuCheckIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -232,7 +221,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="MenuArrowIconSchemaType">
 <xs:complexContent>
 <xs:extension base="SolidArrowIconSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -242,8 +230,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="RadioButtonIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -253,8 +239,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="FrameIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="org-aswing-plaf:UIResourceSchemaType">
-<xs:extension base="org-aswing:IconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>

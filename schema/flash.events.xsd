@@ -411,16 +411,16 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:extension base="EventSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="charCode" type="xs:string"/>
+<xs:element minOccurs="0" name="charCode" type="xs:int"/>
 <xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="keyCode" type="xs:string"/>
+<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
 <xs:element minOccurs="0" name="keyLocation" type="xs:string"/>
 <xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="altKey" type="xs:boolean"/>
-<xs:attribute name="charCode" type="xs:string"/>
+<xs:attribute name="charCode" type="xs:int"/>
 <xs:attribute name="ctrlKey" type="xs:boolean"/>
-<xs:attribute name="keyCode" type="xs:string"/>
+<xs:attribute name="keyCode" type="xs:int"/>
 <xs:attribute name="keyLocation" type="xs:string"/>
 <xs:attribute name="shiftKey" type="xs:boolean"/>
 </xs:extension>
@@ -452,12 +452,12 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:extension base="EventSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:element minOccurs="0" name="keyCode" type="xs:string"/>
+<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
 <xs:element minOccurs="0" name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:attribute name="keyCode" type="xs:string"/>
+<xs:attribute name="keyCode" type="xs:int"/>
 <xs:attribute name="relatedObject" type="xs:string"/>
 <xs:attribute name="shiftKey" type="xs:boolean"/>
 </xs:extension>
@@ -467,7 +467,6 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="EventDispatcherSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:extension base="IEventDispatcherSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
