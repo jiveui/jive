@@ -4,6 +4,8 @@
 
 package org.aswing;
 
+import motion.easing.Linear;
+import motion.Actuate;
 import haxe.CallStack;
 import bindx.IBindable;
 import flash.display.DisplayObject;
@@ -3044,5 +3046,22 @@ class Component extends AWSprite implements IBindable {
 //
 //		return  Reflection.getClassName(this)+ "[asset:" +super.toString()  + "]";
 //	}
+
+    public var transitFocusFactor: Float = 0.0;
+    private function doFocusTransition() {
+
+        var targetFactor = if (isFocusOwner()) 1.0 else 0.0;
+
+        if (transitFocusFactor != targetFactor) {
+            Actuate.stop(this, "transitFocusFactor");
+            Actuate.tween(this, 0.25, { transitFocusFactor: targetFactor })
+            .ease(Linear.easeNone)
+            .onUpdate(function() {
+                repaint();
+            })
+            .onComplete(function() { transitFocusFactor = targetFactor; });
+        }
+    }
+
 
 }

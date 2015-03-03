@@ -185,6 +185,9 @@ class JComboBox extends Component  implements EditableComponent{
 		}
 		
 		updateUI();
+
+        addEventListener(AWEvent.FOCUS_GAINED, function(e) { doFocusTransition(); });
+        addEventListener(AWEvent.FOCUS_LOST, function(e) { doFocusTransition(); });
 	}
 	
 	/**
@@ -427,7 +430,7 @@ class JComboBox extends Component  implements EditableComponent{
 			getEditor().setEditable(b);
 			//editable changed, internal focus object will change too, so change the focus
 			if (isFocusable() && isFocusOwner() && stage != null) {
-			#if(flash9)	
+			#if(flash9 || html5 || cpp)
 				if(stage.focus != getInternalFocusObject()){
 					stage.focus = getInternalFocusObject();
 				}

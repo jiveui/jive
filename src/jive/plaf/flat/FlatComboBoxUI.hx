@@ -1,5 +1,6 @@
 package jive.plaf.flat;
 
+import jive.plaf.flat.icon.FlatComboBoxArrowIcon;
 import org.aswing.ASColor;
 import org.aswing.plaf.basic.icon.SolidArrowIcon;
 import jive.plaf.flat.icon.FlatMenuArrowIcon;
@@ -13,7 +14,7 @@ class FlatComboBoxUI extends BasicComboBoxUI {
     public function new() { super(); }
 
     override private function createDropDownButton():Component{
-        var btn:JButton = new JButton("", new SolidArrowIcon(Math.PI/2, 12, if (box.editable) box.foreground else box.notEditableForeground));
+        var btn:JButton = new JButton("", new FlatComboBoxArrowIcon());
         btn.setFocusable(false);
         btn.setPreferredSize(new IntDimension(20, 20));
         btn.setBackgroundDecorator(null);
@@ -34,9 +35,13 @@ class FlatComboBoxUI extends BasicComboBoxUI {
 
     override private function layoutCombobox():Void {
         super.layoutCombobox();
-        var color = if (!box.enabled)
+        // Mideground - normal state
+        dropDownButton.mideground = if (!box.enabled)
+            box.foreground.offsetHLS(0, 0.3, 0)
+            else if (box.editable) box.foreground.offsetHLS(0, 0.3, 0) else box.notEditableBackground.offsetHLS(0, -0.1, 0);
+        //Foreground - rolled over and pressed states
+        dropDownButton.foreground = if (!box.enabled)
             box.foreground.offsetHLS(0, 0.3, 0)
             else if (box.editable) box.foreground else box.notEditableForeground;
-        cast(dropDownButton, JButton).icon = new SolidArrowIcon(Math.PI/2, 12, color);
     }
 }

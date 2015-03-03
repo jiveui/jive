@@ -47,7 +47,7 @@ class FlatInputBackground implements GroundDecorator implements UIResource {
             } else if (!cb.editable) {
                 borderColor = cb.notEditableBackground;
             } else {
-                borderColor = ASColor.getColorBetween(borderColor, UIManager.getColor("focusForeground"), cast(cb.editor.getEditorComponent()).transitFocusFactor);
+                borderColor = ASColor.getColorBetween(borderColor, UIManager.getColor("focusForeground"), cb.transitFocusFactor);
             }
 
             g.fillRoundRectRingWithThickness(new SolidBrush(borderColor), bounds.x, bounds.y, bounds.width, bounds.height,

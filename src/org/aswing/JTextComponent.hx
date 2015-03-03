@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import org.aswing.event.AWEvent;
 import motion.easing.Linear;
 import motion.Actuate;
 import org.aswing.event.FocusKeyEvent;
@@ -143,8 +144,8 @@ class JTextComponent extends Component  implements EditableComponent{
 		textField.addEventListener(TextEvent.TEXT_INPUT, __onTextComponentTextInput);
 		#end
 
-        addEventListener(FocusEvent.FOCUS_IN, function(e) { doFocusTransition(true); });
-        addEventListener(FocusEvent.FOCUS_OUT, function(e) { doFocusTransition(false); });
+        addEventListener(AWEvent.FOCUS_GAINED, function(e) { doFocusTransition(); });
+        addEventListener(AWEvent.FOCUS_LOST, function(e) { doFocusTransition(); });
 	}
 
     inline private function updateTextForeground() {
@@ -571,20 +572,4 @@ class JTextComponent extends Component  implements EditableComponent{
 		return getTextField().useRichTextClipboard;
 	}
 	#end
-
-    public var transitFocusFactor: Float = 0.0;
-    private function doFocusTransition(focused: Bool) {
-
-        var targetFactor = if (focused) 1.0 else 0.0;
-
-        if (transitFocusFactor != targetFactor) {
-            Actuate.stop(this, "transitFocusFactor");
-            Actuate.tween(this, 0.25, { transitFocusFactor: targetFactor })
-            .ease(Linear.easeNone)
-            .onUpdate(function() {
-                repaint();
-            })
-            .onComplete(function() { transitFocusFactor = targetFactor; });
-        }
-    }
 }
