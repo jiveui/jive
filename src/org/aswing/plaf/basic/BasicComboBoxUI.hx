@@ -68,7 +68,7 @@ class BasicComboBoxUI extends BaseComponentUI  implements ComboBoxUI{
 		return "ComboBox.";
 	}
 	
-	private function installDefaults():Void{
+	private function installDefaults():Void {
 		var pp:String= getPropertyPrefix();
         LookAndFeel.installBorderAndBFDecorators(box, pp);
         LookAndFeel.installColorsAndFont(box, pp);

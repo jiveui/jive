@@ -255,7 +255,7 @@ class JTextComponent extends Component  implements EditableComponent{
     @:dox(hide)
 	override public function setForeground(c:ASColor):Void{
 		super.setForeground(c);
-		if (getForeground() != null) { 
+		if (getForeground() != null) {
     		getTextField().textColor = getForeground().getRGB();
     		getTextField().alpha = getForeground().getAlpha();
   		}

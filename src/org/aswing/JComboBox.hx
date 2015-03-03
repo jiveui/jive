@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import org.aswing.ASColor;
 import bindx.Bind;
 import org.aswing.error.Error;
 import org.aswing.event.AWEvent;
@@ -141,6 +142,25 @@ class JComboBox extends Component  implements EditableComponent{
     public var length(get, null): Int;
     private function get_length(): Int { return getItemCount(); }
 
+    public var notEditableForeground(get, set): ASColor;
+    private var _notEditableForeground: ASColor;
+    private function get_notEditableForeground(): ASColor { return _notEditableForeground; }
+    private function set_notEditableForeground(v: ASColor): ASColor {
+        _notEditableForeground = v;
+        updateEditorComponentColors();
+        return v;
+    }
+
+
+    public var notEditableBackground(get, set): ASColor;
+    private var _notEditableBackground: ASColor;
+    private function get_notEditableBackground(): ASColor { return _notEditableBackground; }
+    private function set_notEditableBackground(v: ASColor): ASColor {
+        _notEditableBackground = v;
+        updateEditorComponentColors();
+        return v;
+    }
+
 	/**
 	 * Create a combobox with specified data.
 	 */
@@ -180,7 +200,7 @@ class JComboBox extends Component  implements EditableComponent{
 		if(Std.is(newUI,ComboBoxUI)){
 			super.setUI(newUI);
 			getEditor().getEditorComponent().setFont(getFont());
-			getEditor().getEditorComponent().setForeground(getForeground());
+            updateEditorComponentColors();
 		}else{
 			throw new Error("JComboBox ui should implemented ComboBoxUI interface!"); 
 		}
@@ -328,8 +348,7 @@ class JComboBox extends Component  implements EditableComponent{
 		addChild(_editor.getEditorComponent());
 		if(_ui != null){//means ui installed
 			_editor.getEditorComponent().setFont(getFont());
-			_editor.getEditorComponent().setForeground(getForeground());
-			_editor.getEditorComponent().setBackground(getBackground());
+            updateEditorComponentColors();
 		}
 		_editor.addActionListener(__editorActed);
 		revalidate();
@@ -375,7 +394,7 @@ class JComboBox extends Component  implements EditableComponent{
     @:dox(hide)
 	override public function setForeground(c:ASColor):Void{
 		super.setForeground(c);
-		getEditor().getEditorComponent().setForeground(c);
+		updateEditorComponentColors();
 	}
 	
 	/**
@@ -386,7 +405,7 @@ class JComboBox extends Component  implements EditableComponent{
     @:dox(hide)
 	override public function setBackground(c:ASColor):Void{
 		super.setBackground(c);
-		getEditor().getEditorComponent().setBackground(c);
+		updateEditorComponentColors();
 	}
 	
 	/**
@@ -414,6 +433,7 @@ class JComboBox extends Component  implements EditableComponent{
 				}
 			#end
 			}
+            updateEditorComponentColors();
 		}
 	}
 	
@@ -438,6 +458,7 @@ class JComboBox extends Component  implements EditableComponent{
     @:dox(hide)
 	override public function setEnabled(b:Bool):Void{
 		super.setEnabled(b);
+        updateEditorComponentColors();
 		if(!b && isPopupVisible()){
 			setPopupVisible(false);
 		}
@@ -655,5 +676,15 @@ class JComboBox extends Component  implements EditableComponent{
 		}
 		return -1;
 	}
+
+    private function updateEditorComponentColors() {
+        if (!editable && enabled) {
+            editor.getEditorComponent().background = notEditableBackground;
+            editor.getEditorComponent().foreground = notEditableForeground;
+        } else {
+            editor.getEditorComponent().background = background;
+            editor.getEditorComponent().foreground = foreground;
+        }
+    }
 	
 }

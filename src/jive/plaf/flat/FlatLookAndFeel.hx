@@ -61,7 +61,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "TextFieldUI",jive.plaf.flat.FlatTextFieldUI,
                "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI,
                "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI,
-               "MenuUI", jive.plaf.flat.FlatMenuUI
+               "MenuUI", jive.plaf.flat.FlatMenuUI,
+               "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -485,16 +486,18 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** ComboBox
 		comDefaults = [
-			"ComboBox.font", table.getFont("controlFont"),
-			"ComboBox.background", textBG, 
-			"ComboBox.foreground", table.get("controlText"), 
-			"ComboBox.mideground", new ASColorUIResource(0x89bb00), 
-			"ComboBox.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 3, new UIStyleTune(0.04, 0.05, 0.20, 0.1)), 
+            "ComboBox.font", table.getFont("systemFont"),
+            "ComboBox.background", table.get("window"),
+            "ComboBox.foreground", table.get("wet-asphalt"),
+            "ComboBox.mideground", table.get("concrete"),
+            "ComboBox.notEditableBackground", table.get("turquoise"),
+            "ComboBox.notEditableForeground", new ASColorUIResource(0xffffff),
+			"ComboBox.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 3, new UIStyleTune(0.04, 0.05, 0.20, 0.1)),
 			"ComboBox.opaque", true, 
 			"ComboBox.focusable", true, 
 			"ComboBox.popupBorder", org.aswing.plaf.basic.border.ComboBoxPopupBorder, 
-			"ComboBox.bg", org.aswing.plaf.basic.background.InputBackground, 
-			"ComboBox.border", new EmptyBorderResource(null, new Insets(1, 3, 2, 3))
+			"ComboBox.bg", jive.plaf.flat.background.FlatInputBackground,
+			"ComboBox.border", new EmptyBorderResource(null, new Insets(7, 15, 7, 15))
 		];
 		table.putDefaults(comDefaults);
 		

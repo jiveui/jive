@@ -8,7 +8,7 @@ package org.aswing.plaf.basic.background;
 /**
  * @private
  */
-class InputBackground extends TextComponentBackBround{
+class InputBackground extends TextComponentBackBround {
 	
 	public function new(){
 		super();
