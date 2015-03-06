@@ -62,7 +62,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "CheckBoxUI", jive.plaf.flat.FlatCheckBoxUI,
                "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI,
                "MenuUI", jive.plaf.flat.FlatMenuUI,
-               "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI
+               "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI,
+               "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -298,17 +299,17 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** ScrollBar
 		comDefaults = [
-			"ScrollBar.background", new ASColorUIResource(0xa8a8a8, 0.3),
+			"ScrollBar.background", new ASColorUIResource(0xe3e4e5),
 			"ScrollBar.foreground", table.get("controlText"), 
-			"ScrollBar.mideground", new ASColorUIResource(0xe7e7e7, 0.8), 
-			"ScrollBar.colorAdjust", new UIStyleTune(0.18, 0.08, 0.20, 0.50, 2, new UIStyleTune(0.08, -0.3, 0.08, 0.20, 2)), 
+			"ScrollBar.mideground", new ASColorUIResource(0xd1d1d1),
+			"ScrollBar.colorAdjust", new UIStyleTune(0.18, 0.08, 0.20, 0.50, 5, new UIStyleTune(0.08, -0.3, 0.08, 0.20, 2)),
 			"ScrollBar.opaque", true, 
 			"ScrollBar.focusable", true, 
-			"ScrollBar.barWidth", 14, 
+			"ScrollBar.barWidth", 12,
 			"ScrollBar.minimumThumbLength", 24, 
 			"ScrollBar.font", table.getFont("controlFont"),
-			"ScrollBar.bg", org.aswing.plaf.basic.background.ScrollBarBackground,
-			"ScrollBar.thumbDecorator", org.aswing.plaf.basic.background.ScrollBarThumb
+			"ScrollBar.bg", jive.plaf.flat.background.FlatScrollBarBackground,
+			"ScrollBar.thumbDecorator", jive.plaf.flat.background.FlatScrollBarThumb
 		];
 		table.putDefaults(comDefaults);
 		
@@ -357,7 +358,7 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Label.background", table.get("control"),
 			"Label.foreground", table.get("controlText"), 
 			"Label.mideground", table.get("controlMide"), 
-			"Label.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20), 
+			"Label.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20),
 			"Label.opaque", false, 
 			"Label.focusable", false, 
 			"Label.font", table.getFont("controlFont")
@@ -446,10 +447,10 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** List
 		comDefaults = [
 			"List.font", table.getFont("controlFont"),
-			"List.background", new ASColorUIResource(0x33859a, 0),
-			"List.foreground", table.get("controlText"), 
-			"List.mideground", new ASColorUIResource(0x33869a), 
-			"List.colorAdjust", new UIStyleTune(0.08, 0.05, 0.20, 0.20, 0), 
+			"List.background", new ASColorUIResource(0xffffff, 0),
+			"List.foreground", table.get("windowText"),
+			"List.mideground", table.get("silver"),
+			"List.colorAdjust", new UIStyleTune(0.08, 0.05, 0.20, 0.20, 5),
 			"List.opaque", false, 
 			"List.focusable", true, 
 			"List.bg", org.aswing.plaf.basic.background.ListBackground, 
@@ -492,10 +493,11 @@ class FlatLookAndFeel extends LookAndFeel {
             "ComboBox.mideground", table.get("concrete"),
             "ComboBox.notEditableBackground", table.get("turquoise"),
             "ComboBox.notEditableForeground", new ASColorUIResource(0xffffff),
-			"ComboBox.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 3, new UIStyleTune(0.04, 0.05, 0.20, 0.1)),
+			"ComboBox.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 5, new UIStyleTune(0.04, 0.05, 0.20, 0.1)),
 			"ComboBox.opaque", true, 
-			"ComboBox.focusable", true, 
-			"ComboBox.popupBorder", org.aswing.plaf.basic.border.ComboBoxPopupBorder, 
+			"ComboBox.focusable", true,
+            "ComboBox.popupBackground", new ASColorUIResource(0xe3e4e5),
+			"ComboBox.popupBorder", jive.plaf.flat.border.FlatComboBoxPopupBorder,
 			"ComboBox.bg", jive.plaf.flat.background.FlatInputBackground,
 			"ComboBox.border", new EmptyBorderResource(null, new Insets(7, 15, 7, 15))
 		];

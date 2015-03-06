@@ -350,14 +350,13 @@ class BasicComboBoxUI extends BaseComponentUI  implements ComboBoxUI{
      * Set the visiblity of the popup
      */
 	public function setPopupVisible(c:JComboBox, v:Bool):Void {
-	
 		if(v)	{
 			viewPopup();
 		}else{
 			hidePopup();
 		}
 	}
-	
+
 	/** 
      * Determine the visibility of the popup
      */

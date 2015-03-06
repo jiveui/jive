@@ -97,7 +97,7 @@ class Buttons extends JPanel{
 		radios.append(rad4);
 		top.append(radios); 
 		var combos:JPanel = new JPanel();
-		var combo1:JComboBox = new JComboBox(["JComboBox", "is", "enabled", "and", "editable!", "!!", "!!!!"]);
+		var combo1:JComboBox = new JComboBox(["qwe","JComboBox", "is", "enabled", "and", "editable!", "!!", "!!!!"]);
 		combo1.setSelectedIndex(0);
 		combo1.setEditable(true);
 		combo1.setPreferredWidth(150);

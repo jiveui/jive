@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import jive.plaf.flat.FlatComboBoxListCellFactory;
 import org.aswing.ASColor;
 import bindx.Bind;
 import org.aswing.error.Error;
@@ -175,10 +176,7 @@ class JComboBox extends Component  implements EditableComponent{
 		 if(Std.is(listData,Array)){
 				setListData(AsWingUtils.as(listData,Array) );
 			}else if (Std.is(listData, ListModel)) {
-	
-	
 				setModel( AsWingUtils.as(listData, ListModel));
-	 	
 			}else{
 				setListData([]); //create new
 			}
@@ -284,7 +282,7 @@ class JComboBox extends Component  implements EditableComponent{
     @:dox(hide)
 	public function getPopupList():JList {
 		if(_popupList == null){
-			_popupList = new JList(null, new DefaultComboBoxListCellFactory());
+			_popupList = new JList(null, new FlatComboBoxListCellFactory());
 			_popupList.setSelectionMode(JList.SINGLE_SELECTION);
 		}
 		return _popupList;

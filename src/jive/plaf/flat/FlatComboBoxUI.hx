@@ -1,5 +1,9 @@
 package jive.plaf.flat;
 
+import motion.easing.Linear;
+import motion.Actuate;
+import org.aswing.StyleTune;
+import org.aswing.JScrollPane;
 import jive.plaf.flat.icon.FlatComboBoxArrowIcon;
 import org.aswing.ASColor;
 import org.aswing.plaf.basic.icon.SolidArrowIcon;
@@ -43,5 +47,33 @@ class FlatComboBoxUI extends BasicComboBoxUI {
         dropDownButton.foreground = if (!box.enabled)
             box.foreground.offsetHLS(0, 0.3, 0)
             else if (box.editable) box.foreground else box.notEditableForeground;
+    }
+
+    override private function getScollPane():JScrollPane{
+        if(scollPane == null){
+            scollPane = new JScrollPane(getPopupList());
+            scollPane.setBorder(getBorder(getPropertyPrefix()+"popupBorder"));
+            scollPane.setOpaque(false);
+            scollPane.setStyleProxy(box);
+            scollPane.setBackground(getColor(getPropertyPrefix()+"popupBackground"));
+            scollPane.setStyleTune(new StyleTune(0, 0, 0, 0, 5));
+        }
+        return scollPane;
+    }
+
+    override private function startMoveToView():Void {
+        var gp = box.getGlobalLocation();
+        gp.y += box.getHeight();
+        popup.setGlobalLocation(gp);
+        popup.alpha = 0.0;
+        Actuate.stop(popup);
+        Actuate.tween(popup, 0.25, { alpha: 1.0 })
+            .ease(Linear.easeNone)
+            .onComplete(function() { popup.alpha = 1.0; });
+    }
+
+    override private function hidePopup():Void {
+        Actuate.stop(popup);
+        super.hidePopup();
     }
 }

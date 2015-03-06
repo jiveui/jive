@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import jive.plaf.flat.FlatListCellFactory;
 import org.aswing.error.Error;
 import flash.events.MouseEvent;
 import flash.geom.Rectangle;
@@ -346,7 +347,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		autoDragAndDropType = DND_NONE;
 		
 		if(cellFactory == null){
-			this._cellFactory = new DefaultListCellFactory(true);
+			this._cellFactory = new FlatListCellFactory(true);
 		}
 		else {
 			this._cellFactory = cellFactory;

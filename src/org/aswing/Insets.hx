@@ -76,7 +76,7 @@ class Insets{
 	* Apply insets to the bounds and return inner bounds.
 	**/
 	public function getInsideBounds(bounds:IntRectangle):IntRectangle{
-		var r:IntRectangle = bounds.clone();
+		var r:IntRectangle = if (null != bounds) bounds.clone() else new IntRectangle();
 		r.x += left;
 		r.y += top;
 		r.width -= (left + right);
