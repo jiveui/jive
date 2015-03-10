@@ -432,16 +432,16 @@ class FlatLookAndFeel extends LookAndFeel {
 		f.push(new  DropShadowFilter(4.0, 45, 0, 0.3, 2.0, 2.0, 0.5));
 		// *** ToolTip
 		comDefaults = [
-			"ToolTip.background", new ASColorUIResource(0xecfcfc), 
-			"ToolTip.foreground", new ASColorUIResource(0x003344), 
-			"ToolTip.mideground", new ASColorUIResource(0x2d6883), 
-			"ToolTip.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20, 2), 
+			"ToolTip.background", table.get("silver"),
+			"ToolTip.foreground", new ASColorUIResource(0xffffff),
+			"ToolTip.mideground", table.get("silver"),
+			"ToolTip.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20, 5),
 			"ToolTip.opaque", true, 
 			"ToolTip.focusable", false, 
 			"ToolTip.font", table.getFont("controlFont"), 
-			"ToolTip.filters",f,
+			"ToolTip.filters", null,
 			"ToolTip.bg", org.aswing.plaf.basic.background.ToolTipBackground, 
-			"ToolTip.border", new EmptyBorderResource(null, new Insets(1, 3, 1, 3))
+			"ToolTip.border", new EmptyBorderResource(null, new Insets(3, 7, 3, 3))
 		];
 		table.putDefaults(comDefaults);
 		
