@@ -45,6 +45,8 @@ class Scrolls extends JPanel{
 		slider.setMinorTickSpacing(4);
 		slider.setPaintTicks(true);
 		slider.setShowValueTip(true);
+        slider.paintTrack = true;
+        slider.paintTicks = true;
 		
 		var progress:JProgressBar = new JProgressBar();
 		progress.setIndeterminate(true);

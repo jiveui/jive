@@ -63,7 +63,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "RadioButtonUI", jive.plaf.flat.FlatRadioButtonUI,
                "MenuUI", jive.plaf.flat.FlatMenuUI,
                "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI,
-               "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI
+               "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI,
+               "SliderUI",jive.plaf.flat.FlatSliderUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -506,13 +507,14 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** Slider
 		comDefaults = [
 			"Slider.font", table.getFont("controlFont"),
-			"Slider.background", new ASColorUIResource(0x6fe8f9, 0.34),
-			"Slider.foreground", table.get("controlText"), 
-			"Slider.mideground", table.get("controlMide"), 
-			"Slider.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 6, new UIStyleTune(0.2, 0.00, 0.4, 0.00, 0)), 
+			"Slider.background", new ASColorUIResource(0xebedef),
+			"Slider.foreground", table.get("windowText"),
+			"Slider.mideground", table.get("turquoise"),
+            "Slider.progressColor", table.get("turquoise"),
+			"Slider.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 6, new UIStyleTune(0.2, 0.00, 0.4, 0.00, 0)),
 			"Slider.opaque", false,  
 			"Slider.focusable", true, 
-			"Slider.thumbIcon", org.aswing.plaf.basic.icon.SliderThumbIcon
+			"Slider.thumbIcon", jive.plaf.flat.icon.FlatSliderThumbIcon
 		];
 		table.putDefaults(comDefaults);
 		
@@ -530,7 +532,7 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Adjuster.border", new EmptyBorderResource(null, new Insets(1, 3, 2, 3))
 		];
 		table.putDefaults(comDefaults);
-	
+
 		// *** Stepper
 		comDefaults = [
 			"Stepper.font", table.getFont("controlFont"),

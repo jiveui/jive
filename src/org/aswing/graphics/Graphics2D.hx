@@ -571,24 +571,24 @@ class Graphics2D {
 	 */
 	public function ellipse(x:Float, y:Float, width:Float, height:Float):Void{
 		
-		//target.drawEllipse(x,y,width,height);
-		 var pi:Float = Math.PI;
-        var xradius:Float = width/2;
-        var yradius:Float = height/ 2;
-        var cx:Float = x + xradius;
-        var cy:Float = y + yradius;
-        var tanpi8:Float = Math.tan(pi / 8);
-        var cospi4:Float = Math.cos(pi / 4);
-        var sinpi4:Float = Math.sin(pi / 4);
-        target.moveTo(xradius + cx, 0 + cy);
-        target.curveTo(xradius + cx, (yradius * tanpi8) + cy, (xradius * cospi4) + cx, (yradius * sinpi4) + cy);
-        target.curveTo((xradius * tanpi8) + cx, yradius + cy, 0 + cx, yradius + cy);
-        target.curveTo(((-xradius) * tanpi8) + cx, yradius + cy, ((-xradius) * cospi4) + cx, (yradius * sinpi4) + cy);
-        target.curveTo((-xradius) + cx, (yradius * tanpi8) + cy, (-xradius) + cx, 0 + cy);
-        target.curveTo((-xradius) + cx, ((-yradius) * tanpi8) + cy, ((-xradius) * cospi4) + cx, ((-yradius) * sinpi4) + cy);
-        target.curveTo(((-xradius) * tanpi8) + cx, (-yradius) + cy, 0 + cx, (-yradius) + cy);
-        target.curveTo((xradius * tanpi8) + cx, (-yradius) + cy, (xradius * cospi4) + cx, ((-yradius) * sinpi4) + cy);
-        target.curveTo(xradius + cx, ((-yradius) * tanpi8) + cy, xradius + cx, 0 + cy);		
+		target.drawEllipse(x,y,width,height);
+//		var pi:Float = Math.PI;
+//        var xradius:Float = width/2;
+//        var yradius:Float = height/ 2;
+//        var cx:Float = x + xradius;
+//        var cy:Float = y + yradius;
+//        var tanpi8:Float = Math.tan(pi / 8);
+//        var cospi4:Float = Math.cos(pi / 4);
+//        var sinpi4:Float = Math.sin(pi / 4);
+//        target.moveTo(xradius + cx, 0 + cy);
+//        target.curveTo(xradius + cx, (yradius * tanpi8) + cy, (xradius * cospi4) + cx, (yradius * sinpi4) + cy);
+//        target.curveTo((xradius * tanpi8) + cx, yradius + cy, 0 + cx, yradius + cy);
+//        target.curveTo(((-xradius) * tanpi8) + cx, yradius + cy, ((-xradius) * cospi4) + cx, (yradius * sinpi4) + cy);
+//        target.curveTo((-xradius) + cx, (yradius * tanpi8) + cy, (-xradius) + cx, 0 + cy);
+//        target.curveTo((-xradius) + cx, ((-yradius) * tanpi8) + cy, ((-xradius) * cospi4) + cx, ((-yradius) * sinpi4) + cy);
+//        target.curveTo(((-xradius) * tanpi8) + cx, (-yradius) + cy, 0 + cx, (-yradius) + cy);
+//        target.curveTo((xradius * tanpi8) + cx, (-yradius) + cy, (xradius * cospi4) + cx, ((-yradius) * sinpi4) + cy);
+//        target.curveTo(xradius + cx, ((-yradius) * tanpi8) + cy, xradius + cx, 0 + cy);
   	}
 	
 	/**
