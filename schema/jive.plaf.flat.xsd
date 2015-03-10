@@ -14,14 +14,29 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 </xs:choice>
 </xs:complexType>
 
+<xs:complexType name="FlatSliderUISchemaTypeValue">
+<xs:all><xs:element ref="FlatSliderUI"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatTextFieldUISchemaTypeValue">
 <xs:all><xs:element ref="FlatTextFieldUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatLookAndFeelSchemaTypeValue">
 <xs:all><xs:element ref="FlatLookAndFeel"/></xs:all></xs:complexType>
 
+<xs:complexType name="FlatComboBoxListCellFactorySchemaTypeValue">
+<xs:all><xs:element ref="FlatComboBoxListCellFactory"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatButtonUISchemaTypeValue">
-<xs:all><xs:element ref="FlatButtonUI"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="FlatCheckBoxUI" />
+<xs:element ref="FlatToggleButtonUI" />
+<xs:element ref="FlatRadioButtonUI" />
+<xs:element ref="FlatButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxListCellSchemaTypeValue">
+<xs:all><xs:element ref="FlatComboBoxListCell"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatTextComponentUISchemaTypeValue">
 <xs:choice>
@@ -32,6 +47,33 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 
 <xs:complexType name="FlatCheckBoxUISchemaTypeValue">
 <xs:all><xs:element ref="FlatCheckBoxUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatScrollBarUISchemaTypeValue">
+<xs:all><xs:element ref="FlatScrollBarUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextCellComponentSchemaTypeValue">
+<xs:all><xs:element ref="TextCellComponent"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatListCellSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FlatComboBoxListCell" />
+<xs:element ref="FlatListCell" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FlatToggleButtonUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="FlatCheckBoxUI" />
+<xs:element ref="FlatRadioButtonUI" />
+<xs:element ref="FlatToggleButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxUISchemaTypeValue">
+<xs:all><xs:element ref="FlatComboBoxUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatListCellFactorySchemaTypeValue">
+<xs:all><xs:element ref="FlatListCellFactory"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatMenuUISchemaType">
 <xs:complexContent>
@@ -44,7 +86,16 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 
 <xs:complexType name="FlatRadioButtonUISchemaType">
 <xs:complexContent>
-<xs:extension base="org-aswing-plaf-basic:BasicToggleButtonUISchemaType">
+<xs:extension base="FlatToggleButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatSliderUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicSliderUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -69,9 +120,27 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatComboBoxListCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:DefaultListTextCellFactorySchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="FlatButtonUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic:BasicButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxListCellSchemaType">
+<xs:complexContent>
+<xs:extension base="FlatListCellSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -96,12 +165,83 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatScrollBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicScrollBarUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextCellComponentSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="isFirst" type="xs:boolean"/>
+<xs:element minOccurs="0" name="isLast" type="xs:boolean"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:all>
+<xs:attribute name="isFirst" type="xs:boolean"/>
+<xs:attribute name="isLast" type="xs:boolean"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatListCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:AbstractListCellSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="cellComponent" type="TextCellComponentSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="cellComponent" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatToggleButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="FlatButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicComboBoxUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatListCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:DefaultListTextCellFactorySchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="FlatMenuUI" type="FlatMenuUISchemaType"/>
 <xs:element name="FlatRadioButtonUI" type="FlatRadioButtonUISchemaType"/>
+<xs:element name="FlatSliderUI" type="FlatSliderUISchemaType"/>
 <xs:element name="FlatTextFieldUI" type="FlatTextFieldUISchemaType"/>
 <xs:element name="FlatLookAndFeel" type="FlatLookAndFeelSchemaType"/>
+<xs:element name="FlatComboBoxListCellFactory" type="FlatComboBoxListCellFactorySchemaType"/>
 <xs:element name="FlatButtonUI" type="FlatButtonUISchemaType"/>
+<xs:element name="FlatComboBoxListCell" type="FlatComboBoxListCellSchemaType"/>
 <xs:element name="FlatTextComponentUI" type="FlatTextComponentUISchemaType"/>
 <xs:element name="FlatCheckBoxUI" type="FlatCheckBoxUISchemaType"/>
+<xs:element name="FlatScrollBarUI" type="FlatScrollBarUISchemaType"/>
+<xs:element name="TextCellComponent" type="TextCellComponentSchemaType"/>
+<xs:element name="FlatListCell" type="FlatListCellSchemaType"/>
+<xs:element name="FlatToggleButtonUI" type="FlatToggleButtonUISchemaType"/>
+<xs:element name="FlatComboBoxUI" type="FlatComboBoxUISchemaType"/>
+<xs:element name="FlatListCellFactory" type="FlatListCellFactorySchemaType"/>
 </xs:schema>

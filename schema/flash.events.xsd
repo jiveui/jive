@@ -4,6 +4,7 @@ xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:org-aswing-event="org.aswing.event"
 xmlns:flash-net="flash.net"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:flash-display3D-textures="flash.display3D.textures"
 xmlns:empty="empty"
@@ -25,6 +26,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
@@ -122,6 +124,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="flash-text:TextField" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
 <xs:element ref="org-aswing-ext:Form" />
@@ -274,6 +277,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="flash-text:TextField" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
 <xs:element ref="org-aswing-ext:Form" />

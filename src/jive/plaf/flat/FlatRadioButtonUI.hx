@@ -4,8 +4,6 @@
 
 package jive.plaf.flat;
 
-
-import org.aswing.plaf.basic.BasicToggleButtonUI;
 import org.aswing.Icon;
 import org.aswing.AbstractButton;
 import org.aswing.Component;
@@ -13,7 +11,7 @@ import org.aswing.geom.IntRectangle;
 import org.aswing.graphics.Graphics2D;
 import org.aswing.graphics.SolidBrush;
 
-class FlatRadioButtonUI extends BasicToggleButtonUI {
+class FlatRadioButtonUI extends FlatToggleButtonUI {
 	
 	private var defaultIcon:Icon;
 	

@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.background" xmlns="org.aswing.plaf.basic.background" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:complexType name="ProgressBarBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="ProgressBarBackground"/></xs:all></xs:complexType>
 
@@ -32,7 +34,11 @@ xmlns:empty="empty"
 <xs:all><xs:element ref="PanelBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="ScrollBarThumbSchemaTypeValue">
-<xs:all><xs:element ref="ScrollBarThumb"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
+<xs:element ref="ScrollBarThumb" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="ToolTipBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="ToolTipBackground"/></xs:all></xs:complexType>

@@ -2,4 +2,6 @@
 <extension>
     <assets path="assets" inlude="*"/>
     <haxelib name="actuate"/>
+    <haxedef name="openfl_snapsvg_without_massive_broadcasting"/>
+    <haxedef name="openfl_snapsvg_render_only_changed"/>
 </extension>

@@ -3,6 +3,7 @@ xmlns:org-aswing="org.aswing"
 xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
+xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-tree="org.aswing.plaf.basic.tree"
 xmlns:org-aswing-table="org.aswing.table"
@@ -20,6 +21,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
+<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
@@ -44,6 +46,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="ComponentUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="ColorSwatchesUI" />
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToggleButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxUI" />
@@ -55,6 +58,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicViewportUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicSeparatorUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
 <xs:element ref="TableUI" />
@@ -66,6 +70,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicRadioButtonUI" />
@@ -97,6 +102,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicStepperUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
 <xs:element ref="ComboBoxUI" />
 <xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
@@ -145,6 +151,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 
 <xs:complexType name="ComboBoxUISchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
 </xs:choice>
 </xs:complexType>
@@ -174,6 +181,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BaseComponentUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicRadioButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTextAreaUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToggleButtonUI" />
@@ -204,6 +212,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicSeparatorUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicAccordionUI" />
@@ -213,10 +222,12 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
@@ -228,6 +239,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 
 <xs:complexType name="SliderUISchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
 <xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicSliderUI" />
 </xs:choice>
@@ -258,6 +270,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-icon:SliderThumbIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameIconifiedIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:TextComponentBackBround" />
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
 <xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
 <xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:ArrowIcon" />
@@ -271,6 +284,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameIcon" />
+<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
 <xs:element ref="org-aswing-plaf-basic-icon:CheckBoxIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:ScrollBarArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:InputBackground" />
@@ -284,9 +298,12 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-tree:BasicExpandControl" />
 <xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
+<xs:element ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarBackground" />
 <xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
 <xs:element ref="UIStyleTune" />
 <xs:element ref="org-aswing-tree:GeneralTreeCellFactoryUIResource" />
+<xs:element ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element ref="jive-plaf-flat-icon:FlatCheckBoxIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
@@ -301,6 +318,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
 <xs:element ref="ASColorUIResource" />
 <xs:element ref="EmptyLayoutUIResourse" />
+<xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="ASFontUIResource" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
@@ -309,6 +327,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-tree:TreeFolderIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:TextComponentBorder" />
+<xs:element ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
 <xs:element ref="org-aswing-tree:TreeLeafIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:ListBackground" />
 <xs:element ref="org-aswing-plaf-basic-icon:TitleIcon" />
@@ -316,6 +335,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:TabBackground" />
 <xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
 <xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
+<xs:element ref="jive-plaf-flat-border:FlatComboBoxPopupBorder" />
 </xs:choice>
 </xs:complexType>
 

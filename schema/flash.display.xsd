@@ -3,6 +3,7 @@ xmlns:org-aswing="org.aswing"
 xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:flash-utils="flash.utils"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:empty="empty"
 xmlns:org-aswing-table="org.aswing.table"
@@ -24,6 +25,7 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
@@ -84,6 +86,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-colorchooser:JColorSwatches" />
 <xs:element ref="flash-text:TextField" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
 <xs:element ref="org-aswing-table:PoorTextCell" />
@@ -181,6 +184,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JToggleButton" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-table:PoorTextCell" />
 <xs:element ref="org-aswing:JRadioButtonMenuItem" />
@@ -267,6 +271,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-colorchooser:JColorSwatches" />
 <xs:element ref="flash-text:TextField" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
 <xs:element ref="org-aswing-table:PoorTextCell" />
@@ -377,6 +382,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JToggleButton" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-table:PoorTextCell" />
 <xs:element ref="org-aswing:JRadioButtonMenuItem" />
@@ -476,6 +482,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-colorchooser:JColorSwatches" />
 <xs:element ref="flash-text:TextField" />
+<xs:element ref="jive-plaf-flat:TextCellComponent" />
 <xs:element ref="org-aswing:JCheckBox" />
 <xs:element ref="org-aswing-table:PoorTextCell" />
 <xs:element ref="org-aswing:JRadioButtonMenuItem" />

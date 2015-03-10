@@ -43,7 +43,7 @@ class FlatProgressBarIcon implements GroundDecorator implements UIResource{
 			var percent:Float;
 			if(bar.isIndeterminate()) {
 				percent = indeterminatePercent;
-				indeterminatePercent += 0.1;
+				indeterminatePercent += 0.01;
 				if(indeterminatePercent > 1){
 					indeterminatePercent = 0;
 				}

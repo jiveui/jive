@@ -23,7 +23,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:all><xs:element ref="BasicProgressBarUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="BasicScrollBarUISchemaTypeValue">
-<xs:all><xs:element ref="BasicScrollBarUI"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
+<xs:element ref="BasicScrollBarUI" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="BasicToolTipUISchemaTypeValue">
 <xs:all><xs:element ref="BasicToolTipUI"/></xs:all></xs:complexType>
@@ -31,9 +35,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="BasicToggleButtonUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="BasicRadioButtonUI" />
-<xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
 <xs:element ref="BasicCheckBoxUI" />
-<xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
 <xs:element ref="BasicToggleButtonUI" />
 </xs:choice>
 </xs:complexType>
@@ -90,13 +92,18 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 
 <xs:complexType name="BasicSliderUISchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
 <xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
 <xs:element ref="BasicSliderUI" />
 </xs:choice>
 </xs:complexType>
 
 <xs:complexType name="BasicComboBoxUISchemaTypeValue">
-<xs:all><xs:element ref="BasicComboBoxUI"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
+<xs:element ref="BasicComboBoxUI" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="BasicRadioButtonUISchemaTypeValue">
 <xs:choice>
@@ -119,6 +126,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="BasicRadioButtonUI" />
 <xs:element ref="BasicToggleButtonUI" />
 <xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
 <xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="BasicCheckBoxUI" />
 <xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />

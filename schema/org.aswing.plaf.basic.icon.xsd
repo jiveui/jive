@@ -36,6 +36,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 
 <xs:complexType name="SolidArrowIconSchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
 <xs:element ref="MenuArrowIcon" />
 <xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
 <xs:element ref="SolidArrowIcon" />
