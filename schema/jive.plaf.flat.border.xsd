@@ -1,0 +1,45 @@
+<xs:schema targetNamespace="jive.plaf.flat.border" xmlns="jive.plaf.flat.border" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="TextCellComponentBorderSchemaTypeValue">
+<xs:all><xs:element ref="TextCellComponentBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatPopupMenuBorderSchemaTypeValue">
+<xs:all><xs:element ref="FlatPopupMenuBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatComboBoxPopupBorderSchemaTypeValue">
+<xs:all><xs:element ref="FlatComboBoxPopupBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextCellComponentBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatPopupMenuBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxPopupBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TextCellComponentBorder" type="TextCellComponentBorderSchemaType"/>
+<xs:element name="FlatPopupMenuBorder" type="FlatPopupMenuBorderSchemaType"/>
+<xs:element name="FlatComboBoxPopupBorder" type="FlatComboBoxPopupBorderSchemaType"/>
+</xs:schema>
