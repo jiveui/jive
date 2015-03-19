@@ -29,5 +29,71 @@
     <orderEntry type="library" name="bindx" level="project" />
     <orderEntry type="library" name="actuate" level="project" />
     <orderEntry type="library" name="openfl-snapsvg" level="project" />
+    <orderEntry type="module-library">
+      <library name="haxelib|src">
+        <CLASSES>
+          <root url="file://src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/jive/src">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/usr/lib/haxe/lib/actuate/1,7,5">
+        <CLASSES>
+          <root url="file:///usr/lib/haxe/lib/actuate/1,7,5" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/lib/haxe/lib/actuate/1,7,5" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/hml-xsd-gen">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../hml-xsd-gen" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../hml-xsd-gen" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/hml/src">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../hml/src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../hml/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/bindx/src">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../bindx/src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../bindx/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

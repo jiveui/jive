@@ -31,7 +31,7 @@ import org.aswing.error.ImpMissError;
  */
 class DecorateBorder implements Border{
 		
-	private var interior:Border;
+    public var interior:Border;
 	private var disContainer:Sprite;
 	
 	public function new(interior:Border){
@@ -43,7 +43,7 @@ class DecorateBorder implements Border{
 	 * @param interior the new interior border
 	 */
 	public function setInterior(interior:Border):Void{
-		this.interior = interior;	
+		this.interior = interior;
 	}
 
 	/**
@@ -51,7 +51,7 @@ class DecorateBorder implements Border{
 	 * @return current interior border
 	 */
 	public function getInterior():Border {
-		return interior;	
+		return interior;
 	}
 	
 	/**

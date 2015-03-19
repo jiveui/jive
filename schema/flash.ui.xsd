@@ -10,6 +10,9 @@ xmlns:empty="empty"
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="MultitouchSchemaTypeValue">
+<xs:all><xs:element ref="Multitouch"/></xs:all></xs:complexType>
+
 <xs:complexType name="ContextMenuBuiltInItemsSchemaTypeValue">
 <xs:all><xs:element ref="ContextMenuBuiltInItems"/></xs:all></xs:complexType>
 
@@ -24,6 +27,15 @@ xmlns:empty="empty"
 
 <xs:complexType name="MouseSchemaTypeValue">
 <xs:all><xs:element ref="Mouse"/></xs:all></xs:complexType>
+
+<xs:complexType name="MultitouchSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="ContextMenuBuiltInItemsSchemaType">
 <xs:complexContent>
@@ -113,6 +125,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="Multitouch" type="MultitouchSchemaType"/>
 <xs:element name="ContextMenuBuiltInItems" type="ContextMenuBuiltInItemsSchemaType"/>
 <xs:element name="ContextMenu" type="ContextMenuSchemaType"/>
 <xs:element name="ContextMenuClipboardItems" type="ContextMenuClipboardItemsSchemaType"/>

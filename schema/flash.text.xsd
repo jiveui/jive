@@ -8,6 +8,9 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:complexType name="FontSchemaTypeValue">
+<xs:all><xs:element ref="Font"/></xs:all></xs:complexType>
+
 <xs:complexType name="StyleSheetSchemaTypeValue">
 <xs:all><xs:element ref="StyleSheet"/></xs:all></xs:complexType>
 
@@ -26,6 +29,21 @@ xmlns:flash-events="flash.events"
 
 <xs:complexType name="TextFormatSchemaTypeValue">
 <xs:all><xs:element ref="TextFormat"/></xs:all></xs:complexType>
+
+<xs:complexType name="FontSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="fontName" type="xs:string"/>
+<xs:element minOccurs="0" name="fontStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="fontType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="fontName" type="xs:string"/>
+<xs:attribute name="fontStyle" type="xs:string"/>
+<xs:attribute name="fontType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="StyleSheetSchemaType">
 <xs:complexContent>
@@ -205,6 +223,7 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 
+<xs:element name="Font" type="FontSchemaType"/>
 <xs:element name="StyleSheet" type="StyleSheetSchemaType"/>
 <xs:element name="TextSnapshot" type="TextSnapshotSchemaType"/>
 <xs:element name="TextLineMetrics" type="TextLineMetricsSchemaType"/>

@@ -1,5 +1,6 @@
 package jive.plaf.flat.background;
 
+import org.aswing.JButton;
 import org.aswing.graphics.SolidBrush;
 import flash.display.DisplayObject;
 import org.aswing.ButtonModel;
@@ -35,7 +36,15 @@ class FlatButtonBackground implements GroundDecorator implements UIResource{
         g = new Graphics2D(shape.graphics);
         bounds = bounds.clone();
 
-        var color:ASColor = c.getBackground();
+        var color:ASColor = c.background;
+
+        if (Std.is(b, JButton))
+        {
+            var _b:JButton = AsWingUtils.as(b, JButton);
+            if(_b.isDefaultButton()){//default button
+                color = c.mideground;
+            }
+        }
 
         if(c.opaque){
             if (Math.abs(b.transitBackgroundFactor) < 1) {

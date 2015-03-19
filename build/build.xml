@@ -12,12 +12,25 @@
         <antcall target="build.schema"/>
     </target>
 
+    <target name="build.all-in-one-hml">
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="hxml" value="gen.hxml"/>
+        </antcall>
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml html5"/>
+        </antcall>
+    </target>
+
     <target name="build.demos">
-          <antcall target="openfl">
-              <param name="dir" value="${project.root.path}/demos/all-in-one"/>
-              <param name="command" value="build"/>
-              <param name="options" value="project.xml html5"/>
-          </antcall>
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml html5"/>
+        </antcall>
+
         <antcall target="haxe">
             <param name="dir" value="${project.root.path}/demos/calendar"/>
             <param name="hxml" value="build.hxml"/>

@@ -306,8 +306,19 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     private var _selectionMode: Int;
     private function get_selectionMode(): Int { return getSelectionMode(); }
     private function set_selectionMode(v: Int): Int { setSelectionMode(v); return v; }
-	
-	/**
+
+    /**
+     * A single selected cell.
+     * @see ListSelectionModel#setSelectionInterval
+     * @see #isSelectedIndex()
+     * @see #addSelectionListener()
+	 * @see #ensureIndexIsVisible()
+	 */
+    @bindable public var selectedIndex(get, set): Int;
+    private function get_selectedIndex(): Int { return getSelectedIndex(); }
+    private function set_selectedIndex(v: Int): Int { setSelectedIndex(v); return v; }
+
+    /**
 	 * Create a list.
 	 * @param listData (optional)a ListModel or a Array.
 	 * @param cellFactory (optional)the cellFactory for this List.
@@ -844,13 +855,16 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #ensureIndexIsVisible()
 	 */
 	public function setSelectedValue(value:Dynamic, programmatic:Bool=true):Void{
+        trace(_model);
 		var n:Int= _model.getSize();
 		for(i in 0...n){
 			if(_model.getElementAt(i) == value){
 				setSelectedIndex(i, programmatic);
+                trace(i);
 				return;
 			}
 		}
+        trace(-1);
 		setSelectedIndex(-1, programmatic); //there is not this value
 	}
 	
@@ -1976,6 +1990,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     }
         
     private function __selectionListener(e:SelectionEvent):Void{
+        bindx.Bind.notify(this.selectedIndex);
     	dispatchEvent(new SelectionEvent(SelectionEvent.LIST_SELECTION_CHANGED, e.getFirstIndex(), e.getLastIndex(), e.isProgrammatic()));
     	revalidate();
     }

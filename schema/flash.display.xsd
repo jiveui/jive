@@ -784,6 +784,7 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="stageFocusRect" type="xs:boolean"/>
 <xs:element minOccurs="0" name="stageHeight" type="xs:int"/>
 <xs:element minOccurs="0" name="stageWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="wmodeGPU" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="align" type="xs:string"/>
 <xs:attribute name="colorCorrection" type="xs:string"/>
@@ -800,6 +801,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="stageFocusRect" type="xs:boolean"/>
 <xs:attribute name="stageHeight" type="xs:int"/>
 <xs:attribute name="stageWidth" type="xs:int"/>
+<xs:attribute name="wmodeGPU" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -810,9 +812,11 @@ xmlns:flash-media="flash.media"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="contentLoaderInfo" type="LoaderInfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="uncaughtErrorEvents" type="flash-events:UncaughtErrorEventsSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="content" type="xs:string"/>
 <xs:attribute name="contentLoaderInfo" type="xs:string"/>
+<xs:attribute name="uncaughtErrorEvents" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -831,6 +835,7 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="contentType" type="xs:string"/>
 <xs:element minOccurs="0" name="frameRate" type="xs:double"/>
 <xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="isURLInaccessible" type="xs:boolean"/>
 <xs:element minOccurs="0" name="loader" type="LoaderSchemaTypeValue"/>
 <xs:element minOccurs="0" name="loaderURL" type="xs:string"/>
 <xs:element minOccurs="0" name="parameters" type="xs:string"/>
@@ -838,6 +843,7 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="sameDomain" type="xs:boolean"/>
 <xs:element minOccurs="0" name="sharedEvents" type="flash-events:EventDispatcherSchemaTypeValue"/>
 <xs:element minOccurs="0" name="swfVersion" type="xs:int"/>
+<xs:element minOccurs="0" name="uncaughtErrorEvents" type="flash-events:UncaughtErrorEventsSchemaTypeValue"/>
 <xs:element minOccurs="0" name="url" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:int"/>
 </xs:all>
@@ -851,6 +857,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="contentType" type="xs:string"/>
 <xs:attribute name="frameRate" type="xs:double"/>
 <xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="isURLInaccessible" type="xs:boolean"/>
 <xs:attribute name="loader" type="xs:string"/>
 <xs:attribute name="loaderURL" type="xs:string"/>
 <xs:attribute name="parameters" type="xs:string"/>
@@ -858,6 +865,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="sameDomain" type="xs:boolean"/>
 <xs:attribute name="sharedEvents" type="xs:string"/>
 <xs:attribute name="swfVersion" type="xs:int"/>
+<xs:attribute name="uncaughtErrorEvents" type="xs:string"/>
 <xs:attribute name="url" type="xs:string"/>
 <xs:attribute name="width" type="xs:int"/>
 </xs:extension>

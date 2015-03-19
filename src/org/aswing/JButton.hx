@@ -5,8 +5,7 @@
 package org.aswing;
 
 
-import flash.display.DisplayObjectContainer;
-
+import jive.Command;
 import org.aswing.plaf.basic.BasicButtonUI;
 
 /**
@@ -16,12 +15,20 @@ import org.aswing.plaf.basic.BasicButtonUI;
  */
 class JButton extends AbstractButton
 {
+
+    public var command: Command;
+
 	public function new(text:String="", icon:Icon=null){
 		super(text, icon);
 		setClipMasked(true);
 		setName("JButton" + text);
 		
     	setModel(new DefaultButtonModel());
+
+        addActionListener(function(e) {
+            trace(command);
+            if (null != command) command.action();
+        });
 	}
 	
 	/**
@@ -69,5 +76,5 @@ class JButton extends AbstractButton
 	override public function getUIClassID():String{
 		return "ButtonUI";
 	}
-	
+
 }

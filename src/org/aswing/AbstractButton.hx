@@ -29,7 +29,7 @@ import org.aswing.plaf.InsetsUIResource;
  */
 @:event("org.aswing.event.InteractiveEvent.SELECTION_CHANGED", "Dispatched when the button's selection changed. Buttons always fire `programmatic=false` InteractiveEvent")
 @:event("org.aswing.event.InteractiveEvent.STATE_CHANGED", "Dispatched when the button's state changed. The state is all about:`enabled`, `rollOver`, `pressed`, `released`, `selected`")
-@:evemt("org.aswing.event.AWEvent.ACT", "Dispatched when the button's model take action, generally when user click the button or `>doClick()` method is called.")
+@:event("org.aswing.event.AWEvent.ACT", "Dispatched when the button's model take action, generally when user click the button or `>doClick()` method is called.")
 class AbstractButton extends Component{
 	
 	/**

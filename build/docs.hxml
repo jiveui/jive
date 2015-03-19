@@ -1,10 +1,13 @@
 -cp ../src
 -swf doc.swf
+-swf-version 10.1
 --no-output
 -xml ../docs/jive.xml
 -lib bindx
 -lib hml
 -lib actuate
+-lib openfl
+-lib lime
 --macro allowPackage('flash')
 --macro "include('org.aswing')"
 --macro "include('jive')"

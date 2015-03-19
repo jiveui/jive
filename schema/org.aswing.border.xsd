@@ -80,7 +80,9 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="interior" type="org-aswing:BorderSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="interior" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -146,7 +148,13 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="DecorateBorderSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="color" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="round" type="xs:double"/>
 </xs:all>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="round" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

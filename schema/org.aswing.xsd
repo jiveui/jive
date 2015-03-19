@@ -7,6 +7,7 @@ xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
 xmlns:empty="empty"
+xmlns:jive="jive"
 xmlns:org-aswing-border="org.aswing.border"
 xmlns:org-aswing-table="org.aswing.table"
 xmlns:haxe-ds="haxe.ds"
@@ -34,6 +35,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
@@ -1253,6 +1255,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="model" type="ListModelSchemaTypeValue"/>
 <xs:element minOccurs="0" name="selectionModel" type="ListSelectionModelSchemaTypeValue"/>
 <xs:element minOccurs="0" name="selectionMode" type="xs:int"/>
+<xs:element minOccurs="0" name="selectedIndex" type="xs:int"/>
 </xs:all>
 <xs:attribute name="visibleRowCount" type="xs:int"/>
 <xs:attribute name="visibleCellWidth" type="xs:int"/>
@@ -1264,6 +1267,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="model" type="xs:string"/>
 <xs:attribute name="selectionModel" type="xs:string"/>
 <xs:attribute name="selectionMode" type="xs:int"/>
+<xs:attribute name="selectedIndex" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1737,7 +1741,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="command" type="jive:CommandSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="command" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2140,11 +2146,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" name="height" type="xs:int"/>
 <xs:element minOccurs="0" name="scale" type="xs:boolean"/>
 <xs:element minOccurs="0" name="asset" type="flash-display:DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="bitmapAsset" type="xs:string"/>
 </xs:all>
 <xs:attribute name="width" type="xs:int"/>
 <xs:attribute name="height" type="xs:int"/>
 <xs:attribute name="scale" type="xs:boolean"/>
 <xs:attribute name="asset" type="xs:string"/>
+<xs:attribute name="bitmapAsset" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

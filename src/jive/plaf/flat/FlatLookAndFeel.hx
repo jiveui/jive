@@ -105,6 +105,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	
 	private function initSystemColorDefaults(table:UIDefaults):Void{
         var defaultSystemColors:Array<Dynamic>= [
+            "white", 0xffffff,
             "turquoise", 0x1abc9c,
             "emerald", 0x2ecc71,
             "peter-river", 0x3498db,
@@ -174,13 +175,14 @@ class FlatLookAndFeel extends LookAndFeel {
 	}
 	
 	private function initComponentDefaults(table:UIDefaults):Void{
-		var buttonBG:ASColorUIResource = table.get("turquoise");
+		var buttonBG:ASColorUIResource = table.get("silver");
 		var textBG:ASColorUIResource = table.get("clouds");
 
 		// *** Button
 		var comDefaults:Array<Dynamic>= [
 			"Button.background", buttonBG,
-			"Button.foreground", table.get("clouds"),
+			"Button.foreground", table.get("white"),
+            "Button.mideground", table.get("turquoise"),
 			"Button.opaque", true,
 			"Button.focusable", true,  
 			"Button.font", table.getFont("controlFont"),
@@ -356,8 +358,8 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 	   // *** Label
 		comDefaults = [
-			"Label.background", table.get("control"),
-			"Label.foreground", table.get("controlText"), 
+			"Label.background", table.get("window"),
+			"Label.foreground", table.get("windowText"),
 			"Label.mideground", table.get("controlMide"), 
 			"Label.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20),
 			"Label.opaque", false, 
@@ -370,15 +372,15 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 	   // *** TextArea
 		comDefaults = [
-			"TextArea.background", textBG,
-			"TextArea.foreground", table.get("controlText"), 
-			"TextArea.mideground",  new ASColorUIResource(0x89bb00), 
-			"TextArea.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.30, 3), 
+            "TextArea.background", table.get("window"),
+            "TextArea.foreground", table.get("wet-asphalt"),
+            "TextArea.mideground", table.get("concrete"),
+			"TextArea.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.30, 5),
 			"TextArea.opaque", true, 
 			"TextArea.focusable", true, 
 			"TextArea.font", table.getFont("controlFont"),
 			"TextArea.bg", org.aswing.plaf.basic.background.TextComponentBackBround,
-			"TextArea.border", new EmptyBorderResource(null, new Insets(1, 3, 2, 3))
+			"TextArea.border", new EmptyBorderResource(null, new Insets(7, 15, 7, 15))
 		];
 		table.putDefaults(comDefaults);
 		

@@ -5,6 +5,15 @@ xmlns:empty="empty"
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
+<xs:complexType name="CommandSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BaseCommand" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BaseCommandSchemaTypeValue">
+<xs:all><xs:element ref="BaseCommand"/></xs:all></xs:complexType>
+
 <xs:complexType name="DataContextControllableSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -16,6 +25,26 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="CommandSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BaseCommandSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
+<xs:element name="Command" type="CommandSchemaType"/>
+<xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
 </xs:schema>

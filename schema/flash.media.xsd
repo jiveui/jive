@@ -8,6 +8,9 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:complexType name="SoundLoaderContextSchemaTypeValue">
+<xs:all><xs:element ref="SoundLoaderContext"/></xs:all></xs:complexType>
+
 <xs:complexType name="CameraSchemaTypeValue">
 <xs:all><xs:element ref="Camera"/></xs:all></xs:complexType>
 
@@ -23,6 +26,9 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="SoundTransformSchemaTypeValue">
 <xs:all><xs:element ref="SoundTransform"/></xs:all></xs:complexType>
 
+<xs:complexType name="ID3InfoSchemaTypeValue">
+<xs:all><xs:element ref="ID3Info"/></xs:all></xs:complexType>
+
 <xs:complexType name="AVPlayStateSchemaTypeValue">
 <xs:all><xs:element ref="AVPlayState"/></xs:all></xs:complexType>
 
@@ -32,14 +38,33 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="AVResultSchemaTypeValue">
 <xs:all><xs:element ref="AVResult"/></xs:all></xs:complexType>
 
+<xs:complexType name="SoundSchemaTypeValue">
+<xs:all><xs:element ref="Sound"/></xs:all></xs:complexType>
+
 <xs:complexType name="AVCaptionStyleSchemaTypeValue">
 <xs:all><xs:element ref="AVCaptionStyle"/></xs:all></xs:complexType>
 
 <xs:complexType name="VideoStreamSettingsSchemaTypeValue">
 <xs:all><xs:element ref="VideoStreamSettings"/></xs:all></xs:complexType>
 
+<xs:complexType name="SoundChannelSchemaTypeValue">
+<xs:all><xs:element ref="SoundChannel"/></xs:all></xs:complexType>
+
 <xs:complexType name="AVStreamSchemaTypeValue">
 <xs:all><xs:element ref="AVStream"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoundLoaderContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
+<xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="bufferTime" type="xs:double"/>
+<xs:attribute name="checkPolicyFile" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="CameraSchemaType">
 <xs:complexContent>
@@ -150,6 +175,29 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="ID3InfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="album" type="xs:string"/>
+<xs:element minOccurs="0" name="artist" type="xs:string"/>
+<xs:element minOccurs="0" name="comment" type="xs:string"/>
+<xs:element minOccurs="0" name="genre" type="xs:string"/>
+<xs:element minOccurs="0" name="songName" type="xs:string"/>
+<xs:element minOccurs="0" name="track" type="xs:string"/>
+<xs:element minOccurs="0" name="year" type="xs:string"/>
+</xs:all>
+<xs:attribute name="album" type="xs:string"/>
+<xs:attribute name="artist" type="xs:string"/>
+<xs:attribute name="comment" type="xs:string"/>
+<xs:attribute name="genre" type="xs:string"/>
+<xs:attribute name="songName" type="xs:string"/>
+<xs:attribute name="track" type="xs:string"/>
+<xs:attribute name="year" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="AVPlayStateSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -167,12 +215,14 @@ xmlns:flash-events="flash.events"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="activityLevel" type="xs:double"/>
 <xs:element minOccurs="0" name="codec" type="xs:string"/>
+<xs:element minOccurs="0" name="enableVAD" type="xs:boolean"/>
 <xs:element minOccurs="0" name="encodeQuality" type="xs:int"/>
 <xs:element minOccurs="0" name="framesPerPacket" type="xs:int"/>
 <xs:element minOccurs="0" name="gain" type="xs:double"/>
 <xs:element minOccurs="0" name="index" type="xs:int"/>
 <xs:element minOccurs="0" name="muted" type="xs:boolean"/>
 <xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="noiseSuppressionLevel" type="xs:int"/>
 <xs:element minOccurs="0" name="rate" type="xs:int"/>
 <xs:element minOccurs="0" name="silenceLevel" type="xs:double"/>
 <xs:element minOccurs="0" name="silenceTimeout" type="xs:int"/>
@@ -181,12 +231,14 @@ xmlns:flash-events="flash.events"
 </xs:all>
 <xs:attribute name="activityLevel" type="xs:double"/>
 <xs:attribute name="codec" type="xs:string"/>
+<xs:attribute name="enableVAD" type="xs:boolean"/>
 <xs:attribute name="encodeQuality" type="xs:int"/>
 <xs:attribute name="framesPerPacket" type="xs:int"/>
 <xs:attribute name="gain" type="xs:double"/>
 <xs:attribute name="index" type="xs:int"/>
 <xs:attribute name="muted" type="xs:boolean"/>
 <xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="noiseSuppressionLevel" type="xs:int"/>
 <xs:attribute name="rate" type="xs:int"/>
 <xs:attribute name="silenceLevel" type="xs:double"/>
 <xs:attribute name="silenceTimeout" type="xs:int"/>
@@ -203,6 +255,29 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="result" type="xs:int"/>
 </xs:all>
 <xs:attribute name="result" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SoundSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="id3" type="ID3InfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="isBuffering" type="xs:boolean"/>
+<xs:element minOccurs="0" name="isURLInaccessible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="id3" type="xs:string"/>
+<xs:attribute name="isBuffering" type="xs:boolean"/>
+<xs:attribute name="isURLInaccessible" type="xs:boolean"/>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="url" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -259,6 +334,23 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="SoundChannelSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="leftPeak" type="xs:double"/>
+<xs:element minOccurs="0" name="position" type="xs:double"/>
+<xs:element minOccurs="0" name="rightPeak" type="xs:double"/>
+<xs:element minOccurs="0" name="soundTransform" type="SoundTransformSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="leftPeak" type="xs:double"/>
+<xs:attribute name="position" type="xs:double"/>
+<xs:attribute name="rightPeak" type="xs:double"/>
+<xs:attribute name="soundTransform" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="AVStreamSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
@@ -301,15 +393,19 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 
+<xs:element name="SoundLoaderContext" type="SoundLoaderContextSchemaType"/>
 <xs:element name="Camera" type="CameraSchemaType"/>
 <xs:element name="StageVideo" type="StageVideoSchemaType"/>
 <xs:element name="AVSource" type="AVSourceSchemaType"/>
 <xs:element name="MicrophoneEnhancedOptions" type="MicrophoneEnhancedOptionsSchemaType"/>
 <xs:element name="SoundTransform" type="SoundTransformSchemaType"/>
+<xs:element name="ID3Info" type="ID3InfoSchemaType"/>
 <xs:element name="AVPlayState" type="AVPlayStateSchemaType"/>
 <xs:element name="Microphone" type="MicrophoneSchemaType"/>
 <xs:element name="AVResult" type="AVResultSchemaType"/>
+<xs:element name="Sound" type="SoundSchemaType"/>
 <xs:element name="AVCaptionStyle" type="AVCaptionStyleSchemaType"/>
 <xs:element name="VideoStreamSettings" type="VideoStreamSettingsSchemaType"/>
+<xs:element name="SoundChannel" type="SoundChannelSchemaType"/>
 <xs:element name="AVStream" type="AVStreamSchemaType"/>
 </xs:schema>

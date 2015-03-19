@@ -30,10 +30,14 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="allowCodeImport" type="xs:boolean"/>
+<xs:element minOccurs="0" name="allowLoadBytesCodeExecution" type="xs:boolean"/>
 <xs:element minOccurs="0" name="applicationDomain" type="ApplicationDomainSchemaTypeValue"/>
 <xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
 <xs:element minOccurs="0" name="securityDomain" type="SecurityDomainSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="allowCodeImport" type="xs:boolean"/>
+<xs:attribute name="allowLoadBytesCodeExecution" type="xs:boolean"/>
 <xs:attribute name="applicationDomain" type="xs:string"/>
 <xs:attribute name="checkPolicyFile" type="xs:boolean"/>
 <xs:attribute name="securityDomain" type="xs:string"/>

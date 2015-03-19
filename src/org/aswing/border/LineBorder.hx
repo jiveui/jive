@@ -19,9 +19,9 @@ import org.aswing.ASColor;
  */
 class LineBorder extends DecorateBorder{
 	
-	private var color:ASColor;
-	private var thickness:Float;
-	private var round:Float;
+	public var color:ASColor;
+	public var thickness:Float;
+	public var round:Float;
 	
 	/**
 	 * Create a line border.

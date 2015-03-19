@@ -1,6 +1,8 @@
 package org.aswing;
 
-	
+
+import openfl.Assets;
+import flash.display.Bitmap;
 import org.aswing.graphics.Graphics2D;
 import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
@@ -44,12 +46,22 @@ class AssetIcon implements Icon {
 	private function set_scale(v: Bool): Bool { _scale = v; validate(); return v; }
 
 	/**
-	* The icon content
+	* The icon DisplayObject content
 	**/
 	public var asset(get, set): DisplayObject;
 	private var _asset:DisplayObject;
 	private function get_asset(): DisplayObject { return _asset; }
 	private function set_asset(v: DisplayObject): DisplayObject { _asset = v; validate(); return v; }
+
+    public var bitmapAsset(get, set): String;
+    private var _bitmapAsset: String;
+    private function get_bitmapAsset(): String { return _bitmapAsset; }
+    private function set_bitmapAsset(v: String): String {
+        _bitmapAsset = v;
+        asset = new Bitmap(Assets.getBitmapData(v));
+        return v;
+    }
+
 
 	private var assetContainer:DisplayObjectContainer;
 	private var maskShape:Shape;
@@ -75,8 +87,9 @@ class AssetIcon implements Icon {
 	}
 
 	private function validate() {
-		this.assetContainer = null;
-		this.maskShape = null;
+		if (null == this.assetContainer) {
+            assetContainer = AsWingUtils.createSprite(null, "assetContainer");
+        }
 
 		if (_width==-1 && _height==-1) {
 			if(asset!=null)	{
@@ -87,20 +100,15 @@ class AssetIcon implements Icon {
 				this._height = 0;
 			}
 		} else {
-			assetContainer = AsWingUtils.createSprite(null, "assetContainer");
-			maskShape = AsWingUtils.createShape(assetContainer, "maskShape");
-			maskShape.graphics.beginFill(0xFF0000);
-			maskShape.graphics.drawRect(0, 0, width, height);
-			maskShape.graphics.endFill();
 			if(_asset!=null) {
+                if (assetContainer.numChildren > 0) {
+                    assetContainer.removeChildAt(0);
+                }
 				assetContainer.addChild(_asset);
-				_asset.mask = maskShape;
 				if(scale) {
 					_asset.width = width;
 					_asset.height = height;
-				}
-			} else {
-				assetContainer.removeChild(maskShape);
+                }
 			}
 		}
 	}

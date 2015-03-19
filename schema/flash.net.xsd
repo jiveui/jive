@@ -48,12 +48,14 @@ xmlns:flash-media="flash.media"
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="len" type="xs:double"/>
+<xs:element minOccurs="0" name="offset" type="xs:double"/>
 <xs:element minOccurs="0" name="oldStreamName" type="xs:string"/>
 <xs:element minOccurs="0" name="start" type="xs:double"/>
 <xs:element minOccurs="0" name="streamName" type="xs:string"/>
 <xs:element minOccurs="0" name="transition" type="xs:string"/>
 </xs:all>
 <xs:attribute name="len" type="xs:double"/>
+<xs:attribute name="offset" type="xs:double"/>
 <xs:attribute name="oldStreamName" type="xs:string"/>
 <xs:attribute name="start" type="xs:double"/>
 <xs:attribute name="streamName" type="xs:string"/>
@@ -67,46 +69,78 @@ xmlns:flash-media="flash.media"
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="audioCodec" type="xs:int"/>
+<xs:element minOccurs="0" name="audioReliable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="audioSampleAccess" type="xs:boolean"/>
+<xs:element minOccurs="0" name="backBufferLength" type="xs:double"/>
+<xs:element minOccurs="0" name="backBufferTime" type="xs:double"/>
 <xs:element minOccurs="0" name="bufferLength" type="xs:double"/>
 <xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
+<xs:element minOccurs="0" name="bufferTimeMax" type="xs:double"/>
 <xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
 <xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
 <xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
 <xs:element minOccurs="0" name="client" type="xs:string"/>
 <xs:element minOccurs="0" name="currentFPS" type="xs:double"/>
+<xs:element minOccurs="0" name="dataReliable" type="xs:boolean"/>
 <xs:element minOccurs="0" name="decodedFrames" type="xs:int"/>
 <xs:element minOccurs="0" name="farID" type="xs:string"/>
 <xs:element minOccurs="0" name="farNonce" type="xs:string"/>
+<xs:element minOccurs="0" name="inBufferSeek" type="xs:boolean"/>
 <xs:element minOccurs="0" name="info" type="NetStreamInfoSchemaTypeValue"/>
 <xs:element minOccurs="0" name="liveDelay" type="xs:double"/>
 <xs:element minOccurs="0" name="maxPauseBufferTime" type="xs:double"/>
+<xs:element minOccurs="0" name="multicastAvailabilitySendToAll" type="xs:boolean"/>
+<xs:element minOccurs="0" name="multicastAvailabilityUpdatePeriod" type="xs:double"/>
+<xs:element minOccurs="0" name="multicastFetchPeriod" type="xs:double"/>
+<xs:element minOccurs="0" name="multicastInfo" type="NetStreamMulticastInfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="multicastPushNeighborLimit" type="xs:double"/>
+<xs:element minOccurs="0" name="multicastRelayMarginDuration" type="xs:double"/>
+<xs:element minOccurs="0" name="multicastWindowDuration" type="xs:double"/>
 <xs:element minOccurs="0" name="nearNonce" type="xs:string"/>
 <xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
 <xs:element minOccurs="0" name="peerStreams" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
 <xs:element minOccurs="0" name="time" type="xs:double"/>
 <xs:element minOccurs="0" name="videoCodec" type="xs:int"/>
+<xs:element minOccurs="0" name="videoReliable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="videoSampleAccess" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="audioCodec" type="xs:int"/>
+<xs:attribute name="audioReliable" type="xs:boolean"/>
+<xs:attribute name="audioSampleAccess" type="xs:boolean"/>
+<xs:attribute name="backBufferLength" type="xs:double"/>
+<xs:attribute name="backBufferTime" type="xs:double"/>
 <xs:attribute name="bufferLength" type="xs:double"/>
 <xs:attribute name="bufferTime" type="xs:double"/>
+<xs:attribute name="bufferTimeMax" type="xs:double"/>
 <xs:attribute name="bytesLoaded" type="xs:int"/>
 <xs:attribute name="bytesTotal" type="xs:int"/>
 <xs:attribute name="checkPolicyFile" type="xs:boolean"/>
 <xs:attribute name="client" type="xs:string"/>
 <xs:attribute name="currentFPS" type="xs:double"/>
+<xs:attribute name="dataReliable" type="xs:boolean"/>
 <xs:attribute name="decodedFrames" type="xs:int"/>
 <xs:attribute name="farID" type="xs:string"/>
 <xs:attribute name="farNonce" type="xs:string"/>
+<xs:attribute name="inBufferSeek" type="xs:boolean"/>
 <xs:attribute name="info" type="xs:string"/>
 <xs:attribute name="liveDelay" type="xs:double"/>
 <xs:attribute name="maxPauseBufferTime" type="xs:double"/>
+<xs:attribute name="multicastAvailabilitySendToAll" type="xs:boolean"/>
+<xs:attribute name="multicastAvailabilityUpdatePeriod" type="xs:double"/>
+<xs:attribute name="multicastFetchPeriod" type="xs:double"/>
+<xs:attribute name="multicastInfo" type="xs:string"/>
+<xs:attribute name="multicastPushNeighborLimit" type="xs:double"/>
+<xs:attribute name="multicastRelayMarginDuration" type="xs:double"/>
+<xs:attribute name="multicastWindowDuration" type="xs:double"/>
 <xs:attribute name="nearNonce" type="xs:string"/>
 <xs:attribute name="objectEncoding" type="xs:int"/>
 <xs:attribute name="peerStreams" type="xs:string"/>
 <xs:attribute name="soundTransform" type="xs:string"/>
 <xs:attribute name="time" type="xs:double"/>
 <xs:attribute name="videoCodec" type="xs:int"/>
+<xs:attribute name="videoReliable" type="xs:boolean"/>
+<xs:attribute name="videoSampleAccess" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -196,6 +230,7 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="videoBufferLength" type="xs:double"/>
 <xs:element minOccurs="0" name="videoByteCount" type="xs:double"/>
 <xs:element minOccurs="0" name="videoBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="videoLossRate" type="xs:double"/>
 <xs:element minOccurs="0" name="xmpData" type="xs:string"/>
 </xs:all>
 <xs:attribute name="SRTT" type="xs:double"/>
@@ -221,6 +256,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="videoBufferLength" type="xs:double"/>
 <xs:attribute name="videoByteCount" type="xs:double"/>
 <xs:attribute name="videoBytesPerSecond" type="xs:double"/>
+<xs:attribute name="videoLossRate" type="xs:double"/>
 <xs:attribute name="xmpData" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
