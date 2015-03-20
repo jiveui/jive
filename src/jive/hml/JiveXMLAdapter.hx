@@ -1,4 +1,5 @@
 package jive.hml;
+import hml.xml.typeResolver.IHaxeTypeResolver;
 
 #if macro
 import hml.xml.writer.IHaxeWriter.IHaxeNodeWriter;
@@ -16,6 +17,10 @@ class JiveXMLAdapter extends DefaultXMLAdapter{
 
     public override function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
         return super.getNodeWriters().concat([new JiveIntWriter(), new JiveFloatWriter(), new JiveBoolWriter()]);
+    }
+
+    public override function getTypeResolvers():Array<IHaxeTypeResolver<Node, Type>> {
+        return super.getTypeResolvers().concat([new JiveTypeResolver()]);
     }
 }
 #end
