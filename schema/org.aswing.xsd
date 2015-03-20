@@ -342,6 +342,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JSplitPane" />
 <xs:element ref="JTextField" />
 <xs:element ref="JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="JRadioButton" />
 <xs:element ref="JMenu" />
 <xs:element ref="JAdjuster" />
@@ -383,11 +384,15 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:choice>
 </xs:complexType>
 
+<xs:complexType name="SoftBoxSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive:Spot" />
+<xs:element ref="SoftBox" />
+</xs:choice>
+</xs:complexType>
+
 <xs:complexType name="KeyActionSchemaTypeValue">
 <xs:all><xs:element ref="KeyAction"/></xs:all></xs:complexType>
-
-<xs:complexType name="SoftBoxSchemaTypeValue">
-<xs:all><xs:element ref="SoftBox"/></xs:all></xs:complexType>
 
 <xs:complexType name="WeightBoxLayoutSchemaTypeValue">
 <xs:all><xs:element ref="WeightBoxLayout"/></xs:all></xs:complexType>
@@ -473,6 +478,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-ext:Form" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing-ext:DateChooser" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="SoftBox" />
 <xs:element ref="JOptionPane" />
 <xs:element ref="jive-plaf-flat:TextCellComponent" />
@@ -747,6 +753,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="AbstractTabbedPane" />
 <xs:element ref="JRootPane" />
 <xs:element ref="org-aswing-ext:Folder" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="JPanel" />
 <xs:element ref="JPopupMenu" />
 <xs:element ref="org-aswing-table:JTableHeader" />
@@ -893,6 +900,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JSplitPane" />
 <xs:element ref="JTextField" />
 <xs:element ref="JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="JRadioButton" />
 <xs:element ref="JMenu" />
 <xs:element ref="JAdjuster" />
@@ -1663,19 +1671,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="KeyActionSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="key" type="KeyTypeSchemaTypeValue"/>
-<xs:element minOccurs="0" name="action" type="xs:string"/>
-</xs:all>
-<xs:attribute name="key" type="xs:string"/>
-<xs:attribute name="action" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
 <xs:complexType name="SoftBoxSchemaType">
 <xs:complexContent>
 <xs:extension base="JPanelSchemaType">
@@ -1687,6 +1682,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="axis" type="xs:int"/>
 <xs:attribute name="gap" type="xs:int"/>
 <xs:attribute name="align" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="KeyActionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="key" type="KeyTypeSchemaTypeValue"/>
+<xs:element minOccurs="0" name="action" type="xs:string"/>
+</xs:all>
+<xs:attribute name="key" type="xs:string"/>
+<xs:attribute name="action" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2646,6 +2654,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" ref="JSplitPane" />
 <xs:element minOccurs="0" ref="JTextField" />
 <xs:element minOccurs="0" ref="JRootPane" />
+<xs:element minOccurs="0" ref="jive:Spot" />
 <xs:element minOccurs="0" ref="JRadioButton" />
 <xs:element minOccurs="0" ref="JMenu" />
 <xs:element minOccurs="0" ref="JAdjuster" />
@@ -3412,8 +3421,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="DefaultComboBoxListCellFactory" type="DefaultComboBoxListCellFactorySchemaType"/>
 <xs:element name="JMenuBar" type="JMenuBarSchemaType"/>
 <xs:element name="ASFont" type="ASFontSchemaType"/>
-<xs:element name="KeyAction" type="KeyActionSchemaType"/>
 <xs:element name="SoftBox" type="SoftBoxSchemaType"/>
+<xs:element name="KeyAction" type="KeyActionSchemaType"/>
 <xs:element name="WeightBoxLayout" type="WeightBoxLayoutSchemaType"/>
 <xs:element name="JLabelButton" type="JLabelButtonSchemaType"/>
 <xs:element name="EmptyIcon" type="EmptyIconSchemaType"/>

@@ -1,6 +1,8 @@
 <xs:schema targetNamespace="jive" xmlns="jive" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
 xmlns:empty="empty"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
@@ -10,6 +12,9 @@ xmlns:empty="empty"
 <xs:element ref="BaseCommand" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="SpotSchemaTypeValue">
+<xs:all><xs:element ref="Spot"/></xs:all></xs:complexType>
 
 <xs:complexType name="BaseCommandSchemaTypeValue">
 <xs:all><xs:element ref="BaseCommand"/></xs:all></xs:complexType>
@@ -34,6 +39,17 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="SpotSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:SoftBoxSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="selectedIndex" type="xs:int"/>
+</xs:all>
+<xs:attribute name="selectedIndex" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -46,5 +62,6 @@ xmlns:empty="empty"
 
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
+<xs:element name="Spot" type="SpotSchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
 </xs:schema>

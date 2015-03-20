@@ -31,7 +31,9 @@ class JButton extends AbstractButton
         });
 	}
 	
-	/**
+
+
+    /**
 	 * Returns whether this button is the default button of its root pane or not.
 	 * @return true if this button is the default button of its root pane, false otherwise.
 	 */

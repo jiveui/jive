@@ -7,6 +7,7 @@ xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:empty="empty"
 xmlns:org-aswing-tree="org.aswing.tree"
+xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
@@ -17,6 +18,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:complexType name="IBindableSchemaTypeValue">
 <xs:choice>
@@ -74,6 +76,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JSplitPane" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />

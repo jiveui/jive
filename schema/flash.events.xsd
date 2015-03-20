@@ -8,6 +8,7 @@ xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:flash-display3D-textures="flash.display3D.textures"
 xmlns:empty="empty"
+xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
 xmlns:org-aswing-util="org.aswing.util"
 xmlns:flash-_Boot="flash._Boot"
@@ -30,6 +31,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="org.aswing.util" schemaLocation="org.aswing.util.xsd" />
 <xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
@@ -100,6 +102,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
 <xs:element ref="flash-net:NetStream" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing-tree:EmptySelectionModel" />
 <xs:element ref="org-aswing:DefaultButtonModel" />
@@ -258,6 +261,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
 <xs:element ref="flash-net:NetStream" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing-tree:EmptySelectionModel" />
 <xs:element ref="org-aswing:DefaultButtonModel" />

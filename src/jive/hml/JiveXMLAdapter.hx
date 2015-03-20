@@ -1,7 +1,7 @@
 package jive.hml;
-import hml.xml.typeResolver.IHaxeTypeResolver;
 
 #if macro
+import hml.xml.typeResolver.IHaxeTypeResolver;
 import hml.xml.writer.IHaxeWriter.IHaxeNodeWriter;
 import hml.xml.Data;
 import hml.xml.typeResolver.IHaxeTypeResolver.IXMLDataNodeParser;

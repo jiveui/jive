@@ -270,9 +270,9 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-net:NetStreamPlayOptions" />
 <xs:element minOccurs="0" ref="org-aswing:ASFont" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:DefaultsDecorator" />
+<xs:element minOccurs="0" ref="org-aswing:SoftBox" />
 <xs:element minOccurs="0" ref="lime-graphics-opengl:GLBuffer" />
 <xs:element minOccurs="0" ref="org-aswing:KeyAction" />
-<xs:element minOccurs="0" ref="org-aswing:SoftBox" />
 <xs:element minOccurs="0" ref="org-aswing:WeightBoxLayout" />
 <xs:element minOccurs="0" ref="flash-display:Shader" />
 <xs:element minOccurs="0" ref="motion:Actuate" />
@@ -560,6 +560,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing:JTextField" />
 <xs:element minOccurs="0" ref="flash-geom:Point" />
 <xs:element minOccurs="0" ref="org-aswing:SimpleButton" />
+<xs:element minOccurs="0" ref="jive:Spot" />
 <xs:element minOccurs="0" ref="org-aswing:DefaultTextFieldCellEditor" />
 <xs:element minOccurs="0" ref="org-aswing:JRadioButton" />
 <xs:element minOccurs="0" ref="org-aswing:JPopupMenu" />

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoftBox gap="10"
+         xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:border="org.aswing.border"
+         xmlns:ext="org.aswing.ext">
+    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.TextViewModel>]]></haxe:Implements>
+    <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+        <font>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+        </font>
+    </JLabel>
+    <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
+        <SoftBox>
+            <border>
+                <border:LineBorder thickness="1" round="5">
+                    <border:interior>
+                        <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
+                    </border:interior>
+                    <border:color>
+                        <ASColor rgb="0xe1e1e1"/>
+                    </border:color>
+                </border:LineBorder>
+            </border>
+
+            <JPanel>
+                <JLabel text="'Predator'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                    <preferredSize>
+                        <geom:IntDimension width="100" height="-1"/>
+                    </preferredSize>
+                </JLabel>
+                <JTextField columns="15" inlineHint="'Lion'" text="{Binding predator mode=twoway}"/>
+            </JPanel>
+
+            <JPanel>
+                <JLabel text="'Victim'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                    <preferredSize>
+                        <geom:IntDimension width="100" height="-1"/>
+                    </preferredSize>
+                </JLabel>
+                <JTextField columns="15" inlineHint="'Antelope'" text="{Binding victim mode=twoway}"/>
+            </JPanel>
+
+        </SoftBox>
+        <ext:MultilineLabel text="{Binding predatorVictimSentence mode=oneway}" rows="5" columns="20" >
+            <ext:font>
+                <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+            </ext:font>
+        </ext:MultilineLabel>
+    </SoftBox>
+</SoftBox>

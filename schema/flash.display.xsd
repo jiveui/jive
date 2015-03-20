@@ -6,6 +6,7 @@ xmlns:flash-utils="flash.utils"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:empty="empty"
+xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
 xmlns:flash-_Boot="flash._Boot"
 xmlns:flash-geom="flash.geom"
@@ -28,6 +29,7 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
 <xs:import namespace="flash.geom" schemaLocation="flash.geom.xsd" />
@@ -140,6 +142,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />
@@ -231,6 +234,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />
@@ -327,6 +331,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />
@@ -432,6 +437,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />
@@ -532,6 +538,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="flash-_Boot:RealBoot" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="org-aswing:JAdjuster" />
