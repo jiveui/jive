@@ -4,6 +4,7 @@
         xmlns:geom="org.aswing.geom"
         xmlns:view="view"
         xmlns:jive="jive"
+        xmlns:border="org.aswing.border"
         defaultButton="buttonsView.defButton">
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.MainViewModel>]]></haxe:Implements>
     <content>
@@ -11,10 +12,26 @@
             <layout>
                 <BorderLayout hgap="20"/>
             </layout>
-            <JPanel constraints="org.aswing.BorderLayout.WEST">
-                <layout>
-                    <CenterLayout/>
-                </layout>
+            <border>
+                <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
+            </border>
+            <JMenuBar constraints="org.aswing.BorderLayout.NORTH">
+                <JMenu enabled="false">
+                    <icon>
+                        <AssetIcon asset="{Binding jiveIcon}" width="53" height="22"/>
+                    </icon>
+                </JMenu>
+                <JMenu text="'Demo'"/>
+                <JMenu text="'Documentation'" />
+                <JMenu text="'Download'" />
+                <JMenu text="'Contribute'" />
+            </JMenuBar>
+            <SoftBox constraints="org.aswing.BorderLayout.WEST">
+                <JLabel text="'UI Components'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                    <font>
+                        <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+                    </font>
+                </JLabel>
                 <JList
                         model="{Binding menuListModel mode=oneway}"
                         selectedIndex="{Binding menuSelectedIndex mode=twoway}">
@@ -28,7 +45,7 @@
                         <geom:IntDimension width="200" height="-1"/>
                     </preferredSize>
                 </JList>
-            </JPanel>
+            </SoftBox>
             <JPanel constraints="org.aswing.BorderLayout.CENTER">
                 <layout>
                     <CenterLayout/>

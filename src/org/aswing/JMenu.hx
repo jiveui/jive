@@ -290,7 +290,7 @@ class JMenu extends JMenuItem  implements MenuElement {
 		var isVisible:Bool= isPopupMenuVisible();
 		if (b != isVisible && (isEnabled() || !b)) {
 			ensurePopupMenuCreated();
-			if ((b==true) && isShowing()) {
+			if ((b==true) && isShowing() && popupMenu.getComponentCount() > 0) {
 				// Set location of popupMenu (pulldown or pullright)
 		 		var p:IntPoint = getPopupMenuOrigin();
 				getPopupMenu().show(this, p.x, p.y);

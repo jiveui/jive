@@ -102,7 +102,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 							horizontalTextPosition, viewRect, iconRect, textRect, 
 							textIconGap);
 										
-		//Initialize the acceelratorText bounds rectangle textRect.  If a null 
+        //Initialize the acceelratorText bounds rectangle textRect.  If a null
 		//or and empty String was specified we substitute "" here 
 		 //and use 0,0,0,0 for acceleratorTextRect.
 		
@@ -157,6 +157,8 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 			arrowIconRect.y = labelRect.y + Math.floor(labelRect.height/2) - Math.floor(arrowIconRect.height/2);
 			checkIconRect.y = labelRect.y + Math.floor(labelRect.height/2) - Math.floor(checkIconRect.height/2);
 		}
+
+        trace(iconRect);
 
 		return text;
 	}	

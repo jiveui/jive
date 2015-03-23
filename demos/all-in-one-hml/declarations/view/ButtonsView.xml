@@ -5,9 +5,9 @@
          xmlns:geom="org.aswing.geom"
          xmlns:border="org.aswing.border">
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.ButtonsViewModel>]]></haxe:Implements>
-    <JLabel text="'Basic buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+    <JLabel text="'Buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
         </font>
     </JLabel>
     <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
@@ -62,5 +62,4 @@
                 <geom:IntDimension width="300" height="0"/>
             </preferredSize>
         </JTextArea>
-    </SoftBox>
 </SoftBox>

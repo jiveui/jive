@@ -18,7 +18,7 @@ class FlatMenuUI extends BasicMenuUI {
         g.fillRoundRect(new SolidBrush(cl), r.x, r.y, r.width, r.height, round);
     }
 
-    override private function useCheckAndArrow():Bool { return true; }
+    override private function useCheckAndArrow():Bool { return getMenu().getComponentCount() > 0; }
 
     override public function paint(c:Component, g:Graphics2D, b:IntRectangle):Void{
         if(isTopMenu()) {

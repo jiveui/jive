@@ -8,7 +8,7 @@
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.TextViewModel>]]></haxe:Implements>
     <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
         </font>
     </JLabel>
     <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
