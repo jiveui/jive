@@ -62,4 +62,5 @@
                 <geom:IntDimension width="300" height="0"/>
             </preferredSize>
         </JTextArea>
+        </SoftBox>
 </SoftBox>

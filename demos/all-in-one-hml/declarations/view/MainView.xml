@@ -53,6 +53,7 @@
                 <jive:Spot selectedIndex="{Binding menuSelectedIndex}">
                     <view:ButtonsView id="buttonsView" dataContext="{Binding buttonsVM}"/>
                     <view:TextView dataContext="{Binding textVM}"/>
+                    <view:ProgressView dataContext="{Binding progressVM}"/>
                 </jive:Spot>
             </JPanel>
         </JPanel>

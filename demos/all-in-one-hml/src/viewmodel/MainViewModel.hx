@@ -9,6 +9,7 @@ class MainViewModel implements IBindable {
 
     @bindable public var buttonsVM: ButtonsViewModel = new ButtonsViewModel();
     @bindable public var textVM: TextViewModel = new TextViewModel();
+    @bindable public var progressVM: ProgressViewModel = new ProgressViewModel();
 
     @bindable public var menuSelectedIndex: Int;
     @bindable public var menuListModel: VectorListModel;
@@ -16,7 +17,7 @@ class MainViewModel implements IBindable {
     @bindable public var jiveIcon: DisplayObject = Assets.getSvg("logo-light.svg");
 
     public function new() {
-        menuListModel = new VectorListModel(["Buttons", "Text fields"]);
+        menuListModel = new VectorListModel(["Buttons", "Text fields", "Progress bar and Slider"]);
         menuSelectedIndex = 0;
     }
 }

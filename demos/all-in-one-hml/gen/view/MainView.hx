@@ -302,6 +302,31 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         return res;
     }
 
+    inline function get_progressView__0():view.ProgressView {
+        /* declarations/view/MainView.xml:56 characters: 21-38 */
+        var res = new view.ProgressView();
+        if (null != dataContext) { res.dataContext = this.dataContext.progressVM; }
+        var programmaticalyChange = false;
+        var sourcePropertyListener = function(_,_) {
+                            if (!programmaticalyChange) {
+                                programmaticalyChange = true;
+                                res.dataContext = this.dataContext.progressVM;
+                                programmaticalyChange = false;
+                            }
+                        };
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.progressVM, sourcePropertyListener); }
+        if (null != dataContext) { bindSourceListener(); }
+        bindx.Bind.bindx(this.dataContext, function(old,_) {
+                                if (null != old) { bindx.Bind.unbindx(old.progressVM, sourcePropertyListener);}
+                                if (null != this.dataContext) {
+                                    res.dataContext = this.dataContext.progressVM;
+                                    bindSourceListener();
+                                }
+                            });
+                        
+        return res;
+    }
+
     inline function get_spot__0():jive.Spot {
         /* declarations/view/MainView.xml:53 characters: 17-26 */
         var res = new jive.Spot();
@@ -326,6 +351,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                         
         res.append(buttonsView);
         res.append(get_textView__0());
+        res.append(get_progressView__0());
         return res;
     }
 

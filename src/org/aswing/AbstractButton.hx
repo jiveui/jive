@@ -330,7 +330,7 @@ class AbstractButton extends Component{
      * Note that setting does not trigger `ACT` Event for users (will of course trigger `STATE_CHANGED` event).
      * Call `this.doClick()` to perform a programatic action change.
      */
-    public var selected(get, set): Bool;
+    @bindable public var selected(get, set): Bool;
     private var _selected: Bool;
     private function get_selected(): Bool { return isSelected(); }
     private function set_selected(v: Bool): Bool { setSelected(v); return v; }
@@ -1293,6 +1293,7 @@ class AbstractButton extends Component{
     }
 	
 	private function __modelStateListener(e:AWEvent):Void{
+        bindx.Bind.notify(this.selected);
 		dispatchEvent(new InteractiveEvent(InteractiveEvent.STATE_CHANGED));
         doBackgroundTransition();
 	}

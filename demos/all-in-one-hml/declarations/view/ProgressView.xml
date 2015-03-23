@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoftBox gap="10"
+         xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:border="org.aswing.border">
+    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.ProgressViewModel>]]></haxe:Implements>
+    <JLabel text="'Progress bar and Slider'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+        <font>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+        </font>
+    </JLabel>
+    <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
+        <SoftBox>
+            <border>
+                <border:LineBorder thickness="1" round="5">
+                    <border:interior>
+                        <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
+                    </border:interior>
+                    <border:color>
+                        <ASColor rgb="0xe1e1e1"/>
+                    </border:color>
+                </border:LineBorder>
+            </border>
+
+            <JLabel text="'Progress bar'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+            <JPanel>
+                <JProgressBar indeterminate="{Binding isScrollbarIndeterminate}" value="{Binding sliderValue}">
+                    <preferredSize>
+                        <geom:IntDimension width="300" height="10"/>
+                    </preferredSize>
+                </JProgressBar>
+                <JCheckBox text="'Indeterminate progress'" selected="{Binding isScrollbarIndeterminate mode=twoway}"/>
+            </JPanel>
+
+            <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
+
+            <JLabel text="'Slider'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+            <JPanel>
+                <JSlider value="{Binding sliderValue mode=twoway}">
+                    <preferredSize>
+                        <geom:IntDimension width="300" height="50"/>
+                    </preferredSize>
+                </JSlider>
+            </JPanel>
+        </SoftBox>
+    </SoftBox>
+</SoftBox>

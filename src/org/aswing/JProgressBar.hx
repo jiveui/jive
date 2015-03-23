@@ -93,7 +93,22 @@ class JProgressBar extends Component  implements Orientable{
     private function get_model(): BoundedRangeModel { return getModel(); }
     private function set_model(v: BoundedRangeModel): BoundedRangeModel { setModel(v); return v; }
 
-	private var indeterminatePaintTimer:Timer;
+    /**
+     * The progress bar's current value
+     * (stored in the progress bar's data model).
+     * The data model (a <code>BoundedRangeModel</code> instance)
+     * handles any mathematical
+     * issues arising from assigning faulty values.
+     *
+     * If the new value is different from the previous value,
+     * all change listeners are notified.
+     */
+    @bindable public var value(get, set): Int;
+    private function get_value(): Int { return getValue(); }
+    private function set_value(v: Int): Int { setValue(v); return v; }
+
+
+    private var indeterminatePaintTimer:Timer;
 
 	/**
 	 * @param orient (optional)the desired orientation of the progress bar,
@@ -311,7 +326,8 @@ class JProgressBar extends Component  implements Orientable{
      * @see     #getValue()
      * @see    #addChangeListener()
      * @see     org.aswing.BoundedRangeModel#setValue()
-     */	
+     */
+    @:dox(hide)
 	public function setValue(n:Int):Void{
 		getModel().setValue(n);
 	}
@@ -401,6 +417,7 @@ class JProgressBar extends Component  implements Orientable{
 	
 	private function __onModelStateChanged(event:InteractiveEvent):Void{
         Bind.notify(this.model);
+        Bind.notify(this.value);
 		repaint();
 	}
 	
