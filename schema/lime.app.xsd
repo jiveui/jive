@@ -1,0 +1,61 @@
+<xs:schema targetNamespace="lime.app" xmlns="lime.app" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:lime-ui="lime.ui"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
+<xs:complexType name="ApplicationSchemaTypeValue">
+<xs:all><xs:element ref="Application"/></xs:all></xs:complexType>
+
+<xs:complexType name="EventSchemaTypeValue">
+<xs:all><xs:element ref="Event"/></xs:all></xs:complexType>
+
+<xs:complexType name="ModuleSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Application" />
+<xs:element ref="Module" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ApplicationSchemaType">
+<xs:complexContent>
+<xs:extension base="ModuleSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="config" type="xs:string"/>
+<xs:element minOccurs="0" name="window" type="lime-ui:WindowSchemaTypeValue"/>
+<xs:element minOccurs="0" name="windows" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="config" type="xs:string"/>
+<xs:attribute name="window" type="xs:string"/>
+<xs:attribute name="windows" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EventSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="listeners" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="repeat" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="listeners" type="xs:string"/>
+<xs:attribute name="repeat" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ModuleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Application" type="ApplicationSchemaType"/>
+<xs:element name="Event" type="EventSchemaType"/>
+<xs:element name="Module" type="ModuleSchemaType"/>
+</xs:schema>

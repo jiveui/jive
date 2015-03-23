@@ -1,0 +1,307 @@
+<xs:schema targetNamespace="lime.audio" xmlns="lime.audio" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:flash-media="flash.media"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:complexType name="FlashAudioContextSchemaTypeValue">
+<xs:all><xs:element ref="FlashAudioContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="ALCAudioContextSchemaTypeValue">
+<xs:all><xs:element ref="ALCAudioContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="HTML5AudioContextSchemaTypeValue">
+<xs:all><xs:element ref="HTML5AudioContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="AudioBufferSchemaTypeValue">
+<xs:all><xs:element ref="AudioBuffer"/></xs:all></xs:complexType>
+
+<xs:complexType name="AudioManagerSchemaTypeValue">
+<xs:all><xs:element ref="AudioManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="WebAudioContextSchemaTypeValue">
+<xs:all><xs:element ref="WebAudioContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="ALAudioContextSchemaTypeValue">
+<xs:all><xs:element ref="ALAudioContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlashAudioContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ALCAudioContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="FALSE" type="xs:int"/>
+<xs:element minOccurs="0" name="TRUE" type="xs:int"/>
+<xs:element minOccurs="0" name="FREQUENCY" type="xs:int"/>
+<xs:element minOccurs="0" name="REFRESH" type="xs:int"/>
+<xs:element minOccurs="0" name="SYNC" type="xs:int"/>
+<xs:element minOccurs="0" name="MONO_SOURCES" type="xs:int"/>
+<xs:element minOccurs="0" name="STEREO_SOURCES" type="xs:int"/>
+<xs:element minOccurs="0" name="NO_ERROR" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_DEVICE" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_CONTEXT" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_ENUM" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_VALUE" type="xs:int"/>
+<xs:element minOccurs="0" name="OUT_OF_MEMORY" type="xs:int"/>
+<xs:element minOccurs="0" name="ATTRIBUTES_SIZE" type="xs:int"/>
+<xs:element minOccurs="0" name="ALL_ATTRIBUTES" type="xs:int"/>
+<xs:element minOccurs="0" name="DEFAULT_DEVICE_SPECIFIER" type="xs:int"/>
+<xs:element minOccurs="0" name="DEVICE_SPECIFIER" type="xs:int"/>
+<xs:element minOccurs="0" name="EXTENSIONS" type="xs:int"/>
+<xs:element minOccurs="0" name="ENUMERATE_ALL_EXT" type="xs:int"/>
+<xs:element minOccurs="0" name="DEFAULT_ALL_DEVICES_SPECIFIER" type="xs:int"/>
+<xs:element minOccurs="0" name="ALL_DEVICES_SPECIFIER" type="xs:int"/>
+</xs:all>
+<xs:attribute name="FALSE" type="xs:int"/>
+<xs:attribute name="TRUE" type="xs:int"/>
+<xs:attribute name="FREQUENCY" type="xs:int"/>
+<xs:attribute name="REFRESH" type="xs:int"/>
+<xs:attribute name="SYNC" type="xs:int"/>
+<xs:attribute name="MONO_SOURCES" type="xs:int"/>
+<xs:attribute name="STEREO_SOURCES" type="xs:int"/>
+<xs:attribute name="NO_ERROR" type="xs:int"/>
+<xs:attribute name="INVALID_DEVICE" type="xs:int"/>
+<xs:attribute name="INVALID_CONTEXT" type="xs:int"/>
+<xs:attribute name="INVALID_ENUM" type="xs:int"/>
+<xs:attribute name="INVALID_VALUE" type="xs:int"/>
+<xs:attribute name="OUT_OF_MEMORY" type="xs:int"/>
+<xs:attribute name="ATTRIBUTES_SIZE" type="xs:int"/>
+<xs:attribute name="ALL_ATTRIBUTES" type="xs:int"/>
+<xs:attribute name="DEFAULT_DEVICE_SPECIFIER" type="xs:int"/>
+<xs:attribute name="DEVICE_SPECIFIER" type="xs:int"/>
+<xs:attribute name="EXTENSIONS" type="xs:int"/>
+<xs:attribute name="ENUMERATE_ALL_EXT" type="xs:int"/>
+<xs:attribute name="DEFAULT_ALL_DEVICES_SPECIFIER" type="xs:int"/>
+<xs:attribute name="ALL_DEVICES_SPECIFIER" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HTML5AudioContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="HAVE_CURRENT_DATA" type="xs:int"/>
+<xs:element minOccurs="0" name="HAVE_ENOUGH_DATA" type="xs:int"/>
+<xs:element minOccurs="0" name="HAVE_FUTURE_DATA" type="xs:int"/>
+<xs:element minOccurs="0" name="HAVE_METADATA" type="xs:int"/>
+<xs:element minOccurs="0" name="HAVE_NOTHING" type="xs:int"/>
+<xs:element minOccurs="0" name="NETWORK_EMPTY" type="xs:int"/>
+<xs:element minOccurs="0" name="NETWORK_IDLE" type="xs:int"/>
+<xs:element minOccurs="0" name="NETWORK_LOADING" type="xs:int"/>
+<xs:element minOccurs="0" name="NETWORK_NO_SOURCE" type="xs:int"/>
+</xs:all>
+<xs:attribute name="HAVE_CURRENT_DATA" type="xs:int"/>
+<xs:attribute name="HAVE_ENOUGH_DATA" type="xs:int"/>
+<xs:attribute name="HAVE_FUTURE_DATA" type="xs:int"/>
+<xs:attribute name="HAVE_METADATA" type="xs:int"/>
+<xs:attribute name="HAVE_NOTHING" type="xs:int"/>
+<xs:attribute name="NETWORK_EMPTY" type="xs:int"/>
+<xs:attribute name="NETWORK_IDLE" type="xs:int"/>
+<xs:attribute name="NETWORK_LOADING" type="xs:int"/>
+<xs:attribute name="NETWORK_NO_SOURCE" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AudioBufferSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bitsPerSample" type="xs:int"/>
+<xs:element minOccurs="0" name="channels" type="xs:int"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="sampleRate" type="xs:int"/>
+<xs:element minOccurs="0" name="src" type="flash-media:SoundSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="bitsPerSample" type="xs:int"/>
+<xs:attribute name="channels" type="xs:int"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="sampleRate" type="xs:int"/>
+<xs:attribute name="src" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AudioManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WebAudioContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="activeSourceCount" type="xs:int"/>
+<xs:element minOccurs="0" name="currentTime" type="xs:double"/>
+<xs:element minOccurs="0" name="destination" type="xs:string"/>
+<xs:element minOccurs="0" name="listener" type="xs:string"/>
+<xs:element minOccurs="0" name="oncomplete" type="xs:string"/>
+<xs:element minOccurs="0" name="sampleRate" type="xs:double"/>
+</xs:all>
+<xs:attribute name="activeSourceCount" type="xs:int"/>
+<xs:attribute name="currentTime" type="xs:double"/>
+<xs:attribute name="destination" type="xs:string"/>
+<xs:attribute name="listener" type="xs:string"/>
+<xs:attribute name="oncomplete" type="xs:string"/>
+<xs:attribute name="sampleRate" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ALAudioContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="NONE" type="xs:int"/>
+<xs:element minOccurs="0" name="FALSE" type="xs:int"/>
+<xs:element minOccurs="0" name="TRUE" type="xs:int"/>
+<xs:element minOccurs="0" name="SOURCE_RELATIVE" type="xs:int"/>
+<xs:element minOccurs="0" name="CONE_INNER_ANGLE" type="xs:int"/>
+<xs:element minOccurs="0" name="CONE_OUTER_ANGLE" type="xs:int"/>
+<xs:element minOccurs="0" name="PITCH" type="xs:int"/>
+<xs:element minOccurs="0" name="POSITION" type="xs:int"/>
+<xs:element minOccurs="0" name="DIRECTION" type="xs:int"/>
+<xs:element minOccurs="0" name="VELOCITY" type="xs:int"/>
+<xs:element minOccurs="0" name="LOOPING" type="xs:int"/>
+<xs:element minOccurs="0" name="BUFFER" type="xs:int"/>
+<xs:element minOccurs="0" name="GAIN" type="xs:int"/>
+<xs:element minOccurs="0" name="MIN_GAIN" type="xs:int"/>
+<xs:element minOccurs="0" name="MAX_GAIN" type="xs:int"/>
+<xs:element minOccurs="0" name="ORIENTATION" type="xs:int"/>
+<xs:element minOccurs="0" name="SOURCE_STATE" type="xs:int"/>
+<xs:element minOccurs="0" name="INITIAL" type="xs:int"/>
+<xs:element minOccurs="0" name="PLAYING" type="xs:int"/>
+<xs:element minOccurs="0" name="PAUSED" type="xs:int"/>
+<xs:element minOccurs="0" name="STOPPED" type="xs:int"/>
+<xs:element minOccurs="0" name="BUFFERS_QUEUED" type="xs:int"/>
+<xs:element minOccurs="0" name="BUFFERS_PROCESSED" type="xs:int"/>
+<xs:element minOccurs="0" name="REFERENCE_DISTANCE" type="xs:int"/>
+<xs:element minOccurs="0" name="ROLLOFF_FACTOR" type="xs:int"/>
+<xs:element minOccurs="0" name="CONE_OUTER_GAIN" type="xs:int"/>
+<xs:element minOccurs="0" name="MAX_DISTANCE" type="xs:int"/>
+<xs:element minOccurs="0" name="SEC_OFFSET" type="xs:int"/>
+<xs:element minOccurs="0" name="SAMPLE_OFFSET" type="xs:int"/>
+<xs:element minOccurs="0" name="BYTE_OFFSET" type="xs:int"/>
+<xs:element minOccurs="0" name="SOURCE_TYPE" type="xs:int"/>
+<xs:element minOccurs="0" name="STATIC" type="xs:int"/>
+<xs:element minOccurs="0" name="STREAMING" type="xs:int"/>
+<xs:element minOccurs="0" name="UNDETERMINED" type="xs:int"/>
+<xs:element minOccurs="0" name="FORMAT_MONO8" type="xs:int"/>
+<xs:element minOccurs="0" name="FORMAT_MONO16" type="xs:int"/>
+<xs:element minOccurs="0" name="FORMAT_STEREO8" type="xs:int"/>
+<xs:element minOccurs="0" name="FORMAT_STEREO16" type="xs:int"/>
+<xs:element minOccurs="0" name="FREQUENCY" type="xs:int"/>
+<xs:element minOccurs="0" name="BITS" type="xs:int"/>
+<xs:element minOccurs="0" name="CHANNELS" type="xs:int"/>
+<xs:element minOccurs="0" name="SIZE" type="xs:int"/>
+<xs:element minOccurs="0" name="NO_ERROR" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_NAME" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_ENUM" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_VALUE" type="xs:int"/>
+<xs:element minOccurs="0" name="INVALID_OPERATION" type="xs:int"/>
+<xs:element minOccurs="0" name="OUT_OF_MEMORY" type="xs:int"/>
+<xs:element minOccurs="0" name="VENDOR" type="xs:int"/>
+<xs:element minOccurs="0" name="VERSION" type="xs:int"/>
+<xs:element minOccurs="0" name="RENDERER" type="xs:int"/>
+<xs:element minOccurs="0" name="EXTENSIONS" type="xs:int"/>
+<xs:element minOccurs="0" name="DOPPLER_FACTOR" type="xs:int"/>
+<xs:element minOccurs="0" name="SPEED_OF_SOUND" type="xs:int"/>
+<xs:element minOccurs="0" name="DOPPLER_VELOCITY" type="xs:int"/>
+<xs:element minOccurs="0" name="DISTANCE_MODEL" type="xs:int"/>
+<xs:element minOccurs="0" name="INVERSE_DISTANCE" type="xs:int"/>
+<xs:element minOccurs="0" name="INVERSE_DISTANCE_CLAMPED" type="xs:int"/>
+<xs:element minOccurs="0" name="LINEAR_DISTANCE" type="xs:int"/>
+<xs:element minOccurs="0" name="LINEAR_DISTANCE_CLAMPED" type="xs:int"/>
+<xs:element minOccurs="0" name="EXPONENT_DISTANCE" type="xs:int"/>
+<xs:element minOccurs="0" name="EXPONENT_DISTANCE_CLAMPED" type="xs:int"/>
+</xs:all>
+<xs:attribute name="NONE" type="xs:int"/>
+<xs:attribute name="FALSE" type="xs:int"/>
+<xs:attribute name="TRUE" type="xs:int"/>
+<xs:attribute name="SOURCE_RELATIVE" type="xs:int"/>
+<xs:attribute name="CONE_INNER_ANGLE" type="xs:int"/>
+<xs:attribute name="CONE_OUTER_ANGLE" type="xs:int"/>
+<xs:attribute name="PITCH" type="xs:int"/>
+<xs:attribute name="POSITION" type="xs:int"/>
+<xs:attribute name="DIRECTION" type="xs:int"/>
+<xs:attribute name="VELOCITY" type="xs:int"/>
+<xs:attribute name="LOOPING" type="xs:int"/>
+<xs:attribute name="BUFFER" type="xs:int"/>
+<xs:attribute name="GAIN" type="xs:int"/>
+<xs:attribute name="MIN_GAIN" type="xs:int"/>
+<xs:attribute name="MAX_GAIN" type="xs:int"/>
+<xs:attribute name="ORIENTATION" type="xs:int"/>
+<xs:attribute name="SOURCE_STATE" type="xs:int"/>
+<xs:attribute name="INITIAL" type="xs:int"/>
+<xs:attribute name="PLAYING" type="xs:int"/>
+<xs:attribute name="PAUSED" type="xs:int"/>
+<xs:attribute name="STOPPED" type="xs:int"/>
+<xs:attribute name="BUFFERS_QUEUED" type="xs:int"/>
+<xs:attribute name="BUFFERS_PROCESSED" type="xs:int"/>
+<xs:attribute name="REFERENCE_DISTANCE" type="xs:int"/>
+<xs:attribute name="ROLLOFF_FACTOR" type="xs:int"/>
+<xs:attribute name="CONE_OUTER_GAIN" type="xs:int"/>
+<xs:attribute name="MAX_DISTANCE" type="xs:int"/>
+<xs:attribute name="SEC_OFFSET" type="xs:int"/>
+<xs:attribute name="SAMPLE_OFFSET" type="xs:int"/>
+<xs:attribute name="BYTE_OFFSET" type="xs:int"/>
+<xs:attribute name="SOURCE_TYPE" type="xs:int"/>
+<xs:attribute name="STATIC" type="xs:int"/>
+<xs:attribute name="STREAMING" type="xs:int"/>
+<xs:attribute name="UNDETERMINED" type="xs:int"/>
+<xs:attribute name="FORMAT_MONO8" type="xs:int"/>
+<xs:attribute name="FORMAT_MONO16" type="xs:int"/>
+<xs:attribute name="FORMAT_STEREO8" type="xs:int"/>
+<xs:attribute name="FORMAT_STEREO16" type="xs:int"/>
+<xs:attribute name="FREQUENCY" type="xs:int"/>
+<xs:attribute name="BITS" type="xs:int"/>
+<xs:attribute name="CHANNELS" type="xs:int"/>
+<xs:attribute name="SIZE" type="xs:int"/>
+<xs:attribute name="NO_ERROR" type="xs:int"/>
+<xs:attribute name="INVALID_NAME" type="xs:int"/>
+<xs:attribute name="INVALID_ENUM" type="xs:int"/>
+<xs:attribute name="INVALID_VALUE" type="xs:int"/>
+<xs:attribute name="INVALID_OPERATION" type="xs:int"/>
+<xs:attribute name="OUT_OF_MEMORY" type="xs:int"/>
+<xs:attribute name="VENDOR" type="xs:int"/>
+<xs:attribute name="VERSION" type="xs:int"/>
+<xs:attribute name="RENDERER" type="xs:int"/>
+<xs:attribute name="EXTENSIONS" type="xs:int"/>
+<xs:attribute name="DOPPLER_FACTOR" type="xs:int"/>
+<xs:attribute name="SPEED_OF_SOUND" type="xs:int"/>
+<xs:attribute name="DOPPLER_VELOCITY" type="xs:int"/>
+<xs:attribute name="DISTANCE_MODEL" type="xs:int"/>
+<xs:attribute name="INVERSE_DISTANCE" type="xs:int"/>
+<xs:attribute name="INVERSE_DISTANCE_CLAMPED" type="xs:int"/>
+<xs:attribute name="LINEAR_DISTANCE" type="xs:int"/>
+<xs:attribute name="LINEAR_DISTANCE_CLAMPED" type="xs:int"/>
+<xs:attribute name="EXPONENT_DISTANCE" type="xs:int"/>
+<xs:attribute name="EXPONENT_DISTANCE_CLAMPED" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="FlashAudioContext" type="FlashAudioContextSchemaType"/>
+<xs:element name="ALCAudioContext" type="ALCAudioContextSchemaType"/>
+<xs:element name="HTML5AudioContext" type="HTML5AudioContextSchemaType"/>
+<xs:element name="AudioBuffer" type="AudioBufferSchemaType"/>
+<xs:element name="AudioManager" type="AudioManagerSchemaType"/>
+<xs:element name="WebAudioContext" type="WebAudioContextSchemaType"/>
+<xs:element name="ALAudioContext" type="ALAudioContextSchemaType"/>
+</xs:schema>

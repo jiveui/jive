@@ -1,0 +1,164 @@
+<xs:schema targetNamespace="lime.math" xmlns="lime.math" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Vector2SchemaTypeValue">
+<xs:all><xs:element ref="Vector2"/></xs:all></xs:complexType>
+
+<xs:complexType name="Matrix3SchemaTypeValue">
+<xs:all><xs:element ref="Matrix3"/></xs:all></xs:complexType>
+
+<xs:complexType name="RectangleSchemaTypeValue">
+<xs:all><xs:element ref="Rectangle"/></xs:all></xs:complexType>
+
+<xs:complexType name="Vector4SchemaTypeValue">
+<xs:all><xs:element ref="Vector4"/></xs:all></xs:complexType>
+
+<xs:complexType name="Vector2SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="setTo" type="xs:string"/>
+</xs:all>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="setTo" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Matrix3SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="a" type="xs:double"/>
+<xs:element minOccurs="0" name="b" type="xs:double"/>
+<xs:element minOccurs="0" name="c" type="xs:double"/>
+<xs:element minOccurs="0" name="d" type="xs:double"/>
+<xs:element minOccurs="0" name="tx" type="xs:double"/>
+<xs:element minOccurs="0" name="ty" type="xs:double"/>
+<xs:element minOccurs="0" name="clone" type="xs:string"/>
+<xs:element minOccurs="0" name="mult" type="xs:string"/>
+<xs:element minOccurs="0" name="to3DString" type="xs:string"/>
+<xs:element minOccurs="0" name="toMozString" type="xs:string"/>
+<xs:element minOccurs="0" name="toString" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformX" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformY" type="xs:string"/>
+<xs:element minOccurs="0" name="__translateTransformed" type="xs:string"/>
+</xs:all>
+<xs:attribute name="a" type="xs:double"/>
+<xs:attribute name="b" type="xs:double"/>
+<xs:attribute name="c" type="xs:double"/>
+<xs:attribute name="d" type="xs:double"/>
+<xs:attribute name="tx" type="xs:double"/>
+<xs:attribute name="ty" type="xs:double"/>
+<xs:attribute name="clone" type="xs:string"/>
+<xs:attribute name="mult" type="xs:string"/>
+<xs:attribute name="to3DString" type="xs:string"/>
+<xs:attribute name="toMozString" type="xs:string"/>
+<xs:attribute name="toString" type="xs:string"/>
+<xs:attribute name="__transformX" type="xs:string"/>
+<xs:attribute name="__transformY" type="xs:string"/>
+<xs:attribute name="__translateTransformed" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RectangleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bottom" type="xs:double"/>
+<xs:element minOccurs="0" name="bottomRight" type="Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="left" type="xs:double"/>
+<xs:element minOccurs="0" name="right" type="xs:double"/>
+<xs:element minOccurs="0" name="size" type="Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="top" type="xs:double"/>
+<xs:element minOccurs="0" name="topLeft" type="Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="bottom" type="xs:double"/>
+<xs:attribute name="bottomRight" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="left" type="xs:double"/>
+<xs:attribute name="right" type="xs:double"/>
+<xs:attribute name="size" type="xs:string"/>
+<xs:attribute name="top" type="xs:double"/>
+<xs:attribute name="topLeft" type="xs:string"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Vector4SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="lengthSquared" type="xs:double"/>
+<xs:element minOccurs="0" name="w" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="z" type="xs:double"/>
+<xs:element minOccurs="0" name="add" type="xs:string"/>
+<xs:element minOccurs="0" name="clone" type="xs:string"/>
+<xs:element minOccurs="0" name="copyFrom" type="xs:string"/>
+<xs:element minOccurs="0" name="crossProduct" type="xs:string"/>
+<xs:element minOccurs="0" name="decrementBy" type="xs:string"/>
+<xs:element minOccurs="0" name="dotProduct" type="xs:string"/>
+<xs:element minOccurs="0" name="equals" type="xs:string"/>
+<xs:element minOccurs="0" name="incrementBy" type="xs:string"/>
+<xs:element minOccurs="0" name="nearEquals" type="xs:string"/>
+<xs:element minOccurs="0" name="negate" type="xs:string"/>
+<xs:element minOccurs="0" name="normalize" type="xs:string"/>
+<xs:element minOccurs="0" name="project" type="xs:string"/>
+<xs:element minOccurs="0" name="scaleBy" type="xs:string"/>
+<xs:element minOccurs="0" name="setTo" type="xs:string"/>
+<xs:element minOccurs="0" name="subtract" type="xs:string"/>
+<xs:element minOccurs="0" name="toString" type="xs:string"/>
+<xs:element minOccurs="0" name="get_length" type="xs:string"/>
+<xs:element minOccurs="0" name="get_lengthSquared" type="xs:string"/>
+</xs:all>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="lengthSquared" type="xs:double"/>
+<xs:attribute name="w" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="z" type="xs:double"/>
+<xs:attribute name="add" type="xs:string"/>
+<xs:attribute name="clone" type="xs:string"/>
+<xs:attribute name="copyFrom" type="xs:string"/>
+<xs:attribute name="crossProduct" type="xs:string"/>
+<xs:attribute name="decrementBy" type="xs:string"/>
+<xs:attribute name="dotProduct" type="xs:string"/>
+<xs:attribute name="equals" type="xs:string"/>
+<xs:attribute name="incrementBy" type="xs:string"/>
+<xs:attribute name="nearEquals" type="xs:string"/>
+<xs:attribute name="negate" type="xs:string"/>
+<xs:attribute name="normalize" type="xs:string"/>
+<xs:attribute name="project" type="xs:string"/>
+<xs:attribute name="scaleBy" type="xs:string"/>
+<xs:attribute name="setTo" type="xs:string"/>
+<xs:attribute name="subtract" type="xs:string"/>
+<xs:attribute name="toString" type="xs:string"/>
+<xs:attribute name="get_length" type="xs:string"/>
+<xs:attribute name="get_lengthSquared" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Vector2" type="Vector2SchemaType"/>
+<xs:element name="Matrix3" type="Matrix3SchemaType"/>
+<xs:element name="Rectangle" type="RectangleSchemaType"/>
+<xs:element name="Vector4" type="Vector4SchemaType"/>
+</xs:schema>

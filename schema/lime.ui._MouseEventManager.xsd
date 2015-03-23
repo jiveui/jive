@@ -1,0 +1,40 @@
+<xs:schema targetNamespace="lime.ui._MouseEventManager" xmlns="lime.ui._MouseEventManager" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="MouseEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="MouseEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="MouseEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="MouseEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="MouseEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="button" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="button" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="MouseEventType_Impl_" type="MouseEventType_Impl_SchemaType"/>
+<xs:element name="MouseEventInfo" type="MouseEventInfoSchemaType"/>
+</xs:schema>

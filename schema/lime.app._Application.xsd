@@ -1,0 +1,36 @@
+<xs:schema targetNamespace="lime.app._Application" xmlns="lime.app._Application" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="UpdateEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="UpdateEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="UpdateEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="UpdateEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="UpdateEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UpdateEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="deltaTime" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="deltaTime" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="UpdateEventType_Impl_" type="UpdateEventType_Impl_SchemaType"/>
+<xs:element name="UpdateEventInfo" type="UpdateEventInfoSchemaType"/>
+</xs:schema>
