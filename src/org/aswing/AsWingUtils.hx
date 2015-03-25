@@ -785,11 +785,12 @@ class AsWingUtils{
 	 * @return the computed size of the text
      */
     public static function computeStringSizeWithFont(font:ASFont, str:String, includeGutters:Bool=true):IntDimension{
-        if (null == TEXT_FIELD_EXT) {
+        //TODO: Find an answer why the static field doesn't work
+        //if (null == TEXT_FIELD_EXT) {
             TEXT_FIELD_EXT = new flash.text.TextField();
             TEXT_FIELD_EXT.autoSize = TextFieldAutoSize.LEFT;
             TEXT_FIELD_EXT.type = TextFieldType.DYNAMIC;
-        }
+        //}
     	TEXT_FIELD_EXT.text = str;
     	font.apply(TEXT_FIELD_EXT);
 //        trace("w: " + TEXT_FIELD_EXT.width +", h:" + TEXT_FIELD_EXT.height);

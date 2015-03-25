@@ -168,7 +168,7 @@ class JTextField extends JTextComponent{
 			//why
 			//var width:Int = Std.int( getTextField().textWidth+30);
 			var width:Int = columnWidth * _columns + getWidthMargin();
-			 var height:Int = getRowHeight() + getHeightMargin();
+			var height:Int = getRowHeight() + getHeightMargin();
 			var size:IntDimension = new IntDimension(width, height);
 			return getInsets().getOutsideSize(size);
 		}else{

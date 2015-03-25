@@ -158,8 +158,6 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 			checkIconRect.y = labelRect.y + Math.floor(labelRect.height/2) - Math.floor(checkIconRect.height/2);
 		}
 
-        trace(iconRect);
-
 		return text;
 	}	
 	 

@@ -24,22 +24,22 @@
             </border>
 
             <JLabel text="'Progress bar'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-            <JPanel>
-                <JProgressBar indeterminate="{Binding isScrollbarIndeterminate}" value="{Binding sliderValue}">
-                    <preferredSize>
-                        <geom:IntDimension width="300" height="10"/>
-                    </preferredSize>
-                </JProgressBar>
-                <JCheckBox text="'Indeterminate progress'" selected="{Binding isScrollbarIndeterminate mode=twoway}"/>
-            </JPanel>
+            <JProgressBar indeterminate="{Binding isScrollbarIndeterminate}" value="{Binding sliderValue}">
+                <preferredSize>
+                    <geom:IntDimension width="300" height="10"/>
+                </preferredSize>
+            </JProgressBar>
 
-            <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
+            <JSpacer><preferredSize><geom:IntDimension width="5" height="5"/></preferredSize></JSpacer>
+            <JCheckBox text="'Indeterminate progress'" selected="{Binding isScrollbarIndeterminate mode=twoway}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
 
-            <JLabel text="'Slider'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+            <JSpacer><preferredSize><geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
+            <JLabel text="'Move slider to make a progress'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+
             <JPanel>
                 <JSlider value="{Binding sliderValue mode=twoway}">
                     <preferredSize>
-                        <geom:IntDimension width="300" height="50"/>
+                        <geom:IntDimension width="300" height="20"/>
                     </preferredSize>
                 </JSlider>
             </JPanel>

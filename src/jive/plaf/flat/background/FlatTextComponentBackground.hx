@@ -49,7 +49,7 @@ class FlatTextComponentBackground implements GroundDecorator implements UIResour
             }
 
             g.fillRoundRectRingWithThickness(new SolidBrush(borderColor), bounds.x, bounds.y, bounds.width, bounds.height,
-                c.styleTune.round, 1.5, c.styleTune.round-1);
+                c.styleTune.round, 2, c.styleTune.round-1);
         }
     }
 

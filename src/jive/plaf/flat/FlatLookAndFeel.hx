@@ -262,7 +262,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		comDefaults = [
 			"TextField.background", table.get("window"),
 			"TextField.foreground", table.get("wet-asphalt"),
-			"TextField.mideground", table.get("concrete"),
+			"TextField.mideground", table.get("silver"),
 			"TextField.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.30, 3), 
 			"TextField.opaque", true, 
 			"TextField.focusable", true, 
