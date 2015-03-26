@@ -23,6 +23,7 @@ xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
 xmlns:flash-media="flash.media"
 xmlns:motion="motion"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
+xmlns:jive-formatting="jive.formatting"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:flash-net="flash.net"
 xmlns:org-aswing-error="org.aswing.error"
@@ -32,6 +33,7 @@ xmlns:lime-_Assets="lime._Assets"
 xmlns:haxe-ds-_ObjectMap="haxe.ds._ObjectMap"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash-filters="flash.filters"
+xmlns:jive-tools="jive.tools"
 xmlns:lime-graphics-_Renderer="lime.graphics._Renderer"
 xmlns:org-aswing-border="org.aswing.border"
 xmlns:lime-audio="lime.audio"
@@ -107,6 +109,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
 <xs:import namespace="motion" schemaLocation="motion.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
+<xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
 <xs:import namespace="org.aswing.error" schemaLocation="org.aswing.error.xsd" />
@@ -116,6 +119,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="haxe.ds._ObjectMap" schemaLocation="haxe.ds._ObjectMap.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
+<xs:import namespace="jive.tools" schemaLocation="jive.tools.xsd" />
 <xs:import namespace="lime.graphics._Renderer" schemaLocation="lime.graphics._Renderer.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
 <xs:import namespace="lime.audio" schemaLocation="lime.audio.xsd" />
@@ -396,6 +400,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:VectorListModel" />
 <xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element ref="org-aswing:Insets" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="motion-_Actuate:TransformOptions" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-event:DragAndDropEvent" />
@@ -504,10 +509,12 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-event:ModelEvent" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameUI" />
 <xs:element ref="flash-display3D-textures:Texture" />
+<xs:element ref="jive-formatting:XmlRegExRules" />
 <xs:element ref="lime-app:Application" />
 <xs:element ref="lime-audio-openal-_ALDevice:ALDevice_Impl_" />
 <xs:element ref="lime-ui:TouchEventManager" />
 <xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
+<xs:element ref="jive-tools:TextFormatTools" />
 <xs:element ref="lime:AssetCache" />
 <xs:element ref="org-aswing-util:StringUtils" />
 <xs:element ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
@@ -569,6 +576,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table:PoorTextCell" />
 <xs:element ref="flash:Lib" />
 <xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
+<xs:element ref="jive-formatting:RegExRule" />
 <xs:element ref="org-aswing-table:Resizable2" />
 <xs:element ref="flash-geom:Transform" />
 <xs:element ref="org-aswing:KeyMap" />
@@ -602,6 +610,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table:TableCellEditor" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
 <xs:element ref="org-aswing-border:CaveBorder" />
+<xs:element ref="jive-formatting:RegExRules" />
 <xs:element ref="org-aswing:JViewport" />
 <xs:element ref="org-aswing:BoxLayout" />
 <xs:element ref="org-aswing-ext:GridListLayout" />
@@ -619,6 +628,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-geom:Point" />
 <xs:element ref="org-aswing:SimpleButton" />
 <xs:element ref="jive:Spot" />
+<xs:element ref="jive-formatting:HmlRegExRules" />
 <xs:element ref="org-aswing:DefaultTextFieldCellEditor" />
 <xs:element ref="org-aswing:JRadioButton" />
 <xs:element ref="org-aswing:JPopupMenu" />
@@ -814,8 +824,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:JRootPane" />
 <xs:element ref="org-aswing-plaf:ArrayUIResource" />
 <xs:element ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
-<xs:element ref="org-aswing:FrameTitleBar" />
 <xs:element ref="org-aswing:JTextArea" />
+<xs:element ref="org-aswing:FrameTitleBar" />
 <xs:element ref="org-aswing-border:BevelBorder" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
 <xs:element ref="org-aswing-plaf-basic:BasicLookAndFeel" />

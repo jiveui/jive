@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="flash.display" xmlns="flash.display" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
+xmlns:jive-formatting="jive.formatting"
 xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:flash-utils="flash.utils"
@@ -23,6 +24,7 @@ xmlns:flash-accessibility="flash.accessibility"
 xmlns:flash-media="flash.media"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
@@ -104,6 +106,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />
@@ -200,6 +203,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />
@@ -291,6 +295,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />
@@ -401,6 +406,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />
@@ -502,6 +508,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />

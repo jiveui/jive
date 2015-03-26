@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="flash.events" xmlns="flash.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
+xmlns:jive-formatting="jive.formatting"
 xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:org-aswing-event="org.aswing.event"
@@ -23,6 +24,7 @@ xmlns:flash-media="flash.media"
 xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
@@ -69,6 +71,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
 <xs:element ref="flash-display:Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing:JPanel" />
 <xs:element ref="org-aswing-table:JTableHeader" />
@@ -228,6 +231,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
 <xs:element ref="flash-display:Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing:JPanel" />
 <xs:element ref="org-aswing-table:JTableHeader" />

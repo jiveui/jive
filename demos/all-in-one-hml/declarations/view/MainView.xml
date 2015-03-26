@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JWindow xmlns="org.aswing"
-        xmlns:haxe="http://haxe.org/"
-        xmlns:geom="org.aswing.geom"
-        xmlns:view="view"
-        xmlns:jive="jive"
-        xmlns:border="org.aswing.border"
-        xmlns:e="empty"
-        defaultButton="buttonsView.defButton">
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:view="view"
+         xmlns:jive="jive"
+         xmlns:border="org.aswing.border"
+         xmlns:e="empty"
+         xmlns:formatting="jive.formatting"
+         defaultButton="buttonsView.defButton">
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.MainViewModel>]]></haxe:Implements>
     <content>
         <JPanel>
@@ -73,11 +74,14 @@
                         <preferredSize>
                             <geom:IntDimension width="300" height="300"/>
                         </preferredSize>
-                        <JTextArea text="{Binding xmlSource}" backgroundDecorator="null">
+                        <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
                             <preferredSize>
                                 <geom:IntDimension width="2000" height="1000"/>
                             </preferredSize>
-                        </JTextArea>
+                            <formatting:rules>
+                                <formatting:HmlRegExRules/>
+                            </formatting:rules>
+                        </formatting:RegExFormattedTextArea>
                     </JScrollPane>
             </JPanel>
         </JPanel>

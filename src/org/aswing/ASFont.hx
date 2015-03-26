@@ -152,10 +152,8 @@ class ASFont{
 	public function apply(textField:TextField, beginIndex:Int=-1, endIndex:Int=-1):Void{
 		advancedProperties.apply(textField);
 		#if(flash9 || cpp || html5)
-            if (beginIndex >= 0 && endIndex >= 0) {
-                textField.setTextFormat(textFormat, beginIndex, endIndex);
-            }
-	    	textField.defaultTextFormat = textFormat;
+            textField.setTextFormat(textFormat, beginIndex, endIndex);
+        	textField.defaultTextFormat = textFormat;
 	    #end
 	}
 	

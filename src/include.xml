@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension>
-    <assets path="assets" inlude="*"/>
+    <assets path="assets" inlude="*.woff"/>
+    <assets path="assets" inlude="*.eot"/>
     <haxelib name="actuate"/>
     <haxedef name="openfl_snapsvg_without_massive_broadcasting"/>
     <haxedef name="openfl_snapsvg_render_only_changed"/>

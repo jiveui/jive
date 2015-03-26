@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="bindx" xmlns="bindx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
+xmlns:jive-formatting="jive.formatting"
 xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
@@ -11,6 +12,7 @@ xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
@@ -46,6 +48,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
 <xs:element ref="org-aswing:JPanel" />

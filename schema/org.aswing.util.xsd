@@ -338,6 +338,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing:VectorListModel" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element minOccurs="0" ref="org-aswing:Insets" />
+<xs:element minOccurs="0" ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element minOccurs="0" ref="motion-_Actuate:TransformOptions" />
 <xs:element minOccurs="0" ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element minOccurs="0" ref="org-aswing-event:DragAndDropEvent" />
@@ -446,10 +447,12 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-event:ModelEvent" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicFrameUI" />
 <xs:element minOccurs="0" ref="flash-display3D-textures:Texture" />
+<xs:element minOccurs="0" ref="jive-formatting:XmlRegExRules" />
 <xs:element minOccurs="0" ref="lime-app:Application" />
 <xs:element minOccurs="0" ref="lime-audio-openal-_ALDevice:ALDevice_Impl_" />
 <xs:element minOccurs="0" ref="lime-ui:TouchEventManager" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
+<xs:element minOccurs="0" ref="jive-tools:TextFormatTools" />
 <xs:element minOccurs="0" ref="lime:AssetCache" />
 <xs:element minOccurs="0" ref="StringUtils" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
@@ -511,6 +514,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-table:PoorTextCell" />
 <xs:element minOccurs="0" ref="flash:Lib" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-background:FlatScrollBarThumb" />
+<xs:element minOccurs="0" ref="jive-formatting:RegExRule" />
 <xs:element minOccurs="0" ref="org-aswing-table:Resizable2" />
 <xs:element minOccurs="0" ref="flash-geom:Transform" />
 <xs:element minOccurs="0" ref="org-aswing:KeyMap" />
@@ -544,6 +548,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-table:TableCellEditor" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
 <xs:element minOccurs="0" ref="org-aswing-border:CaveBorder" />
+<xs:element minOccurs="0" ref="jive-formatting:RegExRules" />
 <xs:element minOccurs="0" ref="org-aswing:JViewport" />
 <xs:element minOccurs="0" ref="org-aswing:BoxLayout" />
 <xs:element minOccurs="0" ref="org-aswing-ext:GridListLayout" />
@@ -561,6 +566,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-geom:Point" />
 <xs:element minOccurs="0" ref="org-aswing:SimpleButton" />
 <xs:element minOccurs="0" ref="jive:Spot" />
+<xs:element minOccurs="0" ref="jive-formatting:HmlRegExRules" />
 <xs:element minOccurs="0" ref="org-aswing:DefaultTextFieldCellEditor" />
 <xs:element minOccurs="0" ref="org-aswing:JRadioButton" />
 <xs:element minOccurs="0" ref="org-aswing:JPopupMenu" />
@@ -758,8 +764,8 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing:JRootPane" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:ArrayUIResource" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
-<xs:element minOccurs="0" ref="org-aswing:FrameTitleBar" />
 <xs:element minOccurs="0" ref="org-aswing:JTextArea" />
+<xs:element minOccurs="0" ref="org-aswing:FrameTitleBar" />
 <xs:element minOccurs="0" ref="org-aswing-border:BevelBorder" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-splitpane:Divider" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicLookAndFeel" />
