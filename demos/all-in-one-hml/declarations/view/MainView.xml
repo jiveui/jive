@@ -73,7 +73,7 @@
                         <preferredSize>
                             <geom:IntDimension width="300" height="300"/>
                         </preferredSize>
-                        <JTextArea text="{Binding xmlSource}">
+                        <JTextArea text="{Binding xmlSource}" backgroundDecorator="null">
                             <preferredSize>
                                 <geom:IntDimension width="2000" height="1000"/>
                             </preferredSize>

@@ -476,6 +476,8 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
+        /* declarations/view/MainView.xml:76 characters: 63-82 */
+        res.backgroundDecorator = null;
         /* declarations/view/MainView.xml:77 characters: 29-42 */
         res.preferredSize = get_intDimension__3();
         return res;
