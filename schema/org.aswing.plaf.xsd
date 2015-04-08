@@ -4,6 +4,7 @@ xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-tree="org.aswing.plaf.basic.tree"
 xmlns:org-aswing-table="org.aswing.table"
@@ -22,6 +23,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
@@ -93,11 +95,13 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicScrollBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
 <xs:element ref="jive-plaf-flat:FlatMenuUI" />
 <xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
 <xs:element ref="FrameUI" />
 <xs:element ref="BaseComponentUI" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
 <xs:element ref="SliderUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicStepperUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
@@ -207,6 +211,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicScrollBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicViewportUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
 <xs:element ref="jive-plaf-flat:FlatMenuUI" />
 <xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
@@ -214,6 +219,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic:BasicSeparatorUI" />
 <xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicAccordionUI" />
 <xs:element ref="org-aswing-plaf-basic:BasicLabelUI" />
@@ -317,6 +323,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
 <xs:element ref="ASColorUIResource" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
 <xs:element ref="EmptyLayoutUIResourse" />
 <xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />

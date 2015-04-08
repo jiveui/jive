@@ -7,6 +7,9 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:complexType name="FlatMenuUISchemaTypeValue">
 <xs:all><xs:element ref="FlatMenuUI"/></xs:all></xs:complexType>
 
+<xs:complexType name="FlatTabbedPaneUISchemaTypeValue">
+<xs:all><xs:element ref="FlatTabbedPaneUI"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatRadioButtonUISchemaTypeValue">
 <xs:choice>
 <xs:element ref="FlatCheckBoxUI" />
@@ -78,6 +81,15 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:complexType name="FlatMenuUISchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf-basic:BasicMenuUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTabbedPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicTabbedPaneUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -229,6 +241,7 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 
 
 <xs:element name="FlatMenuUI" type="FlatMenuUISchemaType"/>
+<xs:element name="FlatTabbedPaneUI" type="FlatTabbedPaneUISchemaType"/>
 <xs:element name="FlatRadioButtonUI" type="FlatRadioButtonUISchemaType"/>
 <xs:element name="FlatSliderUI" type="FlatSliderUISchemaType"/>
 <xs:element name="FlatTextFieldUI" type="FlatTextFieldUISchemaType"/>

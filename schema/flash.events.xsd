@@ -5,6 +5,7 @@ xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:org-aswing-event="org.aswing.event"
 xmlns:flash-net="flash.net"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:flash-display3D-textures="flash.display3D.textures"
@@ -29,6 +30,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
@@ -82,6 +84,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="flash-display:Stage3D" />
 <xs:element ref="org-aswing:DefaultComboBoxEditor" />
 <xs:element ref="flash-media:Microphone" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="flash-media:AVSource" />
 <xs:element ref="flash-net:NetConnection" />
 <xs:element ref="flash-media:SoundChannel" />
@@ -242,6 +245,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="flash-display:Stage3D" />
 <xs:element ref="org-aswing:DefaultComboBoxEditor" />
 <xs:element ref="flash-media:Microphone" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="flash-media:AVSource" />
 <xs:element ref="flash-net:NetConnection" />
 <xs:element ref="flash-media:SoundChannel" />

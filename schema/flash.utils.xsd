@@ -34,6 +34,7 @@ xmlns:haxe-ds="haxe.ds"
 
 <xs:complexType name="DictionarySchemaTypeValue">
 <xs:choice>
+<xs:element ref="haxe-ds:WeakMap" />
 <xs:element ref="haxe-ds:ObjectMap" />
 <xs:element ref="Dictionary" />
 </xs:choice>

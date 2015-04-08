@@ -16,8 +16,6 @@ class MainViewModel implements IBindable {
 
     @bindable public var jiveIcon: DisplayObject = Assets.getSvg("logo-light.svg");
 
-    @bindable public var xmlSource: String = Assets.getText("declarations/view/MainView.xml");
-
     public function new() {
         menuSelectedIndex = 0;
     }

@@ -22,5 +22,5 @@
 
     <assets path="assets" rename=""/>
     <assets path="declarations/view"/>
-
+    <assets path="src/viewmodel"/>
 </project>

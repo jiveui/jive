@@ -1,11 +1,11 @@
 package jive;
 
-import org.aswing.SoftBox;
+import org.aswing.JPanel;
 
 /**
 * Shows only one of children
 **/
-class Spot extends SoftBox {
+class Spot extends JPanel {
     public function new() {
         super();
     }

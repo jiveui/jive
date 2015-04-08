@@ -440,7 +440,11 @@ class ASColor{
 		return new ASColor(getRGB(), getAlpha());
 	}
 
-    public static function getColorBetween(begin:ASColor, end:ASColor, distance: Float) {
+    public static function getColorBetween(begin:ASColor, end:ASColor, distance: Float): ASColor {
+        if (null == begin && null == end) return null;
+        if (null == begin) return end;
+        if (null == end) return begin;
+
         return ASColor.getASColor(
             Math.floor((end.getRed() - begin.getRed()) * distance + begin.getRed()),
             Math.floor((end.getGreen() - begin.getGreen()) * distance + begin.getGreen()),

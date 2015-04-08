@@ -3,6 +3,7 @@ xmlns:bindx="bindx"
 xmlns:motion-actuators="motion.actuators"
 xmlns:flash-ui="flash.ui"
 xmlns:lime-ui-_MouseEventManager="lime.ui._MouseEventManager"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:openfl-_Assets="openfl._Assets"
 xmlns:flash="flash"
 xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
@@ -89,6 +90,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="lime.ui._MouseEventManager" schemaLocation="lime.ui._MouseEventManager.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="openfl._Assets" schemaLocation="openfl._Assets.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
@@ -191,8 +193,12 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:complexType name="StdSchemaTypeValue">
 <xs:all><xs:element ref="Std"/></xs:all></xs:complexType>
 
+<xs:complexType name="LambdaSchemaTypeValue">
+<xs:all><xs:element ref="Lambda"/></xs:all></xs:complexType>
+
 <xs:complexType name="IMapSchemaTypeValue">
 <xs:choice>
+<xs:element ref="haxe-ds:WeakMap" />
 <xs:element ref="org-aswing:UIDefaults" />
 <xs:element ref="haxe-ds:IntMap" />
 <xs:element ref="haxe-ds:StringMap" />
@@ -228,7 +234,6 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-resizer:ResizeStrategy" />
 <xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
 <xs:element ref="haxe:Timer" />
-<xs:element ref="org-aswing-util:WeakMap" />
 <xs:element ref="lime-audio:FlashAudioContext" />
 <xs:element ref="org-aswing:CursorManager" />
 <xs:element ref="flash-display:Shape" />
@@ -243,6 +248,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="haxe:CallStack" />
 <xs:element ref="org-aswing-util:Impulser" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="lime-app-_Application:UpdateEventType_Impl_" />
 <xs:element ref="lime-math-_ColorMatrix:ColorMatrix_Impl_" />
 <xs:element ref="org-aswing:SoftBoxLayout" />
@@ -333,9 +339,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-net:NetStreamPlayOptions" />
 <xs:element ref="org-aswing:ASFont" />
 <xs:element ref="org-aswing-plaf:DefaultsDecorator" />
-<xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="lime-graphics-opengl:GLBuffer" />
 <xs:element ref="org-aswing:KeyAction" />
+<xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="org-aswing:WeightBoxLayout" />
 <xs:element ref="flash-display:Shader" />
 <xs:element ref="motion:Actuate" />
@@ -352,8 +358,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="lime-math:Matrix3" />
 <xs:element ref="org-aswing-tree:NodeDimensions" />
-<xs:element ref="motion-easing:ExpoEaseOut" />
 <xs:element ref="org-aswing:JButton" />
+<xs:element ref="motion-easing:ExpoEaseOut" />
 <xs:element ref="flash-geom:PerspectiveProjection" />
 <xs:element ref="org-aswing:AbstractCellEditor" />
 <xs:element ref="org-aswing-table:TableColumnModel" />
@@ -368,6 +374,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-events:IEventDispatcher" />
 <xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
 <xs:element ref="flash-geom:Rectangle" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
 <xs:element ref="org-aswing:StyleResult" />
 <xs:element ref="org-aswing-graphics:Pen" />
 <xs:element ref="lime-graphics-opengl:GLTexture" />
@@ -398,6 +405,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="lime-graphics:CanvasRenderContext" />
 <xs:element ref="motion:MotionPath" />
 <xs:element ref="org-aswing:VectorListModel" />
+<xs:element ref="haxe-ds:WeakMap" />
 <xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element ref="org-aswing:Insets" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
@@ -416,9 +424,9 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
 <xs:element ref="org-aswing-tree:FixedHeightLayoutCache" />
 <xs:element ref="flash-display:Stage3D" />
+<xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element ref="motion-_Actuate:TweenTimer" />
 <xs:element ref="motion:BezierPath" />
-<xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element ref="String" />
 <xs:element ref="lime-audio:AudioBuffer" />
 <xs:element ref="lime-ui:MouseEventManager" />
@@ -433,6 +441,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:DefaultBoundedRangeModel" />
 <xs:element ref="org-aswing-plaf:UIStyleTune" />
 <xs:element ref="org-aswing-event:ReleaseEvent" />
+<xs:element ref="Lambda" />
 <xs:element ref="jive-plaf-flat:FlatTextFieldUI" />
 <xs:element ref="lime-graphics-_Renderer:RenderEventType_Impl_" />
 <xs:element ref="org-aswing-plaf-basic-background:PanelBackground" />
@@ -495,6 +504,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="motion-actuators:FilterActuator" />
 <xs:element ref="org-aswing-ext:DateGridLayout" />
 <xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="jive-formatting:HaxeRegExRules" />
 <xs:element ref="org-aswing-geom:IntRectangle" />
 <xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
 <xs:element ref="flash-filters:ColorMatrixFilter" />
@@ -545,6 +555,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-tree:TreeModel" />
 <xs:element ref="org-aswing-util:ArrayList" />
 <xs:element ref="org-aswing:ListCellFactory" />
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
+<xs:element ref="jive:Navigation" />
 <xs:element ref="org-aswing:GridLayout" />
 <xs:element ref="org-aswing-event:AttachEvent" />
 <xs:element ref="flash-display:LoaderInfo" />
@@ -672,6 +684,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
 <xs:element ref="lime-utils:Float32Array" />
 <xs:element ref="org-aswing-tree:EnumerationInfo" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabbedPaneTab" />
 <xs:element ref="org-aswing-table:PropertyTranslator" />
 <xs:element ref="org-aswing-table:AbstractTableCell" />
 <xs:element ref="org-aswing-tree:TreeCellFactory" />
@@ -705,6 +718,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-ext:MultilineLabel" />
 <xs:element ref="flash-display:Scene" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
 <xs:element ref="lime-utils:ArrayBufferView" />
 <xs:element ref="org-aswing:JOptionPane" />
 <xs:element ref="flash-events:UncaughtErrorEvents" />
@@ -785,17 +799,17 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-media:SoundChannel" />
 <xs:element ref="org-aswing:ContainerOrderFocusTraversalPolicy" />
 <xs:element ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
-<xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicTabbedPaneTab" />
+<xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element ref="org-aswing:BoundedRangeModel" />
 <xs:element ref="org-aswing-event:ListItemEvent" />
 <xs:element ref="org-aswing:JSpacer" />
 <xs:element ref="org-aswing-error:Error" />
 <xs:element ref="org-aswing-plaf-basic-icon:RadioButtonIcon" />
 <xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="org-aswing:LayoutManager" />
 <xs:element ref="org-aswing-plaf-basic:BasicTextComponentUI" />
 <xs:element ref="org-aswing:AWKeyboard" />
-<xs:element ref="org-aswing:LayoutManager" />
 <xs:element ref="org-aswing-event:TreeCellEditEvent" />
 <xs:element ref="org-aswing-graphics:Graphics2D" />
 <xs:element ref="org-aswing-util:ArrayUtils" />
@@ -1015,6 +1029,15 @@ xmlns:flash-accessibility="flash.accessibility"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="LambdaSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="IMapSchemaType">
 <xs:complexContent>
 <xs:extension base="RootObjectTypeSchemaType">
@@ -1100,6 +1123,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element name="ArrayAccess" type="ArrayAccessSchemaType"/>
 <xs:element name="String" type="StringSchemaType"/>
 <xs:element name="Std" type="StdSchemaType"/>
+<xs:element name="Lambda" type="LambdaSchemaType"/>
 <xs:element name="IMap" type="IMapSchemaType"/>
 <xs:element name="Int" type="IntSchemaType"/>
 <xs:element name="RootObjectType" type="RootObjectTypeSchemaType" />

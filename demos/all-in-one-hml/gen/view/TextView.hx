@@ -150,10 +150,10 @@ class TextView extends org.aswing.SoftBox implements jive.DataContextControllabl
     inline function get_jLabel__2():org.aswing.JLabel {
         /* declarations/view/TextView.xml:37 characters: 17-23 */
         var res = new org.aswing.JLabel();
-        /* declarations/view/TextView.xml:37 characters: 41-60 */
+        /* declarations/view/TextView.xml:37 characters: 39-58 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
         /* declarations/view/TextView.xml:37 characters: 25-29 */
-        res.text = 'Victim';
+        res.text = 'Prey';
         /* declarations/view/TextView.xml:38 characters: 21-34 */
         res.preferredSize = get_intDimension__1();
         return res;
@@ -162,21 +162,21 @@ class TextView extends org.aswing.SoftBox implements jive.DataContextControllabl
     inline function get_jTextField__1():org.aswing.JTextField {
         /* declarations/view/TextView.xml:42 characters: 17-27 */
         var res = new org.aswing.JTextField();
-        if (null != dataContext) { res.text = this.dataContext.victim; }
+        if (null != dataContext) { res.text = this.dataContext.prey; }
         var programmaticalyChange = false;
         var sourcePropertyListener = function(_,_) {
                             if (!programmaticalyChange) {
                                 programmaticalyChange = true;
-                                res.text = this.dataContext.victim;
+                                res.text = this.dataContext.prey;
                                 programmaticalyChange = false;
                             }
                         };
-        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.victim, sourcePropertyListener); }
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.prey, sourcePropertyListener); }
         if (null != dataContext) { bindSourceListener(); }
         bindx.Bind.bindx(this.dataContext, function(old,_) {
-                                if (null != old) { bindx.Bind.unbindx(old.victim, sourcePropertyListener);}
+                                if (null != old) { bindx.Bind.unbindx(old.prey, sourcePropertyListener);}
                                 if (null != this.dataContext) {
-                                    res.text = this.dataContext.victim;
+                                    res.text = this.dataContext.prey;
                                     bindSourceListener();
                                 }
                             });
@@ -184,14 +184,14 @@ class TextView extends org.aswing.SoftBox implements jive.DataContextControllabl
         var propertyListener = function(_,_) {
                                 if (!programmaticalyChange && null != this.dataContext) {
                                     programmaticalyChange = true;
-                                    this.dataContext.victim = res.text;
+                                    this.dataContext.prey = res.text;
                                     programmaticalyChange = false;
                                 }
                             };
         bindx.Bind.bindx(res.text, propertyListener);
         bindx.Bind.bindx(this.dataContext, function(old,_) {
                                  if (null != this.dataContext) {
-                                    this.dataContext.victim = res.text;
+                                    this.dataContext.prey = res.text;
                                 }
                             });
         /* declarations/view/TextView.xml:42 characters: 29-36 */

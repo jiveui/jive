@@ -64,7 +64,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "MenuUI", jive.plaf.flat.FlatMenuUI,
                "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI,
                "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI,
-               "SliderUI",jive.plaf.flat.FlatSliderUI
+               "SliderUI",jive.plaf.flat.FlatSliderUI,
+               "TabbedPaneUI",jive.plaf.flat.FlatTabbedPaneUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -602,25 +603,46 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 	   // *** JTabbedPane
 		comDefaults = [
-			"TabbedPane.background", table.get("window"), //new ASColorUIResource(0xE7E7E5),
-			"TabbedPane.foreground", table.get("controlText"), 
-			"TabbedPane.mideground", new ASColorUIResource(0xcacbcb), 
-			"TabbedPane.colorAdjust", new UIStyleTune(0.01, -0.14, 0.01, 0.50, 4, new UIStyleTune(0.05, -0.23, 0.01, 0.50, 4)), 
+			"TabbedPane.background", table.get("window"),
+			"TabbedPane.foreground", table.get("windowText"),
+			"TabbedPane.mideground", new ASColorUIResource(0xcccccc),
+			"TabbedPane.colorAdjust", new UIStyleTune(0.01, -0.14, 0.01, 0.50, 5, new UIStyleTune(0.05, -0.23, 0.01, 0.50, 4)),
 			"TabbedPane.opaque", false,  
 			"TabbedPane.focusable", true,  
 			"TabbedPane.arrowShadowColor", new ASColorUIResource(0x000000),
 			"TabbedPane.arrowLightColor", new ASColorUIResource(0x444444),
 			"TabbedPane.font", table.getFont("controlFont"),
-			"TabbedPane.tabMargin", new InsetsUIResource(3, 8, 2, 8),
+			"TabbedPane.tabMargin", new InsetsUIResource(7, 15, 7, 15),
 			"TabbedPane.contentMargin", new InsetsUIResource(10, 2, 2, 2), 
 			"TabbedPane.selectedTabExpandInsets", new InsetsUIResource(0, 0, 0, 0), 
 			//indicate the insets of border bar
 			"TabbedPane.tabBorderInsets", new InsetsUIResource(0, 0, 0, 0), //new InsetsUIResource(0, 18, 0, 18),
-			"TabbedPane.contentRoundLineThickness", 0, 
-			"TabbedPane.tabGap", 2, 
+			"TabbedPane.contentRoundLineThickness", 1,
+			"TabbedPane.tabGap", 3,
+            "TabbedPane.tab", jive.plaf.flat.tabbedpane.FlatTabbedPaneTab,
 			"TabbedPane.topBlankSpace", 0, 
 			"TabbedPane.maxTabWidth", 1000];
 		table.putDefaults(comDefaults);
+
+        // *** TabButton
+        comDefaults = [
+            "TabButton.background", table.get("window"),
+            "TabButton.foreground", table.get("windowText"),
+            "TabButton.mideground", new ASColorUIResource(0xe1e1e1),
+            "TabButton.colorAdjust", new UIStyleTune(0.01, -0.14, 0.01, 0.50, 5, new UIStyleTune(0.05, -0.23, 0.01, 0.50, 4)),
+            "TabButton.focusable", true,
+            "TabButton.font", table.getFont("controlFont"),
+            "TabButton.colorAdjust", new UIStyleTune(0.18, -0.02, 0.34, 0.22, 5),
+            "TabButton.margin", new InsetsUIResource(7, 15, 7, 15),
+            "TabButton.textShiftOffset", 0,
+            "TabButton.textFilters", null,
+            "TabButton.textGap", 5,
+            "TabButton.normalColor", new ASColorUIResource(0xffffff),
+            "TabButton.rolloverColor", new ASColorUIResource(0xe1e1e1),
+            "TabButton.selectedColor", new ASColorUIResource(0xffffff),
+            "TabButton.borderColor", new ASColorUIResource(0xcccccc)
+        ];
+        table.putDefaults(comDefaults);
 		
 	   // *** JClosableTabbedPane
 		comDefaults = [

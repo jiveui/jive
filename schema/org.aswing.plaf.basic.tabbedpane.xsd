@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic.tabbedpane" xmlns="org.aswing.plaf.basic.tabbedpane" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
 >
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
 <xs:complexType name="TabBackgroundSchemaTypeValue">
@@ -19,6 +21,7 @@ xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
 <xs:complexType name="TabSchemaTypeValue">
 <xs:choice>
 <xs:element ref="BasicTabbedPaneTab" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabbedPaneTab" />
 <xs:element ref="ClosableTab" />
 <xs:element ref="org-aswing-plaf-basic-accordion:BasicAccordionHeader" />
 <xs:element ref="BasicClosableTabbedPaneTab" />
@@ -29,7 +32,11 @@ xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
 <xs:all><xs:element ref="CloseIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="BasicTabbedPaneTabSchemaTypeValue">
-<xs:all><xs:element ref="BasicTabbedPaneTab"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabbedPaneTab" />
+<xs:element ref="BasicTabbedPaneTab" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="TabBackgroundSchemaType">
 <xs:complexContent>

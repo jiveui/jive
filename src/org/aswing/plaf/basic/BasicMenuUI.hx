@@ -5,7 +5,7 @@
 package org.aswing.plaf.basic;
 
 
-
+import jive.Navigation;
 import org.aswing.plaf.UIResource;
 	import org.aswing.JMenu;
 	import org.aswing.MenuSelectionManager;
@@ -94,7 +94,7 @@ class BasicMenuUI extends BasicMenuItemUI{
 	 * SubUI override this to do different
 	 */
 	override private function shouldPaintSelected():Bool{
-		return menuItem.getModel().isRollOver() || menuItem.isSelected();
+		return menuItem.getModel().isRollOver() || menuItem.isSelected() || Navigation.instance.isMenuElementActive(menuItem);
 	}
 	
 	//---------------------
@@ -145,10 +145,16 @@ class BasicMenuUI extends BasicMenuItemUI{
 	override private function __menuItemAct(e:AWEvent):Void{
 		var menu:JMenu = getMenu();
 		var cnt:Container = menu.getParent();
-		if(cnt != null && Std.is(cnt,JMenuBar)) {
+
+        if(cnt != null && Std.is(cnt,JMenuBar) && menu.getSubElements().length > 0) {
 			var me:Array<Dynamic>= [cnt, menu, menu.getPopupMenu()];
 			MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, me, false);
 		}
+
+        if (menu.getSubElements().length > 0) {
+            Navigation.instance.navigate(MenuSelectionManager.defaultManager().getSelectedPath(), null);
+        }
+
 		menuItem.repaint();
 	}
 	

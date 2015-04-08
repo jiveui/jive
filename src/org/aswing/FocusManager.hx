@@ -67,10 +67,10 @@ class FocusManager{
 		if(theStage == null){
 			return null;
 		}
-		var manager:FocusManager = managers.getValue(theStage);
+		var manager:FocusManager = managers.get(theStage);
 		if (manager == null) {  
 			manager = new FocusManager(theStage);
-			managers.put(theStage, manager);
+			managers.set(theStage, manager);
 		}		
 		return manager;
 	}
@@ -93,12 +93,12 @@ class FocusManager{
 		if(newManager == null){
 			newManager = new FocusManager(theStage);
 		}
-		var oldManager:FocusManager = managers.getValue(theStage);
+		var oldManager:FocusManager = managers.get(theStage);
 		if(oldManager != newManager){
 			if(oldManager != null){
 				oldManager.uninit();
 			}
-			managers.put(theStage, newManager);
+			managers.set(theStage, newManager);
 		}
 	}
 	

@@ -18,7 +18,7 @@ import org.aswing.plaf.basic.BasicMenuItemUI;
  * 
  * @author paling
  */
-class JMenuItem extends AbstractButton  implements MenuElement{
+class JMenuItem extends AbstractButton implements MenuElement{
 	
     public var menuInUse(get, set): Bool;
     private var _menuInUse: Bool;
@@ -36,6 +36,11 @@ class JMenuItem extends AbstractButton  implements MenuElement{
     private var _accelerator: KeyType;
     private function get_accelerator(): KeyType { return getAccelerator(); }
     private function set_accelerator(v: KeyType): KeyType { setAccelerator(v); return v; }
+
+    /**
+    * A part of path. E.g. /subpath/subpath
+    */
+    public var subpath: String;
 	
 	public function new(text:String="", icon:Icon=null){
 		super(text, icon);

@@ -262,6 +262,7 @@ class JTextComponent extends Component  implements EditableComponent{
 
     @:dox(hide)
 	public function setText(text:String):Void{
+        if (null == text) text = "";
 		if(getTextField().text != text){
 			getTextField().text = text;
 			if(isAutoSize()){

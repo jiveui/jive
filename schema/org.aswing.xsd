@@ -1,61 +1,63 @@
 <xs:schema targetNamespace="org.aswing" xmlns="org.aswing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
+xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
+xmlns:jive="jive"
+xmlns:org-aswing-table="org.aswing.table"
+xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
+xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
+xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
+xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 xmlns:flash-text="flash.text"
 xmlns:jive-formatting="jive.formatting"
 xmlns:org-aswing-geom="org.aswing.geom"
 xmlns:flash-net="flash.net"
-xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
 xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
-xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
 xmlns:empty="empty"
-xmlns:jive="jive"
 xmlns:org-aswing-border="org.aswing.border"
-xmlns:org-aswing-table="org.aswing.table"
 xmlns:haxe-ds="haxe.ds"
-xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
-xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
 xmlns:org-aswing-plaf="org.aswing.plaf"
-xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
 xmlns:flash-display="flash.display"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
-xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
 xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 xmlns:org-aswing-ext="org.aswing.ext"
-xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-events="flash.events"
-xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
-xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
+<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="org.aswing.geom" schemaLocation="org.aswing.geom.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
-<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
-<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
 <xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
-<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
-<xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
 <xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
-<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
 <xs:complexType name="DecoratorSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-background:FrameBackground" />
@@ -125,6 +127,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="Border" />
 <xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
 <xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
@@ -239,6 +242,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
 <xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicClosableTabbedPaneTab" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
 <xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
 <xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
@@ -276,6 +280,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JMenu" />
 <xs:element ref="JToggleButton" />
 <xs:element ref="JCheckBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="AbstractButton" />
 </xs:choice>
 </xs:complexType>
@@ -327,6 +332,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JMenuBar" />
 <xs:element ref="JTabbedPane" />
 <xs:element ref="SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="JMenuItem" />
@@ -388,15 +394,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:choice>
 </xs:complexType>
 
-<xs:complexType name="SoftBoxSchemaTypeValue">
-<xs:choice>
-<xs:element ref="jive:Spot" />
-<xs:element ref="SoftBox" />
-</xs:choice>
-</xs:complexType>
-
 <xs:complexType name="KeyActionSchemaTypeValue">
 <xs:all><xs:element ref="KeyAction"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoftBoxSchemaTypeValue">
+<xs:all><xs:element ref="SoftBox"/></xs:all></xs:complexType>
 
 <xs:complexType name="WeightBoxLayoutSchemaTypeValue">
 <xs:all><xs:element ref="WeightBoxLayout"/></xs:all></xs:complexType>
@@ -415,7 +417,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexType>
 
 <xs:complexType name="JButtonSchemaTypeValue">
-<xs:all><xs:element ref="JButton"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
+<xs:element ref="JButton" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="AbstractCellEditorSchemaTypeValue">
 <xs:choice>
@@ -888,6 +894,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="JMenuBar" />
 <xs:element ref="JTabbedPane" />
 <xs:element ref="SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="JMenuItem" />
@@ -1015,9 +1022,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexType name="JSpacerSchemaTypeValue">
 <xs:all><xs:element ref="JSpacer"/></xs:all></xs:complexType>
 
-<xs:complexType name="AWKeyboardSchemaTypeValue">
-<xs:all><xs:element ref="AWKeyboard"/></xs:all></xs:complexType>
-
 <xs:complexType name="LayoutManagerSchemaTypeValue">
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
@@ -1025,6 +1029,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="GridLayout" />
 <xs:element ref="BorderLayout" />
 <xs:element ref="org-aswing-plaf-basic:DefaultMenuLayout" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
 <xs:element ref="JTable" />
 <xs:element ref="FrameTitleBarLayout" />
 <xs:element ref="FlowWrapLayout" />
@@ -1048,6 +1053,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="EmptyLayout" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="AWKeyboardSchemaTypeValue">
+<xs:all><xs:element ref="AWKeyboard"/></xs:all></xs:complexType>
 
 <xs:complexType name="JPopupSchemaTypeValue">
 <xs:choice>
@@ -1655,7 +1663,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="JMenu" />
+<xs:element minOccurs="0" name="activeIndex" type="xs:int"/>
 </xs:all>
+<xs:attribute name="activeIndex" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1679,6 +1689,19 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="KeyActionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="key" type="KeyTypeSchemaTypeValue"/>
+<xs:element minOccurs="0" name="action" type="xs:string"/>
+</xs:all>
+<xs:attribute name="key" type="xs:string"/>
+<xs:attribute name="action" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="SoftBoxSchemaType">
 <xs:complexContent>
 <xs:extension base="JPanelSchemaType">
@@ -1690,19 +1713,6 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:attribute name="axis" type="xs:int"/>
 <xs:attribute name="gap" type="xs:int"/>
 <xs:attribute name="align" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="KeyActionSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="key" type="KeyTypeSchemaTypeValue"/>
-<xs:element minOccurs="0" name="action" type="xs:string"/>
-</xs:all>
-<xs:attribute name="key" type="xs:string"/>
-<xs:attribute name="action" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2197,9 +2207,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="menuInUse" type="xs:boolean"/>
 <xs:element minOccurs="0" name="accelerator" type="KeyTypeSchemaTypeValue"/>
+<xs:element minOccurs="0" name="subpath" type="xs:string"/>
 </xs:all>
 <xs:attribute name="menuInUse" type="xs:boolean"/>
 <xs:attribute name="accelerator" type="xs:string"/>
+<xs:attribute name="subpath" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2644,6 +2656,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element minOccurs="0" ref="JMenuBar" />
 <xs:element minOccurs="0" ref="JTabbedPane" />
 <xs:element minOccurs="0" ref="SoftBox" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element minOccurs="0" ref="JLabelButton" />
 <xs:element minOccurs="0" ref="org-aswing-table:DefaultTextCell" />
 <xs:element minOccurs="0" ref="JMenuItem" />
@@ -3031,7 +3044,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="AWKeyboardSchemaType">
+<xs:complexType name="LayoutManagerSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -3040,7 +3053,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="LayoutManagerSchemaType">
+<xs:complexType name="AWKeyboardSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -3432,8 +3445,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="DefaultComboBoxListCellFactory" type="DefaultComboBoxListCellFactorySchemaType"/>
 <xs:element name="JMenuBar" type="JMenuBarSchemaType"/>
 <xs:element name="ASFont" type="ASFontSchemaType"/>
-<xs:element name="SoftBox" type="SoftBoxSchemaType"/>
 <xs:element name="KeyAction" type="KeyActionSchemaType"/>
+<xs:element name="SoftBox" type="SoftBoxSchemaType"/>
 <xs:element name="WeightBoxLayout" type="WeightBoxLayoutSchemaType"/>
 <xs:element name="JLabelButton" type="JLabelButtonSchemaType"/>
 <xs:element name="EmptyIcon" type="EmptyIconSchemaType"/>
@@ -3530,8 +3543,8 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element name="ContainerOrderFocusTraversalPolicy" type="ContainerOrderFocusTraversalPolicySchemaType"/>
 <xs:element name="BoundedRangeModel" type="BoundedRangeModelSchemaType"/>
 <xs:element name="JSpacer" type="JSpacerSchemaType"/>
-<xs:element name="AWKeyboard" type="AWKeyboardSchemaType"/>
 <xs:element name="LayoutManager" type="LayoutManagerSchemaType"/>
+<xs:element name="AWKeyboard" type="AWKeyboardSchemaType"/>
 <xs:element name="JPopup" type="JPopupSchemaType"/>
 <xs:element name="Icon" type="IconSchemaType"/>
 <xs:element name="FlowLayout" type="FlowLayoutSchemaType"/>

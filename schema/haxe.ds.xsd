@@ -13,6 +13,9 @@ xmlns:empty="empty"
 </xs:choice>
 </xs:complexType>
 
+<xs:complexType name="WeakMapSchemaTypeValue">
+<xs:all><xs:element ref="WeakMap"/></xs:all></xs:complexType>
+
 <xs:complexType name="IntMapSchemaTypeValue">
 <xs:all><xs:element ref="IntMap"/></xs:all></xs:complexType>
 
@@ -22,6 +25,15 @@ xmlns:empty="empty"
 <xs:complexType name="StringMapSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WeakMapSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-utils:DictionarySchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -48,6 +60,7 @@ xmlns:empty="empty"
 
 
 <xs:element name="StringMap" type="StringMapSchemaType"/>
+<xs:element name="WeakMap" type="WeakMapSchemaType"/>
 <xs:element name="IntMap" type="IntMapSchemaType"/>
 <xs:element name="ObjectMap" type="ObjectMapSchemaType"/>
 </xs:schema>

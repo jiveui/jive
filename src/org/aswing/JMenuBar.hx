@@ -25,7 +25,15 @@ class JMenuBar extends Container implements MenuElement{
 	
 	private var selectionModel:SingleSelectionModel;
 	private var menuInUse:Bool;
-	
+
+    public var activeIndex(get, set): Int;
+    private var _activeIndex: Int;
+    private function get_activeIndex(): Int { return _activeIndex; }
+    private function set_activeIndex(v: Int): Int {
+        _activeIndex = v;
+        return v;
+    }
+
 	public function new() {
 		super();
 		setSelectionModel(new DefaultSingleSelectionModel());
@@ -121,7 +129,11 @@ class JMenuBar extends Container implements MenuElement{
 	 * @see SingleSelectionModel
 	 */
 	public function setSelectionModel(model:SingleSelectionModel):Void{
+        if (null != selectionModel) {
+            selectionModel.removeStateListener(onSelectedChanged);
+        }
 		selectionModel = model;
+        selectionModel.addStateListener(onSelectedChanged);
 	}	
 
 	/**
@@ -143,7 +155,9 @@ class JMenuBar extends Container implements MenuElement{
 	 */
 	public function isSelected():Bool{	   
 		return selectionModel.isSelected();
-	}	
+	}
+
+    private function onSelectedChanged(e: Dynamic) {}
 		
 	//--------------------------------------------------------------
 	//					MenuElement imp

@@ -26,7 +26,6 @@ class JButton extends AbstractButton
     	setModel(new DefaultButtonModel());
 
         addActionListener(function(e) {
-            trace(command);
             if (null != command) command.action();
         });
 	}

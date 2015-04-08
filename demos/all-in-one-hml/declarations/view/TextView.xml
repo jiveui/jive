@@ -34,12 +34,12 @@
             </JPanel>
 
             <JPanel>
-                <JLabel text="'Victim'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <JLabel text="'Prey'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                     <preferredSize>
                         <geom:IntDimension width="100" height="-1"/>
                     </preferredSize>
                 </JLabel>
-                <JTextField columns="15" inlineHint="'Antelope'" text="{Binding victim mode=twoway}"/>
+                <JTextField columns="15" inlineHint="'Antelope'" text="{Binding prey mode=twoway}"/>
             </JPanel>
 
         </SoftBox>

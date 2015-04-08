@@ -6,35 +6,35 @@
          xmlns:jive="jive"
          xmlns:border="org.aswing.border"
          xmlns:e="empty"
-         xmlns:formatting="jive.formatting"
-         defaultButton="buttonsView.defButton">
+        defaultButton="buttonsView.defButton"
+        >
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.MainViewModel>]]></haxe:Implements>
     <content>
         <JPanel>
-            <layout>
-                <BorderLayout hgap="20"/>
-            </layout>
             <border>
                 <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
             </border>
+            <layout>
+                <BorderLayout hgap="50" vgap="30"/>
+            </layout>
+            <!-- Main menu -->
             <JMenuBar constraints="org.aswing.BorderLayout.NORTH">
                 <JMenu enabled="false">
                     <icon>
                         <AssetIcon asset="{Binding jiveIcon}" width="53" height="22"/>
                     </icon>
                 </JMenu>
-                <JMenu text="'Demo'"/>
-                <JMenu text="'Documentation'" />
-                <JMenu text="'Download'" />
-                <JMenu text="'Contribute'" />
+                <JMenu text="'Demo'" subpath="'demo'">
+                        <JMenuItem text="'Buttons'" subpath="'buttons'"/>
+                        <JMenuItem text="'Text fields'" subpath="'text-fields'"/>
+                </JMenu>
+                <JMenu text="'Documentation'" subpath="'docs'" />
+                <JMenu text="'Download'" subpath="'download'" />
+                <JMenu text="'Contribute'" subpath="'contribute'" />
             </JMenuBar>
+
+            <!--Left menu-->
             <SoftBox constraints="org.aswing.BorderLayout.WEST">
-                <JSpacer><preferredSize><geom:IntDimension width="30" height="30"/></preferredSize></JSpacer>
-                <JLabel text="'UI Components'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
-                    <font>
-                        <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
-                    </font>
-                </JLabel>
                 <JList selectedIndex="{Binding menuSelectedIndex mode=twoway}">
                     <background>
                         <ASColor rgb="0xe1e1e1"/>
@@ -55,35 +55,18 @@
                     </model>
                 </JList>
             </SoftBox>
-            <JPanel constraints="org.aswing.BorderLayout.CENTER">
-                    <layout>
-                        <BorderLayout/>
-                    </layout>
-                    <JPanel constraints="org.aswing.BorderLayout.CENTER">
-                        <layout>
-                            <CenterLayout/>
-                        </layout>
-                        <jive:Spot selectedIndex="{Binding menuSelectedIndex}">
-                            <view:ButtonsView id="buttonsView" dataContext="{Binding buttonsVM}"/>
-                            <view:TextView dataContext="{Binding textVM}"/>
-                            <view:ProgressView dataContext="{Binding progressVM}"/>
-                            <view:ComboBoxView dataContext="{Binding comboboxVM}"/>
-                        </jive:Spot>
-                    </JPanel>
-                    <JScrollPane constraints="org.aswing.BorderLayout.SOUTH">
-                        <preferredSize>
-                            <geom:IntDimension width="300" height="300"/>
-                        </preferredSize>
-                        <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
-                            <preferredSize>
-                                <geom:IntDimension width="2000" height="1000"/>
-                            </preferredSize>
-                            <formatting:rules>
-                                <formatting:HmlRegExRules/>
-                            </formatting:rules>
-                        </formatting:RegExFormattedTextArea>
-                    </JScrollPane>
-            </JPanel>
+
+            <!-- Main content -->
+            <jive:Spot selectedIndex="{Binding menuSelectedIndex}" constraints="org.aswing.BorderLayout.CENTER">
+                <layout>
+                    <BoxLayout/>
+                </layout>
+                <view:ButtonsView id="buttonsView" dataContext="{Binding buttonsVM}"/>
+                <view:TextView dataContext="{Binding textVM}"/>
+                <view:ProgressView dataContext="{Binding progressVM}"/>
+                <view:ComboBoxView dataContext="{Binding comboboxVM}"/>
+            </jive:Spot>
+
         </JPanel>
     </content>
 </JWindow>

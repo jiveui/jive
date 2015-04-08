@@ -6,9 +6,6 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:complexType name="WeakMapSchemaTypeValue">
-<xs:all><xs:element ref="WeakMap"/></xs:all></xs:complexType>
-
 <xs:complexType name="ImpulserSchemaTypeValue">
 <xs:choice>
 <xs:element ref="AbstractImpulser" />
@@ -78,27 +75,6 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="ListNodeSchemaTypeValue">
 <xs:all><xs:element ref="ListNode"/></xs:all></xs:complexType>
 
-<xs:complexType name="WeakMapSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="exists" type="xs:string"/>
-<xs:element minOccurs="0" name="get" type="xs:string"/>
-<xs:element minOccurs="0" name="iterator" type="xs:string"/>
-<xs:element minOccurs="0" name="keys" type="xs:string"/>
-<xs:element minOccurs="0" name="remove" type="xs:string"/>
-<xs:element minOccurs="0" name="set" type="xs:string"/>
-</xs:all>
-<xs:attribute name="exists" type="xs:string"/>
-<xs:attribute name="get" type="xs:string"/>
-<xs:attribute name="iterator" type="xs:string"/>
-<xs:attribute name="keys" type="xs:string"/>
-<xs:attribute name="remove" type="xs:string"/>
-<xs:attribute name="set" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
 <xs:complexType name="ImpulserSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -164,7 +140,6 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-resizer:ResizeStrategy" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicAdjusterUI" />
 <xs:element minOccurs="0" ref="haxe:Timer" />
-<xs:element minOccurs="0" ref="WeakMap" />
 <xs:element minOccurs="0" ref="lime-audio:FlashAudioContext" />
 <xs:element minOccurs="0" ref="org-aswing:CursorManager" />
 <xs:element minOccurs="0" ref="flash-display:Shape" />
@@ -179,6 +154,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="haxe:CallStack" />
 <xs:element minOccurs="0" ref="Impulser" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element minOccurs="0" ref="lime-app-_Application:UpdateEventType_Impl_" />
 <xs:element minOccurs="0" ref="lime-math-_ColorMatrix:ColorMatrix_Impl_" />
 <xs:element minOccurs="0" ref="org-aswing:SoftBoxLayout" />
@@ -270,9 +246,9 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-net:NetStreamPlayOptions" />
 <xs:element minOccurs="0" ref="org-aswing:ASFont" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:DefaultsDecorator" />
-<xs:element minOccurs="0" ref="org-aswing:SoftBox" />
 <xs:element minOccurs="0" ref="lime-graphics-opengl:GLBuffer" />
 <xs:element minOccurs="0" ref="org-aswing:KeyAction" />
+<xs:element minOccurs="0" ref="org-aswing:SoftBox" />
 <xs:element minOccurs="0" ref="org-aswing:WeightBoxLayout" />
 <xs:element minOccurs="0" ref="flash-display:Shader" />
 <xs:element minOccurs="0" ref="motion:Actuate" />
@@ -290,8 +266,8 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-ui:ContextMenu" />
 <xs:element minOccurs="0" ref="lime-math:Matrix3" />
 <xs:element minOccurs="0" ref="org-aswing-tree:NodeDimensions" />
-<xs:element minOccurs="0" ref="motion-easing:ExpoEaseOut" />
 <xs:element minOccurs="0" ref="org-aswing:JButton" />
+<xs:element minOccurs="0" ref="motion-easing:ExpoEaseOut" />
 <xs:element minOccurs="0" ref="flash-geom:PerspectiveProjection" />
 <xs:element minOccurs="0" ref="org-aswing:AbstractCellEditor" />
 <xs:element minOccurs="0" ref="org-aswing-table:TableColumnModel" />
@@ -306,6 +282,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-events:IEventDispatcher" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
 <xs:element minOccurs="0" ref="flash-geom:Rectangle" />
+<xs:element minOccurs="0" ref="jive-plaf-flat:FlatTabbedPaneUI" />
 <xs:element minOccurs="0" ref="org-aswing:StyleResult" />
 <xs:element minOccurs="0" ref="org-aswing-graphics:Pen" />
 <xs:element minOccurs="0" ref="lime-graphics-opengl:GLTexture" />
@@ -336,6 +313,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="lime-graphics:CanvasRenderContext" />
 <xs:element minOccurs="0" ref="motion:MotionPath" />
 <xs:element minOccurs="0" ref="org-aswing:VectorListModel" />
+<xs:element minOccurs="0" ref="haxe-ds:WeakMap" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element minOccurs="0" ref="org-aswing:Insets" />
 <xs:element minOccurs="0" ref="jive-formatting:RegExFormattedTextArea" />
@@ -354,9 +332,9 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
 <xs:element minOccurs="0" ref="org-aswing-tree:FixedHeightLayoutCache" />
 <xs:element minOccurs="0" ref="flash-display:Stage3D" />
+<xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element minOccurs="0" ref="motion-_Actuate:TweenTimer" />
 <xs:element minOccurs="0" ref="motion:BezierPath" />
-<xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
 <xs:element minOccurs="0" ref="empty:String" />
 <xs:element minOccurs="0" ref="lime-audio:AudioBuffer" />
 <xs:element minOccurs="0" ref="lime-ui:MouseEventManager" />
@@ -371,6 +349,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing:DefaultBoundedRangeModel" />
 <xs:element minOccurs="0" ref="org-aswing-plaf:UIStyleTune" />
 <xs:element minOccurs="0" ref="org-aswing-event:ReleaseEvent" />
+<xs:element minOccurs="0" ref="empty:Lambda" />
 <xs:element minOccurs="0" ref="jive-plaf-flat:FlatTextFieldUI" />
 <xs:element minOccurs="0" ref="lime-graphics-_Renderer:RenderEventType_Impl_" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-background:PanelBackground" />
@@ -433,6 +412,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="motion-actuators:FilterActuator" />
 <xs:element minOccurs="0" ref="org-aswing-ext:DateGridLayout" />
 <xs:element minOccurs="0" ref="flash-text:StyleSheet" />
+<xs:element minOccurs="0" ref="jive-formatting:HaxeRegExRules" />
 <xs:element minOccurs="0" ref="org-aswing-geom:IntRectangle" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-border:TextCellComponentBorder" />
 <xs:element minOccurs="0" ref="flash-filters:ColorMatrixFilter" />
@@ -483,6 +463,8 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-tree:TreeModel" />
 <xs:element minOccurs="0" ref="ArrayList" />
 <xs:element minOccurs="0" ref="org-aswing:ListCellFactory" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
+<xs:element minOccurs="0" ref="jive:Navigation" />
 <xs:element minOccurs="0" ref="org-aswing:GridLayout" />
 <xs:element minOccurs="0" ref="org-aswing-event:AttachEvent" />
 <xs:element minOccurs="0" ref="flash-display:LoaderInfo" />
@@ -610,6 +592,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
 <xs:element minOccurs="0" ref="lime-utils:Float32Array" />
 <xs:element minOccurs="0" ref="org-aswing-tree:EnumerationInfo" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-tabbedpane:FlatTabbedPaneTab" />
 <xs:element minOccurs="0" ref="org-aswing-table:PropertyTranslator" />
 <xs:element minOccurs="0" ref="org-aswing-table:AbstractTableCell" />
 <xs:element minOccurs="0" ref="org-aswing-tree:TreeCellFactory" />
@@ -644,6 +627,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-ext:MultilineLabel" />
 <xs:element minOccurs="0" ref="flash-display:Scene" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
 <xs:element minOccurs="0" ref="lime-utils:ArrayBufferView" />
 <xs:element minOccurs="0" ref="org-aswing:JOptionPane" />
 <xs:element minOccurs="0" ref="flash-events:UncaughtErrorEvents" />
@@ -725,17 +709,17 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="flash-media:SoundChannel" />
 <xs:element minOccurs="0" ref="org-aswing:ContainerOrderFocusTraversalPolicy" />
 <xs:element minOccurs="0" ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
-<xs:element minOccurs="0" ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-tabbedpane:BasicTabbedPaneTab" />
+<xs:element minOccurs="0" ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element minOccurs="0" ref="org-aswing:BoundedRangeModel" />
 <xs:element minOccurs="0" ref="org-aswing-event:ListItemEvent" />
 <xs:element minOccurs="0" ref="org-aswing:JSpacer" />
 <xs:element minOccurs="0" ref="org-aswing-error:Error" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-icon:RadioButtonIcon" />
 <xs:element minOccurs="0" ref="flash-display:NativeMenu" />
+<xs:element minOccurs="0" ref="org-aswing:LayoutManager" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicTextComponentUI" />
 <xs:element minOccurs="0" ref="org-aswing:AWKeyboard" />
-<xs:element minOccurs="0" ref="org-aswing:LayoutManager" />
 <xs:element minOccurs="0" ref="org-aswing-event:TreeCellEditEvent" />
 <xs:element minOccurs="0" ref="org-aswing-graphics:Graphics2D" />
 <xs:element minOccurs="0" ref="ArrayUtils" />
@@ -1006,7 +990,6 @@ xmlns:flash-events="flash.events"
 </xs:complexType>
 
 
-<xs:element name="WeakMap" type="WeakMapSchemaType"/>
 <xs:element name="Impulser" type="ImpulserSchemaType"/>
 <xs:element name="WeakReference" type="WeakReferenceSchemaType"/>
 <xs:element name="DepthManager" type="DepthManagerSchemaType"/>

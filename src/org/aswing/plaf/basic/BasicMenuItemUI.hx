@@ -5,6 +5,8 @@
 package org.aswing.plaf.basic;
 
 
+import jive.Navigation;
+import jive.Navigation;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.text.TextField;
@@ -288,14 +290,18 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	private function __menuItemRollOut(e:MouseEvent):Void {
 		
 		var path:Array<Dynamic>= MenuSelectionManager.defaultManager().getSelectedPath();
-		if (path.length > 1   && Std.is(path[path.length-1],JMenuItem)&&path[path.length-1] == menuItem){
+		if (path.length > 1 && Std.is(path[path.length-1],JMenuItem)&&path[path.length-1] == menuItem){
 			path.pop();
 			MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, path, false);
-		}
+		} else if(path.length > 0 && path[0] == menuItem.getParent() && menuItem.getSubElements().length == 0) {
+            // A top level menu's parent is by definition a JMenuBar
+            MenuSelectionManager.defaultManager().clearSelectedPath(false);
+        }
 		menuItem.repaint();
 	}
 	
-	private function __menuItemAct(e:AWEvent):Void{
+	private function __menuItemAct(e:AWEvent):Void {
+        Navigation.instance.navigate(MenuSelectionManager.defaultManager().getSelectedPath(), null);
 		MenuSelectionManager.defaultManager().clearSelectedPath(false);
 		menuItem.repaint();
 	}
@@ -334,7 +340,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	 * SubUI override this to do different
 	 */
 	private function shouldPaintSelected():Bool{
-		return menuItem.getModel().isRollOver();
+		return Navigation.instance.isMenuElementActive(menuItem) || menuItem.getModel().isRollOver();
 	}
 	
     public function getPath():Array<Dynamic>{ //MenuElement[]

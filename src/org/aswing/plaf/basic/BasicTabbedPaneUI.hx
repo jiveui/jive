@@ -580,7 +580,7 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		var tabBarBounds:IntRectangle = getTabBarSize().getBounds(0, 0);
 		tabBarBounds.x = b.x;
 		tabBarBounds.y = b.y;
-		tabBarBounds.width = Std.int(Math.min(tabBarBounds.width, contentBounds.width));
+		tabBarBounds.width = contentBounds.width;
 		tabBarBounds.height = Std.int(Math.min(tabBarBounds.height, contentBounds.height));
 		var transformedTabMargin:Insets = getTransformedMargin();
 		var placement:Int= tabbedPane.getTabPlacement();
@@ -638,6 +638,7 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		if(selectedIndex >= 0){
 			selBounds = getDrawnTabBounds(selectedIndex);
 		}
+
 		drawBaseLine(tabBarBounds, g, b, selBounds);
 		//invisible tab after last
 		for(i in lastIndex+2...n){
@@ -730,7 +731,7 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
     	var b:IntRectangle = tabBarBounds.clone();
     	var placement:Int= tabbedPane.getTabPlacement();
     	var pen:Pen;
-    	var lineT:Float= 2;//contentRoundLineThickness;
+    	var lineT:Float= contentRoundLineThickness;
     	if(selTabB == null){
     		selTabB = new IntRectangle(Std.int(fullB.x + fullB.width/2), Std.int(fullB.y + fullB.height/2), 0, 0);
     	}

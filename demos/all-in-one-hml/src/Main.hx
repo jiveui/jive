@@ -1,4 +1,5 @@
 package;
+import haxe.Timer;
 import viewmodel.MainViewModel;
 import org.aswing.border.EmptyBorder;
 import org.aswing.Insets;
@@ -25,11 +26,11 @@ class Main extends Sprite {
        mainView.setBackgroundDecorator(new SolidBackground(UIManager.getColor("window")));
        mainView.setBorder(new EmptyBorder(null, Insets.createIdentic(10)));
        mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
-       mainView.show();
 
        Lib.current.stage.addEventListener(Event.RESIZE, function(e) {
            mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
        });
 
+       mainView.show();
    }
 }

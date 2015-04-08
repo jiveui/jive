@@ -7,6 +7,9 @@ xmlns:empty="empty"
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
+<xs:complexType name="NavigationSchemaTypeValue">
+<xs:all><xs:element ref="Navigation"/></xs:all></xs:complexType>
+
 <xs:complexType name="CommandSchemaTypeValue">
 <xs:choice>
 <xs:element ref="BaseCommand" />
@@ -30,6 +33,17 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="NavigationSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="activePath" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="activePath" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="CommandSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -41,7 +55,7 @@ xmlns:empty="empty"
 
 <xs:complexType name="SpotSchemaType">
 <xs:complexContent>
-<xs:extension base="org-aswing:SoftBoxSchemaType">
+<xs:extension base="org-aswing:JPanelSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="selectedIndex" type="xs:int"/>
 </xs:all>
@@ -61,6 +75,7 @@ xmlns:empty="empty"
 
 
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
+<xs:element name="Navigation" type="NavigationSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
 <xs:element name="Spot" type="SpotSchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>

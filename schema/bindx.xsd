@@ -3,6 +3,7 @@ xmlns:org-aswing="org.aswing"
 xmlns:jive-formatting="jive.formatting"
 xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:org-aswing-ext="org.aswing.ext"
@@ -15,6 +16,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
@@ -60,6 +62,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="org-aswing:JMenuItem" />

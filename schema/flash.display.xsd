@@ -4,6 +4,7 @@ xmlns:jive-formatting="jive.formatting"
 xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:flash-utils="flash.utils"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
 xmlns:empty="empty"
@@ -28,6 +29,7 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
@@ -120,6 +122,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="Loader" />
@@ -215,6 +218,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="org-aswing:JMenuItem" />
@@ -309,6 +313,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="DisplayObject" />
@@ -419,6 +424,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="Loader" />
@@ -521,6 +527,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
 <xs:element ref="org-aswing:SoftBox" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="Loader" />

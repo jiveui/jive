@@ -1,6 +1,9 @@
 package org.aswing.util;
  
   
+#if flash
+    typedef WeakMap<K,T> = haxe.ds.WeakMap<K,T>;
+#else
 class WeakMap <K, T> {
 	/** @private */ private var hashKeys: haxe.ds.IntMap<K>;
 	/** @private */ private var hashValues: haxe.ds.IntMap<T>;
@@ -30,21 +33,13 @@ class WeakMap <K, T> {
 	/** @private */ private inline function getID (key:K):Int {
 		
 		#if cpp
-		
 		return untyped __global__.__hxcpp_obj_id (key);
-		
 		#else
-		
 		if (untyped key.___id___ == null) {
-			
 			untyped key.___id___ = nextObjectID ++;
-			
 			if (nextObjectID == #if neko 0x3fffffff #else 0x7fffffff #end) {
-				
 				nextObjectID = 0;
-				
 			}
-			
 		}
 		
 		return untyped key.___id___;
@@ -197,3 +192,4 @@ class WeakMap <K, T> {
   		return temp;
  	}
 }
+#end
