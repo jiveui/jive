@@ -4,7 +4,7 @@
          xmlns:haxe="http://haxe.org/"
          xmlns:geom="org.aswing.geom"
          xmlns:border="org.aswing.border">
-    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.ProgressViewModel>]]></haxe:Implements>
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.ProgressViewModel>]]></haxe:Implements>
     <JLabel text="'Progress bar and Slider'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
         <font>
             <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>

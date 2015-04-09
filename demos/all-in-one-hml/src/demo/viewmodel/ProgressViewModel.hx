@@ -1,4 +1,4 @@
-package viewmodel;
+package demo.viewmodel;
 
 import bindx.IBindable;
 

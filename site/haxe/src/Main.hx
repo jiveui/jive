@@ -1,5 +1,5 @@
-package;
-import haxe.Timer;
+package ;
+
 import viewmodel.MainViewModel;
 import org.aswing.border.EmptyBorder;
 import org.aswing.Insets;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:demo="demo.view"
+         xmlns:jive="jive"
+         xmlns:border="org.aswing.border"
+         xmlns:e="empty"
+        defaultButton="demoView.buttonsView.defButton"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.MainViewModel>]]></haxe:Implements>
+    <content>
+        <JPanel>
+            <border>
+                <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
+            </border>
+            <layout>
+                <BorderLayout hgap="50" vgap="30"/>
+            </layout>
+            <!-- demo.Main menu -->
+            <JMenuBar constraints="org.aswing.BorderLayout.NORTH">
+                <JMenu enabled="false">
+                    <icon>
+                        <AssetIcon asset="{Binding jiveIcon}" width="53" height="22"/>
+                    </icon>
+                </JMenu>
+                <JMenu text="'Demo'" subpath="'demo'">
+                        <JMenuItem text="'Buttons'" subpath="'buttons'"/>
+                        <JMenuItem text="'Text fields'" subpath="'text-fields'"/>
+                </JMenu>
+                <JMenu text="'Documentation'" subpath="'docs'" />
+                <JMenu text="'Download'" subpath="'download'" />
+                <JMenu text="'Contribute'" subpath="'contribute'" />
+            </JMenuBar>
+
+            <jive:Spot selectedIndex="{Binding contentIndex}" constraints="org.aswing.BorderLayout.CENTER">
+                <layout>
+                    <BoxLayout/>
+                </layout>
+                <demo:DemoView id="demoView" dataContext="{Binding demoVM}"/>
+            </jive:Spot>
+
+        </JPanel>
+    </content>
+</JWindow>

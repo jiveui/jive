@@ -4,6 +4,7 @@
     <property name="project.root.path" location=".."/>
     <property name="docs.path" location="${project.root.path}/docs"/>
     <property name="tests.path" location="${project.root.path}/tests"/>
+    <property name="localbuild.path" location="${project.root.path}/localbuild"/>
 
     <target name="build">
         <antcall target="test"/>
@@ -121,4 +122,29 @@
             <param name="theme.path" value="themes/haxeui-dox-theme"/>
         </antcall>
     </target>
+
+    <target name="build.site">
+        <delete dir="${project.root.path}/site/haxe/bin/html5/bin"/>
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="hxml" value="gen.hxml"/>
+        </antcall>
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/site/haxe"/>
+            <param name="hxml" value="gen.hxml"/>
+        </antcall>
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/site/haxe"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml html5"/>
+        </antcall>
+
+        <delete dir="${localbuild.path}/site"/>
+        <mkdir dir="${localbuild.path}/site"/>
+        <copy todir="${localbuild.path}/site">
+            <fileset dir="${project.root.path}/site/haxe/bin/html5/bin"/>
+        </copy>
+
+    </target>
+
 </project>

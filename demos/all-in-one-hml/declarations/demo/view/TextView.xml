@@ -5,7 +5,7 @@
          xmlns:geom="org.aswing.geom"
          xmlns:border="org.aswing.border"
          xmlns:ext="org.aswing.ext">
-    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.TextViewModel>]]></haxe:Implements>
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.TextViewModel>]]></haxe:Implements>
     <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
         <font>
             <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>

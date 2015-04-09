@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:view="demo.view"
+         xmlns:jive="jive"
+         xmlns:border="org.aswing.border"
+         xmlns:e="empty"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.DemoViewModel>]]></haxe:Implements>
+    <border>
+        <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
+    </border>
+    <layout>
+        <BorderLayout hgap="50" vgap="30"/>
+    </layout>
+
+    <!--Left menu-->
+    <SoftBox constraints="org.aswing.BorderLayout.WEST">
+        <JList selectedIndex="{Binding menuSelectedIndex mode=twoway}">
+            <background>
+                <ASColor rgb="0xe1e1e1"/>
+            </background>
+            <selectionBackground>
+                <ASColor rgb="0x34495e"/>
+            </selectionBackground>
+            <preferredSize>
+                <geom:IntDimension width="200" height="-1"/>
+            </preferredSize>
+            <model>
+                <VectorListModel>
+                    <e:String>'Buttons'</e:String>
+                    <e:String>'Text fields'</e:String>
+                    <e:String>'Progress bar and Slider'</e:String>
+                    <e:String>'Combo Box'</e:String>
+                </VectorListModel>
+            </model>
+        </JList>
+    </SoftBox>
+
+    <!-- demo.Main content -->
+    <jive:Spot selectedIndex="{Binding menuSelectedIndex}" constraints="org.aswing.BorderLayout.CENTER">
+        <layout>
+            <BoxLayout/>
+        </layout>
+        <view:ButtonsView id="buttonsView" dataContext="{Binding buttonsVM}"/>
+        <view:TextView dataContext="{Binding textVM}"/>
+        <view:ProgressView dataContext="{Binding progressVM}"/>
+        <view:ComboBoxView dataContext="{Binding comboboxVM}"/>
+    </jive:Spot>
+</JPanel>

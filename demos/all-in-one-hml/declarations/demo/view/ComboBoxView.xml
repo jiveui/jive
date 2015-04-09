@@ -6,7 +6,7 @@
          xmlns:border="org.aswing.border"
          xmlns:ext="org.aswing.ext"
          xmlns:e="empty">
-    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.ComboBoxViewModel>]]></haxe:Implements>
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.ComboBoxViewModel>]]></haxe:Implements>
 
     <JLabel text="'Combo Box'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
         <font>

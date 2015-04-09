@@ -5,7 +5,7 @@
          xmlns:geom="org.aswing.geom"
          xmlns:border="org.aswing.border"
          xmlns:formatting="jive.formatting">
-    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.ButtonsViewModel>]]></haxe:Implements>
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.ButtonsViewModel>]]></haxe:Implements>
     <layout>
         <BorderLayout/>
     </layout>

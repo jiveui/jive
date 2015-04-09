@@ -3,7 +3,7 @@
     <meta title="all-in-one-hml" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
 
     <!-- output -->
-    <app main="demo.Main" file="all-in-one-hml" path="bin" />
+    <app main="Main" file="all-in-one-hml" path="bin" />
 
     <window width="0" height="0" background="0xFFFFFF" fps="60" if="html5 || flash"/>
     <window width="800" height="600" background="0xFFFFFF" fps="125" unless="html5 || flash" />
@@ -11,6 +11,8 @@
     <!-- classpath, haxe libs -->
     <source path="src" />
     <source path="gen" />
+    <source path="../../demos/all-in-one-hml/src" />
+    <source path="../../demos/all-in-one-hml/gen" />
 
     <set name="html5-backend" value="openfl-snapsvg"/>
 
@@ -20,7 +22,9 @@
 
     <template path="templates" />
 
-    <assets path="assets" rename=""/>
-    <assets path="declarations/demo/view" rename="assets/source"/>
-    <assets path="src/demo/viewmodel" rename="assets/source"/>
+    <assets path="../../demos/all-in-one-hml/assets" rename=""/>
+    <assets path="../../demos/all-in-one-hml/declarations/demo/view" rename="assets/source"/>
+    <assets path="../../demos/all-in-one-hml/src/demo/viewmodel" rename="assets/source"/>
+    <assets path="declarations/view" rename="assets/source"/>
+    <assets path="src/viewmodel" rename="assets/source"/>
 </project>

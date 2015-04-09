@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:view="demo.view"
+         defaultButton="demoView.buttonsView.defButton"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.MainViewModel>]]></haxe:Implements>
+    <content>
+        <view:DemoView id="demoView" dataContext="{Binding demoVM}"/>
+    </content>
+</JWindow>

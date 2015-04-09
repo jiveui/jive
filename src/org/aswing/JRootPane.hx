@@ -72,7 +72,7 @@ class JRootPane extends Container {
 	}
 	
 	/**
-	 * Sets the main menuBar of this root pane.(Main menu bar means that 
+	 * Sets the main menuBar of this root pane.(demo.Main menu bar means that
 	 * if user press Alt key, the first menu of the menu bar will be actived).
 	 *
 	 * The menuBar must be located in this root pane(or in its child), 

@@ -1,4 +1,4 @@
-package viewmodel;
+package demo.viewmodel;
 
 import openfl.Assets;
 import jive.BaseCommand;
@@ -15,8 +15,8 @@ class ButtonsViewModel implements IBindable {
     @bindable public var weatherButtonCommand: Command;
     @bindable public var calendarButtonCommand: Command;
 
-    @bindable public var xmlSource: String = Assets.getText("declarations/view/ButtonsView.xml");
-    @bindable public var haxeSource: String = Assets.getText("src/viewmodel/ButtonsViewModel.hx");
+    @bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.xml");
+    @bindable public var haxeSource: String = Assets.getText("assets/source/ButtonsViewModel.hx");
 
     public function new() {
 
