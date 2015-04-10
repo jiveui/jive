@@ -5,7 +5,7 @@
 -cp src
 -swf bin/empty.swf
 --no-output
--main demo.GenHx
+-main GenHx
 
 --next
 -cmd haxelib run openfl build project.xml html5

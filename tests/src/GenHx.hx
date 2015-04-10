@@ -1,6 +1,6 @@
 package ;
 
-class demo.GenHx {
+class GenHx {
 	
 	static function main() initHML();
 

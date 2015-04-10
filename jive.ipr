@@ -157,10 +157,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/demos/all-in-one/all-in-one.iml" filepath="$PROJECT_DIR$/demos/all-in-one/all-in-one.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demos/all-in-one-hml/all-in-one-hml.iml" filepath="$PROJECT_DIR$/demos/all-in-one-hml/all-in-one-hml.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demos/calendar/calendar.iml" filepath="$PROJECT_DIR$/demos/calendar/calendar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tests/tests.iml" filepath="$PROJECT_DIR$/tests/tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tests/jive.iml" filepath="$PROJECT_DIR$/tests/jive.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false">

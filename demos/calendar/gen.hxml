@@ -3,6 +3,6 @@
 -cp src
 -swf bin/empty.swf
 --no-output
--main demo.GenHx
+-main GenHx
 --macro allowPackage('flash')
 #-D hml_debug

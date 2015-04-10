@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-    <meta title="all-in-one-hml" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
+    <meta title="Jive: crossplatform UI framework for Haxe" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
 
     <!-- output -->
-    <app main="Main" file="all-in-one-hml" path="bin" />
+    <app main="Main" file="jive" path="bin" />
 
     <window width="0" height="0" background="0xFFFFFF" fps="60" if="html5 || flash"/>
     <window width="800" height="600" background="0xFFFFFF" fps="125" unless="html5 || flash" />
@@ -25,6 +25,7 @@
     <assets path="../../demos/all-in-one-hml/assets" rename=""/>
     <assets path="../../demos/all-in-one-hml/declarations/demo/view" rename="assets/source"/>
     <assets path="../../demos/all-in-one-hml/src/demo/viewmodel" rename="assets/source"/>
-    <assets path="declarations/view" rename="assets/source"/>
-    <assets path="src/viewmodel" rename="assets/source"/>
+
+    <haxedef name="desktop" if="site_target_desktop"/>
+    <haxedef name="mobile" if="site_target_mobile"/>
 </project>

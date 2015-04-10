@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="HAXE_MODULE" version="4">
-  <component name="FacetManager">
-    <facet type="bash" name="BashSupport">
-      <configuration>
-        <operationMode type="IgnoreAll" />
-      </configuration>
-    </facet>
-  </component>
   <component name="HaxeModuleSettingsStorage">
     <option name="buildConfig" value="3" />
     <option name="haxeTarget" value="JavaScript" />

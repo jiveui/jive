@@ -11,7 +11,7 @@ import flash.display.Sprite;
 import flash.Lib;
 import org.aswing.AsWingManager;
 
-class demo.Main extends Sprite {
+class Main extends Sprite {
 
     public function new() {
         super();
