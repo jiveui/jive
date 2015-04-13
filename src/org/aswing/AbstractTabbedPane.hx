@@ -70,6 +70,14 @@ class AbstractTabbedPane extends Container {
     private function get_selectionModel(): SingleSelectionModel { return getModel(); }
     private function set_selectionModel(v: SingleSelectionModel): SingleSelectionModel { setModel(v); return v; }
 
+    @bindable public var selectedIndex(get, set): Int;
+    private var _selectedIndex: Int;
+    private function get_selectedIndex(): Int { return selectionModel.getSelectedIndex(); }
+    private function set_selectedIndex(v: Int): Int {
+        selectionModel.setSelectedIndex(v, false);
+        return v;
+    }
+
 	// Icon/Label Alignment
 
     /**
@@ -826,6 +834,7 @@ class AbstractTabbedPane extends Container {
 	}    
         	
 	private function __modelStateChanged(e:InteractiveEvent):Void{
+        bindx.Bind.notify(this.selectedIndex);
 		fireStateChanged(e.isProgrammatic());
 	}
 	

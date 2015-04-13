@@ -8,9 +8,6 @@
          xmlns:e="empty"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.DemoViewModel>]]></haxe:Implements>
-    <border>
-        <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
-    </border>
     <layout>
         <BorderLayout hgap="50" vgap="30"/>
     </layout>

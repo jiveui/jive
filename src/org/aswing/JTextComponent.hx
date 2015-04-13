@@ -419,13 +419,14 @@ class JTextComponent extends Component  implements EditableComponent{
 		t.height = b.height;
     }
 
-    #if (flash9 || cpp || html5)
 	public function setSelection(beginIndex:Int, endIndex:Int):Void {
 		getTextField().setSelection(beginIndex, endIndex);
 	}
 
 	public function selectAll():Void {
+        #if(!cpp)
 		getTextField().setSelection(0, getTextField().length);
+        #end
 	}
 
 	/**
@@ -459,7 +460,11 @@ class JTextComponent extends Component  implements EditableComponent{
 
 	@:dox(hide)
     public function getLength():Int {
-		return getTextField().length;
+		#if (!cpp)
+        return getTextField().length;
+        #else
+        return 0;
+        #end
 	}
 
 	@:dox(hide)
@@ -474,24 +479,37 @@ class JTextComponent extends Component  implements EditableComponent{
 
 	@:dox(hide)
     public function setRestrict(res:String):Void {
+        #if (!cpp)
 		getTextField().restrict = res;
+        #end
 	}
 
     @:dox(hide)
 	public function getRestrict():String {
-		return getTextField().restrict;
+        #if (!cpp)
+    	return getTextField().restrict;
+        #else
+        return "";
+        #end
 	}
 
     @:dox(hide)
 	public function getSelectionBeginIndex():Int {
-		return getTextField().selectionBeginIndex;
+        #if (!cpp)
+        return getTextField().selectionBeginIndex;
+        #else
+        return 0;
+        #end
 	}
 
     @:dox(hide)
 	public function getSelectionEndIndex():Int {
-		return getTextField().selectionEndIndex;
+        #if (!cpp)
+        return getTextField().selectionEndIndex;
+        #else
+        return 0;
+        #end
 	}
-    #end
 
 	#if (flash9)
 	private function __onTextComponentTextInput(e:TextEvent):Void {

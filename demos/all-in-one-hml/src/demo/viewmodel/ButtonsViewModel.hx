@@ -5,7 +5,7 @@ import jive.BaseCommand;
 import jive.Command;
 import bindx.IBindable;
 
-class ButtonsViewModel implements IBindable {
+class ButtonsViewModel implements IBindable implements Spotable {
 
     @bindable public var buttonsLog: String = "";
 
@@ -17,6 +17,14 @@ class ButtonsViewModel implements IBindable {
 
     @bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.xml");
     @bindable public var haxeSource: String = Assets.getText("assets/source/ButtonsViewModel.hx");
+
+    @bindable public var selectedSpotIndex(get, set): Int;
+    private var _selectedSpotIndex: Int;
+    private function get_selectedSpotIndex(): Int { return _selectedSpotIndex; }
+    private function set_selectedSpotIndex(v: Int): Int {
+        _selectedSpotIndex = v;
+        return v;
+    }
 
     public function new() {
 

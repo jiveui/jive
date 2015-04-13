@@ -1,8 +1,9 @@
 package demo.viewmodel;
 
+import openfl.Assets;
 import bindx.IBindable;
 
-class TextViewModel implements IBindable {
+class TextViewModel implements IBindable implements Spotable {
 
     @bindable public var predator(get, set): String;
     private var _predator: String;
@@ -34,5 +35,15 @@ class TextViewModel implements IBindable {
     }
     private function set_predatorVictimSentence(v: String): String { return v; }
 
+    @bindable public var xmlSource: String = Assets.getText("assets/source/TextView.xml");
+    @bindable public var haxeSource: String = Assets.getText("assets/source/TextViewModel.hx");
+
+    @bindable public var selectedSpotIndex(get, set): Int;
+    private var _selectedSpotIndex: Int;
+    private function get_selectedSpotIndex(): Int { return _selectedSpotIndex; }
+    private function set_selectedSpotIndex(v: Int): Int {
+        _selectedSpotIndex = v;
+        return v;
+    }
     public function new() {}
 }

@@ -2370,6 +2370,7 @@ xmlns:flash-events="flash.events"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="TabInfo" />
 <xs:element minOccurs="0" name="selectionModel" type="SingleSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="selectedIndex" type="xs:int"/>
 <xs:element minOccurs="0" name="verticalAlignment" type="xs:int"/>
 <xs:element minOccurs="0" name="horizontalAlignment" type="xs:int"/>
 <xs:element minOccurs="0" name="verticalTextPosition" type="xs:int"/>
@@ -2378,6 +2379,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="margin" type="InsetsSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="selectedIndex" type="xs:int"/>
 <xs:attribute name="verticalAlignment" type="xs:int"/>
 <xs:attribute name="horizontalAlignment" type="xs:int"/>
 <xs:attribute name="verticalTextPosition" type="xs:int"/>
