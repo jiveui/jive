@@ -37,6 +37,7 @@
                 <layout>
                     <BoxLayout/>
                 </layout>
+                <e:HtmlFrameView/>
                 <demo:DemoView id="demoView" dataContext="{Binding demoVM}"/>
             </jive:Spot>
 
