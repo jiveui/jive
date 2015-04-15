@@ -32,7 +32,7 @@ class Navigation {
         }
     }
 
-    public function navigate(path: Array<Dynamic>, after: Void -> Void) {
+    public function navigate(path: Array<Dynamic>, ?after: Void -> Void) {
         if (null != activePath)
             for (a in activePath)
                 a.repaint();

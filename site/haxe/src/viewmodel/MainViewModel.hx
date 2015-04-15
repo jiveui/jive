@@ -12,6 +12,8 @@ import demo.viewmodel.DemoViewModel;
 class MainViewModel implements IBindable {
 
     @bindable public var demoVM: DemoViewModel = new DemoViewModel();
+    @bindable public var aboutVM: AboutViewModel = new AboutViewModel();
+
     #if mobile
     @bindable public var jiveIcon: DisplayObject = Assets.getSvg("logo-dark.svg");
     #else
@@ -22,6 +24,8 @@ class MainViewModel implements IBindable {
     @bindable public var openDocumentation: Command;
     @bindable public var openDownload: Command;
     @bindable public var openContribute: Command;
+    @bindable public var openAbout: Command;
+    @bindable public var openDemo: Command;
 
     public function openLinkInBlankPage(url: String) {
         Browser.window.open(url, "_blank");
@@ -31,5 +35,7 @@ class MainViewModel implements IBindable {
         openDocumentation = new BaseCommand(function() { openLinkInBlankPage("/docs/api/index.html"); });
         openDownload = new BaseCommand(function() { openLinkInBlankPage("/download"); });
         openContribute = new BaseCommand(function() { openLinkInBlankPage("http://github.com/ngrebenshikov/jive"); });
+        openAbout = new BaseCommand(function() { contentIndex = 0; });
+        openDemo = new BaseCommand(function() { contentIndex = 1; });
     }
 }

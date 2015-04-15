@@ -25,8 +25,10 @@ class Main extends Sprite {
        var mainVM = new MainViewModel();
        mainView.dataContext = mainVM;
 
-       Navigation.instance.addRoute("/contribute", function(after) { mainVM.openContribute.action(); });
-       Navigation.instance.addRoute("/docs", function(after) { mainVM.openDocumentation.action(); });
+       Navigation.instance.addRoute("/", function(after) { mainVM.openAbout.action(); });
+       Navigation.instance.addRoute("/demo", function(after) { mainVM.openDemo.action(); });
+
+       Navigation.instance.navigate([mainView.menuBar.getMenu(1)]);
 
        mainView.setBackgroundDecorator(new SolidBackground(UIManager.getColor("window")));
        mainView.setBorder(new EmptyBorder(null, Insets.createIdentic(10)));

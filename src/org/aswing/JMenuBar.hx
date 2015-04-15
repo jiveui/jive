@@ -26,14 +26,6 @@ class JMenuBar extends Container implements MenuElement{
 	private var selectionModel:SingleSelectionModel;
 	private var menuInUse:Bool;
 
-    public var activeIndex(get, set): Int;
-    private var _activeIndex: Int;
-    private function get_activeIndex(): Int { return _activeIndex; }
-    private function set_activeIndex(v: Int): Int {
-        _activeIndex = v;
-        return v;
-    }
-
 	public function new() {
 		super();
 		setSelectionModel(new DefaultSingleSelectionModel());

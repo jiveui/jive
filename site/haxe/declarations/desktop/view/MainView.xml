@@ -5,6 +5,7 @@
          xmlns:demo="demo.view"
          xmlns:jive="jive"
          xmlns:border="org.aswing.border"
+         xmlns:view="view"
          xmlns:e="empty"
         defaultButton="demoView.buttonsView.defButton"
         >
@@ -18,7 +19,7 @@
                 <BorderLayout hgap="50" vgap="30"/>
             </layout>
             <!-- demo.Main menu -->
-            <JMenuBar constraints="org.aswing.BorderLayout.NORTH">
+            <JMenuBar id="menuBar" constraints="org.aswing.BorderLayout.NORTH">
                 <JMenu enabled="false">
                     <icon>
                         <AssetIcon asset="{Binding jiveIcon}" width="53" height="22"/>
@@ -35,6 +36,7 @@
                 <layout>
                     <BoxLayout/>
                 </layout>
+                <view:AboutView dataContext="{Binding aboutVM}"/>
                 <demo:DemoView id="demoView" dataContext="{Binding demoVM}"/>
             </jive:Spot>
 
