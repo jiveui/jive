@@ -1,5 +1,6 @@
 package ;
 
+import jive.Navigation;
 import viewmodel.MainViewModel;
 import org.aswing.border.EmptyBorder;
 import org.aswing.Insets;
@@ -21,7 +22,11 @@ class Main extends Sprite {
        UIManager.setLookAndFeel(new FlatLookAndFeel());
 
        var mainView: MainView = new MainView();
-       mainView.dataContext = new MainViewModel();
+       var mainVM = new MainViewModel();
+       mainView.dataContext = mainVM;
+
+       Navigation.instance.addRoute("/contribute", function(after) { mainVM.openContribute.action(); });
+       Navigation.instance.addRoute("/docs", function(after) { mainVM.openDocumentation.action(); });
 
        mainView.setBackgroundDecorator(new SolidBackground(UIManager.getColor("window")));
        mainView.setBorder(new EmptyBorder(null, Insets.createIdentic(10)));

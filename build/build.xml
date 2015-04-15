@@ -123,6 +123,11 @@
             <param name="output.path" value="api"/>
             <param name="theme.path" value="themes/haxeui-dox-theme"/>
         </antcall>
+
+        <mkdir dir="${project.root.path}/localbuild/site/docs/api"/>
+        <copy toDir="${project.root.path}/localbuild/site/docs/api">
+            <fileset dir="${project.root.path}/docs/api"/>
+        </copy>
     </target>
 
     <target name="build.site.crossplatform">

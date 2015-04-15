@@ -1469,6 +1469,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="shiftOffsetSet" type="xs:boolean"/>
 <xs:element minOccurs="0" name="textFilters" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="selected" type="xs:boolean"/>
+<xs:element minOccurs="0" name="command" type="jive:CommandSchemaTypeValue"/>
 <xs:element minOccurs="0" name="transitBackgroundFactor" type="xs:double"/>
 </xs:all>
 <xs:attribute name="model" type="xs:string"/>
@@ -1496,6 +1497,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="shiftOffsetSet" type="xs:boolean"/>
 <xs:attribute name="textFilters" type="xs:string"/>
 <xs:attribute name="selected" type="xs:boolean"/>
+<xs:attribute name="command" type="xs:string"/>
 <xs:attribute name="transitBackgroundFactor" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
@@ -1767,9 +1769,7 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="AbstractButtonSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="command" type="jive:CommandSchemaTypeValue"/>
 </xs:all>
-<xs:attribute name="command" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -2208,10 +2208,12 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="menuInUse" type="xs:boolean"/>
 <xs:element minOccurs="0" name="accelerator" type="KeyTypeSchemaTypeValue"/>
 <xs:element minOccurs="0" name="subpath" type="xs:string"/>
+<xs:element minOccurs="0" name="isExternalAction" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="menuInUse" type="xs:boolean"/>
 <xs:attribute name="accelerator" type="xs:string"/>
 <xs:attribute name="subpath" type="xs:string"/>
+<xs:attribute name="isExternalAction" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

@@ -74,65 +74,110 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         return res;
     }
 
-    inline function get_jMenuItem__0():org.aswing.JMenuItem {
-        /* declarations/desktop/view/MainView.xml:28 characters: 25-34 */
-        var res = new org.aswing.JMenuItem();
-        /* declarations/desktop/view/MainView.xml:28 characters: 53-60 */
-        res.subpath = 'buttons';
-        /* declarations/desktop/view/MainView.xml:28 characters: 36-40 */
-        res.text = 'Buttons';
-        return res;
-    }
-
-    inline function get_jMenuItem__1():org.aswing.JMenuItem {
-        /* declarations/desktop/view/MainView.xml:29 characters: 25-34 */
-        var res = new org.aswing.JMenuItem();
-        /* declarations/desktop/view/MainView.xml:29 characters: 57-64 */
-        res.subpath = 'text-fields';
-        /* declarations/desktop/view/MainView.xml:29 characters: 36-40 */
-        res.text = 'Text fields';
-        return res;
-    }
-
     inline function get_jMenu__1():org.aswing.JMenu {
         /* declarations/desktop/view/MainView.xml:27 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:27 characters: 38-45 */
-        res.subpath = 'demo';
+        /* declarations/desktop/view/MainView.xml:27 characters: 39-46 */
+        res.subpath = '';
         /* declarations/desktop/view/MainView.xml:27 characters: 24-28 */
-        res.text = 'Demo';
-        res.append(get_jMenuItem__0());
-        res.append(get_jMenuItem__1());
+        res.text = 'About';
         return res;
     }
 
     inline function get_jMenu__2():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:31 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:28 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:31 characters: 47-54 */
-        res.subpath = 'docs';
-        /* declarations/desktop/view/MainView.xml:31 characters: 24-28 */
-        res.text = 'Documentation';
+        /* declarations/desktop/view/MainView.xml:28 characters: 38-45 */
+        res.subpath = 'demo';
+        /* declarations/desktop/view/MainView.xml:28 characters: 24-28 */
+        res.text = 'Demo';
         return res;
     }
 
     inline function get_jMenu__3():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:32 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:29 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:32 characters: 42-49 */
-        res.subpath = 'download';
-        /* declarations/desktop/view/MainView.xml:32 characters: 24-28 */
-        res.text = 'Download';
+        if (null != dataContext) { res.command = this.dataContext.openDocumentation; }
+        var programmaticalyChange = false;
+        var sourcePropertyListener = function(_,_) {
+                            if (!programmaticalyChange) {
+                                programmaticalyChange = true;
+                                res.command = this.dataContext.openDocumentation;
+                                programmaticalyChange = false;
+                            }
+                        };
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.openDocumentation, sourcePropertyListener); }
+        if (null != dataContext) { bindSourceListener(); }
+        bindx.Bind.bindx(this.dataContext, function(old,_) {
+                                if (null != old) { bindx.Bind.unbindx(old.openDocumentation, sourcePropertyListener);}
+                                if (null != this.dataContext) {
+                                    res.command = this.dataContext.openDocumentation;
+                                    bindSourceListener();
+                                }
+                            });
+                        
+        /* declarations/desktop/view/MainView.xml:29 characters: 24-28 */
+        res.text = 'Documentation';
+        /* declarations/desktop/view/MainView.xml:29 characters: 47-63 */
+        res.isExternalAction = true;
         return res;
     }
 
     inline function get_jMenu__4():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:33 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:30 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:33 characters: 44-51 */
-        res.subpath = 'contribute';
-        /* declarations/desktop/view/MainView.xml:33 characters: 24-28 */
+        if (null != dataContext) { res.command = this.dataContext.openDownload; }
+        var programmaticalyChange = false;
+        var sourcePropertyListener = function(_,_) {
+                            if (!programmaticalyChange) {
+                                programmaticalyChange = true;
+                                res.command = this.dataContext.openDownload;
+                                programmaticalyChange = false;
+                            }
+                        };
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.openDownload, sourcePropertyListener); }
+        if (null != dataContext) { bindSourceListener(); }
+        bindx.Bind.bindx(this.dataContext, function(old,_) {
+                                if (null != old) { bindx.Bind.unbindx(old.openDownload, sourcePropertyListener);}
+                                if (null != this.dataContext) {
+                                    res.command = this.dataContext.openDownload;
+                                    bindSourceListener();
+                                }
+                            });
+                        
+        /* declarations/desktop/view/MainView.xml:30 characters: 24-28 */
+        res.text = 'Download';
+        /* declarations/desktop/view/MainView.xml:30 characters: 42-58 */
+        res.isExternalAction = true;
+        return res;
+    }
+
+    inline function get_jMenu__5():org.aswing.JMenu {
+        /* declarations/desktop/view/MainView.xml:31 characters: 17-22 */
+        var res = new org.aswing.JMenu();
+        if (null != dataContext) { res.command = this.dataContext.openContribute; }
+        var programmaticalyChange = false;
+        var sourcePropertyListener = function(_,_) {
+                            if (!programmaticalyChange) {
+                                programmaticalyChange = true;
+                                res.command = this.dataContext.openContribute;
+                                programmaticalyChange = false;
+                            }
+                        };
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.openContribute, sourcePropertyListener); }
+        if (null != dataContext) { bindSourceListener(); }
+        bindx.Bind.bindx(this.dataContext, function(old,_) {
+                                if (null != old) { bindx.Bind.unbindx(old.openContribute, sourcePropertyListener);}
+                                if (null != this.dataContext) {
+                                    res.command = this.dataContext.openContribute;
+                                    bindSourceListener();
+                                }
+                            });
+                        
+        /* declarations/desktop/view/MainView.xml:31 characters: 24-28 */
         res.text = 'Contribute';
+        /* declarations/desktop/view/MainView.xml:31 characters: 44-60 */
+        res.isExternalAction = true;
         return res;
     }
 
@@ -146,18 +191,13 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         res.addMenu(get_jMenu__2());
         res.addMenu(get_jMenu__3());
         res.addMenu(get_jMenu__4());
+        res.addMenu(get_jMenu__5());
         return res;
     }
 
     inline function get_boxLayout__0():org.aswing.BoxLayout {
-        /* declarations/desktop/view/MainView.xml:38 characters: 21-30 */
+        /* declarations/desktop/view/MainView.xml:36 characters: 21-30 */
         var res = new org.aswing.BoxLayout();
-        return res;
-    }
-
-    inline function get_htmlFrameView__0():HtmlFrameView {
-        /* declarations/desktop/view/MainView.xml:40 characters: 17-32 */
-        var res = new HtmlFrameView();
         return res;
     }
 
@@ -167,7 +207,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     function get_demoView():demo.view.DemoView {
-        /* declarations/desktop/view/MainView.xml:41 characters: 17-30 */
+        /* declarations/desktop/view/MainView.xml:38 characters: 17-30 */
         if (demoView_initialized) return demoView;
         demoView_initialized = true;
         this.demoView = new demo.view.DemoView();
@@ -195,7 +235,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     inline function get_spot__0():jive.Spot {
-        /* declarations/desktop/view/MainView.xml:36 characters: 13-22 */
+        /* declarations/desktop/view/MainView.xml:34 characters: 13-22 */
         var res = new jive.Spot();
         if (null != dataContext) { res.selectedIndex = this.dataContext.contentIndex; }
         var programmaticalyChange = false;
@@ -216,11 +256,10 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:36 characters: 63-74 */
+        /* declarations/desktop/view/MainView.xml:34 characters: 63-74 */
         res.constraints = org.aswing.BorderLayout.CENTER;
-        /* declarations/desktop/view/MainView.xml:37 characters: 17-23 */
+        /* declarations/desktop/view/MainView.xml:35 characters: 17-23 */
         res.layout = get_boxLayout__0();
-        res.append(get_htmlFrameView__0());
         res.append(demoView);
         return res;
     }

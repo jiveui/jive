@@ -288,12 +288,17 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	}
 	
 	private function __menuItemRollOut(e:MouseEvent):Void {
-		
+		trace(menuItem.text + ":rollout");
 		var path:Array<Dynamic>= MenuSelectionManager.defaultManager().getSelectedPath();
-		if (path.length > 1 && Std.is(path[path.length-1],JMenuItem)&&path[path.length-1] == menuItem){
+        trace(path);
+        trace(menuItem.parent);
+        trace(menuItem.getSubElements());
+		if (path.length > 1 && Std.is(path[path.length-1],JMenuItem) && path[path.length-1] == menuItem){
+            trace("not clear");
 			path.pop();
 			MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, path, false);
-		} else if(path.length > 0 && path[0] == menuItem.getParent() && menuItem.getSubElements().length == 0) {
+		} else if(null != menuItem.getParent() && Std.is(menuItem.getParent(), JMenuBar)) {
+            trace("clear");
             // A top level menu's parent is by definition a JMenuBar
             MenuSelectionManager.defaultManager().clearSelectedPath(false);
         }
@@ -301,7 +306,9 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	}
 	
 	private function __menuItemAct(e:AWEvent):Void {
-        Navigation.instance.navigate(MenuSelectionManager.defaultManager().getSelectedPath(), null);
+        if (!menuItem.isExternalAction) {
+            Navigation.instance.navigate(MenuSelectionManager.defaultManager().getSelectedPath(), null);
+        }
 		MenuSelectionManager.defaultManager().clearSelectedPath(false);
 		menuItem.repaint();
 	}
@@ -340,7 +347,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	 * SubUI override this to do different
 	 */
 	private function shouldPaintSelected():Bool{
-		return Navigation.instance.isMenuElementActive(menuItem) || menuItem.getModel().isRollOver();
+		return menuItem.getModel().isRollOver();
 	}
 	
     public function getPath():Array<Dynamic>{ //MenuElement[]
@@ -578,12 +585,20 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	private function paintMenuBackground(menuItem:JMenuItem, g:Graphics2D, r:IntRectangle, bgColor:ASColor):Void{
 		var color:ASColor = bgColor;
 		var tune:StyleTune = menuItem.getStyleTune();
-		if(menuItem.isOpaque()) {
-			if (!shouldPaintSelected()) {
-				color = menuItem.getBackground();
-			}
-			doPaintMenuBackground(menuItem, g, color, r, tune.round);
-		}else if(shouldPaintSelected() && (menuItem.getBackgroundDecorator() == null || menuItem.getBackgroundDecorator() == DefaultEmptyDecoraterResource.INSTANCE)){
+
+        if (shouldPaintSelected()) {
+            color = color.offsetHLS(0, 0.03, 0);
+        } else if (Navigation.instance.isMenuElementActive(menuItem)) {
+            // Do nothing
+        } else {
+            color = menuItem.getBackground();
+        }
+
+        if(menuItem.isOpaque()
+            ||
+                (shouldPaintSelected() || Navigation.instance.isMenuElementActive(menuItem))
+                &&
+                (menuItem.getBackgroundDecorator() == null || menuItem.getBackgroundDecorator() == DefaultEmptyDecoraterResource.INSTANCE)) {
 			doPaintMenuBackground(menuItem, g, color, r, tune.round);
 		}
 	}

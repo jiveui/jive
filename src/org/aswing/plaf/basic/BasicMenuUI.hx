@@ -94,7 +94,7 @@ class BasicMenuUI extends BasicMenuItemUI{
 	 * SubUI override this to do different
 	 */
 	override private function shouldPaintSelected():Bool{
-		return menuItem.getModel().isRollOver() || menuItem.isSelected() || Navigation.instance.isMenuElementActive(menuItem);
+		return menuItem.getModel().isRollOver() || menuItem.isSelected();
 	}
 	
 	//---------------------
@@ -151,7 +151,7 @@ class BasicMenuUI extends BasicMenuItemUI{
 			MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, me, false);
 		}
 
-        if (menu.getSubElements().length > 0) {
+        if (menu.getComponentCount() <= 0 && !menu.isExternalAction) {
             Navigation.instance.navigate(MenuSelectionManager.defaultManager().getSelectedPath(), null);
         }
 

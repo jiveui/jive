@@ -24,20 +24,17 @@
                         <AssetIcon asset="{Binding jiveIcon}" width="53" height="22"/>
                     </icon>
                 </JMenu>
-                <JMenu text="'Demo'" subpath="'demo'">
-                        <JMenuItem text="'Buttons'" subpath="'buttons'"/>
-                        <JMenuItem text="'Text fields'" subpath="'text-fields'"/>
-                </JMenu>
-                <JMenu text="'Documentation'" subpath="'docs'" />
-                <JMenu text="'Download'" subpath="'download'" />
-                <JMenu text="'Contribute'" subpath="'contribute'" />
+                <JMenu text="'About'" subpath="''" />
+                <JMenu text="'Demo'" subpath="'demo'" />
+                <JMenu text="'Documentation'" isExternalAction="true" command="{Binding openDocumentation}" />
+                <JMenu text="'Download'" isExternalAction="true" command="{Binding openDownload}" />
+                <JMenu text="'Contribute'" isExternalAction="true" command="{Binding openContribute}" />
             </JMenuBar>
 
             <jive:Spot selectedIndex="{Binding contentIndex}" constraints="org.aswing.BorderLayout.CENTER">
                 <layout>
                     <BoxLayout/>
                 </layout>
-                <e:HtmlFrameView/>
                 <demo:DemoView id="demoView" dataContext="{Binding demoVM}"/>
             </jive:Spot>
 

@@ -41,6 +41,11 @@ class JMenuItem extends AbstractButton implements MenuElement{
     * A part of path. E.g. /subpath/subpath
     */
     public var subpath: String;
+
+    /**
+    * If a menu item is external action then clicking on it doesn't change the application navigation state.
+    */
+    public var isExternalAction: Bool;
 	
 	public function new(text:String="", icon:Icon=null){
 		super(text, icon);
@@ -50,7 +55,6 @@ class JMenuItem extends AbstractButton implements MenuElement{
 		initFocusability();
 		_menuInUse = false;
 		_accelerator = null;
-		
 	}
 	
 	@:dox(hide)
