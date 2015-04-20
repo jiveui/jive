@@ -201,7 +201,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** LabelButton
 		comDefaults = [
 			"LabelButton.background", buttonBG,
-			"LabelButton.foreground", new ASColorUIResource(0x005617), 
+			"LabelButton.foreground", table.get("turquoise"),
 			"LabelButton.mideground", table.get("controlMide"), 
 			"LabelButton.colorAdjust", new UIStyleTune(0.26, 0.05, 0.20, 0.20), 
 			"LabelButton.opaque", false,  
