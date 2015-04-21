@@ -853,6 +853,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table:TableCell" />
 <xs:element ref="flash-text:TextLineMetrics" />
 <xs:element ref="haxe-crypto:BaseCode" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="org-aswing:GeneralListCellFactory" />
 <xs:element ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
 <xs:element ref="org-aswing-ext:GridListCellFactory" />

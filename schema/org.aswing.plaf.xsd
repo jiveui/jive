@@ -269,6 +269,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing:JFrameTitleBar" />
 <xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="org-aswing-resizer:DefaultResizer" />
 <xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />

@@ -5,64 +5,130 @@
         xmlns:view="demo.view"
         xmlns:jive="jive"
         xmlns:border="org.aswing.border"
-        xmlns:e="empty" xmlns:bg="org.aswing.plaf.basic.background"
+        xmlns:e="empty"
+        xmlns:bg="org.aswing.plaf.basic.background"
+        xmlns:fbg="jive.plaf.flat.background"
         >
     <layout><BorderLayout/></layout>
     <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.AboutViewModel>]]></haxe:Implements>
 
 
-    <SoftBox constraints="org.aswing.BorderLayout.CENTER"
-             axis="org.aswing.SoftBoxLayout.X_AXIS">
-
-        <SoftBox>
-            <JLabel><icon><AssetIcon asset="{Binding jiveIcon}" width="350" height="219" scale="true"/></icon></JLabel>
-        </SoftBox>
-
-
-        <SoftBox>
+    <JPanel constraints="org.aswing.BorderLayout.CENTER">
+        <layout>
+            <CenterLayout/>
+        </layout>
+        <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS">
             <JPanel>
-                <JLabel text="'Cross platform'"/>
-                <JLabel text="'UI framework'"/>
-                <JLabel text="'for Haxe'"/>
+                <layout>
+                    <CenterLayout/>
+                </layout>
+                <SoftBox>
+                    <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding jiveIcon}" width="313" height="134" scale="true"/></icon></JLabel>
+                    <JSeparator><preferredSize><geom:IntDimension width="20" height="20"/></preferredSize></JSeparator>
+                    <JLabel text="'The root of Jive:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                        <font><ASFont name="'assets/Lato-Bold.ttf'" size="16"/></font>
+                    </JLabel>
+                    <JPanel>
+                        <JLabelButton text="'Java Swing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JLabelButton text="'AsWing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JLabel text="'Jive'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                    </JPanel>
+                </SoftBox>
+            </JPanel>
+
+            <SoftBox>
+            <JPanel>
+                <layout>
+                    <FlowLayout hgap="0"/>
+                </layout>
+                <JLabel text="'Cross platform'">
+                    <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                    <foreground><ASColor rgb="0xe80050"/></foreground>
+                </JLabel>
+                <JLabel text="'UI framework'">
+                    <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                    <foreground><ASColor rgb="0xd22a02"/></foreground>
+                </JLabel>
+                <JLabel text="'for Haxe'">
+                    <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                    <foreground><ASColor rgb="0xeb9500"/></foreground>
+                </JLabel>
             </JPanel>
             <Box axis="org.aswing.BoxLayout.X_AXIS" gap="20">
                 <SoftBox opaque="true">
-                    <border>
-                        <border:EmptyBorder left="25" right="25" top="30" bottom="30"/>
-                    </border>
-                    <backgroundDecorator>
-                        <bg:PanelBackground/>
-                    </backgroundDecorator>
                     <background><ASColor rgb="0xe7e7e7"/></background>
-                    <JLabel><icon><AssetIcon asset="{Binding openFlIcon}" width="85" height="85" scale="true"/></icon></JLabel>
-                    <JLabel text="'Based on'"/>
-                    <JLabelButton text="'OpenFL'"/>
-                    <JLabelButton text="'Forked from AsWing'"/>
-                    <JLabelButton text="'Bindx/Hml'"/>
+                    <backgroundDecorator>
+                        <fbg:FlatPanelBackground/>
+                    </backgroundDecorator>
+                    <SoftBox>
+                        <border>
+                            <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                        </border>
+                        <JLabel><icon><AssetIcon asset="{Binding openFlIcon}" width="85" height="85" scale="true"/></icon></JLabel>
+                        <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
+                        <JLabel text="'Based on'">
+                            <font><ASFont name="'assets/Lato-Bold.ttf'" size="20"/></font>
+                        </JLabel>
+                        <JLabelButton text="'OpenFL'"/>
+                        <JLabelButton text="'Forked from AsWing'"/>
+                        <JLabelButton text="'Bindx/Hml'"/>
+                    </SoftBox>
                 </SoftBox>
                 <SoftBox opaque="true">
                     <background><ASColor rgb="0xe7e7e7"/></background>
-                    <JLabel><icon><AssetIcon asset="{Binding brainIcon}" width="85" height="85" scale="true"/></icon></JLabel>
-                    <JLabel text="'Main ideas'"/>
-                    <JLabelButton text="'MVVM'"/>
-                    <JLabelButton text="'Data Binding'"/>
+                    <backgroundDecorator>
+                        <fbg:FlatPanelBackground/>
+                    </backgroundDecorator>
+                    <SoftBox>
+                        <border>
+                            <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                        </border>
+                        <JLabel><icon><AssetIcon asset="{Binding brainIcon}" width="85" height="85" scale="true"/></icon></JLabel>
+                        <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
+                        <JLabel text="'Main ideas'">
+                            <font><ASFont name="'assets/Lato-Bold.ttf'" size="20"/></font>
+                        </JLabel>
+                        <JLabelButton text="'MVVM'"/>
+                        <JLabelButton text="'Data Binding'"/>
+                    </SoftBox>
                 </SoftBox>
-                <SoftBox>
+                <SoftBox opaque="true">
                     <background><ASColor rgb="0xe7e7e7"/></background>
-                    <JLabel><icon><AssetIcon asset="{Binding desktopIcon}" width="85" height="85" scale="true"/></icon></JLabel>
-                    <JLabel text="'Platforms'"/>
-                    <JLabelButton text="'HTML5'"/>
-                    <JLabelButton text="'Windows'"/>
-                    <JLabelButton text="'OS X'"/>
+                    <backgroundDecorator>
+                        <fbg:FlatPanelBackground/>
+                    </backgroundDecorator>
+                    <SoftBox>
+                        <border>
+                            <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                        </border>
+                        <JLabel><icon><AssetIcon asset="{Binding desktopIcon}" width="85" height="85" scale="true"/></icon></JLabel>
+                        <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
+                        <JLabel text="'Platforms'">
+                            <font><ASFont name="'assets/Lato-Bold.ttf'" size="20"/></font>
+                        </JLabel>
+                        <JLabelButton text="'HTML5'"/>
+                        <JLabelButton text="'Windows'"/>
+                        <JLabelButton text="'OS X'"/>
+                        <JLabelButton text="'Flash'"/>
+                    </SoftBox>
                 </SoftBox>
             </Box>
         </SoftBox>
+        </SoftBox>
 
-    </SoftBox>
+    </JPanel>
 
-    <SoftBox constraints="org.aswing.BorderLayout.SOUTH">
-        <JLabel text="'Site\'s powered by Jive and OpenFL-Snap.SVG'"/>
-        <JLabel text="'Logo be Endelea.ru'"/>
-    </SoftBox>
-
+    <JPanel constraints="org.aswing.BorderLayout.SOUTH">
+        <layout><FlowLayout align="org.aswing.AsWingConstants.RIGHT"/></layout>
+        <SoftBox>
+            <JLabel text="'The site\'s powered by Jive and OpenFL-Snap.SVG'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <font><ASFont name="'assets/Lato-Regular.ttf'" size="12"/></font>
+                <foreground><ASColor rgb="0x999999"/></foreground>
+            </JLabel>
+            <JLabel text="'The logo design by Endelea.ru'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <font><ASFont name="'assets/Lato-Regular.ttf'" size="12"/></font>
+                <foreground><ASColor rgb="0x999999"/></foreground>
+            </JLabel>
+        </SoftBox>
+    </JPanel>
 </JPanel>

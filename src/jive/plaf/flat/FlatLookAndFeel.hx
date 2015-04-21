@@ -201,12 +201,12 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** LabelButton
 		comDefaults = [
 			"LabelButton.background", buttonBG,
-			"LabelButton.foreground", table.get("turquoise"),
+			"LabelButton.foreground", table.get("wet-asphalt"),
 			"LabelButton.mideground", table.get("controlMide"), 
 			"LabelButton.colorAdjust", new UIStyleTune(0.26, 0.05, 0.20, 0.20), 
 			"LabelButton.opaque", false,  
 			"LabelButton.focusable", true,  
-			"LabelButton.font", table.getFont("controlFont"),
+			"LabelButton.font", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false, false, true),
 			"LabelButton.margin", new InsetsUIResource(0, 0, 0, 0), 
 			"LabelButton.textShiftOffset", 0 ,
 		    "LabelButton.textFilters", f

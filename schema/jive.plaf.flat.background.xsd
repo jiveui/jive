@@ -25,6 +25,9 @@ xmlns:empty="empty"
 <xs:complexType name="FlatButtonBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatButtonBackground"/></xs:all></xs:complexType>
 
+<xs:complexType name="FlatPanelBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatPanelBackground"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatScrollBarBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -88,6 +91,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatPanelBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="FlatScrollBarBackground" type="FlatScrollBarBackgroundSchemaType"/>
 <xs:element name="FlatProgressBarBackground" type="FlatProgressBarBackgroundSchemaType"/>
@@ -96,4 +108,5 @@ xmlns:empty="empty"
 <xs:element name="FlatScrollBarThumb" type="FlatScrollBarThumbSchemaType"/>
 <xs:element name="FlatProgressBarIcon" type="FlatProgressBarIconSchemaType"/>
 <xs:element name="FlatButtonBackground" type="FlatButtonBackgroundSchemaType"/>
+<xs:element name="FlatPanelBackground" type="FlatPanelBackgroundSchemaType"/>
 </xs:schema>

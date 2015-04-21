@@ -67,6 +67,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-background:ComboBoxBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
 <xs:element ref="SolidBackground" />
@@ -235,6 +236,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-background:ButtonBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ComboBoxBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:PanelBackground" />
 <xs:element ref="jive-plaf-flat-background:FlatProgressBarBackground" />
 <xs:element ref="SolidBackground" />
@@ -1665,9 +1667,7 @@ xmlns:flash-events="flash.events"
 <xs:extension base="ContainerSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="JMenu" />
-<xs:element minOccurs="0" name="activeIndex" type="xs:int"/>
 </xs:all>
-<xs:attribute name="activeIndex" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

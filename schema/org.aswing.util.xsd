@@ -763,6 +763,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-table:TableCell" />
 <xs:element minOccurs="0" ref="flash-text:TextLineMetrics" />
 <xs:element minOccurs="0" ref="haxe-crypto:BaseCode" />
+<xs:element minOccurs="0" ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element minOccurs="0" ref="org-aswing:GeneralListCellFactory" />
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
 <xs:element minOccurs="0" ref="org-aswing-ext:GridListCellFactory" />
