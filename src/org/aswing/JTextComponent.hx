@@ -356,7 +356,10 @@ class JTextComponent extends Component  implements EditableComponent{
 	
 	private function getTextFieldAutoSizedSize(forceWidth:Int=0, forceHeight:Int=0):IntDimension{
 		var tf:TextField = getTextField();
-		var oldSize:IntDimension = new IntDimension(Std.int(tf.textWidth), Std.int(tf.textHeight));
+        var oldSize:IntDimension = new IntDimension(Std.int(tf.textWidth), Std.int(tf.textHeight));
+        #if(flash9 || cpp || html5)
+        oldSize = new IntDimension(Std.int(tf.width), Std.int(tf.height));
+        #end
 		var old:TextFieldAutoSize = tf.autoSize;
 		if(forceWidth != 0){
 			tf.width = forceWidth;
