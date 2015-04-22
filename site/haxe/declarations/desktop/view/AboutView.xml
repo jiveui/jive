@@ -22,18 +22,28 @@
                 <layout>
                     <CenterLayout/>
                 </layout>
-                <SoftBox>
-                    <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding jiveIcon}" width="313" height="134" scale="true"/></icon></JLabel>
-                    <JSeparator><preferredSize><geom:IntDimension width="20" height="20"/></preferredSize></JSeparator>
-                    <JLabel text="'The root of Jive:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
-                        <font><ASFont name="'assets/Lato-Bold.ttf'" size="16"/></font>
-                    </JLabel>
-                    <JPanel>
-                        <JLabelButton text="'Java Swing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-                        <JLabelButton text="'AsWing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-                        <JLabel text="'Jive'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-                    </JPanel>
-                </SoftBox>
+                <JPanel>
+                    <SoftBox>
+                        <JSeparator><preferredSize><geom:IntDimension width="50" height="50"/></preferredSize></JSeparator>
+                        <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding jiveIcon}" width="315" height="199" scale="true"/></icon></JLabel>
+                        <SoftBox>
+                            <border><border:EmptyBorder left="20"/></border>
+                            <JLabel text="'The roots of Jive:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <font><ASFont name="'assets/Lato-Bold.ttf'" size="16"/></font>
+                                <border><border:EmptyBorder left="5"/></border>
+                            </JLabel>
+                            <JPanel>
+                                <layout><FlowLayout hgap="5"/></layout>
+                                <JLabelButton text="'Java Swing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                                <JLabel><icon><AssetIcon asset="{Binding arrowIcon}" width="10" height="8" scale="true"/></icon></JLabel>
+                                <JLabelButton text="'AsWing'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                                <JLabel><icon><AssetIcon asset="{Binding arrowIcon}" width="10" height="8" scale="true"/></icon></JLabel>
+                                <JLabel text="'Jive'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                            </JPanel>
+                        </SoftBox>
+                    </SoftBox>
+                    <JSeparator><preferredSize><geom:IntDimension width="30" height="30"/></preferredSize></JSeparator>
+                </JPanel>
             </JPanel>
 
             <SoftBox>
