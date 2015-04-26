@@ -35,6 +35,17 @@
 	::end::
 </macro>
 
+<macro name="printLinkedFieldPath(path)">
+	::set type = path.substr(0, path.lastIndexOf("."))::
+	::set field = path.substr(path.lastIndexOf(".")+1)::
+	::if api.isKnownType(type)::
+	    ::set url = api.pathToUrl(type) + "#" + field::
+		<a class="type" ::attr href url::>::api.getPathName(type)::.::field::</a>
+	::else::
+		<span class="type">::path::</span>
+	::end::
+</macro>
+
 <macro name="printLinkedType(ctype)">
 	::switch ctype::
 	::case::Unknown

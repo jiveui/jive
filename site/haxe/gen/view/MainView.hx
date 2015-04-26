@@ -29,12 +29,22 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         return res;
     }
 
+    inline function get_intDimension__0():org.aswing.geom.IntDimension {
+        /* declarations/desktop/view/MainView.xml:19 characters: 17-34 */
+        var res = new org.aswing.geom.IntDimension();
+        /* declarations/desktop/view/MainView.xml:19 characters: 36-41 */
+        res.width = 1200;
+        /* declarations/desktop/view/MainView.xml:19 characters: 49-55 */
+        res.height = -1;
+        return res;
+    }
+
     inline function get_borderLayout__0():org.aswing.BorderLayout {
-        /* declarations/desktop/view/MainView.xml:19 characters: 17-29 */
+        /* declarations/desktop/view/MainView.xml:22 characters: 17-29 */
         var res = new org.aswing.BorderLayout();
-        /* declarations/desktop/view/MainView.xml:19 characters: 31-35 */
+        /* declarations/desktop/view/MainView.xml:22 characters: 31-35 */
         res.hgap = 50;
-        /* declarations/desktop/view/MainView.xml:19 characters: 41-45 */
+        /* declarations/desktop/view/MainView.xml:22 characters: 41-45 */
         res.vgap = 30;
         return res;
     }
@@ -45,7 +55,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     inline function get_assetIcon__0():org.aswing.AssetIcon {
-        /* declarations/desktop/view/MainView.xml:25 characters: 25-34 */
+        /* declarations/desktop/view/MainView.xml:28 characters: 25-34 */
         var res = new org.aswing.AssetIcon();
         if (null != dataContext) { res.asset = this.dataContext.jiveIcon; }
         var programmaticalyChange = false;
@@ -66,45 +76,45 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:25 characters: 63-68 */
+        /* declarations/desktop/view/MainView.xml:28 characters: 63-68 */
         res.width = 53;
-        /* declarations/desktop/view/MainView.xml:25 characters: 74-80 */
+        /* declarations/desktop/view/MainView.xml:28 characters: 74-80 */
         res.height = 22;
         return res;
     }
 
     inline function get_jMenu__0():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:23 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:26 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:23 characters: 24-31 */
+        /* declarations/desktop/view/MainView.xml:26 characters: 24-31 */
         res.enabled = false;
-        /* declarations/desktop/view/MainView.xml:24 characters: 21-25 */
+        /* declarations/desktop/view/MainView.xml:27 characters: 21-25 */
         res.icon = get_assetIcon__0();
         return res;
     }
 
     inline function get_jMenu__1():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:28 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:31 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:28 characters: 39-46 */
+        /* declarations/desktop/view/MainView.xml:31 characters: 39-46 */
         res.subpath = '';
-        /* declarations/desktop/view/MainView.xml:28 characters: 24-28 */
+        /* declarations/desktop/view/MainView.xml:31 characters: 24-28 */
         res.text = 'About';
         return res;
     }
 
     inline function get_jMenu__2():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:29 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:32 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        /* declarations/desktop/view/MainView.xml:29 characters: 38-45 */
+        /* declarations/desktop/view/MainView.xml:32 characters: 38-45 */
         res.subpath = 'demo';
-        /* declarations/desktop/view/MainView.xml:29 characters: 24-28 */
+        /* declarations/desktop/view/MainView.xml:32 characters: 24-28 */
         res.text = 'Demo';
         return res;
     }
 
     inline function get_jMenu__3():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:30 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:33 characters: 17-22 */
         var res = new org.aswing.JMenu();
         if (null != dataContext) { res.command = this.dataContext.openDocumentation; }
         var programmaticalyChange = false;
@@ -125,15 +135,15 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:30 characters: 24-28 */
+        /* declarations/desktop/view/MainView.xml:33 characters: 24-28 */
         res.text = 'Documentation';
-        /* declarations/desktop/view/MainView.xml:30 characters: 47-63 */
+        /* declarations/desktop/view/MainView.xml:33 characters: 47-63 */
         res.isExternalAction = true;
         return res;
     }
 
     inline function get_jMenu__4():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:31 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:34 characters: 17-22 */
         var res = new org.aswing.JMenu();
         if (null != dataContext) { res.command = this.dataContext.openDownload; }
         var programmaticalyChange = false;
@@ -154,15 +164,15 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:31 characters: 24-28 */
+        /* declarations/desktop/view/MainView.xml:34 characters: 24-28 */
         res.text = 'Download';
-        /* declarations/desktop/view/MainView.xml:31 characters: 42-58 */
+        /* declarations/desktop/view/MainView.xml:34 characters: 42-58 */
         res.isExternalAction = true;
         return res;
     }
 
     inline function get_jMenu__5():org.aswing.JMenu {
-        /* declarations/desktop/view/MainView.xml:32 characters: 17-22 */
+        /* declarations/desktop/view/MainView.xml:35 characters: 17-22 */
         var res = new org.aswing.JMenu();
         if (null != dataContext) { res.command = this.dataContext.openContribute; }
         var programmaticalyChange = false;
@@ -183,20 +193,20 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:32 characters: 24-28 */
+        /* declarations/desktop/view/MainView.xml:35 characters: 24-28 */
         res.text = 'Contribute';
-        /* declarations/desktop/view/MainView.xml:32 characters: 44-60 */
+        /* declarations/desktop/view/MainView.xml:35 characters: 44-60 */
         res.isExternalAction = true;
         return res;
     }
 
     function get_menuBar():org.aswing.JMenuBar {
-        /* declarations/desktop/view/MainView.xml:22 characters: 13-21 */
+        /* declarations/desktop/view/MainView.xml:25 characters: 13-21 */
         if (menuBar_initialized) return menuBar;
         menuBar_initialized = true;
         this.menuBar = new org.aswing.JMenuBar();
         var res = this.menuBar;
-        /* declarations/desktop/view/MainView.xml:22 characters: 36-47 */
+        /* declarations/desktop/view/MainView.xml:25 characters: 36-47 */
         res.constraints = org.aswing.BorderLayout.NORTH;
         res.addMenu(get_jMenu__0());
         res.addMenu(get_jMenu__1());
@@ -208,13 +218,13 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     inline function get_boxLayout__0():org.aswing.BoxLayout {
-        /* declarations/desktop/view/MainView.xml:37 characters: 21-30 */
+        /* declarations/desktop/view/MainView.xml:40 characters: 21-30 */
         var res = new org.aswing.BoxLayout();
         return res;
     }
 
     inline function get_aboutView__0():view.AboutView {
-        /* declarations/desktop/view/MainView.xml:39 characters: 17-31 */
+        /* declarations/desktop/view/MainView.xml:42 characters: 17-31 */
         var res = new view.AboutView();
         if (null != dataContext) { res.dataContext = this.dataContext.aboutVM; }
         var programmaticalyChange = false;
@@ -244,7 +254,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     function get_demoView():demo.view.DemoView {
-        /* declarations/desktop/view/MainView.xml:40 characters: 17-30 */
+        /* declarations/desktop/view/MainView.xml:43 characters: 17-30 */
         if (demoView_initialized) return demoView;
         demoView_initialized = true;
         this.demoView = new demo.view.DemoView();
@@ -272,7 +282,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
 
     inline function get_spot__0():jive.Spot {
-        /* declarations/desktop/view/MainView.xml:35 characters: 13-22 */
+        /* declarations/desktop/view/MainView.xml:38 characters: 13-22 */
         var res = new jive.Spot();
         if (null != dataContext) { res.selectedIndex = this.dataContext.contentIndex; }
         var programmaticalyChange = false;
@@ -293,9 +303,9 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
                                 }
                             });
                         
-        /* declarations/desktop/view/MainView.xml:35 characters: 63-74 */
+        /* declarations/desktop/view/MainView.xml:38 characters: 63-74 */
         res.constraints = org.aswing.BorderLayout.CENTER;
-        /* declarations/desktop/view/MainView.xml:36 characters: 17-23 */
+        /* declarations/desktop/view/MainView.xml:39 characters: 17-23 */
         res.layout = get_boxLayout__0();
         res.append(get_aboutView__0());
         res.append(demoView);
@@ -307,7 +317,9 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         var res = new org.aswing.JPanel();
         /* declarations/desktop/view/MainView.xml:15 characters: 13-19 */
         res.border = get_emptyBorder__0();
-        /* declarations/desktop/view/MainView.xml:18 characters: 13-19 */
+        /* declarations/desktop/view/MainView.xml:18 characters: 13-26 */
+        res.preferredSize = get_intDimension__0();
+        /* declarations/desktop/view/MainView.xml:21 characters: 13-19 */
         res.layout = get_borderLayout__0();
         res.append(menuBar);
         res.append(get_spot__0());

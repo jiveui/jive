@@ -1,4 +1,10 @@
-<table class="related-types toggle" style="margin-top:16px; width:100%">
+::set hasEvents = false::
+::foreach m type.meta::
+    ::if m.name == ":event"::
+        ::eval hasEvents = true::
+    ::end::
+::end::
+<table class="related-types toggle" style="margin-top:16px; width:100%" ::cond hasEvents::>
 	<tbody>
 		<tr>
 			<td width="12" style="vertical-align:top;">
@@ -19,9 +25,11 @@
 					</tr>
 					::foreach m type.meta::
 						::if m.name == ":event"::
+						::set path = m.params[0].substr(1,m.params[0].length-2)::
+						::set desc = m.params[1].substr(1,m.params[1].length-2)::
 						<tr>
-						<td>::m.params[0]::</td>
-						<td>::m.params[1]::</td>
+						<td>$$printLinkedFieldPath(::path::)</td>
+						<td>::desc::</td>
 						</tr>
 						::end::
 					::end::

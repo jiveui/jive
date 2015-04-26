@@ -18,7 +18,7 @@ import flash.display.DisplayObjectContainer;
  *
  * External content will be load automatically when the pane was created if floorEnabled.
  *
- * @ee `JLoadPane`
+ * @see `JLoadPane`
  *
  * @author paling
  * @author ngrebenshikov
@@ -153,12 +153,12 @@ class AssetPane extends Container{
 	/**
 	* The content scale mode.
 	* <ul>
-	*     <li>`AssetPane.SCALE_NONE`
-	*     <li>`AssetPane.SCALE_FIT_PANE`
-	*     <li>`AssetPane.SCALE_STRETCH_PANE`
-	*     <li>`AssetPane.SCALE_FIT_WIDTH`
-	*     <li>`AssetPane.SCALE_FIT_HEIGHT`
-	*     <li>`AssetPane.SCALE_CUSTOM`
+	* <li>`AssetPane.SCALE_NONE`
+	* <li>`AssetPane.SCALE_FIT_PANE`
+	* <li>`AssetPane.SCALE_STRETCH_PANE`
+	* <li>`AssetPane.SCALE_FIT_WIDTH`
+	* <li>`AssetPane.SCALE_FIT_HEIGHT`
+	* <li>`AssetPane.SCALE_CUSTOM`
 	* </ul>
 	**/
 	public var scaleMode(get, set): Int;

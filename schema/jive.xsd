@@ -12,15 +12,23 @@ xmlns:empty="empty"
 
 <xs:complexType name="CommandSchemaTypeValue">
 <xs:choice>
+<xs:element ref="OpenLinkCommand" />
 <xs:element ref="BaseCommand" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="OpenLinkCommandSchemaTypeValue">
+<xs:all><xs:element ref="OpenLinkCommand"/></xs:all></xs:complexType>
 
 <xs:complexType name="SpotSchemaTypeValue">
 <xs:all><xs:element ref="Spot"/></xs:all></xs:complexType>
 
 <xs:complexType name="BaseCommandSchemaTypeValue">
-<xs:all><xs:element ref="BaseCommand"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="OpenLinkCommand" />
+<xs:element ref="BaseCommand" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="DataContextControllableSchemaType">
 <xs:complexContent>
@@ -53,6 +61,17 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="OpenLinkCommandSchemaType">
+<xs:complexContent>
+<xs:extension base="BaseCommandSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+</xs:all>
+<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="SpotSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JPanelSchemaType">
@@ -77,6 +96,7 @@ xmlns:empty="empty"
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
 <xs:element name="Navigation" type="NavigationSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
+<xs:element name="OpenLinkCommand" type="OpenLinkCommandSchemaType"/>
 <xs:element name="Spot" type="SpotSchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
 </xs:schema>

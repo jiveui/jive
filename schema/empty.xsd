@@ -571,6 +571,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-cursor:HV_ResizeCursor" />
 <xs:element ref="org-aswing:LoadIcon" />
 <xs:element ref="org-aswing-tree:TreeLeafIcon" />
+<xs:element ref="jive:OpenLinkCommand" />
 <xs:element ref="org-aswing:DefaultSingleSelectionModel" />
 <xs:element ref="org-aswing:KeyStroke" />
 <xs:element ref="org-aswing:AsWingManager" />

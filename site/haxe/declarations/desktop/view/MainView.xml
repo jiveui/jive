@@ -15,6 +15,9 @@
             <border>
                 <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
             </border>
+            <preferredSize>
+                <geom:IntDimension width="1200" height="-1"/>
+            </preferredSize>
             <layout>
                 <BorderLayout hgap="50" vgap="30"/>
             </layout>
@@ -39,7 +42,6 @@
                 <view:AboutView dataContext="{Binding aboutVM}"/>
                 <demo:DemoView id="demoView" dataContext="{Binding demoVM}"/>
             </jive:Spot>
-
         </JPanel>
     </content>
 </JWindow>

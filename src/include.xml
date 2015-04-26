@@ -4,5 +4,5 @@
     <assets path="assets" inlude="*.eot"/>
     <haxelib name="actuate"/>
     <haxedef name="openfl_snapsvg_without_massive_broadcasting"/>
-    <haxedef name="openfl_snapsvg_render_only_changed"/>
+    <!--<haxedef name="openfl_snapsvg_render_only_changed"/>-->
 </extension>

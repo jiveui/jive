@@ -20,17 +20,6 @@
 			<form class="navbar-search pull-left" id="searchForm">
 				<input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>
 			</form>
-			<ul class="nav">
-				<li id="select-platform" class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Platform<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li data="all"><a href="#">All Platforms</a></li>
-						::foreach i api.config.platforms::
-							<li data="::i::"><a href="#">::i::</a></li>
-						::end::
-					</ul>
-				</li>
-			</ul>
 		</div>
 	</div>
 	<div id="container">

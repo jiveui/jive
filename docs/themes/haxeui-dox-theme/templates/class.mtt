@@ -19,7 +19,6 @@
 	</div>
 	<div class="body">
 		$$printModule(::type.module::)
-		$$printPlatforms(::type.platforms::)
 
 		<div ::cond type.interfaces != null && type.interfaces.length > 0::>
 			::set title = "Interfaces"::

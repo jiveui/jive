@@ -43,21 +43,21 @@ import org.aswing.util.Reflection;
 /**
  * The super class for all Components.
  */
-@:event("AWEvent.SHOWN", "When the component visible is set to true from false")
-@:event("AWEvent.HIDDEN", "When the component visible is set to false from true")
-@:event("AWEvent.PAINT", "When the component is painted")
-@:event("MovedEvent.MOVED", "When the component is moved")
-@:event("ResizedEvent.RESIZED", "When the component is resized")
-@:event("AWEvent.FOCUS_GAINED", "When the component gained the focus from it is not the focus owner")
-@:event("AWEvent.FOCUS_LOST", "When the component lost the focus from it was the focus owner")
-@:event("FocusKeyEvent.FOCUS_KEY_DOWN", "When the key down and the component is the focus owner")
-@:event("FocusKeyEvent.FOCUS_KEY_UP", "When the key up and the component is the focus owner")
-@:event("ClickCountEvent.CLICK_COUNT", "When the component is clicked continuesly")
-@:event("DragAndDropEvent.DRAG_RECOGNIZED", "When the component is recongnized that it can be drag start")
-@:event("DragAndDropEvent.DRAG_ENTER", "When a drag is enter this component area")
-@:event("DragAndDropEvent.DRAG_EXIT", "When a drag is exit this component area")
-@:event("DragAndDropEvent.DRAG_DROP", "When a drag is drop on this component")
-@:event("DragAndDropEvent.DRAG_OVERRING", "When a drag is moving on this component")
+@:event("org.aswing.event.AWEvent.SHOWN", "When the component visible is set to true from false")
+@:event("org.aswing.event.AWEvent.HIDDEN", "When the component visible is set to false from true")
+@:event("org.aswing.event.AWEvent.PAINT", "When the component is painted")
+@:event("org.aswing.event.MovedEvent.MOVED", "When the component is moved")
+@:event("org.aswing.event.ResizedEvent.RESIZED", "When the component is resized")
+@:event("org.aswing.event.AWEvent.FOCUS_GAINED", "When the component gained the focus from it is not the focus owner")
+@:event("org.aswing.event.AWEvent.FOCUS_LOST", "When the component lost the focus from it was the focus owner")
+@:event("org.aswing.event.FocusKeyEvent.FOCUS_KEY_DOWN", "When the key down and the component is the focus owner")
+@:event("org.aswing.event.FocusKeyEvent.FOCUS_KEY_UP", "When the key up and the component is the focus owner")
+@:event("org.aswing.event.ClickCountEvent.CLICK_COUNT", "When the component is clicked continuesly")
+@:event("org.aswing.event.DragAndDropEvent.DRAG_RECOGNIZED", "When the component is recongnized that it can be drag start")
+@:event("org.aswing.event.DragAndDropEvent.DRAG_ENTER", "When a drag is enter this component area")
+@:event("org.aswing.event.DragAndDropEvent.DRAG_EXIT", "When a drag is exit this component area")
+@:event("org.aswing.event.DragAndDropEvent.DRAG_DROP", "When a drag is drop on this component")
+@:event("org.aswing.event.DragAndDropEvent.DRAG_OVERRING", "When a drag is moving on this component")
 class Component extends AWSprite implements IBindable {
 
 	//The max interval time to judge whether click was continuously.

@@ -479,6 +479,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" ref="org-aswing-plaf-basic-cursor:HV_ResizeCursor" />
 <xs:element minOccurs="0" ref="org-aswing:LoadIcon" />
 <xs:element minOccurs="0" ref="org-aswing-tree:TreeLeafIcon" />
+<xs:element minOccurs="0" ref="jive:OpenLinkCommand" />
 <xs:element minOccurs="0" ref="org-aswing:DefaultSingleSelectionModel" />
 <xs:element minOccurs="0" ref="org-aswing:KeyStroke" />
 <xs:element minOccurs="0" ref="org-aswing:AsWingManager" />
