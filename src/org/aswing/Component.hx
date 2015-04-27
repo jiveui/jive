@@ -293,7 +293,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * A decorator represents the component background with a `DisplayObject`.
 	 *
-	 * @see GroundDecorator.
+	 * @see GroundDecorator
 	 */
 	public var backgroundDecorator(get,set): GroundDecorator;
 	private var _backgroundDecorator: GroundDecorator;
@@ -303,7 +303,7 @@ class Component extends AWSprite implements IBindable {
 	/**
 	 * A decorator represents the component foreground with a `DisplayObject`.
 	 *
-	 * @see GroundDecorator.
+	 * @see GroundDecorator
 	 */
 	public var foregroundDecorator(get,set): GroundDecorator;
 	private var _foregroundDecorator: GroundDecorator;
@@ -2821,7 +2821,7 @@ class Component extends AWSprite implements IBindable {
      * Returns the object to receive the focus for this component. 
      * It will call the ui to return the ui specified object, if ui is null 
      * or ui returned null, then it just return the component self.
-      *
+     *
      * Other component may return a child object, for example `JTextComponent` will return
      * its `TextField` object.
      *

@@ -98,7 +98,7 @@
 			::if !repeat.arg.last::, ::end::
 		::end::
 		)
-		:$$printLinkedType(::args[1]::)
+		: $$printLinkedType(::args[1]::)
 	::end::
 </macro>
 

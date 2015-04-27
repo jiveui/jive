@@ -15,16 +15,23 @@
 	<title>::api.currentPageName::::if api.config.pageTitle !=null:: - ::api.config.pageTitle::::end::</title>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<form class="navbar-search pull-left" id="searchForm">
-				<input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>
-			</form>
-		</div>
+	<div class="navbar navbar-fixed-top">
+	    <div class="navbar-inner">
+            <a class="navbar-brand pull-left" href="/">
+                <img alt="Jive" src="::api.config.rootPath::/logo-dark.png" style="padding:10px"/>
+            </a>
+            <p class="navbar-text pull-left header">API documentation</p>
+        </div>
 	</div>
 	<div id="container">
-		<div id="nav"></div>
-		<div id="content"><div style="float:right"><img src="::api.config.rootPath::/haxe.png"/></div>::raw __content__::</div>
+            <div id="left-side">
+            <form class="search" id="searchForm">
+                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>
+            </form>
+            <div id="nav">
+            </div>
+            </div>
+		<div id="content">::raw __content__::</div>
 	</div>
 </body>
 </html>
