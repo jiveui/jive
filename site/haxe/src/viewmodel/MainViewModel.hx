@@ -37,7 +37,10 @@ class MainViewModel implements IBindable {
         demoVM.areLinksVisible = true;
         aboutVM = new AboutViewModel();
 
-        openDocumentation = new BaseCommand(function() { openLinkInBlankPage("/docs/api/index.html"); });
+        var baseUrl = if (Browser.location.pathname != "/") Browser.location.pathname else "";
+        baseUrl = StringTools.replace(baseUrl,"index.html", "");
+
+        openDocumentation = new BaseCommand(function() { openLinkInBlankPage(baseUrl + "/docs/api/index.html"); });
         openDownload = new BaseCommand(function() { openLinkInBlankPage("/download"); });
         openContribute = new BaseCommand(function() { openLinkInBlankPage("http://github.com/ngrebenshikov/jive"); });
         openAbout = new BaseCommand(function() { contentIndex = 0; });
