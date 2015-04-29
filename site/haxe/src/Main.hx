@@ -16,19 +16,24 @@ import org.aswing.AsWingManager;
 import view.MainView;
 
 class Main extends Sprite {
+
+    public static var mainView: MainView;
+
     public function new() {
         super();
         AsWingManager.initAsStandard(Lib.current);
         UIManager.setLookAndFeel(new FlatLookAndFeel());
 
-        var mainView: MainView = new MainView();
+        mainView = new MainView();
         var mainVM = new MainViewModel();
         mainView.dataContext = mainVM;
 
         Navigation.instance.addRoute("/", function(after) { mainVM.openAbout.action(); });
         Navigation.instance.addRoute("/demo", function(after) { mainVM.openDemo.action(); });
 
+        #if (!mobile)
         Navigation.instance.navigate([mainView.menuBar.getMenu(1)]);
+        #end
 
         mainView.setBackgroundDecorator(new SolidBackground(UIManager.getColor("window")));
         mainView.setBorder(new EmptyBorder(null, Insets.createIdentic(10)));

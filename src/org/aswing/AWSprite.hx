@@ -323,10 +323,10 @@ class AWSprite extends Sprite
 			maskShape.height = b.height;
 			maskShape.width = b.width;
 			*/
-			maskShape.graphics.clear();
-			maskShape.graphics.beginFill(0xffffff);
-			maskShape.graphics.drawRect(b.x, b.y, b.width, b.height);
-			maskShape.graphics.endFill();
+//			maskShape.graphics.clear();
+//			maskShape.graphics.beginFill(0xffffff);
+//			maskShape.graphics.drawRect(b.x, b.y, b.width, b.height);
+//			maskShape.graphics.endFill();
 		}
 		this.scrollRect=new Rectangle(b.x, b.y, b.width, b.height);
 		clipMaskRect.setRect(b);

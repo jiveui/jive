@@ -326,7 +326,7 @@ class ButtonsView extends org.aswing.JPanel implements jive.DataContextControlla
                             });
                         
         /* declarations/demo/view/ButtonsView.xml:63 characters: 42-46 */
-        res.text = 'Wheather in Abakan';
+        res.text = 'Wheather';
         /* declarations/demo/view/ButtonsView.xml:64 characters: 37-41 */
         res.icon = get_assetIcon__1();
         return res;

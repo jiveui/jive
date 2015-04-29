@@ -2,10 +2,16 @@
 <JWindow xmlns="org.aswing"
          xmlns:haxe="http://haxe.org/"
          xmlns:view="demo.view"
+         xmlns:border="org.aswing.border"
          defaultButton="demoView.buttonsView.defButton"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.MainViewModel>]]></haxe:Implements>
     <content>
-        <view:DemoView id="demoView" dataContext="{Binding demoVM}"/>
+        <Box>
+            <border>
+                <border:EmptyBorder top="20" left="20" bottom="20" right="20"/>
+            </border>
+            <view:DemoView id="demoView" dataContext="{Binding demoVM}"/>
+        </Box>
     </content>
 </JWindow>

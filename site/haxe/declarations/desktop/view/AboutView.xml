@@ -57,6 +57,9 @@
                         <layout>
                             <FlowLayout hgap="0"/>
                         </layout>
+                        <border>
+                            <border:EmptyBorder bottom="10"/>
+                        </border>
                         <JLabel text="'Cross platform'">
                             <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
                             <foreground><ASColor rgb="0xe80050"/></foreground>
@@ -141,10 +144,18 @@
                                 <JLabel text="'Platforms'">
                                     <font><ASFont name="'assets/Lato-Bold.ttf'" size="20"/></font>
                                 </JLabel>
-                                <JLabelButton text="'HTML5'"/>
+
+                                <JLabelButton text="'HTML5'" command="{Binding openDemo}"/>
+
                                 <JLabelButton text="'Windows'"/>
-                                <JLabelButton text="'OS X'"/>
-                                <JLabelButton text="'Flash'"/>
+
+                                <JLabelButton text="'OS X'">
+                                    <command><jive:OpenLinkCommand url="'/demos/jive-demo.dmg'"/></command>
+                                </JLabelButton>
+
+                                <JLabelButton text="'Flash'">
+                                    <command><jive:OpenLinkCommand url="'/flash.html'"/></command>
+                                </JLabelButton>
                             </SoftBox>
                         </SoftBox>
                     </Box>

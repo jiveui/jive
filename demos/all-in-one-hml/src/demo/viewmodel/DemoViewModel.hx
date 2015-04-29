@@ -20,6 +20,8 @@ class DemoViewModel implements IBindable {
         return v;
     }
 
+    @bindable public var areLinksVisible: Bool = false;
+
     public function new() {
         menuSelectedIndex = 0;
     }

@@ -6,6 +6,13 @@
     <property name="tests.path" location="${project.root.path}/tests"/>
     <property name="localbuild.path" location="${project.root.path}/localbuild"/>
 
+    <condition property="is.mac">
+        <os family="mac"/>
+    </condition>
+    <condition property="is.windows">
+        <os family="windows"/>
+    </condition>
+
 
     <target name="build">
         <antcall target="test"/>
@@ -24,6 +31,18 @@
             <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
             <param name="command" value="build"/>
             <param name="options" value="project.xml html5"/>
+        </antcall>
+    </target>
+
+    <target name="build.all-in-one-hml.flash">
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="hxml" value="gen.hxml"/>
+        </antcall>
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml flash"/>
         </antcall>
     </target>
 
@@ -158,6 +177,8 @@
             ]]></replacevalue>
         </replace>
 
+        <antcall target="gen.docs"/>
+
     </target>
 
     <target name="build.site">
@@ -185,6 +206,25 @@
         <copy todir="${localbuild.path}/site">
             <fileset dir="${project.root.path}/site/haxe/bin/html5/bin"/>
         </copy>
+
+        <antcall target="copy.demos.to.site"/>
+    </target>
+
+    <target name="copy.demos.to.site">
+        <delete dir="${localbuild.path}/site/demos"/>
+        <mkdir dir="${localbuild.path}/site/demos"/>
+
+        <antcall target="make.osx.demo.package"/>
+
+        <antcall target="build.all-in-one-hml.flash"/>
+        <copy todir="${localbuild.path}/site" file="${project.root.path}/demos/all-in-one-hml/bin/flash/bin/all-in-one-hml.swf"/>
+    </target>
+
+
+    <target name="make.osx.demo.package" if="${is.mac}">
+        <exec executable="hdiutil">
+            <arg line="create -srcfolder ${project.root.path}/demos/all-in-one-hml/bin/mac64/cpp/bin/ ${localbuild.path}/site/demos/jive-demo.dmg"/>
+        </exec>
     </target>
 
 </project>

@@ -60,7 +60,7 @@
                                         <AssetIcon bitmapAsset="'messages.png'" width="30" height="30" scale="true"/>
                                     </icon>
                                 </JButton>
-                                <JButton text="'Wheather in Abakan'" command="{Binding weatherButtonCommand}">
+                                <JButton text="'Wheather'" command="{Binding weatherButtonCommand}">
                                     <icon>
                                         <AssetIcon bitmapAsset="'weather.png'" width="30" height="30" scale="true"/>
                                     </icon>

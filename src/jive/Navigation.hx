@@ -42,6 +42,10 @@ class Navigation {
         if (routes.exists(pathString)) {
             routes.get(pathString)(after);
         }
+
+        if (null != path)
+            for (a in path)
+                a.repaint();
     }
 
     private function getPathStringByMenuElements(path: Array<Dynamic>): String {

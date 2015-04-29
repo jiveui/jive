@@ -30,7 +30,7 @@
                 </JMenu>
                 <JMenu text="'About'" subpath="''" />
                 <JMenu text="'Demo'" subpath="'demo'" />
-                <JMenu text="'Documentation'" isExternalAction="true" command="{Binding openDocumentation}" />
+                <JMenu text="'API'" isExternalAction="true" command="{Binding openDocumentation}" />
                 <JMenu text="'Download'" isExternalAction="true" command="{Binding openDownload}" />
                 <JMenu text="'Contribute'" isExternalAction="true" command="{Binding openContribute}" />
             </JMenuBar>

@@ -20,7 +20,7 @@
     <haxelib name="jive"/>
     <haxelib name="bindx"/>
 
-    <template path="templates" />
+    <template path="../templates" />
 
     <assets path="assets" rename=""/>
     <assets path="../../demos/all-in-one-hml/assets" rename=""/>

@@ -11,13 +11,27 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     }
     
 
+    inline function get_emptyBorder__0():org.aswing.border.EmptyBorder {
+        /* declarations/demo/view/MainView.xml:12 characters: 17-35 */
+        var res = new org.aswing.border.EmptyBorder();
+        /* declarations/demo/view/MainView.xml:12 characters: 37-40 */
+        res.top = 20;
+        /* declarations/demo/view/MainView.xml:12 characters: 68-73 */
+        res.right = 20;
+        /* declarations/demo/view/MainView.xml:12 characters: 56-62 */
+        res.bottom = 20;
+        /* declarations/demo/view/MainView.xml:12 characters: 46-50 */
+        res.left = 20;
+        return res;
+    }
+
     function set_demoView(value:demo.view.DemoView):demo.view.DemoView {
         demoView_initialized = true;
         return demoView = value;
     }
 
     function get_demoView():demo.view.DemoView {
-        /* declarations/demo/view/MainView.xml:9 characters: 9-22 */
+        /* declarations/demo/view/MainView.xml:14 characters: 13-26 */
         if (demoView_initialized) return demoView;
         demoView_initialized = true;
         this.demoView = new demo.view.DemoView();
@@ -44,12 +58,21 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         return res;
     }
 
+    inline function get_box__0():org.aswing.Box {
+        /* declarations/demo/view/MainView.xml:10 characters: 9-12 */
+        var res = new org.aswing.Box();
+        /* declarations/demo/view/MainView.xml:11 characters: 13-19 */
+        res.border = get_emptyBorder__0();
+        res.append(demoView);
+        return res;
+    }
+
     public function new() {
         /* declarations/demo/view/MainView.xml:2 characters: 1-8 */
         super();
-        /* declarations/demo/view/MainView.xml:5 characters: 10-23 */
+        /* declarations/demo/view/MainView.xml:6 characters: 10-23 */
         this.defaultButton = demoView.buttonsView.defButton;
-        /* declarations/demo/view/MainView.xml:8 characters: 5-12 */
-        this.content.append(demoView);
+        /* declarations/demo/view/MainView.xml:9 characters: 5-12 */
+        this.content.append(get_box__0());
     }
 }

@@ -22,7 +22,7 @@
                 <ASColor rgb="0x34495e"/>
             </selectionBackground>
             <preferredSize>
-                <geom:IntDimension width="200" height="-1"/>
+                <geom:IntDimension width="220" height="-1"/>
             </preferredSize>
             <model>
                 <VectorListModel>
@@ -33,6 +33,29 @@
                 </VectorListModel>
             </model>
         </JList>
+        <SoftBox visibility="{Binding areLinksVisible}">
+            <JSpacer><preferredSize>
+                <geom:IntDimension width="30" height="30"/>
+            </preferredSize></JSpacer>
+            <JLabel text="'Others:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+            <JLabelButton text="'Flash Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <command>
+                    <jive:OpenLinkCommand url="'/flash.html'"/>
+                </command>
+            </JLabelButton>
+            <JLabelButton text="'Windows Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <command>
+                    <jive:OpenLinkCommand url="'/demos/jive-demo.zip'"/>
+                </command>
+            </JLabelButton>
+
+            <JLabelButton text="'OSX Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                <command>
+                    <jive:OpenLinkCommand url="'/demos/jive-demo.dmg'"/>
+                </command>
+            </JLabelButton>
+
+        </SoftBox>
     </SoftBox>
 
     <!-- demo.Main content -->

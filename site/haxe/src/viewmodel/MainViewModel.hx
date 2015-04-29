@@ -1,5 +1,6 @@
 package viewmodel;
 
+import bindx.Bind;
 import jive.BaseCommand;
 import jive.Command;
 import js.Browser;
@@ -11,8 +12,8 @@ import demo.viewmodel.DemoViewModel;
 
 class MainViewModel implements IBindable {
 
-    @bindable public var demoVM: DemoViewModel = new DemoViewModel();
-    @bindable public var aboutVM: AboutViewModel = new AboutViewModel();
+    @bindable public var demoVM: DemoViewModel;
+    @bindable public var aboutVM: AboutViewModel;
 
     #if mobile
     @bindable public var jiveIcon: DisplayObject = Assets.getSvg("logo-dark.svg");
@@ -32,6 +33,10 @@ class MainViewModel implements IBindable {
     }
 
     public function new() {
+        demoVM = new DemoViewModel();
+        demoVM.areLinksVisible = true;
+        aboutVM = new AboutViewModel();
+
         openDocumentation = new BaseCommand(function() { openLinkInBlankPage("/docs/api/index.html"); });
         openDownload = new BaseCommand(function() { openLinkInBlankPage("/download"); });
         openContribute = new BaseCommand(function() { openLinkInBlankPage("http://github.com/ngrebenshikov/jive"); });
