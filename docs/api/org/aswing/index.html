@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link href="../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../bootstrap.min.js"></script><link href="../../styles.css" rel="stylesheet" /><link href="../../custom.css" rel="stylesheet" /><link rel="icon" href="../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../nav.js"></script><script type="text/javascript" src="../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../",platforms: ["jive"]};</script><title>org.aswing</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="/">                <img alt="Jive" src="../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><h1><span class="directive">package</span> org.aswing</h1><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../org/aswing/border/index.html">border</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/colorchooser/index.html">colorchooser</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/dnd/index.html">dnd</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/error/index.html">error</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/event/index.html">event</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/ext/index.html">ext</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/geom/index.html">geom</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/graphics/index.html">graphics</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/plaf/index.html">plaf</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/resizer/index.html">resizer</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/table/index.html">table</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/tree/index.html">tree</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/util/index.html">util</a></td><td></td></tr><tr><td width="200"><a href="../../org/aswing/ASColor.html">ASColor</a></td><td><p>ASColor object to set color and alpha.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ASFont.html">ASFont</a></td><td><p>Font that specified the font name, size, style and whether or not embed.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ASFontAdvProperties.html">ASFontAdvProperties</a></td><td><p>The advanced properties for font.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AWKeyboard.html">AWKeyboard</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/AWSprite.html">AWSprite</a></td><td><p>Dispatched when the mouse released or released out side.
+If you need a event like AS2 <code>onRelease</code> you can 
+use <code><a href="../../flash/events/Event.html#CLICK">Event.CLICK</a></code></p></td></tr><tr><td width="200"><a href="../../org/aswing/AWTextField.html">AWTextField</a></td><td><p>Dispatched when the text changed, programmatic change or user change.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AbstractButton.html">AbstractButton</a></td><td><p>Defines common behaviors for buttons and menu items.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AbstractCellEditor.html">AbstractCellEditor</a></td><td><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></td></tr><tr><td width="200"><a href="../../org/aswing/AbstractListCell.html">AbstractListCell</a></td><td><p>Abstract list cell.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AbstractListModel.html">AbstractListModel</a></td><td><p>Abstract list model that provide the list model events base.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AbstractTabbedPane.html">AbstractTabbedPane</a></td><td><p>An abstract class for all Container pane class that have title, icon, tip for every sub pane.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AsWingConstants.html">AsWingConstants</a></td><td><p>A collection of constants generally used for positioning and orienting
+components on the screen.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AsWingManager.html">AsWingManager</a></td><td><p>The main manager for AsWing framework.
+<p>
+You may need to call <code>setRoot()</code> to set a default root container for 
+AsWing Popups.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/AsWingUtils.html">AsWingUtils</a></td><td><p>A collection of utility methods for AsWing.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AssetBackground.html">AssetBackground</a></td><td><p>A background with specified asset display object.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AssetIcon.html">AssetIcon</a></td><td><p>Abstract class for A icon with a decorative displayObject.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AssetItem.html">AssetItem</a></td><td><p>AssetItem is a holder for asset properties.</p></td></tr><tr><td width="200"><a href="../../org/aswing/AssetPane.html">AssetPane</a></td><td><p>Abstract class for A container with a decorative asset.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Border.html">Border</a></td><td><p>Interface describing an object capable of rendering a border around the edges of a component.
+<p>
+You can either return a display object to be the border or just return null and paint the border 
+in <code>updateBorder</code> method use the component g(Graphics).
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/BorderLayout.html">BorderLayout</a></td><td><p>A border layout lays out a container, arranging and resizing
+its components to fit in five regions:
+north, south, east, west, and center.
+Each region may contain no more than one component, and 
+is identified by a corresponding constant:
+<code>NORTH</code>, <code>SOUTH</code>, <code>EAST</code>,
+<code>WEST</code>, and <code>CENTER</code>.  When adding a
+component to a container with a border layout, use one of these
+five constants, for example:
+<pre>
+var p: JPanel = new JPanel();
+p.setLayout(new BorderLayout());
+p.append(new JButton("Ok"), BorderLayout.SOUTH);
+</pre>
+For convenience, <code><a href="../../org/aswing/BorderLayout.html">BorderLayout</a></code> interprets the
+absence of a string specification the same as the constant
+<code>CENTER</code>:
+<pre>
+var p2: JPanel = new JPanel();
+p2.setLayout(new BorderLayout());
+p2.append(new TextArea());  // Same as p.add(new TextArea(), BorderLayout.CENTER);
+</pre></p></td></tr><tr><td width="200"><a href="../../org/aswing/BoundedRangeModel.html">BoundedRangeModel</a></td><td><p>Defines the data model used by components like <code>Slider</code>s
+and <code>ProgressBar</code>s.
+Defines four interrelated integer properties: minimum, maximum, extent
+and value.  These four integers define two nested ranges like this:
+<pre>
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+</pre>
+The outer range is <code>minimum,maximum</code> and the inner
+range is <code>value,value+extent</code>.  The inner range
+must lie within the outer one, i.e. <code>value</code> must be 
+less than or equal to <code>maximum</code> and <code>value+extent</code>
+must greater than or equal to <code>minimum</code>, and <code>maximum</code>
+must be greater than or equal to <code>minimum</code>.
+There are a few features of this model that one might find a little 
+surprising.  These quirks exist for the convenience of the
+Swing BoundedRangeModel clients, such as <code>Slider</code> and
+<code>ScrollBar</code>.
+<ul>
+<li> 
+The minimum and maximum set methods "correct" the other 
+three properties to accommodate their new value argument.  For 
+example setting the model's minimum may change its maximum, value,
+and extent properties (in that order), to maintain the constraints
+specified above.<br />
+</li>
+<li>
+The value and extent set methods "correct" their argument to 
+fit within the limits defined by the other three properties.<br />
+For example if <code>value == maximum</code>, <code>setExtent(10)</code>
+would change the extent (back) to zero.
+</li>
+<li> 
+The four BoundedRangeModel values are defined as Java Beans style properties.
+</li>
+</ul>
+<p>
+Only <code>setValue</code> and <code>setRangeProperties</code> can indicate programmatic property, 
+other set methods all will always go with <code>programmatic=true</code> except <code>setValueIsAdjusting</code>.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/Box.html">Box</a></td><td><p>A <code><a href="../../org/aswing/JPanel.html">JPanel</a></code> with <code><a href="../../org/aswing/BoxLayout.html">BoxLayout</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/BoxLayout.html">BoxLayout</a></td><td><p>A layout manager that allows multiple components to be arranged either vertically or 
+horizontally. The components will not be wrapped. The width, height, preferredWidth, preferredHeight doesn't affect the way
+this layout manager layout the components.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ButtonGroup.html">ButtonGroup</a></td><td><p>This class is used to create a multiple-exclusion scope for a set of buttons. 
+Creating a set of buttons with the same ButtonGroup object means that turning "on" 
+one of those buttons turns off all other buttons in the group. 
+<p>
+A ButtonGroup can be used with any set of objects that inherit from AbstractButton. 
+Typically a button group contains instances of JRadioButton, JRadioButtonMenuItem, 
+or JToggleButton. It wouldn't make sense to put an instance of JButton or JMenuItem in a button group because JButton and JMenuItem don't implement the selected state. 
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/ButtonModel.html">ButtonModel</a></td><td><p>State Model for buttons.
+This model is used for check boxes and radio buttons, which are
+special kinds of buttons, as well as for normal buttons.
+For check boxes and radio buttons, pressing the mouse selects
+the button. For normal buttons, pressing the mouse "arms" the
+button. Releasing the mouse over the button then initiates a
+<i>button</i> press, firing its action event. Releasing the 
+mouse elsewhere disarms the button.
+<p>
+In use, a UI will invoke <code>setSelected</code> when a mouse
+click occurs over a check box or radio button. It will invoke
+<code>setArmed&lt;/code when the mouse is pressed over a regular
+button and invoke </code>setPressed&lt;/code when the mouse is released.
+If the mouse travels outside the button in the meantime, 
+<code>setArmed(false)</code> will tell the button not to fire
+when it sees <code>setPressed</code>. (If the mouse travels 
+back in, the button will be rearmed.)
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/Cell.html">Cell</a></td><td><p>Complex component cell base class, like JList, JTable's cell.</p></td></tr><tr><td width="200"><a href="../../org/aswing/CellEditor.html">CellEditor</a></td><td><p>This interface defines the methods any general editor should be able
+to implement. 
+<p>
+Having this interface enables complex components (the client of the
+editor) such as <code><a href="../../org/aswing/JList.html">JList</a></code>, <code><a href="../../org/aswing/JTree.html">JTree</a></code>, and
+<code><a href="../../org/aswing/JTable.html">JTable</a></code> to allow any generic editor to
+edit values in a table cell, or tree cell, etc.  Without this generic
+editor interface, <code><a href="../../org/aswing/JTable.html">JTable</a></code> would have to know about specific editors,
+such as <code><a href="../../org/aswing/JTextField.html">JTextField</a></code>, <code><a href="../../org/aswing/JCheckBox.html">JCheckBox</a></code>, <code><a href="../../org/aswing/JComboBox.html">JComboBox</a></code>,
+etc.  In addition, without this interface, clients of editors such as
+<code><a href="../../org/aswing/JTable.html">JTable</a></code> would not be able
+to work with any editors developed in the future by the user
+or a 3rd party ISV. 
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/CellPane.html">CellPane</a></td><td><p>Cell Pane is just a container, it do not layout children, 
+do not invalidate parent.</p></td></tr><tr><td width="200"><a href="../../org/aswing/CenterLayout.html">CenterLayout</a></td><td><p>Simple <code><a href="../../org/aswing/LayoutManager.html">LayoutManager</a></code> aligned the single contained component by the container's center.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ComboBoxEditor.html">ComboBoxEditor</a></td><td><p>The editor component used for JComboBox components.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Component.html">Component</a></td><td><p>The super class for all Components.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Container.html">Container</a></td><td><p>Dispatched when a component is added to a container. 
+The following methods trigger this event: 
+Container.addChild(com:Component), 
+Container.addChildAt(com:Component, index:int), 
+Container.append(), Container.insert(). </p></td></tr><tr><td width="200"><a href="../../org/aswing/ContainerOrderFocusTraversalPolicy.html">ContainerOrderFocusTraversalPolicy</a></td><td><p>A FocusTraversalPolicy that determines traversal order based on the order
+of child Components in a Container.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Cursor.html">Cursor</a></td><td><p>The Cursor definited from Look and Feels.</p></td></tr><tr><td width="200"><a href="../../org/aswing/CursorManager.html">CursorManager</a></td><td><p>The CursorManager, manage the cursor, hide system mouse cursor, show custom cursor, 
+etc.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Decorator.html">Decorator</a></td><td><p>Decorator for components, it return a display object to be the UI decorator.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultBoundedRangeModel.html">DefaultBoundedRangeModel</a></td><td><p>The default implementation of BoundedRangeModel.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultButtonModel.html">DefaultButtonModel</a></td><td><p>The default implementation of a <code>Button</code> component's data model.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultCheckBoxCellEditor.html">DefaultCheckBoxCellEditor</a></td><td><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultComboBoxCellEditor.html">DefaultComboBoxCellEditor</a></td><td><p>The default editor for table and tree cells, use a combobox.
+<p></p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultComboBoxEditor.html">DefaultComboBoxEditor</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultComboBoxListCell.html">DefaultComboBoxListCell</a></td><td><p>The list cell for combobox drop down list.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultComboBoxListCellFactory.html">DefaultComboBoxListCellFactory</a></td><td><p>The default list cell factory for JComboBox drop down list.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultListCell.html">DefaultListCell</a></td><td><p>Default list cell, render item value.toString() text.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultListCellFactory.html">DefaultListCellFactory</a></td><td><p>The default list cell factory for JList.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultListSelectionModel.html">DefaultListSelectionModel</a></td><td><p>Default data model for list selections.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultListTextCellFactory.html">DefaultListTextCellFactory</a></td><td><p>The default list cell factory for text cells.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultNumberTextFieldCellEditor.html">DefaultNumberTextFieldCellEditor</a></td><td><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultSingleSelectionModel.html">DefaultSingleSelectionModel</a></td><td><p>A generic implementation of SingleSelectionModel.</p></td></tr><tr><td width="200"><a href="../../org/aswing/DefaultTextFieldCellEditor.html">DefaultTextFieldCellEditor</a></td><td><p>The default editor for table and tree cells, use a textfield.
+<p></p></td></tr><tr><td width="200"><a href="../../org/aswing/EditableComponent.html">EditableComponent</a></td><td><p>Interface for editable components.</p></td></tr><tr><td width="200"><a href="../../org/aswing/EmptyFont.html">EmptyFont</a></td><td><p>EmptyFont is a font that will not change text field's format.</p></td></tr><tr><td width="200"><a href="../../org/aswing/EmptyIcon.html">EmptyIcon</a></td><td><p>EmptyIcon is just for sit a place.</p></td></tr><tr><td width="200"><a href="../../org/aswing/EmptyLayout.html">EmptyLayout</a></td><td><p>LayoutManager's empty implementation.</p></td></tr><tr><td width="200"><a href="../../org/aswing/FlowLayout.html">FlowLayout</a></td><td><p>A flow layout arranges components in a left-to-right flow, much
+like lines of text in a paragraph. Flow layouts are typically used
+to arrange buttons in a panel. It will arrange
+buttons left to right until no more buttons fit on the same line.
+Each line is centered.</p></td></tr><tr><td width="200"><a href="../../org/aswing/FlowWrapLayout.html">FlowWrapLayout</a></td><td><p>FlowWrapLayout wrap layout is extended FlowLayout, 
+the only different is that it has a preferred width, it means that when count the preffered size,
+it assume to let chilren arrange to a line when one reach the preferred width, then wrap to next line.
+FlowLayout is different, when counting the preferred size, FlowLayout assumes all children should be arrange to one line.</p></td></tr><tr><td width="200"><a href="../../org/aswing/FocusManager.html">FocusManager</a></td><td><p>FocusManager manages all the when a component should receive focus, i.e if it
+can.</p></td></tr><tr><td width="200"><a href="../../org/aswing/FocusTraversalPolicy.html">FocusTraversalPolicy</a></td><td><p>A FocusTraversalPolicy defines the order in which Components with a
+particular focus cycle root are traversed in a Container.
+<p>
+The core responsibility of a FocusTraversalPolicy is to provide algorithms
+determining the next and previous Components to focus when traversing
+forward or backward in a UI. Each FocusTraversalPolicy must also provide
+algorithms for determining the default Components in a
+traversal cycle. The default Component is the first
+to receive focus when traversing down into a new focus traversal cycle.
+if the next/previous searched null to be returned, it means can't found a 
+component to be focused.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/FrameTitleBar.html">FrameTitleBar</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/FrameTitleBarLayout.html">FrameTitleBarLayout</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/GeneralListCellFactory.html">GeneralListCellFactory</a></td><td><p>GeneralListCellFactory let you can just specified a ListCell implemented class 
+and other params to create a ListCellFactory</p></td></tr><tr><td width="200"><a href="../../org/aswing/GradientBackground.html">GradientBackground</a></td><td><p>A background decorator that paint a gradient color.
+@author</p></td></tr><tr><td width="200"><a href="../../org/aswing/GridLayout.html">GridLayout</a></td><td><p>A grid layout with the specified number of rows and
+columns. All components in the layout are given equal size.</p></td></tr><tr><td width="200"><a href="../../org/aswing/GroundDecorator.html">GroundDecorator</a></td><td><p>Decorator for background or foreground of a components.
+<p>
+You can either return a display object to be the decorator or just return null and paint<br />
+in <code>updateDecorator</code> method use the component g(Graphics).
+<p>
+(Maybe it is not good to paint on the component graphics for foreground decorator since component graphics 
+is not on top of component children)</p></td></tr><tr><td width="200"><a href="../../org/aswing/Icon.html">Icon</a></td><td><p>A small fixed size picture, typically used to decorate components. 
+<p>
+You can either return a display object to be the icon or just return null and paint the picture 
+in <code>updateIcon</code> method use the component g(Graphics).
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/Insets.html">Insets</a></td><td><ul</td></tr><tr><td width="200"><a href="../../org/aswing/JAccordion.html">JAccordion</a></td><td><p>Accordion Container.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JAdjuster.html">JAdjuster</a></td><td><p>A component that combine a input text and a button to drop-down a popup slider to let 
+user input/select a value.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JButton.html">JButton</a></td><td><p>An implementation of a "push" button.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JCheckBox.html">JCheckBox</a></td><td><p>An implementation of a check box -- an item that can be selected or
+deselected, and which displays its state to the user. 
+By convention, any number of check boxes in a group can be selected.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JCheckBoxMenuItem.html">JCheckBoxMenuItem</a></td><td><p>A menu item that can be selected or deselected. If selected, the menu
+item typically appears with a checkmark next to it. If unselected or
+deselected, the menu item appears without a checkmark. Like a regular
+menu item, a check box menu item can have either text or a graphic
+icon associated with it, or both.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JClosableTabbedPane.html">JClosableTabbedPane</a></td><td><p>A <code><a href="../../org/aswing/JTabbedPane.html">JTabbedPane</a></code> where a each tab has a close button, you must listen the <code><a href="../../org/aswing/event/TabCloseEvent.html">TabCloseEvent</a></code>
+and then remove the related tab component if you want.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JColorChooser.html">JColorChooser</a></td><td><p><code><a href="../../org/aswing/JColorChooser.html">JColorChooser</a></code> provides a pane of controls designed to allow a user to manipulate and
+select a color. </p></td></tr><tr><td width="200"><a href="../../org/aswing/JComboBox.html">JComboBox</a></td><td><p>A component that combines a button or editable field and a drop-down list.
+The user can select a value from the drop-down list, which appears at the 
+user's request. If you make the combo box editable, then the combo box
+includes an editable field into which the user can type a value.
+<p>
+<code><a href="../../org/aswing/JComboBox.html">JComboBox</a></code> use a <code><a href="../../org/aswing/JList.html">JList</a></code> to be the drop-down list, 
+so of course you can operate list to do some thing.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/JFrame.html">JFrame</a></td><td><p><code><a href="../../org/aswing/JFrame.html">JFrame</a></code> is a window with title and maximized/iconified/normal state, and resizer.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JFrameTitleBar.html">JFrameTitleBar</a></td><td><p>The default Imp of FrameTitleBar</p></td></tr><tr><td width="200"><a href="../../org/aswing/JLabel.html">JLabel</a></td><td><p>A display area for a short text string or an image, 
+or both.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JLabelButton.html">JLabelButton</a></td><td><p>A button that looks like a hypertext link.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JLayeredPane.html">JLayeredPane</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/JList.html">JList</a></td><td><p>A component that allows the user to select one or more objects from a
+list.  A separate model, <code><a href="../../org/aswing/ListModel.html">ListModel</a></code>, represents the contents
+of the list.  It's easy to display an array objects, using
+a <code><a href="../../org/aswing/JList.html">JList</a></code> constructor that builds a <code><a href="../../org/aswing/ListModel.html">ListModel</a></code> 
+instance for you:
+<pre>
+// Create a JList that displays the strings in data[]</p></td></tr><tr><td width="200"><a href="../../org/aswing/JLoadPane.html">JLoadPane</a></td><td><p>JLoadPane, a container load a external image/animation to be its asset.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JMenu.html">JMenu</a></td><td><p>An implementation of a menu -- a popup window containing
+<code><a href="../../org/aswing/JMenuItem.html">JMenuItem</a></code>s that
+is displayed when the user selects an item on the <code><a href="../../org/aswing/JMenuBar.html">JMenuBar</a></code>.
+In addition to <code><a href="../../org/aswing/JMenuItem.html">JMenuItem</a></code>s, a <code><a href="../../org/aswing/JMenu.html">JMenu</a></code> can
+also contain <code><a href="../../org/aswing/JSeparator.html">JSeparator</a></code>s. </p></td></tr><tr><td width="200"><a href="../../org/aswing/JMenuBar.html">JMenuBar</a></td><td><p>An implementation of a menu bar. You add <code><a href="../../org/aswing/JMenu.html">JMenu</a></code> objects to the
+menu bar to construct a menu. When the user selects a <code><a href="../../org/aswing/JMenu.html">JMenu</a></code>
+object, its associated <code><a href="../../org/aswing/JPopupMenu.html">JPopupMenu</a></code> is displayed, allowing the
+user to select one of the <code><a href="../../org/aswing/JMenuItem.html">JMenuItem</a></code> on it.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JMenuItem.html">JMenuItem</a></td><td><p>An implementation of an item in a menu. A menu item is essentially a button
+sitting in a list. When the user selects the "button", the action
+associated with the menu item is performed. A <code><a href="../../org/aswing/JMenuItem.html">JMenuItem</a></code>
+contained in a <code><a href="../../org/aswing/JPopupMenu.html">JPopupMenu</a></code> performs exactly that function.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JOptionPane.html">JOptionPane</a></td><td><p>JOptionPane makes it easy to pop up a standard dialog box that prompts users 
+for a value or informs them of something.
+<p>
+There's some shortcut to do there with static methods like <code>showMessageDialog</code>, 
+<code>showInputDialog</code>. But if you want to make a hole control of JOptionPane, 
+you can create a JOptionPane by yourself and append it into a your JFrame.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/JPanel.html">JPanel</a></td><td><p>The general container - a panel.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JPopup.html">JPopup</a></td><td><p>JPopup is a component that generally be a base container of a window panel.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JPopupMenu.html">JPopupMenu</a></td><td><p>An implementation of a popup menu -- a small window that pops up
+and displays a series of choices.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JProgressBar.html">JProgressBar</a></td><td><p>A component that, by default, displays an integer value within a bounded 
+interval.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JRadioButton.html">JRadioButton</a></td><td><p>An implementation of a radio button -- an item that can be selected or
+deselected, and which displays its state to the user.
+Used with a <code><a href="../../org/aswing/ButtonGroup.html">ButtonGroup</a></code> object to create a group of buttons
+in which only one button at a time can be selected. (Create a ButtonGroup
+object and use its <code><a href="../../org/aswing/Component.html#append">Component.append</a></code> method to include the JRadioButton objects
+in the group.)
+<blockquote>
+<strong>Note:</strong>
+The ButtonGroup object is a logical grouping -- not a physical grouping.
+To create a button panel, you should still create a <code><a href="../../org/aswing/JPanel.html">JPanel</a></code> or similar
+container-object and add a <code>org.aswing.border.<a href="../../org/aswing/Border.html">Border</a></code> to it to set it off from surrounding
+components.
+</blockquote></p></td></tr><tr><td width="200"><a href="../../org/aswing/JRadioButtonMenuItem.html">JRadioButtonMenuItem</a></td><td><p>An implementation of a radio button menu item.
+A <code><a href="../../org/aswing/JRadioButtonMenuItem.html">JRadioButtonMenuItem</a></code> is
+a menu item that is part of a group of menu items in which only one
+item in the group can be selected. The selected item displays its
+selected state. Selecting it causes any other selected item to
+switch to the unselected state.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JRootPane.html">JRootPane</a></td><td><p>The general AsWing window root container, it is the popup, window and frame's ancestor.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JScrollBar.html">JScrollBar</a></td><td><p>An implementation of a scrollbar.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JScrollPane.html">JScrollPane</a></td><td><p>JScrollPane is a container with two scrollbar controllin the viewport's beeing viewed area.
+<p>
+If you want to change the unit or block increment of the scrollbars in a scrollpane, you shoud 
+controll it with viewport instead of scrollbar directly, because the scrollbar's increment will 
+be set to same to viewport's always. I mean use <code><a href="../../org/aswing/JViewport.html#horizontalUnitIncrement">JViewport.horizontalUnitIncrement</a></code> instead of
+<code><a href="../../org/aswing/JScrollBar.html#unitIncrement">JScrollBar.unitIncrement</a></code></p></td></tr><tr><td width="200"><a href="../../org/aswing/JSeparator.html">JSeparator</a></td><td><p><code><a href="../../org/aswing/JSeparator.html">JSeparator</a></code> provides a general purpose component for
+implementing divider lines - most commonly used as a divider
+between menu items that breaks them up into logical groupings.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JSharedToolTip.html">JSharedToolTip</a></td><td><p>Shared instance of <code>JTooltip</code> to saving instances.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JSlider.html">JSlider</a></td><td><p>A component that lets the user graphically select a value by sliding
+a knob within a bounded interval. The slider can show both 
+major tick marks and minor tick marks between them. The number of
+values between the tick marks is controlled with 
+<code>this.<a href="#majorTickSpacing">majorTickSpacing</a></code> and <code>this.<a href="#minorTickSpacing">minorTickSpacing</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JSpacer.html">JSpacer</a></td><td><p><code><a href="../../org/aswing/JSpacer.html">JSpacer</a></code> provides basic functionality to create empty spaces between
+other components.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JSplitPane.html">JSplitPane</a></td><td><p><code><a href="../../org/aswing/JSplitPane.html">JSplitPane</a></code> is used to divide two (and only two)
+<code><a href="../../org/aswing/Component.html">Component</a></code>s. The two <code><a href="../../org/aswing/Component.html">Component</a></code>s
+are graphically divided based on the look and feel
+implementation, and the two <code><a href="../../org/aswing/Component.html">Component</a></code>s can then be
+interactively resized by the user.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JStepper.html">JStepper</a></td><td><p>A component that combine a input text and two arrow button to let user change a 
+number value step by step.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JTabbedPane.html">JTabbedPane</a></td><td><p>A component that lets the user switch between a group of components by
+clicking on a tab with a given title and/or icon.
+<p>
+Tabs/components are added to a <code>TabbedPane</code> object by using the
+<code>addTab</code> and <code>insertTab</code> methods.
+A tab is represented by an index corresponding
+to the position it was added in, where the first tab has an index equal to 0
+and the last tab has an index equal to the tab count minus 1.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JTable.html">JTable</a></td><td><p>The <code><a href="../../org/aswing/JTable.html">JTable</a></code> is used to display and edit regular two-dimensional tables
+of cells.
+<p>
+The <code><a href="../../org/aswing/JTable.html">JTable</a></code> has many
+facilities that make it possible to customize its rendering and editing
+but provides defaults for these features so that simple tables can be
+set up easily.  For example, to set up a table with 10 rows and 10
+columns of numbers:
+<p>
+<pre>
+class MyTableModel extends AbstractTableModel{
+public function getColumnCount():int { return 10; }
+public function getRowCount():int { return 10;}
+public getValueAt(row:int, col:int) { return row*col; }
+};
+var dataModel:MyTableModel = new MyTableModel();
+var table:JTable = new JTable(dataModel);
+var scrollpane:JScrollPane = new JScrollPane(table);
+</pre>
+<p>
+Note that if you wish to use a <code><a href="../../org/aswing/JTable.html">JTable</a></code> in a standalone
+view (outside of a <code><a href="../../org/aswing/JScrollPane.html">JScrollPane</a></code>) and want the header
+displayed, you can get it using {@link #getTableHeader} and
+display it separately.
+<p>
+When designing applications that use the <code><a href="../../org/aswing/JTable.html">JTable</a></code> it is worth paying
+close attention to the data structures that will represent the table's data.
+The <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code> is a model implementation that
+uses a <code><a href="../../flash/Vector.html">Vector</a></code> of <code><a href="../../flash/Vector.html">Vector</a></code>s of <code><a href="../../flash/utils/Object.html">Object</a></code>s to
+store the cell values. As well as copying the data from an
+application into the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code>,
+it is also possible to wrap the data in the methods of the
+<code><a href="../../org/aswing/table/TableModel.html">TableModel</a></code> interface so that the data can be passed to the
+<code><a href="../../org/aswing/JTable.html">JTable</a></code> directly, as in the example above. This often results
+in more efficient applications because the model is free to choose the
+internal representation that best suits the data.
+A good rule of thumb for deciding whether to use the <code><a href="../../org/aswing/table/AbstractTableModel.html">AbstractTableModel</a></code>
+or the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code> is to use the <code><a href="../../org/aswing/table/AbstractTableModel.html">AbstractTableModel</a></code>
+as the base class for creating subclasses and the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code>
+when subclassing is not required.
+<p>
+The <code><a href="../../org/aswing/JTable.html">JTable</a></code> uses integers exclusively to refer to both the rows and the columns
+of the model that it displays. The <code><a href="../../org/aswing/JTable.html">JTable</a></code> simply takes a tabular range of cells
+and uses <code>getValueAt(int, int)</code> to retrieve the
+values from the model during painting.
+<p>
+By default, columns may be rearranged in the <code><a href="../../org/aswing/JTable.html">JTable</a></code> so that the
+view's columns appear in a different order to the columns in the model.
+This does not affect the implementation of the model at all: when the
+columns are reordered, the <code><a href="../../org/aswing/JTable.html">JTable</a></code> maintains the new order of the columns
+internally and converts its column indices before querying the model.
+<p>
+To listen table row selection change event, by <code>this.<a href="#addSelectionListener">addSelectionListener</a>()</code>
+To listen column selection see <code>org.aswing.table.<a href="../../org/aswing/table/TableColumnModel.html#addColumnModelListener">TableColumnModel.addColumnModelListener</a></code> <br>
+To listen other Table events see <code>org.aswing.table.<a href="../../org/aswing/table/TableModel.html#addTableModelListener">TableModel.addTableModelListener</a></code></p></td></tr><tr><td width="200"><a href="../../org/aswing/JTextArea.html">JTextArea</a></td><td><p>A <code><a href="../../org/aswing/JTextArea.html">JTextArea</a></code> is a multi-line area that displays text.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JTextComponent.html">JTextComponent</a></td><td><p>JTextComponent is the base class for text components. 
+<p>
+<code><a href="../../org/aswing/JTextComponent.html">JTextComponent</a></code> can be formated by <code><a href="../../org/aswing/ASFont.html">ASFont</a></code>, 
+but some times you need complex format,then <code><a href="../../org/aswing/ASFont.html">ASFont</a></code> is 
+not enough, so you can set a <code><a href="../../org/aswing/EmptyFont.html">EmptyFont</a></code> instance to the 
+<code><a href="../../org/aswing/JTextComponent.html">JTextComponent</a></code>, it will do nothing for the format, then 
+you can call <code>this.<a href="#setTextFormat">setTextFormat</a></code>, <code>this.<a href="#defaultTextFormat">defaultTextFormat</a></code>
+to format the text with <code><a href="../../flash/text/TextFormat.html">TextFormat</a></code> instances. And don't forgot 
+to call <code><a href="../../org/aswing/Component.html#revalidate">Component.revalidate</a></code> if you think the component size should be
+change after that. Because these method will not call <code><a href="../../org/aswing/Component.html#revalidate">Component.revalidate</a></code>
+automatically.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/JTextField.html">JTextField</a></td><td><p><code><a href="../../org/aswing/JTextField.html">JTextField</a></code> is a component that allows the editing of a single line of text.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JToggleButton.html">JToggleButton</a></td><td><p>An implementation of a two-state button.<br />
+The <code><a href="../../org/aswing/JRadioButton.html">JRadioButton</a></code> and <code><a href="../../org/aswing/JCheckBox.html">JCheckBox</a></code> classes
+are subclasses of this class.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JToolBar.html">JToolBar</a></td><td><p><code><a href="../../org/aswing/JToolBar.html">JToolBar</a></code> provides a component that is useful for
+displaying commonly used 'Action's or controls.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JToolTip.html">JToolTip</a></td><td><p>Used to display a "Tip" for a Component. Typically components provide api
+to automate the process of using <code>ToolTip</code>s.
+For example, any AsWing component can use the <code><a href="../../org/aswing/Component.html">Component</a></code>
+<code>toolTipText</code> method to specify the text
+for a standard tooltip. A component that wants to create a custom
+<code>ToolTip</code>
+display can create an owner <code>ToolTip</code> and apply it to a component by 
+<code><a href="../../org/aswing/JToolTip.html#setComponent">JToolTip.setComponent</a></code> method.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JTree.html">JTree</a></td><td><p>A control that displays a set of hierarchical data as an outline.</p></td></tr><tr><td width="200"><a href="../../org/aswing/JViewport.html">JViewport</a></td><td><p>JViewport is an basic viewport to view normal components. Generally JViewport works 
+with JScrollPane together, for example:<br></p></td></tr><tr><td width="200"><a href="../../org/aswing/JWindow.html">JWindow</a></td><td><p>JWindow is a Container, but you should not add component to JWindow directly,
+you should add component like this: <code>window.content.append(child);</code></p></td></tr><tr><td width="200"><a href="../../org/aswing/KeyAction.html">KeyAction</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/KeyMap.html">KeyMap</a></td><td><p>KeyMap is a key definition -> action map.</p></td></tr><tr><td width="200"><a href="../../org/aswing/KeySequence.html">KeySequence</a></td><td><p>Key Sequence, defines a key sequence.
+<p>
+Thanks Romain for his Fever{@link http://fever.riaforge.org} accelerator framworks implementation, 
+this is a simpler implementation study from his.</p></td></tr><tr><td width="200"><a href="../../org/aswing/KeyStroke.html">KeyStroke</a></td><td><p>KeyStroke is a single key definition.
+<p>
+Thanks Romain for his Fever{@link http://fever.riaforge.org} accelerator framworks implementation, 
+this is a simpler implementation study from his.</p></td></tr><tr><td width="200"><a href="../../org/aswing/KeyType.html">KeyType</a></td><td><p>KeyType defined with description representing the key sequence with a string, 
+codeSequence contains the key codes sequence.
+Same codeSequence will be considered as same key definition.
+<p>
+For example "C" and [67] mean the C key on the key board.
+"Ctrl+C" and [17, 67] mean the first Ctrl and then C keys.
+<p>
+Thanks Romain for his Fever{@link http://fever.riaforge.org} accelerator framworks implementation, 
+this is a simpler implementation study from his.</p></td></tr><tr><td width="200"><a href="../../org/aswing/KeyboardManager.html">KeyboardManager</a></td><td><p>Dispatched when key is down.
+@eventType flash.events.KeyboardEvent.KEY_DOWN</p></td></tr><tr><td width="200"><a href="../../org/aswing/LayoutManager.html">LayoutManager</a></td><td><p>Defines an interface for classes that know how to layout Containers
+based on a layout constraints object.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ListCell.html">ListCell</a></td><td><p>Cell for <code><a href="../../org/aswing/JList.html">JList</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ListCellFactory.html">ListCellFactory</a></td><td><p>List cell renderer factory, a ListCellFactory should not change it 
+return value of these method <code>isAllCellHasSameHeight</code>, 
+<code>getCellHeight</code> after created. Mean, if one of its instance 
+method <code>isAllCellHasSameHeight</code> returned false, it should always return false.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ListModel.html">ListModel</a></td><td><p>ListMode is a MVC pattern's mode for List UI, different List UI can connected to 
+a same mode to view the mode's data. When the mode's data changed the mode should
+fire a event to all its ListDataListeners.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ListSelectionModel.html">ListSelectionModel</a></td><td><p>This interface represents the current state of the 
+selection for any of the components that display a 
+list of values with stable indices.  The selection is 
+modeled as a set of intervals, each interval represents
+a contiguous range of selected list elements.
+The methods for modifying the set of selected intervals
+all take a pair of indices, index0 and index1, that represent
+a closed interval, i.e. the interval includes both index0 and
+index1.</p></td></tr><tr><td width="200"><a href="../../org/aswing/LoadIcon.html">LoadIcon</a></td><td><p>LoadIcon allow you load extenal image/animation to be the icon content.</p></td></tr><tr><td width="200"><a href="../../org/aswing/LookAndFeel.html">LookAndFeel</a></td><td><p>Reserved for look and feel implementation.</p></td></tr><tr><td width="200"><a href="../../org/aswing/MenuElement.html">MenuElement</a></td><td><p>Any component that can be placed into a menu should implement this interface.
+This interface is used by <code><a href="../../org/aswing/MenuSelectionManager.html">MenuSelectionManager</a></code>
+to handle selection and navigation in menu hierarchies.</p></td></tr><tr><td width="200"><a href="../../org/aswing/MenuSelectionManager.html">MenuSelectionManager</a></td><td><p>Dispatched when the menu selection changed.</p></td></tr><tr><td width="200"><a href="../../org/aswing/MultipleAssetIcon.html">MultipleAssetIcon</a></td><td><p>MultipleAssetIcon is a Icon impelmentation that use multiple decorative DisplayObject-s.</p></td></tr><tr><td width="200"><a href="../../org/aswing/MutableListModel.html">MutableListModel</a></td><td><p>MutableListMode is a MVC pattern's mode for List UI, different List UI can connected to 
+a same mode to view the mode's data. When the mode's data changed the mode should
+fire a event to all its ListDataListeners.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Orientable.html">Orientable</a></td><td><p>An component or any thing has HORIZONTAL or VERTICAL form.</p></td></tr><tr><td width="200"><a href="../../org/aswing/RepaintManager.html">RepaintManager</a></td><td><p>RepaintManager use to manager the component's painting.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ScrollPaneLayout.html">ScrollPaneLayout</a></td><td><p>The layout manager used by <code><a href="../../org/aswing/JScrollPane.html">JScrollPane</a></code>.<br />
+<code>JScrollPaneLayout</code> is
+responsible for three components: a viewportable's pane, two scrollbars.
+<p></p></td></tr><tr><td width="200"><a href="../../org/aswing/SimpleButton.html">SimpleButton</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/SimpleButtonIcon.html">SimpleButtonIcon</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/SimpleButtonIconToggle.html">SimpleButtonIconToggle</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/SingleSelectionModel.html">SingleSelectionModel</a></td><td><p>A model that supports at most one indexed selection.</p></td></tr><tr><td width="200"><a href="../../org/aswing/SoftBox.html">SoftBox</a></td><td><p>A <code><a href="../../org/aswing/JPanel.html">JPanel</a></code> with <code><a href="../../org/aswing/SoftBoxLayout.html">SoftBoxLayout</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/SoftBoxLayout.html">SoftBoxLayout</a></td><td><p>The SoftBoxLayout will layout the child components using their <code>preferredWidth</code> or <code>preferredHeight</code> instead of width or height.
+It ignores the <code>preferredWidt</code>h when set to <code>Y_AXIS</code>, ignores the <code>preferredHeight</code> when set to <code>X_AXIS</code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/SolidBackground.html">SolidBackground</a></td><td><p>A background decorator that paint a solid color.
+@author</p></td></tr><tr><td width="200"><a href="../../org/aswing/StyleResult.html">StyleResult</a></td><td><p>The class for a result of a main color adjusted by a adjuster.</p></td></tr><tr><td width="200"><a href="../../org/aswing/StyleTune.html">StyleTune</a></td><td><p>The style tune include factors to generate colors for gradient content and border, 
+and include the round property and shaow alpha property.<p>
+This is used to affect the component's UI style.
+</p></td></tr><tr><td width="200"><a href="../../org/aswing/TabInfo.html">TabInfo</a></td><td><p></p></td></tr><tr><td width="200"><a href="../../org/aswing/ToggleButtonModel.html">ToggleButtonModel</a></td><td><p>The ToggleButton model</p></td></tr><tr><td width="200"><a href="../../org/aswing/UIDefaults.html">UIDefaults</a></td><td><p>A table of defaults for AsWing components.  Applications can set/get
+default values via the <code><a href="../../org/aswing/UIManager.html">UIManager</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/UIManager.html">UIManager</a></td><td><p>This class keeps track of the current look and feel and its defaults.</p></td></tr><tr><td width="200"><a href="../../org/aswing/VectorListModel.html">VectorListModel</a></td><td><p>The mutable list model vector implementation.</p></td></tr><tr><td width="200"><a href="../../org/aswing/ViewportLayout.html">ViewportLayout</a></td><td><p>The default layout manager for <code><a href="../../org/aswing/JViewport.html">JViewport</a></code>. 
+<code><a href="../../org/aswing/ViewportLayout.html">ViewportLayout</a></code> defines
+a policy for layout that should be useful for most applications.
+The viewport makes its view the same size as the viewport,
+however it will not make the view smaller than its minimum size.
+As the viewport grows the view is kept bottom justified until
+the entire view is visible, subsequently the view is kept top
+justified.</p></td></tr><tr><td width="200"><a href="../../org/aswing/Viewportable.html">Viewportable</a></td><td><p>A viewportable object can scrolled by <code><a href="../../org/aswing/JScrollPane.html">JScrollPane</a></code>, 
+<code><a href="../../org/aswing/JScrollBar.html">JScrollBar</a></code> to view its viewed content in a visible area.</p></td></tr><tr><td width="200"><a href="../../org/aswing/WeightBoxLayout.html">WeightBoxLayout</a></td><td><p>Each child will have a weight, for its width(X_AXIS) or height(Y_AXIS) share from parent.</p></td></tr><tr><td width="200"><a href="../../org/aswing/WindowLayout.html">WindowLayout</a></td><td><p>Layout for <code><a href="../../org/aswing/JWindow.html">JWindow</a></code> and <code><a href="../../org/aswing/JFrame.html">JFrame</a></code>.</p></td></tr><tr><td width="200"><a href="../../org/aswing/WindowOrderFocusTraversalPolicy.html">WindowOrderFocusTraversalPolicy</a></td><td><p>The focus traversal policy for windows, the only different from 
+<code><a href="../../org/aswing/ContainerOrderFocusTraversalPolicy.html">ContainerOrderFocusTraversalPolicy</a></code> is that it choose the first 
+content pane component to be the default component.</p></td></tr></tbody></table></div></div></body></html>

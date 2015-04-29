@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link href="../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../bootstrap.min.js"></script><link href="../../styles.css" rel="stylesheet" /><link href="../../custom.css" rel="stylesheet" /><link rel="icon" href="../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../nav.js"></script><script type="text/javascript" src="../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../",platforms: ["jive"]};</script><title>org.aswing.BoundedRangeModel</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="/">                <img alt="Jive" src="../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">interface </span><span class="type">org.aswing.BoundedRangeModel</span></code></h1></div><div class="body"><div><table class="related-types toggle" style="margin-top:16px;"><tbody><tr><td colspan="2"><strong>Implementors</strong></td></tr><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:4px;" src="../../triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="../../org/aswing/DefaultBoundedRangeModel.html">DefaultBoundedRangeModel</a></td><style>.table-col p {margin-bottom: 0;}</style><td class="toggle-show"><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../org/aswing/DefaultBoundedRangeModel.html">DefaultBoundedRangeModel</a></td><td class="table-col"><p>The default implementation of BoundedRangeModel.</p></td></tr></tbody></table></td></tr></tbody></table></div><div class="doc"><p>Defines the data model used by components like <code>Slider</code>s
+and <code>ProgressBar</code>s.
+Defines four interrelated integer properties: minimum, maximum, extent
+and value.  These four integers define two nested ranges like this:
+<pre>
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+</pre>
+The outer range is <code>minimum,maximum</code> and the inner
+range is <code>value,value+extent</code>.  The inner range
+must lie within the outer one, i.e. <code>value</code> must be 
+less than or equal to <code>maximum</code> and <code>value+extent</code>
+must greater than or equal to <code>minimum</code>, and <code>maximum</code>
+must be greater than or equal to <code>minimum</code>.
+There are a few features of this model that one might find a little 
+surprising.  These quirks exist for the convenience of the
+Swing BoundedRangeModel clients, such as <code>Slider</code> and
+<code>ScrollBar</code>.
+<ul>
+<li> 
+The minimum and maximum set methods "correct" the other 
+three properties to accommodate their new value argument.  For 
+example setting the model's minimum may change its maximum, value,
+and extent properties (in that order), to maintain the constraints
+specified above.<br />
+</li>
+<li>
+The value and extent set methods "correct" their argument to 
+fit within the limits defined by the other three properties.<br />
+For example if <code>value == maximum</code>, <code>setExtent(10)</code>
+would change the extent (back) to zero.
+</li>
+<li> 
+The four BoundedRangeModel values are defined as Java Beans style properties.
+</li>
+</ul>
+<p>
+Only <code>setValue</code> and <code>setRangeProperties</code> can indicate programmatic property, 
+other set methods all will always go with <code>programmatic=true</code> except <code>setValueIsAdjusting</code>.
+</p></p><div class="see"><h3>See Also</h3><ul>        <li><a href="../../org/aswing/DefaultBoundedRangeModel.html">DefaultBoundedRangeModel</a>
+</li>    </ul></div><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></li>    </ul></div></div><h2>Instance Fields</h2><div class="platform platform-jive"><a name="addStateListener"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#addStateListener"><span class="identifier">addStateListener</span></a>(listener:<a class="type" href="../../Dynamic.html">Dynamic</a> -&gt;<a class="type" href="../../Void.html">Void</a>?priority:<a class="type" href="../../Int.html">Int</a>, ?useWeakReference:<a class="type" href="../../Bool.html">Bool</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Adds a listener to listen the Model's state change event.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>listener</td><td><p>the listener</p></td></tr><tr><td>priority</td><td><p>the priority</p></td></tr><tr><td>useWeakReference</td><td><p>Determines whether the reference to the listener is strong or weak.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>org.aswing.event.<a href="../../org/aswing/event/InteractiveEvent.html#STATE_CHANGED">InteractiveEvent.STATE_CHANGED</a></li>    </ul></div></div></div><div class="platform platform-jive"><a name="getExtent"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getExtent"><span class="identifier">getExtent</span></a>(): <a class="type" href="../../Int.html">Int</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the model's extent, the length of the inner range that
+begins at the model's value.  </p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the value of the model's extent property</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setExtent">setExtent</a>()
+</li>        <li>this.<a href="#setValue">setValue</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="getMaximum"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getMaximum"><span class="identifier">getMaximum</span></a>(): <a class="type" href="../../Int.html">Int</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the model's maximum.  Note that the upper
+limit on the model's value is (maximum - extent).</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the value of the maximum property.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setMaximum">setMaximum</a>()
+</li>        <li>this.<a href="#setExtent">setExtent</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="getMinimum"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getMinimum"><span class="identifier">getMinimum</span></a>(): <a class="type" href="../../Int.html">Int</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the minimum acceptable value.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the value of the minimum property</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setMinimum">setMinimum</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="getValue"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getValue"><span class="identifier">getValue</span></a>(): <a class="type" href="../../Int.html">Int</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the model's current value.  Note that the upper
+limit on the model's value is <code>maximum - extent</code> 
+and the lower limit is <code>minimum</code>.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the model's value</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setValue">setValue</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="getValueIsAdjusting"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getValueIsAdjusting"><span class="identifier">getValueIsAdjusting</span></a>(): <a class="type" href="../../Bool.html">Bool</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns true if the current changes to the value property are part 
+of a series of changes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the valueIsAdjustingProperty.  </p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setValueIsAdjusting">setValueIsAdjusting</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="removeStateListener"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#removeStateListener"><span class="identifier">removeStateListener</span></a>(listener:<a class="type" href="../../Dynamic.html">Dynamic</a> -&gt;<a class="type" href="../../Void.html">Void</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Removes a state listener.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>listener</td><td><p>the listener to be removed.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>org.aswing.event.<a href="../../org/aswing/event/InteractiveEvent.html#STATE_CHANGED">InteractiveEvent.STATE_CHANGED</a></li>    </ul></div></div></div><div class="platform platform-jive"><a name="setExtent"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setExtent"><span class="identifier">setExtent</span></a>(newExtent:<a class="type" href="../../Int.html">Int</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Sets the model's extent.  The <I>newExtent</I> is forced to 
+be greater than or equal to zero and less than or equal to
+maximum - value.<br />
+<p>
+When a BoundedRange model is used with a scrollbar the extent
+defines the length of the scrollbar knob (aka the "thumb" or
+"elevator").  The extent usually represents how much of the 
+object being scrolled is visible. When used with a slider,
+the extent determines how much the value can "jump", for
+example when the user presses PgUp or PgDn.
+<p>
+Notifies any listeners if the model changes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>newExtent</td><td><p>the model's new extent</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#getExtent">getExtent</a>()
+</li>        <li>this.<a href="#setValue">setValue</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="setMaximum"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setMaximum"><span class="identifier">setMaximum</span></a>(newMaximum:<a class="type" href="../../Int.html">Int</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Sets the model's maximum to <I>newMaximum</I>. The other 
+three properties may be changed as well, to ensure that
+<pre>
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+</pre>
+<p>
+Notifies any listeners if the model changes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>newMaximum</td><td><p>the model's new maximum</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#getMaximum">getMaximum</a>()
+</li>        <li>this.<a href="#addChangeListener">addChangeListener</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="setMinimum"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setMinimum"><span class="identifier">setMinimum</span></a>(newMinimum:<a class="type" href="../../Int.html">Int</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Sets the model's minimum to <I>newMinimum</I>.   The 
+other three properties may be changed as well, to ensure 
+that:
+<pre>
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+</pre>
+<p>
+Notifies any listeners if the model changes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>newMinimum</td><td><p>the model's new minimum</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#getMinimum">getMinimum</a>()
+</li>        <li>this.<a href="#addChangeListener">addChangeListener</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="setRangeProperties"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setRangeProperties"><span class="identifier">setRangeProperties</span></a>(value:<a class="type" href="../../Int.html">Int</a>, extent:<a class="type" href="../../Int.html">Int</a>, min:<a class="type" href="../../Int.html">Int</a>, max:<a class="type" href="../../Int.html">Int</a>, adjusting:<a class="type" href="../../Bool.html">Bool</a>, ?programmatic:<a class="type" href="../../Bool.html">Bool</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>This method sets all of the model's data with a single method call.
+The method results in a single change event being generated. This is
+convenient when you need to adjust all the model data simultaneously and
+do not want individual change events to occur.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>value</td><td><p>an int giving the current value </p></td></tr><tr><td>extent</td><td><p>an int giving the amount by which the value can "jump"</p></td></tr><tr><td>min</td><td><p>an int giving the minimum value</p></td></tr><tr><td>max</td><td><p>an int giving the maximum value</p></td></tr><tr><td>adjusting</td><td><p>a boolean, true if a series of changes are in
+progress</p></td></tr><tr><td>programmatic</td><td><p>indicate if this is a programmatic change.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#setValue">setValue</a>()
+</li>        <li>this.<a href="#setExtent">setExtent</a>()
+</li>        <li>this.<a href="#setMinimum">setMinimum</a>()
+</li>        <li>this.<a href="#setMaximum">setMaximum</a>()
+</li>        <li>this.<a href="#setValueIsAdjusting">setValueIsAdjusting</a>()
+</li>        <li>org.aswing.event.<a href="../../org/aswing/event/InteractiveEvent.html#isProgrammatic">InteractiveEvent.isProgrammatic</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="setValue"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setValue"><span class="identifier">setValue</span></a>(newValue:<a class="type" href="../../Int.html">Int</a>, ?programmatic:<a class="type" href="../../Bool.html">Bool</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Sets the model's current value to <code>newValue</code> if <code>newValue</code>
+satisfies the model's constraints. Those constraints are:
+<pre>
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+</pre>
+Otherwise, if <code>newValue</code> is less than <code>minimum</code> 
+it's set to <code>minimum</code>, if its greater than 
+<code>maximum</code> then it's set to <code>maximum</code>, and 
+if it's greater than <code>value+extent</code> then it's set to 
+<code>value+extent</code>.
+<p>
+When a BoundedRange model is used with a scrollbar the value
+specifies the origin of the scrollbar knob (aka the "thumb" or
+"elevator").  The value usually represents the origin of the 
+visible part of the object being scrolled.
+<p>
+Notifies any listeners if the model changes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>newValue</td><td><p>the model's new value</p></td></tr><tr><td>programmatic</td><td><p>indicate if this is a programmatic change.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#getValue">getValue</a>()
+</li>        <li>org.aswing.event.<a href="../../org/aswing/event/InteractiveEvent.html#isProgrammatic">InteractiveEvent.isProgrammatic</a>()</li>    </ul></div></div></div><div class="platform platform-jive"><a name="setValueIsAdjusting"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#setValueIsAdjusting"><span class="identifier">setValueIsAdjusting</span></a>(b:<a class="type" href="../../Bool.html">Bool</a>): <a class="type" href="../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>This attribute indicates that any upcoming changes to the value
+of the model should be considered a single event. This attribute
+will be set to true at the start of a series of changes to the value,
+and will be set to false when the value has finished changing.  Normally
+this allows a listener to only take action when the final value change in
+committed, instead of having to do updates for all intermediate values.
+<p>
+Sliders and scrollbars use this property when a drag is underway.
+</p></p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>b</td><td><p>true if the upcoming changes to the value property are part of a series</p></td></tr></tbody></table></div></div></div></div></div></body></html>

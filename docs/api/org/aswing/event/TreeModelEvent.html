@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>org.aswing.event.TreeModelEvent</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">class </span><span class="type">org.aswing.event.TreeModelEvent</span><span class="keyword"> extends</span> <a class="type" href="../../../org/aswing/event/ModelEvent.html">ModelEvent</a></code></h1></div><div class="body"><div class="doc"><p>Encapsulates information describing changes to a tree model, and
+used to notify tree model listeners of the change.</p><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></li>    </ul></div></div><h2>Instance Fields</h2><table class="super-types toggle" style="margin-top:-5px;margin-bottom:10px;"><tbody><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:0px;margin-top:-2px;" src="../../..//triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="#" onclick="toggleInherited(this)">Show inherited public instance fields</a></td><td class="toggle-show"><a href="#" onclick="toggleInherited(this)">Hide inherited public instance fields</a><table class="table table-condensed" width="500"><tbody><tr><td width="200"><p>Inherited from <a href="../../../org/aswing/event/ModelEvent.html">ModelEvent</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../org/aswing/event/ModelEvent.html#getSource"><span class="identifier">getSource</span></a>():<a class="type" href="../../../Dynamic.html">Dynamic</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table></td></tr></tbody></table></td></tr></tbody></table><div class="platform platform-jive"><a name="new"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#new"><span class="identifier">new</span></a>(source:<a class="type" href="../../../Dynamic.html">Dynamic</a>, path:<a class="type" href="../../../org/aswing/tree/TreePath.html">TreePath</a>, ?childIndices:<a class="type" href="../../../Array.html">Array</a>&lt;<a class="type" href="../../../Dynamic.html">Dynamic</a>&gt; = null, ?children:<a class="type" href="../../../Array.html">Array</a>&lt;<a class="type" href="../../../Dynamic.html">Dynamic</a>&gt; = null): <a class="type" href="../../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>TreeModelEvent(source:Object, path:TreePath, childIndices:Array, children:Array)<br>
+TreeModelEvent(source:Object, path:Array, childIndices:Array, children:Array)<br>
+Used to create an event when nodes have been changed, inserted, or
+removed, identifying the path to the parent of the modified items as
+an array of Objects. All of the modified objects are siblings which are
+direct descendents (not grandchildren) of the specified parent.
+The positions at which the inserts, deletes, or changes occurred are
+specified by an array of <code>int</code>. The indexes in that array
+must be in order, from lowest to highest.
+<p>
+For changes, the indexes in the model correspond exactly to the indexes
+of items currently displayed in the UI. As a result, it is not really
+critical if the indexes are not in their exact order. But after multiple
+inserts or deletes, the items currently in the UI no longer correspond
+to the items in the model. It is therefore critical to specify the
+indexes properly for inserts and deletes.
+<p>
+For inserts, the indexes represent the <i>final</i> state of the tree,
+after the inserts have occurred. Since the indexes must be specified in
+order, the most natural processing methodology is to do the inserts
+starting at the lowest index and working towards the highest. Accumulate
+a Vector of <code>Integer</code> objects that specify the
+insert-locations as you go, then convert the Vector to an
+array of <code>int</code> to create the event. When the postition-index
+equals zero, the node is inserted at the beginning of the list. When the
+position index equals the size of the list, the node is "inserted" at
+(appended to) the end of the list.
+<p>
+For deletes, the indexes represent the <i>initial</i> state of the tree,
+before the deletes have occurred. Since the indexes must be specified in
+order, the most natural processing methodology is to use a delete-counter.
+Start by initializing the counter to zero and start work through the
+list from lowest to higest. Every time you do a delete, add the current
+value of the delete-counter to the index-position where the delete occurred,
+and append the result to a Vector of delete-locations, using
+<code>addElement()</code>. Then increment the delete-counter. The index
+positions stored in the Vector therefore reflect the effects of all previous
+deletes, so they represent each object's position in the initial tree.
+(You could also start at the highest index and working back towards the
+lowest, accumulating a Vector of delete-locations as you go using the
+<code>insertElementAt(Integer, 0)</code>.) However you produce the Vector
+of initial-positions, you then need to convert the Vector of <code>Integer</code>
+objects to an array of <code>int</code> to create the event.
+<p>
+<b>Notes:</b><ul>
+<li>Like the <code>insertNodeInto</code> method in the
+<code><a href="../../../org/aswing/tree/DefaultTreeModel.html">DefaultTreeModel</a></code> class, <code>insertElementAt</code>
+appends to the <code><a href="../../../flash/Vector.html">Vector</a></code> when the index matches the size
+of the vector. So you can use <code>insertElementAt(Integer, 0)</code>
+even when the vector is empty.
+<ul>To create a node changed event for the root node, specify the parent</p>
+<pre><code>and the child indices as `null`.
+</code></pre>
+<p></ul></p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>source</td><td><p>the Object responsible for generating the event (typically
+the creator of the event object passes <code>this</code>
+for its value)</p></td></tr><tr><td>path</td><td><p>a TreePath object or a object[] that identifies the path to the
+parent of the modified item(s)</p></td></tr><tr><td>childIndices</td><td><p>an array of <code>int</code> that specifies the
+index values of the modified items</p></td></tr><tr><td>children</td><td><p>an array of Object containing the inserted, removed, or
+changed objects</p></td></tr></tbody></table></div></div><div class="platform platform-jive"><a name="getChildIndices"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getChildIndices"><span class="identifier">getChildIndices</span></a>(): <a class="type" href="../../../Array.html">Array</a>&lt;<a class="type" href="../../../Dynamic.html">Dynamic</a>&gt;</code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the values of the child indexes. If this is a removal event
+the indexes point to locations in the initial list where items
+were removed. If it is an insert, the indices point to locations
+in the final list where the items were added. For node changes,
+the indices point to the locations of the modified nodes.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>an array of <code>int</code> containing index locations for
+the children specified by the event</p></td></tr></tbody></table></div></div><div class="platform platform-jive"><a name="getChildren"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getChildren"><span class="identifier">getChildren</span></a>(): <a class="type" href="../../../Array.html">Array</a>&lt;<a class="type" href="../../../Dynamic.html">Dynamic</a>&gt;</code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the objects that are children of the node identified by
+<code>getPath</code> at the locations specified by
+<code>getChildIndices</code>. If this is a removal event the
+returned objects are no longer children of the parent node.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>an array of Object containing the children specified by
+the event</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#getPath">getPath</a>
+</li>        <li>this.<a href="#getChildIndices">getChildIndices</a></li>    </ul></div></div></div><div class="platform platform-jive"><a name="getPath"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getPath"><span class="identifier">getPath</span></a>(): <a class="type" href="../../../Array.html">Array</a>&lt;<a class="type" href="../../../Dynamic.html">Dynamic</a>&gt;</code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Convenience method to get the array of objects from the TreePath
+instance that this event wraps.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>an array of Objects, where the first Object is the one
+stored at the root and the last object is the one
+stored at the node identified by the path</p></td></tr></tbody></table></div></div><div class="platform platform-jive"><a name="getTreePath"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getTreePath"><span class="identifier">getTreePath</span></a>(): <a class="type" href="../../../org/aswing/tree/TreePath.html">TreePath</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>For all events, except treeStructureChanged,
+returns the parent of the changed nodes.
+For treeStructureChanged events, returns the ancestor of the
+structure that has changed. This and
+<code>getChildIndices</code> are used to get a list of the effected
+nodes.
+<p>
+The one exception to this is a treeNodesChanged event that is to
+identify the root, in which case this will return the root
+and <code>getChildIndices</code> will return null.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>returns</td><td><p>the TreePath used in identifying the changed nodes.</p></td></tr></tbody></table><div class="see"><h3>See Also</h3><ul>        <li><a href="../../../org/aswing/tree/TreePath.html#getLastPathComponent">TreePath.getLastPathComponent</a></li>    </ul></div></div></div><div class="platform platform-jive"><a name="toString"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#toString"><span class="identifier">toString</span></a>(): <a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p></p></div></div></div></div></div></body></html>

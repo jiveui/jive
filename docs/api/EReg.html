@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link href="./bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="./jquery-1.9.1.min.js"></script><script type="text/javascript" src="./bootstrap.min.js"></script><link href="./styles.css" rel="stylesheet" /><link href="./custom.css" rel="stylesheet" /><link rel="icon" href="./favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="./nav.js"></script><script type="text/javascript" src="./index.js"></script><script type="text/javascript">var dox = {rootPath: "./",platforms: ["jive"]};</script><title>EReg</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="/">                <img alt="Jive" src=".//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">class </span><span class="type">EReg</span></code></h1></div><div class="body"><div class="doc"><p>The EReg class represents regular expressions.</p>
+<p>While basic usage and patterns consistently work across platforms, some more
+complex operations may yield different results. This is a necessary trade-
+off to retain a certain level of performance.</p>
+<p>EReg instances can be created by calling the constructor, or with the
+special syntax ~/pattern/modifier</p>
+<p>EReg instances maintain an internal state, which is affected by several of
+its methods.</p>
+<p>A detailed explanation of the supported operations is available at
+http://haxe.org/doc/cross/regexp</p></div>        <h2>Instance Fields</h2><div class="platform platform-jive"><a name="new"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#new"><span class="identifier">new</span></a>(r:<a class="type" href="./String.html">String</a>, opt:<a class="type" href="./String.html">String</a>): <a class="type" href="./Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Creates a new regular expression with pattern <code>r</code> and modifiers <code>opt</code>.</p>
+<p>This is equivalent to the shorthand syntax <code>~/r/opt</code></p>
+<p>If <code>r</code> or <code>opt</code> are null, the result is unspecified.</p></div></div><div class="platform platform-jive"><a name="match"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#match"><span class="identifier">match</span></a>(s:<a class="type" href="./String.html">String</a>): <a class="type" href="./Bool.html">Bool</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Tells if <code>this</code> regular expression matches String <code>s</code>.</p>
+<p>This method modifies the internal state.</p>
+<p>If <code>s</code> is <code><a href="./Null.html">null</a></code>, the result is unspecified.</p></div></div><div class="platform platform-jive"><a name="matchSub"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#matchSub"><span class="identifier">matchSub</span></a>(s:<a class="type" href="./String.html">String</a>, pos:<a class="type" href="./Int.html">Int</a>, ?len:<a class="type" href="./Int.html">Int</a> = -1): <a class="type" href="./Bool.html">Bool</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Tells if <code>this</code> regular expression matches a substring of String <code>s</code>.</p>
+<p>This function expects <code>pos</code> and <code>len</code> to describe a valid substring of
+<code>s</code>, or else the result is unspecified. To get more robust behavior,
+<code>this.<a href="#match">match</a>(s.substr(pos,len))</code> can be used instead.</p>
+<p>This method modifies the internal state.</p>
+<p>If <code>s</code> is null, the result is unspecified.</p></div></div><div class="platform platform-jive"><a name="matched"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#matched"><span class="identifier">matched</span></a>(n:<a class="type" href="./Int.html">Int</a>): <a class="type" href="./String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the matched sub-group <code>n</code> of <code>this</code> EReg.</p>
+<p>This method should only be called after <code>this.<a href="#match">match</a></code> or
+<code>this.<a href="#matchSub">matchSub</a></code>, and then operates on the String of that operation.</p>
+<p>The index <code>n</code> corresponds to the n-th set of parentheses in the pattern
+of <code>this</code> EReg. If no such sub-group exists, an exception is thrown.</p>
+<p>If <code>n</code> equals 0, the whole matched substring is returned.</p></div></div><div class="platform platform-jive"><a name="matchedPos"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#matchedPos"><span class="identifier">matchedPos</span></a>(): {pos:<a class="type" href="./Int.html">Int</a>, len:<a class="type" href="./Int.html">Int</a>}</code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the position and length of the last matched substring, within
+the String which was last used as argument to <code>this.<a href="#match">match</a></code> or
+<code>this.<a href="#matchSub">matchSub</a></code>.</p>
+<p>If the most recent call to <code>this.<a href="#match">match</a></code> or <code>this.<a href="#matchSub">matchSub</a></code> did not
+match anything, the result is unspecified.</p>
+<p>If the global g modifier was in place for the matching, the position and
+length of the leftmost substring is returned.</p></div></div><div class="platform platform-jive"><a name="matchedRight"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#matchedRight"><span class="identifier">matchedRight</span></a>(): <a class="type" href="./String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the part to the right of the last matched substring.</p>
+<p>If the most recent call to <code>this.<a href="#match">match</a></code> or <code>this.<a href="#matchSub">matchSub</a></code> did not
+match anything, the result is unspecified.</p>
+<p>If the global g modifier was in place for the matching, only the
+substring to the right of the leftmost match is returned.</p>
+<p>The result does not include the matched part.</p></div></div></div></div></div></body></html>

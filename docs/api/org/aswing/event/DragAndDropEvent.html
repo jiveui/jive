@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>org.aswing.event.DragAndDropEvent</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">class </span><span class="type">org.aswing.event.DragAndDropEvent</span><span class="keyword"> extends</span> <a class="type" href="../../../org/aswing/event/AWEvent.html">AWEvent</a></code></h1></div><div class="body"><div class="doc"><p></p></div><h2>Class Fields</h2><div class="platform platform-jive"><a name="DRAG_DROP"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_DROP"><span class="identifier">DRAG_DROP</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_DROP">DragAndDropEvent.DRAG_DROP</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragDrop</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getSourceData()`&lt;/td&gt;&lt;td&gt;the drag source data&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getTargetComponent()`&lt;/td&gt;&lt;td&gt;the mouse entered target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragDrop</p></div></div><div class="platform platform-jive"><a name="DRAG_ENTER"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_ENTER"><span class="identifier">DRAG_ENTER</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_ENTER">DragAndDropEvent.DRAG_ENTER</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragEnter</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getSourceData()`&lt;/td&gt;&lt;td&gt;the drag source data&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getTargetComponent()`&lt;/td&gt;&lt;td&gt;the mouse entered target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getRelatedTargetComponent()`&lt;/td&gt;&lt;td&gt;the previouse entered 
+	target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragEnter</p></div></div><div class="platform platform-jive"><a name="DRAG_EXIT"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_EXIT"><span class="identifier">DRAG_EXIT</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_EXIT">DragAndDropEvent.DRAG_EXIT</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragExit</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getSourceData()`&lt;/td&gt;&lt;td&gt;the drag source data&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getTargetComponent()`&lt;/td&gt;&lt;td&gt;the mouse entered target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getRelatedTargetComponent()`&lt;/td&gt;&lt;td&gt;the next being entered 
+	target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragExit</p></div></div><div class="platform platform-jive"><a name="DRAG_OVERRING"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_OVERRING"><span class="identifier">DRAG_OVERRING</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_OVERRING">DragAndDropEvent.DRAG_OVERRING</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragOverring</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getSourceData()`&lt;/td&gt;&lt;td&gt;the drag source data&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getTargetComponent()`&lt;/td&gt;&lt;td&gt;the mouse entered target component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragOverring</p></div></div><div class="platform platform-jive"><a name="DRAG_RECOGNIZED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_RECOGNIZED"><span class="identifier">DRAG_RECOGNIZED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_RECOGNIZED">DragAndDropEvent.DRAG_RECOGNIZED</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragRecongnized</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragRecongnized</p></div></div><div class="platform platform-jive"><a name="DRAG_START"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#DRAG_START"><span class="identifier">DRAG_START</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/DragAndDropEvent.html#DRAG_START">DragAndDropEvent.DRAG_START</a></code> constant defines the value of the
+<code>type</code> property of the event object for a <code>dragStart</code> event.</p>
+<p><p>The properties of the event object have the following values:</p>
+<table class="innertable"></p>
+<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getDragInitiator()`&lt;/td&gt;&lt;td&gt;the drag initiator component&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getSourceData()`&lt;/td&gt;&lt;td&gt;the drag source data&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`getMousePosition()`&lt;/td&gt;&lt;td&gt;the mouse point in stage scope&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
+  event listener that handles the event. For example, if you use
+  `comp.addEventListener()` to register an event listener,
+  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
+  it is not always the Object listening for the event.
+  Use the `currentTarget` property to always access the
+  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</code></pre>
+<p></table></p>
+<p>@eventType dragStart</p></div></div><h2>Instance Fields</h2><table class="super-types toggle" style="margin-top:-5px;margin-bottom:10px;"><tbody><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:0px;margin-top:-2px;" src="../../..//triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="#" onclick="toggleInherited(this)">Show inherited public instance fields</a></td><td class="toggle-show"><a href="#" onclick="toggleInherited(this)">Hide inherited public instance fields</a><table class="table table-condensed" width="500"><tbody><tr><td width="200"><p>Inherited from <a href="../../../org/aswing/event/AWEvent.html">AWEvent</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../org/aswing/event/AWEvent.html#clone"><span class="identifier">clone</span></a>():<a class="type" href="../../../flash/events/Event.html">Event</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table></td></tr><tr><td width="200"><p>Inherited from <a href="../../../flash/events/Event.html">Event</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#bubbles"><span class="identifier">bubbles</span></a>:<a class="type" href="../../../Bool.html">Bool</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#cancelable"><span class="identifier">cancelable</span></a>:<a class="type" href="../../../Bool.html">Bool</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#currentTarget"><span class="identifier">currentTarget</span></a>:<a class="type" href="../../../Dynamic.html">Dynamic</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#eventPhase"><span class="identifier">eventPhase</span></a>:<a class="type" href="../../../flash/events/EventPhase.html">EventPhase</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#target"><span class="identifier">target</span></a>:<a class="type" href="../../../Dynamic.html">Dynamic</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#type"><span class="identifier">type</span></a>:<a class="type" href="../../../String.html">String</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#clone"><span class="identifier">clone</span></a>():<a class="type" href="../../../flash/events/Event.html">Event</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#formatToString"><span class="identifier">formatToString</span></a>(className:<a class="type" href="../../../String.html">String</a>, ?p1:<a class="type" href="../../../Dynamic.html">Dynamic</a>, ?p2:<a class="type" href="../../../Dynamic.html">Dynamic</a>, ?p3:<a class="type" href="../../../Dynamic.html">Dynamic</a>, ?p4:<a class="type" href="../../../Dynamic.html">Dynamic</a>, ?p5:<a class="type" href="../../../Dynamic.html">Dynamic</a>):<a class="type" href="../../../String.html">String</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#isDefaultPrevented"><span class="identifier">isDefaultPrevented</span></a>():<a class="type" href="../../../Bool.html">Bool</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#preventDefault"><span class="identifier">preventDefault</span></a>():<a class="type" href="../../../Void.html">Void</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#stopImmediatePropagation"><span class="identifier">stopImmediatePropagation</span></a>():<a class="type" href="../../../Void.html">Void</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#stopPropagation"><span class="identifier">stopPropagation</span></a>():<a class="type" href="../../../Void.html">Void</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../flash/events/Event.html#toString"><span class="identifier">toString</span></a>():<a class="type" href="../../../String.html">String</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+</td></tr></table></td></tr></tbody></table></td></tr></tbody></table><div class="platform platform-jive"><a name="new"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#new"><span class="identifier">new</span></a>(type:<a class="type" href="../../../String.html">String</a>, dragInitiator:<a class="type" href="../../../org/aswing/Component.html">Component</a>, sourceData:<a class="type" href="../../../org/aswing/dnd/SourceData.html">SourceData</a>, mousePos:<a class="type" href="../../../org/aswing/geom/IntPoint.html">IntPoint</a>, ?targetComponent:<a class="type" href="../../../org/aswing/Component.html">Component</a> = null, ?relatedTargetComponent:<a class="type" href="../../../org/aswing/Component.html">Component</a> = null): <a class="type" href="../../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Create a drag and drop event.</p><table class="table table-condensed"><tbody><col width="10%"/>  <col width="100%"/><tr><td>type</td><td><p>the type.</p></td></tr><tr><td>dragInitiator</td><td><p>the drag initiator component.</p></td></tr><tr><td>dragSource</td><td><p>the data source.</p></td></tr><tr><td>mousePos</td><td><p>a <code><a href="../../../org/aswing/geom/IntPoint.html">IntPoint</a></code> indicating the cursor location in global space.</p></td></tr><tr><td>targetComponent</td><td><p>the mouse entered component.</p></td></tr><tr><td>relatedTargetComponent</td><td><p>the related target component.</p></td></tr></tbody></table></div></div><div class="platform platform-jive"><a name="clone"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#clone"><span class="identifier">clone</span></a>(): <a class="type" href="../../../flash/events/Event.html">Event</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p></p></div></div><div class="platform platform-jive"><a name="getDragInitiator"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getDragInitiator"><span class="identifier">getDragInitiator</span></a>(): <a class="type" href="../../../org/aswing/Component.html">Component</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the drag initiator component.</p></div></div><div class="platform platform-jive"><a name="getMousePosition"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getMousePosition"><span class="identifier">getMousePosition</span></a>(): <a class="type" href="../../../org/aswing/geom/IntPoint.html">IntPoint</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns a <code><a href="../../../org/aswing/geom/IntPoint.html">IntPoint</a></code> indicating the cursor location in global space.</p></div></div><div class="platform platform-jive"><a name="getRelatedTargetComponent"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getRelatedTargetComponent"><span class="identifier">getRelatedTargetComponent</span></a>(): <a class="type" href="../../../org/aswing/Component.html">Component</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the related mouse entered component. For <code>DRAG_ENTER</code> event, 
+it is the previous target component, for <code>DRAG_EXIT</code> it is the next being entered 
+target component.
+<p>
+For <code>DRAG_START</code>, <code>DRAG_RECOGNIZED</code>, 
+<code>DRAG_OVERRING</code>, <code>DRAG_DROP</code> events this property is always null.
+</p></p></div></div><div class="platform platform-jive"><a name="getSourceData"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getSourceData"><span class="identifier">getSourceData</span></a>(): <a class="type" href="../../../org/aswing/dnd/SourceData.html">SourceData</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the data source.
+<p>
+For <code>DRAG_RECOGNIZED</code> events this property is null.
+</p></p></div></div><div class="platform platform-jive"><a name="getTargetComponent"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#getTargetComponent"><span class="identifier">getTargetComponent</span></a>(): <a class="type" href="../../../org/aswing/Component.html">Component</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>Returns the mouse entered component. 
+<p>
+For <code>DRAG_START</code> and <code>DRAG_RECOGNIZED</code> events this property is always null.
+</p></p></div></div></div></div></div></body></html>
