@@ -27,7 +27,7 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
         /* declarations/demo/view/ProgressView.xml:17 characters: 13-31 */
         var res = new org.aswing.border.EmptyBorder();
         /* declarations/demo/view/ProgressView.xml:17 characters: 33-39 */
-        res.bottom = 15;
+        res.bottom = 30;
         return res;
     }
 
@@ -47,70 +47,72 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
         return res;
     }
 
-    inline function get_centerLayout__0():org.aswing.CenterLayout {
-        /* declarations/demo/view/ProgressView.xml:26 characters: 25-37 */
-        var res = new org.aswing.CenterLayout();
+    inline function get_emptyBorder__1():org.aswing.border.EmptyBorder {
+        /* declarations/demo/view/ProgressView.xml:25 characters: 29-47 */
+        var res = new org.aswing.border.EmptyBorder();
+        /* declarations/demo/view/ProgressView.xml:25 characters: 49-52 */
+        res.top = 30;
         return res;
     }
 
-    inline function get_emptyBorder__1():org.aswing.border.EmptyBorder {
-        /* declarations/demo/view/ProgressView.xml:33 characters: 41-59 */
+    inline function get_emptyBorder__2():org.aswing.border.EmptyBorder {
+        /* declarations/demo/view/ProgressView.xml:30 characters: 37-55 */
         var res = new org.aswing.border.EmptyBorder();
-        /* declarations/demo/view/ProgressView.xml:33 characters: 61-64 */
+        /* declarations/demo/view/ProgressView.xml:30 characters: 57-60 */
         res.top = 30;
-        /* declarations/demo/view/ProgressView.xml:33 characters: 92-97 */
+        /* declarations/demo/view/ProgressView.xml:30 characters: 88-93 */
         res.right = 30;
-        /* declarations/demo/view/ProgressView.xml:33 characters: 80-86 */
+        /* declarations/demo/view/ProgressView.xml:30 characters: 76-82 */
         res.bottom = 30;
-        /* declarations/demo/view/ProgressView.xml:33 characters: 70-74 */
+        /* declarations/demo/view/ProgressView.xml:30 characters: 66-70 */
         res.left = 30;
         return res;
     }
 
     inline function get_aSColor__0():org.aswing.ASColor {
-        /* declarations/demo/view/ProgressView.xml:36 characters: 41-48 */
+        /* declarations/demo/view/ProgressView.xml:33 characters: 37-44 */
         var res = new org.aswing.ASColor();
-        /* declarations/demo/view/ProgressView.xml:36 characters: 50-53 */
+        /* declarations/demo/view/ProgressView.xml:33 characters: 46-49 */
         res.rgb = 0xe1e1e1;
         return res;
     }
 
     inline function get_lineBorder__0():org.aswing.border.LineBorder {
-        /* declarations/demo/view/ProgressView.xml:31 characters: 33-50 */
+        /* declarations/demo/view/ProgressView.xml:28 characters: 29-46 */
         var res = new org.aswing.border.LineBorder();
-        /* declarations/demo/view/ProgressView.xml:31 characters: 66-71 */
+        /* declarations/demo/view/ProgressView.xml:28 characters: 62-67 */
         res.round = 5;
-        /* declarations/demo/view/ProgressView.xml:31 characters: 52-61 */
+        /* declarations/demo/view/ProgressView.xml:28 characters: 48-57 */
         res.thickness = 1;
-        /* declarations/demo/view/ProgressView.xml:32 characters: 37-52 */
-        res.interior = get_emptyBorder__1();
-        /* declarations/demo/view/ProgressView.xml:35 characters: 37-49 */
+        /* declarations/demo/view/ProgressView.xml:29 characters: 33-48 */
+        res.interior = get_emptyBorder__2();
+        /* declarations/demo/view/ProgressView.xml:32 characters: 33-45 */
         res.color = get_aSColor__0();
         return res;
     }
 
     inline function get_jLabel__1():org.aswing.JLabel {
-        /* declarations/demo/view/ProgressView.xml:41 characters: 29-35 */
+        /* declarations/demo/view/ProgressView.xml:38 characters: 25-31 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/ProgressView.xml:41 characters: 59-78 */
+        /* declarations/demo/view/ProgressView.xml:38 characters: 55-74 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/ProgressView.xml:41 characters: 37-41 */
+        /* declarations/demo/view/ProgressView.xml:38 characters: 33-37 */
         res.text = 'Progress bar';
         return res;
     }
 
     inline function get_intDimension__0():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/ProgressView.xml:44 characters: 37-54 */
+        /* declarations/demo/view/ProgressView.xml:41 characters: 33-50 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/ProgressView.xml:44 characters: 56-61 */
+        /* declarations/demo/view/ProgressView.xml:41 characters: 52-57 */
         res.width = 300;
-        /* declarations/demo/view/ProgressView.xml:44 characters: 68-74 */
+        /* declarations/demo/view/ProgressView.xml:41 characters: 64-70 */
         res.height = 10;
         return res;
     }
 
     inline function get_jProgressBar__0():org.aswing.JProgressBar {
-        /* declarations/demo/view/ProgressView.xml:42 characters: 29-41 */
+        /* declarations/demo/view/ProgressView.xml:39 characters: 25-37 */
         var res = new org.aswing.JProgressBar();
         if (null != dataContext) { res.indeterminate = this.dataContext.isScrollbarIndeterminate; }
         var programmaticalyChange = false;
@@ -150,31 +152,31 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
                                 }
                             });
                         
-        /* declarations/demo/view/ProgressView.xml:43 characters: 33-46 */
+        /* declarations/demo/view/ProgressView.xml:40 characters: 29-42 */
         res.preferredSize = get_intDimension__0();
         return res;
     }
 
     inline function get_intDimension__1():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/ProgressView.xml:48 characters: 53-70 */
+        /* declarations/demo/view/ProgressView.xml:45 characters: 49-66 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/ProgressView.xml:48 characters: 72-77 */
+        /* declarations/demo/view/ProgressView.xml:45 characters: 68-73 */
         res.width = 5;
-        /* declarations/demo/view/ProgressView.xml:48 characters: 82-88 */
+        /* declarations/demo/view/ProgressView.xml:45 characters: 78-84 */
         res.height = 5;
         return res;
     }
 
     inline function get_jSpacer__0():org.aswing.JSpacer {
-        /* declarations/demo/view/ProgressView.xml:48 characters: 29-36 */
+        /* declarations/demo/view/ProgressView.xml:45 characters: 25-32 */
         var res = new org.aswing.JSpacer();
-        /* declarations/demo/view/ProgressView.xml:48 characters: 38-51 */
+        /* declarations/demo/view/ProgressView.xml:45 characters: 34-47 */
         res.preferredSize = get_intDimension__1();
         return res;
     }
 
     inline function get_jCheckBox__0():org.aswing.JCheckBox {
-        /* declarations/demo/view/ProgressView.xml:49 characters: 29-38 */
+        /* declarations/demo/view/ProgressView.xml:46 characters: 25-34 */
         var res = new org.aswing.JCheckBox();
         if (null != dataContext) { res.selected = this.dataContext.isScrollbarIndeterminate; }
         var programmaticalyChange = false;
@@ -208,53 +210,53 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
                                     this.dataContext.isScrollbarIndeterminate = res.selected;
                                 }
                             });
-        /* declarations/demo/view/ProgressView.xml:49 characters: 130-149 */
+        /* declarations/demo/view/ProgressView.xml:46 characters: 126-145 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/ProgressView.xml:49 characters: 40-44 */
+        /* declarations/demo/view/ProgressView.xml:46 characters: 36-40 */
         res.text = 'Indeterminate progress';
         return res;
     }
 
     inline function get_intDimension__2():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/ProgressView.xml:51 characters: 53-70 */
+        /* declarations/demo/view/ProgressView.xml:48 characters: 49-66 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/ProgressView.xml:51 characters: 72-77 */
+        /* declarations/demo/view/ProgressView.xml:48 characters: 68-73 */
         res.width = 10;
-        /* declarations/demo/view/ProgressView.xml:51 characters: 83-89 */
+        /* declarations/demo/view/ProgressView.xml:48 characters: 79-85 */
         res.height = 10;
         return res;
     }
 
     inline function get_jSpacer__1():org.aswing.JSpacer {
-        /* declarations/demo/view/ProgressView.xml:51 characters: 29-36 */
+        /* declarations/demo/view/ProgressView.xml:48 characters: 25-32 */
         var res = new org.aswing.JSpacer();
-        /* declarations/demo/view/ProgressView.xml:51 characters: 38-51 */
+        /* declarations/demo/view/ProgressView.xml:48 characters: 34-47 */
         res.preferredSize = get_intDimension__2();
         return res;
     }
 
     inline function get_jLabel__2():org.aswing.JLabel {
-        /* declarations/demo/view/ProgressView.xml:52 characters: 29-35 */
+        /* declarations/demo/view/ProgressView.xml:49 characters: 25-31 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/ProgressView.xml:52 characters: 77-96 */
+        /* declarations/demo/view/ProgressView.xml:49 characters: 73-92 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/ProgressView.xml:52 characters: 37-41 */
+        /* declarations/demo/view/ProgressView.xml:49 characters: 33-37 */
         res.text = 'Move slider to make a progress';
         return res;
     }
 
     inline function get_intDimension__3():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/ProgressView.xml:57 characters: 41-58 */
+        /* declarations/demo/view/ProgressView.xml:54 characters: 37-54 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/ProgressView.xml:57 characters: 60-65 */
+        /* declarations/demo/view/ProgressView.xml:54 characters: 56-61 */
         res.width = 300;
-        /* declarations/demo/view/ProgressView.xml:57 characters: 72-78 */
+        /* declarations/demo/view/ProgressView.xml:54 characters: 68-74 */
         res.height = 20;
         return res;
     }
 
     inline function get_jSlider__0():org.aswing.JSlider {
-        /* declarations/demo/view/ProgressView.xml:55 characters: 33-40 */
+        /* declarations/demo/view/ProgressView.xml:52 characters: 29-36 */
         var res = new org.aswing.JSlider();
         if (null != dataContext) { res.value = this.dataContext.sliderValue; }
         var programmaticalyChange = false;
@@ -288,22 +290,22 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
                                     this.dataContext.sliderValue = res.value;
                                 }
                             });
-        /* declarations/demo/view/ProgressView.xml:56 characters: 37-50 */
+        /* declarations/demo/view/ProgressView.xml:53 characters: 33-46 */
         res.preferredSize = get_intDimension__3();
         return res;
     }
 
     inline function get_jPanel__0():org.aswing.JPanel {
-        /* declarations/demo/view/ProgressView.xml:54 characters: 29-35 */
+        /* declarations/demo/view/ProgressView.xml:51 characters: 25-31 */
         var res = new org.aswing.JPanel();
         res.append(get_jSlider__0());
         return res;
     }
 
     inline function get_softBox__0():org.aswing.SoftBox {
-        /* declarations/demo/view/ProgressView.xml:29 characters: 25-32 */
+        /* declarations/demo/view/ProgressView.xml:26 characters: 21-28 */
         var res = new org.aswing.SoftBox();
-        /* declarations/demo/view/ProgressView.xml:30 characters: 29-35 */
+        /* declarations/demo/view/ProgressView.xml:27 characters: 25-31 */
         res.border = get_lineBorder__0();
         res.append(get_jLabel__1());
         res.append(get_jProgressBar__0());
@@ -316,20 +318,13 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
     }
 
     inline function get_softBox__1():org.aswing.SoftBox {
-        /* declarations/demo/view/ProgressView.xml:28 characters: 21-28 */
+        /* declarations/demo/view/ProgressView.xml:24 characters: 17-24 */
         var res = new org.aswing.SoftBox();
-        /* declarations/demo/view/ProgressView.xml:28 characters: 30-33 */
+        /* declarations/demo/view/ProgressView.xml:24 characters: 26-29 */
         res.gap = 10;
-        res.append(get_softBox__0());
-        return res;
-    }
-
-    inline function get_jPanel__1():org.aswing.JPanel {
-        /* declarations/demo/view/ProgressView.xml:24 characters: 17-23 */
-        var res = new org.aswing.JPanel();
         /* declarations/demo/view/ProgressView.xml:25 characters: 21-27 */
-        res.layout = get_centerLayout__0();
-        res.append(get_softBox__1());
+        res.border = get_emptyBorder__1();
+        res.append(get_softBox__0());
         return res;
     }
 
@@ -339,18 +334,18 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
         /* declarations/demo/view/ProgressView.xml:22 characters: 18-23 */
         res.title = 'Demo';
         /* declarations/demo/view/ProgressView.xml:23 characters: 13-20 */
-        res.content = get_jPanel__1();
+        res.content = get_softBox__1();
         return res;
     }
 
     inline function get_hmlRegExRules__0():jive.formatting.HmlRegExRules {
-        /* declarations/demo/view/ProgressView.xml:72 characters: 29-53 */
+        /* declarations/demo/view/ProgressView.xml:68 characters: 29-53 */
         var res = new jive.formatting.HmlRegExRules();
         return res;
     }
 
     inline function get_regExFormattedTextArea__0():jive.formatting.RegExFormattedTextArea {
-        /* declarations/demo/view/ProgressView.xml:70 characters: 21-54 */
+        /* declarations/demo/view/ProgressView.xml:66 characters: 21-54 */
         var res = new jive.formatting.RegExFormattedTextArea();
         if (null != dataContext) { res.text = this.dataContext.xmlSource; }
         var programmaticalyChange = false;
@@ -371,38 +366,38 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
                                 }
                             });
                         
-        /* declarations/demo/view/ProgressView.xml:70 characters: 83-102 */
+        /* declarations/demo/view/ProgressView.xml:66 characters: 83-102 */
         res.backgroundDecorator = null;
-        /* declarations/demo/view/ProgressView.xml:71 characters: 25-41 */
+        /* declarations/demo/view/ProgressView.xml:67 characters: 25-41 */
         res.rules = get_hmlRegExRules__0();
         return res;
     }
 
     inline function get_jScrollPane__0():org.aswing.JScrollPane {
-        /* declarations/demo/view/ProgressView.xml:69 characters: 17-28 */
+        /* declarations/demo/view/ProgressView.xml:65 characters: 17-28 */
         var res = new org.aswing.JScrollPane();
         res.append(get_regExFormattedTextArea__0());
         return res;
     }
 
     inline function get_tabInfo__1():org.aswing.TabInfo {
-        /* declarations/demo/view/ProgressView.xml:67 characters: 9-16 */
+        /* declarations/demo/view/ProgressView.xml:63 characters: 9-16 */
         var res = new org.aswing.TabInfo();
-        /* declarations/demo/view/ProgressView.xml:67 characters: 18-23 */
+        /* declarations/demo/view/ProgressView.xml:63 characters: 18-23 */
         res.title = 'View (XML source)';
-        /* declarations/demo/view/ProgressView.xml:68 characters: 13-20 */
+        /* declarations/demo/view/ProgressView.xml:64 characters: 13-20 */
         res.content = get_jScrollPane__0();
         return res;
     }
 
     inline function get_haxeRegExRules__0():jive.formatting.HaxeRegExRules {
-        /* declarations/demo/view/ProgressView.xml:83 characters: 29-54 */
+        /* declarations/demo/view/ProgressView.xml:79 characters: 29-54 */
         var res = new jive.formatting.HaxeRegExRules();
         return res;
     }
 
     inline function get_regExFormattedTextArea__1():jive.formatting.RegExFormattedTextArea {
-        /* declarations/demo/view/ProgressView.xml:81 characters: 21-54 */
+        /* declarations/demo/view/ProgressView.xml:77 characters: 21-54 */
         var res = new jive.formatting.RegExFormattedTextArea();
         if (null != dataContext) { res.text = this.dataContext.haxeSource; }
         var programmaticalyChange = false;
@@ -423,26 +418,26 @@ class ProgressView extends org.aswing.JPanel implements jive.DataContextControll
                                 }
                             });
                         
-        /* declarations/demo/view/ProgressView.xml:81 characters: 84-103 */
+        /* declarations/demo/view/ProgressView.xml:77 characters: 84-103 */
         res.backgroundDecorator = null;
-        /* declarations/demo/view/ProgressView.xml:82 characters: 25-41 */
+        /* declarations/demo/view/ProgressView.xml:78 characters: 25-41 */
         res.rules = get_haxeRegExRules__0();
         return res;
     }
 
     inline function get_jScrollPane__1():org.aswing.JScrollPane {
-        /* declarations/demo/view/ProgressView.xml:80 characters: 17-28 */
+        /* declarations/demo/view/ProgressView.xml:76 characters: 17-28 */
         var res = new org.aswing.JScrollPane();
         res.append(get_regExFormattedTextArea__1());
         return res;
     }
 
     inline function get_tabInfo__2():org.aswing.TabInfo {
-        /* declarations/demo/view/ProgressView.xml:78 characters: 9-16 */
+        /* declarations/demo/view/ProgressView.xml:74 characters: 9-16 */
         var res = new org.aswing.TabInfo();
-        /* declarations/demo/view/ProgressView.xml:78 characters: 18-23 */
+        /* declarations/demo/view/ProgressView.xml:74 characters: 18-23 */
         res.title = 'View Model (Haxe source)';
-        /* declarations/demo/view/ProgressView.xml:79 characters: 13-20 */
+        /* declarations/demo/view/ProgressView.xml:75 characters: 13-20 */
         res.content = get_jScrollPane__1();
         return res;
     }

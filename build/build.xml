@@ -196,7 +196,7 @@
         <antcall target="copy.demos.to.site"/>
     </target>
 
-    <target name="build.site">
+    <target name="build.site" depends="build.all-in-one-hml.prebuild">
 
         <condition property="site.deployment.place" value="local">
             <not><isset property="site.deployment.place"/></not>

@@ -27,7 +27,7 @@
                     <JPanel>
                         <SoftBox>
                             <JSeparator><preferredSize><geom:IntDimension width="50" height="50"/></preferredSize></JSeparator>
-                            <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding jiveIcon}" width="400" height="253" scale="true"/></icon></JLabel>
+                            <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding jiveIcon}" width="300" height="190" scale="true"/></icon></JLabel>
                             <SoftBox>
                                 <border><border:EmptyBorder left="20"/></border>
                                 <JLabel text="'The roots of Jive:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
@@ -48,7 +48,6 @@
                                 </JPanel>
                             </SoftBox>
                         </SoftBox>
-                        <JSeparator><preferredSize><geom:IntDimension width="30" height="30"/></preferredSize></JSeparator>
                     </JPanel>
                 </JPanel>
 
@@ -61,15 +60,15 @@
                             <border:EmptyBorder bottom="10"/>
                         </border>
                         <JLabel text="'Cross platform'">
-                            <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                            <font><ASFont name="'assets/Lato-Light.ttf'" size="36"/></font>
                             <foreground><ASColor rgb="0xe80050"/></foreground>
                         </JLabel>
                         <JLabel text="'UI framework'">
-                            <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                            <font><ASFont name="'assets/Lato-Light.ttf'" size="36"/></font>
                             <foreground><ASColor rgb="0xd22a02"/></foreground>
                         </JLabel>
                         <JLabel text="'for Haxe'">
-                            <font><ASFont name="'assets/Lato-Light.ttf'" size="40"/></font>
+                            <font><ASFont name="'assets/Lato-Light.ttf'" size="36"/></font>
                             <foreground><ASColor rgb="0xeb9500"/></foreground>
                         </JLabel>
                     </JPanel>
@@ -81,7 +80,7 @@
                             </backgroundDecorator>
                             <SoftBox>
                                 <border>
-                                    <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                                    <border:EmptyBorder left="15" right="15" top="25" bottom="25"/>
                                 </border>
                                 <JLabel><icon><AssetIcon asset="{Binding openFlIcon}" width="85" height="85" scale="true"/></icon></JLabel>
                                 <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
@@ -115,7 +114,7 @@
                             </backgroundDecorator>
                             <SoftBox>
                                 <border>
-                                    <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                                    <border:EmptyBorder left="15" right="15" top="25" bottom="25"/>
                                 </border>
                                 <JLabel><icon><AssetIcon asset="{Binding brainIcon}" width="85" height="85" scale="true"/></icon></JLabel>
                                 <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
@@ -137,7 +136,7 @@
                             </backgroundDecorator>
                             <SoftBox>
                                 <border>
-                                    <border:EmptyBorder left="25" right="25" top="25" bottom="25"/>
+                                    <border:EmptyBorder left="15" right="15" top="25" bottom="25"/>
                                 </border>
                                 <JLabel><icon><AssetIcon asset="{Binding desktopIcon}" width="85" height="85" scale="true"/></icon></JLabel>
                                 <JSeparator><preferredSize><geom:IntDimension width="15" height="15"/></preferredSize></JSeparator>
@@ -147,7 +146,9 @@
 
                                 <JLabelButton text="'HTML5'" command="{Binding openDemo}"/>
 
-                                <JLabelButton text="'Windows'"/>
+                                <JLabelButton text="'Windows'">
+                                    <command><jive:OpenLinkCommand url="'/demos/jive-demo.zip'"/></command>
+                                </JLabelButton>
 
                                 <JLabelButton text="'OS X'">
                                     <command><jive:OpenLinkCommand url="'/demos/jive-demo.dmg'"/></command>

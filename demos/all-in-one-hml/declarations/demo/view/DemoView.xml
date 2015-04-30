@@ -9,7 +9,7 @@
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.DemoViewModel>]]></haxe:Implements>
     <layout>
-        <BorderLayout hgap="50" vgap="30"/>
+        <BorderLayout hgap="30" vgap="30"/>
     </layout>
 
     <!--Left menu-->
@@ -22,7 +22,7 @@
                 <ASColor rgb="0x34495e"/>
             </selectionBackground>
             <preferredSize>
-                <geom:IntDimension width="220" height="-1"/>
+                <geom:IntDimension width="200" height="-1"/>
             </preferredSize>
             <model>
                 <VectorListModel>
@@ -35,7 +35,7 @@
         </JList>
         <SoftBox visibility="{Binding areLinksVisible}">
             <JSpacer><preferredSize>
-                <geom:IntDimension width="30" height="30"/>
+                <geom:IntDimension width="20" height="20"/>
             </preferredSize></JSpacer>
             <JLabel text="'Others:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
             <JLabelButton text="'Flash Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">

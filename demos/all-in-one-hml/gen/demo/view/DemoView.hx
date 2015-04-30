@@ -15,7 +15,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         /* declarations/demo/view/DemoView.xml:12 characters: 9-21 */
         var res = new org.aswing.BorderLayout();
         /* declarations/demo/view/DemoView.xml:12 characters: 23-27 */
-        res.hgap = 50;
+        res.hgap = 30;
         /* declarations/demo/view/DemoView.xml:12 characters: 33-37 */
         res.vgap = 30;
         return res;
@@ -41,7 +41,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         /* declarations/demo/view/DemoView.xml:25 characters: 17-34 */
         var res = new org.aswing.geom.IntDimension();
         /* declarations/demo/view/DemoView.xml:25 characters: 36-41 */
-        res.width = 220;
+        res.width = 200;
         /* declarations/demo/view/DemoView.xml:25 characters: 48-54 */
         res.height = -1;
         return res;
@@ -131,9 +131,9 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         /* declarations/demo/view/DemoView.xml:38 characters: 17-34 */
         var res = new org.aswing.geom.IntDimension();
         /* declarations/demo/view/DemoView.xml:38 characters: 36-41 */
-        res.width = 30;
+        res.width = 20;
         /* declarations/demo/view/DemoView.xml:38 characters: 47-53 */
-        res.height = 30;
+        res.height = 20;
         return res;
     }
 

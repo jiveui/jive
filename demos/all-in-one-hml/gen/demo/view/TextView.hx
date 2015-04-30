@@ -27,7 +27,7 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
         /* declarations/demo/view/TextView.xml:18 characters: 13-31 */
         var res = new org.aswing.border.EmptyBorder();
         /* declarations/demo/view/TextView.xml:18 characters: 33-39 */
-        res.bottom = 15;
+        res.bottom = 30;
         return res;
     }
 
@@ -47,72 +47,74 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
         return res;
     }
 
-    inline function get_centerLayout__0():org.aswing.CenterLayout {
-        /* declarations/demo/view/TextView.xml:27 characters: 25-37 */
-        var res = new org.aswing.CenterLayout();
+    inline function get_emptyBorder__1():org.aswing.border.EmptyBorder {
+        /* declarations/demo/view/TextView.xml:26 characters: 29-47 */
+        var res = new org.aswing.border.EmptyBorder();
+        /* declarations/demo/view/TextView.xml:26 characters: 49-52 */
+        res.top = 30;
         return res;
     }
 
-    inline function get_emptyBorder__1():org.aswing.border.EmptyBorder {
-        /* declarations/demo/view/TextView.xml:35 characters: 45-63 */
+    inline function get_emptyBorder__2():org.aswing.border.EmptyBorder {
+        /* declarations/demo/view/TextView.xml:32 characters: 41-59 */
         var res = new org.aswing.border.EmptyBorder();
-        /* declarations/demo/view/TextView.xml:35 characters: 65-68 */
+        /* declarations/demo/view/TextView.xml:32 characters: 61-64 */
         res.top = 30;
-        /* declarations/demo/view/TextView.xml:35 characters: 96-101 */
+        /* declarations/demo/view/TextView.xml:32 characters: 92-97 */
         res.right = 30;
-        /* declarations/demo/view/TextView.xml:35 characters: 84-90 */
+        /* declarations/demo/view/TextView.xml:32 characters: 80-86 */
         res.bottom = 30;
-        /* declarations/demo/view/TextView.xml:35 characters: 74-78 */
+        /* declarations/demo/view/TextView.xml:32 characters: 70-74 */
         res.left = 30;
         return res;
     }
 
     inline function get_aSColor__0():org.aswing.ASColor {
-        /* declarations/demo/view/TextView.xml:38 characters: 45-52 */
+        /* declarations/demo/view/TextView.xml:35 characters: 41-48 */
         var res = new org.aswing.ASColor();
-        /* declarations/demo/view/TextView.xml:38 characters: 54-57 */
+        /* declarations/demo/view/TextView.xml:35 characters: 50-53 */
         res.rgb = 0xe1e1e1;
         return res;
     }
 
     inline function get_lineBorder__0():org.aswing.border.LineBorder {
-        /* declarations/demo/view/TextView.xml:33 characters: 37-54 */
+        /* declarations/demo/view/TextView.xml:30 characters: 33-50 */
         var res = new org.aswing.border.LineBorder();
-        /* declarations/demo/view/TextView.xml:33 characters: 70-75 */
+        /* declarations/demo/view/TextView.xml:30 characters: 66-71 */
         res.round = 5;
-        /* declarations/demo/view/TextView.xml:33 characters: 56-65 */
+        /* declarations/demo/view/TextView.xml:30 characters: 52-61 */
         res.thickness = 1;
-        /* declarations/demo/view/TextView.xml:34 characters: 41-56 */
-        res.interior = get_emptyBorder__1();
-        /* declarations/demo/view/TextView.xml:37 characters: 41-53 */
+        /* declarations/demo/view/TextView.xml:31 characters: 37-52 */
+        res.interior = get_emptyBorder__2();
+        /* declarations/demo/view/TextView.xml:34 characters: 37-49 */
         res.color = get_aSColor__0();
         return res;
     }
 
     inline function get_intDimension__0():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/TextView.xml:46 characters: 45-62 */
+        /* declarations/demo/view/TextView.xml:43 characters: 41-58 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/TextView.xml:46 characters: 64-69 */
+        /* declarations/demo/view/TextView.xml:43 characters: 60-65 */
         res.width = 100;
-        /* declarations/demo/view/TextView.xml:46 characters: 76-82 */
+        /* declarations/demo/view/TextView.xml:43 characters: 72-78 */
         res.height = -1;
         return res;
     }
 
     inline function get_jLabel__1():org.aswing.JLabel {
-        /* declarations/demo/view/TextView.xml:44 characters: 37-43 */
+        /* declarations/demo/view/TextView.xml:41 characters: 33-39 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/TextView.xml:44 characters: 63-82 */
+        /* declarations/demo/view/TextView.xml:41 characters: 59-78 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/TextView.xml:44 characters: 45-49 */
+        /* declarations/demo/view/TextView.xml:41 characters: 41-45 */
         res.text = 'Predator';
-        /* declarations/demo/view/TextView.xml:45 characters: 41-54 */
+        /* declarations/demo/view/TextView.xml:42 characters: 37-50 */
         res.preferredSize = get_intDimension__0();
         return res;
     }
 
     inline function get_jTextField__0():org.aswing.JTextField {
-        /* declarations/demo/view/TextView.xml:49 characters: 37-47 */
+        /* declarations/demo/view/TextView.xml:46 characters: 33-43 */
         var res = new org.aswing.JTextField();
         if (null != dataContext) { res.text = this.dataContext.predator; }
         var programmaticalyChange = false;
@@ -146,15 +148,15 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
                                     this.dataContext.predator = res.text;
                                 }
                             });
-        /* declarations/demo/view/TextView.xml:49 characters: 49-56 */
+        /* declarations/demo/view/TextView.xml:46 characters: 45-52 */
         res.columns = 15;
-        /* declarations/demo/view/TextView.xml:49 characters: 62-72 */
+        /* declarations/demo/view/TextView.xml:46 characters: 58-68 */
         res.inlineHint = 'Lion';
         return res;
     }
 
     inline function get_jPanel__0():org.aswing.JPanel {
-        /* declarations/demo/view/TextView.xml:43 characters: 33-39 */
+        /* declarations/demo/view/TextView.xml:40 characters: 29-35 */
         var res = new org.aswing.JPanel();
         res.append(get_jLabel__1());
         res.append(get_jTextField__0());
@@ -162,29 +164,29 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_intDimension__1():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/TextView.xml:55 characters: 45-62 */
+        /* declarations/demo/view/TextView.xml:52 characters: 41-58 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/TextView.xml:55 characters: 64-69 */
+        /* declarations/demo/view/TextView.xml:52 characters: 60-65 */
         res.width = 100;
-        /* declarations/demo/view/TextView.xml:55 characters: 76-82 */
+        /* declarations/demo/view/TextView.xml:52 characters: 72-78 */
         res.height = -1;
         return res;
     }
 
     inline function get_jLabel__2():org.aswing.JLabel {
-        /* declarations/demo/view/TextView.xml:53 characters: 37-43 */
+        /* declarations/demo/view/TextView.xml:50 characters: 33-39 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/TextView.xml:53 characters: 59-78 */
+        /* declarations/demo/view/TextView.xml:50 characters: 55-74 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/TextView.xml:53 characters: 45-49 */
+        /* declarations/demo/view/TextView.xml:50 characters: 41-45 */
         res.text = 'Prey';
-        /* declarations/demo/view/TextView.xml:54 characters: 41-54 */
+        /* declarations/demo/view/TextView.xml:51 characters: 37-50 */
         res.preferredSize = get_intDimension__1();
         return res;
     }
 
     inline function get_jTextField__1():org.aswing.JTextField {
-        /* declarations/demo/view/TextView.xml:58 characters: 37-47 */
+        /* declarations/demo/view/TextView.xml:55 characters: 33-43 */
         var res = new org.aswing.JTextField();
         if (null != dataContext) { res.text = this.dataContext.prey; }
         var programmaticalyChange = false;
@@ -218,15 +220,15 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
                                     this.dataContext.prey = res.text;
                                 }
                             });
-        /* declarations/demo/view/TextView.xml:58 characters: 49-56 */
+        /* declarations/demo/view/TextView.xml:55 characters: 45-52 */
         res.columns = 15;
-        /* declarations/demo/view/TextView.xml:58 characters: 62-72 */
+        /* declarations/demo/view/TextView.xml:55 characters: 58-68 */
         res.inlineHint = 'Antelope';
         return res;
     }
 
     inline function get_jPanel__1():org.aswing.JPanel {
-        /* declarations/demo/view/TextView.xml:52 characters: 33-39 */
+        /* declarations/demo/view/TextView.xml:49 characters: 29-35 */
         var res = new org.aswing.JPanel();
         res.append(get_jLabel__2());
         res.append(get_jTextField__1());
@@ -234,9 +236,9 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_softBox__0():org.aswing.SoftBox {
-        /* declarations/demo/view/TextView.xml:31 characters: 29-36 */
+        /* declarations/demo/view/TextView.xml:28 characters: 25-32 */
         var res = new org.aswing.SoftBox();
-        /* declarations/demo/view/TextView.xml:32 characters: 33-39 */
+        /* declarations/demo/view/TextView.xml:29 characters: 29-35 */
         res.border = get_lineBorder__0();
         res.append(get_jPanel__0());
         res.append(get_jPanel__1());
@@ -244,17 +246,17 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_aSFont__1():org.aswing.ASFont {
-        /* declarations/demo/view/TextView.xml:64 characters: 37-43 */
+        /* declarations/demo/view/TextView.xml:61 characters: 33-39 */
         var res = new org.aswing.ASFont();
-        /* declarations/demo/view/TextView.xml:64 characters: 75-79 */
+        /* declarations/demo/view/TextView.xml:61 characters: 71-75 */
         res.size = 20;
-        /* declarations/demo/view/TextView.xml:64 characters: 45-49 */
+        /* declarations/demo/view/TextView.xml:61 characters: 41-45 */
         res.name = 'assets/Lato-Bold.ttf';
         return res;
     }
 
     inline function get_multilineLabel__0():org.aswing.ext.MultilineLabel {
-        /* declarations/demo/view/TextView.xml:62 characters: 29-47 */
+        /* declarations/demo/view/TextView.xml:59 characters: 25-43 */
         var res = new org.aswing.ext.MultilineLabel();
         if (null != dataContext) { res.text = this.dataContext.predatorVictimSentence; }
         var programmaticalyChange = false;
@@ -275,21 +277,21 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
                                 }
                             });
                         
-        /* declarations/demo/view/TextView.xml:62 characters: 110-117 */
+        /* declarations/demo/view/TextView.xml:59 characters: 106-113 */
         res.columns = 20;
-        /* declarations/demo/view/TextView.xml:62 characters: 101-105 */
+        /* declarations/demo/view/TextView.xml:59 characters: 97-101 */
         res.rows = 5;
-        /* declarations/demo/view/TextView.xml:63 characters: 33-41 */
+        /* declarations/demo/view/TextView.xml:60 characters: 29-37 */
         res.font = get_aSFont__1();
         return res;
     }
 
     inline function get_softBox__1():org.aswing.SoftBox {
-        /* declarations/demo/view/TextView.xml:30 characters: 25-32 */
+        /* declarations/demo/view/TextView.xml:27 characters: 21-28 */
         var res = new org.aswing.SoftBox();
-        /* declarations/demo/view/TextView.xml:30 characters: 34-38 */
+        /* declarations/demo/view/TextView.xml:27 characters: 30-34 */
         res.axis = org.aswing.SoftBoxLayout.X_AXIS;
-        /* declarations/demo/view/TextView.xml:30 characters: 73-76 */
+        /* declarations/demo/view/TextView.xml:27 characters: 69-72 */
         res.gap = 30;
         res.append(get_softBox__0());
         res.append(get_multilineLabel__0());
@@ -297,18 +299,11 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_softBox__2():org.aswing.SoftBox {
-        /* declarations/demo/view/TextView.xml:29 characters: 21-28 */
+        /* declarations/demo/view/TextView.xml:25 characters: 17-24 */
         var res = new org.aswing.SoftBox();
-        res.append(get_softBox__1());
-        return res;
-    }
-
-    inline function get_jPanel__2():org.aswing.JPanel {
-        /* declarations/demo/view/TextView.xml:25 characters: 17-23 */
-        var res = new org.aswing.JPanel();
         /* declarations/demo/view/TextView.xml:26 characters: 21-27 */
-        res.layout = get_centerLayout__0();
-        res.append(get_softBox__2());
+        res.border = get_emptyBorder__1();
+        res.append(get_softBox__1());
         return res;
     }
 
@@ -318,18 +313,18 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
         /* declarations/demo/view/TextView.xml:23 characters: 18-23 */
         res.title = 'Demo';
         /* declarations/demo/view/TextView.xml:24 characters: 13-20 */
-        res.content = get_jPanel__2();
+        res.content = get_softBox__2();
         return res;
     }
 
     inline function get_hmlRegExRules__0():jive.formatting.HmlRegExRules {
-        /* declarations/demo/view/TextView.xml:78 characters: 29-53 */
+        /* declarations/demo/view/TextView.xml:74 characters: 29-53 */
         var res = new jive.formatting.HmlRegExRules();
         return res;
     }
 
     inline function get_regExFormattedTextArea__0():jive.formatting.RegExFormattedTextArea {
-        /* declarations/demo/view/TextView.xml:76 characters: 21-54 */
+        /* declarations/demo/view/TextView.xml:72 characters: 21-54 */
         var res = new jive.formatting.RegExFormattedTextArea();
         if (null != dataContext) { res.text = this.dataContext.xmlSource; }
         var programmaticalyChange = false;
@@ -350,38 +345,38 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
                                 }
                             });
                         
-        /* declarations/demo/view/TextView.xml:76 characters: 83-102 */
+        /* declarations/demo/view/TextView.xml:72 characters: 83-102 */
         res.backgroundDecorator = null;
-        /* declarations/demo/view/TextView.xml:77 characters: 25-41 */
+        /* declarations/demo/view/TextView.xml:73 characters: 25-41 */
         res.rules = get_hmlRegExRules__0();
         return res;
     }
 
     inline function get_jScrollPane__0():org.aswing.JScrollPane {
-        /* declarations/demo/view/TextView.xml:75 characters: 17-28 */
+        /* declarations/demo/view/TextView.xml:71 characters: 17-28 */
         var res = new org.aswing.JScrollPane();
         res.append(get_regExFormattedTextArea__0());
         return res;
     }
 
     inline function get_tabInfo__1():org.aswing.TabInfo {
-        /* declarations/demo/view/TextView.xml:73 characters: 9-16 */
+        /* declarations/demo/view/TextView.xml:69 characters: 9-16 */
         var res = new org.aswing.TabInfo();
-        /* declarations/demo/view/TextView.xml:73 characters: 18-23 */
+        /* declarations/demo/view/TextView.xml:69 characters: 18-23 */
         res.title = 'View (XML source)';
-        /* declarations/demo/view/TextView.xml:74 characters: 13-20 */
+        /* declarations/demo/view/TextView.xml:70 characters: 13-20 */
         res.content = get_jScrollPane__0();
         return res;
     }
 
     inline function get_haxeRegExRules__0():jive.formatting.HaxeRegExRules {
-        /* declarations/demo/view/TextView.xml:89 characters: 29-54 */
+        /* declarations/demo/view/TextView.xml:85 characters: 29-54 */
         var res = new jive.formatting.HaxeRegExRules();
         return res;
     }
 
     inline function get_regExFormattedTextArea__1():jive.formatting.RegExFormattedTextArea {
-        /* declarations/demo/view/TextView.xml:87 characters: 21-54 */
+        /* declarations/demo/view/TextView.xml:83 characters: 21-54 */
         var res = new jive.formatting.RegExFormattedTextArea();
         if (null != dataContext) { res.text = this.dataContext.haxeSource; }
         var programmaticalyChange = false;
@@ -402,26 +397,26 @@ class TextView extends org.aswing.JPanel implements jive.DataContextControllable
                                 }
                             });
                         
-        /* declarations/demo/view/TextView.xml:87 characters: 84-103 */
+        /* declarations/demo/view/TextView.xml:83 characters: 84-103 */
         res.backgroundDecorator = null;
-        /* declarations/demo/view/TextView.xml:88 characters: 25-41 */
+        /* declarations/demo/view/TextView.xml:84 characters: 25-41 */
         res.rules = get_haxeRegExRules__0();
         return res;
     }
 
     inline function get_jScrollPane__1():org.aswing.JScrollPane {
-        /* declarations/demo/view/TextView.xml:86 characters: 17-28 */
+        /* declarations/demo/view/TextView.xml:82 characters: 17-28 */
         var res = new org.aswing.JScrollPane();
         res.append(get_regExFormattedTextArea__1());
         return res;
     }
 
     inline function get_tabInfo__2():org.aswing.TabInfo {
-        /* declarations/demo/view/TextView.xml:84 characters: 9-16 */
+        /* declarations/demo/view/TextView.xml:80 characters: 9-16 */
         var res = new org.aswing.TabInfo();
-        /* declarations/demo/view/TextView.xml:84 characters: 18-23 */
+        /* declarations/demo/view/TextView.xml:80 characters: 18-23 */
         res.title = 'View Model (Haxe source)';
-        /* declarations/demo/view/TextView.xml:85 characters: 13-20 */
+        /* declarations/demo/view/TextView.xml:81 characters: 13-20 */
         res.content = get_jScrollPane__1();
         return res;
     }

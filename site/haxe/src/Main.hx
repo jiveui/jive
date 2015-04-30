@@ -41,8 +41,8 @@ class Main extends Sprite {
         var resize = function() {
             var w = Lib.current.stage.stageWidth;
             var h = Lib.current.stage.stageHeight;
-            mainView.setSizeWH(if (w <= 1200) w else 1200, h);
-            mainView.location = new IntPoint(if (w <= 1200) 0 else Std.int((w - 1200)/2), 0);
+            mainView.setSizeWH(if (w <= 1000) w else 1000, h);
+            mainView.location = new IntPoint(if (w <= 1000) 0 else Std.int((w - 1000)/2), 0);
         }
 
         resize();
