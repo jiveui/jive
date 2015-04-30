@@ -50,3 +50,6 @@ tests/resources/assets/Lato-Regular.eot
 tests/resources/assets/Lato-Regular.svg
 tests/resources/assets/Lato-Regular.ttf
 tests/resources/assets/Lato-Regular.woff
+site/haxe/bin/
+demos/all-in-one-hml/bin/
+localbuild/
