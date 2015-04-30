@@ -145,29 +145,10 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
     inline function get_jMenu__4():org.aswing.JMenu {
         /* declarations/desktop/view/MainView.xml:34 characters: 17-22 */
         var res = new org.aswing.JMenu();
-        if (null != dataContext) { res.command = this.dataContext.openDownload; }
-        var programmaticalyChange = false;
-        var sourcePropertyListener = function(_,_) {
-                            if (!programmaticalyChange) {
-                                programmaticalyChange = true;
-                                res.command = this.dataContext.openDownload;
-                                programmaticalyChange = false;
-                            }
-                        };
-        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.openDownload, sourcePropertyListener); }
-        if (null != dataContext) { bindSourceListener(); }
-        bindx.Bind.bindx(this.dataContext, function(old,_) {
-                                if (null != old) { bindx.Bind.unbindx(old.openDownload, sourcePropertyListener);}
-                                if (null != this.dataContext) {
-                                    res.command = this.dataContext.openDownload;
-                                    bindSourceListener();
-                                }
-                            });
-                        
+        /* declarations/desktop/view/MainView.xml:34 characters: 42-49 */
+        res.subpath = 'download';
         /* declarations/desktop/view/MainView.xml:34 characters: 24-28 */
         res.text = 'Download';
-        /* declarations/desktop/view/MainView.xml:34 characters: 42-58 */
-        res.isExternalAction = true;
         return res;
     }
 
@@ -248,6 +229,12 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         return res;
     }
 
+    inline function get_downloadsView__0():view.DownloadsView {
+        /* declarations/desktop/view/MainView.xml:44 characters: 17-35 */
+        var res = new view.DownloadsView();
+        return res;
+    }
+
     function set_demoView(value:demo.view.DemoView):demo.view.DemoView {
         demoView_initialized = true;
         return demoView = value;
@@ -308,6 +295,7 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         /* declarations/desktop/view/MainView.xml:39 characters: 17-23 */
         res.layout = get_boxLayout__0();
         res.append(get_aboutView__0());
+        res.append(get_downloadsView__0());
         res.append(demoView);
         return res;
     }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:geom="org.aswing.geom"
+        xmlns:ext="org.aswing.ext"
+        xmlns:view="demo.view"
+        xmlns:jive="jive"
+        xmlns:border="org.aswing.border"
+        xmlns:e="empty"
+        >
+    <layout>
+        <BorderLayout hgap="30" vgap="30"/>
+    </layout>
+
+    <SoftBox constraints="org.aswing.BorderLayout.CENTER">
+        <JLabel text="'Downloads'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+            <font>
+                <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            </font>
+            <border>
+                <border:EmptyBorder bottom="30"/>
+            </border>
+        </JLabel>
+
+        <ext:MultilineLabel>
+            <text><![CDATA[
+            "Use haxelib to install Jive: haxelib install jive"
+            ]]></text>
+        </ext:MultilineLabel>
+
+    </SoftBox>
+</JPanel>
