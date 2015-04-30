@@ -53867,16 +53867,18 @@ viewmodel.AboutViewModel.prototype = {
 	,__properties__: {set_openDemo:"set_openDemo",set_arrowIcon:"set_arrowIcon",get_arrowIcon:"get_arrowIcon",set_desktopIcon:"set_desktopIcon",set_brainIcon:"set_brainIcon",set_openFlIcon:"set_openFlIcon",set_jiveIcon:"set_jiveIcon"}
 };
 viewmodel.MainViewModel = function() {
+	this.baseUrl = "";
 	this.contentIndex = 0;
 	this.jiveIcon = openfl.Assets.getSvg("logo-light.svg");
 	var _g = this;
 	this.__fieldBindings__ = new bindx.FieldsBindSignal();
 	this.__methodBindings__ = new bindx.MethodsBindSignal();
+	this.baseUrl = "/jive";
 	this.set_demoVM(new demo.viewmodel.DemoViewModel());
 	this.demoVM.set_areLinksVisible(true);
 	this.set_aboutVM(new viewmodel.AboutViewModel());
 	this.set_openDocumentation(new jive.BaseCommand(function() {
-		_g.openLinkInBlankPage("/docs/api/index.html");
+		_g.openLinkInBlankPage(_g.baseUrl + "/docs/api/index.html");
 	}));
 	this.set_openDownload(new jive.BaseCommand(function() {
 		_g.openLinkInBlankPage("/download");
