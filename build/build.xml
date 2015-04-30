@@ -1,10 +1,15 @@
-<project name="jive" default="build">
+<project name="jive" default="build"
+         xmlns:git="antlib:com.rimerosolutions.ant.git">
+    <import file="git.xml"/>
     <import file="build-utils.xml"/>
 
     <property name="project.root.path" location=".."/>
     <property name="docs.path" location="${project.root.path}/docs"/>
     <property name="tests.path" location="${project.root.path}/tests"/>
     <property name="localbuild.path" location="${project.root.path}/localbuild"/>
+    <property name="github.deployment.path" location="${project.root.path}/../jive-pages"/>
+
+    <import file="${project.root.path}/../keys/jive.xml"/>
 
     <condition property="is.mac">
         <os family="mac"/>
@@ -12,7 +17,6 @@
     <condition property="is.windows">
         <os family="windows"/>
     </condition>
-
 
     <target name="build">
         <antcall target="test"/>
@@ -22,11 +26,13 @@
         <antcall target="build.site.crossplatform"/>
     </target>
 
-    <target name="build.all-in-one-hml">
+    <target name="build.all-in-one-hml.prebuild">
         <antcall target="haxe">
             <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
             <param name="hxml" value="gen.hxml"/>
         </antcall>
+    </target>
+    <target name="build.all-in-one-hml" depends="build.all-in-one-hml.prebuild">
         <antcall target="openfl">
             <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
             <param name="command" value="build"/>
@@ -34,15 +40,27 @@
         </antcall>
     </target>
 
-    <target name="build.all-in-one-hml.flash">
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="hxml" value="gen.hxml"/>
-        </antcall>
+    <target name="build.all-in-one-hml.flash" depends="build.all-in-one-hml.prebuild">
         <antcall target="openfl">
             <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
             <param name="command" value="build"/>
             <param name="options" value="project.xml flash"/>
+        </antcall>
+    </target>
+
+    <target name="build.all-in-one-hml.windows" depends="build.all-in-one-hml.prebuild" if="${is.windows}">
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml windows"/>
+        </antcall>
+    </target>
+
+    <target name="build.all-in-one-hml.mac" depends="build.all-in-one-hml.prebuild" if="${is.mac}">
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml mac"/>
         </antcall>
     </target>
 
@@ -53,10 +71,7 @@
             <param name="options" value="project.xml html5"/>
         </antcall>
 
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/demos/calendar"/>
-            <param name="hxml" value="build.hxml"/>
-        </antcall>
+        <antcall target="build.all-in-one-hml"/>
     </target>
 
     <target name="build.schema" depends="gen.docs">
@@ -178,20 +193,22 @@
         </replace>
 
         <antcall target="gen.docs"/>
-
+        <antcall target="copy.demos.to.site"/>
     </target>
 
     <target name="build.site">
+
+        <condition property="site.deployment.place" value="local">
+            <not><isset property="site.deployment.place"/></not>
+        </condition>
+
         <condition property="site.target" value="desktop">
             <not><isset property="site.target"/></not>
         </condition>
 
+        <echo message="Building the site. Target: ${site.target}. Deloyment: ${site.deployment.place}"/>
+
         <delete dir="${project.root.path}/site/haxe/bin/html5/bin"/>
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="hxml" value="gen.hxml"/>
-            <param name="haxe.compiler.flags" value="-D ${site.target}"/>
-        </antcall>
         <antcall target="haxe">
             <param name="dir" value="${project.root.path}/site/haxe"/>
             <param name="haxe.compiler.flags" value="-D ${site.target}"/>
@@ -200,14 +217,13 @@
         <antcall target="openfl">
             <param name="dir" value="${project.root.path}/site/haxe"/>
             <param name="command" value="build"/>
-            <param name="options" value="project.xml html5 -Dsite_target_${site.target}"/>
+            <param name="options" value="project.xml html5 -Dsite_target_${site.target} -Dsite_deployment_${site.deployment.place}"/>
         </antcall>
 
         <copy todir="${localbuild.path}/site">
             <fileset dir="${project.root.path}/site/haxe/bin/html5/bin"/>
         </copy>
 
-        <antcall target="copy.demos.to.site"/>
     </target>
 
     <target name="copy.demos.to.site">
@@ -215,16 +231,42 @@
         <mkdir dir="${localbuild.path}/site/demos"/>
 
         <antcall target="make.osx.demo.package"/>
+        <antcall target="make.windows.demo.package"/>
+        <antcall target="make.flash.demo.package"/>
+    </target>
 
+
+    <target name="make.osx.demo.package" if="${is.mac}" depends="build.all-in-one-hml.mac">
+        <exec executable="hdiutil">
+            <arg line="create -srcfolder ${project.root.path}/demos/all-in-one-hml/bin/mac64/cpp/bin/ ${localbuild.path}/site/demos/jive-demo.dmg"/>
+        </exec>
+    </target>
+
+    <target name="make.windows.demo.package" if="${is.windows}" depends="build.all-in-one-hml.windows">
+        <zip basedir="${project.root.path}/demos/all-in-one-hml/bin/windows/cpp/bin" destfile="${localbuild.path}/site/demos/jive-demo.zip"/>
+    </target>
+
+    <target name="make.flash.demo.package" depends="build.all-in-one-hml.flash">
         <antcall target="build.all-in-one-hml.flash"/>
         <copy todir="${localbuild.path}/site" file="${project.root.path}/demos/all-in-one-hml/bin/flash/bin/all-in-one-hml.swf"/>
     </target>
 
-
-    <target name="make.osx.demo.package" if="${is.mac}">
-        <exec executable="hdiutil">
-            <arg line="create -srcfolder ${project.root.path}/demos/all-in-one-hml/bin/mac64/cpp/bin/ ${localbuild.path}/site/demos/jive-demo.dmg"/>
-        </exec>
+    <target name="deploy.site.github">
+        <property name="site.deployment.place" value="github"/>
+        <antcall target="build.site.crossplatform"/>
+        <git:git directory="${github.deployment.path}" verbose="true" settingsRef="github">
+            <git:pull/>
+        </git:git>
+        <copy todir="${github.deployment.path}">
+            <fileset dir="${localbuild.path}/site"/>
+        </copy>
+        <git:git directory="${github.deployment.path}" verbose="true" settingsRef="github">
+            <git:add>
+                <fileset dir="${github.deployment.path}" includes="**/*"/>
+            </git:add>
+            <git:commit message="The site updated."/>
+            <git:push uri="https://github.com/ngrebenshikov/jive"/>
+        </git:git>
     </target>
 
 </project>

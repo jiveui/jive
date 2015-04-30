@@ -1,0 +1,11 @@
+<project name="git">
+    <taskdef uri="antlib:com.rimerosolutions.ant.git"
+         resource="com/rimerosolutions/ant/git/jgit-ant-lib.xml">
+        <classpath>
+            <pathelement location="ant/org.eclipse.jgit.ant-3.0.0.201306101825-r.jar"/>
+            <pathelement location="ant/org.eclipse.jgit-3.0.0.201306101825-r.jar"/>
+            <pathelement location="ant/jsch-0.1.50.jar"/>
+            <pathelement location="ant/ant-git-tasks-0.0.1.jar"/>
+        </classpath>
+    </taskdef>
+</project>
