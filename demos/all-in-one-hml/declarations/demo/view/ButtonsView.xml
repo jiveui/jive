@@ -38,7 +38,9 @@
 
                             <JPanel>
                                 <SoftBox>
-                                    <JLabel text="'Basic buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                                    <JLabel text="'Basic buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border><border:EmptyBorder left="5"/></border>
+                                    </JLabel>
                                     <JPanel>
                                         <JButton id="defButton" text="'Default button'" command="{Binding defaultButtonCommand}"/>
                                         <JButton text="'Button'" command="{Binding basicButtonCommand}"/>
@@ -46,7 +48,9 @@
                                 </SoftBox>
                                 <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
                                 <SoftBox>
-                                    <JLabel text="'Disabled button'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                                    <JLabel text="'Disabled button'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border><border:EmptyBorder left="5"/></border>
+                                    </JLabel>
                                     <JPanel>
                                         <JButton text="'Disabled button'" enabled="false"/>
                                     </JPanel>
@@ -55,7 +59,10 @@
 
                             <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
 
-                            <JLabel text="'Buttons with icons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                            <JLabel text="'Buttons with icons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <border><border:EmptyBorder left="5"/></border>
+                            </JLabel>
+
                             <JPanel>
                                 <JButton text="'Messages'" command="{Binding messagesButtonCommand}">
                                     <icon>

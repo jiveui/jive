@@ -34,6 +34,7 @@ import org.aswing.geom.IntRectangle;
 	import org.aswing.AsWingUtils;
 	/**
  * @private
+ * @private
  * @author paling
  */
 class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
@@ -288,17 +289,11 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	}
 	
 	private function __menuItemRollOut(e:MouseEvent):Void {
-		trace(menuItem.text + ":rollout");
 		var path:Array<Dynamic>= MenuSelectionManager.defaultManager().getSelectedPath();
-        trace(path);
-        trace(menuItem.parent);
-        trace(menuItem.getSubElements());
 		if (path.length > 1 && Std.is(path[path.length-1],JMenuItem) && path[path.length-1] == menuItem){
-            trace("not clear");
 			path.pop();
 			MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, path, false);
 		} else if(null != menuItem.getParent() && Std.is(menuItem.getParent(), JMenuBar)) {
-            trace("clear");
             // A top level menu's parent is by definition a JMenuBar
             MenuSelectionManager.defaultManager().clearSelectedPath(false);
         }
