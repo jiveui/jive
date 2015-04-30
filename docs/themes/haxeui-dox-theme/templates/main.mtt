@@ -17,7 +17,7 @@
 <body>
 	<div class="navbar navbar-fixed-top">
 	    <div class="navbar-inner">
-            <a class="navbar-brand pull-left" href="/">
+            <a class="navbar-brand pull-left" href="::api.config.rootPath::/../../">
                 <img alt="Jive" src="::api.config.rootPath::/logo-dark.png" style="padding:10px"/>
             </a>
             <p class="navbar-text pull-left header">API documentation</p>
