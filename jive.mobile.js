@@ -20,22 +20,6 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.eot",0) < 0) {
-		urls.push("assets/Lato-Black.eot");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.svg",0) < 0) {
-		urls.push("assets/Lato-Black.svg");
-		types.push("TEXT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.ttf",0) < 0) {
-		urls.push("assets/Lato-Black.ttf");
-		types.push("FONT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.woff",0) < 0) {
-		urls.push("assets/Lato-Black.woff");
-		types.push("BINARY");
-	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Bold.eot",0) < 0) {
 		urls.push("assets/Lato-Bold.eot");
 		types.push("BINARY");
@@ -114,22 +98,6 @@ ApplicationMain.create = function() {
 	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Regular.woff",0) < 0) {
 		urls.push("assets/Lato-Regular.woff");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.eot",0) < 0) {
-		urls.push("assets/Lato-Black.eot");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.svg",0) < 0) {
-		urls.push("assets/Lato-Black.svg");
-		types.push("TEXT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.ttf",0) < 0) {
-		urls.push("assets/Lato-Black.ttf");
-		types.push("FONT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.woff",0) < 0) {
-		urls.push("assets/Lato-Black.woff");
 		types.push("BINARY");
 	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Bold.eot",0) < 0) {
@@ -1575,13 +1543,16 @@ var Main = function() {
 	jive.Navigation.get_instance().addRoute("/demo",function(after1) {
 		mainVM.openDemo.action();
 	});
+	jive.Navigation.get_instance().addRoute("/download",function(after2) {
+		mainVM.openDownload.action();
+	});
 	Main.mainView.setBackgroundDecorator(new org.aswing.SolidBackground(org.aswing.UIManager.getColor("window")));
 	Main.mainView.setBorder(new org.aswing.border.EmptyBorder(null,org.aswing.Insets.createIdentic(10)));
 	var resize = function() {
 		var w = openfl.Lib.get_current().get_stage().get_stageWidth();
 		var h = openfl.Lib.get_current().get_stage().get_stageHeight();
-		Main.mainView.setSizeWH(w <= 1200?w:1200,h);
-		Main.mainView.set_location(new org.aswing.geom.IntPoint(w <= 1200?0:(w - 1200) / 2 | 0,0));
+		Main.mainView.setSizeWH(w <= 1000?w:1000,h);
+		Main.mainView.set_location(new org.aswing.geom.IntPoint(w <= 1000?0:(w - 1000) / 2 | 0,0));
 	};
 	resize();
 	openfl.Lib.get_current().get_stage().addEventListener(openfl.events.Event.RESIZE,function(e) {
@@ -1668,18 +1639,6 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe.ds.StringMap();
 	lime.AssetLibrary.call(this);
 	var id;
-	id = "assets/Lato-Black.eot";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.svg";
-	this.path.set(id,id);
-	this.type.set(id,"TEXT");
-	id = "assets/Lato-Black.ttf";
-	this.className.set(id,__ASSET__assets_lato_black_ttf);
-	this.type.set(id,"FONT");
-	id = "assets/Lato-Black.woff";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
 	id = "assets/Lato-Bold.eot";
 	this.path.set(id,id);
 	this.type.set(id,"BINARY");
@@ -1738,18 +1697,6 @@ var DefaultAssetLibrary = function() {
 	this.className.set(id,__ASSET__assets_lato_regular_ttf);
 	this.type.set(id,"FONT");
 	id = "assets/Lato-Regular.woff";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.eot";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.svg";
-	this.path.set(id,id);
-	this.type.set(id,"TEXT");
-	id = "assets/Lato-Black.ttf";
-	this.className.set(id,__ASSET__assets_lato_black_ttf1);
-	this.type.set(id,"FONT");
-	id = "assets/Lato-Black.woff";
 	this.path.set(id,id);
 	this.type.set(id,"BINARY");
 	id = "assets/Lato-Bold.eot";
@@ -2076,16 +2023,6 @@ openfl.text.Font.prototype = {
 	,__class__: openfl.text.Font
 	,__properties__: {set_fontName:"set_fontName"}
 };
-var __ASSET__assets_lato_black_ttf = function() {
-	openfl.text.Font.call(this);
-	this.set_fontName("assets/Lato-Black.ttf");
-};
-$hxClasses["__ASSET__assets_lato_black_ttf"] = __ASSET__assets_lato_black_ttf;
-__ASSET__assets_lato_black_ttf.__name__ = ["__ASSET__assets_lato_black_ttf"];
-__ASSET__assets_lato_black_ttf.__super__ = openfl.text.Font;
-__ASSET__assets_lato_black_ttf.prototype = $extend(openfl.text.Font.prototype,{
-	__class__: __ASSET__assets_lato_black_ttf
-});
 var __ASSET__assets_lato_bold_ttf = function() {
 	openfl.text.Font.call(this);
 	this.set_fontName("assets/Lato-Bold.ttf");
@@ -2135,16 +2072,6 @@ __ASSET__assets_lato_regular_ttf.__name__ = ["__ASSET__assets_lato_regular_ttf"]
 __ASSET__assets_lato_regular_ttf.__super__ = openfl.text.Font;
 __ASSET__assets_lato_regular_ttf.prototype = $extend(openfl.text.Font.prototype,{
 	__class__: __ASSET__assets_lato_regular_ttf
-});
-var __ASSET__assets_lato_black_ttf1 = function() {
-	openfl.text.Font.call(this);
-	this.set_fontName("assets/Lato-Black.ttf");
-};
-$hxClasses["__ASSET__assets_lato_black_ttf1"] = __ASSET__assets_lato_black_ttf1;
-__ASSET__assets_lato_black_ttf1.__name__ = ["__ASSET__assets_lato_black_ttf1"];
-__ASSET__assets_lato_black_ttf1.__super__ = openfl.text.Font;
-__ASSET__assets_lato_black_ttf1.prototype = $extend(openfl.text.Font.prototype,{
-	__class__: __ASSET__assets_lato_black_ttf1
 });
 var __ASSET__assets_lato_bold_ttf1 = function() {
 	openfl.text.Font.call(this);
@@ -6284,19 +6211,11 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 		this.menuItem.repaint();
 	}
 	,__menuItemRollOut: function(e) {
-		haxe.Log.trace(this.menuItem.get_text() + ":rollout",{ fileName : "BasicMenuItemUI.hx", lineNumber : 291, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 		var path = org.aswing.MenuSelectionManager.defaultManager().getSelectedPath();
-		haxe.Log.trace(path,{ fileName : "BasicMenuItemUI.hx", lineNumber : 293, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-		haxe.Log.trace(this.menuItem.parent,{ fileName : "BasicMenuItemUI.hx", lineNumber : 294, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-		haxe.Log.trace(this.menuItem.getSubElements(),{ fileName : "BasicMenuItemUI.hx", lineNumber : 295, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 		if(path.length > 1 && js.Boot.__instanceof(path[path.length - 1],org.aswing.JMenuItem) && path[path.length - 1] == this.menuItem) {
-			haxe.Log.trace("not clear",{ fileName : "BasicMenuItemUI.hx", lineNumber : 297, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 			path.pop();
 			org.aswing.MenuSelectionManager.defaultManager().setSelectedPath(this.menuItem.get_stage(),path,false);
-		} else if(null != this.menuItem.getParent() && Std["is"](this.menuItem.getParent(),org.aswing.JMenuBar)) {
-			haxe.Log.trace("clear",{ fileName : "BasicMenuItemUI.hx", lineNumber : 301, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-			org.aswing.MenuSelectionManager.defaultManager().clearSelectedPath(false);
-		}
+		} else if(null != this.menuItem.getParent() && Std["is"](this.menuItem.getParent(),org.aswing.JMenuBar)) org.aswing.MenuSelectionManager.defaultManager().clearSelectedPath(false);
 		this.menuItem.repaint();
 	}
 	,__menuItemAct: function(e) {
@@ -24881,7 +24800,6 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,RebuildText: function() {
 		if(null == this.mText) return;
-		haxe.Log.trace("Adding text through snap.text: '" + this.mText + "' font-family:" + this.mFace + "; font-size: " + this.mTextHeight + "; color: " + "#" + StringTools.hex(this.mTextColour,6),{ fileName : "TextField.hx", lineNumber : 478, className : "openfl.text.TextField", methodName : "RebuildText"});
 		var paras = this.mText.split("\n");
 		this.mParagraphs = [];
 		if(!this.mHTMLMode) {
@@ -25284,16 +25202,12 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				this.__graphics.flush();
 			}
 			this.caretTimer.run = $bind(this,this.hideCaret);
-			this.invalidate();
-			this.renderNextWake();
 		}
 	}
 	,hideCaret: function() {
 		this.__graphics.clear();
 		this.drawBackgoundAndBorder();
 		this.caretTimer.run = $bind(this,this.showCaret);
-		this.invalidate();
-		this.renderNextWake();
 	}
 	,onKeyDown: function(e) {
 		var evt = e;
@@ -25404,8 +25318,8 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,onMouseDown: function(e) {
 		if(this.__inputEnabled && this.get_stage().get_focus() == this) {
-			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			var textElement = this.mTextSnap.node;
+			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			if(null != this.get_text() && this.get_text().length > 0 && this.get_text().length > this.get_caretIndex()) try {
 				var extent = textElement.getExtentOfChar(this.get_caretIndex());
 				if(e.localX - this.get_textElementOffset().x - extent.x > extent.width / 2) {
@@ -25414,6 +25328,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				}
 			} catch( e1 ) {
 			}
+			if(e.localX > textElement.clientWidth) this.set_caretIndex(this.get_text().length);
 			this.selectionBeginIndex = this.get_caretIndex();
 			this.selectionEndIndex = this.get_caretIndex() - 1;
 			this.addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.onMouseMove));
@@ -25425,8 +25340,8 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		if(e.target == this) {
 			this.shouldCaretShowed = true;
 			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
+			var textElement = this.mTextSnap.node;
 			try {
-				var textElement = this.mTextSnap.node;
 				var extent = textElement.getExtentOfChar(this.get_caretIndex());
 				if(e.localX - this.get_textElementOffset().x - extent.x > extent.width / 2) {
 					var _g = this;
@@ -25434,6 +25349,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				}
 			} catch( e1 ) {
 			}
+			if(e.localX > textElement.clientWidth) this.set_caretIndex(this.get_text().length);
 		} else this.shouldCaretShowed = false;
 	}
 	,onMouseMove: function(e) {
@@ -25521,7 +25437,6 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		return this.mText;
 	}
 	,set_text: function(inText) {
-		haxe.Log.trace("set_text:" + inText,{ fileName : "TextField.hx", lineNumber : 1399, className : "openfl.text.TextField", methodName : "set_text"});
 		if(this.mText == inText) return inText;
 		this.mText = inText;
 		if(null == this.mText) this.mText = "";
@@ -49905,7 +49820,7 @@ viewmodel.MainViewModel = function() {
 		_g.openLinkInBlankPage(_g.baseUrl + "/docs/api/index.html");
 	}));
 	this.set_openDownload(new jive.BaseCommand(function() {
-		_g.openLinkInBlankPage("/download");
+		_g.set_contentIndex(1);
 	}));
 	this.set_openContribute(new jive.BaseCommand(function() {
 		_g.openLinkInBlankPage("http://github.com/ngrebenshikov/jive");
@@ -49914,7 +49829,7 @@ viewmodel.MainViewModel = function() {
 		_g.set_contentIndex(0);
 	}));
 	this.set_openDemo(new jive.BaseCommand(function() {
-		_g.set_contentIndex(1);
+		_g.set_contentIndex(2);
 	}));
 };
 $hxClasses["viewmodel.MainViewModel"] = viewmodel.MainViewModel;

@@ -14,23 +14,21 @@
             <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
         </font>
         <border>
-            <border:EmptyBorder bottom="15"/>
+            <border:EmptyBorder bottom="30"/>
         </border>
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
         <TabInfo title="'Demo'">
             <content>
-                <JPanel>
-                    <layout>
-                        <CenterLayout/>
-                    </layout>
-                    <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
+                <SoftBox>
+                    <border><border:EmptyBorder top="30"/></border>
+                    <SoftBox axis="org.aswing.SoftBoxLayout.Y_AXIS" gap="15">
                         <SoftBox>
                             <border>
                                 <border:LineBorder thickness="1" round="5">
                                     <border:interior>
-                                        <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
+                                        <border:EmptyBorder top="20" left="20" bottom="20" right="20"/>
                                     </border:interior>
                                     <border:color>
                                         <ASColor rgb="0xe1e1e1"/>
@@ -38,29 +36,40 @@
                                 </border:LineBorder>
                             </border>
 
-                            <JLabel text="'Basic buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
                             <JPanel>
-                                <JButton id="defButton" text="'Default button'" command="{Binding defaultButtonCommand}"/>
-                                <JButton text="'Button'" command="{Binding basicButtonCommand}"/>
+                                <SoftBox>
+                                    <JLabel text="'Basic buttons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border><border:EmptyBorder left="5"/></border>
+                                    </JLabel>
+                                    <JPanel>
+                                        <JButton id="defButton" text="'Default button'" command="{Binding defaultButtonCommand}"/>
+                                        <JButton text="'Button'" command="{Binding basicButtonCommand}"/>
+                                    </JPanel>
+                                </SoftBox>
+                                <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
+                                <SoftBox>
+                                    <JLabel text="'Disabled button'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border><border:EmptyBorder left="5"/></border>
+                                    </JLabel>
+                                    <JPanel>
+                                        <JButton text="'Disabled button'" enabled="false"/>
+                                    </JPanel>
+                                </SoftBox>
                             </JPanel>
 
                             <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
 
-                            <JLabel text="'Disabled button'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-                            <JPanel>
-                                <JButton text="'Disabled button'" enabled="false"/>
-                            </JPanel>
+                            <JLabel text="'Buttons with icons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <border><border:EmptyBorder left="5"/></border>
+                            </JLabel>
 
-                            <JSpacer><preferredSize> <geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
-
-                            <JLabel text="'Buttons with icons'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
                             <JPanel>
                                 <JButton text="'Messages'" command="{Binding messagesButtonCommand}">
                                     <icon>
                                         <AssetIcon bitmapAsset="'messages.png'" width="30" height="30" scale="true"/>
                                     </icon>
                                 </JButton>
-                                <JButton text="'Wheather'" command="{Binding weatherButtonCommand}">
+                                <JButton text="'Wheather in Abakan'" command="{Binding weatherButtonCommand}">
                                     <icon>
                                         <AssetIcon bitmapAsset="'weather.png'" width="30" height="30" scale="true"/>
                                     </icon>
@@ -72,13 +81,14 @@
                                 </JButton>
                             </JPanel>
                         </SoftBox>
-                        <JTextArea editable="false" text="{Binding buttonsLog mode=oneway}">
+                        <JScrollPane>
                             <preferredSize>
-                                <geom:IntDimension width="300" height="0"/>
+                                <geom:IntDimension width="0" height="200"/>
                             </preferredSize>
-                        </JTextArea>
+                            <JTextArea editable="false" text="{Binding buttonsLog mode=oneway}"/>
+                        </JScrollPane>
                     </SoftBox>
-                </JPanel>
+                </SoftBox>
             </content>
         </TabInfo>
         <!--Sources-->

@@ -20,22 +20,6 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.eot",0) < 0) {
-		urls.push("assets/Lato-Black.eot");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.svg",0) < 0) {
-		urls.push("assets/Lato-Black.svg");
-		types.push("TEXT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.ttf",0) < 0) {
-		urls.push("assets/Lato-Black.ttf");
-		types.push("FONT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.woff",0) < 0) {
-		urls.push("assets/Lato-Black.woff");
-		types.push("BINARY");
-	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Bold.eot",0) < 0) {
 		urls.push("assets/Lato-Bold.eot");
 		types.push("BINARY");
@@ -114,22 +98,6 @@ ApplicationMain.create = function() {
 	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Regular.woff",0) < 0) {
 		urls.push("assets/Lato-Regular.woff");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.eot",0) < 0) {
-		urls.push("assets/Lato-Black.eot");
-		types.push("BINARY");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.svg",0) < 0) {
-		urls.push("assets/Lato-Black.svg");
-		types.push("TEXT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.ttf",0) < 0) {
-		urls.push("assets/Lato-Black.ttf");
-		types.push("FONT");
-	}
-	if(HxOverrides.indexOf(urls,"assets/Lato-Black.woff",0) < 0) {
-		urls.push("assets/Lato-Black.woff");
 		types.push("BINARY");
 	}
 	if(HxOverrides.indexOf(urls,"assets/Lato-Bold.eot",0) < 0) {
@@ -1575,14 +1543,17 @@ var Main = function() {
 	jive.Navigation.get_instance().addRoute("/demo",function(after1) {
 		mainVM.openDemo.action();
 	});
+	jive.Navigation.get_instance().addRoute("/download",function(after2) {
+		mainVM.openDownload.action();
+	});
 	jive.Navigation.get_instance().navigate([Main.mainView.get_menuBar().getMenu(1)]);
 	Main.mainView.setBackgroundDecorator(new org.aswing.SolidBackground(org.aswing.UIManager.getColor("window")));
 	Main.mainView.setBorder(new org.aswing.border.EmptyBorder(null,org.aswing.Insets.createIdentic(10)));
 	var resize = function() {
 		var w = openfl.Lib.get_current().get_stage().get_stageWidth();
 		var h = openfl.Lib.get_current().get_stage().get_stageHeight();
-		Main.mainView.setSizeWH(w <= 1200?w:1200,h);
-		Main.mainView.set_location(new org.aswing.geom.IntPoint(w <= 1200?0:(w - 1200) / 2 | 0,0));
+		Main.mainView.setSizeWH(w <= 1000?w:1000,h);
+		Main.mainView.set_location(new org.aswing.geom.IntPoint(w <= 1000?0:(w - 1000) / 2 | 0,0));
 	};
 	resize();
 	openfl.Lib.get_current().get_stage().addEventListener(openfl.events.Event.RESIZE,function(e) {
@@ -1669,18 +1640,6 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe.ds.StringMap();
 	lime.AssetLibrary.call(this);
 	var id;
-	id = "assets/Lato-Black.eot";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.svg";
-	this.path.set(id,id);
-	this.type.set(id,"TEXT");
-	id = "assets/Lato-Black.ttf";
-	this.className.set(id,__ASSET__assets_lato_black_ttf);
-	this.type.set(id,"FONT");
-	id = "assets/Lato-Black.woff";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
 	id = "assets/Lato-Bold.eot";
 	this.path.set(id,id);
 	this.type.set(id,"BINARY");
@@ -1739,18 +1698,6 @@ var DefaultAssetLibrary = function() {
 	this.className.set(id,__ASSET__assets_lato_regular_ttf);
 	this.type.set(id,"FONT");
 	id = "assets/Lato-Regular.woff";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.eot";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "assets/Lato-Black.svg";
-	this.path.set(id,id);
-	this.type.set(id,"TEXT");
-	id = "assets/Lato-Black.ttf";
-	this.className.set(id,__ASSET__assets_lato_black_ttf1);
-	this.type.set(id,"FONT");
-	id = "assets/Lato-Black.woff";
 	this.path.set(id,id);
 	this.type.set(id,"BINARY");
 	id = "assets/Lato-Bold.eot";
@@ -2077,16 +2024,6 @@ openfl.text.Font.prototype = {
 	,__class__: openfl.text.Font
 	,__properties__: {set_fontName:"set_fontName"}
 };
-var __ASSET__assets_lato_black_ttf = function() {
-	openfl.text.Font.call(this);
-	this.set_fontName("assets/Lato-Black.ttf");
-};
-$hxClasses["__ASSET__assets_lato_black_ttf"] = __ASSET__assets_lato_black_ttf;
-__ASSET__assets_lato_black_ttf.__name__ = ["__ASSET__assets_lato_black_ttf"];
-__ASSET__assets_lato_black_ttf.__super__ = openfl.text.Font;
-__ASSET__assets_lato_black_ttf.prototype = $extend(openfl.text.Font.prototype,{
-	__class__: __ASSET__assets_lato_black_ttf
-});
 var __ASSET__assets_lato_bold_ttf = function() {
 	openfl.text.Font.call(this);
 	this.set_fontName("assets/Lato-Bold.ttf");
@@ -2136,16 +2073,6 @@ __ASSET__assets_lato_regular_ttf.__name__ = ["__ASSET__assets_lato_regular_ttf"]
 __ASSET__assets_lato_regular_ttf.__super__ = openfl.text.Font;
 __ASSET__assets_lato_regular_ttf.prototype = $extend(openfl.text.Font.prototype,{
 	__class__: __ASSET__assets_lato_regular_ttf
-});
-var __ASSET__assets_lato_black_ttf1 = function() {
-	openfl.text.Font.call(this);
-	this.set_fontName("assets/Lato-Black.ttf");
-};
-$hxClasses["__ASSET__assets_lato_black_ttf1"] = __ASSET__assets_lato_black_ttf1;
-__ASSET__assets_lato_black_ttf1.__name__ = ["__ASSET__assets_lato_black_ttf1"];
-__ASSET__assets_lato_black_ttf1.__super__ = openfl.text.Font;
-__ASSET__assets_lato_black_ttf1.prototype = $extend(openfl.text.Font.prototype,{
-	__class__: __ASSET__assets_lato_black_ttf1
 });
 var __ASSET__assets_lato_bold_ttf1 = function() {
 	openfl.text.Font.call(this);
@@ -4900,7 +4827,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_emptyBorder__0: function() {
 		var res = new org.aswing.border.EmptyBorder();
-		res.set_bottom(15);
+		res.set_bottom(30);
 		return res;
 	}
 	,get_jLabel__0: function() {
@@ -4912,16 +4839,17 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_border(this.get_emptyBorder__0());
 		return res;
 	}
-	,get_centerLayout__0: function() {
-		var res = new org.aswing.CenterLayout();
-		return res;
-	}
 	,get_emptyBorder__1: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(30);
-		res.set_right(30);
-		res.set_bottom(30);
-		res.set_left(30);
+		return res;
+	}
+	,get_emptyBorder__2: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(20);
+		res.set_right(20);
+		res.set_bottom(20);
+		res.set_left(20);
 		return res;
 	}
 	,get_aSColor__0: function() {
@@ -4933,14 +4861,20 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.border.LineBorder();
 		res.round = 5;
 		res.thickness = 1;
-		res.interior = this.get_emptyBorder__1();
+		res.interior = this.get_emptyBorder__2();
 		res.color = this.get_aSColor__0();
+		return res;
+	}
+	,get_emptyBorder__3: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_left(5);
 		return res;
 	}
 	,get_jLabel__1: function() {
 		var res = new org.aswing.JLabel();
 		res.set_horizontalAlignment(2);
 		res.set_text("Basic buttons");
+		res.set_border(this.get_emptyBorder__3());
 		return res;
 	}
 	,set_defButton: function(value) {
@@ -5018,6 +4952,12 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.append(this.get_jButton__0());
 		return res;
 	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.append(this.get_jLabel__1());
+		res.append(this.get_jPanel__0());
+		return res;
+	}
 	,get_intDimension__0: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 10;
@@ -5029,10 +4969,16 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_preferredSize(this.get_intDimension__0());
 		return res;
 	}
+	,get_emptyBorder__4: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_left(5);
+		return res;
+	}
 	,get_jLabel__2: function() {
 		var res = new org.aswing.JLabel();
 		res.set_horizontalAlignment(2);
 		res.set_text("Disabled button");
+		res.set_border(this.get_emptyBorder__4());
 		return res;
 	}
 	,get_jButton__1: function() {
@@ -5046,6 +4992,19 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.append(this.get_jButton__1());
 		return res;
 	}
+	,get_softBox__1: function() {
+		var res = new org.aswing.SoftBox();
+		res.append(this.get_jLabel__2());
+		res.append(this.get_jPanel__1());
+		return res;
+	}
+	,get_jPanel__2: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_softBox__0());
+		res.append(this.get_jSpacer__0());
+		res.append(this.get_softBox__1());
+		return res;
+	}
 	,get_intDimension__1: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 10;
@@ -5057,10 +5016,16 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_preferredSize(this.get_intDimension__1());
 		return res;
 	}
+	,get_emptyBorder__5: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_left(5);
+		return res;
+	}
 	,get_jLabel__3: function() {
 		var res = new org.aswing.JLabel();
 		res.set_horizontalAlignment(2);
 		res.set_text("Buttons with icons");
+		res.set_border(this.get_emptyBorder__5());
 		return res;
 	}
 	,get_assetIcon__0: function() {
@@ -5139,7 +5104,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 			res.command = _g.dataContext.weatherButtonCommand;
 			bindSourceListener();
 		}
-		res.set_text("Wheather");
+		res.set_text("Wheather in Abakan");
 		res.set_icon(this.get_assetIcon__1());
 		return res;
 	}
@@ -5182,30 +5147,26 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_icon(this.get_assetIcon__2());
 		return res;
 	}
-	,get_jPanel__2: function() {
+	,get_jPanel__3: function() {
 		var res = new org.aswing.JPanel();
 		res.append(this.get_jButton__2());
 		res.append(this.get_jButton__3());
 		res.append(this.get_jButton__4());
 		return res;
 	}
-	,get_softBox__0: function() {
+	,get_softBox__2: function() {
 		var res = new org.aswing.SoftBox();
 		res.set_border(this.get_lineBorder__0());
-		res.append(this.get_jLabel__1());
-		res.append(this.get_jPanel__0());
-		res.append(this.get_jSpacer__0());
-		res.append(this.get_jLabel__2());
-		res.append(this.get_jPanel__1());
+		res.append(this.get_jPanel__2());
 		res.append(this.get_jSpacer__1());
 		res.append(this.get_jLabel__3());
-		res.append(this.get_jPanel__2());
+		res.append(this.get_jPanel__3());
 		return res;
 	}
 	,get_intDimension__2: function() {
 		var res = new org.aswing.geom.IntDimension();
-		res.width = 300;
-		res.height = 0;
+		res.width = 0;
+		res.height = 200;
 		return res;
 	}
 	,get_jTextArea__0: function() {
@@ -5237,27 +5198,32 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 			bindSourceListener();
 		}
 		res.set_editable(false);
-		res.set_preferredSize(this.get_intDimension__2());
 		return res;
 	}
-	,get_softBox__1: function() {
-		var res = new org.aswing.SoftBox();
-		res.set_axis(0);
-		res.set_gap(30);
-		res.append(this.get_softBox__0());
+	,get_jScrollPane__0: function() {
+		var res = new org.aswing.JScrollPane();
+		res.set_preferredSize(this.get_intDimension__2());
 		res.append(this.get_jTextArea__0());
 		return res;
 	}
-	,get_jPanel__3: function() {
-		var res = new org.aswing.JPanel();
-		res.set_layout(this.get_centerLayout__0());
-		res.append(this.get_softBox__1());
+	,get_softBox__3: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_axis(1);
+		res.set_gap(15);
+		res.append(this.get_softBox__2());
+		res.append(this.get_jScrollPane__0());
+		return res;
+	}
+	,get_softBox__4: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_border(this.get_emptyBorder__1());
+		res.append(this.get_softBox__3());
 		return res;
 	}
 	,get_tabInfo__0: function() {
 		var res = new org.aswing.TabInfo();
 		res.title = "Demo";
-		res.content = this.get_jPanel__3();
+		res.content = this.get_softBox__4();
 		return res;
 	}
 	,get_hmlRegExRules__0: function() {
@@ -5296,7 +5262,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_rules(this.get_hmlRegExRules__0());
 		return res;
 	}
-	,get_jScrollPane__0: function() {
+	,get_jScrollPane__1: function() {
 		var res = new org.aswing.JScrollPane();
 		res.append(this.get_regExFormattedTextArea__0());
 		return res;
@@ -5304,7 +5270,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_tabInfo__1: function() {
 		var res = new org.aswing.TabInfo();
 		res.title = "View (XML source)";
-		res.content = this.get_jScrollPane__0();
+		res.content = this.get_jScrollPane__1();
 		return res;
 	}
 	,get_haxeRegExRules__0: function() {
@@ -5343,7 +5309,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_rules(this.get_haxeRegExRules__0());
 		return res;
 	}
-	,get_jScrollPane__1: function() {
+	,get_jScrollPane__2: function() {
 		var res = new org.aswing.JScrollPane();
 		res.append(this.get_regExFormattedTextArea__1());
 		return res;
@@ -5351,7 +5317,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_tabInfo__2: function() {
 		var res = new org.aswing.TabInfo();
 		res.title = "View Model (Haxe source)";
-		res.content = this.get_jScrollPane__1();
+		res.content = this.get_jScrollPane__2();
 		return res;
 	}
 	,get_jTabbedPane__0: function() {
@@ -5437,7 +5403,7 @@ demo.view.ComboBoxView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_emptyBorder__0: function() {
 		var res = new org.aswing.border.EmptyBorder();
-		res.set_bottom(15);
+		res.set_bottom(30);
 		return res;
 	}
 	,get_jLabel__0: function() {
@@ -5449,11 +5415,12 @@ demo.view.ComboBoxView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_border(this.get_emptyBorder__0());
 		return res;
 	}
-	,get_centerLayout__0: function() {
-		var res = new org.aswing.CenterLayout();
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
 		return res;
 	}
-	,get_emptyBorder__1: function() {
+	,get_emptyBorder__2: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(30);
 		res.set_right(30);
@@ -5470,7 +5437,7 @@ demo.view.ComboBoxView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.border.LineBorder();
 		res.round = 5;
 		res.thickness = 1;
-		res.interior = this.get_emptyBorder__1();
+		res.interior = this.get_emptyBorder__2();
 		res.color = this.get_aSColor__0();
 		return res;
 	}
@@ -5713,7 +5680,7 @@ demo.view.ComboBoxView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_jPanel__2: function() {
 		var res = new org.aswing.JPanel();
-		res.set_layout(this.get_centerLayout__0());
+		res.set_border(this.get_emptyBorder__1());
 		res.append(this.get_softBox__0());
 		return res;
 	}
@@ -5891,7 +5858,7 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_borderLayout__0: function() {
 		var res = new org.aswing.BorderLayout();
-		res.hgap = 50;
+		res.hgap = 30;
 		res.vgap = 30;
 		return res;
 	}
@@ -5907,7 +5874,7 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_intDimension__0: function() {
 		var res = new org.aswing.geom.IntDimension();
-		res.width = 220;
+		res.width = 200;
 		res.height = -1;
 		return res;
 	}
@@ -5984,8 +5951,8 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_intDimension__1: function() {
 		var res = new org.aswing.geom.IntDimension();
-		res.width = 30;
-		res.height = 30;
+		res.width = 20;
+		res.height = 20;
 		return res;
 	}
 	,get_jSpacer__0: function() {
@@ -6001,7 +5968,7 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_openLinkCommand__0: function() {
 		var res = new jive.OpenLinkCommand();
-		res.set_url("/flash.html");
+		res.set_url("/jive/flash.html");
 		return res;
 	}
 	,get_jLabelButton__0: function() {
@@ -6013,7 +5980,7 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_openLinkCommand__1: function() {
 		var res = new jive.OpenLinkCommand();
-		res.set_url("/demos/jive-demo.zip");
+		res.set_url("/jive/demos/jive-demo.zip");
 		return res;
 	}
 	,get_jLabelButton__1: function() {
@@ -6025,7 +5992,7 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_openLinkCommand__2: function() {
 		var res = new jive.OpenLinkCommand();
-		res.set_url("/demos/jive-demo.dmg");
+		res.set_url("/jive/demos/jive-demo.dmg");
 		return res;
 	}
 	,get_jLabelButton__2: function() {
@@ -6280,7 +6247,7 @@ demo.view.ProgressView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_emptyBorder__0: function() {
 		var res = new org.aswing.border.EmptyBorder();
-		res.set_bottom(15);
+		res.set_bottom(30);
 		return res;
 	}
 	,get_jLabel__0: function() {
@@ -6292,11 +6259,12 @@ demo.view.ProgressView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_border(this.get_emptyBorder__0());
 		return res;
 	}
-	,get_centerLayout__0: function() {
-		var res = new org.aswing.CenterLayout();
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
 		return res;
 	}
-	,get_emptyBorder__1: function() {
+	,get_emptyBorder__2: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(30);
 		res.set_right(30);
@@ -6313,7 +6281,7 @@ demo.view.ProgressView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.border.LineBorder();
 		res.round = 5;
 		res.thickness = 1;
-		res.interior = this.get_emptyBorder__1();
+		res.interior = this.get_emptyBorder__2();
 		res.color = this.get_aSColor__0();
 		return res;
 	}
@@ -6528,19 +6496,14 @@ demo.view.ProgressView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_softBox__1: function() {
 		var res = new org.aswing.SoftBox();
 		res.set_gap(10);
+		res.set_border(this.get_emptyBorder__1());
 		res.append(this.get_softBox__0());
-		return res;
-	}
-	,get_jPanel__1: function() {
-		var res = new org.aswing.JPanel();
-		res.set_layout(this.get_centerLayout__0());
-		res.append(this.get_softBox__1());
 		return res;
 	}
 	,get_tabInfo__0: function() {
 		var res = new org.aswing.TabInfo();
 		res.title = "Demo";
-		res.content = this.get_jPanel__1();
+		res.content = this.get_softBox__1();
 		return res;
 	}
 	,get_hmlRegExRules__0: function() {
@@ -6720,7 +6683,7 @@ demo.view.TextView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_emptyBorder__0: function() {
 		var res = new org.aswing.border.EmptyBorder();
-		res.set_bottom(15);
+		res.set_bottom(30);
 		return res;
 	}
 	,get_jLabel__0: function() {
@@ -6732,11 +6695,12 @@ demo.view.TextView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_border(this.get_emptyBorder__0());
 		return res;
 	}
-	,get_centerLayout__0: function() {
-		var res = new org.aswing.CenterLayout();
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
 		return res;
 	}
-	,get_emptyBorder__1: function() {
+	,get_emptyBorder__2: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(30);
 		res.set_right(30);
@@ -6753,7 +6717,7 @@ demo.view.TextView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.border.LineBorder();
 		res.round = 5;
 		res.thickness = 1;
-		res.interior = this.get_emptyBorder__1();
+		res.interior = this.get_emptyBorder__2();
 		res.color = this.get_aSColor__0();
 		return res;
 	}
@@ -6941,19 +6905,14 @@ demo.view.TextView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_softBox__2: function() {
 		var res = new org.aswing.SoftBox();
+		res.set_border(this.get_emptyBorder__1());
 		res.append(this.get_softBox__1());
-		return res;
-	}
-	,get_jPanel__2: function() {
-		var res = new org.aswing.JPanel();
-		res.set_layout(this.get_centerLayout__0());
-		res.append(this.get_softBox__2());
 		return res;
 	}
 	,get_tabInfo__0: function() {
 		var res = new org.aswing.TabInfo();
 		res.title = "Demo";
-		res.content = this.get_jPanel__2();
+		res.content = this.get_softBox__2();
 		return res;
 	}
 	,get_hmlRegExRules__0: function() {
@@ -11128,19 +11087,11 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 		this.menuItem.repaint();
 	}
 	,__menuItemRollOut: function(e) {
-		haxe.Log.trace(this.menuItem.get_text() + ":rollout",{ fileName : "BasicMenuItemUI.hx", lineNumber : 291, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 		var path = org.aswing.MenuSelectionManager.defaultManager().getSelectedPath();
-		haxe.Log.trace(path,{ fileName : "BasicMenuItemUI.hx", lineNumber : 293, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-		haxe.Log.trace(this.menuItem.parent,{ fileName : "BasicMenuItemUI.hx", lineNumber : 294, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-		haxe.Log.trace(this.menuItem.getSubElements(),{ fileName : "BasicMenuItemUI.hx", lineNumber : 295, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 		if(path.length > 1 && js.Boot.__instanceof(path[path.length - 1],org.aswing.JMenuItem) && path[path.length - 1] == this.menuItem) {
-			haxe.Log.trace("not clear",{ fileName : "BasicMenuItemUI.hx", lineNumber : 297, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
 			path.pop();
 			org.aswing.MenuSelectionManager.defaultManager().setSelectedPath(this.menuItem.get_stage(),path,false);
-		} else if(null != this.menuItem.getParent() && Std["is"](this.menuItem.getParent(),org.aswing.JMenuBar)) {
-			haxe.Log.trace("clear",{ fileName : "BasicMenuItemUI.hx", lineNumber : 301, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "__menuItemRollOut"});
-			org.aswing.MenuSelectionManager.defaultManager().clearSelectedPath(false);
-		}
+		} else if(null != this.menuItem.getParent() && Std["is"](this.menuItem.getParent(),org.aswing.JMenuBar)) org.aswing.MenuSelectionManager.defaultManager().clearSelectedPath(false);
 		this.menuItem.repaint();
 	}
 	,__menuItemAct: function(e) {
@@ -27914,7 +27865,6 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,RebuildText: function() {
 		if(null == this.mText) return;
-		haxe.Log.trace("Adding text through snap.text: '" + this.mText + "' font-family:" + this.mFace + "; font-size: " + this.mTextHeight + "; color: " + "#" + StringTools.hex(this.mTextColour,6),{ fileName : "TextField.hx", lineNumber : 478, className : "openfl.text.TextField", methodName : "RebuildText"});
 		var paras = this.mText.split("\n");
 		this.mParagraphs = [];
 		if(!this.mHTMLMode) {
@@ -28317,16 +28267,12 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				this.__graphics.flush();
 			}
 			this.caretTimer.run = $bind(this,this.hideCaret);
-			this.invalidate();
-			this.renderNextWake();
 		}
 	}
 	,hideCaret: function() {
 		this.__graphics.clear();
 		this.drawBackgoundAndBorder();
 		this.caretTimer.run = $bind(this,this.showCaret);
-		this.invalidate();
-		this.renderNextWake();
 	}
 	,onKeyDown: function(e) {
 		var evt = e;
@@ -28437,8 +28383,8 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,onMouseDown: function(e) {
 		if(this.__inputEnabled && this.get_stage().get_focus() == this) {
-			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			var textElement = this.mTextSnap.node;
+			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			if(null != this.get_text() && this.get_text().length > 0 && this.get_text().length > this.get_caretIndex()) try {
 				var extent = textElement.getExtentOfChar(this.get_caretIndex());
 				if(e.localX - this.get_textElementOffset().x - extent.x > extent.width / 2) {
@@ -28447,6 +28393,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				}
 			} catch( e1 ) {
 			}
+			if(e.localX > textElement.clientWidth) this.set_caretIndex(this.get_text().length);
 			this.selectionBeginIndex = this.get_caretIndex();
 			this.selectionEndIndex = this.get_caretIndex() - 1;
 			this.addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.onMouseMove));
@@ -28458,8 +28405,8 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		if(e.target == this) {
 			this.shouldCaretShowed = true;
 			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
+			var textElement = this.mTextSnap.node;
 			try {
-				var textElement = this.mTextSnap.node;
 				var extent = textElement.getExtentOfChar(this.get_caretIndex());
 				if(e.localX - this.get_textElementOffset().x - extent.x > extent.width / 2) {
 					var _g = this;
@@ -28467,6 +28414,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 				}
 			} catch( e1 ) {
 			}
+			if(e.localX > textElement.clientWidth) this.set_caretIndex(this.get_text().length);
 		} else this.shouldCaretShowed = false;
 	}
 	,onMouseMove: function(e) {
@@ -28554,7 +28502,6 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		return this.mText;
 	}
 	,set_text: function(inText) {
-		haxe.Log.trace("set_text:" + inText,{ fileName : "TextField.hx", lineNumber : 1399, className : "openfl.text.TextField", methodName : "set_text"});
 		if(this.mText == inText) return inText;
 		this.mText = inText;
 		if(null == this.mText) this.mText = "";
@@ -52554,8 +52501,8 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 			res.set_asset(_g.dataContext.jiveIcon);
 			bindSourceListener();
 		}
-		res.set_width(400);
-		res.set_height(253);
+		res.set_width(300);
+		res.set_height(190);
 		res.set_scale(true);
 		return res;
 	}
@@ -52724,21 +52671,9 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.append(this.get_softBox__0());
 		return res;
 	}
-	,get_intDimension__1: function() {
-		var res = new org.aswing.geom.IntDimension();
-		res.width = 30;
-		res.height = 30;
-		return res;
-	}
-	,get_jSeparator__1: function() {
-		var res = new org.aswing.JSeparator();
-		res.set_preferredSize(this.get_intDimension__1());
-		return res;
-	}
 	,get_jPanel__1: function() {
 		var res = new org.aswing.JPanel();
 		res.append(this.get_softBox__1());
-		res.append(this.get_jSeparator__1());
 		return res;
 	}
 	,get_jPanel__2: function() {
@@ -52759,7 +52694,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_aSFont__1: function() {
 		var res = new org.aswing.ASFont();
-		res.set_size(40);
+		res.set_size(36);
 		res.set_name("assets/Lato-Light.ttf");
 		return res;
 	}
@@ -52777,7 +52712,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_aSFont__2: function() {
 		var res = new org.aswing.ASFont();
-		res.set_size(40);
+		res.set_size(36);
 		res.set_name("assets/Lato-Light.ttf");
 		return res;
 	}
@@ -52795,7 +52730,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,get_aSFont__3: function() {
 		var res = new org.aswing.ASFont();
-		res.set_size(40);
+		res.set_size(36);
 		res.set_name("assets/Lato-Light.ttf");
 		return res;
 	}
@@ -52832,9 +52767,9 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_emptyBorder__4: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(25);
-		res.set_right(25);
+		res.set_right(15);
 		res.set_bottom(25);
-		res.set_left(25);
+		res.set_left(15);
 		return res;
 	}
 	,get_assetIcon__3: function() {
@@ -52875,15 +52810,15 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_icon(this.get_assetIcon__3());
 		return res;
 	}
-	,get_intDimension__2: function() {
+	,get_intDimension__1: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 15;
 		res.height = 15;
 		return res;
 	}
-	,get_jSeparator__2: function() {
+	,get_jSeparator__1: function() {
 		var res = new org.aswing.JSeparator();
-		res.set_preferredSize(this.get_intDimension__2());
+		res.set_preferredSize(this.get_intDimension__1());
 		return res;
 	}
 	,get_aSFont__4: function() {
@@ -52966,7 +52901,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.SoftBox();
 		res.set_border(this.get_emptyBorder__4());
 		res.append(this.get_jLabel__8());
-		res.append(this.get_jSeparator__2());
+		res.append(this.get_jSeparator__1());
 		res.append(this.get_jLabel__9());
 		res.append(this.get_jLabelButton__2());
 		res.append(this.get_jLabelButton__3());
@@ -52993,9 +52928,9 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_emptyBorder__5: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(25);
-		res.set_right(25);
+		res.set_right(15);
 		res.set_bottom(25);
-		res.set_left(25);
+		res.set_left(15);
 		return res;
 	}
 	,get_assetIcon__4: function() {
@@ -53036,15 +52971,15 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_icon(this.get_assetIcon__4());
 		return res;
 	}
-	,get_intDimension__3: function() {
+	,get_intDimension__2: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 15;
 		res.height = 15;
 		return res;
 	}
-	,get_jSeparator__3: function() {
+	,get_jSeparator__2: function() {
 		var res = new org.aswing.JSeparator();
-		res.set_preferredSize(this.get_intDimension__3());
+		res.set_preferredSize(this.get_intDimension__2());
 		return res;
 	}
 	,get_aSFont__5: function() {
@@ -53085,7 +53020,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = new org.aswing.SoftBox();
 		res.set_border(this.get_emptyBorder__5());
 		res.append(this.get_jLabel__11());
-		res.append(this.get_jSeparator__3());
+		res.append(this.get_jSeparator__2());
 		res.append(this.get_jLabel__12());
 		res.append(this.get_jLabelButton__6());
 		res.append(this.get_jLabelButton__7());
@@ -53111,9 +53046,9 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_emptyBorder__6: function() {
 		var res = new org.aswing.border.EmptyBorder();
 		res.set_top(25);
-		res.set_right(25);
+		res.set_right(15);
 		res.set_bottom(25);
-		res.set_left(25);
+		res.set_left(15);
 		return res;
 	}
 	,get_assetIcon__5: function() {
@@ -53154,15 +53089,15 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_icon(this.get_assetIcon__5());
 		return res;
 	}
-	,get_intDimension__4: function() {
+	,get_intDimension__3: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 15;
 		res.height = 15;
 		return res;
 	}
-	,get_jSeparator__4: function() {
+	,get_jSeparator__3: function() {
 		var res = new org.aswing.JSeparator();
-		res.set_preferredSize(this.get_intDimension__4());
+		res.set_preferredSize(this.get_intDimension__3());
 		return res;
 	}
 	,get_aSFont__6: function() {
@@ -53208,12 +53143,18 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_text("HTML5");
 		return res;
 	}
+	,get_openLinkCommand__8: function() {
+		var res = new jive.OpenLinkCommand();
+		res.set_url("/demos/jive-demo.zip");
+		return res;
+	}
 	,get_jLabelButton__9: function() {
 		var res = new org.aswing.JLabelButton();
 		res.set_text("Windows");
+		res.command = this.get_openLinkCommand__8();
 		return res;
 	}
-	,get_openLinkCommand__8: function() {
+	,get_openLinkCommand__9: function() {
 		var res = new jive.OpenLinkCommand();
 		res.set_url("/demos/jive-demo.dmg");
 		return res;
@@ -53221,10 +53162,10 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_jLabelButton__10: function() {
 		var res = new org.aswing.JLabelButton();
 		res.set_text("OS X");
-		res.command = this.get_openLinkCommand__8();
+		res.command = this.get_openLinkCommand__9();
 		return res;
 	}
-	,get_openLinkCommand__9: function() {
+	,get_openLinkCommand__10: function() {
 		var res = new jive.OpenLinkCommand();
 		res.set_url("/flash.html");
 		return res;
@@ -53232,14 +53173,14 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_jLabelButton__11: function() {
 		var res = new org.aswing.JLabelButton();
 		res.set_text("Flash");
-		res.command = this.get_openLinkCommand__9();
+		res.command = this.get_openLinkCommand__10();
 		return res;
 	}
 	,get_softBox__6: function() {
 		var res = new org.aswing.SoftBox();
 		res.set_border(this.get_emptyBorder__6());
 		res.append(this.get_jLabel__13());
-		res.append(this.get_jSeparator__4());
+		res.append(this.get_jSeparator__3());
 		res.append(this.get_jLabel__14());
 		res.append(this.get_jLabelButton__8());
 		res.append(this.get_jLabelButton__9());
@@ -53370,7 +53311,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_rgb(10066329);
 		return res;
 	}
-	,get_openLinkCommand__10: function() {
+	,get_openLinkCommand__11: function() {
 		var res = new jive.OpenLinkCommand();
 		res.set_url("https://github.com/ngrebenshikov/openfl-snapsvg");
 		return res;
@@ -53381,7 +53322,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_text("OpenFL-Snap.SVG");
 		res.set_font(this.get_aSFont__10());
 		res.set_foreground(this.get_aSColor__9());
-		res.command = this.get_openLinkCommand__10();
+		res.command = this.get_openLinkCommand__11();
 		return res;
 	}
 	,get_jPanel__6: function() {
@@ -53430,7 +53371,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_rgb(10066329);
 		return res;
 	}
-	,get_openLinkCommand__11: function() {
+	,get_openLinkCommand__12: function() {
 		var res = new jive.OpenLinkCommand();
 		res.set_url("http://endelea.ru");
 		return res;
@@ -53441,7 +53382,7 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.set_text("Endelea.ru");
 		res.set_font(this.get_aSFont__12());
 		res.set_foreground(this.get_aSColor__11());
-		res.command = this.get_openLinkCommand__11();
+		res.command = this.get_openLinkCommand__12();
 		return res;
 	}
 	,get_jPanel__7: function() {
@@ -53474,6 +53415,57 @@ view.AboutView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,__class__: view.AboutView
 	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext"})
+});
+view.DownloadsView = function() {
+	org.aswing.JPanel.call(this);
+	this.set_layout(this.get_borderLayout__0());
+	this.append(this.get_softBox__0());
+};
+$hxClasses["view.DownloadsView"] = view.DownloadsView;
+view.DownloadsView.__name__ = ["view","DownloadsView"];
+view.DownloadsView.__super__ = org.aswing.JPanel;
+view.DownloadsView.prototype = $extend(org.aswing.JPanel.prototype,{
+	destroyHml: function() {
+	}
+	,get_borderLayout__0: function() {
+		var res = new org.aswing.BorderLayout();
+		res.hgap = 30;
+		res.vgap = 30;
+		return res;
+	}
+	,get_aSFont__0: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(30);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__0: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(30);
+		return res;
+	}
+	,get_jLabel__0: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Downloads");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__0());
+		res.set_border(this.get_emptyBorder__0());
+		return res;
+	}
+	,get_multilineLabel__0: function() {
+		var res = new org.aswing.ext.MultilineLabel();
+		res.set_text("Use haxelib to install Jive: haxelib install jive");
+		return res;
+	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.constraints = "Center";
+		res.append(this.get_jLabel__0());
+		res.append(this.get_multilineLabel__0());
+		return res;
+	}
+	,__class__: view.DownloadsView
 });
 view.MainView = function() {
 	this.demoView_initialized = false;
@@ -53596,35 +53588,9 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		return res;
 	}
 	,get_jMenu__4: function() {
-		var _g = this;
 		var res = new org.aswing.JMenu();
-		if(null != this.dataContext) res.command = this.dataContext.openDownload;
-		var programmaticalyChange = false;
-		var sourcePropertyListener = function(_,_1) {
-			if(!programmaticalyChange) {
-				programmaticalyChange = true;
-				res.command = _g.dataContext.openDownload;
-				programmaticalyChange = false;
-			}
-		};
-		var bindSourceListener = function() {
-			_g.dataContext.__fieldBindings__.add("openDownload",sourcePropertyListener);
-			sourcePropertyListener(null,_g.dataContext.openDownload);
-		};
-		if(null != this.dataContext) bindSourceListener();
-		this.__fieldBindings__.add("dataContext",function(old,_2) {
-			if(null != old) old.__fieldBindings__.remove("openDownload",sourcePropertyListener);
-			if(null != _g.dataContext) {
-				res.command = _g.dataContext.openDownload;
-				bindSourceListener();
-			}
-		});
-		if(null != _g.dataContext) {
-			res.command = _g.dataContext.openDownload;
-			bindSourceListener();
-		}
+		res.subpath = "download";
 		res.set_text("Download");
-		res.isExternalAction = true;
 		return res;
 	}
 	,get_jMenu__5: function() {
@@ -53707,6 +53673,10 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		}
 		return res;
 	}
+	,get_downloadsView__0: function() {
+		var res = new view.DownloadsView();
+		return res;
+	}
 	,set_demoView: function(value) {
 		this.demoView_initialized = true;
 		return this.demoView = value;
@@ -53775,6 +53745,7 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		res.constraints = "Center";
 		res.set_layout(this.get_boxLayout__0());
 		res.append(this.get_aboutView__0());
+		res.append(this.get_downloadsView__0());
 		res.append(this.get_demoView());
 		return res;
 	}
@@ -53881,7 +53852,7 @@ viewmodel.MainViewModel = function() {
 		_g.openLinkInBlankPage(_g.baseUrl + "/docs/api/index.html");
 	}));
 	this.set_openDownload(new jive.BaseCommand(function() {
-		_g.openLinkInBlankPage("/download");
+		_g.set_contentIndex(1);
 	}));
 	this.set_openContribute(new jive.BaseCommand(function() {
 		_g.openLinkInBlankPage("http://github.com/ngrebenshikov/jive");
@@ -53890,7 +53861,7 @@ viewmodel.MainViewModel = function() {
 		_g.set_contentIndex(0);
 	}));
 	this.set_openDemo(new jive.BaseCommand(function() {
-		_g.set_contentIndex(1);
+		_g.set_contentIndex(2);
 	}));
 };
 $hxClasses["viewmodel.MainViewModel"] = viewmodel.MainViewModel;
