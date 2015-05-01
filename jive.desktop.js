@@ -1035,10 +1035,8 @@ openfl.display.DisplayObject.prototype = $extend(openfl.events.EventDispatcher.p
 	}
 	,set_visible: function(inValue) {
 		this.set___combinedVisible(this.parent != null?this.parent.__combinedVisible && inValue:inValue);
-		if(this.__visible != inValue) {
-			this.__visible = inValue;
-			this.setSurfaceVisible(inValue);
-		}
+		if(this.__visible != inValue) this.__visible = inValue;
+		this.setSurfaceVisible(this.__combinedVisible);
 		this.renderNextWake();
 		return this.__visible;
 	}
@@ -9151,7 +9149,7 @@ org.aswing.JTextComponent.prototype = $extend(org.aswing.Component.prototype,{
 	}
 	,setEnabled: function(b) {
 		org.aswing.Component.prototype.setEnabled.call(this,b);
-		this.getTextField().selectable = b;
+		this.getTextField().set_selectable(b);
 		this.getTextField().mouseEnabled = b;
 		this.updateTextForeground();
 	}
@@ -22837,6 +22835,7 @@ openfl.accessibility.AccessibilityProperties.prototype = {
 openfl.display.Bitmap = function(inBitmapData,inPixelSnapping,inSmoothing) {
 	if(inSmoothing == null) inSmoothing = false;
 	openfl.display.DisplayObject.call(this);
+	this.set___combinedVisible(false);
 	this.pixelSnapping = inPixelSnapping;
 	this.smoothing = inSmoothing;
 	if(inBitmapData != null) {
@@ -22901,7 +22900,8 @@ openfl.display.Bitmap.prototype = $extend(openfl.display.DisplayObject.prototype
 			var srcCanvas = this.bitmapData.___textureBuffer;
 			var child = this.snap.select("*");
 			if(null != child) child.remove();
-			this.snap.append(openfl.Lib.get_snap().image(srcCanvas.toDataURL("image/png"),0,0,srcCanvas.width,srcCanvas.height));
+			this.image = openfl.Lib.get_snap().image(srcCanvas.toDataURL("image/png"),0,0,srcCanvas.width,srcCanvas.height);
+			this.snap.append(this.image);
 			this.__currentLease = imageDataLease.clone();
 			this.__applyFilters(this.snap);
 			this.___renderFlags |= 32;
@@ -22928,6 +22928,10 @@ openfl.display.Bitmap.prototype = $extend(openfl.display.DisplayObject.prototype
 		this.renderNextWake();
 		this.bitmapData = inBitmapData;
 		return inBitmapData;
+	}
+	,setSurfaceVisible: function(inValue) {
+		openfl.display.DisplayObject.prototype.setSurfaceVisible.call(this,inValue);
+		if(null != this.image) this.image.attr({ visibility : inValue?"visible":"hidden"});
 	}
 	,__class__: openfl.display.Bitmap
 	,__properties__: $extend(openfl.display.DisplayObject.prototype.__properties__,{set_bitmapData:"set_bitmapData"})
@@ -25932,6 +25936,8 @@ openfl.display.StageScaleMode.EXACT_FIT.toString = $estr;
 openfl.display.StageScaleMode.EXACT_FIT.__enum__ = openfl.display.StageScaleMode;
 openfl.display.Svg = function(svg) {
 	openfl.display.Shape.call(this);
+	this.set___combinedVisible(false);
+	this.svg = svg;
 	this.snap.append(svg);
 };
 $hxClasses["openfl.display.Svg"] = openfl.display.Svg;
@@ -25983,6 +25989,10 @@ openfl.display.Svg.prototype = $extend(openfl.display.Shape.prototype,{
 				if(null != snapMask && "none" != snapMask) el.setAttribute("mask","none");
 			}
 		}
+	}
+	,setSurfaceVisible: function(inValue) {
+		openfl.display.Shape.prototype.setSurfaceVisible.call(this,inValue);
+		if(null != this.svg) this.svg.attr({ visibility : inValue?"visible":"hidden"});
 	}
 	,__class__: openfl.display.Svg
 });
@@ -27571,7 +27581,7 @@ openfl.text.TextField = function() {
 	this.mTextColour = 0;
 	this.tabEnabled = false;
 	this.mTryFreeType = true;
-	this.selectable = true;
+	this.set_selectable(true);
 	this.mInsertPos = 0;
 	this.__inputEnabled = false;
 	this.mDownChar = 0;
@@ -27587,7 +27597,7 @@ openfl.text.TextField = function() {
 	this.sharpness = 0;
 	this.set_caretIndex(0);
 	this.shouldCaretShowed = true;
-	this.mTextSnap.attr({ style : this.__inputEnabled?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
+	this.mTextSnap.attr({ style : this.get_selectable()?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
 	this.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.onMouseDown));
 	this.get_stage().addEventListener(openfl.events.MouseEvent.MOUSE_UP,$bind(this,this.onMouseUp));
 	this.addEventListener(openfl.events.Event.PASTE,$bind(this,this.onPaste));
@@ -27618,6 +27628,14 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,set_multiline: function(value) {
 		return this.multiline = value;
+	}
+	,get_selectable: function() {
+		return this._selectable;
+	}
+	,set_selectable: function(v) {
+		this._selectable = v;
+		this.mTextSnap.attr({ style : this.get_selectable()?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
+		return v;
 	}
 	,appendText: function(newText) {
 		var _g = this;
@@ -28382,7 +28400,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		e.stopPropagation();
 	}
 	,onMouseDown: function(e) {
-		if(this.__inputEnabled && this.get_stage().get_focus() == this) {
+		if(this.get_selectable() || this.get_stage().get_focus() == this) {
 			var textElement = this.mTextSnap.node;
 			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			if(null != this.get_text() && this.get_text().length > 0 && this.get_text().length > this.get_caretIndex()) try {
@@ -28394,6 +28412,8 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 			} catch( e1 ) {
 			}
 			if(e.localX > textElement.clientWidth) this.set_caretIndex(this.get_text().length);
+		}
+		if(this.get_selectable()) {
 			this.selectionBeginIndex = this.get_caretIndex();
 			this.selectionEndIndex = this.get_caretIndex() - 1;
 			this.addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.onMouseMove));
@@ -28402,7 +28422,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	}
 	,onMouseUp: function(e) {
 		this.removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.onMouseMove));
-		if(e.target == this) {
+		if(e.target == this && this.get_stage().get_focus() == this) {
 			this.shouldCaretShowed = true;
 			this.set_caretIndex(this.getCharIndexAtPoint(e.localX - this.get_textElementOffset().x,e.localY - this.get_textElementOffset().y));
 			var textElement = this.mTextSnap.node;
@@ -28543,7 +28563,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		return this.mMaxHeight;
 	}
 	,updateSelectability: function() {
-		this.mTextSnap.attr({ style : this.__inputEnabled?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
+		this.mTextSnap.attr({ style : this.get_selectable()?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
 	}
 	,get_type: function() {
 		return this.mType;
@@ -28551,7 +28571,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 	,set_type: function(inType) {
 		this.mType = inType;
 		this.__inputEnabled = this.mType == openfl.text.TextFieldType.INPUT;
-		this.mTextSnap.attr({ style : this.__inputEnabled?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
+		this.mTextSnap.attr({ style : this.get_selectable()?"":"-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;"});
 		this.tabEnabled = this.get_type() == openfl.text.TextFieldType.INPUT;
 		if(this.__inputEnabled) {
 			this.addEventListener(openfl.events.FocusEvent.FOCUS_IN,$bind(this,this.onFocus));
@@ -28695,7 +28715,7 @@ openfl.text.TextField.prototype = $extend(openfl.display.InteractiveObject.proto
 		this.renderNextWake();
 	}
 	,__class__: openfl.text.TextField
-	,__properties__: $extend(openfl.display.InteractiveObject.prototype.__properties__,{set_textElementOffset:"set_textElementOffset",get_textElementOffset:"get_textElementOffset",set_wordWrap:"set_wordWrap",get_wordWrap:"get_wordWrap",set_type:"set_type",get_type:"get_type",get_textWidth:"get_textWidth",get_textHeight:"get_textHeight",set_textColor:"set_textColor",get_textColor:"get_textColor",set_text:"set_text",get_text:"get_text",set_scrollV:"set_scrollV",get_scrollV:"get_scrollV",set_scrollH:"set_scrollH",get_scrollH:"get_scrollH",set_htmlText:"set_htmlText",get_htmlText:"get_htmlText",set_displayAsPassword:"set_displayAsPassword",set_defaultTextFormat:"set_defaultTextFormat",get_defaultTextFormat:"get_defaultTextFormat",get_caretPos:"get_caretPos",set_caretIndex:"set_caretIndex",get_caretIndex:"get_caretIndex",set_borderColor:"set_borderColor",set_border:"set_border",set_backgroundColor:"set_backgroundColor",set_background:"set_background",set_autoSize:"set_autoSize"})
+	,__properties__: $extend(openfl.display.InteractiveObject.prototype.__properties__,{set_textElementOffset:"set_textElementOffset",get_textElementOffset:"get_textElementOffset",set_wordWrap:"set_wordWrap",get_wordWrap:"get_wordWrap",set_type:"set_type",get_type:"get_type",get_textWidth:"get_textWidth",get_textHeight:"get_textHeight",set_textColor:"set_textColor",get_textColor:"get_textColor",set_text:"set_text",get_text:"get_text",set_selectable:"set_selectable",get_selectable:"get_selectable",set_scrollV:"set_scrollV",get_scrollV:"get_scrollV",set_scrollH:"set_scrollH",get_scrollH:"get_scrollH",set_htmlText:"set_htmlText",get_htmlText:"get_htmlText",set_displayAsPassword:"set_displayAsPassword",set_defaultTextFormat:"set_defaultTextFormat",get_defaultTextFormat:"get_defaultTextFormat",get_caretPos:"get_caretPos",set_caretIndex:"set_caretIndex",get_caretIndex:"get_caretIndex",set_borderColor:"set_borderColor",set_border:"set_border",set_backgroundColor:"set_backgroundColor",set_background:"set_background",set_autoSize:"set_autoSize"})
 });
 openfl.text.FontInstanceMode = $hxClasses["openfl.text.FontInstanceMode"] = { __ename__ : true, __constructs__ : ["fimSolid"] };
 openfl.text.FontInstanceMode.fimSolid = ["fimSolid",0];
@@ -29726,7 +29746,7 @@ org.aswing.AsWingUtils.createSprite = function(parent,name) {
 org.aswing.AsWingUtils.createLabel = function(parent,name) {
 	var textField = new openfl.text.TextField();
 	if(name != null) textField.name = name;
-	textField.selectable = false;
+	textField.set_selectable(false);
 	textField.mouseEnabled = false;
 	textField.set_autoSize(openfl.text.TextFieldAutoSize.LEFT);
 	if(parent != null) parent.addChild(textField);
@@ -33841,6 +33861,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 	}
 	,setSelectable: function(b) {
 		this._selectable = b;
+		this.repaint();
 	}
 	,isSelectable: function() {
 		return this._selectable;
@@ -44034,7 +44055,7 @@ org.aswing.plaf.basic.BasicLabelUI.prototype = $extend(org.aswing.plaf.BaseCompo
 	,installComponents: function(b) {
 		this.textField = new openfl.text.TextField();
 		this.textField.set_autoSize(openfl.text.TextFieldAutoSize.LEFT);
-		this.textField.selectable = false;
+		this.textField.set_selectable(false);
 		this.textField.mouseEnabled = false;
 		b.addChild(this.textField);
 		b.setFontValidated(false);
@@ -44062,7 +44083,7 @@ org.aswing.plaf.basic.BasicLabelUI.prototype = $extend(org.aswing.plaf.BaseCompo
 			this.textField.set_text("");
 			this.textField.set_visible(false);
 		}
-		this.textField.selectable = b.isSelectable();
+		this.textField.set_selectable(b.isSelectable());
 		this.textField.mouseEnabled = b.isSelectable();
 	}
 	,getIconToLayout: function() {
@@ -44700,7 +44721,7 @@ org.aswing.plaf.basic.BasicProgressBarUI.prototype = $extend(org.aswing.plaf.Bas
 	,installComponents: function() {
 		this.stringText = new openfl.text.TextField();
 		this.stringText.mouseEnabled = false;
-		this.stringText.selectable = false;
+		this.stringText.set_selectable(false);
 		this.progressBar.addChild(this.stringText);
 	}
 	,uninstallComponents: function() {
@@ -49061,7 +49082,7 @@ org.aswing.table.PoorTextCell = function() {
 	this.setOpaque(true);
 	this.textField = new openfl.text.TextField();
 	this.textField.set_autoSize(openfl.text.TextFieldAutoSize.LEFT);
-	this.textField.selectable = false;
+	this.textField.set_selectable(false);
 	this.textField.mouseEnabled = false;
 	this.setFontValidated(false);
 	this.addChild(this.textField);
@@ -53447,22 +53468,128 @@ view.DownloadsView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_jLabel__0: function() {
 		var res = new org.aswing.JLabel();
 		res.set_horizontalAlignment(2);
-		res.set_text("Downloads");
+		res.set_text("Download");
 		res.constraints = "North";
 		res.set_font(this.get_aSFont__0());
 		res.set_border(this.get_emptyBorder__0());
 		return res;
 	}
-	,get_multilineLabel__0: function() {
-		var res = new org.aswing.ext.MultilineLabel();
-		res.set_text("Use haxelib to install Jive: haxelib install jive");
+	,get_aSFont__1: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__1: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("From haxelib:");
+		res.set_font(this.get_aSFont__1());
+		return res;
+	}
+	,get_jLabel__2: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("haxelib install jive");
+		res.set_selectable(true);
+		return res;
+	}
+	,get_jPanel__0: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jLabel__1());
+		res.append(this.get_jLabel__2());
+		return res;
+	}
+	,get_aSFont__2: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__3: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("Development version from GitHub:");
+		res.set_selectable(false);
+		res.set_font(this.get_aSFont__2());
+		return res;
+	}
+	,get_jLabel__4: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("haxelib git jive https://github.com/ngrebenshikov/jive");
+		res.set_selectable(true);
+		return res;
+	}
+	,get_jPanel__1: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jLabel__3());
+		res.append(this.get_jLabel__4());
+		return res;
+	}
+	,get_aSFont__3: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__5: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("Download manually from GitHub:");
+		res.set_font(this.get_aSFont__3());
+		return res;
+	}
+	,get_openLinkCommand__0: function() {
+		var res = new jive.OpenLinkCommand();
+		res.set_url("https://github.com/ngrebenshikov/jive/archive/master.zip");
+		return res;
+	}
+	,get_jLabelButton__0: function() {
+		var res = new org.aswing.JLabelButton();
+		res.set_text("Download the archive");
+		res.command = this.get_openLinkCommand__0();
+		return res;
+	}
+	,get_jLabel__6: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text(", extract files and use [haxelib dev] command.");
+		return res;
+	}
+	,get_jPanel__2: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jLabel__5());
+		res.append(this.get_jLabelButton__0());
+		res.append(this.get_jLabel__6());
+		return res;
+	}
+	,get_aSFont__4: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__7: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("Dependencies:");
+		res.set_font(this.get_aSFont__4());
+		return res;
+	}
+	,get_jLabel__8: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("haxelib git hml https://github.com/profelis/hml");
+		res.set_selectable(true);
+		return res;
+	}
+	,get_jPanel__3: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jLabel__7());
+		res.append(this.get_jLabel__8());
 		return res;
 	}
 	,get_softBox__0: function() {
 		var res = new org.aswing.SoftBox();
 		res.constraints = "Center";
 		res.append(this.get_jLabel__0());
-		res.append(this.get_multilineLabel__0());
+		res.append(this.get_jPanel__0());
+		res.append(this.get_jPanel__1());
+		res.append(this.get_jPanel__2());
+		res.append(this.get_jPanel__3());
 		return res;
 	}
 	,__class__: view.DownloadsView
@@ -53673,10 +53800,6 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		}
 		return res;
 	}
-	,get_downloadsView__0: function() {
-		var res = new view.DownloadsView();
-		return res;
-	}
 	,set_demoView: function(value) {
 		this.demoView_initialized = true;
 		return this.demoView = value;
@@ -53714,6 +53837,10 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		}
 		return res;
 	}
+	,get_downloadsView__0: function() {
+		var res = new view.DownloadsView();
+		return res;
+	}
 	,get_spot__0: function() {
 		var _g = this;
 		var res = new jive.Spot();
@@ -53745,8 +53872,8 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 		res.constraints = "Center";
 		res.set_layout(this.get_boxLayout__0());
 		res.append(this.get_aboutView__0());
-		res.append(this.get_downloadsView__0());
 		res.append(this.get_demoView());
+		res.append(this.get_downloadsView__0());
 		return res;
 	}
 	,get_jPanel__0: function() {
@@ -53845,6 +53972,7 @@ viewmodel.MainViewModel = function() {
 	this.__fieldBindings__ = new bindx.FieldsBindSignal();
 	this.__methodBindings__ = new bindx.MethodsBindSignal();
 	this.baseUrl = "/jive";
+	this.set_desktopVersionUrl(this.baseUrl + "/?desktop=true");
 	this.set_demoVM(new demo.viewmodel.DemoViewModel());
 	this.demoVM.set_areLinksVisible(true);
 	this.set_aboutVM(new viewmodel.AboutViewModel());
@@ -53852,7 +53980,7 @@ viewmodel.MainViewModel = function() {
 		_g.openLinkInBlankPage(_g.baseUrl + "/docs/api/index.html");
 	}));
 	this.set_openDownload(new jive.BaseCommand(function() {
-		_g.set_contentIndex(1);
+		_g.set_contentIndex(2);
 	}));
 	this.set_openContribute(new jive.BaseCommand(function() {
 		_g.openLinkInBlankPage("http://github.com/ngrebenshikov/jive");
@@ -53861,7 +53989,7 @@ viewmodel.MainViewModel = function() {
 		_g.set_contentIndex(0);
 	}));
 	this.set_openDemo(new jive.BaseCommand(function() {
-		_g.set_contentIndex(2);
+		_g.set_contentIndex(1);
 	}));
 };
 $hxClasses["viewmodel.MainViewModel"] = viewmodel.MainViewModel;
@@ -53943,8 +54071,16 @@ viewmodel.MainViewModel.prototype = {
 			return this.openDemo;
 		}
 	}
+	,set_desktopVersionUrl: function(__value__) {
+		var __oldValue__ = this.desktopVersionUrl;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.desktopVersionUrl = __value__;
+			this.__fieldBindings__.dispatch("desktopVersionUrl",__oldValue__,this.desktopVersionUrl);
+			return this.desktopVersionUrl;
+		}
+	}
 	,__class__: viewmodel.MainViewModel
-	,__properties__: {set_openDemo:"set_openDemo",set_openAbout:"set_openAbout",set_openContribute:"set_openContribute",set_openDownload:"set_openDownload",set_openDocumentation:"set_openDocumentation",set_contentIndex:"set_contentIndex",set_jiveIcon:"set_jiveIcon",set_aboutVM:"set_aboutVM",set_demoVM:"set_demoVM"}
+	,__properties__: {set_desktopVersionUrl:"set_desktopVersionUrl",set_openDemo:"set_openDemo",set_openAbout:"set_openAbout",set_openContribute:"set_openContribute",set_openDownload:"set_openDownload",set_openDocumentation:"set_openDocumentation",set_contentIndex:"set_contentIndex",set_jiveIcon:"set_jiveIcon",set_aboutVM:"set_aboutVM",set_demoVM:"set_demoVM"}
 };
 function $iterator(o) { if( o instanceof Array ) return function() { return HxOverrides.iter(o); }; return typeof(o.iterator) == 'function' ? $bind(o,o.iterator) : o.iterator; }
 var $_, $fid = 0;
@@ -55954,6 +56090,6 @@ org.aswing.util.ArrayList.NUMERIC = 16;
 view.AboutView.__meta__ = { fields : { dataContext : { bindable : null}}};
 view.MainView.__meta__ = { fields : { dataContext : { bindable : null}}};
 viewmodel.AboutViewModel.__meta__ = { fields : { jiveIcon : { bindable : null}, openFlIcon : { bindable : null}, brainIcon : { bindable : null}, desktopIcon : { bindable : null}, arrowIcon : { bindable : null}, openDemo : { bindable : null}}};
-viewmodel.MainViewModel.__meta__ = { fields : { demoVM : { bindable : null}, aboutVM : { bindable : null}, jiveIcon : { bindable : null}, contentIndex : { bindable : null}, openDocumentation : { bindable : null}, openDownload : { bindable : null}, openContribute : { bindable : null}, openAbout : { bindable : null}, openDemo : { bindable : null}}};
+viewmodel.MainViewModel.__meta__ = { fields : { demoVM : { bindable : null}, aboutVM : { bindable : null}, jiveIcon : { bindable : null}, contentIndex : { bindable : null}, openDocumentation : { bindable : null}, openDownload : { bindable : null}, openContribute : { bindable : null}, openAbout : { bindable : null}, openDemo : { bindable : null}, desktopVersionUrl : { bindable : null}}};
 ApplicationMain.main();
 })(typeof window != "undefined" ? window : exports);
