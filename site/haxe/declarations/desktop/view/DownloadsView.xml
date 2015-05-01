@@ -22,11 +22,37 @@
             </border>
         </JLabel>
 
-        <ext:MultilineLabel>
-            <text><![CDATA[
-            "Use haxelib to install Jive: haxelib install jive"
-            ]]></text>
-        </ext:MultilineLabel>
+        <JPanel>
+            <JLabel text="'From haxelib:'">
+                <font>
+                    <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                </font>
+            </JLabel>
+            <JLabel text="'haxelib install jive'" selectable="true"/>
+        </JPanel>
+
+        <JPanel>
+            <JLabel text="'Development version from GitHub:'" selectable="false">
+                <font>
+                    <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                </font>
+            </JLabel>
+            <JLabel text="'haxelib git jive https://github.com/ngrebenshikov/jive'" selectable="true"/>
+        </JPanel>
+
+        <JPanel>
+            <JLabel text="'Download manually from GitHub:'">
+                <font>
+                    <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                </font>
+            </JLabel>
+            <JLabelButton text="'Download the archive'">
+                <command>
+                    <jive:OpenLinkCommand url="'https://github.com/ngrebenshikov/jive/archive/master.zip'"/>
+                </command>
+            </JLabelButton>
+            <JLabel text="', extract files and use [haxelib dev] command.'"/>
+        </JPanel>
 
     </SoftBox>
 </JPanel>

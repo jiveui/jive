@@ -260,6 +260,7 @@ class JLabel extends Component {
 	@:dox(hide)
     public function setSelectable(b:Bool):Void{
 		_selectable = b;
+        repaint();
 	}
 	
 	@:dox(hide)
