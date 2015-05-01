@@ -269,6 +269,19 @@
         </git:git>
     </target>
 
-    <!--<target name="build.haxelib.package"/>-->
+    <target name="build.haxelib.package" depends="build.schema">
+        <delete dir="${localbuild.path}/package"/>
+        <mkdir dir="${localbuild.path}/package"/>
+        <copy todir="${localbuild.path}/package">
+            <fileset dir="${project.root.path}/src"/>
+        </copy>
+        <copy todir="${localbuild.path}/package/schema">
+            <fileset dir="${project.root.path}/schema"/>
+        </copy>
+        <delete>
+            <fileset dir="${localbuild.path}/package/assets" includes="*" excludes="*.ttf"/>
+        </delete>
+        <zip basedir="${localbuild.path}/package" destfile="${localbuild.path}/jive-package.zip"/>
+    </target>
 
 </project>

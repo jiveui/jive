@@ -38,11 +38,11 @@ class DownloadsView extends org.aswing.JPanel {
     inline function get_jLabel__0():org.aswing.JLabel {
         /* declarations/desktop/view/DownloadsView.xml:16 characters: 9-15 */
         var res = new org.aswing.JLabel();
-        /* declarations/desktop/view/DownloadsView.xml:16 characters: 36-55 */
+        /* declarations/desktop/view/DownloadsView.xml:16 characters: 35-54 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
         /* declarations/desktop/view/DownloadsView.xml:16 characters: 17-21 */
-        res.text = 'Downloads';
-        /* declarations/desktop/view/DownloadsView.xml:16 characters: 90-101 */
+        res.text = 'Download';
+        /* declarations/desktop/view/DownloadsView.xml:16 characters: 89-100 */
         res.constraints = org.aswing.BorderLayout.NORTH;
         /* declarations/desktop/view/DownloadsView.xml:17 characters: 13-17 */
         res.font = get_aSFont__0();
@@ -184,6 +184,44 @@ class DownloadsView extends org.aswing.JPanel {
         return res;
     }
 
+    inline function get_aSFont__4():org.aswing.ASFont {
+        /* declarations/desktop/view/DownloadsView.xml:60 characters: 21-27 */
+        var res = new org.aswing.ASFont();
+        /* declarations/desktop/view/DownloadsView.xml:60 characters: 59-63 */
+        res.size = 16;
+        /* declarations/desktop/view/DownloadsView.xml:60 characters: 29-33 */
+        res.name = 'assets/Lato-Bold.ttf';
+        return res;
+    }
+
+    inline function get_jLabel__7():org.aswing.JLabel {
+        /* declarations/desktop/view/DownloadsView.xml:58 characters: 13-19 */
+        var res = new org.aswing.JLabel();
+        /* declarations/desktop/view/DownloadsView.xml:58 characters: 21-25 */
+        res.text = 'Dependencies:';
+        /* declarations/desktop/view/DownloadsView.xml:59 characters: 17-21 */
+        res.font = get_aSFont__4();
+        return res;
+    }
+
+    inline function get_jLabel__8():org.aswing.JLabel {
+        /* declarations/desktop/view/DownloadsView.xml:63 characters: 13-19 */
+        var res = new org.aswing.JLabel();
+        /* declarations/desktop/view/DownloadsView.xml:63 characters: 21-25 */
+        res.text = 'haxelib git hml https://github.com/profelis/hml';
+        /* declarations/desktop/view/DownloadsView.xml:63 characters: 78-88 */
+        res.selectable = true;
+        return res;
+    }
+
+    inline function get_jPanel__3():org.aswing.JPanel {
+        /* declarations/desktop/view/DownloadsView.xml:57 characters: 9-15 */
+        var res = new org.aswing.JPanel();
+        res.append(get_jLabel__7());
+        res.append(get_jLabel__8());
+        return res;
+    }
+
     inline function get_softBox__0():org.aswing.SoftBox {
         /* declarations/desktop/view/DownloadsView.xml:15 characters: 5-12 */
         var res = new org.aswing.SoftBox();
@@ -193,6 +231,7 @@ class DownloadsView extends org.aswing.JPanel {
         res.append(get_jPanel__0());
         res.append(get_jPanel__1());
         res.append(get_jPanel__2());
+        res.append(get_jPanel__3());
         return res;
     }
 

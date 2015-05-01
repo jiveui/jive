@@ -6,11 +6,9 @@
   "description": "Jive UI - a crossplatform UI framework based on AsWing",
   "version": "0.0.1",
   "releasenote": "Initial release",
-  "contributors": [ "grebenshikov.n" ],
+  "contributors": [ "ngrebenshikov" ],
   "dependencies": {
-    "hml": "",
     "bindx": "",
-    "hml-xsd-gen": "",
     "actuate": ""
   }
 }

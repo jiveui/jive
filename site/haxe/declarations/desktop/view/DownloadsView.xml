@@ -13,7 +13,7 @@
     </layout>
 
     <SoftBox constraints="org.aswing.BorderLayout.CENTER">
-        <JLabel text="'Downloads'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+        <JLabel text="'Download'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
             <font>
                 <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
             </font>
@@ -53,6 +53,16 @@
             </JLabelButton>
             <JLabel text="', extract files and use [haxelib dev] command.'"/>
         </JPanel>
+
+        <JPanel>
+            <JLabel text="'Dependencies:'">
+                <font>
+                    <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                </font>
+            </JLabel>
+            <JLabel text="'haxelib git hml https://github.com/profelis/hml'" selectable="true"/>
+        </JPanel>
+
 
     </SoftBox>
 </JPanel>
