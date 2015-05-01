@@ -17,6 +17,9 @@ class Main extends Sprite {
 	 
    public function new() {
        super();
+
+       stage.quality = flash.display.StageQuality.BEST;
+
        AsWingManager.initAsStandard(Lib.current);
        UIManager.setLookAndFeel(new FlatLookAndFeel());
 

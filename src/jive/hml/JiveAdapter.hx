@@ -34,7 +34,8 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 			new DisplayObjectAdapter(),
 			new IEventDispatcherAdapter(),
 			new JiveXMLAdapter(),
-            new AssetIconAdapter()
+            new AssetIconAdapter(),
+            new BaseCommandAdapter()
 		]);
 	}
 
@@ -242,6 +243,15 @@ class JMenuNodeWithMetaWriter extends ComponentWithMetaWriter {
 class AssetIconAdapter extends ComponentAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : org.aswing.AssetIcon;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class BaseCommandAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.BaseCommand;
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 

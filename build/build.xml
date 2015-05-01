@@ -183,7 +183,7 @@
             <replacevalue><![CDATA[
                 <script type="text/javascript">
                     function writeScript(src) { document.write('<' + 'scr' +  'ipt src="' + src + '"' + ' type="text/javascript" id="haxe:openfl:script"><' + '/script>'); }
-                    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    if( !/\?desktop\=|&desktop\=/i.test(location.href) && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                         writeScript("jive.mobile.js");
                     } else {
                         writeScript("jive.desktop.js");
@@ -268,5 +268,7 @@
             <git:push uri="https://github.com/ngrebenshikov/jive"/>
         </git:git>
     </target>
+
+    <!--<target name="build.haxelib.package"/>-->
 
 </project>

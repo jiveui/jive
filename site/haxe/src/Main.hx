@@ -21,6 +21,7 @@ class Main extends Sprite {
 
     public function new() {
         super();
+
         AsWingManager.initAsStandard(Lib.current);
         UIManager.setLookAndFeel(new FlatLookAndFeel());
 

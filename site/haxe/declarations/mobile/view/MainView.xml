@@ -21,8 +21,22 @@
                 </JLabel>
                 <JLabel text="'Cross-platform UI framework for Haxe'"/>
                 <JLabel text="'The Mobile version is coming!'"/>
-                <JButton text="'Take a look at GitHub'"/>
-                <JLabel text="'Or use desktop browser, please.'"/>
+
+                <JSeparator><preferredSize><geom:IntDimension width="10" height="10"/></preferredSize></JSeparator>
+                <JButton text="'Take a look at GitHub'">
+                    <command>
+                        <jive:OpenLinkCommand url="'http://github.com/ngrebenshikov/jive'"/>
+                    </command>
+                </JButton>
+
+                <JLabelButton text="'Desktop version'">
+                    <border>
+                        <border:EmptyBorder top="10"/>
+                    </border>
+                    <command>
+                        <jive:OpenLinkCommand url="{Binding desktopVersionUrl}"/>
+                    </command>
+                </JLabelButton>
             </SoftBox>
         </JPanel>
     </content>
