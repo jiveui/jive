@@ -5755,7 +5755,10 @@ org.aswing.plaf.basic.BasicComboBoxUI.prototype = $extend(org.aswing.plaf.BaseCo
 		if(!this.isPopupVisible(this.box)) {
 			if(this.box.isEditable()) {
 				if(!this.box.getEditor().getEditorComponent().hitTestMouse()) this.setPopupVisible(this.box,true);
-			} else this.setPopupVisible(this.box,true);
+			} else {
+				this.dropDownButton.makeFocus();
+				this.setPopupVisible(this.box,true);
+			}
 		} else this.hidePopup();
 	}
 	,__onMouseDownWhenPopuped: function(e) {
@@ -6256,7 +6259,6 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 		this.__menuItemAct(e);
 	}
 	,calculateTargetBackgroundTransitionFactor: function() {
-		haxe.Log.trace(this.menuItem.getModel().isRollOver(),{ fileName : "BasicMenuItemUI.hx", lineNumber : 331, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "calculateTargetBackgroundTransitionFactor"});
 		if(this.shouldPaintSelected()) return 1.0; else return 0.0;
 	}
 	,doBackgroundTransition: function(immediately) {
@@ -9980,6 +9982,7 @@ org.aswing.Component.prototype = $extend(org.aswing.AWSprite.prototype,{
 	,makeFocus: function() {
 		if(this.getFocusTransmit() != null) this.getFocusTransmit().requestFocus(); else {
 			var ifo = this.getInternalFocusObject();
+			if(ifo != this.get_stage().get_focus()) this.get_stage().set_focus(ifo);
 		}
 	}
 	,getInternalFocusObject: function() {
@@ -22693,8 +22696,17 @@ openfl.display.Stage.prototype = $extend(openfl.display.DisplayObjectContainer.p
 	}
 	,__onFocus: function(target) {
 		if(target != this.__focusObject) {
-			if(this.__focusObject != null) this.__focusObject.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_OUT,true,false,target,false,0));
-			if(null != target) target.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_IN,true,false,this.__focusObject,false,0));
+			var e;
+			if(this.__focusObject != null) {
+				e = new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_OUT,true,false,target,false,0);
+				e.target = this.__focusObject;
+				this.__focusObject.__fireEvent(e);
+			}
+			if(null != target) {
+				e = new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_IN,true,false,this.__focusObject,false,0);
+				e.target = target;
+				target.__fireEvent(e);
+			}
 			this.__focusObject = target;
 		}
 	}
