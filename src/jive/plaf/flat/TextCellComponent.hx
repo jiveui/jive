@@ -1,5 +1,9 @@
 package jive.plaf.flat;
 
+import motion.easing.Linear;
+import motion.Actuate;
+import motion.Actuate;
+import flash.events.MouseEvent;
 import org.aswing.StyleTune;
 import org.aswing.ASFont;
 import jive.plaf.flat.border.TextCellComponentBorder;
@@ -27,6 +31,32 @@ class TextCellComponent extends JPanel {
 
     private static var sharedToolTip:JSharedToolTip;
 
+    public var rollover: Bool;
+
+    public var transitBackgroundFactor: Float = 0.0;
+
+    private function calculateTargetBackgroundTransitionFactor(): Float {
+        return if (rollover) 1.0 else 0.0;
+    }
+
+    private function doBackgroundTransition(immediately:Bool = false) {
+
+        var targetFactor: Float = calculateTargetBackgroundTransitionFactor();
+        if (transitBackgroundFactor != targetFactor) {
+            if (immediately) {
+                transitBackgroundFactor = targetFactor;
+                return;
+            }
+            Actuate.stop(this, "transitBackgroundFactor");
+            Actuate.tween(this, 0.4, { transitBackgroundFactor: targetFactor })
+            .ease(Linear.easeNone)
+            .onUpdate(function() {
+                repaint();
+            })
+            .onComplete(function() { transitBackgroundFactor = targetFactor; });
+        }
+    }
+
     public function new() {
 
         label = new JLabel();
@@ -47,6 +77,9 @@ class TextCellComponent extends JPanel {
 
         border = new TextCellComponentBorder();
         styleTune = new StyleTune(0, 0, 0, 0, 5);
+
+        addEventListener(MouseEvent.ROLL_OVER, function(e) { rollover = true; doBackgroundTransition(); });
+        addEventListener(MouseEvent.ROLL_OUT, function(e) { rollover = false; doBackgroundTransition(); });
     }
 
     override function setForeground(color: ASColor) {

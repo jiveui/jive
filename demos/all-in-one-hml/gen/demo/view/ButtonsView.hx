@@ -457,7 +457,7 @@ class ButtonsView extends org.aswing.JPanel implements jive.DataContextControlla
         /* declarations/demo/view/ButtonsView.xml:86 characters: 52-57 */
         res.width = 0;
         /* declarations/demo/view/ButtonsView.xml:86 characters: 62-68 */
-        res.height = 200;
+        res.height = 150;
         return res;
     }
 

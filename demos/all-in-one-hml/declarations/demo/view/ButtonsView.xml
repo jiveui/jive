@@ -83,7 +83,7 @@
                         </SoftBox>
                         <JScrollPane>
                             <preferredSize>
-                                <geom:IntDimension width="0" height="200"/>
+                                <geom:IntDimension width="0" height="150"/>
                             </preferredSize>
                             <JTextArea editable="false" text="{Binding buttonsLog mode=oneway}"/>
                         </JScrollPane>
