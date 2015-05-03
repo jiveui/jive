@@ -139,7 +139,7 @@ class BasicMenuUI extends BasicMenuItemUI{
 				manager.setSelectedPath(menuItem.stage, [menu.getParent(), menu, menu.getPopupMenu()], false);
 			}
 		}
-		menuItem.repaint();
+		doBackgroundTransition();
 	}
 	
 	override private function __menuItemAct(e:AWEvent):Void{

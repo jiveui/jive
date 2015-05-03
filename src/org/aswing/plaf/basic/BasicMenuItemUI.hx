@@ -5,6 +5,9 @@
 package org.aswing.plaf.basic;
 
 
+import motion.easing.Linear;
+import motion.Actuate;
+import motion.Actuate;
 import jive.Navigation;
 import jive.Navigation;
 import flash.events.Event;
@@ -285,7 +288,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	
 	private function __menuItemRollOver(e:MouseEvent):Void{
 		MenuSelectionManager.defaultManager().setSelectedPath(menuItem.stage, getPath(), false);
-		menuItem.repaint();
+		doBackgroundTransition();
 	}
 	
 	private function __menuItemRollOut(e:MouseEvent):Void {
@@ -297,7 +300,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
             // A top level menu's parent is by definition a JMenuBar
             MenuSelectionManager.defaultManager().clearSelectedPath(false);
         }
-		menuItem.repaint();
+		doBackgroundTransition();
 	}
 	
 	private function __menuItemAct(e:AWEvent):Void {
@@ -320,9 +323,35 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 	}
 	private function ____menuItemAct(e:AWEvent):Void{
 		__menuItemAct(e);
-	}    
-	
-	//---------------
+	}
+
+    public var transitBackgroundFactor: Float = 0.0;
+
+    private function calculateTargetBackgroundTransitionFactor(): Float {
+        trace(menuItem.getModel().isRollOver());
+
+        return if (shouldPaintSelected()) 1.0 else 0.0;
+    }
+
+    private function doBackgroundTransition(immediately:Bool = false) {
+
+        var targetFactor: Float = calculateTargetBackgroundTransitionFactor();
+        if (transitBackgroundFactor != targetFactor) {
+            if (immediately) {
+                transitBackgroundFactor = targetFactor;
+                return;
+            }
+            Actuate.stop(this, "transitBackgroundFactor");
+            Actuate.tween(this, 0.25, { transitBackgroundFactor: targetFactor })
+            .ease(Linear.easeNone)
+            .onUpdate(function() {
+                menuItem.repaint();
+            })
+            .onComplete(function() { transitBackgroundFactor = targetFactor; });
+        }
+    }
+
+//---------------
 	
 	/**
 	 * SubUI override this to do different
@@ -578,16 +607,11 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
     }	
 	
 	private function paintMenuBackground(menuItem:JMenuItem, g:Graphics2D, r:IntRectangle, bgColor:ASColor):Void{
-		var color:ASColor = bgColor;
 		var tune:StyleTune = menuItem.getStyleTune();
 
-        if (shouldPaintSelected()) {
-            color = color.offsetHLS(0, 0.03, 0);
-        } else if (Navigation.instance.isMenuElementActive(menuItem)) {
-            // Do nothing
-        } else {
-            color = menuItem.getBackground();
-        }
+        var beginColor: ASColor = if (Navigation.instance.isMenuElementActive(menuItem)) bgColor else menuItem.getBackground();
+        var endColor: ASColor =  bgColor.offsetHLS(0, 0.03, 0);
+        var color:ASColor = ASColor.getColorBetween(beginColor, endColor, transitBackgroundFactor);
 
         if(menuItem.isOpaque()
             ||
