@@ -5164,7 +5164,7 @@ demo.view.ButtonsView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,get_intDimension__2: function() {
 		var res = new org.aswing.geom.IntDimension();
 		res.width = 0;
-		res.height = 200;
+		res.height = 150;
 		return res;
 	}
 	,get_jTextArea__0: function() {
@@ -10941,6 +10941,7 @@ org.aswing.plaf.MenuElementUI.prototype = {
 	__class__: org.aswing.plaf.MenuElementUI
 };
 org.aswing.plaf.basic.BasicMenuItemUI = function() {
+	this.transitBackgroundFactor = 0.0;
 	org.aswing.plaf.BaseComponentUI.call(this);
 };
 $hxClasses["org.aswing.plaf.basic.BasicMenuItemUI"] = org.aswing.plaf.basic.BasicMenuItemUI;
@@ -11082,7 +11083,7 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 	}
 	,__menuItemRollOver: function(e) {
 		org.aswing.MenuSelectionManager.defaultManager().setSelectedPath(this.menuItem.get_stage(),this.getPath(),false);
-		this.menuItem.repaint();
+		this.doBackgroundTransition();
 	}
 	,__menuItemRollOut: function(e) {
 		var path = org.aswing.MenuSelectionManager.defaultManager().getSelectedPath();
@@ -11090,7 +11091,7 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 			path.pop();
 			org.aswing.MenuSelectionManager.defaultManager().setSelectedPath(this.menuItem.get_stage(),path,false);
 		} else if(null != this.menuItem.getParent() && Std["is"](this.menuItem.getParent(),org.aswing.JMenuBar)) org.aswing.MenuSelectionManager.defaultManager().clearSelectedPath(false);
-		this.menuItem.repaint();
+		this.doBackgroundTransition();
 	}
 	,__menuItemAct: function(e) {
 		if(!this.menuItem.isExternalAction) jive.Navigation.get_instance().navigate(org.aswing.MenuSelectionManager.defaultManager().getSelectedPath(),null);
@@ -11108,6 +11109,27 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 	}
 	,____menuItemAct: function(e) {
 		this.__menuItemAct(e);
+	}
+	,calculateTargetBackgroundTransitionFactor: function() {
+		haxe.Log.trace(this.menuItem.getModel().isRollOver(),{ fileName : "BasicMenuItemUI.hx", lineNumber : 331, className : "org.aswing.plaf.basic.BasicMenuItemUI", methodName : "calculateTargetBackgroundTransitionFactor"});
+		if(this.shouldPaintSelected()) return 1.0; else return 0.0;
+	}
+	,doBackgroundTransition: function(immediately) {
+		if(immediately == null) immediately = false;
+		var _g = this;
+		var targetFactor = this.calculateTargetBackgroundTransitionFactor();
+		if(this.transitBackgroundFactor != targetFactor) {
+			if(immediately) {
+				this.transitBackgroundFactor = targetFactor;
+				return;
+			}
+			motion.Actuate.stop(this,"transitBackgroundFactor");
+			motion.Actuate.tween(this,0.25,{ transitBackgroundFactor : targetFactor}).ease(motion.easing.Linear.get_easeNone()).onUpdate(function() {
+				_g.menuItem.repaint();
+			}).onComplete(function() {
+				_g.transitBackgroundFactor = targetFactor;
+			});
+		}
 	}
 	,isMenu: function() {
 		return false;
@@ -11248,10 +11270,11 @@ org.aswing.plaf.basic.BasicMenuItemUI.prototype = $extend(org.aswing.plaf.BaseCo
 		return arr;
 	}
 	,paintMenuBackground: function(menuItem,g,r,bgColor) {
-		var color = bgColor;
 		var tune = menuItem.getStyleTune();
-		if(this.shouldPaintSelected()) color = color.offsetHLS(0,0.03,0); else if(jive.Navigation.get_instance().isMenuElementActive(menuItem)) {
-		} else color = menuItem.getBackground();
+		var beginColor;
+		if(jive.Navigation.get_instance().isMenuElementActive(menuItem)) beginColor = bgColor; else beginColor = menuItem.getBackground();
+		var endColor = bgColor.offsetHLS(0,0.03,0);
+		var color = org.aswing.ASColor.getColorBetween(beginColor,endColor,this.transitBackgroundFactor);
 		if(menuItem.isOpaque() || (this.shouldPaintSelected() || jive.Navigation.get_instance().isMenuElementActive(menuItem)) && (menuItem.getBackgroundDecorator() == null || menuItem.getBackgroundDecorator() == org.aswing.plaf.DefaultEmptyDecoraterResource.INSTANCE)) this.doPaintMenuBackground(menuItem,g,color,r,tune.round);
 	}
 	,doPaintMenuBackground: function(c,g,cl,r,round) {
@@ -11411,7 +11434,7 @@ org.aswing.plaf.basic.BasicMenuUI.prototype = $extend(org.aswing.plaf.basic.Basi
 				}
 			}
 		} else if(selectedPath.length > 0 && selectedPath[0] == menu.getParent()) manager.setSelectedPath(this.menuItem.get_stage(),[menu.getParent(),menu,menu.getPopupMenu()],false);
-		this.menuItem.repaint();
+		this.doBackgroundTransition();
 	}
 	,__menuItemAct: function(e) {
 		var menu = this.getMenu();
@@ -13346,6 +13369,8 @@ jive.plaf.flat.FlatTextFieldUI.prototype = $extend(jive.plaf.flat.FlatTextCompon
 	,__class__: jive.plaf.flat.FlatTextFieldUI
 });
 jive.plaf.flat.TextCellComponent = function() {
+	this.transitBackgroundFactor = 0.0;
+	var _g = this;
 	this.label = new org.aswing.JLabel();
 	this.label.setHorizontalAlignment(2);
 	this.label.setOpaque(false);
@@ -13360,6 +13385,14 @@ jive.plaf.flat.TextCellComponent = function() {
 	this.append(this.label);
 	this.set_border(new jive.plaf.flat.border.TextCellComponentBorder());
 	this.set_styleTune(new org.aswing.StyleTune(0,0,0,0,5));
+	this.addEventListener(openfl.events.MouseEvent.ROLL_OVER,function(e) {
+		_g.rollover = true;
+		_g.doBackgroundTransition();
+	});
+	this.addEventListener(openfl.events.MouseEvent.ROLL_OUT,function(e1) {
+		_g.rollover = false;
+		_g.doBackgroundTransition();
+	});
 };
 $hxClasses["jive.plaf.flat.TextCellComponent"] = jive.plaf.flat.TextCellComponent;
 jive.plaf.flat.TextCellComponent.__name__ = ["jive","plaf","flat","TextCellComponent"];
@@ -13373,6 +13406,26 @@ jive.plaf.flat.TextCellComponent.prototype = $extend(org.aswing.JPanel.prototype
 		this.label.set_text(v);
 		this.__resized(null);
 		return v;
+	}
+	,calculateTargetBackgroundTransitionFactor: function() {
+		if(this.rollover) return 1.0; else return 0.0;
+	}
+	,doBackgroundTransition: function(immediately) {
+		if(immediately == null) immediately = false;
+		var _g = this;
+		var targetFactor = this.calculateTargetBackgroundTransitionFactor();
+		if(this.transitBackgroundFactor != targetFactor) {
+			if(immediately) {
+				this.transitBackgroundFactor = targetFactor;
+				return;
+			}
+			motion.Actuate.stop(this,"transitBackgroundFactor");
+			motion.Actuate.tween(this,0.4,{ transitBackgroundFactor : targetFactor}).ease(motion.easing.Linear.get_easeNone()).onUpdate(function() {
+				_g.repaint();
+			}).onComplete(function() {
+				_g.transitBackgroundFactor = targetFactor;
+			});
+		}
 	}
 	,setForeground: function(color) {
 		org.aswing.JPanel.prototype.setForeground.call(this,color);
@@ -13811,19 +13864,19 @@ jive.plaf.flat.border.TextCellComponentBorder.prototype = {
 		if(js.Boot.__instanceof(c,jive.plaf.flat.TextCellComponent)) tc = c; else tc = null;
 		if(null == tc) return;
 		b = b.clone();
-		var brush = new org.aswing.graphics.SolidBrush(c.get_background());
+		var brush = new org.aswing.graphics.SolidBrush(c.get_background().offsetHLS(0,-0.1 * tc.transitBackgroundFactor,0));
 		var round = c.get_styleTune().round;
 		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
 		if(tc.isFirst) {
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,2 * round,round);
+			g.fillRoundRect(brush,b.x,b.y,b.width,2 * round,round);
 			g.fillRectangle(brush,b.x,b.y + round,b.width,b.height - round);
 		} else if(tc.isLast) {
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y + b.height - 2 * round,b.width,2 * round,round);
+			g.fillRoundRect(brush,b.x,b.y + b.height - 2 * round,b.width,2 * round,round);
 			g.fillRectangle(brush,b.x,b.y,b.width,b.height - round);
 		} else g.fillRectangle(brush,b.x,b.y,b.width,b.height);
 	}
 	,getBorderInsets: function(c,b) {
-		return new org.aswing.Insets(5,15,5,15);
+		return new org.aswing.Insets(7,15,7,15);
 	}
 	,getDisplay: function(c) {
 		return this.shape;
@@ -25571,7 +25624,10 @@ openfl.display.Stage.prototype = $extend(openfl.display.DisplayObjectContainer.p
 	}
 	,__queueStageEvent: function(evt) {
 		var target = evt.target;
-		if(evt.type == "dragstart") evt.preventDefault(); else if(evt.type == "mouseup") {
+		if(evt.type == "dragstart") evt.preventDefault(); else if(evt.type == "keydown") {
+			var keyboardEvt = evt;
+			if(keyboardEvt.keyCode == 8) evt.preventDefault();
+		} else if(evt.type == "mouseup") {
 			var document = window.document;
 			var input = document.getElementById("openfl-snapsvg-input");
 			var obj = this.__getObjectByElement(evt.target);
@@ -25681,8 +25737,8 @@ openfl.display.Stage.prototype = $extend(openfl.display.DisplayObjectContainer.p
 	}
 	,__onFocus: function(target) {
 		if(target != this.__focusObject) {
-			if(this.__focusObject != null) this.__focusObject.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_OUT,true,false,this.__focusObject,false,0));
-			if(null != target) target.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_IN,true,false,target,false,0));
+			if(this.__focusObject != null) this.__focusObject.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_OUT,true,false,target,false,0));
+			if(null != target) target.__fireEvent(new openfl.events.FocusEvent(openfl.events.FocusEvent.FOCUS_IN,true,false,this.__focusObject,false,0));
 			this.__focusObject = target;
 		}
 	}
