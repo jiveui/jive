@@ -2809,7 +2809,7 @@ class Component extends AWSprite implements IBindable {
     		getFocusTransmit().requestFocus();
     	}else{
     		var ifo:InteractiveObject = getInternalFocusObject();
-			#if(flash9)
+			#if(flash9 || html5 || cpp)
 				if(ifo != stage.focus){
 					stage.focus = ifo;
 				}

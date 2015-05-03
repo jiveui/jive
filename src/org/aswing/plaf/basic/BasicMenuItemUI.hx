@@ -328,8 +328,6 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
     public var transitBackgroundFactor: Float = 0.0;
 
     private function calculateTargetBackgroundTransitionFactor(): Float {
-        trace(menuItem.getModel().isRollOver());
-
         return if (shouldPaintSelected()) 1.0 else 0.0;
     }
 

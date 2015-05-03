@@ -333,6 +333,7 @@ class BasicComboBoxUI extends BaseComponentUI  implements ComboBoxUI{
     				setPopupVisible(box, true);
     			}
     		}else{
+                dropDownButton.makeFocus();
     			setPopupVisible(box, true);
     		}
     	}else{

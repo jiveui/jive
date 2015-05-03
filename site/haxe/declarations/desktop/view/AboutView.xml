@@ -147,15 +147,15 @@
                                 <JLabelButton text="'HTML5'" command="{Binding openDemo}"/>
 
                                 <JLabelButton text="'Windows'">
-                                    <command><jive:OpenLinkCommand url="'/demos/jive-demo.zip'"/></command>
+                                    <command><jive:OpenLinkCommand url="'/jive/demos/jive-demo.zip'"/></command>
                                 </JLabelButton>
 
                                 <JLabelButton text="'OS X'">
-                                    <command><jive:OpenLinkCommand url="'/demos/jive-demo.dmg'"/></command>
+                                    <command><jive:OpenLinkCommand url="'/jive/demos/jive-demo.dmg'"/></command>
                                 </JLabelButton>
 
                                 <JLabelButton text="'Flash'">
-                                    <command><jive:OpenLinkCommand url="'/flash.html'"/></command>
+                                    <command><jive:OpenLinkCommand url="'/jive/flash.html'"/></command>
                                 </JLabelButton>
                             </SoftBox>
                         </SoftBox>

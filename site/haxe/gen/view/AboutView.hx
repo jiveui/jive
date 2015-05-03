@@ -973,7 +973,7 @@ class AboutView extends org.aswing.JPanel implements jive.DataContextControllabl
         /* declarations/desktop/view/AboutView.xml:150 characters: 46-66 */
         var res = new jive.OpenLinkCommand();
         /* declarations/desktop/view/AboutView.xml:150 characters: 68-71 */
-        res.url = '/demos/jive-demo.zip';
+        res.url = '/jive/demos/jive-demo.zip';
         return res;
     }
 
@@ -991,7 +991,7 @@ class AboutView extends org.aswing.JPanel implements jive.DataContextControllabl
         /* declarations/desktop/view/AboutView.xml:154 characters: 46-66 */
         var res = new jive.OpenLinkCommand();
         /* declarations/desktop/view/AboutView.xml:154 characters: 68-71 */
-        res.url = '/demos/jive-demo.dmg';
+        res.url = '/jive/demos/jive-demo.dmg';
         return res;
     }
 
@@ -1009,7 +1009,7 @@ class AboutView extends org.aswing.JPanel implements jive.DataContextControllabl
         /* declarations/desktop/view/AboutView.xml:158 characters: 46-66 */
         var res = new jive.OpenLinkCommand();
         /* declarations/desktop/view/AboutView.xml:158 characters: 68-71 */
-        res.url = '/flash.html';
+        res.url = '/jive/flash.html';
         return res;
     }
 
