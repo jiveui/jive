@@ -25378,11 +25378,9 @@ $hxClasses["openfl.events.MouseEvent"] = openfl.events.MouseEvent;
 openfl.events.MouseEvent.__name__ = ["openfl","events","MouseEvent"];
 openfl.events.MouseEvent.__create = function(type,event,local,target) {
 	var __mouseDown = false;
-	var delta = 2;
-	if(type == openfl.events.MouseEvent.MOUSE_WHEEL) {
-		var mouseEvent = event;
-		if(mouseEvent.wheelDelta) delta = mouseEvent.wheelDelta / 120 | 0; else if(mouseEvent.detail) -mouseEvent.detail | 0;
-	}
+	var mode = event.deltaMode;
+	var deltaY = event.deltaY;
+	var delta = Math.ceil(deltaY / (mode == 0?40:1));
 	if(type == openfl.events.MouseEvent.MOUSE_DOWN) if(event.which != null) __mouseDown = event.which == 1; else if(event.button != null) __mouseDown = event.button == 0; else __mouseDown = false; else if(type == openfl.events.MouseEvent.MOUSE_UP) {
 		if(event.which != null) {
 			if(event.which == 1) __mouseDown = false; else if(event.button != null) {
@@ -25558,7 +25556,7 @@ openfl.display.Stage.prototype = $extend(openfl.display.DisplayObjectContainer.p
 		case "click":
 			this.__onMouse(evt,openfl.events.MouseEvent.CLICK);
 			break;
-		case "mousewheel":
+		case "wheel":
 			this.__onMouse(evt,openfl.events.MouseEvent.MOUSE_WHEEL);
 			break;
 		case "dblclick":
@@ -36242,6 +36240,7 @@ org.aswing.JScrollBar.prototype = $extend(org.aswing.Component.prototype,{
 org.aswing.JScrollPane = function(viewOrViewport,vsbPolicy,hsbPolicy) {
 	if(hsbPolicy == null) hsbPolicy = 0;
 	if(vsbPolicy == null) vsbPolicy = 0;
+	var _g = this;
 	org.aswing.Container.call(this);
 	this.setName("JScrollPane");
 	this.vsbPolicy = vsbPolicy;
@@ -36251,6 +36250,10 @@ org.aswing.JScrollPane = function(viewOrViewport,vsbPolicy,hsbPolicy) {
 	if(viewOrViewport != null) this.setView(viewOrViewport); else this.setViewport(new org.aswing.JViewport());
 	this.setLayout(new org.aswing.ScrollPaneLayout());
 	this.updateUI();
+	this.addEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,function(e) {
+		var _g1 = _g.get_verticalScrollBar();
+		_g1.set_value(_g1.get_value() + _g.get_verticalScrollBar().get_unitIncrement() * e.delta);
+	});
 };
 $hxClasses["org.aswing.JScrollPane"] = org.aswing.JScrollPane;
 org.aswing.JScrollPane.__name__ = ["org","aswing","JScrollPane"];
@@ -55367,7 +55370,7 @@ openfl.Lib.HTML_ACCELEROMETER_EVENT_TYPE = "devicemotion";
 openfl.Lib.HTML_ORIENTATION_EVENT_TYPE = "orientationchange";
 openfl.Lib.DEFAULT_HEIGHT = 500;
 openfl.Lib.DEFAULT_WIDTH = 500;
-openfl.Lib.HTML_DIV_EVENT_TYPES = ["dragstart","resize","mouseover","mouseout","mousewheel"];
+openfl.Lib.HTML_DIV_EVENT_TYPES = ["dragstart","resize","mouseover","mouseout","wheel"];
 openfl.Lib.HTML_TOUCH_EVENT_TYPES = ["touchstart","touchmove","touchend"];
 openfl.Lib.HTML_TOUCH_ALT_EVENT_TYPES = ["mousedown","mousemove","mouseup"];
 openfl.Lib.HTML_WINDOW_EVENT_TYPES = ["keyup","keypress","keydown","resize","blur","focus","paste"];
