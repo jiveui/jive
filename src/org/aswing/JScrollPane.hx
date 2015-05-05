@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import flash.events.MouseEvent;
 import org.aswing.error.Error;
 import org.aswing.geom.IntRectangle;
 import org.aswing.event.ScrollPaneEvent;
@@ -128,6 +129,10 @@ class JScrollPane extends Container {
 		}
 		setLayout(new ScrollPaneLayout());
 		updateUI();
+
+        addEventListener(MouseEvent.MOUSE_WHEEL, function(e) {
+            verticalScrollBar.value += verticalScrollBar.unitIncrement * e.delta;
+        });
 	}
 
     @:dox(hide)
