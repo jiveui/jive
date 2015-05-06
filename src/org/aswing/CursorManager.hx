@@ -61,10 +61,10 @@ class CursorManager{
 		if(stage == null){
 			return null;
 		}
-		var manager:CursorManager = managers.getValue(stage);
+		var manager:CursorManager = managers.get(stage);
 		if(manager == null){
 			manager = new CursorManager(stage);
-			managers.put(stage, manager);
+			managers.set(stage, manager);
 		}
 		return manager;
 	}

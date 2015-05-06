@@ -87,10 +87,6 @@ class AssetIcon implements Icon {
 	}
 
 	private function validate() {
-		if (null == this.assetContainer) {
-            assetContainer = AsWingUtils.createSprite(null, "assetContainer");
-        }
-
 		if (_width==-1 && _height==-1) {
 			if(asset!=null)	{
 				this._width = Std.int(asset.width);
@@ -100,6 +96,9 @@ class AssetIcon implements Icon {
 				this._height = 0;
 			}
 		} else {
+			if (null == this.assetContainer) {
+				assetContainer = AsWingUtils.createSprite(null, "assetContainer");
+			}
 			if(_asset!=null) {
                 if (assetContainer.numChildren > 0) {
                     assetContainer.removeChildAt(0);
