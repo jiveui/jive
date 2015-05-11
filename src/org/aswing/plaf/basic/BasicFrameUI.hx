@@ -261,7 +261,6 @@ class BasicFrameUI extends BaseComponentUI  implements FrameUI{
     			if(AsWingManager.getStage()!=null)	{
     				AsWingManager.getStage().addEventListener(MouseEvent.MOUSE_MOVE, __onMouseMove, false, 0, false);
     			}
-				trace("__onTitleBarPress");
     		}
     	}
     }

@@ -30,9 +30,9 @@ class DepthManager{
 	/**
 	 * Bring the mc to all brother mcs' top.
 	 */	
-	public static function bringToTop(mc:DisplayObject):Void{
+	public static function bringToTop(mc:DisplayObject):Void {
+		if (null == mc || null == mc.parent) return;
 		var parent:DisplayObjectContainer = mc.parent;
-		if(parent == null) return;
 		var maxIndex:Int= parent.numChildren-1;
 		if(parent.getChildIndex(mc) != maxIndex){
 			parent.setChildIndex(mc, maxIndex);

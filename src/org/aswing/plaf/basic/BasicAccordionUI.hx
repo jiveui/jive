@@ -32,7 +32,7 @@ import org.aswing.geom.IntDimension;
  * @author paling
  * @private
  */
-class BasicAccordionUI extends BaseComponentUI  implements LayoutManager{
+class BasicAccordionUI extends BaseComponentUI  implements LayoutManager {
 	
 	private static var MOTION_SPEED:Int= 50;
 	

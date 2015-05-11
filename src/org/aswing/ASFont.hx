@@ -8,6 +8,7 @@ package org.aswing;
 import flash.text.TextField;
 import flash.text.TextFormat;
 import flash.text.TextFormatAlign;
+import openfl.Assets;
 
 import org.aswing.geom.IntDimension;
 
@@ -16,10 +17,13 @@ import org.aswing.geom.IntDimension;
  *
  * Author paling, ngrebenshikov
  */
-class ASFont{
+class ASFont {
 	
  	public var name(default, set):String;
 	private function set_name(v: String): String {
+		#if flash
+		if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
+		#end
 		name = v; textFormat = getTextFormat(); return v;
 	}
 

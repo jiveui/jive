@@ -185,7 +185,8 @@ class JTextField extends JTextComponent{
 	}
 
     @:dox(hide)
-    public override function paintFocusRect(force:Bool=false) {
+    public override function paintFocusRect(force:Bool = false) {
+		if (null == stage) return;
         FocusManager.getManager(stage).setTraversalEnabled(true);
         super.paintFocusRect(true);
     }

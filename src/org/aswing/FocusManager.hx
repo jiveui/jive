@@ -49,8 +49,8 @@ class FocusManager{
 		
 	public function new(theStage:Stage){
 		traversalEnabled=true;
-			traversalDefault=true;
-			traversing = false;
+		traversalDefault=true;
+		traversing = false;
 		inited = false;
 		defaultPolicy = new ContainerOrderFocusTraversalPolicy();
 		popups = new ArrayList();
@@ -71,7 +71,8 @@ class FocusManager{
 		if (manager == null) {  
 			manager = new FocusManager(theStage);
 			managers.set(theStage, manager);
-		}		
+		}
+		manager.init(theStage);
 		return manager;
 	}
 	private function __referenceEvent(e:Event):Void{//just for keep stage reference this manager
@@ -106,8 +107,8 @@ class FocusManager{
 	 * Init the focus manager, it will only start works when it is inited.
 	 * By default, it will be inited when a component is added to stage automatically.
 	 */
-	public function init(theStage:Stage):Void{
-		if(inited!=true){
+	public function init(theStage:Stage):Void {
+		if (inited != true) {
 			stage = theStage;
 			inited = true;
 			stage.addEventListener(FocusEvent.KEY_FOCUS_CHANGE, __onKeyFocusChange, false, 0, false);
@@ -161,12 +162,14 @@ class FocusManager{
 		}
 	}
 	
-	private function __focusPaintedComRemoved(e:Event):Void{
+	private function __focusPaintedComRemoved(e:Event):Void {
+		if (null == focusRect) return;
 		focusRect.graphics.clear();
 		removeistenerToFocusPaintedComponent();
 	}
 	
-	private function __focusPaintedComMoved(e:MovedEvent):Void{
+	private function __focusPaintedComMoved(e:MovedEvent):Void {
+		if (null == focusRect) return;
 		if(focusRect.visible)	{
 			var dx:Int= e.getNewLocation().x - e.getOldLocation().x;
 			var dy:Int= e.getNewLocation().y - e.getOldLocation().y;
@@ -174,7 +177,8 @@ class FocusManager{
 			focusRect.y += dy;
 		}
 	}
-	private function __focusPaintedComResized(e:ResizedEvent):Void{
+	private function __focusPaintedComResized(e:ResizedEvent):Void {
+		if (null == focusRect) return;
 		if(focusRect.visible)	{
 			focusPaintedComponent.paintFocusRect(true);
 		}
@@ -183,7 +187,7 @@ class FocusManager{
 	/**
 	 * Un-init this focus manager.
 	 */
-	public function uninit():Void{
+	public function uninit():Void {
 		if (stage != null) {
 			 
 			stage.removeEventListener(FocusEvent.KEY_FOCUS_CHANGE, __onKeyFocusChange, false);
