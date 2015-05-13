@@ -181,10 +181,10 @@ class BasicGraphicsUtils{
 		var hue:Float= bg.getHue();
 		var lum:Float= bg.getLuminance();
 		var sat:Float= bg.getSaturation();
-		if(lum < 0.6){
-			lum += 0.1;
+		if(lum < 0.8){
+			lum += 0.15;
 		}else{
-			lum -= 0.1;
+			lum -= 0.15;
 		}
 		sat -= 0.2;
 		return ASColor.getASColorWithHLS(hue, lum, sat, bg.getAlpha());

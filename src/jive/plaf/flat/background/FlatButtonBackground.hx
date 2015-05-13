@@ -18,7 +18,7 @@ import flash.display.Shape;
 
 class FlatButtonBackground implements GroundDecorator implements UIResource{
 
-    private static var luminanceFactor: Float = 0.04;
+    private static var luminanceFactor: Float = 0.1;
 
     private var shape:Shape;
 
@@ -26,7 +26,7 @@ class FlatButtonBackground implements GroundDecorator implements UIResource{
         shape = new Shape();
     }
 
-    public function updateDecorator(c:Component, g:Graphics2D, bounds:IntRectangle):Void{
+    public function updateDecorator(c:Component, g:Graphics2D, bounds:IntRectangle):Void {
         var b:AbstractButton = AsWingUtils.as(c,AbstractButton)	;
         if(b == null){
             return;

@@ -6,6 +6,7 @@ package jive.plaf.flat;
 
 import flash.filters.BitmapFilter;
 import flash.filters.DropShadowFilter;
+import jive.plaf.flat.adjuster.AdjusterBorder;
 import org.aswing.LookAndFeel;
 import org.aswing.ASColor;
 import org.aswing.ASFont;
@@ -65,7 +66,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "ComboBoxUI", jive.plaf.flat.FlatComboBoxUI,
                "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI,
                "SliderUI",jive.plaf.flat.FlatSliderUI,
-               "TabbedPaneUI",jive.plaf.flat.FlatTabbedPaneUI
+               "TabbedPaneUI", jive.plaf.flat.FlatTabbedPaneUI,
+			   "AdjusterUI",jive.plaf.flat.FlatAdjusterUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -523,16 +525,15 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** Adjuster
 		comDefaults = [
-			"Adjuster.background", textBG,
-			"Adjuster.foreground", table.get("controlText"), 
-			"Adjuster.mideground", new ASColorUIResource(0x89bb00), 
-			"Adjuster.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 3, new UIStyleTune(0.04, 0.05, 0.20, 0.1)), 
-			"Adjuster.opaque", true, 
-			"Adjuster.focusable", true, 
+			"Adjuster.background",  new ASColorUIResource(0xebedef),
+			"Adjuster.foreground", table.get("windowText"),
+			"Adjuster.mideground", table.get("windowText"),			
+			"Adjuster.opaque", false,  
+			"Adjuster.focusable", true,  
 			"Adjuster.font", table.getFont("controlFont"), 
-			"Adjuster.thumbIcon", org.aswing.plaf.basic.adjuster.PopupSliderThumbIcon,
-			"Adjuster.bg", org.aswing.plaf.basic.background.InputBackground, 
-			"Adjuster.border", new EmptyBorderResource(null, new Insets(1, 3, 2, 3))
+			"Adjuster.border", jive.plaf.flat.adjuster.AdjusterBorder,
+			"Adjuster.bg", jive.plaf.flat.adjuster.AdjusterBackground,
+			"Adjuster.cornerRadius", 5.0
 		];
 		table.putDefaults(comDefaults);
 
