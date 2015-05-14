@@ -15,7 +15,9 @@ import org.aswing.plaf.basic.BasicAccordionUI;
  */
 class JAccordion extends AbstractTabbedPane {
 	
-    /**
+    public var itemContainerClass: Dynamic;
+	
+	/**
      * Create an accordion.
      */
 	public function new() {
@@ -49,5 +51,18 @@ class JAccordion extends AbstractTabbedPane {
 		}else{
 			throw new Error("Cannot set non-AccordionUI layout to JAccordion!");  
 		}
+	}
+	
+	@:dox(hide)
+	override public function appendTab(com:Component, title:String = "", icon:Icon = null, tip:String = null):Void {
+		var item = com;
+		if (null != itemContainerClass) {
+			var container: JPanel = AsWingUtils.as(Type.createInstance(itemContainerClass, []), JPanel);
+			if (null != container) {
+				container.append(item);
+				item = container;
+			}
+		}
+		super.appendTab(item, title, icon, tip);
 	}
 }

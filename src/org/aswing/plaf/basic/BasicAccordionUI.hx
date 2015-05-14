@@ -89,6 +89,7 @@ class BasicAccordionUI extends BaseComponentUI  implements LayoutManager {
 		if (i == null || Std.is(i,UIResource)) {
 	    	accordion.setMargin(tabMargin);
 		}
+		accordion.itemContainerClass = getClass(pp + "itemContainer");
 	}
     
     private function uninstallDefaults():Void{

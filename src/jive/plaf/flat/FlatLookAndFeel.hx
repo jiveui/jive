@@ -67,7 +67,8 @@ class FlatLookAndFeel extends LookAndFeel {
                "ScrollBarUI", jive.plaf.flat.FlatScrollBarUI,
                "SliderUI",jive.plaf.flat.FlatSliderUI,
                "TabbedPaneUI", jive.plaf.flat.FlatTabbedPaneUI,
-			   "AdjusterUI",jive.plaf.flat.FlatAdjusterUI
+			   "AdjusterUI", jive.plaf.flat.FlatAdjusterUI,
+			   "AccordionHeaderButtonUI", jive.plaf.flat.accordion.AccordionHeaderButtonUI,
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -111,6 +112,7 @@ class FlatLookAndFeel extends LookAndFeel {
             "white", 0xffffff,
             "turquoise", 0x1abc9c,
             "emerald", 0x2ecc71,
+			"nephritis", 0x27ae60,
             "peter-river", 0x3498db,
             "amethyst", 0x9b59b6,
             "wet-asphalt", 0x34495e,
@@ -591,14 +593,31 @@ class FlatLookAndFeel extends LookAndFeel {
 		// *** Accordion
 		comDefaults = [
 			"Accordion.font", table.getFont("controlFont"),
-			"Accordion.background", table.get("window"),
-			"Accordion.foreground", new ASColorUIResource(0xFFFFFE), 
+			"Accordion.background", table.get("silver"),
+			"Accordion.foreground", table.get("controlText"),
 			"Accordion.mideground", table.get("controlMide"), 
-			"Accordion.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20), 
 			"Accordion.opaque", false,  
 			"Accordion.focusable", true,
-			"Accordion.motionSpeed", 50, 
-			"Accordion.tabMargin", new InsetsUIResource(2, 3, 3, 2)
+			"Accordion.motionSpeed", 1000, 
+			"Accordion.tabMargin", new InsetsUIResource(5, 10, 7, 10),
+			"Accordion.header", jive.plaf.flat.accordion.AccordionHeader,
+			"Accordion.itemContainer", jive.plaf.flat.accordion.AccordionItemContainer,
+		];
+		table.putDefaults(comDefaults);
+		
+		// *** AccordionHeaderButton
+		var comDefaults:Array<Dynamic> = [
+			"AccordionHeaderButton.background", table.get("wet-asphalt"),
+			"AccordionHeaderButton.foreground", table.get("controlText"),
+			"AccordionHeaderButton.opaque", true,  
+			"AccordionHeaderButton.focusable", true,  
+			"AccordionHeaderButton.shadow", table.getColor("controlShadow"),		
+			"AccordionHeaderButton.darkShadow", table.getColor("controlDkShadow"),		
+			"AccordionHeaderButton.light", table.getColor("controlHighlight"),	   
+	   		"AccordionHeaderButton.highlight", table.getColor("controlLtHighlight"),
+			"AccordionHeaderButton.bg", jive.plaf.flat.accordion.AccordionHeaderButtonBackground,
+			"AccordionHeaderButton.textShiftOffset", 1,
+			"AccordionHeaderButton.cornerRadius", 5
 		];
 		table.putDefaults(comDefaults);
 		
