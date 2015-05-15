@@ -13,7 +13,7 @@
     <content>
         <JPanel>
             <border>
-                <border:EmptyBorder top="30" left="30" bottom="30" right="30" />
+                <border:EmptyBorder top="10" left="30" bottom="10" right="30" />
             </border>
             <preferredSize>
                 <geom:IntDimension width="1200" height="-1"/>

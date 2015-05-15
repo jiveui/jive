@@ -30,6 +30,7 @@
                     <e:String>'Text fields'</e:String>
                     <e:String>'Progress bar and Slider'</e:String>
                     <e:String>'Combo Box'</e:String>
+                    <e:String>'Accordion'</e:String>
                 </VectorListModel>
             </model>
         </JList>
@@ -67,5 +68,6 @@
         <view:TextView dataContext="{Binding textVM}"/>
         <view:ProgressView dataContext="{Binding progressVM}"/>
         <view:ComboBoxView dataContext="{Binding comboboxVM}"/>
+        <view:AccordionView dataContext="{Binding accordionVM}"/>
     </jive:Spot>
 </JPanel>

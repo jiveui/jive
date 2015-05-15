@@ -1,12 +1,9 @@
 package jive.plaf.flat.accordion;
 
-import flash.text.TextFormat;
 import org.aswing.AbstractButton;
 import org.aswing.geom.IntRectangle;
 import org.aswing.graphics.Graphics2D;
 import org.aswing.plaf.basic.BasicButtonUI;
-import flash.text.TextFieldAutoSize;
-import flash.text.TextFormatAlign;
 /**
  * ...
  * @author Nick Grebenshikov

@@ -171,7 +171,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	
 	function createPlusButton(): Component {
 		var btn: JButton = createButton();
-		btn.setIcon(new lookandfeel.icon.PlusIcon(6, adjuster.mideground));
+		btn.setIcon(new jive.plaf.flat.icon.PlusIcon(6, adjuster.mideground));
 		btn.setBackgroundDecorator(new PlusButtonBackground(
 			adjuster.background, 
 			adjuster.background.offsetHLS(0, 0.1, 0), 
@@ -182,7 +182,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	
 	function createMinusButton(): Component {
 		var btn: JButton = createButton();
-		btn.setIcon(new lookandfeel.icon.MinusIcon(6, adjuster.mideground));
+		btn.setIcon(new jive.plaf.flat.icon.MinusIcon(6, adjuster.mideground));
 		btn.setBackgroundDecorator(new MinusButtonBackground(
 			adjuster.background, 
 			adjuster.background.offsetHLS(0, 0.1, 0), 

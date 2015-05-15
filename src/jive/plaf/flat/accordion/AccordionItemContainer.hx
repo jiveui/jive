@@ -1,11 +1,10 @@
 package jive.plaf.flat.accordion;
 
 import jive.plaf.flat.border.ExtendedLineBorder;
-import org.aswing.ASColor;
 import org.aswing.border.EmptyBorder;
 import org.aswing.Insets;
 import org.aswing.JPanel;
-import org.aswing.LayoutManager;
+import org.aswing.ASColor;
 
 /**
  * ...

@@ -1,26 +1,17 @@
 package jive.plaf.flat.accordion;
 
 import flash.display.DisplayObject;
-import flash.sampler.NewObjectSample;
 import org.aswing.AsWingUtils;
-import org.aswing.GradientBackground;
 import org.aswing.graphics.SolidBrush;
-import org.aswing.SolidBackground;
-
 import org.aswing.ASColor;
 import org.aswing.Component;
 import org.aswing.AbstractButton;
 import org.aswing.ButtonModel;
-import org.aswing.JButton;
-import org.aswing.graphics.GradientBrush;
-import org.aswing.graphics.Pen;
 import org.aswing.GroundDecorator;
 import org.aswing.plaf.UIResource;
 import org.aswing.plaf.ComponentUI;
 import org.aswing.geom.IntRectangle;
 import org.aswing.graphics.Graphics2D;
-import org.aswing.plaf.basic.BasicGraphicsUtils;
-import flash.geom.Matrix;
 
 class AccordionHeaderButtonBackground implements GroundDecorator implements UIResource {
 	private var cornerRaduis: Float = -1;

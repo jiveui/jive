@@ -1,7 +1,5 @@
 package jive.plaf.flat.accordion;
 
-import assets.icons.ArrowOpened;
-import assets.icons.ArrowClosed;
 import org.aswing.AbstractButton;
 import org.aswing.AssetIcon;
 import org.aswing.AsWingConstants;
@@ -32,11 +30,11 @@ class AccordionHeader extends BasicAccordionHeader {
 		button.setSelected(b);
 		if (b) {
 			button.setBorder(new EmptyBorder(null, new Insets(4, 0, -1, 0)));
-			button.setIcon(new AssetIcon(new ArrowOpened()));
+			button.setIcon(new AssetIcon(openfl.Assets.getMovieClip("icons/arrow-icon-opened.swf:")));
 			
 		} else {
 			button.setBorder(new EmptyBorder(null, new Insets(5, 0, 0, 0)));
-			button.setIcon(new AssetIcon(new ArrowClosed()));
+			button.setIcon(new AssetIcon(openfl.Assets.getMovieClip("icons/arrow-icon-closed.swf:")));
 		}
 	}
 	

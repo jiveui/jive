@@ -2,7 +2,9 @@
 <extension>
     <assets path="assets" inlude="*.woff"/>
     <assets path="assets" inlude="*.eot"/>
+    <assets path="assets/icons" inlude="*"/>
     <haxelib name="actuate"/>
+    <haxelib name="swf"/>
     <haxedef name="openfl_snapsvg_without_massive_broadcasting"/>
     <!--<haxedef name="openfl_snapsvg_render_only_changed"/>-->
 </extension>

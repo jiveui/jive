@@ -1,8 +1,6 @@
 package jive.plaf.flat.accordion;
 
-import flash.geom.Matrix;
 import org.aswing.ASColor;
-import org.aswing.graphics.GradientBrush;
 import org.aswing.graphics.SolidBrush;
 import org.aswing.GroundDecorator;
 import org.aswing.Component;

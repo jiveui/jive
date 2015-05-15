@@ -19,11 +19,11 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         /* declarations/desktop/view/MainView.xml:16 characters: 17-35 */
         var res = new org.aswing.border.EmptyBorder();
         /* declarations/desktop/view/MainView.xml:16 characters: 37-40 */
-        res.top = 30;
+        res.top = 10;
         /* declarations/desktop/view/MainView.xml:16 characters: 68-73 */
         res.right = 30;
         /* declarations/desktop/view/MainView.xml:16 characters: 56-62 */
-        res.bottom = 30;
+        res.bottom = 10;
         /* declarations/desktop/view/MainView.xml:16 characters: 46-50 */
         res.left = 30;
         return res;
