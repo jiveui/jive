@@ -166,7 +166,7 @@ class BasicAccordionUI extends BaseComponentUI  implements LayoutManager {
     		var i:Int;
     		var header:Tab;
     		if(comCount > headers.length){
-    			for(i  in headers.length... comCount){
+    			for(i in headers.length... comCount){
     				header = createNewHeader();
     				header.setTextAndIcon(accordion.getTitleAt(i), accordion.getIconAt(i));
     				setHeaderProperties(header);
@@ -194,6 +194,12 @@ class BasicAccordionUI extends BaseComponentUI  implements LayoutManager {
     		header.getTabComponent().setEnabled(accordion.isEnabledAt(i));
     		header.getTabComponent().setVisible(accordion.isVisibleAt(i));
     		header.getTabComponent().setToolTipText(accordion.getTipAt(i));
+            header.setTabPlacement(i);
+
+            var h: BasicAccordionHeader = AsWingUtils.as(header, BasicAccordionHeader);
+            if (null == h) return;
+
+            h.maxPlacement = headers.length-1;
     	}
     }
     

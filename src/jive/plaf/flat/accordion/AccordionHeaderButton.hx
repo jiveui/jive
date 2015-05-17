@@ -9,7 +9,21 @@ import org.aswing.JButton;
 
 class AccordionHeaderButton extends JButton {
 
-	public function new() {
+	public var tabPlacement(default, set): Int;
+    private function set_tabPlacement(v: Int): Int {
+        tabPlacement = v;
+        repaint();
+        return v;
+    }
+
+    public var maxPlacement: Int;
+    private function set_maxPlacement(v: Int): Int {
+        maxPlacement = v;
+        repaint();
+        return v;
+    }
+
+    public function new() {
 		super();
 	}
 	

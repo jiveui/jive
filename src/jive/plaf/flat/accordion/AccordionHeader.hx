@@ -1,11 +1,11 @@
 package jive.plaf.flat.accordion;
 
+import org.aswing.AsWingUtils;
+import org.aswing.ASColor;
+import jive.plaf.flat.icon.ExpandIcon;
 import org.aswing.AbstractButton;
-import org.aswing.AssetIcon;
 import org.aswing.AsWingConstants;
-import org.aswing.border.EmptyBorder;
 import org.aswing.Icon;
-import org.aswing.Insets;
 import org.aswing.plaf.basic.accordion.BasicAccordionHeader;
 
 /**
@@ -22,19 +22,17 @@ class AccordionHeader extends BasicAccordionHeader {
 	override private function createHeaderButton():AbstractButton {
 		var b:AbstractButton = new AccordionHeaderButton();
 		b.setHorizontalAlignment(AsWingConstants.LEFT);
-		b.setBorder(new EmptyBorder(null, new Insets(5, 0, 0, 0)));
+        b.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), false));
 		return b;
 	}
 	
 	override public function setSelected(b:Bool):Void{
-		button.setSelected(b);
+		if (button.selected == b) return;
+        button.setSelected(b);
 		if (b) {
-			button.setBorder(new EmptyBorder(null, new Insets(4, 0, -1, 0)));
-			button.setIcon(new AssetIcon(openfl.Assets.getMovieClip("icons/arrow-icon-opened.swf:")));
-			
+			button.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), true));
 		} else {
-			button.setBorder(new EmptyBorder(null, new Insets(5, 0, 0, 0)));
-			button.setIcon(new AssetIcon(openfl.Assets.getMovieClip("icons/arrow-icon-closed.swf:")));
+			button.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), false));
 		}
 	}
 	
@@ -46,5 +44,18 @@ class AccordionHeader extends BasicAccordionHeader {
 	{
 		button.setText(text);
 	}
+
+    override public function setTabPlacement(tp:Int):Void{
+        super.setTabPlacement(tp);
+        var b: AccordionHeaderButton = AsWingUtils.as(button, AccordionHeaderButton);
+        b.tabPlacement = tp;
+    }
+
+    override private function set_maxPlacement(v: Int): Int {
+        maxPlacement = v;
+        var b: AccordionHeaderButton = AsWingUtils.as(button, AccordionHeaderButton);
+        b.maxPlacement = v;
+        return v;
+    }
 	
 }

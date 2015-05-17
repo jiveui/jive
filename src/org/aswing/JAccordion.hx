@@ -54,7 +54,7 @@ class JAccordion extends AbstractTabbedPane {
 	}
 	
 	@:dox(hide)
-	override public function appendTab(com:Component, title:String = "", icon:Icon = null, tip:String = null):Void {
+	override public function insertTab(i:Int, com:Component, title:String="", icon:Icon=null, tip:String=null):Void {
 		var item = com;
 		if (null != itemContainerClass) {
 			var container: JPanel = AsWingUtils.as(Type.createInstance(itemContainerClass, []), JPanel);
@@ -63,6 +63,6 @@ class JAccordion extends AbstractTabbedPane {
 				item = container;
 			}
 		}
-		super.appendTab(item, title, icon, tip);
+		super.insertTab(i, item, title, icon, tip);
 	}
 }

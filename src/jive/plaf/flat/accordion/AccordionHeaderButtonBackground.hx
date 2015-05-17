@@ -29,7 +29,7 @@ class AccordionHeaderButtonBackground implements GroundDecorator implements UIRe
 	
 	public function updateDecorator(c:Component, g:Graphics2D, bounds:IntRectangle){
 		
-		var b:AbstractButton = AsWingUtils.as(c, AbstractButton);
+		var b:AccordionHeaderButton = AsWingUtils.as(c, AccordionHeaderButton);
 		if (b == null) return;
 		
 		if(cornerRaduis <= 0){
@@ -43,11 +43,13 @@ class AccordionHeaderButtonBackground implements GroundDecorator implements UIRe
 	    	var isPressing:Bool = model.isArmed() && b.isEnabled();
 	    	var isRollover:Bool = (model.isRollOver() || model.isSelected()) && b.isEnabled() && !isPressing;
 			var isSelected:Bool = model.isSelected();
+            var isFirst: Bool = b.tabPlacement == 0;
+            var isLast: Bool = b.tabPlacement == b.maxPlacement;
 
-			var topLeftRadius = cornerRaduis;
-			var topRightRadius = cornerRaduis;
-			var bottomLeftRadius = if (isSelected) 0 else cornerRaduis;
-			var bottomRightRadius = if (isSelected) 0 else cornerRaduis;
+			var topLeftRadius = if (isFirst) cornerRaduis else 0;
+			var topRightRadius = if (isFirst) cornerRaduis else 0;
+			var bottomLeftRadius = if (isLast && !isSelected) cornerRaduis else 0;
+			var bottomRightRadius = if (isLast && !isSelected) cornerRaduis else 0;
 						
 			var color: ASColor = 
 				if (isPressing && !isSelected) c.background.offsetHLS(0, -0.1, 0)

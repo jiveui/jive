@@ -25,6 +25,33 @@
                 <JPanel>
                     <border><border:EmptyBorder top="30"/></border>
                     <JAccordion>
+                        <TabInfo title="'Button'">
+                            <content>
+                                <JButton text="'Hello world!'"/>
+                            </content>
+                        </TabInfo>
+                        <TabInfo title="'Panel'">
+                            <content>
+                                <SoftBox>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                </SoftBox>
+                            </content>
+                        </TabInfo>
+                        <TabInfo title="'Panel'">
+                            <content>
+                                <SoftBox>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                    <JButton text="'Hello world!'"/>
+                                </SoftBox>
+                            </content>
+                        </TabInfo>
                     </JAccordion>
                 </JPanel>
             </content>

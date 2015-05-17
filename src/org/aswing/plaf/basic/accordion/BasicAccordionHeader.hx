@@ -24,6 +24,11 @@ class BasicAccordionHeader implements Tab{
 	private var button:AbstractButton;
 	private var owner:Component;
 	private var placement:Int;
+    public var maxPlacement(default, set): Int;
+    private function set_maxPlacement(v: Int): Int {
+        maxPlacement = v;
+        return v;
+    }
 	
 	public function new(){
 	}
