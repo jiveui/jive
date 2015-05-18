@@ -55,7 +55,8 @@
     <jive:Dialog
             id="loginDialog"
             visibility="{Binding isLoginDialogShowed mode=twoway}"
-            title="'Login into your account'">
+            title="'Login into your account'"
+            modal="true">
         <content>
             <SoftBox gap="20">
                 <JTextField columns="13" inlineHint="'E-mail'" text="{Binding email mode=twoway}"/>

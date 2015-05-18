@@ -248,7 +248,7 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
     }
 
     inline function get_jTextField__0():org.aswing.JTextField {
-        /* declarations/demo/view/FrameView.xml:61 characters: 17-27 */
+        /* declarations/demo/view/FrameView.xml:62 characters: 17-27 */
         var res = new org.aswing.JTextField();
         if (null != dataContext) { res.text = this.dataContext.email; }
         var programmaticalyChange = false;
@@ -282,15 +282,15 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
                                     this.dataContext.email = res.text;
                                 }
                             });
-        /* declarations/demo/view/FrameView.xml:61 characters: 29-36 */
+        /* declarations/demo/view/FrameView.xml:62 characters: 29-36 */
         res.columns = 13;
-        /* declarations/demo/view/FrameView.xml:61 characters: 42-52 */
+        /* declarations/demo/view/FrameView.xml:62 characters: 42-52 */
         res.inlineHint = 'E-mail';
         return res;
     }
 
     inline function get_jTextField__1():org.aswing.JTextField {
-        /* declarations/demo/view/FrameView.xml:62 characters: 17-27 */
+        /* declarations/demo/view/FrameView.xml:63 characters: 17-27 */
         var res = new org.aswing.JTextField();
         if (null != dataContext) { res.text = this.dataContext.password; }
         var programmaticalyChange = false;
@@ -324,53 +324,53 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
                                     this.dataContext.password = res.text;
                                 }
                             });
-        /* declarations/demo/view/FrameView.xml:62 characters: 29-36 */
+        /* declarations/demo/view/FrameView.xml:63 characters: 29-36 */
         res.columns = 14;
-        /* declarations/demo/view/FrameView.xml:62 characters: 104-121 */
+        /* declarations/demo/view/FrameView.xml:63 characters: 104-121 */
         res.displayAsPassword = true;
-        /* declarations/demo/view/FrameView.xml:62 characters: 42-52 */
+        /* declarations/demo/view/FrameView.xml:63 characters: 42-52 */
         res.inlineHint = 'Password';
         return res;
     }
 
     inline function get_borderLayout__1():org.aswing.BorderLayout {
-        /* declarations/demo/view/FrameView.xml:65 characters: 25-37 */
+        /* declarations/demo/view/FrameView.xml:66 characters: 25-37 */
         var res = new org.aswing.BorderLayout();
-        /* declarations/demo/view/FrameView.xml:65 characters: 39-43 */
+        /* declarations/demo/view/FrameView.xml:66 characters: 39-43 */
         res.hgap = 30;
         return res;
     }
 
     inline function get_intDimension__0():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/FrameView.xml:69 characters: 29-46 */
+        /* declarations/demo/view/FrameView.xml:70 characters: 29-46 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/FrameView.xml:69 characters: 48-53 */
+        /* declarations/demo/view/FrameView.xml:70 characters: 48-53 */
         res.width = 150;
-        /* declarations/demo/view/FrameView.xml:69 characters: 60-66 */
+        /* declarations/demo/view/FrameView.xml:70 characters: 60-66 */
         res.height = -1;
         return res;
     }
 
     inline function get_string__0():String {
-        /* declarations/demo/view/FrameView.xml:73 characters: 33-41 */
+        /* declarations/demo/view/FrameView.xml:74 characters: 33-41 */
         var res = 'Administrator';
         return res;
     }
 
     inline function get_string__1():String {
-        /* declarations/demo/view/FrameView.xml:74 characters: 33-41 */
+        /* declarations/demo/view/FrameView.xml:75 characters: 33-41 */
         var res = 'Moderator';
         return res;
     }
 
     inline function get_string__2():String {
-        /* declarations/demo/view/FrameView.xml:75 characters: 33-41 */
+        /* declarations/demo/view/FrameView.xml:76 characters: 33-41 */
         var res = 'User';
         return res;
     }
 
     inline function get_vectorListModel__0():org.aswing.VectorListModel {
-        /* declarations/demo/view/FrameView.xml:72 characters: 29-44 */
+        /* declarations/demo/view/FrameView.xml:73 characters: 29-44 */
         var res = new org.aswing.VectorListModel();
         res.append(get_string__0());
         res.append(get_string__1());
@@ -379,7 +379,7 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
     }
 
     inline function get_jComboBox__0():org.aswing.JComboBox {
-        /* declarations/demo/view/FrameView.xml:67 characters: 21-30 */
+        /* declarations/demo/view/FrameView.xml:68 characters: 21-30 */
         var res = new org.aswing.JComboBox();
         if (null != dataContext) { res.selectedIndex = this.dataContext.role; }
         var programmaticalyChange = false;
@@ -413,29 +413,29 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
                                     this.dataContext.role = res.selectedIndex;
                                 }
                             });
-        /* declarations/demo/view/FrameView.xml:67 characters: 32-43 */
+        /* declarations/demo/view/FrameView.xml:68 characters: 32-43 */
         res.constraints = org.aswing.BorderLayout.WEST;
-        /* declarations/demo/view/FrameView.xml:68 characters: 25-38 */
+        /* declarations/demo/view/FrameView.xml:69 characters: 25-38 */
         res.preferredSize = get_intDimension__0();
-        /* declarations/demo/view/FrameView.xml:71 characters: 25-30 */
+        /* declarations/demo/view/FrameView.xml:72 characters: 25-30 */
         res.model = get_vectorListModel__0();
         return res;
     }
 
     inline function get_jCheckBox__0():org.aswing.JCheckBox {
-        /* declarations/demo/view/FrameView.xml:79 characters: 21-30 */
+        /* declarations/demo/view/FrameView.xml:80 characters: 21-30 */
         var res = new org.aswing.JCheckBox();
-        /* declarations/demo/view/FrameView.xml:79 characters: 32-36 */
+        /* declarations/demo/view/FrameView.xml:80 characters: 32-36 */
         res.text = 'Remember me';
-        /* declarations/demo/view/FrameView.xml:79 characters: 53-64 */
+        /* declarations/demo/view/FrameView.xml:80 characters: 53-64 */
         res.constraints = org.aswing.BorderLayout.EAST;
         return res;
     }
 
     inline function get_jPanel__1():org.aswing.JPanel {
-        /* declarations/demo/view/FrameView.xml:63 characters: 17-23 */
+        /* declarations/demo/view/FrameView.xml:64 characters: 17-23 */
         var res = new org.aswing.JPanel();
-        /* declarations/demo/view/FrameView.xml:64 characters: 21-27 */
+        /* declarations/demo/view/FrameView.xml:65 characters: 21-27 */
         res.layout = get_borderLayout__1();
         res.append(get_jComboBox__0());
         res.append(get_jCheckBox__0());
@@ -443,61 +443,61 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
     }
 
     inline function get_flowLayout__0():org.aswing.FlowLayout {
-        /* declarations/demo/view/FrameView.xml:83 characters: 25-35 */
+        /* declarations/demo/view/FrameView.xml:84 characters: 25-35 */
         var res = new org.aswing.FlowLayout();
-        /* declarations/demo/view/FrameView.xml:83 characters: 37-42 */
+        /* declarations/demo/view/FrameView.xml:84 characters: 37-42 */
         res.align = org.aswing.FlowLayout.RIGHT;
         return res;
     }
 
     inline function get_jButton__1():org.aswing.JButton {
-        /* declarations/demo/view/FrameView.xml:85 characters: 21-28 */
+        /* declarations/demo/view/FrameView.xml:86 characters: 21-28 */
         var res = new org.aswing.JButton();
-        /* declarations/demo/view/FrameView.xml:85 characters: 30-34 */
+        /* declarations/demo/view/FrameView.xml:86 characters: 30-34 */
         res.text = 'Sign up';
         return res;
     }
 
     inline function get_intDimension__1():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/FrameView.xml:86 characters: 45-62 */
+        /* declarations/demo/view/FrameView.xml:87 characters: 45-62 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/FrameView.xml:86 characters: 64-69 */
+        /* declarations/demo/view/FrameView.xml:87 characters: 64-69 */
         res.width = 10;
-        /* declarations/demo/view/FrameView.xml:86 characters: 75-81 */
+        /* declarations/demo/view/FrameView.xml:87 characters: 75-81 */
         res.height = 10;
         return res;
     }
 
     inline function get_jSpacer__0():org.aswing.JSpacer {
-        /* declarations/demo/view/FrameView.xml:86 characters: 21-28 */
+        /* declarations/demo/view/FrameView.xml:87 characters: 21-28 */
         var res = new org.aswing.JSpacer();
-        /* declarations/demo/view/FrameView.xml:86 characters: 30-43 */
+        /* declarations/demo/view/FrameView.xml:87 characters: 30-43 */
         res.preferredSize = get_intDimension__1();
         return res;
     }
 
     inline function get_aSColor__0():org.aswing.ASColor {
-        /* declarations/demo/view/FrameView.xml:89 characters: 29-36 */
+        /* declarations/demo/view/FrameView.xml:90 characters: 29-36 */
         var res = new org.aswing.ASColor();
-        /* declarations/demo/view/FrameView.xml:89 characters: 38-41 */
+        /* declarations/demo/view/FrameView.xml:90 characters: 38-41 */
         res.rgb = 0x1abc9c;
         return res;
     }
 
     inline function get_jButton__2():org.aswing.JButton {
-        /* declarations/demo/view/FrameView.xml:87 characters: 21-28 */
+        /* declarations/demo/view/FrameView.xml:88 characters: 21-28 */
         var res = new org.aswing.JButton();
-        /* declarations/demo/view/FrameView.xml:87 characters: 30-34 */
+        /* declarations/demo/view/FrameView.xml:88 characters: 30-34 */
         res.text = 'Sign in';
-        /* declarations/demo/view/FrameView.xml:88 characters: 25-35 */
+        /* declarations/demo/view/FrameView.xml:89 characters: 25-35 */
         res.background = get_aSColor__0();
         return res;
     }
 
     inline function get_jPanel__2():org.aswing.JPanel {
-        /* declarations/demo/view/FrameView.xml:81 characters: 17-23 */
+        /* declarations/demo/view/FrameView.xml:82 characters: 17-23 */
         var res = new org.aswing.JPanel();
-        /* declarations/demo/view/FrameView.xml:82 characters: 21-27 */
+        /* declarations/demo/view/FrameView.xml:83 characters: 21-27 */
         res.layout = get_flowLayout__0();
         res.append(get_jButton__1());
         res.append(get_jSpacer__0());
@@ -506,9 +506,9 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
     }
 
     inline function get_softBox__0():org.aswing.SoftBox {
-        /* declarations/demo/view/FrameView.xml:60 characters: 13-20 */
+        /* declarations/demo/view/FrameView.xml:61 characters: 13-20 */
         var res = new org.aswing.SoftBox();
-        /* declarations/demo/view/FrameView.xml:60 characters: 22-25 */
+        /* declarations/demo/view/FrameView.xml:61 characters: 22-25 */
         res.gap = 20;
         res.append(get_jTextField__0());
         res.append(get_jTextField__1());
@@ -557,7 +557,9 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
                             });
         /* declarations/demo/view/FrameView.xml:58 characters: 13-18 */
         res.title = 'Login into your account';
-        /* declarations/demo/view/FrameView.xml:59 characters: 9-16 */
+        /* declarations/demo/view/FrameView.xml:59 characters: 13-18 */
+        res.modal = true;
+        /* declarations/demo/view/FrameView.xml:60 characters: 9-16 */
         res.content.append(get_softBox__0());
         return res;
     }

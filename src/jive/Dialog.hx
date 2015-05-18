@@ -6,10 +6,9 @@ import org.aswing.Container;
 import org.aswing.JFrame;
 
 class Dialog extends JFrame {
-    public function new() {
-        super();
+    public function new(owner:Dynamic=null, title:String="", modal:Bool=false) {
+        super(owner, title, modal);
         resizable = false;
-        modal = true;
         defaultCloseOperation = JFrame.HIDE_ON_CLOSE;
         content.addEventListener(ContainerEvent.COM_ADDED, updateSizeAndLocation);
     }
