@@ -153,7 +153,8 @@ class FlatLookAndFeel extends LookAndFeel {
 			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
             "topMenuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16),
 			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false),
-			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14, true)
+			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14, true),
+            "controlHeaderFont", new ASFontUIResource("assets/Lato-Bold.ttf", 18)
 		];
 		table.putDefaults(defaultSystemFonts);
 	}
@@ -391,10 +392,10 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** Frame
 		comDefaults = [
-			"Frame.background", new ASColorUIResource(0xe6e6e6),
+			"Frame.background", new ASColorUIResource(0xfafafa),
 			"Frame.foreground", new ASColorUIResource(0x666666), 
-			"Frame.mideground", new ASColorUIResource(0xaad51a), 
-			"Frame.colorAdjust", new UIStyleTune(0.10, 0.0, 0.0, 0.30, 10, new UIStyleTune(0.10, 0.0, 0.0, 0.60, 10)), 
+			"Frame.mideground", table.get("concrete"),
+			"Frame.colorAdjust", new UIStyleTune(0.10, 0.0, 0.0, 0.30, 5, new UIStyleTune(0.10, 0.0, 0.0, 0.60, 5)),
 			"Frame.opaque", true, 
 			"Frame.focusable", true, 
 			"Frame.dragDirectly", true, 
@@ -402,37 +403,35 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Frame.resizeArrowLight", new ASColorUIResource(0xE2E2DE), 
 			"Frame.resizeArrowDark",  new ASColorUIResource(0x2e6d8a), 		
 			"Frame.resizer", org.aswing.resizer.DefaultResizer, 
-			"Frame.font", table.get("windowFont"), 
+			"Frame.font", table.get("controlFont"),
 			"Frame.resizerMargin", new InsetsUIResource(2, 1, 6, 6), 
-			//"Frame.backgroundMargin", new InsetsUIResource(2, 4, 8, 8), 
-			"Frame.bg", org.aswing.plaf.basic.background.FrameBackground, 
-			"Frame.border", new EmptyBorderResource(null, new Insets(0, 6, 12, 12)), 
+			"Frame.bg", jive.plaf.flat.background.FlatFrameBackground,
+			"Frame.border", new EmptyBorderResource(null, new Insets(30, 40, 40, 40)),
 			"Frame.icon", org.aswing.plaf.basic.icon.TitleIcon, 
 			"Frame.iconifiedIcon", org.aswing.plaf.basic.icon.FrameIconifiedIcon, 
 			"Frame.normalIcon", org.aswing.plaf.basic.icon.FrameNormalIcon, 
 			"Frame.maximizeIcon", org.aswing.plaf.basic.icon.FrameMaximizeIcon, 
-			"Frame.closeIcon", org.aswing.plaf.basic.icon.FrameCloseIcon
+			"Frame.closeIcon", jive.plaf.flat.icon.FrameCloseIcon
 		];
 		table.putDefaults(comDefaults);		
 		
 		// *** FrameTitleBar
 		comDefaults = [
 			"FrameTitleBar.background", new ASColorUIResource(0xc4e066),
-			"FrameTitleBar.foreground", new ASColorUIResource(0x0084ad), 
-			"FrameTitleBar.mideground", new ASColorUIResource(0xbedb5d), 
+			"FrameTitleBar.foreground", table.get("wet-asphalt"),
+			"FrameTitleBar.mideground", table.get("concrete"),
 			"FrameTitleBar.colorAdjust", new UIStyleTune(0.24, 0.01, 0.18, 0.50, 0, new UIStyleTune(0.2, -0.28, 0.08, 0.10, 1)), 
 			"FrameTitleBar.opaque", true, 
 			"FrameTitleBar.focusable", false, 
-			"FrameTitleBar.titleBarHeight", 25, 
-			"FrameTitleBar.buttonGap", 2, 
-			"FrameTitleBar.font", table.get("windowFont"), 
-			"FrameTitleBar.border", new EmptyBorderResource(null, new Insets(7, 0, 0, 0)), 
-			//"FrameTitleBar.bg", org.aswing.plaf.basic.frame.BasicFrameTitleBarTitleBarBG, 
-			"FrameTitleBar.icon", org.aswing.plaf.basic.icon.TitleIcon, 
+			"FrameTitleBar.titleBarHeight", 50,
+			"FrameTitleBar.buttonGap", 0,
+			"FrameTitleBar.font", table.get("controlHeaderFont"),
+			"FrameTitleBar.border", new EmptyBorderResource(null, new Insets(0, 0, 30, 0)),
+			"FrameTitleBar.icon", org.aswing.plaf.basic.icon.TitleIcon,
 			"FrameTitleBar.iconifiedIcon", org.aswing.plaf.basic.icon.FrameIconifiedIcon, 
 			"FrameTitleBar.normalIcon", org.aswing.plaf.basic.icon.FrameNormalIcon, 
 			"FrameTitleBar.maximizeIcon", org.aswing.plaf.basic.icon.FrameMaximizeIcon, 
-			"FrameTitleBar.closeIcon", org.aswing.plaf.basic.icon.FrameCloseIcon
+			"FrameTitleBar.closeIcon", jive.plaf.flat.icon.FrameCloseIcon
 		];
 		table.putDefaults(comDefaults);
 		f= new Array<BitmapFilter>();

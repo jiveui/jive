@@ -81,7 +81,6 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		
 		var labelPane:Container = new Container();
 		 
-		labelPane.setBorder(new EmptyBorder(null, new Insets(-3)));//make label y offset -3
 		labelPane.setLayout(new BorderLayout());
 		titleLabel = new JLabel();
 		titleLabel.setHorizontalAlignment(JLabel.LEFT);
@@ -95,8 +94,8 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		append(labelPane, BorderLayout.CENTER);
 		 
 		var btnpP:Container = new Container();
-		btnpP.setLayout(new BorderLayout());
-		btnpP.append(buttonPane, BorderLayout.NORTH);
+		btnpP.setLayout(new CenterLayout());
+		btnpP.append(buttonPane);
 		append(btnpP, BorderLayout.EAST);
 		
 		setIconifiedButton(createIconifiedButton());

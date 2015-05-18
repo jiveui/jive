@@ -55,22 +55,9 @@
     <jive:Dialog
             id="loginDialog"
             visibility="{Binding isLoginDialogShowed mode=twoway}"
-            title="'Enter your credentials'">
+            title="'Login into your account'">
         <content>
             <SoftBox gap="20">
-                <border>
-                    <border:LineBorder thickness="1" round="5">
-                        <border:interior>
-                            <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
-                        </border:interior>
-                        <border:color>
-                            <ASColor rgb="0xe1e1e1"/>
-                        </border:color>
-                    </border:LineBorder>
-                </border>
-
-                <JLabel text="'Login into your account'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-
                 <JTextField columns="13" inlineHint="'E-mail'" text="{Binding email mode=twoway}"/>
                 <JTextField columns="14" inlineHint="'Password'" text="{Binding password mode=twoway}" displayAsPassword="true"/>
                 <JPanel>
