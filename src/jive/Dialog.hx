@@ -1,5 +1,7 @@
 package jive;
 
+import flash.Lib;
+import org.aswing.AsWingManager;
 import org.aswing.event.ContainerEvent;
 import org.aswing.geom.IntPoint;
 import org.aswing.Container;
@@ -16,8 +18,8 @@ class Dialog extends JFrame {
     private function updateSizeAndLocation(e: Dynamic) {
         pack();
         location = new IntPoint(
-        Std.int((stage.stageWidth - width) / 2),
-        Std.int((stage.stageHeight - height) / 2));
+			Std.int((Lib.current.stage.stageWidth - currentSize.width) / 2),
+			Std.int((Lib.current.stage.stageHeight - currentSize.height) / 2));
     }
 
     @:dox(hide)
