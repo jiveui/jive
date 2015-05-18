@@ -3,10 +3,10 @@ xmlns:bindx="bindx"
 xmlns:motion-actuators="motion.actuators"
 xmlns:flash-ui="flash.ui"
 xmlns:lime-ui-_MouseEventManager="lime.ui._MouseEventManager"
+xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
 xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:openfl-_Assets="openfl._Assets"
 xmlns:flash="flash"
-xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
 xmlns:lime="lime"
 xmlns:lime-graphics-utils="lime.graphics.utils"
 xmlns:jive="jive"
@@ -15,6 +15,7 @@ xmlns:lime-ui-_Window="lime.ui._Window"
 xmlns:lime-ui="lime.ui"
 xmlns:org-aswing-resizer="org.aswing.resizer"
 xmlns:org-aswing-table="org.aswing.table"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
 xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:lime-app-_Application="lime.app._Application"
 xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
@@ -35,6 +36,7 @@ xmlns:haxe-ds-_ObjectMap="haxe.ds._ObjectMap"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash-filters="flash.filters"
 xmlns:jive-tools="jive.tools"
+xmlns:jive-plaf-flat-adjuster="jive.plaf.flat.adjuster"
 xmlns:lime-graphics-_Renderer="lime.graphics._Renderer"
 xmlns:org-aswing-border="org.aswing.border"
 xmlns:lime-audio="lime.audio"
@@ -90,10 +92,10 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="lime.ui._MouseEventManager" schemaLocation="lime.ui._MouseEventManager.xsd" />
+<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
 <xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
 <xs:import namespace="openfl._Assets" schemaLocation="openfl._Assets.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
-<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
 <xs:import namespace="lime" schemaLocation="lime.xsd" />
 <xs:import namespace="lime.graphics.utils" schemaLocation="lime.graphics.utils.xsd" />
 <xs:import namespace="jive" schemaLocation="jive.xsd" />
@@ -102,6 +104,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
 <xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="lime.app._Application" schemaLocation="lime.app._Application.xsd" />
 <xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
@@ -122,6 +125,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash.filters" schemaLocation="flash.filters.xsd" />
 <xs:import namespace="jive.tools" schemaLocation="jive.tools.xsd" />
+<xs:import namespace="jive.plaf.flat.adjuster" schemaLocation="jive.plaf.flat.adjuster.xsd" />
 <xs:import namespace="lime.graphics._Renderer" schemaLocation="lime.graphics._Renderer.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
 <xs:import namespace="lime.audio" schemaLocation="lime.audio.xsd" />
@@ -232,11 +236,13 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
 <xs:element ref="org-aswing-event:MovedEvent" />
 <xs:element ref="org-aswing-resizer:ResizeStrategy" />
+<xs:element ref="jive:Dialog" />
 <xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
 <xs:element ref="haxe:Timer" />
 <xs:element ref="lime-audio:FlashAudioContext" />
 <xs:element ref="org-aswing:CursorManager" />
 <xs:element ref="flash-display:Shape" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonUI" />
 <xs:element ref="lime-ui-_KeyEventManager:KeyEventInfo" />
 <xs:element ref="flash-ui:Multitouch" />
 <xs:element ref="org-aswing:JTextComponent" />
@@ -248,6 +254,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="haxe:CallStack" />
 <xs:element ref="org-aswing-util:Impulser" />
 <xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat-border:ExtendedLineBorder" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="lime-app-_Application:UpdateEventType_Impl_" />
 <xs:element ref="lime-math-_ColorMatrix:ColorMatrix_Impl_" />
@@ -271,6 +278,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-display:MovieClip" />
 <xs:element ref="lime-math:Vector2" />
 <xs:element ref="org-aswing-plaf-basic:BasicProgressBarUI" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemBackground" />
 <xs:element ref="openfl-_Assets:AssetType_Impl_" />
 <xs:element ref="motion-easing:Expo" />
 <xs:element ref="motion-actuators:PropertyDetails" />
@@ -350,8 +358,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
 <xs:element ref="org-aswing-table:DefaultTextCell" />
 <xs:element ref="org-aswing-plaf:AdjusterUI" />
-<xs:element ref="org-aswing:EmptyIcon" />
 <xs:element ref="org-aswing:JWindow" />
+<xs:element ref="org-aswing:EmptyIcon" />
 <xs:element ref="org-aswing-plaf-basic:BasicScrollPaneUI" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuItemCheckIcon" />
 <xs:element ref="org-aswing-tree:TreeSelectionModel" />
@@ -367,6 +375,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="lime-system:System" />
 <xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="org-aswing-table:Resizable3" />
+<xs:element ref="jive-plaf-flat-adjuster:MinusButtonBackground" />
 <xs:element ref="org-aswing-event:TreeModelEvent" />
 <xs:element ref="org-aswing-event:PopupEvent" />
 <xs:element ref="org-aswing-util:ObjectUtils" />
@@ -383,6 +392,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:EditableComponent" />
 <xs:element ref="org-aswing-tree:RowMapper" />
 <xs:element ref="org-aswing-ext:DateChooser" />
+<xs:element ref="jive-plaf-flat:FlatAdjusterUI" />
+<xs:element ref="jive-plaf-flat-adjuster:PlusButtonBackground" />
 <xs:element ref="lime-graphics-opengl:GLRenderbuffer" />
 <xs:element ref="lime-ui-_Window:WindowEventType_Impl_" />
 <xs:element ref="org-aswing-plaf-basic-background:FrameBackground" />
@@ -497,6 +508,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-util:DateAs" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
 <xs:element ref="org-aswing-plaf-basic-icon:SliderThumbIcon" />
+<xs:element ref="jive-plaf-flat-icon:MinusIcon" />
 <xs:element ref="org-aswing:JLoadPane" />
 <xs:element ref="flash-media:ID3Info" />
 <xs:element ref="org-aswing:AssetIcon" />
@@ -521,6 +533,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-display3D-textures:Texture" />
 <xs:element ref="jive-formatting:XmlRegExRules" />
 <xs:element ref="lime-app:Application" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeader" />
 <xs:element ref="lime-audio-openal-_ALDevice:ALDevice_Impl_" />
 <xs:element ref="lime-ui:TouchEventManager" />
 <xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
@@ -557,12 +570,13 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing:ListCellFactory" />
 <xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
 <xs:element ref="jive:Navigation" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
 <xs:element ref="org-aswing:GridLayout" />
 <xs:element ref="org-aswing-event:AttachEvent" />
 <xs:element ref="flash-display:LoaderInfo" />
 <xs:element ref="jive:Command" />
-<xs:element ref="org-aswing:FlowWrapLayout" />
 <xs:element ref="org-aswing-plaf-basic-accordion:BasicAccordionHeader" />
+<xs:element ref="org-aswing:FlowWrapLayout" />
 <xs:element ref="org-aswing-tree:SearchInfo" />
 <xs:element ref="flash-media:AVPlayState" />
 <xs:element ref="org-aswing:JSlider" />
@@ -582,6 +596,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="motion-actuators:IGenericActuator" />
 <xs:element ref="org-aswing-plaf-basic-background:ButtonBackground" />
 <xs:element ref="haxe-io:Eof" />
+<xs:element ref="jive-plaf-flat-icon:PlusIcon" />
 <xs:element ref="org-aswing-resizer:DefaultResizer" />
 <xs:element ref="org-aswing:ListCell" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameIconifiedIcon" />
@@ -663,6 +678,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="lime-ui-_KeyCode:KeyCode_Impl_" />
 <xs:element ref="org-aswing:Box" />
 <xs:element ref="org-aswing-plaf-basic:BasicMenuBarUI" />
+<xs:element ref="flash-ui:Keyboard" />
 <xs:element ref="org-aswing:JProgressBar" />
 <xs:element ref="org-aswing-table:TableColumnModelEvent" />
 <xs:element ref="org-aswing:BorderLayout" />
@@ -689,6 +705,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-table:PropertyTranslator" />
 <xs:element ref="org-aswing-table:AbstractTableCell" />
 <xs:element ref="org-aswing-tree:TreeCellFactory" />
+<xs:element ref="jive-plaf-flat-icon:ExpandIcon" />
 <xs:element ref="org-aswing-plaf-basic:BasicAccordionUI" />
 <xs:element ref="bindx:FieldsBindSignal" />
 <xs:element ref="flash-display3D-textures:CubeTexture" />
@@ -748,8 +765,8 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-event:ResizedEvent" />
 <xs:element ref="lime-audio:AudioManager" />
 <xs:element ref="flash-display:DisplayObjectContainer" />
-<xs:element ref="lime-app:Module" />
 <xs:element ref="org-aswing:JFrame" />
+<xs:element ref="lime-app:Module" />
 <xs:element ref="flash-system:ApplicationDomain" />
 <xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
 <xs:element ref="org-aswing:GradientBackground" />
@@ -791,6 +808,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-dnd:DragManager" />
 <xs:element ref="org-aswing-plaf-basic-background:TableBackground" />
 <xs:element ref="org-aswing-graphics:SolidBrush" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonBackground" />
 <xs:element ref="org-aswing-colorchooser:VerticalLayout" />
 <xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuArrowIcon" />
@@ -837,12 +855,15 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
 <xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
 <xs:element ref="org-aswing:JRootPane" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemBorder" />
 <xs:element ref="org-aswing-plaf:ArrayUIResource" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
 <xs:element ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
 <xs:element ref="org-aswing:JTextArea" />
 <xs:element ref="org-aswing:FrameTitleBar" />
 <xs:element ref="org-aswing-border:BevelBorder" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
+<xs:element ref="jive-plaf-flat-adjuster:AdjusterBorder" />
 <xs:element ref="org-aswing-plaf-basic:BasicLookAndFeel" />
 <xs:element ref="motion-easing:BackEaseInOut" />
 <xs:element ref="org-aswing-dnd:DefaultDragImage" />
@@ -939,6 +960,7 @@ xmlns:flash-accessibility="flash.accessibility"
 <xs:element ref="flash-errors:Error" />
 <xs:element ref="org-aswing-resizer:Resizer" />
 <xs:element ref="bindx:BindSignal" />
+<xs:element ref="jive-plaf-flat-adjuster:AdjusterBackground" />
 <xs:element ref="org-aswing:JScrollPane" />
 <xs:element ref="org-aswing-geom:IntPoint" />
 <xs:element ref="flash-display:ShaderData" />

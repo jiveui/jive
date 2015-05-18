@@ -372,7 +372,7 @@ class Component extends AWSprite implements IBindable {
 	 * they will be done when next shown, ex: repaint, doLayout ....
 	 * So suggest you dont changed a component's visible frequently.
 	 */
-	public var visibility(get, set): Bool;
+	@bindable public var visibility(get, set): Bool;
 	private function get_visibility(): Bool { return visible; }
 	private function set_visibility(v: Bool): Bool { setVisible(v); return v; }
 
@@ -906,6 +906,7 @@ class Component extends AWSprite implements IBindable {
 				repaint();
 			}
 			revalidate();
+            bindx.Bind.notify(this.visibility);
 		}
 	}
 	@:dox(hide)

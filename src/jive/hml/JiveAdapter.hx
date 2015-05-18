@@ -144,9 +144,11 @@ class ContainerAdapter extends ComponentAdapter {
 class ContainerWithMetaWriter extends ComponentWithMetaWriter {
 	override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
 		var t = child.superType;
-		if (t.indexOf("JPopup") >= 0 || t.indexOf("JWindow") >= 0 || t.indexOf("JFrame") >= 0) return;
-
-		method.push('$scope.append(${universalGet(child)});');
+		if (t.indexOf("JPopup") >= 0 || t.indexOf("JWindow") >= 0 || t.indexOf("JFrame") >= 0 || t.indexOf("Dialog") >= 0) {
+            method.push('${universalGet(child)}.owner = null;');
+        } else {
+            method.push('$scope.append(${universalGet(child)});');
+        }
 	}
 }
 

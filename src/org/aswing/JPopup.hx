@@ -506,7 +506,7 @@ class JPopup extends JRootPane {
 		#end
 		modalMC.visible = _modal;
     	modalMC.graphics.clear();
-    	var modalColor:ASColor = new ASColor(0, 0);
+    	var modalColor:ASColor = new ASColor(0, 0.5);
 		var g:Graphics2D = new Graphics2D(modalMC.graphics);
 		g.fillRectangle(new SolidBrush(modalColor), 0, 0, 1, 1);
 	}	

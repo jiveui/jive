@@ -77,6 +77,12 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         return res;
     }
 
+    inline function get_string__5():String {
+        /* declarations/demo/view/DemoView.xml:34 characters: 21-29 */
+        var res = 'Frame/Dialog';
+        return res;
+    }
+
     inline function get_vectorListModel__0():org.aswing.VectorListModel {
         /* declarations/demo/view/DemoView.xml:28 characters: 17-32 */
         var res = new org.aswing.VectorListModel();
@@ -85,6 +91,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         res.append(get_string__2());
         res.append(get_string__3());
         res.append(get_string__4());
+        res.append(get_string__5());
         return res;
     }
 
@@ -135,95 +142,95 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_intDimension__1():org.aswing.geom.IntDimension {
-        /* declarations/demo/view/DemoView.xml:39 characters: 17-34 */
+        /* declarations/demo/view/DemoView.xml:40 characters: 17-34 */
         var res = new org.aswing.geom.IntDimension();
-        /* declarations/demo/view/DemoView.xml:39 characters: 36-41 */
+        /* declarations/demo/view/DemoView.xml:40 characters: 36-41 */
         res.width = 20;
-        /* declarations/demo/view/DemoView.xml:39 characters: 47-53 */
+        /* declarations/demo/view/DemoView.xml:40 characters: 47-53 */
         res.height = 20;
         return res;
     }
 
     inline function get_jSpacer__0():org.aswing.JSpacer {
-        /* declarations/demo/view/DemoView.xml:38 characters: 13-20 */
+        /* declarations/demo/view/DemoView.xml:39 characters: 13-20 */
         var res = new org.aswing.JSpacer();
-        /* declarations/demo/view/DemoView.xml:38 characters: 22-35 */
+        /* declarations/demo/view/DemoView.xml:39 characters: 22-35 */
         res.preferredSize = get_intDimension__1();
         return res;
     }
 
     inline function get_jLabel__0():org.aswing.JLabel {
-        /* declarations/demo/view/DemoView.xml:41 characters: 13-19 */
+        /* declarations/demo/view/DemoView.xml:42 characters: 13-19 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/DemoView.xml:41 characters: 38-57 */
+        /* declarations/demo/view/DemoView.xml:42 characters: 38-57 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/DemoView.xml:41 characters: 21-25 */
+        /* declarations/demo/view/DemoView.xml:42 characters: 21-25 */
         res.text = 'Others:';
         return res;
     }
 
     inline function get_openLinkCommand__0():jive.OpenLinkCommand {
-        /* declarations/demo/view/DemoView.xml:44 characters: 21-41 */
+        /* declarations/demo/view/DemoView.xml:45 characters: 21-41 */
         var res = new jive.OpenLinkCommand();
-        /* declarations/demo/view/DemoView.xml:44 characters: 43-46 */
+        /* declarations/demo/view/DemoView.xml:45 characters: 43-46 */
         res.url = '/jive/flash.html';
         return res;
     }
 
     inline function get_jLabelButton__0():org.aswing.JLabelButton {
-        /* declarations/demo/view/DemoView.xml:42 characters: 13-25 */
+        /* declarations/demo/view/DemoView.xml:43 characters: 13-25 */
         var res = new org.aswing.JLabelButton();
-        /* declarations/demo/view/DemoView.xml:42 characters: 47-66 */
+        /* declarations/demo/view/DemoView.xml:43 characters: 47-66 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/DemoView.xml:42 characters: 27-31 */
+        /* declarations/demo/view/DemoView.xml:43 characters: 27-31 */
         res.text = 'Flash Demo';
-        /* declarations/demo/view/DemoView.xml:43 characters: 17-24 */
+        /* declarations/demo/view/DemoView.xml:44 characters: 17-24 */
         res.command = get_openLinkCommand__0();
         return res;
     }
 
     inline function get_openLinkCommand__1():jive.OpenLinkCommand {
-        /* declarations/demo/view/DemoView.xml:49 characters: 21-41 */
+        /* declarations/demo/view/DemoView.xml:50 characters: 21-41 */
         var res = new jive.OpenLinkCommand();
-        /* declarations/demo/view/DemoView.xml:49 characters: 43-46 */
+        /* declarations/demo/view/DemoView.xml:50 characters: 43-46 */
         res.url = '/jive/demos/jive-demo.zip';
         return res;
     }
 
     inline function get_jLabelButton__1():org.aswing.JLabelButton {
-        /* declarations/demo/view/DemoView.xml:47 characters: 13-25 */
+        /* declarations/demo/view/DemoView.xml:48 characters: 13-25 */
         var res = new org.aswing.JLabelButton();
-        /* declarations/demo/view/DemoView.xml:47 characters: 49-68 */
+        /* declarations/demo/view/DemoView.xml:48 characters: 49-68 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/DemoView.xml:47 characters: 27-31 */
+        /* declarations/demo/view/DemoView.xml:48 characters: 27-31 */
         res.text = 'Windows Demo';
-        /* declarations/demo/view/DemoView.xml:48 characters: 17-24 */
+        /* declarations/demo/view/DemoView.xml:49 characters: 17-24 */
         res.command = get_openLinkCommand__1();
         return res;
     }
 
     inline function get_openLinkCommand__2():jive.OpenLinkCommand {
-        /* declarations/demo/view/DemoView.xml:55 characters: 21-41 */
+        /* declarations/demo/view/DemoView.xml:56 characters: 21-41 */
         var res = new jive.OpenLinkCommand();
-        /* declarations/demo/view/DemoView.xml:55 characters: 43-46 */
+        /* declarations/demo/view/DemoView.xml:56 characters: 43-46 */
         res.url = '/jive/demos/jive-demo.dmg';
         return res;
     }
 
     inline function get_jLabelButton__2():org.aswing.JLabelButton {
-        /* declarations/demo/view/DemoView.xml:53 characters: 13-25 */
+        /* declarations/demo/view/DemoView.xml:54 characters: 13-25 */
         var res = new org.aswing.JLabelButton();
-        /* declarations/demo/view/DemoView.xml:53 characters: 45-64 */
+        /* declarations/demo/view/DemoView.xml:54 characters: 45-64 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
-        /* declarations/demo/view/DemoView.xml:53 characters: 27-31 */
+        /* declarations/demo/view/DemoView.xml:54 characters: 27-31 */
         res.text = 'OSX Demo';
-        /* declarations/demo/view/DemoView.xml:54 characters: 17-24 */
+        /* declarations/demo/view/DemoView.xml:55 characters: 17-24 */
         res.command = get_openLinkCommand__2();
         return res;
     }
 
     inline function get_softBox__0():org.aswing.SoftBox {
-        /* declarations/demo/view/DemoView.xml:37 characters: 9-16 */
+        /* declarations/demo/view/DemoView.xml:38 characters: 9-16 */
         var res = new org.aswing.SoftBox();
         if (null != dataContext) { res.visibility = this.dataContext.areLinksVisible; }
         var programmaticalyChange = false;
@@ -263,7 +270,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_boxLayout__0():org.aswing.BoxLayout {
-        /* declarations/demo/view/DemoView.xml:65 characters: 13-22 */
+        /* declarations/demo/view/DemoView.xml:66 characters: 13-22 */
         var res = new org.aswing.BoxLayout();
         return res;
     }
@@ -274,7 +281,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     function get_buttonsView():demo.view.ButtonsView {
-        /* declarations/demo/view/DemoView.xml:67 characters: 9-25 */
+        /* declarations/demo/view/DemoView.xml:68 characters: 9-25 */
         if (buttonsView_initialized) return buttonsView;
         buttonsView_initialized = true;
         this.buttonsView = new demo.view.ButtonsView();
@@ -302,7 +309,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_textView__0():demo.view.TextView {
-        /* declarations/demo/view/DemoView.xml:68 characters: 9-22 */
+        /* declarations/demo/view/DemoView.xml:69 characters: 9-22 */
         var res = new demo.view.TextView();
         if (null != dataContext) { res.dataContext = this.dataContext.textVM; }
         var programmaticalyChange = false;
@@ -327,7 +334,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_progressView__0():demo.view.ProgressView {
-        /* declarations/demo/view/DemoView.xml:69 characters: 9-26 */
+        /* declarations/demo/view/DemoView.xml:70 characters: 9-26 */
         var res = new demo.view.ProgressView();
         if (null != dataContext) { res.dataContext = this.dataContext.progressVM; }
         var programmaticalyChange = false;
@@ -352,7 +359,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_comboBoxView__0():demo.view.ComboBoxView {
-        /* declarations/demo/view/DemoView.xml:70 characters: 9-26 */
+        /* declarations/demo/view/DemoView.xml:71 characters: 9-26 */
         var res = new demo.view.ComboBoxView();
         if (null != dataContext) { res.dataContext = this.dataContext.comboboxVM; }
         var programmaticalyChange = false;
@@ -377,7 +384,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
     }
 
     inline function get_accordionView__0():demo.view.AccordionView {
-        /* declarations/demo/view/DemoView.xml:71 characters: 9-27 */
+        /* declarations/demo/view/DemoView.xml:72 characters: 9-27 */
         var res = new demo.view.AccordionView();
         if (null != dataContext) { res.dataContext = this.dataContext.accordionVM; }
         var programmaticalyChange = false;
@@ -401,8 +408,33 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
         return res;
     }
 
+    inline function get_frameView__0():demo.view.FrameView {
+        /* declarations/demo/view/DemoView.xml:73 characters: 9-23 */
+        var res = new demo.view.FrameView();
+        if (null != dataContext) { res.dataContext = this.dataContext.frameVM; }
+        var programmaticalyChange = false;
+        var sourcePropertyListener = function(_,_) {
+                            if (!programmaticalyChange) {
+                                programmaticalyChange = true;
+                                res.dataContext = this.dataContext.frameVM;
+                                programmaticalyChange = false;
+                            }
+                        };
+        var bindSourceListener = function() { bindx.Bind.bindx(this.dataContext.frameVM, sourcePropertyListener); }
+        if (null != dataContext) { bindSourceListener(); }
+        bindx.Bind.bindx(this.dataContext, function(old,_) {
+                                if (null != old) { bindx.Bind.unbindx(old.frameVM, sourcePropertyListener);}
+                                if (null != this.dataContext) {
+                                    res.dataContext = this.dataContext.frameVM;
+                                    bindSourceListener();
+                                }
+                            });
+                        
+        return res;
+    }
+
     inline function get_spot__0():jive.Spot {
-        /* declarations/demo/view/DemoView.xml:63 characters: 5-14 */
+        /* declarations/demo/view/DemoView.xml:64 characters: 5-14 */
         var res = new jive.Spot();
         if (null != dataContext) { res.selectedIndex = this.dataContext.menuSelectedIndex; }
         var programmaticalyChange = false;
@@ -423,15 +455,16 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
                                 }
                             });
                         
-        /* declarations/demo/view/DemoView.xml:63 characters: 60-71 */
+        /* declarations/demo/view/DemoView.xml:64 characters: 60-71 */
         res.constraints = org.aswing.BorderLayout.CENTER;
-        /* declarations/demo/view/DemoView.xml:64 characters: 9-15 */
+        /* declarations/demo/view/DemoView.xml:65 characters: 9-15 */
         res.layout = get_boxLayout__0();
         res.append(buttonsView);
         res.append(get_textView__0());
         res.append(get_progressView__0());
         res.append(get_comboBoxView__0());
         res.append(get_accordionView__0());
+        res.append(get_frameView__0());
         return res;
     }
 

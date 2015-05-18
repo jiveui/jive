@@ -14,6 +14,7 @@ xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
 xmlns:org-aswing-util="org.aswing.util"
 xmlns:flash-_Boot="flash._Boot"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
 xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:flash-display="flash.display"
 xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
@@ -39,6 +40,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:import namespace="org.aswing.util" schemaLocation="org.aswing.util.xsd" />
 <xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
@@ -73,6 +75,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
 <xs:element ref="flash-display:Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive:Dialog" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing:JPanel" />
@@ -113,6 +116,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:EmptySelectionModel" />
 <xs:element ref="org-aswing:DefaultButtonModel" />
 <xs:element ref="org-aswing:JPopupMenu" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
 <xs:element ref="flash-media:StageVideo" />
 <xs:element ref="org-aswing:JTextArea" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
@@ -177,6 +181,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:MenuSelectionManager" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="flash-display:LoaderInfo" />
 <xs:element ref="org-aswing:JAdjuster" />
@@ -234,6 +239,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
 <xs:element ref="flash-display:Bitmap" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive:Dialog" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing:JPanel" />
@@ -274,6 +280,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-tree:EmptySelectionModel" />
 <xs:element ref="org-aswing:DefaultButtonModel" />
 <xs:element ref="org-aswing:JPopupMenu" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
 <xs:element ref="flash-media:StageVideo" />
 <xs:element ref="org-aswing:JTextArea" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
@@ -337,6 +344,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:MenuSelectionManager" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
 <xs:element ref="org-aswing:JMenu" />
 <xs:element ref="flash-display:LoaderInfo" />
 <xs:element ref="org-aswing:JAdjuster" />

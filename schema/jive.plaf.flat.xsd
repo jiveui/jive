@@ -1,14 +1,19 @@
 <xs:schema targetNamespace="jive.plaf.flat" xmlns="jive.plaf.flat" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf="org.aswing.plaf"
 xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
 <xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
 <xs:complexType name="FlatMenuUISchemaTypeValue">
 <xs:all><xs:element ref="FlatMenuUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatTabbedPaneUISchemaTypeValue">
 <xs:all><xs:element ref="FlatTabbedPaneUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatAdjusterUISchemaTypeValue">
+<xs:all><xs:element ref="FlatAdjusterUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatRadioButtonUISchemaTypeValue">
 <xs:choice>
@@ -92,6 +97,19 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:extension base="org-aswing-plaf-basic:BasicTabbedPaneUISchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatAdjusterUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="plusButton" type="org-aswing:ComponentSchemaTypeValue"/>
+<xs:element minOccurs="0" name="minusButton" type="org-aswing:ComponentSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="plusButton" type="xs:string"/>
+<xs:attribute name="minusButton" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -193,10 +211,14 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:element minOccurs="0" name="isFirst" type="xs:boolean"/>
 <xs:element minOccurs="0" name="isLast" type="xs:boolean"/>
 <xs:element minOccurs="0" name="value" type="xs:string"/>
+<xs:element minOccurs="0" name="rollover" type="xs:boolean"/>
+<xs:element minOccurs="0" name="transitBackgroundFactor" type="xs:double"/>
 </xs:all>
 <xs:attribute name="isFirst" type="xs:boolean"/>
 <xs:attribute name="isLast" type="xs:boolean"/>
 <xs:attribute name="value" type="xs:string"/>
+<xs:attribute name="rollover" type="xs:boolean"/>
+<xs:attribute name="transitBackgroundFactor" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -242,6 +264,7 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 
 <xs:element name="FlatMenuUI" type="FlatMenuUISchemaType"/>
 <xs:element name="FlatTabbedPaneUI" type="FlatTabbedPaneUISchemaType"/>
+<xs:element name="FlatAdjusterUI" type="FlatAdjusterUISchemaType"/>
 <xs:element name="FlatRadioButtonUI" type="FlatRadioButtonUISchemaType"/>
 <xs:element name="FlatSliderUI" type="FlatSliderUISchemaType"/>
 <xs:element name="FlatTextFieldUI" type="FlatTextFieldUISchemaType"/>

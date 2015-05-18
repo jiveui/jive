@@ -28,6 +28,9 @@ xmlns:empty="empty"
 <xs:complexType name="MouseSchemaTypeValue">
 <xs:all><xs:element ref="Mouse"/></xs:all></xs:complexType>
 
+<xs:complexType name="KeyboardSchemaTypeValue">
+<xs:all><xs:element ref="Keyboard"/></xs:all></xs:complexType>
+
 <xs:complexType name="MultitouchSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -124,6 +127,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="KeyboardSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="Multitouch" type="MultitouchSchemaType"/>
 <xs:element name="ContextMenuBuiltInItems" type="ContextMenuBuiltInItemsSchemaType"/>
@@ -131,4 +143,5 @@ xmlns:empty="empty"
 <xs:element name="ContextMenuClipboardItems" type="ContextMenuClipboardItemsSchemaType"/>
 <xs:element name="MouseCursorData" type="MouseCursorDataSchemaType"/>
 <xs:element name="Mouse" type="MouseSchemaType"/>
+<xs:element name="Keyboard" type="KeyboardSchemaType"/>
 </xs:schema>

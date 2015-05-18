@@ -102,8 +102,45 @@ class JFrame extends JWindow{
     private function get_icon(): Icon { return getIcon(); }
     private function set_icon(v: Icon): Icon { setIcon(v); return v; }
 
-	private var state:Int;
-	private var defaultCloseOperation:Int;
+    /**
+     * Sets the operation that will happen by default when
+     * the user initiates a "close" on this frame.
+     * You must specify one of the following choices:
+     * <p>
+     * <ul>
+     * <li><code>DO_NOTHING_ON_CLOSE</code>
+     * (defined in <code>WindowConstants</code>):
+     * Don't do anything; require the
+     * program to handle the operation in the <code>windowClosing</code>
+     * method of a registered EventListener object.
+     *
+     * <li><code>HIDE_ON_CLOSE</code>
+     * (defined in <code>WindowConstants</code>):
+     * Automatically hide the frame after
+     * invoking any registered EventListener objects.
+     *
+     * <li><code>DISPOSE_ON_CLOSE</code>
+     * (defined in <code>WindowConstants</code>):
+     * Automatically hide and dispose the
+     * frame after invoking any registered EventListener objects.
+     * </ul>
+     * <p>
+     * The value is set to <code>DISPOSE_ON_CLOSE</code> by default.
+     * if you set a value is not three of them, think of it is will be changed to default value.
+     * @param operation the operation which should be performed when the
+     *        user closes the frame
+     * @see org.aswing.Component#addEventListener()
+     * @see #getDefaultCloseOperation()
+     */
+    public var defaultCloseOperation(get, set): Int;
+    private var _defaultCloseOperation: Int;
+    private function get_defaultCloseOperation(): Int { return getDefaultCloseOperation(); }
+    private function set_defaultCloseOperation(v: Int): Int {
+        setDefaultCloseOperation(v);
+        return v;
+    }
+
+    private var state:Int;
 	private var maximizedBounds:IntRectangle;
 	private var lastNormalStateBounds:IntRectangle;
 
@@ -177,7 +214,7 @@ class JFrame extends JWindow{
 		this._title = title;
 		
 		state = NORMAL;
-		defaultCloseOperation = DISPOSE_ON_CLOSE;
+		_defaultCloseOperation = DISPOSE_ON_CLOSE;
 		_dragable  = true;
 		_resizable = true;
 		_closable  = true;
@@ -458,6 +495,7 @@ class JFrame extends JWindow{
      * @see org.aswing.Component#addEventListener()
      * @see #getDefaultCloseOperation()
      */
+    @:dox(hide)
     public function setDefaultCloseOperation(operation:Int):Void{
     	if(operation != DO_NOTHING_ON_CLOSE 
     		&& operation != HIDE_ON_CLOSE
@@ -465,7 +503,7 @@ class JFrame extends JWindow{
     	{
     			operation = DISPOSE_ON_CLOSE;
     	}
-    	defaultCloseOperation = operation;
+    	_defaultCloseOperation = operation;
     }
     
 	/**
@@ -473,8 +511,9 @@ class JFrame extends JWindow{
      * the user initiates a "close" on this frame.
 	 * @see #setDefaultCloseOperation()
 	 */
+    @:dox(hide)
 	public function getDefaultCloseOperation():Int{
-		return defaultCloseOperation;
+		return _defaultCloseOperation;
 	}
 	
 	public function setState(s:Int, programmatic:Bool=true):Void{
@@ -698,9 +737,9 @@ class JFrame extends JWindow{
 	 * @see #closeReleased()
 	 */
 	public function tryToClose():Void{
-		if(defaultCloseOperation == HIDE_ON_CLOSE){
+		if(_defaultCloseOperation == HIDE_ON_CLOSE){
 			hide();
-		}else if(defaultCloseOperation == DISPOSE_ON_CLOSE){
+		}else if(_defaultCloseOperation == DISPOSE_ON_CLOSE){
 			dispose();
 			 
 		}		

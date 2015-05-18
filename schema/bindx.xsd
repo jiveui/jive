@@ -1,6 +1,7 @@
 <xs:schema targetNamespace="bindx" xmlns="bindx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:org-aswing="org.aswing"
 xmlns:jive-formatting="jive.formatting"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
 xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
 xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
 xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
@@ -8,12 +9,13 @@ xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:empty="empty"
-xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:jive="jive"
+xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:org-aswing-table="org.aswing.table"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
 <xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
 <xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
@@ -21,8 +23,8 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
 <xs:complexType name="IBindableSchemaTypeValue">
 <xs:choice>
@@ -50,6 +52,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JToolTip" />
 <xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="org-aswing:AbstractTabbedPane" />
+<xs:element ref="jive:Dialog" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
 <xs:element ref="org-aswing-ext:Folder" />
@@ -81,6 +84,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
 <xs:element ref="org-aswing:JTextField" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
 <xs:element ref="org-aswing:JRootPane" />
 <xs:element ref="jive:Spot" />
 <xs:element ref="org-aswing:JRadioButton" />
@@ -88,6 +92,7 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:element ref="org-aswing:JAdjuster" />
 <xs:element ref="org-aswing:JSlider" />
 <xs:element ref="org-aswing:JPopupMenu" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
 <xs:element ref="org-aswing:JTextArea" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
 <xs:element ref="org-aswing:JStepper" />

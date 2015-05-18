@@ -9,11 +9,12 @@ class DemoViewModel implements IBindable {
     @bindable public var progressVM: ProgressViewModel = new ProgressViewModel();
     @bindable public var comboboxVM: ComboBoxViewModel = new ComboBoxViewModel();
     @bindable public var accordionVM: AccordionViewModel = new AccordionViewModel();
+    @bindable public var frameVM: FrameViewModel = new FrameViewModel();
 
     @bindable public var menuSelectedIndex(default, set): Int;
     private function set_menuSelectedIndex(v: Int): Int {
         menuSelectedIndex = v;
-        var vms:Array<Spotable> = [buttonsVM, textVM, progressVM, comboboxVM, accordionVM];
+        var vms:Array<Spotable> = [buttonsVM, textVM, progressVM, comboboxVM, accordionVM, frameVM];
         vms[menuSelectedIndex].selectedSpotIndex = 0;
         return v;
     }

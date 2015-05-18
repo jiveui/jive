@@ -1,4 +1,5 @@
 <xs:schema targetNamespace="org.aswing.plaf.basic" xmlns="org.aswing.plaf.basic" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
 xmlns:org-aswing="org.aswing"
 xmlns:org-aswing-plaf="org.aswing.plaf"
 xmlns:jive-plaf-flat="jive.plaf.flat"
@@ -6,6 +7,7 @@ xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
 xmlns:empty="empty"
 xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 >
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
 <xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
@@ -134,6 +136,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="jive-plaf-flat:FlatButtonUI" />
 <xs:element ref="BasicCheckBoxUI" />
 <xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonUI" />
 <xs:element ref="BasicLabelButtonUI" />
 <xs:element ref="BasicButtonUI" />
 </xs:choice>
@@ -289,7 +292,9 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:complexContent>
 <xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="transitBackgroundFactor" type="xs:double"/>
 </xs:all>
+<xs:attribute name="transitBackgroundFactor" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

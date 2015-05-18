@@ -1,7 +1,12 @@
 <xs:schema targetNamespace="jive.plaf.flat.border" xmlns="jive.plaf.flat.border" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:org-aswing-border="org.aswing.border"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
+<xs:complexType name="ExtendedLineBorderSchemaTypeValue">
+<xs:all><xs:element ref="ExtendedLineBorder"/></xs:all></xs:complexType>
+
 <xs:complexType name="TextCellComponentBorderSchemaTypeValue">
 <xs:all><xs:element ref="TextCellComponentBorder"/></xs:all></xs:complexType>
 
@@ -10,6 +15,15 @@ xmlns:empty="empty"
 
 <xs:complexType name="FlatComboBoxPopupBorderSchemaTypeValue">
 <xs:all><xs:element ref="FlatComboBoxPopupBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExtendedLineBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:DecorateBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="TextCellComponentBorderSchemaType">
 <xs:complexContent>
@@ -39,6 +53,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="ExtendedLineBorder" type="ExtendedLineBorderSchemaType"/>
 <xs:element name="TextCellComponentBorder" type="TextCellComponentBorderSchemaType"/>
 <xs:element name="FlatPopupMenuBorder" type="FlatPopupMenuBorderSchemaType"/>
 <xs:element name="FlatComboBoxPopupBorder" type="FlatComboBoxPopupBorderSchemaType"/>

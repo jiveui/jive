@@ -4,6 +4,9 @@ xmlns:empty="empty"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="DialogSchemaTypeValue">
+<xs:all><xs:element ref="Dialog"/></xs:all></xs:complexType>
+
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
@@ -28,6 +31,15 @@ xmlns:empty="empty"
 <xs:element ref="OpenLinkCommand" />
 <xs:element ref="BaseCommand" />
 </xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DialogSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JFrameSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
 </xs:complexType>
 
 <xs:complexType name="DataContextControllableSchemaType">
@@ -93,6 +105,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="Dialog" type="DialogSchemaType"/>
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
 <xs:element name="Navigation" type="NavigationSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
