@@ -7,9 +7,12 @@ package jive.plaf.flat;
 import flash.filters.BitmapFilter;
 import flash.filters.DropShadowFilter;
 import jive.plaf.flat.adjuster.AdjusterBorder;
+import jive.plaf.flat.background.FlatTableBackground;
+import org.aswing.border.LineBorder;
 import org.aswing.LookAndFeel;
 import org.aswing.ASColor;
 import org.aswing.ASFont;
+import org.aswing.plaf.basic.border.LineBorderResource;
 import org.aswing.UIDefaults;
 import org.aswing.Insets;
 import org.aswing.plaf.ASColorUIResource;
@@ -69,6 +72,7 @@ class FlatLookAndFeel extends LookAndFeel {
                "TabbedPaneUI", jive.plaf.flat.FlatTabbedPaneUI,
 			   "AdjusterUI", jive.plaf.flat.FlatAdjusterUI,
 			   "AccordionHeaderButtonUI", jive.plaf.flat.accordion.AccordionHeaderButtonUI,
+			   "TableUI", jive.plaf.flat.FlatTableUI
                 // Basic ui is referenced in component class
 				//if you created your ui, you must specified 
 				//it in your LAF class like below commented.
@@ -687,9 +691,9 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		 // *** Table
 		comDefaults = [
-			"Table.background", new ASColorUIResource(0x308fa1, 0.0),
-			"Table.foreground", table.get("controlText"), 
-			"Table.mideground", new ASColorUIResource(0xebebeb), 
+			"Table.background", new ASColorUIResource(0xffffff, 0.0),
+			"Table.foreground", table.get("wet-asphalt"), 
+			"Table.mideground", new ASColorUIResource(0xe5e5e5), 
 			"Table.colorAdjust", new UIStyleTune(0.10, -0.2, 0.10, 0.20, 0), 
 			"Table.opaque", true, 
 			"Table.focusable", true, 
@@ -697,22 +701,22 @@ class FlatLookAndFeel extends LookAndFeel {
 		    "Table.selectionBackground", table.get("selectionBackground"),
 		    "Table.selectionForeground", table.get("selectionForeground"), 
 			"Table.gridColor", new ASColorUIResource(0xd6d6d6), 
-			"Table.bg", org.aswing.plaf.basic.background.TableBackground,
-			"Table.border", new EmptyBorderResource(null, new Insets(2, 2, 2, 2))
+			"Table.bg",null,
+			"Table.border", new LineBorderResource(new EmptyBorderResource(null, new Insets(2, 2, 2, 2)), table.get("silver"), 1, 5)
 		];
 		table.putDefaults(comDefaults);
 		
 		 // *** TableHeader
 		comDefaults = [
-			"TableHeader.font", table.getFont("controlFont"), 
+			"TableHeader.font", table.getFont("topMenuFont"), 
 			"TableHeader.background", new ASColorUIResource(0xdbdbdb),
-			"TableHeader.foreground", table.get("controlText"), 
-			"TableHeader.mideground", new ASColorUIResource(0x9d9d9d), 
+			"TableHeader.foreground", table.get("wet-asphalt"), 
+			"TableHeader.mideground", table.get("silver"), 
 			"TableHeader.colorAdjust", new UIStyleTune(0.06, 0.2, 0.10, 0.5, 0, new UIStyleTune(0.04, 0.05, 0.20, 0.1)), 
 			"TableHeader.opaque", true, 
 			"TableHeader.focusable", true, 
 			"TableHeader.gridColor", new ASColorUIResource(0xd6d6d6),
-			"TableHeader.bg", org.aswing.plaf.basic.background.TableHeaderBackground, 
+			"TableHeader.bg", jive.plaf.flat.background.FlatTableHeaderBackground, 
 			"TableHeader.border", null, 
 			"TableHeader.cellBorder", org.aswing.plaf.basic.border.TableHeaderCellBorder, 
 			"TableHeader.sortableCellBorder", org.aswing.plaf.basic.border.TableHeaderCellBorder
