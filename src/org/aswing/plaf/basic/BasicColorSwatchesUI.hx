@@ -115,6 +115,7 @@ class BasicColorSwatchesUI extends BaseComponentUI  implements ColorSwatchesUI{
 		createTitles();
 		updateSectionVisibles();
     }
+	
 	private function uninstallComponents():Void{
 		colorSwatches.remove(topBar);
 		colorSwatches.remove(colorTilesPane);

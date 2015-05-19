@@ -274,13 +274,14 @@ class Container extends Component{
 			children.insert(i, com);
 		}
 		_layout.addLayoutComponent(com, (constraints == null) ? com.getConstraints() : constraints);
-		dispatchEvent(new ContainerEvent(ContainerEvent.COM_ADDED, this, com));
 		
 		if (valid) {
 			revalidate();
 	    }else{
 	    	invalidatePreferSizeCaches();
 	    }
+	
+		dispatchEvent(new ContainerEvent(ContainerEvent.COM_ADDED, this, com));
 	}
 	
 	/**
