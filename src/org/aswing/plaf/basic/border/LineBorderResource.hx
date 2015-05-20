@@ -16,5 +16,4 @@ class LineBorderResource extends LineBorder implements UIResource{
 	public function new(interior:Border=null, color:ASColor=null, thickness:Float=1, round:Float=0){
 		super(interior, color, thickness, round);
 	}
-	
 }

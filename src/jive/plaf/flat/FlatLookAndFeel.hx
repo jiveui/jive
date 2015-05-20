@@ -8,6 +8,7 @@ import flash.filters.BitmapFilter;
 import flash.filters.DropShadowFilter;
 import jive.plaf.flat.adjuster.AdjusterBorder;
 import jive.plaf.flat.background.FlatTableBackground;
+import jive.plaf.flat.border.TableLineBorder;
 import org.aswing.border.LineBorder;
 import org.aswing.LookAndFeel;
 import org.aswing.ASColor;
@@ -693,16 +694,16 @@ class FlatLookAndFeel extends LookAndFeel {
 		comDefaults = [
 			"Table.background", new ASColorUIResource(0xffffff, 0.0),
 			"Table.foreground", table.get("wet-asphalt"), 
-			"Table.mideground", new ASColorUIResource(0xe5e5e5), 
-			"Table.colorAdjust", new UIStyleTune(0.10, -0.2, 0.10, 0.20, 0), 
+			"Table.mideground", new ASColorUIResource(0xf1f1f1), 
+			"Table.colorAdjust", new UIStyleTune(0.10, -0.2, 0.10, 0.20, 5), 
 			"Table.opaque", true, 
 			"Table.focusable", true, 
 			"Table.font", table.getFont("controlFont"),
 		    "Table.selectionBackground", table.get("selectionBackground"),
 		    "Table.selectionForeground", table.get("selectionForeground"), 
 			"Table.gridColor", new ASColorUIResource(0xd6d6d6), 
-			"Table.bg",null,
-			"Table.border", new LineBorderResource(new EmptyBorderResource(null, new Insets(2, 2, 2, 2)), table.get("silver"), 1, 5)
+			"Table.bg", FlatTableBackground,
+			"Table.border", new TableLineBorder(null, table.get("silver"), 1, 5)
 		];
 		table.putDefaults(comDefaults);
 		
@@ -718,8 +719,8 @@ class FlatLookAndFeel extends LookAndFeel {
 			"TableHeader.gridColor", new ASColorUIResource(0xd6d6d6),
 			"TableHeader.bg", jive.plaf.flat.background.FlatTableHeaderBackground, 
 			"TableHeader.border", null, 
-			"TableHeader.cellBorder", org.aswing.plaf.basic.border.TableHeaderCellBorder, 
-			"TableHeader.sortableCellBorder", org.aswing.plaf.basic.border.TableHeaderCellBorder
+			"TableHeader.cellBorder", jive.plaf.flat.border.TableHeaderCellBorder, 
+			"TableHeader.sortableCellBorder", jive.plaf.flat.border.TableHeaderCellBorder
 		];
 		table.putDefaults(comDefaults);
 		

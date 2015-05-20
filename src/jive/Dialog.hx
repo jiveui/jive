@@ -30,4 +30,10 @@ class Dialog extends JFrame {
         super.setContentPane(cp);
         cp.addEventListener(ContainerEvent.COM_ADDED, updateSizeAndLocation);
     }
+	
+	@:dox(hide)
+	override public function setVisible(v:Bool):Void{
+		updateSizeAndLocation(null);
+		super.setVisible(v);
+	}	
 }

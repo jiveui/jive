@@ -23,8 +23,9 @@ class FlatTableBackground extends org.aswing.plaf.basic.background.TableBackgrou
 	override public function updateDecorator(c:Component, g:Graphics2D, b:IntRectangle):Void {
 		shape.graphics.clear();
 		if(c.isOpaque()){
-			g = new Graphics2D(shape.graphics);
-			b = b.clone();
+			//g = new Graphics2D(shape.graphics);
+			//b = b.clone();
+			//g.fillRoundRectRingWithThickness(new SolidBrush(c.mideground.offsetHLS(0,-0.2,0)), b.x, b.y, b.width, b.height, c.styleTune.round, 1);
 		}
 		shape.visible = c.isOpaque();
 	}

@@ -16,8 +16,13 @@ import flash.display.Shape;
  */
 
 class FlatTableUI extends BasicTableUI {
+	
+	var mask: Shape;
 
-	public function new() { super(); }
+	public function new() { 
+		super();
+		mask = new Shape();
+	}
 	
 	override public function paint(c:Component, g:Graphics2D, b:IntRectangle):Void 
 	{
@@ -92,11 +97,18 @@ class FlatTableUI extends BasicTableUI {
 			y += rh;
 		}
 		
+		mask.graphics.clear();
+		var mg = new Graphics2D(mask.graphics);
+		var mb = new SolidBrush(ASColor.WHITE);
+		mg.fillRoundRect(mb, b.x+1, b.y, extentSize.width-2, extentSize.height, c.styleTune.round);
+		mg.fillRectangle(mb, b.x+1, b.y, extentSize.width-2, c.styleTune.round * 2);
 	}
 	
 	private override function createGridGraphics():Graphics2D{
 		if(gridShape == null){
 			gridShape = new Shape();
+			table.getCellPane().addChild(mask);
+			table.getCellPane().mask = mask;
 			table.getCellPane().addChildAt(gridShape, 0);
 		}
 		gridShape.graphics.clear();

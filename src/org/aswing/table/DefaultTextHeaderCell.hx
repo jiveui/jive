@@ -16,6 +16,9 @@ import flash.filters.DropShadowFilter;
  */
 class DefaultTextHeaderCell extends DefaultTextCell{
 	
+	public var columnIndex(default, null): Int;
+	public var table(default, null): JTable;
+	
 	public function new() {
 		super();
 		super.setHorizontalAlignment(JLabel.CENTER);
@@ -29,7 +32,10 @@ class DefaultTextHeaderCell extends DefaultTextCell{
 		 
 	}
 	
-	override public function setTableCellStatus(table:JTable, isSelected:Bool, row:Int, column:Int):Void{
+	override public function setTableCellStatus(table:JTable, isSelected:Bool, row:Int, column:Int):Void {
+		columnIndex = column;
+		this.table = table;
+		
 		var header:JTableHeader = table.getTableHeader();
 		if(header != null){
 			super.setBackground(header.getBackground());
