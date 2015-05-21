@@ -125,7 +125,11 @@ class FlatLookAndFeel extends LookAndFeel {
             "silver", 0xbdc3c7,
             "concrete", 0x95a5a6,
             "asbestos", 0x7f8c8d,
-            "midnight-blue", 0x7f8c8d
+            "midnight-blue", 0x7f8c8d,
+			"carrot", 0xe67e22,
+			"pomegranate", 0xc0392b,
+			"orange", 0xf39c12,
+			"pumpkin",0xd35400
         ];
 
         for(i in 0...defaultSystemColors.length){
@@ -141,13 +145,15 @@ class FlatLookAndFeel extends LookAndFeel {
 			"controlMide", table.get("silver"), /* Default color for thumb in controls */
 			"controlText", new ASColorUIResource(0xffffff), /* Default color for text in controls */
 			"selectionForeground", new ASColorUIResource(0xffffff),
-            "focusForeground", table.get("turquoise")
+            "focusForeground", table.get("turquoise"),
+			"highlightControl", table.get("turquoise"),
+			"darkControlBackground", table.get("wet-asphalt")
 		];
 		
 		for(i in 0...defaultSystemColors.length){
 			table.set(defaultSystemColors[i], defaultSystemColors[i+1]);
 		}
-		table.set("selectionBackground", table.get("turquoise"));
+		table.set("selectionBackground", table.get("highlightControl"));
 		table.set("focusInner", new ASColorUIResource(0x40FF40, 0.3));
 		table.set("focusOutter", new ASColorUIResource(0x40FF40, 0.4));
 	}
@@ -193,7 +199,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		var comDefaults:Array<Dynamic>= [
 			"Button.background", buttonBG,
 			"Button.foreground", table.get("white"),
-            "Button.mideground", table.get("turquoise"),
+            "Button.mideground", table.get("highlightControl"),
 			"Button.opaque", true,
 			"Button.focusable", true,  
 			"Button.font", table.getFont("controlFont"),
@@ -257,7 +263,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		comDefaults = [
 			"RadioButton.background", table.get("silver"),
 			"RadioButton.foreground", table.get("wet-asphalt"),
-			"RadioButton.mideground", table.get("turquoise"),
+			"RadioButton.mideground", table.get("highlightControl"),
 			"RadioButton.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 0, new UIStyleTune(0.4, 0.1, 0.1, 0.00)), 
 			"RadioButton.opaque", false, 
 			"RadioButton.focusable", true, 
@@ -286,7 +292,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		comDefaults = [
 			"CheckBox.background", table.get("silver"),
 			"CheckBox.foreground", table.get("windowText"),
-			"CheckBox.mideground", table.get("turquoise"),
+			"CheckBox.mideground", table.get("highlightControl"),
             "CheckBox.tickColor", new ASColorUIResource(0xffffff),
 			"CheckBox.colorAdjust", new UIStyleTune(0.8, 0.01, 0.4, 0.30, 5, new UIStyleTune(0.5, -0.2, 0.5, 0.70)),
 			"CheckBox.opaque", false, 
@@ -343,7 +349,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		comDefaults = [
 			"ProgressBar.background", new ASColorUIResource(0xebedef),
 			"ProgressBar.foreground", table.get("windowText"), 
-			"ProgressBar.mideground", table.get("turquoise"),
+			"ProgressBar.mideground", table.get("highlightControl"),
 			"ProgressBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 6, new UIStyleTune(0.34, -0.4, 0.01, 0.50, 6)),
 			"ProgressBar.opaque", true, 
 			"ProgressBar.focusable", false,	
@@ -503,7 +509,7 @@ class FlatLookAndFeel extends LookAndFeel {
             "ComboBox.background", table.get("window"),
             "ComboBox.foreground", table.get("wet-asphalt"),
             "ComboBox.mideground", table.get("concrete"),
-            "ComboBox.notEditableBackground", table.get("turquoise"),
+            "ComboBox.notEditableBackground", table.get("highlightControl"),
             "ComboBox.notEditableForeground", new ASColorUIResource(0xffffff),
 			"ComboBox.colorAdjust", new UIStyleTune(0.0, -0.30, 0.0, 0.32, 5, new UIStyleTune(0.04, 0.05, 0.20, 0.1)),
 			"ComboBox.opaque", true, 
@@ -520,8 +526,8 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Slider.font", table.getFont("controlFont"),
 			"Slider.background", new ASColorUIResource(0xebedef),
 			"Slider.foreground", table.get("windowText"),
-			"Slider.mideground", table.get("turquoise"),
-            "Slider.progressColor", table.get("turquoise"),
+			"Slider.mideground", table.get("highlightControl"),
+            "Slider.progressColor", table.get("highlightControl"),
 			"Slider.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.50, 6, new UIStyleTune(0.2, 0.00, 0.4, 0.00, 0)),
 			"Slider.opaque", false,  
 			"Slider.focusable", true, 
@@ -611,7 +617,7 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		// *** AccordionHeaderButton
 		var comDefaults:Array<Dynamic> = [
-			"AccordionHeaderButton.background", table.get("wet-asphalt"),
+			"AccordionHeaderButton.background", table.get("darkControlBackground"),
 			"AccordionHeaderButton.foreground", table.get("controlText"),
 			"AccordionHeaderButton.opaque", true,  
 			"AccordionHeaderButton.focusable", true,  
@@ -832,7 +838,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	    	"Menu.focusable", false, 
 	        "Menu.font", table.getFont("menuFont"),
             "Menu.topMenuFont", table.getFont("topMenuFont"),
-		    "Menu.selectionBackground", table.get("turquoise"),
+		    "Menu.selectionBackground", table.get("highlightControl"),
 		    "Menu.selectionForeground", table.get("menuText"),
 		    "Menu.disabledForeground", new ASColorUIResource(0x888888), 
 		    "Menu.acceleratorFont", table.getFont("menuFont"), 
@@ -869,7 +875,7 @@ class FlatLookAndFeel extends LookAndFeel {
 	    comDefaults = [
 		    "MenuBar.background", table.get("menu"), 
 		    "MenuBar.foreground", table.get("menuText"), 
-			"MenuBar.mideground", table.get("turquoise"),
+			"MenuBar.mideground", table.get("highlightControl"),
 			"MenuBar.colorAdjust", new UIStyleTune(0.18, 0.05, 0.20, 0.20, 5),
 	    	"MenuBar.opaque", true,
 	    	"MenuBar.focusable", true, 
