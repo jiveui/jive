@@ -107,11 +107,11 @@ class FlatSliderThumbIcon implements Icon implements UIResource{
 	}
 	
 	public function getIconHeight(c:Component):Int{
-		return 18;
+		return 15;
 	}
 	
 	public function getIconWidth(c:Component):Int{
-		return 18;
+		return 15;
 	}
 	
 	public function getDisplay(c:Component):DisplayObject{
