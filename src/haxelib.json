@@ -4,8 +4,8 @@
   "license": "MIT",
   "tags": [ "GUI", "UI", "AsWing", "Swing"],
   "description": "Jive UI - a crossplatform UI framework based on AsWing",
-  "version": "0.0.1",
-  "releasenote": "Initial release",
+  "version": "0.0.2",
+  "releasenote": "Added flat graphics and data binding to JAccordion, JTable, Dialog and JAdjuster",
   "contributors": [ "ngrebenshikov" ],
   "dependencies": {
     "bindx": "",
