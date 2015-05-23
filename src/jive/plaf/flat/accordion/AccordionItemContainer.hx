@@ -1,5 +1,6 @@
 package jive.plaf.flat.accordion;
 
+import org.aswing.BorderLayout;
 import jive.plaf.flat.border.ExtendedLineBorder;
 import org.aswing.border.EmptyBorder;
 import org.aswing.Insets;
@@ -13,6 +14,7 @@ import org.aswing.ASColor;
 class AccordionItemContainer extends JPanel {
 	public function new() {
 		super();
+        setLayout(new BorderLayout());
 		backgroundDecorator = new AccordionItemBackground();
 		border = new AccordionItemBorder(new EmptyBorder(null, new Insets(15, 15, 15, 15)), new ASColor(0xbbbbbb), 1, 5);
 	}

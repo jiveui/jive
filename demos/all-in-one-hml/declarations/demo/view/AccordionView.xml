@@ -23,33 +23,69 @@
         <TabInfo title="'Demo'">
             <content>
                 <JPanel>
+                    <layout>
+                        <BorderLayout/>
+                    </layout>
                     <border><border:EmptyBorder top="30"/></border>
+                    <JLabel text="'FAQ'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+                        <font>
+                            <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                        </font>
+                        <border>
+                            <border:EmptyBorder bottom="15"/>
+                        </border>
+                    </JLabel>
                     <JAccordion>
-                        <TabInfo title="'Button'">
+                        <TabInfo title="'Can I put color buttons inside?'">
                             <content>
-                                <JButton text="'Hello world!'"/>
-                            </content>
-                        </TabInfo>
-                        <TabInfo title="'Panel'">
-                            <content>
-                                <SoftBox>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
+                                <SoftBox gap="10">
+                                    <JButton text="'Hello wisteria world!'">
+                                        <background>
+                                            <ASColor rgb="0x8e44ad"/>
+                                        </background>
+                                    </JButton>
+                                    <JButton text="'Hello world from Belize!'">
+                                        <background>
+                                            <ASColor rgb="0x2980b9"/>
+                                        </background>
+                                    </JButton>
+                                    <JButton text="'Emeralds\'re better than diamonds!'">
+                                        <background>
+                                            <ASColor rgb="0x2ecc71"/>
+                                        </background>
+                                    </JButton>
+                                    <JButton text="'Let\'s make it orange!'">
+                                        <background>
+                                            <ASColor rgb="0xf39c12"/>
+                                        </background>
+                                    </JButton>
+                                    <JButton text="'I love pomegranates!'">
+                                        <background>
+                                            <ASColor rgb="0xc0392b"/>
+                                        </background>
+                                    </JButton>
                                 </SoftBox>
                             </content>
                         </TabInfo>
-                        <TabInfo title="'Panel'">
+                        <TabInfo title="'Can I put the accordion demo XML source inside?'">
                             <content>
-                                <SoftBox>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                    <JButton text="'Hello world!'"/>
-                                </SoftBox>
+                                <JScrollPane>
+                                    <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
+                                        <formatting:rules>
+                                            <formatting:HmlRegExRules/>
+                                        </formatting:rules>
+                                    </formatting:RegExFormattedTextArea>
+                                </JScrollPane>
+                            </content>
+                        </TabInfo>
+                        <TabInfo title="'Can I put the Haxe logo inside?'">
+                            <content>
+                                <JPanel>
+                                    <layout>
+                                        <CenterLayout/>
+                                    </layout>
+                                    <JLabel horizontalAlignment="org.aswing.AsWingConstants.LEFT"><icon><AssetIcon asset="{Binding haxeLogo}" width="200" height="200" scale="true"/></icon></JLabel>
+                                </JPanel>
                             </content>
                         </TabInfo>
                     </JAccordion>
