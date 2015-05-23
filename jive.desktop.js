@@ -200,6 +200,10 @@ ApplicationMain.create = function() {
 		urls.push("calendar.png");
 		types.push("IMAGE");
 	}
+	if(HxOverrides.indexOf(urls,"haxe-logo.png",0) < 0) {
+		urls.push("haxe-logo.png");
+		types.push("IMAGE");
+	}
 	if(HxOverrides.indexOf(urls,"haxe-logo.svg",0) < 0) {
 		urls.push("haxe-logo.svg");
 		types.push("TEXT");
@@ -220,6 +224,14 @@ ApplicationMain.create = function() {
 		urls.push("weather.png");
 		types.push("IMAGE");
 	}
+	if(HxOverrides.indexOf(urls,"assets/source/AccordionView.xml",0) < 0) {
+		urls.push("assets/source/AccordionView.xml");
+		types.push("TEXT");
+	}
+	if(HxOverrides.indexOf(urls,"assets/source/AdjusterView.xml",0) < 0) {
+		urls.push("assets/source/AdjusterView.xml");
+		types.push("TEXT");
+	}
 	if(HxOverrides.indexOf(urls,"assets/source/ButtonsView.xml",0) < 0) {
 		urls.push("assets/source/ButtonsView.xml");
 		types.push("TEXT");
@@ -232,6 +244,10 @@ ApplicationMain.create = function() {
 		urls.push("assets/source/DemoView.xml");
 		types.push("TEXT");
 	}
+	if(HxOverrides.indexOf(urls,"assets/source/FrameView.xml",0) < 0) {
+		urls.push("assets/source/FrameView.xml");
+		types.push("TEXT");
+	}
 	if(HxOverrides.indexOf(urls,"assets/source/MainView.xml",0) < 0) {
 		urls.push("assets/source/MainView.xml");
 		types.push("TEXT");
@@ -240,8 +256,20 @@ ApplicationMain.create = function() {
 		urls.push("assets/source/ProgressView.xml");
 		types.push("TEXT");
 	}
+	if(HxOverrides.indexOf(urls,"assets/source/TableView.xml",0) < 0) {
+		urls.push("assets/source/TableView.xml");
+		types.push("TEXT");
+	}
 	if(HxOverrides.indexOf(urls,"assets/source/TextView.xml",0) < 0) {
 		urls.push("assets/source/TextView.xml");
+		types.push("TEXT");
+	}
+	if(HxOverrides.indexOf(urls,"assets/source/AccordionViewModel.hx",0) < 0) {
+		urls.push("assets/source/AccordionViewModel.hx");
+		types.push("TEXT");
+	}
+	if(HxOverrides.indexOf(urls,"assets/source/AdjusterViewModel.hx",0) < 0) {
+		urls.push("assets/source/AdjusterViewModel.hx");
 		types.push("TEXT");
 	}
 	if(HxOverrides.indexOf(urls,"assets/source/ButtonsViewModel.hx",0) < 0) {
@@ -256,6 +284,10 @@ ApplicationMain.create = function() {
 		urls.push("assets/source/DemoViewModel.hx");
 		types.push("TEXT");
 	}
+	if(HxOverrides.indexOf(urls,"assets/source/FrameViewModel.hx",0) < 0) {
+		urls.push("assets/source/FrameViewModel.hx");
+		types.push("TEXT");
+	}
 	if(HxOverrides.indexOf(urls,"assets/source/MainViewModel.hx",0) < 0) {
 		urls.push("assets/source/MainViewModel.hx");
 		types.push("TEXT");
@@ -266,6 +298,10 @@ ApplicationMain.create = function() {
 	}
 	if(HxOverrides.indexOf(urls,"assets/source/Spotable.hx",0) < 0) {
 		urls.push("assets/source/Spotable.hx");
+		types.push("TEXT");
+	}
+	if(HxOverrides.indexOf(urls,"assets/source/TableViewModel.hx",0) < 0) {
+		urls.push("assets/source/TableViewModel.hx");
 		types.push("TEXT");
 	}
 	if(HxOverrides.indexOf(urls,"assets/source/TextViewModel.hx",0) < 0) {
@@ -1773,6 +1809,9 @@ var DefaultAssetLibrary = function() {
 	id = "calendar.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "haxe-logo.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
 	id = "haxe-logo.svg";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
@@ -1788,6 +1827,12 @@ var DefaultAssetLibrary = function() {
 	id = "weather.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
+	id = "assets/source/AccordionView.xml";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
+	id = "assets/source/AdjusterView.xml";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
 	id = "assets/source/ButtonsView.xml";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
@@ -1797,13 +1842,25 @@ var DefaultAssetLibrary = function() {
 	id = "assets/source/DemoView.xml";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
+	id = "assets/source/FrameView.xml";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
 	id = "assets/source/MainView.xml";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
 	id = "assets/source/ProgressView.xml";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
+	id = "assets/source/TableView.xml";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
 	id = "assets/source/TextView.xml";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
+	id = "assets/source/AccordionViewModel.hx";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
+	id = "assets/source/AdjusterViewModel.hx";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
 	id = "assets/source/ButtonsViewModel.hx";
@@ -1815,6 +1872,9 @@ var DefaultAssetLibrary = function() {
 	id = "assets/source/DemoViewModel.hx";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
+	id = "assets/source/FrameViewModel.hx";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
 	id = "assets/source/MainViewModel.hx";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
@@ -1822,6 +1882,9 @@ var DefaultAssetLibrary = function() {
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
 	id = "assets/source/Spotable.hx";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
+	id = "assets/source/TableViewModel.hx";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
 	id = "assets/source/TextViewModel.hx";
@@ -3574,7 +3637,10 @@ org.aswing.Component.prototype = $extend(org.aswing.AWSprite.prototype,{
 		return this.get_visible();
 	}
 	,set_visibility: function(v) {
+		var __oldValue__ = this.get_visibility();
+		if(v == __oldValue__) return __oldValue__;
 		this.setVisible(v);
+		this.__fieldBindings__.dispatch("visibility",__oldValue__,this.get_visibility());
 		return v;
 	}
 	,get_enabled: function() {
@@ -3766,6 +3832,7 @@ org.aswing.Component.prototype = $extend(org.aswing.AWSprite.prototype,{
 			if(v) this.dispatchEvent(new org.aswing.event.AWEvent("shown",false,false)); else this.dispatchEvent(new org.aswing.event.AWEvent("hidden",false,false));
 			if(v) this.repaint();
 			this.revalidate();
+			this.__fieldBindings__.dispatch("visibility",null,null);
 		}
 	}
 	,isVisible: function() {
@@ -4656,8 +4723,8 @@ org.aswing.Container.prototype = $extend(org.aswing.Component.prototype,{
 			this.children.splice(i,0,com);
 		}
 		this._layout.addLayoutComponent(com,constraints == null?com.constraints:constraints);
-		this.dispatchEvent(new org.aswing.event.ContainerEvent("comAdded",this,com));
 		if(this.valid) this.revalidate(); else this.invalidatePreferSizeCaches();
+		this.dispatchEvent(new org.aswing.event.ContainerEvent("comAdded",this,com));
 	}
 	,removeChild: function(child) {
 		this.checkChildRemoval(child);
@@ -4800,6 +4867,1017 @@ jive.DataContextControllable.prototype = {
 };
 var demo = {};
 demo.view = {};
+demo.view.AccordionView = function() {
+	org.aswing.JPanel.call(this);
+	this.set_layout(this.get_borderLayout__0());
+	this.append(this.get_jLabel__0());
+	this.append(this.get_jTabbedPane__0());
+};
+$hxClasses["demo.view.AccordionView"] = demo.view.AccordionView;
+demo.view.AccordionView.__name__ = ["demo","view","AccordionView"];
+demo.view.AccordionView.__interfaces__ = [jive.DataContextControllable];
+demo.view.AccordionView.__super__ = org.aswing.JPanel;
+demo.view.AccordionView.prototype = $extend(org.aswing.JPanel.prototype,{
+	destroyHml: function() {
+	}
+	,get_borderLayout__0: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_aSFont__0: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(30);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__0: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(30);
+		return res;
+	}
+	,get_jLabel__0: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Accordion");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__0());
+		res.set_border(this.get_emptyBorder__0());
+		return res;
+	}
+	,get_borderLayout__1: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
+		return res;
+	}
+	,get_aSFont__1: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(18);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__2: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(15);
+		return res;
+	}
+	,get_jLabel__1: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("FAQ");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__1());
+		res.set_border(this.get_emptyBorder__2());
+		return res;
+	}
+	,get_aSColor__0: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(9323693);
+		return res;
+	}
+	,get_jButton__0: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Hello wisteria world!");
+		res.set_background(this.get_aSColor__0());
+		return res;
+	}
+	,get_aSColor__1: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(2719929);
+		return res;
+	}
+	,get_jButton__1: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Hello world from Belize!");
+		res.set_background(this.get_aSColor__1());
+		return res;
+	}
+	,get_aSColor__2: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(3066993);
+		return res;
+	}
+	,get_jButton__2: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Emeralds're better than diamonds!");
+		res.set_background(this.get_aSColor__2());
+		return res;
+	}
+	,get_aSColor__3: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(15965202);
+		return res;
+	}
+	,get_jButton__3: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Let's make it orange!");
+		res.set_background(this.get_aSColor__3());
+		return res;
+	}
+	,get_aSColor__4: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(12597547);
+		return res;
+	}
+	,get_jButton__4: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("I love pomegranates!");
+		res.set_background(this.get_aSColor__4());
+		return res;
+	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_gap(10);
+		res.append(this.get_jButton__0());
+		res.append(this.get_jButton__1());
+		res.append(this.get_jButton__2());
+		res.append(this.get_jButton__3());
+		res.append(this.get_jButton__4());
+		return res;
+	}
+	,get_tabInfo__0: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Can I put color buttons inside?";
+		res.content = this.get_softBox__0();
+		return res;
+	}
+	,get_hmlRegExRules__0: function() {
+		var res = new jive.formatting.HmlRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__0: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.xmlSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.xmlSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("xmlSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.xmlSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("xmlSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.xmlSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.xmlSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_hmlRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__0: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__0());
+		return res;
+	}
+	,get_tabInfo__1: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Can I put the accordion demo XML source inside?";
+		res.content = this.get_jScrollPane__0();
+		return res;
+	}
+	,get_centerLayout__0: function() {
+		var res = new org.aswing.CenterLayout();
+		return res;
+	}
+	,get_assetIcon__0: function() {
+		var _g = this;
+		var res = new org.aswing.AssetIcon();
+		if(null != this.dataContext) res.set_asset(this.dataContext.haxeLogo);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_asset(_g.dataContext.haxeLogo);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("haxeLogo",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.haxeLogo);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("haxeLogo",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_asset(_g.dataContext.haxeLogo);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_asset(_g.dataContext.haxeLogo);
+			bindSourceListener();
+		}
+		res.set_width(200);
+		res.set_height(200);
+		res.set_scale(true);
+		return res;
+	}
+	,get_jLabel__2: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_icon(this.get_assetIcon__0());
+		return res;
+	}
+	,get_jPanel__0: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_centerLayout__0());
+		res.append(this.get_jLabel__2());
+		return res;
+	}
+	,get_tabInfo__2: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Can I put the Haxe logo inside?";
+		res.content = this.get_jPanel__0();
+		return res;
+	}
+	,get_jAccordion__0: function() {
+		var res = new org.aswing.JAccordion();
+		res.appendTabInfo(this.get_tabInfo__0());
+		res.appendTabInfo(this.get_tabInfo__1());
+		res.appendTabInfo(this.get_tabInfo__2());
+		return res;
+	}
+	,get_jPanel__1: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_borderLayout__1());
+		res.set_border(this.get_emptyBorder__1());
+		res.append(this.get_jLabel__1());
+		res.append(this.get_jAccordion__0());
+		return res;
+	}
+	,get_tabInfo__3: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Demo";
+		res.content = this.get_jPanel__1();
+		return res;
+	}
+	,get_hmlRegExRules__1: function() {
+		var res = new jive.formatting.HmlRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__1: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.xmlSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.xmlSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("xmlSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.xmlSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("xmlSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.xmlSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.xmlSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_hmlRegExRules__1());
+		return res;
+	}
+	,get_jScrollPane__1: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__1());
+		return res;
+	}
+	,get_tabInfo__4: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View (XML source)";
+		res.content = this.get_jScrollPane__1();
+		return res;
+	}
+	,get_haxeRegExRules__0: function() {
+		var res = new jive.formatting.HaxeRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__2: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.haxeSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.haxeSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("haxeSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.haxeSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("haxeSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.haxeSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.haxeSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_haxeRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__2: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__2());
+		return res;
+	}
+	,get_tabInfo__5: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View Model (Haxe source)";
+		res.content = this.get_jScrollPane__2();
+		return res;
+	}
+	,get_jTabbedPane__0: function() {
+		var res = new org.aswing.JTabbedPane();
+		res.constraints = "Center";
+		res.appendTabInfo(this.get_tabInfo__3());
+		res.appendTabInfo(this.get_tabInfo__4());
+		res.appendTabInfo(this.get_tabInfo__5());
+		return res;
+	}
+	,set_dataContext: function(__value__) {
+		var __oldValue__ = this.dataContext;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.dataContext = __value__;
+			this.__fieldBindings__.dispatch("dataContext",__oldValue__,this.dataContext);
+			return this.dataContext;
+		}
+	}
+	,__class__: demo.view.AccordionView
+	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext"})
+});
+demo.view.AdjusterView = function() {
+	org.aswing.JPanel.call(this);
+	this.set_layout(this.get_borderLayout__0());
+	this.append(this.get_jLabel__0());
+	this.append(this.get_jTabbedPane__0());
+};
+$hxClasses["demo.view.AdjusterView"] = demo.view.AdjusterView;
+demo.view.AdjusterView.__name__ = ["demo","view","AdjusterView"];
+demo.view.AdjusterView.__interfaces__ = [jive.DataContextControllable];
+demo.view.AdjusterView.__super__ = org.aswing.JPanel;
+demo.view.AdjusterView.prototype = $extend(org.aswing.JPanel.prototype,{
+	destroyHml: function() {
+	}
+	,get_borderLayout__0: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_aSFont__0: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(30);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__0: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(30);
+		return res;
+	}
+	,get_jLabel__0: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Adjuster");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__0());
+		res.set_border(this.get_emptyBorder__0());
+		return res;
+	}
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
+		return res;
+	}
+	,get_emptyBorder__2: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(30);
+		res.set_right(30);
+		res.set_bottom(30);
+		res.set_left(30);
+		return res;
+	}
+	,get_aSColor__0: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(14803425);
+		return res;
+	}
+	,get_lineBorder__0: function() {
+		var res = new org.aswing.border.LineBorder();
+		res.round = 5;
+		res.thickness = 1;
+		res.interior = this.get_emptyBorder__2();
+		res.color = this.get_aSColor__0();
+		return res;
+	}
+	,get_aSFont__1: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(18);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__3: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(10);
+		return res;
+	}
+	,get_jLabel__1: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Shopping Cart");
+		res.set_font(this.get_aSFont__1());
+		res.set_border(this.get_emptyBorder__3());
+		return res;
+	}
+	,get_flowLayout__0: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_intDimension__0: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 250;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__2: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Apple iPhone 6 64 GB");
+		res.set_preferredSize(this.get_intDimension__0());
+		return res;
+	}
+	,get_intDimension__1: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 100;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__3: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("$812.98");
+		res.set_preferredSize(this.get_intDimension__1());
+		return res;
+	}
+	,get_jAdjuster__0: function() {
+		var _g = this;
+		var res = new org.aswing.JAdjuster();
+		if(null != this.dataContext) res.set_value(this.dataContext.iphoneQuantity);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_value(_g.dataContext.iphoneQuantity);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("iphoneQuantity",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.iphoneQuantity);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("iphoneQuantity",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_value(_g.dataContext.iphoneQuantity);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_value(_g.dataContext.iphoneQuantity);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_iphoneQuantity(res.get_value());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("value",propertyListener);
+		propertyListener(0,res.get_value());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_iphoneQuantity(res.get_value());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_iphoneQuantity(res.get_value());
+		res.set_minimum(0);
+		res.set_stepSize(1);
+		res.set_maximum(5);
+		return res;
+	}
+	,get_jPanel__0: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_flowLayout__0());
+		res.append(this.get_jLabel__2());
+		res.append(this.get_jLabel__3());
+		res.append(this.get_jAdjuster__0());
+		return res;
+	}
+	,get_flowLayout__1: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_intDimension__2: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 250;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__4: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Samsung Galaxy S6 Edge 64GB");
+		res.set_preferredSize(this.get_intDimension__2());
+		return res;
+	}
+	,get_intDimension__3: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 100;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__5: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("$1019.99");
+		res.set_preferredSize(this.get_intDimension__3());
+		return res;
+	}
+	,get_jAdjuster__1: function() {
+		var _g = this;
+		var res = new org.aswing.JAdjuster();
+		if(null != this.dataContext) res.set_value(this.dataContext.galaxyQuantity);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_value(_g.dataContext.galaxyQuantity);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("galaxyQuantity",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.galaxyQuantity);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("galaxyQuantity",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_value(_g.dataContext.galaxyQuantity);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_value(_g.dataContext.galaxyQuantity);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_galaxyQuantity(res.get_value());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("value",propertyListener);
+		propertyListener(0,res.get_value());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_galaxyQuantity(res.get_value());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_galaxyQuantity(res.get_value());
+		res.set_minimum(0);
+		res.set_stepSize(1);
+		res.set_maximum(3);
+		return res;
+	}
+	,get_jPanel__1: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_flowLayout__1());
+		res.append(this.get_jLabel__4());
+		res.append(this.get_jLabel__5());
+		res.append(this.get_jAdjuster__1());
+		return res;
+	}
+	,get_flowLayout__2: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_intDimension__4: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 250;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__6: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Nokia Lumia 930");
+		res.set_preferredSize(this.get_intDimension__4());
+		return res;
+	}
+	,get_intDimension__5: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 100;
+		res.height = -1;
+		return res;
+	}
+	,get_jLabel__7: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("$342.49");
+		res.set_preferredSize(this.get_intDimension__5());
+		return res;
+	}
+	,get_jAdjuster__2: function() {
+		var _g = this;
+		var res = new org.aswing.JAdjuster();
+		if(null != this.dataContext) res.set_value(this.dataContext.lumiaQuantity);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_value(_g.dataContext.lumiaQuantity);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("lumiaQuantity",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.lumiaQuantity);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("lumiaQuantity",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_value(_g.dataContext.lumiaQuantity);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_value(_g.dataContext.lumiaQuantity);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_lumiaQuantity(res.get_value());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("value",propertyListener);
+		propertyListener(0,res.get_value());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_lumiaQuantity(res.get_value());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_lumiaQuantity(res.get_value());
+		res.set_minimum(0);
+		res.set_stepSize(1);
+		res.set_maximum(2);
+		return res;
+	}
+	,get_jPanel__2: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_flowLayout__2());
+		res.append(this.get_jLabel__6());
+		res.append(this.get_jLabel__7());
+		res.append(this.get_jAdjuster__2());
+		return res;
+	}
+	,get_flowLayout__3: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_emptyBorder__4: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(20);
+		return res;
+	}
+	,get_borderLayout__1: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_flowLayout__4: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_aSFont__2: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__8: function() {
+		var res = new org.aswing.JLabel();
+		res.set_text("Total:");
+		res.set_font(this.get_aSFont__2());
+		return res;
+	}
+	,get_aSFont__3: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__9: function() {
+		var _g = this;
+		var res = new org.aswing.JLabel();
+		if(null != this.dataContext) res.set_text(this.dataContext.get_totalCost());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.get_totalCost());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("totalCost",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.get_totalCost());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("totalCost",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.get_totalCost());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.get_totalCost());
+			bindSourceListener();
+		}
+		res.set_font(this.get_aSFont__3());
+		return res;
+	}
+	,get_jPanel__3: function() {
+		var res = new org.aswing.JPanel();
+		res.constraints = "West";
+		res.set_layout(this.get_flowLayout__4());
+		res.append(this.get_jLabel__8());
+		res.append(this.get_jLabel__9());
+		return res;
+	}
+	,get_flowLayout__5: function() {
+		var res = new org.aswing.FlowLayout();
+		res.hgap = 0;
+		return res;
+	}
+	,get_jButton__0: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Cancel");
+		return res;
+	}
+	,get_intDimension__6: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 15;
+		res.height = 15;
+		return res;
+	}
+	,get_jSpacer__0: function() {
+		var res = new org.aswing.JSpacer();
+		res.set_preferredSize(this.get_intDimension__6());
+		return res;
+	}
+	,get_aSColor__1: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(3066993);
+		return res;
+	}
+	,get_jButton__1: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Checkout");
+		res.set_background(this.get_aSColor__1());
+		return res;
+	}
+	,get_jPanel__4: function() {
+		var res = new org.aswing.JPanel();
+		res.constraints = "East";
+		res.set_layout(this.get_flowLayout__5());
+		res.append(this.get_jButton__0());
+		res.append(this.get_jSpacer__0());
+		res.append(this.get_jButton__1());
+		return res;
+	}
+	,get_jPanel__5: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_flowLayout__3());
+		res.set_border(this.get_emptyBorder__4());
+		res.set_layout(this.get_borderLayout__1());
+		res.append(this.get_jPanel__3());
+		res.append(this.get_jPanel__4());
+		return res;
+	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_gap(7);
+		res.set_border(this.get_lineBorder__0());
+		res.append(this.get_jLabel__1());
+		res.append(this.get_jPanel__0());
+		res.append(this.get_jPanel__1());
+		res.append(this.get_jPanel__2());
+		res.append(this.get_jPanel__5());
+		return res;
+	}
+	,get_jPanel__6: function() {
+		var res = new org.aswing.JPanel();
+		res.set_border(this.get_emptyBorder__1());
+		res.append(this.get_softBox__0());
+		return res;
+	}
+	,get_tabInfo__0: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Demo";
+		res.content = this.get_jPanel__6();
+		return res;
+	}
+	,get_hmlRegExRules__0: function() {
+		var res = new jive.formatting.HmlRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__0: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.xmlSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.xmlSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("xmlSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.xmlSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("xmlSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.xmlSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.xmlSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_hmlRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__0: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__0());
+		return res;
+	}
+	,get_tabInfo__1: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View (XML source)";
+		res.content = this.get_jScrollPane__0();
+		return res;
+	}
+	,get_haxeRegExRules__0: function() {
+		var res = new jive.formatting.HaxeRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__1: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.haxeSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.haxeSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("haxeSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.haxeSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("haxeSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.haxeSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.haxeSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_haxeRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__1: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__1());
+		return res;
+	}
+	,get_tabInfo__2: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View Model (Haxe source)";
+		res.content = this.get_jScrollPane__1();
+		return res;
+	}
+	,get_jTabbedPane__0: function() {
+		var _g = this;
+		var res = new org.aswing.JTabbedPane();
+		if(null != this.dataContext) res.set_selectedIndex(this.dataContext.get_selectedSpotIndex());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("selectedSpotIndex",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.get_selectedSpotIndex());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("selectedSpotIndex",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("selectedIndex",propertyListener);
+		propertyListener(0,res.get_selectedIndex());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		res.constraints = "Center";
+		res.appendTabInfo(this.get_tabInfo__0());
+		res.appendTabInfo(this.get_tabInfo__1());
+		res.appendTabInfo(this.get_tabInfo__2());
+		return res;
+	}
+	,set_dataContext: function(__value__) {
+		var __oldValue__ = this.dataContext;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.dataContext = __value__;
+			this.__fieldBindings__.dispatch("dataContext",__oldValue__,this.dataContext);
+			return this.dataContext;
+		}
+	}
+	,__class__: demo.view.AdjusterView
+	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext"})
+});
 demo.view.ButtonsView = function() {
 	this.defButton_initialized = false;
 	org.aswing.JPanel.call(this);
@@ -5893,12 +6971,32 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 		var res = "Combo Box";
 		return res;
 	}
+	,get_string__4: function() {
+		var res = "Accordion";
+		return res;
+	}
+	,get_string__5: function() {
+		var res = "Dialog";
+		return res;
+	}
+	,get_string__6: function() {
+		var res = "Adjuster";
+		return res;
+	}
+	,get_string__7: function() {
+		var res = "Table";
+		return res;
+	}
 	,get_vectorListModel__0: function() {
 		var res = new org.aswing.VectorListModel();
 		res.append(this.get_string__0());
 		res.append(this.get_string__1());
 		res.append(this.get_string__2());
 		res.append(this.get_string__3());
+		res.append(this.get_string__4());
+		res.append(this.get_string__5());
+		res.append(this.get_string__6());
+		res.append(this.get_string__7());
 		return res;
 	}
 	,get_jList__0: function() {
@@ -6174,6 +7272,126 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 		}
 		return res;
 	}
+	,get_accordionView__0: function() {
+		var _g = this;
+		var res = new demo.view.AccordionView();
+		if(null != this.dataContext) res.set_dataContext(this.dataContext.accordionVM);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_dataContext(_g.dataContext.accordionVM);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("accordionVM",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.accordionVM);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("accordionVM",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_dataContext(_g.dataContext.accordionVM);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_dataContext(_g.dataContext.accordionVM);
+			bindSourceListener();
+		}
+		return res;
+	}
+	,get_frameView__0: function() {
+		var _g = this;
+		var res = new demo.view.FrameView();
+		if(null != this.dataContext) res.set_dataContext(this.dataContext.frameVM);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_dataContext(_g.dataContext.frameVM);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("frameVM",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.frameVM);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("frameVM",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_dataContext(_g.dataContext.frameVM);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_dataContext(_g.dataContext.frameVM);
+			bindSourceListener();
+		}
+		return res;
+	}
+	,get_adjusterView__0: function() {
+		var _g = this;
+		var res = new demo.view.AdjusterView();
+		if(null != this.dataContext) res.set_dataContext(this.dataContext.adjusterVM);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_dataContext(_g.dataContext.adjusterVM);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("adjusterVM",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.adjusterVM);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("adjusterVM",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_dataContext(_g.dataContext.adjusterVM);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_dataContext(_g.dataContext.adjusterVM);
+			bindSourceListener();
+		}
+		return res;
+	}
+	,get_tableView__0: function() {
+		var _g = this;
+		var res = new demo.view.TableView();
+		if(null != this.dataContext) res.set_dataContext(this.dataContext.tableVM);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_dataContext(_g.dataContext.tableVM);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("tableVM",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.tableVM);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("tableVM",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_dataContext(_g.dataContext.tableVM);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_dataContext(_g.dataContext.tableVM);
+			bindSourceListener();
+		}
+		return res;
+	}
 	,get_spot__0: function() {
 		var _g = this;
 		var res = new jive.Spot();
@@ -6208,6 +7426,10 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 		res.append(this.get_textView__0());
 		res.append(this.get_progressView__0());
 		res.append(this.get_comboBoxView__0());
+		res.append(this.get_accordionView__0());
+		res.append(this.get_frameView__0());
+		res.append(this.get_adjusterView__0());
+		res.append(this.get_tableView__0());
 		return res;
 	}
 	,set_dataContext: function(__value__) {
@@ -6220,6 +7442,521 @@ demo.view.DemoView.prototype = $extend(org.aswing.JPanel.prototype,{
 	}
 	,__class__: demo.view.DemoView
 	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext",set_buttonsView:"set_buttonsView",get_buttonsView:"get_buttonsView"})
+});
+demo.view.FrameView = function() {
+	this.loginDialog_initialized = false;
+	org.aswing.JPanel.call(this);
+	this.set_layout(this.get_borderLayout__0());
+	this.append(this.get_jLabel__0());
+	this.append(this.get_jTabbedPane__0());
+	this.get_loginDialog().set_owner(null);
+};
+$hxClasses["demo.view.FrameView"] = demo.view.FrameView;
+demo.view.FrameView.__name__ = ["demo","view","FrameView"];
+demo.view.FrameView.__interfaces__ = [jive.DataContextControllable];
+demo.view.FrameView.__super__ = org.aswing.JPanel;
+demo.view.FrameView.prototype = $extend(org.aswing.JPanel.prototype,{
+	destroyHml: function() {
+	}
+	,get_borderLayout__0: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_aSFont__0: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(30);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__0: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(30);
+		return res;
+	}
+	,get_jLabel__0: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Dialog");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__0());
+		res.set_border(this.get_emptyBorder__0());
+		return res;
+	}
+	,get_jButton__0: function() {
+		var _g = this;
+		var res = new org.aswing.JButton();
+		if(null != this.dataContext) res.command = this.dataContext.openLoginDialogCommand;
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.command = _g.dataContext.openLoginDialogCommand;
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("openLoginDialogCommand",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.openLoginDialogCommand);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("openLoginDialogCommand",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.command = _g.dataContext.openLoginDialogCommand;
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.command = _g.dataContext.openLoginDialogCommand;
+			bindSourceListener();
+		}
+		res.set_text("Open login dialog...");
+		return res;
+	}
+	,get_jPanel__0: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jButton__0());
+		return res;
+	}
+	,get_tabInfo__0: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Demo";
+		res.content = this.get_jPanel__0();
+		return res;
+	}
+	,get_hmlRegExRules__0: function() {
+		var res = new jive.formatting.HmlRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__0: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.xmlSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.xmlSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("xmlSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.xmlSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("xmlSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.xmlSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.xmlSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_hmlRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__0: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__0());
+		return res;
+	}
+	,get_tabInfo__1: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View (XML source)";
+		res.content = this.get_jScrollPane__0();
+		return res;
+	}
+	,get_haxeRegExRules__0: function() {
+		var res = new jive.formatting.HaxeRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__1: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.haxeSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.haxeSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("haxeSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.haxeSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("haxeSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.haxeSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.haxeSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_haxeRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__1: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__1());
+		return res;
+	}
+	,get_tabInfo__2: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View Model (Haxe source)";
+		res.content = this.get_jScrollPane__1();
+		return res;
+	}
+	,get_jTabbedPane__0: function() {
+		var _g = this;
+		var res = new org.aswing.JTabbedPane();
+		if(null != this.dataContext) res.set_selectedIndex(this.dataContext.get_selectedSpotIndex());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("selectedSpotIndex",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.get_selectedSpotIndex());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("selectedSpotIndex",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("selectedIndex",propertyListener);
+		propertyListener(0,res.get_selectedIndex());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		res.constraints = "Center";
+		res.appendTabInfo(this.get_tabInfo__0());
+		res.appendTabInfo(this.get_tabInfo__1());
+		res.appendTabInfo(this.get_tabInfo__2());
+		return res;
+	}
+	,set_loginDialog: function(value) {
+		this.loginDialog_initialized = true;
+		return this.loginDialog = value;
+	}
+	,get_jTextField__0: function() {
+		var _g = this;
+		var res = new org.aswing.JTextField();
+		if(null != this.dataContext) res.set_text(this.dataContext.get_email());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.get_email());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("email",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.get_email());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("email",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.get_email());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.get_email());
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_email(res.get_text());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("text",propertyListener);
+		propertyListener(null,res.get_text());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_email(res.get_text());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_email(res.get_text());
+		res.set_columns(13);
+		res.set_inlineHint("E-mail");
+		return res;
+	}
+	,get_jTextField__1: function() {
+		var _g = this;
+		var res = new org.aswing.JTextField();
+		if(null != this.dataContext) res.set_text(this.dataContext.get_password());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.get_password());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("password",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.get_password());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("password",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.get_password());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.get_password());
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_password(res.get_text());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("text",propertyListener);
+		propertyListener(null,res.get_text());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_password(res.get_text());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_password(res.get_text());
+		res.set_columns(14);
+		res.set_displayAsPassword(true);
+		res.set_inlineHint("Password");
+		return res;
+	}
+	,get_borderLayout__1: function() {
+		var res = new org.aswing.BorderLayout();
+		res.hgap = 30;
+		return res;
+	}
+	,get_intDimension__0: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 150;
+		res.height = -1;
+		return res;
+	}
+	,get_string__0: function() {
+		var res = "Administrator";
+		return res;
+	}
+	,get_string__1: function() {
+		var res = "Moderator";
+		return res;
+	}
+	,get_string__2: function() {
+		var res = "User";
+		return res;
+	}
+	,get_vectorListModel__0: function() {
+		var res = new org.aswing.VectorListModel();
+		res.append(this.get_string__0());
+		res.append(this.get_string__1());
+		res.append(this.get_string__2());
+		return res;
+	}
+	,get_jComboBox__0: function() {
+		var _g = this;
+		var res = new org.aswing.JComboBox();
+		if(null != this.dataContext) res.set_selectedIndex(this.dataContext.role);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_selectedIndex(_g.dataContext.role);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("role",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.role);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("role",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_selectedIndex(_g.dataContext.role);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_selectedIndex(_g.dataContext.role);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_role(res.get_selectedIndex());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("selectedIndex",propertyListener);
+		propertyListener(0,res.get_selectedIndex());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_role(res.get_selectedIndex());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_role(res.get_selectedIndex());
+		res.constraints = "West";
+		res.set_preferredSize(this.get_intDimension__0());
+		res.set_model(this.get_vectorListModel__0());
+		return res;
+	}
+	,get_jCheckBox__0: function() {
+		var res = new org.aswing.JCheckBox();
+		res.set_text("Remember me");
+		res.constraints = "East";
+		return res;
+	}
+	,get_jPanel__1: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_borderLayout__1());
+		res.append(this.get_jComboBox__0());
+		res.append(this.get_jCheckBox__0());
+		return res;
+	}
+	,get_flowLayout__0: function() {
+		var res = new org.aswing.FlowLayout();
+		res.align = 4;
+		return res;
+	}
+	,get_jButton__1: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Sign up");
+		return res;
+	}
+	,get_intDimension__1: function() {
+		var res = new org.aswing.geom.IntDimension();
+		res.width = 10;
+		res.height = 10;
+		return res;
+	}
+	,get_jSpacer__0: function() {
+		var res = new org.aswing.JSpacer();
+		res.set_preferredSize(this.get_intDimension__1());
+		return res;
+	}
+	,get_aSColor__0: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(1752220);
+		return res;
+	}
+	,get_jButton__2: function() {
+		var res = new org.aswing.JButton();
+		res.set_text("Sign in");
+		res.set_background(this.get_aSColor__0());
+		return res;
+	}
+	,get_jPanel__2: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_flowLayout__0());
+		res.append(this.get_jButton__1());
+		res.append(this.get_jSpacer__0());
+		res.append(this.get_jButton__2());
+		return res;
+	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_gap(20);
+		res.append(this.get_jTextField__0());
+		res.append(this.get_jTextField__1());
+		res.append(this.get_jPanel__1());
+		res.append(this.get_jPanel__2());
+		return res;
+	}
+	,get_loginDialog: function() {
+		var _g = this;
+		if(this.loginDialog_initialized) return this.loginDialog;
+		this.loginDialog_initialized = true;
+		this.set_loginDialog(new jive.Dialog());
+		var res = this.loginDialog;
+		if(null != this.dataContext) res.set_visibility(this.dataContext.isLoginDialogShowed);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_visibility(_g.dataContext.isLoginDialogShowed);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("isLoginDialogShowed",sourcePropertyListener);
+			sourcePropertyListener(false,_g.dataContext.isLoginDialogShowed);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("isLoginDialogShowed",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_visibility(_g.dataContext.isLoginDialogShowed);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_visibility(_g.dataContext.isLoginDialogShowed);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_isLoginDialogShowed(res.get_visibility());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("visibility",propertyListener);
+		propertyListener(false,res.get_visibility());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_isLoginDialogShowed(res.get_visibility());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_isLoginDialogShowed(res.get_visibility());
+		res.set_title("Login into your account");
+		res.set_modal(true);
+		res.set_content(this.get_softBox__0());
+		return res;
+	}
+	,set_dataContext: function(__value__) {
+		var __oldValue__ = this.dataContext;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.dataContext = __value__;
+			this.__fieldBindings__.dispatch("dataContext",__oldValue__,this.dataContext);
+			return this.dataContext;
+		}
+	}
+	,__class__: demo.view.FrameView
+	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext",set_loginDialog:"set_loginDialog",get_loginDialog:"get_loginDialog"})
 });
 demo.view.ProgressView = function() {
 	org.aswing.JPanel.call(this);
@@ -6657,6 +8394,626 @@ demo.view.ProgressView.prototype = $extend(org.aswing.JPanel.prototype,{
 	,__class__: demo.view.ProgressView
 	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext"})
 });
+demo.view.TableView = function() {
+	this.columnModel_initialized = false;
+	this.tableHeader_initialized = false;
+	org.aswing.JPanel.call(this);
+	this.set_layout(this.get_borderLayout__0());
+	this.append(this.get_jLabel__0());
+	this.append(this.get_jTabbedPane__0());
+};
+$hxClasses["demo.view.TableView"] = demo.view.TableView;
+demo.view.TableView.__name__ = ["demo","view","TableView"];
+demo.view.TableView.__interfaces__ = [jive.DataContextControllable];
+demo.view.TableView.__super__ = org.aswing.JPanel;
+demo.view.TableView.prototype = $extend(org.aswing.JPanel.prototype,{
+	destroyHml: function() {
+	}
+	,get_borderLayout__0: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_aSFont__0: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(30);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__0: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_bottom(30);
+		return res;
+	}
+	,get_jLabel__0: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Table");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__0());
+		res.set_border(this.get_emptyBorder__0());
+		return res;
+	}
+	,get_borderLayout__1: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,get_aSFont__1: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(18);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_emptyBorder__1: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(15);
+		res.set_bottom(15);
+		return res;
+	}
+	,get_jLabel__1: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("TIOBE Index for May 2015, www.tiobe.com");
+		res.constraints = "North";
+		res.set_font(this.get_aSFont__1());
+		res.set_border(this.get_emptyBorder__1());
+		return res;
+	}
+	,get_borderLayout__2: function() {
+		var res = new org.aswing.BorderLayout();
+		return res;
+	}
+	,set_tableHeader: function(value) {
+		this.tableHeader_initialized = true;
+		return this.tableHeader = value;
+	}
+	,get_tableHeader: function() {
+		if(this.tableHeader_initialized) return this.tableHeader;
+		this.tableHeader_initialized = true;
+		this.set_tableHeader(new org.aswing.table.JTableHeader());
+		var res = this.tableHeader;
+		res.set_columnModel(this.get_columnModel());
+		res.set_rowHeight(40);
+		return res;
+	}
+	,set_columnModel: function(value) {
+		this.columnModel_initialized = true;
+		return this.columnModel = value;
+	}
+	,get_tableColumn__0: function() {
+		var res = new org.aswing.table.TableColumn();
+		res.set_maxWidth(80);
+		res.set_modelIndex(0);
+		res.set_minWidth(80);
+		res.set_headerValue("2015");
+		return res;
+	}
+	,get_tableColumn__1: function() {
+		var res = new org.aswing.table.TableColumn();
+		res.set_maxWidth(80);
+		res.set_modelIndex(1);
+		res.set_minWidth(80);
+		res.set_headerValue("2014");
+		return res;
+	}
+	,get_tableColumn__2: function() {
+		var res = new org.aswing.table.TableColumn();
+		res.set_modelIndex(2);
+		res.set_headerValue("Programming language");
+		return res;
+	}
+	,get_tableColumn__3: function() {
+		var res = new org.aswing.table.TableColumn();
+		res.set_maxWidth(120);
+		res.set_modelIndex(3);
+		res.set_minWidth(120);
+		res.set_headerValue("Rating, %");
+		return res;
+	}
+	,get_tableColumn__4: function() {
+		var res = new org.aswing.table.TableColumn();
+		res.set_maxWidth(120);
+		res.set_modelIndex(4);
+		res.set_minWidth(120);
+		res.set_headerValue("Change, %");
+		return res;
+	}
+	,get_columnModel: function() {
+		if(this.columnModel_initialized) return this.columnModel;
+		this.columnModel_initialized = true;
+		this.set_columnModel(new org.aswing.table.DefaultTableColumnModel());
+		var res = this.columnModel;
+		res.addColumn(this.get_tableColumn__0());
+		res.addColumn(this.get_tableColumn__1());
+		res.addColumn(this.get_tableColumn__2());
+		res.addColumn(this.get_tableColumn__3());
+		res.addColumn(this.get_tableColumn__4());
+		return res;
+	}
+	,get_propertyTableModel__0: function() {
+		var _g = this;
+		var res = new org.aswing.table.PropertyTableModel();
+		if(null != this.dataContext) res.set_list(this.dataContext.languages);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_list(_g.dataContext.languages);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("languages",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.languages);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("languages",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_list(_g.dataContext.languages);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_list(_g.dataContext.languages);
+			bindSourceListener();
+		}
+		res.columnClasses = ["Number","Number",null,"Number","Number"];
+		res.set_columnsEditable([false,false,false,false,false]);
+		res.set_properties(["position","prevPosition","name","rating","change"]);
+		return res;
+	}
+	,get_tableSorter__0: function() {
+		var res = new org.aswing.table.sorter.TableSorter();
+		res.set_tableHeader(this.get_tableHeader());
+		res.set_columnSortables([true,true,true,true,true]);
+		res.set_tableModel(this.get_propertyTableModel__0());
+		return res;
+	}
+	,get_jTable__0: function() {
+		var _g = this;
+		var res = new org.aswing.JTable();
+		if(null != this.dataContext) res.set_selectedItem(this.dataContext.selectedItem);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_selectedItem(_g.dataContext.selectedItem);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("selectedItem",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.selectedItem);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("selectedItem",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_selectedItem(_g.dataContext.selectedItem);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_selectedItem(_g.dataContext.selectedItem);
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_selectedItem(res.get_selectedItem());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("selectedItem",propertyListener);
+		propertyListener(null,res.get_selectedItem());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_selectedItem(res.get_selectedItem());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_selectedItem(res.get_selectedItem());
+		res.set_selectionMode(0);
+		res.set_rowHeight(40);
+		res.set_tableHeader(this.get_tableHeader());
+		res.set_columnModel(this.get_columnModel());
+		res.set_dataModel(this.get_tableSorter__0());
+		return res;
+	}
+	,get_jScrollPane__0: function() {
+		var res = new org.aswing.JScrollPane();
+		res.constraints = "Center";
+		res.append(this.get_jTable__0());
+		return res;
+	}
+	,get_emptyBorder__2: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(15);
+		return res;
+	}
+	,get_emptyBorder__3: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_top(15);
+		res.set_right(15);
+		res.set_bottom(15);
+		res.set_left(15);
+		return res;
+	}
+	,get_aSColor__0: function() {
+		var res = new org.aswing.ASColor();
+		res.set_rgb(14803425);
+		return res;
+	}
+	,get_lineBorder__0: function() {
+		var res = new org.aswing.border.LineBorder();
+		res.round = 5;
+		res.thickness = 1;
+		res.interior = this.get_emptyBorder__3();
+		res.color = this.get_aSColor__0();
+		return res;
+	}
+	,get_aSFont__2: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__2: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Highest:");
+		res.set_font(this.get_aSFont__2());
+		return res;
+	}
+	,get_emptyBorder__4: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_right(10);
+		return res;
+	}
+	,get_jLabel__3: function() {
+		var _g = this;
+		var res = new org.aswing.JLabel();
+		if(null != this.dataContext) res.set_text(this.dataContext.highest);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.highest);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("highest",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.highest);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("highest",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.highest);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.highest);
+			bindSourceListener();
+		}
+		res.set_horizontalAlignment(2);
+		res.set_border(this.get_emptyBorder__4());
+		return res;
+	}
+	,get_aSFont__3: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__4: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Lowest:");
+		res.set_font(this.get_aSFont__3());
+		return res;
+	}
+	,get_emptyBorder__5: function() {
+		var res = new org.aswing.border.EmptyBorder();
+		res.set_right(10);
+		return res;
+	}
+	,get_jLabel__5: function() {
+		var _g = this;
+		var res = new org.aswing.JLabel();
+		if(null != this.dataContext) res.set_text(this.dataContext.lowest);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.lowest);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("lowest",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.lowest);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("lowest",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.lowest);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.lowest);
+			bindSourceListener();
+		}
+		res.set_horizontalAlignment(2);
+		res.set_border(this.get_emptyBorder__5());
+		return res;
+	}
+	,get_aSFont__4: function() {
+		var res = new org.aswing.ASFont();
+		res.set_size(16);
+		res.set_name("assets/Lato-Bold.ttf");
+		return res;
+	}
+	,get_jLabel__6: function() {
+		var res = new org.aswing.JLabel();
+		res.set_horizontalAlignment(2);
+		res.set_text("Language of the year:");
+		res.set_font(this.get_aSFont__4());
+		return res;
+	}
+	,get_jLabel__7: function() {
+		var _g = this;
+		var res = new org.aswing.JLabel();
+		if(null != this.dataContext) res.set_text(this.dataContext.languageOfYear);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.languageOfYear);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("languageOfYear",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.languageOfYear);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("languageOfYear",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.languageOfYear);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.languageOfYear);
+			bindSourceListener();
+		}
+		res.set_horizontalAlignment(2);
+		return res;
+	}
+	,get_jPanel__0: function() {
+		var res = new org.aswing.JPanel();
+		res.append(this.get_jLabel__2());
+		res.append(this.get_jLabel__3());
+		res.append(this.get_jLabel__4());
+		res.append(this.get_jLabel__5());
+		res.append(this.get_jLabel__6());
+		res.append(this.get_jLabel__7());
+		return res;
+	}
+	,get_softBox__0: function() {
+		var res = new org.aswing.SoftBox();
+		res.set_border(this.get_lineBorder__0());
+		res.append(this.get_jPanel__0());
+		return res;
+	}
+	,get_softBox__1: function() {
+		var _g = this;
+		var res = new org.aswing.SoftBox();
+		if(null != this.dataContext) res.set_visibility(this.dataContext.informationPanelVisibility);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_visibility(_g.dataContext.informationPanelVisibility);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("informationPanelVisibility",sourcePropertyListener);
+			sourcePropertyListener(false,_g.dataContext.informationPanelVisibility);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("informationPanelVisibility",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_visibility(_g.dataContext.informationPanelVisibility);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_visibility(_g.dataContext.informationPanelVisibility);
+			bindSourceListener();
+		}
+		res.constraints = "South";
+		res.set_border(this.get_emptyBorder__2());
+		res.append(this.get_softBox__0());
+		return res;
+	}
+	,get_jPanel__1: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_borderLayout__2());
+		res.append(this.get_jScrollPane__0());
+		res.append(this.get_softBox__1());
+		return res;
+	}
+	,get_jPanel__2: function() {
+		var res = new org.aswing.JPanel();
+		res.set_layout(this.get_borderLayout__1());
+		res.append(this.get_jLabel__1());
+		res.append(this.get_jPanel__1());
+		return res;
+	}
+	,get_tabInfo__0: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "Demo";
+		res.content = this.get_jPanel__2();
+		return res;
+	}
+	,get_hmlRegExRules__0: function() {
+		var res = new jive.formatting.HmlRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__0: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.xmlSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.xmlSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("xmlSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.xmlSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("xmlSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.xmlSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.xmlSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_hmlRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__1: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__0());
+		return res;
+	}
+	,get_tabInfo__1: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View (XML source)";
+		res.content = this.get_jScrollPane__1();
+		return res;
+	}
+	,get_haxeRegExRules__0: function() {
+		var res = new jive.formatting.HaxeRegExRules();
+		return res;
+	}
+	,get_regExFormattedTextArea__1: function() {
+		var _g = this;
+		var res = new jive.formatting.RegExFormattedTextArea();
+		if(null != this.dataContext) res.set_text(this.dataContext.haxeSource);
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_text(_g.dataContext.haxeSource);
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("haxeSource",sourcePropertyListener);
+			sourcePropertyListener(null,_g.dataContext.haxeSource);
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("haxeSource",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_text(_g.dataContext.haxeSource);
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_text(_g.dataContext.haxeSource);
+			bindSourceListener();
+		}
+		res.set_backgroundDecorator(null);
+		res.set_rules(this.get_haxeRegExRules__0());
+		return res;
+	}
+	,get_jScrollPane__2: function() {
+		var res = new org.aswing.JScrollPane();
+		res.append(this.get_regExFormattedTextArea__1());
+		return res;
+	}
+	,get_tabInfo__2: function() {
+		var res = new org.aswing.TabInfo();
+		res.title = "View Model (Haxe source)";
+		res.content = this.get_jScrollPane__2();
+		return res;
+	}
+	,get_jTabbedPane__0: function() {
+		var _g = this;
+		var res = new org.aswing.JTabbedPane();
+		if(null != this.dataContext) res.set_selectedIndex(this.dataContext.get_selectedSpotIndex());
+		var programmaticalyChange = false;
+		var sourcePropertyListener = function(_,_1) {
+			if(!programmaticalyChange) {
+				programmaticalyChange = true;
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				programmaticalyChange = false;
+			}
+		};
+		var bindSourceListener = function() {
+			_g.dataContext.__fieldBindings__.add("selectedSpotIndex",sourcePropertyListener);
+			sourcePropertyListener(0,_g.dataContext.get_selectedSpotIndex());
+		};
+		if(null != this.dataContext) bindSourceListener();
+		this.__fieldBindings__.add("dataContext",function(old,_2) {
+			if(null != old) old.__fieldBindings__.remove("selectedSpotIndex",sourcePropertyListener);
+			if(null != _g.dataContext) {
+				res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+				bindSourceListener();
+			}
+		});
+		if(null != _g.dataContext) {
+			res.set_selectedIndex(_g.dataContext.get_selectedSpotIndex());
+			bindSourceListener();
+		}
+		var propertyListener = function(_3,_4) {
+			if(!programmaticalyChange && null != _g.dataContext) {
+				programmaticalyChange = true;
+				_g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+				programmaticalyChange = false;
+			}
+		};
+		res.__fieldBindings__.add("selectedIndex",propertyListener);
+		propertyListener(0,res.get_selectedIndex());
+		this.__fieldBindings__.add("dataContext",function(old1,_5) {
+			if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		});
+		if(null != _g.dataContext) _g.dataContext.set_selectedSpotIndex(res.get_selectedIndex());
+		res.constraints = "Center";
+		res.appendTabInfo(this.get_tabInfo__0());
+		res.appendTabInfo(this.get_tabInfo__1());
+		res.appendTabInfo(this.get_tabInfo__2());
+		return res;
+	}
+	,set_dataContext: function(__value__) {
+		var __oldValue__ = this.dataContext;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.dataContext = __value__;
+			this.__fieldBindings__.dispatch("dataContext",__oldValue__,this.dataContext);
+			return this.dataContext;
+		}
+	}
+	,__class__: demo.view.TableView
+	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_dataContext:"set_dataContext",set_columnModel:"set_columnModel",get_columnModel:"get_columnModel",set_tableHeader:"set_tableHeader",get_tableHeader:"get_tableHeader"})
+});
 demo.view.TextView = function() {
 	org.aswing.JPanel.call(this);
 	this.set_layout(this.get_borderLayout__0());
@@ -7073,6 +9430,192 @@ demo.viewmodel.Spotable.__name__ = ["demo","viewmodel","Spotable"];
 demo.viewmodel.Spotable.prototype = {
 	__class__: demo.viewmodel.Spotable
 };
+demo.viewmodel.AccordionViewModel = function() {
+	this.haxeLogo = new openfl.display.Bitmap(openfl.Assets.getBitmapData("haxe-logo.png"));
+	this.haxeSource = openfl.Assets.getText("assets/source/AccordionViewModel.hx");
+	this.xmlSource = openfl.Assets.getText("assets/source/AccordionView.xml");
+	this.__fieldBindings__ = new bindx.FieldsBindSignal();
+	this.__methodBindings__ = new bindx.MethodsBindSignal();
+};
+$hxClasses["demo.viewmodel.AccordionViewModel"] = demo.viewmodel.AccordionViewModel;
+demo.viewmodel.AccordionViewModel.__name__ = ["demo","viewmodel","AccordionViewModel"];
+demo.viewmodel.AccordionViewModel.__interfaces__ = [demo.viewmodel.Spotable,bindx.IBindable];
+demo.viewmodel.AccordionViewModel.prototype = {
+	get_selectedSpotIndex: function() {
+		return this._selectedSpotIndex;
+	}
+	,set_selectedSpotIndex: function(v) {
+		var __oldValue__ = this.get_selectedSpotIndex();
+		if(v == __oldValue__) return __oldValue__;
+		this._selectedSpotIndex = v;
+		this.__fieldBindings__.dispatch("selectedSpotIndex",__oldValue__,this.get_selectedSpotIndex());
+		return v;
+	}
+	,set_xmlSource: function(__value__) {
+		var __oldValue__ = this.xmlSource;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.xmlSource = __value__;
+			this.__fieldBindings__.dispatch("xmlSource",__oldValue__,this.xmlSource);
+			return this.xmlSource;
+		}
+	}
+	,set_haxeSource: function(__value__) {
+		var __oldValue__ = this.haxeSource;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.haxeSource = __value__;
+			this.__fieldBindings__.dispatch("haxeSource",__oldValue__,this.haxeSource);
+			return this.haxeSource;
+		}
+	}
+	,set_haxeLogo: function(__value__) {
+		var __oldValue__ = this.haxeLogo;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.haxeLogo = __value__;
+			this.__fieldBindings__.dispatch("haxeLogo",__oldValue__,this.haxeLogo);
+			return this.haxeLogo;
+		}
+	}
+	,__class__: demo.viewmodel.AccordionViewModel
+	,__properties__: {set_selectedSpotIndex:"set_selectedSpotIndex",get_selectedSpotIndex:"get_selectedSpotIndex",set_haxeLogo:"set_haxeLogo",set_haxeSource:"set_haxeSource",set_xmlSource:"set_xmlSource"}
+};
+demo.viewmodel.ComboBoxViewModel = function() {
+	this.haxeSource = openfl.Assets.getText("assets/source/ComboBoxViewModel.hx");
+	this.xmlSource = openfl.Assets.getText("assets/source/ComboBoxView.xml");
+	this.role = 0;
+	this.__fieldBindings__ = new bindx.FieldsBindSignal();
+	this.__methodBindings__ = new bindx.MethodsBindSignal();
+};
+$hxClasses["demo.viewmodel.ComboBoxViewModel"] = demo.viewmodel.ComboBoxViewModel;
+demo.viewmodel.ComboBoxViewModel.__name__ = ["demo","viewmodel","ComboBoxViewModel"];
+demo.viewmodel.ComboBoxViewModel.__interfaces__ = [demo.viewmodel.Spotable,bindx.IBindable];
+demo.viewmodel.ComboBoxViewModel.prototype = {
+	get_email: function() {
+		return this._email;
+	}
+	,set_email: function(v) {
+		var __oldValue__ = this.get_email();
+		if(v == __oldValue__) return __oldValue__;
+		this._email = v;
+		this.__fieldBindings__.dispatch("email",__oldValue__,this.get_email());
+		return v;
+	}
+	,get_password: function() {
+		return this._password;
+	}
+	,set_password: function(v) {
+		var __oldValue__ = this.get_password();
+		if(v == __oldValue__) return __oldValue__;
+		this._password = v;
+		this.__fieldBindings__.dispatch("password",__oldValue__,this.get_password());
+		return v;
+	}
+	,get_selectedSpotIndex: function() {
+		return this._selectedSpotIndex;
+	}
+	,set_selectedSpotIndex: function(v) {
+		var __oldValue__ = this.get_selectedSpotIndex();
+		if(v == __oldValue__) return __oldValue__;
+		this._selectedSpotIndex = v;
+		this.__fieldBindings__.dispatch("selectedSpotIndex",__oldValue__,this.get_selectedSpotIndex());
+		return v;
+	}
+	,set_role: function(__value__) {
+		var __oldValue__ = this.role;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.role = __value__;
+			this.__fieldBindings__.dispatch("role",__oldValue__,this.role);
+			return this.role;
+		}
+	}
+	,set_xmlSource: function(__value__) {
+		var __oldValue__ = this.xmlSource;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.xmlSource = __value__;
+			this.__fieldBindings__.dispatch("xmlSource",__oldValue__,this.xmlSource);
+			return this.xmlSource;
+		}
+	}
+	,set_haxeSource: function(__value__) {
+		var __oldValue__ = this.haxeSource;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.haxeSource = __value__;
+			this.__fieldBindings__.dispatch("haxeSource",__oldValue__,this.haxeSource);
+			return this.haxeSource;
+		}
+	}
+	,__class__: demo.viewmodel.ComboBoxViewModel
+	,__properties__: {set_selectedSpotIndex:"set_selectedSpotIndex",get_selectedSpotIndex:"get_selectedSpotIndex",set_haxeSource:"set_haxeSource",set_xmlSource:"set_xmlSource",set_role:"set_role",set_password:"set_password",get_password:"get_password",set_email:"set_email",get_email:"get_email"}
+};
+demo.viewmodel.AdjusterViewModel = function() {
+	var _g = this;
+	demo.viewmodel.ComboBoxViewModel.call(this);
+	this.set_xmlSource(openfl.Assets.getText("assets/source/AdjusterView.xml"));
+	this.set_haxeSource(openfl.Assets.getText("assets/source/AdjusterViewModel.hx"));
+	this.set_isLoginDialogShowed(false);
+	this.set_openLoginDialogCommand(new jive.BaseCommand(function() {
+		_g.set_isLoginDialogShowed(true);
+	}));
+	this.set_iphoneQuantity(1);
+	this.set_lumiaQuantity(1);
+	this.set_galaxyQuantity(1);
+};
+$hxClasses["demo.viewmodel.AdjusterViewModel"] = demo.viewmodel.AdjusterViewModel;
+demo.viewmodel.AdjusterViewModel.__name__ = ["demo","viewmodel","AdjusterViewModel"];
+demo.viewmodel.AdjusterViewModel.__super__ = demo.viewmodel.ComboBoxViewModel;
+demo.viewmodel.AdjusterViewModel.prototype = $extend(demo.viewmodel.ComboBoxViewModel.prototype,{
+	set_iphoneQuantity: function(v) {
+		var __oldValue__ = this.iphoneQuantity;
+		if(v == __oldValue__) return __oldValue__;
+		this.iphoneQuantity = v;
+		this.__fieldBindings__.dispatch("totalCost",null,null);
+		this.__fieldBindings__.dispatch("iphoneQuantity",__oldValue__,this.iphoneQuantity);
+		return v;
+	}
+	,set_galaxyQuantity: function(v) {
+		var __oldValue__ = this.galaxyQuantity;
+		if(v == __oldValue__) return __oldValue__;
+		this.galaxyQuantity = v;
+		this.__fieldBindings__.dispatch("totalCost",null,null);
+		this.__fieldBindings__.dispatch("galaxyQuantity",__oldValue__,this.galaxyQuantity);
+		return v;
+	}
+	,set_lumiaQuantity: function(v) {
+		var __oldValue__ = this.lumiaQuantity;
+		if(v == __oldValue__) return __oldValue__;
+		this.lumiaQuantity = v;
+		this.__fieldBindings__.dispatch("totalCost",null,null);
+		this.__fieldBindings__.dispatch("lumiaQuantity",__oldValue__,this.lumiaQuantity);
+		return v;
+	}
+	,get_totalCost: function() {
+		var cost = 812.98 * this.iphoneQuantity + 1019.99 * this.galaxyQuantity + 342.49 * this.lumiaQuantity;
+		return "$" + Std.string(Math.round(cost * 100) / 100);
+	}
+	,set_totalCost: function(v) {
+		var __oldValue__ = this.get_totalCost();
+		if(v == __oldValue__) return __oldValue__;
+		this.__fieldBindings__.dispatch("totalCost",__oldValue__,this.get_totalCost());
+		return v;
+	}
+	,set_isLoginDialogShowed: function(__value__) {
+		var __oldValue__ = this.isLoginDialogShowed;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.isLoginDialogShowed = __value__;
+			this.__fieldBindings__.dispatch("isLoginDialogShowed",__oldValue__,this.isLoginDialogShowed);
+			return this.isLoginDialogShowed;
+		}
+	}
+	,set_openLoginDialogCommand: function(__value__) {
+		var __oldValue__ = this.openLoginDialogCommand;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.openLoginDialogCommand = __value__;
+			this.__fieldBindings__.dispatch("openLoginDialogCommand",__oldValue__,this.openLoginDialogCommand);
+			return this.openLoginDialogCommand;
+		}
+	}
+	,__class__: demo.viewmodel.AdjusterViewModel
+	,__properties__: $extend(demo.viewmodel.ComboBoxViewModel.prototype.__properties__,{set_totalCost:"set_totalCost",get_totalCost:"get_totalCost",set_lumiaQuantity:"set_lumiaQuantity",set_galaxyQuantity:"set_galaxyQuantity",set_iphoneQuantity:"set_iphoneQuantity",set_openLoginDialogCommand:"set_openLoginDialogCommand",set_isLoginDialogShowed:"set_isLoginDialogShowed"})
+});
 demo.viewmodel.ButtonsViewModel = function() {
 	this.haxeSource = openfl.Assets.getText("assets/source/ButtonsViewModel.hx");
 	this.xmlSource = openfl.Assets.getText("assets/source/ButtonsView.xml");
@@ -7181,76 +9724,12 @@ demo.viewmodel.ButtonsViewModel.prototype = {
 	,__class__: demo.viewmodel.ButtonsViewModel
 	,__properties__: {set_selectedSpotIndex:"set_selectedSpotIndex",get_selectedSpotIndex:"get_selectedSpotIndex",set_haxeSource:"set_haxeSource",set_xmlSource:"set_xmlSource",set_calendarButtonCommand:"set_calendarButtonCommand",set_weatherButtonCommand:"set_weatherButtonCommand",set_messagesButtonCommand:"set_messagesButtonCommand",set_basicButtonCommand:"set_basicButtonCommand",set_defaultButtonCommand:"set_defaultButtonCommand",set_buttonsLog:"set_buttonsLog"}
 };
-demo.viewmodel.ComboBoxViewModel = function() {
-	this.haxeSource = openfl.Assets.getText("assets/source/ComboBoxViewModel.hx");
-	this.xmlSource = openfl.Assets.getText("assets/source/ComboBoxView.xml");
-	this.role = 0;
-	this.__fieldBindings__ = new bindx.FieldsBindSignal();
-	this.__methodBindings__ = new bindx.MethodsBindSignal();
-};
-$hxClasses["demo.viewmodel.ComboBoxViewModel"] = demo.viewmodel.ComboBoxViewModel;
-demo.viewmodel.ComboBoxViewModel.__name__ = ["demo","viewmodel","ComboBoxViewModel"];
-demo.viewmodel.ComboBoxViewModel.__interfaces__ = [demo.viewmodel.Spotable,bindx.IBindable];
-demo.viewmodel.ComboBoxViewModel.prototype = {
-	get_email: function() {
-		return this._email;
-	}
-	,set_email: function(v) {
-		var __oldValue__ = this.get_email();
-		if(v == __oldValue__) return __oldValue__;
-		this._email = v;
-		this.__fieldBindings__.dispatch("email",__oldValue__,this.get_email());
-		return v;
-	}
-	,get_password: function() {
-		return this._password;
-	}
-	,set_password: function(v) {
-		var __oldValue__ = this.get_password();
-		if(v == __oldValue__) return __oldValue__;
-		this._password = v;
-		this.__fieldBindings__.dispatch("password",__oldValue__,this.get_password());
-		return v;
-	}
-	,get_selectedSpotIndex: function() {
-		return this._selectedSpotIndex;
-	}
-	,set_selectedSpotIndex: function(v) {
-		var __oldValue__ = this.get_selectedSpotIndex();
-		if(v == __oldValue__) return __oldValue__;
-		this._selectedSpotIndex = v;
-		this.__fieldBindings__.dispatch("selectedSpotIndex",__oldValue__,this.get_selectedSpotIndex());
-		return v;
-	}
-	,set_role: function(__value__) {
-		var __oldValue__ = this.role;
-		if(__oldValue__ == __value__) return __value__; else {
-			this.role = __value__;
-			this.__fieldBindings__.dispatch("role",__oldValue__,this.role);
-			return this.role;
-		}
-	}
-	,set_xmlSource: function(__value__) {
-		var __oldValue__ = this.xmlSource;
-		if(__oldValue__ == __value__) return __value__; else {
-			this.xmlSource = __value__;
-			this.__fieldBindings__.dispatch("xmlSource",__oldValue__,this.xmlSource);
-			return this.xmlSource;
-		}
-	}
-	,set_haxeSource: function(__value__) {
-		var __oldValue__ = this.haxeSource;
-		if(__oldValue__ == __value__) return __value__; else {
-			this.haxeSource = __value__;
-			this.__fieldBindings__.dispatch("haxeSource",__oldValue__,this.haxeSource);
-			return this.haxeSource;
-		}
-	}
-	,__class__: demo.viewmodel.ComboBoxViewModel
-	,__properties__: {set_selectedSpotIndex:"set_selectedSpotIndex",get_selectedSpotIndex:"get_selectedSpotIndex",set_haxeSource:"set_haxeSource",set_xmlSource:"set_xmlSource",set_role:"set_role",set_password:"set_password",get_password:"get_password",set_email:"set_email",get_email:"get_email"}
-};
 demo.viewmodel.DemoViewModel = function() {
 	this.areLinksVisible = false;
+	this.tableVM = new demo.viewmodel.TableViewModel();
+	this.adjusterVM = new demo.viewmodel.AdjusterViewModel();
+	this.frameVM = new demo.viewmodel.FrameViewModel();
+	this.accordionVM = new demo.viewmodel.AccordionViewModel();
 	this.comboboxVM = new demo.viewmodel.ComboBoxViewModel();
 	this.progressVM = new demo.viewmodel.ProgressViewModel();
 	this.textVM = new demo.viewmodel.TextViewModel();
@@ -7267,7 +9746,7 @@ demo.viewmodel.DemoViewModel.prototype = {
 		var __oldValue__ = this.menuSelectedIndex;
 		if(v == __oldValue__) return __oldValue__;
 		this.menuSelectedIndex = v;
-		var vms = [this.buttonsVM,this.textVM,this.progressVM,this.comboboxVM];
+		var vms = [this.buttonsVM,this.textVM,this.progressVM,this.comboboxVM,this.accordionVM,this.frameVM,this.adjusterVM,this.tableVM];
 		vms[this.menuSelectedIndex].set_selectedSpotIndex(0);
 		this.__fieldBindings__.dispatch("menuSelectedIndex",__oldValue__,this.menuSelectedIndex);
 		return v;
@@ -7304,6 +9783,38 @@ demo.viewmodel.DemoViewModel.prototype = {
 			return this.comboboxVM;
 		}
 	}
+	,set_accordionVM: function(__value__) {
+		var __oldValue__ = this.accordionVM;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.accordionVM = __value__;
+			this.__fieldBindings__.dispatch("accordionVM",__oldValue__,this.accordionVM);
+			return this.accordionVM;
+		}
+	}
+	,set_frameVM: function(__value__) {
+		var __oldValue__ = this.frameVM;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.frameVM = __value__;
+			this.__fieldBindings__.dispatch("frameVM",__oldValue__,this.frameVM);
+			return this.frameVM;
+		}
+	}
+	,set_adjusterVM: function(__value__) {
+		var __oldValue__ = this.adjusterVM;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.adjusterVM = __value__;
+			this.__fieldBindings__.dispatch("adjusterVM",__oldValue__,this.adjusterVM);
+			return this.adjusterVM;
+		}
+	}
+	,set_tableVM: function(__value__) {
+		var __oldValue__ = this.tableVM;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.tableVM = __value__;
+			this.__fieldBindings__.dispatch("tableVM",__oldValue__,this.tableVM);
+			return this.tableVM;
+		}
+	}
 	,set_areLinksVisible: function(__value__) {
 		var __oldValue__ = this.areLinksVisible;
 		if(__oldValue__ == __value__) return __value__; else {
@@ -7313,8 +9824,41 @@ demo.viewmodel.DemoViewModel.prototype = {
 		}
 	}
 	,__class__: demo.viewmodel.DemoViewModel
-	,__properties__: {set_areLinksVisible:"set_areLinksVisible",set_menuSelectedIndex:"set_menuSelectedIndex",set_comboboxVM:"set_comboboxVM",set_progressVM:"set_progressVM",set_textVM:"set_textVM",set_buttonsVM:"set_buttonsVM"}
+	,__properties__: {set_areLinksVisible:"set_areLinksVisible",set_menuSelectedIndex:"set_menuSelectedIndex",set_tableVM:"set_tableVM",set_adjusterVM:"set_adjusterVM",set_frameVM:"set_frameVM",set_accordionVM:"set_accordionVM",set_comboboxVM:"set_comboboxVM",set_progressVM:"set_progressVM",set_textVM:"set_textVM",set_buttonsVM:"set_buttonsVM"}
 };
+demo.viewmodel.FrameViewModel = function() {
+	var _g = this;
+	demo.viewmodel.ComboBoxViewModel.call(this);
+	this.set_xmlSource(openfl.Assets.getText("assets/source/FrameView.xml"));
+	this.set_haxeSource(openfl.Assets.getText("assets/source/FrameViewModel.hx"));
+	this.set_isLoginDialogShowed(false);
+	this.set_openLoginDialogCommand(new jive.BaseCommand(function() {
+		_g.set_isLoginDialogShowed(true);
+	}));
+};
+$hxClasses["demo.viewmodel.FrameViewModel"] = demo.viewmodel.FrameViewModel;
+demo.viewmodel.FrameViewModel.__name__ = ["demo","viewmodel","FrameViewModel"];
+demo.viewmodel.FrameViewModel.__super__ = demo.viewmodel.ComboBoxViewModel;
+demo.viewmodel.FrameViewModel.prototype = $extend(demo.viewmodel.ComboBoxViewModel.prototype,{
+	set_isLoginDialogShowed: function(__value__) {
+		var __oldValue__ = this.isLoginDialogShowed;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.isLoginDialogShowed = __value__;
+			this.__fieldBindings__.dispatch("isLoginDialogShowed",__oldValue__,this.isLoginDialogShowed);
+			return this.isLoginDialogShowed;
+		}
+	}
+	,set_openLoginDialogCommand: function(__value__) {
+		var __oldValue__ = this.openLoginDialogCommand;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.openLoginDialogCommand = __value__;
+			this.__fieldBindings__.dispatch("openLoginDialogCommand",__oldValue__,this.openLoginDialogCommand);
+			return this.openLoginDialogCommand;
+		}
+	}
+	,__class__: demo.viewmodel.FrameViewModel
+	,__properties__: $extend(demo.viewmodel.ComboBoxViewModel.prototype.__properties__,{set_openLoginDialogCommand:"set_openLoginDialogCommand",set_isLoginDialogShowed:"set_isLoginDialogShowed"})
+});
 demo.viewmodel.ProgressViewModel = function() {
 	this.haxeSource = openfl.Assets.getText("assets/source/ProgressViewModel.hx");
 	this.xmlSource = openfl.Assets.getText("assets/source/ProgressView.xml");
@@ -7372,6 +9916,93 @@ demo.viewmodel.ProgressViewModel.prototype = {
 	,__class__: demo.viewmodel.ProgressViewModel
 	,__properties__: {set_selectedSpotIndex:"set_selectedSpotIndex",get_selectedSpotIndex:"get_selectedSpotIndex",set_haxeSource:"set_haxeSource",set_xmlSource:"set_xmlSource",set_sliderValue:"set_sliderValue",set_isScrollbarIndeterminate:"set_isScrollbarIndeterminate"}
 };
+demo.viewmodel.TableViewModel = function() {
+	var _g = this;
+	demo.viewmodel.ComboBoxViewModel.call(this);
+	this.set_xmlSource(openfl.Assets.getText("assets/source/TableView.xml"));
+	this.set_haxeSource(openfl.Assets.getText("assets/source/TableViewModel.hx"));
+	this.set_isLoginDialogShowed(false);
+	this.set_openLoginDialogCommand(new jive.BaseCommand(function() {
+		_g.set_isLoginDialogShowed(true);
+	}));
+	this.set_languages(new org.aswing.VectorListModel([{ position : 1, prevPosition : 2, name : "Java", rating : 16.869, change : -0.04, highest : "#1 in May 2015", lowest : "#2 in Mar 2015", languageOfYear : "2005"},{ position : 2, prevPosition : 1, name : "C", rating : 16.847, change : -0.08, highest : "#1 in Mar 2015", lowest : "#2 in May 2015", languageOfYear : "2008"},{ position : 3, prevPosition : 4, name : "C++", rating : 7.875, change : 1.89, highest : "#3 in May 2015", lowest : "#5 in Feb 2008", languageOfYear : "2003"},{ position : 4, prevPosition : 3, name : "Objective-C", rating : 5.393, change : -6.40, highest : "#3 in Mar 2015", lowest : "#59 in Dec 2007", languageOfYear : "2011, 2012"},{ position : 5, prevPosition : 6, name : "C#", rating : 5.264, change : 1.52, highest : "#3 in Mar 2012", lowest : "#22 in Sep 2001", languageOfYear : "-"},{ position : 6, prevPosition : 8, name : "Python", rating : 3.725, change : 0.67, highest : "#4 in Feb 2011", lowest : "#13 in Feb 2003", languageOfYear : "2007, 2010"},{ position : 7, prevPosition : 9, name : "JavaScript", rating : 3.127, change : 1.34, highest : "#6 in Apr 2015", lowest : "#12 in Oct 2014", languageOfYear : "2014"},{ position : 8, prevPosition : 11, name : "Visual Basic .NET", rating : 2.968, change : 1.7, highest : "#8 in May 2015", lowest : "#49 in Jan 2011", languageOfYear : "-"},{ position : 9, prevPosition : 7, name : "PHP", rating : 2.72, change : -0.67, highest : "#3 in Mar 2010", lowest : "#10 in Sep 2001", languageOfYear : "2004"},{ position : 10, prevPosition : 99, name : "Visual Basic", rating : 1.893, change : 1.893, highest : "#9 in Apr 2015", lowest : "#17 in Jan 2015", languageOfYear : "-"},{ position : 11, prevPosition : 10, name : "Perl", rating : 1.82, change : 0.35, highest : "#3 in May 2005", lowest : "#13 in Apr 2014", languageOfYear : "-"},{ position : 12, prevPosition : 33, name : "R", rating : 1.444, change : 1.06, highest : "#12 in May 2015", lowest : "#73 in Dec 2008", languageOfYear : "-"},{ position : 13, prevPosition : 15, name : "Delphi/Object Pascal", rating : 1.302, change : 0.33, highest : "#6 in Oct 2001", lowest : "#20 in Jan 2015", languageOfYear : "-"},{ position : 14, prevPosition : 19, name : "MATLAB", rating : 1.283, change : 0.57, highest : "#11 in Jan 2015", lowest : "#29 in Aug 2011", languageOfYear : "-"},{ position : 15, prevPosition : 12, name : "Ruby", rating : 1.273, change : 0.03, highest : "#8 in Dec 2008", lowest : "#39 in Jan 2002", languageOfYear : "2006"},{ position : 16, prevPosition : 27, name : "COBOL", rating : 1.169, change : 0.58, highest : "#8 in Aug 2001", lowest : "#47 in Aug 2011", languageOfYear : "-"},{ position : 17, prevPosition : 22, name : "PL/SQL", rating : 1.127, change : 0.49, highest : "#7 in Apr 2005", lowest : "#67 in Apr 2004", languageOfYear : "-"},{ position : 18, prevPosition : 99, name : "Swift", rating : 1.115, change : 1.115, highest : "#16 in Jul 2014", lowest : "#27 in Feb 2015", languageOfYear : "-"},{ position : 19, prevPosition : 18, name : "Pascal", rating : 0.960, change : 0.21, highest : "#12 in Sep 2009", lowest : "#71 in Sep 2004", languageOfYear : "-"},{ position : 20, prevPosition : 37, name : "ABAP", rating : 0.887, change : 0.57, highest : "#12 in Jan 2015", lowest : "#59 in Apr 2003", languageOfYear : "-"}]));
+};
+$hxClasses["demo.viewmodel.TableViewModel"] = demo.viewmodel.TableViewModel;
+demo.viewmodel.TableViewModel.__name__ = ["demo","viewmodel","TableViewModel"];
+demo.viewmodel.TableViewModel.__super__ = demo.viewmodel.ComboBoxViewModel;
+demo.viewmodel.TableViewModel.prototype = $extend(demo.viewmodel.ComboBoxViewModel.prototype,{
+	set_selectedItem: function(v) {
+		var __oldValue__ = this.selectedItem;
+		if(v == __oldValue__) return __oldValue__;
+		this.selectedItem = v;
+		this.set_informationPanelVisibility(null != this.selectedItem);
+		if(this.informationPanelVisibility) {
+			this.set_highest(this.selectedItem.highest);
+			this.set_lowest(this.selectedItem.lowest);
+			this.set_languageOfYear(this.selectedItem.languageOfYear);
+		}
+		this.__fieldBindings__.dispatch("selectedItem",__oldValue__,this.selectedItem);
+		return v;
+	}
+	,set_isLoginDialogShowed: function(__value__) {
+		var __oldValue__ = this.isLoginDialogShowed;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.isLoginDialogShowed = __value__;
+			this.__fieldBindings__.dispatch("isLoginDialogShowed",__oldValue__,this.isLoginDialogShowed);
+			return this.isLoginDialogShowed;
+		}
+	}
+	,set_openLoginDialogCommand: function(__value__) {
+		var __oldValue__ = this.openLoginDialogCommand;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.openLoginDialogCommand = __value__;
+			this.__fieldBindings__.dispatch("openLoginDialogCommand",__oldValue__,this.openLoginDialogCommand);
+			return this.openLoginDialogCommand;
+		}
+	}
+	,set_languages: function(__value__) {
+		var __oldValue__ = this.languages;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.languages = __value__;
+			this.__fieldBindings__.dispatch("languages",__oldValue__,this.languages);
+			return this.languages;
+		}
+	}
+	,set_highest: function(__value__) {
+		var __oldValue__ = this.highest;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.highest = __value__;
+			this.__fieldBindings__.dispatch("highest",__oldValue__,this.highest);
+			return this.highest;
+		}
+	}
+	,set_lowest: function(__value__) {
+		var __oldValue__ = this.lowest;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.lowest = __value__;
+			this.__fieldBindings__.dispatch("lowest",__oldValue__,this.lowest);
+			return this.lowest;
+		}
+	}
+	,set_languageOfYear: function(__value__) {
+		var __oldValue__ = this.languageOfYear;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.languageOfYear = __value__;
+			this.__fieldBindings__.dispatch("languageOfYear",__oldValue__,this.languageOfYear);
+			return this.languageOfYear;
+		}
+	}
+	,set_informationPanelVisibility: function(__value__) {
+		var __oldValue__ = this.informationPanelVisibility;
+		if(__oldValue__ == __value__) return __value__; else {
+			this.informationPanelVisibility = __value__;
+			this.__fieldBindings__.dispatch("informationPanelVisibility",__oldValue__,this.informationPanelVisibility);
+			return this.informationPanelVisibility;
+		}
+	}
+	,__class__: demo.viewmodel.TableViewModel
+	,__properties__: $extend(demo.viewmodel.ComboBoxViewModel.prototype.__properties__,{set_informationPanelVisibility:"set_informationPanelVisibility",set_languageOfYear:"set_languageOfYear",set_lowest:"set_lowest",set_highest:"set_highest",set_selectedItem:"set_selectedItem",set_languages:"set_languages",set_openLoginDialogCommand:"set_openLoginDialogCommand",set_isLoginDialogShowed:"set_isLoginDialogShowed"})
+});
 demo.viewmodel.TextViewModel = function() {
 	this.haxeSource = openfl.Assets.getText("assets/source/TextViewModel.hx");
 	this.xmlSource = openfl.Assets.getText("assets/source/TextView.xml");
@@ -8866,6 +11497,916 @@ jive.BaseCommand.prototype = {
 	}
 	,__class__: jive.BaseCommand
 };
+org.aswing.JRootPane = function() {
+	org.aswing.Container.call(this);
+	this.setName("JRootPane");
+	this.mnemonicJustActed = false;
+	this._layout = new org.aswing.BorderLayout();
+	this.mnemonics = new haxe.ds.IntMap();
+	this.keyManager = new org.aswing.KeyboardManager();
+	this.keyManager.init(this);
+	this.triggerProxy = this;
+	this.setMnemonicTriggerProxy(null);
+};
+$hxClasses["org.aswing.JRootPane"] = org.aswing.JRootPane;
+org.aswing.JRootPane.__name__ = ["org","aswing","JRootPane"];
+org.aswing.JRootPane.__super__ = org.aswing.Container;
+org.aswing.JRootPane.prototype = $extend(org.aswing.Container.prototype,{
+	get_defaultButton: function() {
+		return this.getDefaultButton();
+	}
+	,set_defaultButton: function(v) {
+		this.setDefaultButton(v);
+		return v;
+	}
+	,setDefaultButton: function(button) {
+		if(this._defaultButton != button) {
+			if(this._defaultButton != null) this._defaultButton.repaint();
+			this._defaultButton = button;
+			this._defaultButton.repaint();
+		}
+	}
+	,getDefaultButton: function() {
+		return this._defaultButton;
+	}
+	,setMenuBar: function(menuBar) {
+		throw new org.aswing.error.ImpMissError();
+	}
+	,getKeyMap: function() {
+		return this.keyManager.getKeyMap();
+	}
+	,getKeyboardManager: function() {
+		return this.keyManager;
+	}
+	,setKeyMapActived: function(b) {
+		this.keyManager.setEnabled(b);
+	}
+	,setMnemonicTriggerProxy: function(trigger) {
+		if(trigger != this.triggerProxy) {
+			if(this.triggerProxy != null) {
+			}
+			this.triggerProxy = trigger;
+			if(trigger == null) trigger = this;
+		}
+	}
+	,registerMnemonic: function(button) {
+		if(button.getMnemonic() >= 0) this.mnemonics.set(button.getMnemonic(),button);
+	}
+	,unregisterMnemonic: function(button) {
+		if(this.mnemonics.get(button.getMnemonic()) == button) this.mnemonics.remove(button.getMnemonic());
+	}
+	,__keyDown: function(e) {
+		this.mnemonicJustActed = false;
+		var code = e.keyCode | 0;
+		if(code == org.aswing.AWKeyboard.ENTER) {
+			var dfBtn = this.getDefaultButton();
+			if(dfBtn != null) {
+				if(dfBtn.isShowing() && dfBtn.isEnabled()) {
+					dfBtn.doClick();
+					this.mnemonicJustActed = true;
+					return;
+				}
+			}
+		}
+		if(this.get_stage() == null) return;
+		var mnBtn = this.mnemonics.get(code | 0);
+		if(mnBtn != null) {
+			if(mnBtn.isShowing() && mnBtn.isEnabled()) {
+				mnBtn.doClick();
+				var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
+				if(fm != null) {
+					fm.setTraversing(true);
+					mnBtn.paintFocusRect();
+				}
+				this.mnemonicJustActed = true;
+			}
+		}
+	}
+	,__removedFromStage: function(e) {
+		this.mnemonics = null;
+	}
+	,__class__: org.aswing.JRootPane
+	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_defaultButton:"set_defaultButton",get_defaultButton:"get_defaultButton"})
+});
+org.aswing.JPopup = function(owner,modal) {
+	if(modal == null) modal = false;
+	org.aswing.JRootPane.call(this);
+	if(owner == null) owner = org.aswing.AsWingManager.getRoot(false);
+	if(js.Boot.__instanceof(owner,org.aswing.JPopup) || js.Boot.__instanceof(owner,openfl.display.DisplayObjectContainer)) this._owner = owner; else if(owner != null) throw new org.aswing.error.Error(Std.string(this) + " JPopup's owner is not a DisplayObjectContainer or JPopup, owner is : " + Std.string(owner));
+	this._modal = modal;
+	this.setName("JPopup");
+	this.ground_mc = new openfl.display.Sprite();
+	this.ground_mc.name = "ground_mc";
+	this.ground_mc.set_visible(false);
+	this.lastLAF = org.aswing.UIManager.getLookAndFeel();
+	this.modalMC = new openfl.display.Sprite();
+	this.initModalMC();
+	this.set_d_visible(false);
+	this.ground_mc.addChild(this.modalMC);
+	this.ground_mc.addChild(this);
+	this.ownedEquipedPopups = new Array();
+	this.addEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__popupOpennedAddToList));
+	this.addEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__popupOfffromDisplayList));
+};
+$hxClasses["org.aswing.JPopup"] = org.aswing.JPopup;
+org.aswing.JPopup.__name__ = ["org","aswing","JPopup"];
+org.aswing.JPopup.getPopups = function(st) {
+	if(st == null) st = org.aswing.AsWingManager.getStage();
+	var fm = org.aswing.FocusManager.getManager(st);
+	return fm.getPopupsVector().toArray();
+};
+org.aswing.JPopup.getOwnedPopupsWithOwner = function(owner) {
+	var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
+	if(fm != null) {
+		var ws = new Array();
+		var pv = fm.getPopupsVector();
+		var n = pv.size();
+		var _g = 0;
+		while(_g < n) {
+			var i = _g++;
+			var w = org.aswing.AsWingUtils["as"](pv.get(i),org.aswing.JPopup);
+			if(w.getOwner() == owner) ws.push(w);
+		}
+		return ws;
+	} else return [];
+};
+org.aswing.JPopup.__super__ = org.aswing.JRootPane;
+org.aswing.JPopup.prototype = $extend(org.aswing.JRootPane.prototype,{
+	get_owner: function() {
+		return this.getOwner();
+	}
+	,set_owner: function(v) {
+		this.changeOwner(v);
+		return v;
+	}
+	,get_modal: function() {
+		return this.isModal();
+	}
+	,set_modal: function(v) {
+		this.setModal(v);
+		return v;
+	}
+	,__popupOpennedAddToList: function(e) {
+		var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
+		if(!fm.getPopupsVector().contains(this)) fm.getPopupsVector().append(this);
+		org.aswing.AsWingManager.getStage().addEventListener(openfl.events.Event.RESIZE,$bind(this,this.__resetModelMCWhenStageResized),false,0,false);
+	}
+	,__popupOfffromDisplayList: function(e) {
+		var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
+		if(fm != null) {
+			fm.getPopupsVector().remove(this);
+			fm.uninit();
+		}
+		org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.Event.RESIZE,$bind(this,this.__resetModelMCWhenStageResized));
+	}
+	,isValidateRoot: function() {
+		return true;
+	}
+	,setEnabled: function(b) {
+		org.aswing.JRootPane.prototype.setEnabled.call(this,b);
+		this.ground_mc.mouseEnabled = this.isEnabled();
+	}
+	,getOwner: function() {
+		return this._owner;
+	}
+	,getPopupOwner: function() {
+		return org.aswing.AsWingUtils["as"](this._owner,org.aswing.JPopup);
+	}
+	,getDisplayOwner: function() {
+		return org.aswing.AsWingUtils["as"](this._owner,openfl.display.DisplayObjectContainer);
+	}
+	,changeOwner: function(owner) {
+		if(owner == null) owner = org.aswing.AsWingManager.getRoot(false);
+		if(this._owner != owner) {
+			this._owner = owner;
+			if(this.isAddedToList()) {
+				if(owner == null) throw new org.aswing.error.Error("This popup is alreay on display list, can't be owned to null, please dispose it first."); else this.equipPopupContents();
+			}
+		}
+	}
+	,setModal: function(m) {
+		if(this._modal != m) {
+			this._modal = m;
+			this.modalMC.set_visible(this._modal);
+			this.resetModalMC();
+		}
+	}
+	,isModal: function() {
+		return this._modal;
+	}
+	,show: function() {
+		this.setVisible(true);
+	}
+	,getGroundContainer: function() {
+		return this.ground_mc;
+	}
+	,setVisible: function(v) {
+		if(v != this.get_visible() || v && !this.isAddedToList()) {
+			org.aswing.JRootPane.prototype.setVisible.call(this,v);
+			if(v) {
+				if(!this.isAddedToList()) this.equipPopupContents();
+				this.resetModalMC();
+				this.dispatchEvent(new org.aswing.event.PopupEvent("popupOpened"));
+			} else this.dispatchEvent(new org.aswing.event.PopupEvent("popupClosed"));
+		}
+		this.ground_mc.set_visible(this.shouldGroundVisible());
+		if(v) this.toFront();
+	}
+	,pack: function() {
+		org.aswing.JRootPane.prototype.pack.call(this);
+		this.revalidateIfNecessary();
+	}
+	,isAddedToList: function() {
+		return this.ground_mc.parent != null;
+	}
+	,hide: function() {
+		this.setVisible(false);
+	}
+	,dispose: function() {
+		if(this.isAddedToList()) {
+			var st = org.aswing.AsWingManager.getStage();
+			this.set_d_visible(false);
+			this.disposeProcess(st);
+			if(this.ground_mc.parent != null) this.ground_mc.parent.removeChild(this.ground_mc);
+			if(this.getPopupOwner() != null) this.getPopupOwner().removeOwnedEquipedPopup(this);
+			this.dispatchEvent(new org.aswing.event.PopupEvent("popupClosed"));
+		}
+	}
+	,disposeProcess: function(st) {
+		this.removeEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__popupOfffromDisplayList));
+		this.removeEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__popupOpennedAddToList));
+	}
+	,shouldGroundVisible: function() {
+		var pOwner = this.getPopupOwner();
+		if(pOwner != null) return pOwner.shouldOwnedPopupGroundVisible(this);
+		return this.isVisible();
+	}
+	,shouldOwnedPopupGroundVisible: function(popup) {
+		return popup.isVisible();
+	}
+	,toBack: function() {
+		if(this.isAddedToList() && this.isVisible()) {
+			var po = this.getPopupOwner();
+			if(po == null) {
+				if(!org.aswing.util.DepthManager.isBottom(this.ground_mc)) org.aswing.util.DepthManager.bringToBottom(this.ground_mc);
+			} else if(po.parent != null) {
+				var destIndex = po.parent.getChildIndex(po) + 1;
+				if(this.ground_mc != null && this.ground_mc.parent != null && this.ground_mc.parent.getChildIndex(this.ground_mc) != destIndex) this.ground_mc.parent.setChildIndex(this.ground_mc,destIndex);
+			}
+		}
+	}
+	,toFront: function() {
+		if(this.isAddedToList() && this.isVisible()) {
+			if(!org.aswing.util.DepthManager.isTop(this.ground_mc)) org.aswing.util.DepthManager.bringToTop(this.ground_mc);
+		}
+	}
+	,startDrag: function(lockCenter,bounds) {
+		if(lockCenter == null) lockCenter = false;
+		if(org.aswing.AsWingManager.getStage() != null) {
+			org.aswing.JRootPane.prototype.startDrag.call(this,lockCenter,bounds);
+			org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving));
+			org.aswing.AsWingManager.getStage().addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving),false,0,false);
+			this.lastDragPos = this.getLocation();
+		}
+	}
+	,stopDrag: function() {
+		org.aswing.JRootPane.prototype.stopDrag.call(this);
+		if(org.aswing.AsWingManager.getStage() != null) org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving));
+	}
+	,__dragMoving: function(e) {
+		this._bounds.x = Std["int"](this.get_d_x());
+		this._bounds.y = Std["int"](this.get_d_y());
+		var newPos = this.getLocation();
+		if(!newPos.equals(this.lastDragPos)) this.dispatchEvent(new org.aswing.event.MovedEvent(this.lastDragPos,newPos));
+		this.lastDragPos = newPos;
+	}
+	,getOwnedPopups: function() {
+		return org.aswing.JPopup.getOwnedPopupsWithOwner(this);
+	}
+	,getOwnedEquipedPopups: function() {
+		return this.ownedEquipedPopups;
+	}
+	,getPopupAncestorMC: function() {
+		var ow = this;
+		while(ow.getPopupOwner() != null) ow = ow.getPopupOwner();
+		return ow.getDisplayOwner();
+	}
+	,getModalMC: function() {
+		return this.modalMC;
+	}
+	,resetModalMC: function() {
+		if(!this.isModal()) {
+			this.modalMC.set_width(0);
+			this.modalMC.set_height(0);
+			this.modalMC.set_visible(false);
+			return;
+		}
+		this.modalMC.set_visible(true);
+		var globalBounds = org.aswing.AsWingUtils.getVisibleMaximizedBounds(this.ground_mc);
+		this.modalMC.set_width(globalBounds.width + 200);
+		this.modalMC.set_height(globalBounds.height + 200);
+		this.modalMC.set_x(globalBounds.x - 100);
+		this.modalMC.set_y(globalBounds.y - 100);
+	}
+	,initModalMC: function() {
+		this.modalMC.set_visible(this._modal);
+		this.modalMC.get_graphics().clear();
+		var modalColor = new org.aswing.ASColor(0,0.5);
+		var g = new org.aswing.graphics.Graphics2D(this.modalMC.get_graphics());
+		g.fillRectangle(new org.aswing.graphics.SolidBrush(modalColor),0,0,1,1);
+	}
+	,addOwnedEquipedPopup: function(pop) {
+		this.ownedEquipedPopups.push(pop);
+	}
+	,removeOwnedEquipedPopup: function(pop) {
+		HxOverrides.remove(this.ownedEquipedPopups,pop);
+	}
+	,__resetModelMCWhenStageResized: function(e) {
+		if(this.isVisible()) this.resetModalMC();
+	}
+	,equipPopupContents: function() {
+		if(js.Boot.__instanceof(this._owner,org.aswing.JPopup)) {
+			var jwo = org.aswing.AsWingUtils["as"](this._owner,org.aswing.JPopup);
+			jwo.ground_mc.addChild(this.ground_mc);
+			jwo.addOwnedEquipedPopup(this);
+		} else if(js.Boot.__instanceof(this._owner,openfl.display.DisplayObjectContainer)) {
+			var ownerMC = org.aswing.AsWingUtils["as"](this._owner,openfl.display.DisplayObjectContainer);
+			ownerMC.addChild(this.ground_mc);
+		} else throw new org.aswing.error.Error(Std.string(this) + " JPopup's owner is not a mc or JPopup, owner is : " + Std.string(this._owner));
+		if(this.lastLAF != org.aswing.UIManager.getLookAndFeel()) {
+			org.aswing.AsWingUtils.updateChildrenUI(this);
+			this.lastLAF = org.aswing.UIManager.getLookAndFeel();
+		}
+	}
+	,__class__: org.aswing.JPopup
+	,__properties__: $extend(org.aswing.JRootPane.prototype.__properties__,{set_modal:"set_modal",get_modal:"get_modal",set_owner:"set_owner",get_owner:"get_owner"})
+});
+org.aswing.JWindow = function(owner,modal) {
+	if(modal == null) modal = false;
+	org.aswing.JPopup.call(this,owner,modal);
+	this.setName("JWindow");
+	this._actived = false;
+	this.focusObject = new openfl.display.Sprite();
+	this.focusObject.name = "hidden_focus_obj";
+	this.focusObject.set_visible(false);
+	this._activable = true;
+	this.addChild(this.focusObject);
+	this._layout = new org.aswing.WindowLayout();
+	this.setFocusTraversalPolicy(new org.aswing.WindowOrderFocusTraversalPolicy());
+	this.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__activeWhenPress),true);
+	this.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__activeWhenPressWindowSelf));
+};
+$hxClasses["org.aswing.JWindow"] = org.aswing.JWindow;
+org.aswing.JWindow.__name__ = ["org","aswing","JWindow"];
+org.aswing.JWindow.getWindows = function(st) {
+	if(st == null) st = org.aswing.AsWingManager.getStage();
+	var fm = org.aswing.FocusManager.getManager(st);
+	var vec = fm.getPopupsVector();
+	var arr = new Array();
+	var _g1 = 0;
+	var _g = vec.size();
+	while(_g1 < _g) {
+		var i = _g1++;
+		var win = vec.get(i);
+		if(js.Boot.__instanceof(win,org.aswing.JWindow)) arr.push(win);
+	}
+	return arr;
+};
+org.aswing.JWindow.getOwnedWindowsWithOwner = function(owner) {
+	var fm = org.aswing.FocusManager.getManager(owner.get_stage());
+	if(fm != null) {
+		var ws = new Array();
+		var vec = fm.getPopupsVector();
+		var n = vec.size();
+		var _g = 0;
+		while(_g < n) {
+			var i = _g++;
+			var w = vec.get(i);
+			if(js.Boot.__instanceof(w,org.aswing.JWindow) && w.getOwner() == owner) ws.push(w);
+		}
+		return ws;
+	} else return [];
+};
+org.aswing.JWindow.__super__ = org.aswing.JPopup;
+org.aswing.JWindow.prototype = $extend(org.aswing.JPopup.prototype,{
+	get_content: function() {
+		return this.getContentPane();
+	}
+	,set_content: function(v) {
+		this.setContentPane(v);
+		return v;
+	}
+	,get_activable: function() {
+		return this.isActivable();
+	}
+	,set_activable: function(v) {
+		this.setActivable(v);
+		return v;
+	}
+	,get_actived: function() {
+		return this.isActive();
+	}
+	,set_actived: function(v) {
+		this.setActive(v);
+		return v;
+	}
+	,setLayout: function(layout) {
+		if(js.Boot.__instanceof(layout,org.aswing.WindowLayout)) {
+			var oldLayout = org.aswing.AsWingUtils["as"](this._layout,org.aswing.WindowLayout);
+			org.aswing.JPopup.prototype.setLayout.call(this,layout);
+			if(oldLayout != null) {
+				if(oldLayout.getTitleBar() != null) layout.addLayoutComponent(oldLayout.getTitleBar(),"Title");
+				if(oldLayout.getContentPane() != null) layout.addLayoutComponent(oldLayout.getContentPane(),"Content");
+			}
+		} else throw new org.aswing.error.Error("Can not set a non-WindowLayout Layout to JWindow");
+	}
+	,paintImmediately: function() {
+		if(this.isVisible()) {
+			var minimizSize = this.getMinimumSize();
+			var needSize = new org.aswing.geom.IntDimension(Std["int"](Math.max(this.getWidth(),minimizSize.width)),Std["int"](Math.max(this.getHeight(),minimizSize.height)));
+			this.setSize(needSize);
+			org.aswing.JPopup.prototype.paintImmediately.call(this);
+			this.revalidateIfNecessary();
+		} else org.aswing.JPopup.prototype.paintImmediately.call(this);
+	}
+	,getContentPane: function() {
+		if(this.contentPane == null) {
+			var p = new org.aswing.Container();
+			p.setLayout(new org.aswing.BorderLayout());
+			this.setContentPaneImp(p);
+		}
+		return this.contentPane;
+	}
+	,setContentPane: function(cp) {
+		if(cp != this.contentPane) {
+			if(cp == null) throw new org.aswing.error.Error(Std.string(this) + " Can not set null to be JWindow's contentPane!"); else this.setContentPaneImp(cp);
+		}
+	}
+	,setContentPaneImp: function(cp) {
+		if(this.contentPane != null) this.contentPane.removeFromContainer();
+		this.contentPane = cp;
+		this.append(this.contentPane,"Content");
+	}
+	,getWindowOwner: function() {
+		return org.aswing.AsWingUtils["as"](this._owner,org.aswing.JWindow);
+	}
+	,getOwnedWindows: function() {
+		return org.aswing.JWindow.getOwnedWindowsWithOwner(this);
+	}
+	,setVisible: function(v) {
+		org.aswing.JPopup.prototype.setVisible.call(this,v);
+		if(v && this.isActivable()) this.setActive(true); else this.lostActiveAction(this.get_stage());
+	}
+	,setActivable: function(b) {
+		this._activable = b;
+	}
+	,isActivable: function() {
+		return this._activable;
+	}
+	,disposeProcess: function(st) {
+		this.lostActiveAction(st);
+	}
+	,isActive: function() {
+		return this._actived;
+	}
+	,setActive: function(b) {
+		if(this._actived != b) {
+			if(b) this.active(); else this.deactive(this.get_stage());
+		}
+	}
+	,focusAtThisWindow: function() {
+		var defaultFocus = this.focusWhenDeactive;
+		if(defaultFocus == null || !(org.aswing.AsWingUtils.isAncestor(this,defaultFocus) && defaultFocus.isShowing() && defaultFocus.isFocusable() && defaultFocus.isEnabled())) defaultFocus = this.getFocusTraversalPolicy().getDefaultComponent(this);
+		if(defaultFocus == null) defaultFocus = this;
+		this.focusWhenDeactive = null;
+		defaultFocus.requestFocus();
+	}
+	,lostActiveAction: function(st) {
+		if(this.isActive()) {
+			this.deactive(st);
+			if(this.getLootActiveFrom() != null && this.getLootActiveFrom().isShowing()) this.getLootActiveFrom().active();
+		}
+		this.setLootActiveFrom(null);
+	}
+	,getLootActiveFrom: function() {
+		return this.lootActiveFrom;
+	}
+	,setLootActiveFrom: function(activeOwner) {
+		if(this.lootActiveFrom != null) this.lootActiveFrom.removeEventListener("popupClosed",$bind(this,this.__lootActiveFromHide));
+		var oldLookActiveFrom = this.lootActiveFrom;
+		this.lootActiveFrom = activeOwner;
+		if(this.lootActiveFrom != null) this.lootActiveFrom.addEventListener("popupClosed",$bind(this,this.__lootActiveFromHide),false,0,false);
+		if(activeOwner != null && activeOwner.getLootActiveFrom() == this) activeOwner.setLootActiveFrom(oldLookActiveFrom);
+	}
+	,__lootActiveFromHide: function(e) {
+		if(this.lootActiveFrom != null) this.setLootActiveFrom(this.lootActiveFrom.lootActiveFrom);
+	}
+	,active: function(programmatic) {
+		if(programmatic == null) programmatic = true;
+		var fm = org.aswing.FocusManager.getManager(this.get_stage());
+		if(fm == null) return;
+		this._actived = true;
+		var vec = fm.getPopupsVector();
+		var _g1 = 0;
+		var _g = vec.size();
+		while(_g1 < _g) {
+			var i = _g1++;
+			var w = org.aswing.AsWingUtils["as"](vec.get(i),org.aswing.JWindow);
+			if(w != null && w != this) {
+				if(w.isActive()) {
+					w.deactive(w.get_stage(),programmatic);
+					if(w.isShowing()) this.setLootActiveFrom(w);
+				}
+			}
+		}
+		fm.setActiveWindow(this);
+		this.focusAtThisWindow();
+		this.dispatchEvent(new org.aswing.event.WindowEvent("windowActived",programmatic));
+	}
+	,deactive: function(st,programmatic) {
+		if(programmatic == null) programmatic = true;
+		this._actived = false;
+		var fm = org.aswing.FocusManager.getManager(st);
+		if(fm == null) return;
+		this.focusWhenDeactive = fm.getFocusOwner();
+		if(!org.aswing.AsWingUtils.isAncestor(this,this.focusWhenDeactive)) this.focusWhenDeactive = null;
+		fm.setActiveWindow(null);
+		this.dispatchEvent(new org.aswing.event.WindowEvent("windowDeactived",programmatic));
+	}
+	,getInternalFocusObject: function() {
+		return this.focusObject;
+	}
+	,__activeWhenPress: function(e) {
+		if(this.getWindowOwner() != null) this.getWindowOwner().toFront();
+		this.toFront();
+		if(this.isActivable() && !this.isActive()) this.active(false);
+	}
+	,__activeWhenPressWindowSelf: function(e) {
+		if(e.target == this) this.__activeWhenPress(e);
+	}
+	,__class__: org.aswing.JWindow
+	,__properties__: $extend(org.aswing.JPopup.prototype.__properties__,{set_actived:"set_actived",get_actived:"get_actived",set_activable:"set_activable",get_activable:"get_activable",set_content:"set_content",get_content:"get_content"})
+});
+org.aswing.JFrame = function(owner,title,modal) {
+	if(modal == null) modal = false;
+	if(title == null) title = "";
+	org.aswing.JWindow.call(this,owner,modal);
+	this.setClipMasked(true);
+	this._title = title;
+	this.state = 0;
+	this._defaultCloseOperation = 2;
+	this._dragable = true;
+	this._resizable = true;
+	this._closable = true;
+	this._icon = org.aswing.plaf.DefaultEmptyDecoraterResource.INSTANCE;
+	this.lastNormalStateBounds = new org.aswing.geom.IntRectangle(0,0,200,100);
+	this.setName("JFrame");
+	this.addEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__frameAddedToStage));
+	this.addEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__frameRemovedFromStage));
+	this.addEventListener("moved",$bind(this,this.__frameMoved),false,0,false);
+	this.updateUI();
+	this.setTitleBar(new org.aswing.JFrameTitleBar());
+};
+$hxClasses["org.aswing.JFrame"] = org.aswing.JFrame;
+org.aswing.JFrame.__name__ = ["org","aswing","JFrame"];
+org.aswing.JFrame.__super__ = org.aswing.JWindow;
+org.aswing.JFrame.prototype = $extend(org.aswing.JWindow.prototype,{
+	get_titleBar: function() {
+		return this.getTitleBar();
+	}
+	,set_titleBar: function(v) {
+		this.setTitleBar(v);
+		return v;
+	}
+	,get_title: function() {
+		return this.getTitle();
+	}
+	,set_title: function(v) {
+		this.setTitle(v);
+		return v;
+	}
+	,get_icon: function() {
+		return this.getIcon();
+	}
+	,set_icon: function(v) {
+		this.setIcon(v);
+		return v;
+	}
+	,get_defaultCloseOperation: function() {
+		return this.getDefaultCloseOperation();
+	}
+	,set_defaultCloseOperation: function(v) {
+		this.setDefaultCloseOperation(v);
+		return v;
+	}
+	,get_dragable: function() {
+		return this.isDragable();
+	}
+	,set_dragable: function(v) {
+		this.setDragable(v);
+		return v;
+	}
+	,get_resizable: function() {
+		return this.isResizable();
+	}
+	,set_resizable: function(v) {
+		this.setResizable(v);
+		return v;
+	}
+	,get_closable: function() {
+		return this.isClosable();
+	}
+	,set_closable: function(v) {
+		this.setClosable(v);
+		return v;
+	}
+	,get_dragDirectly: function() {
+		return this.isDragDirectly();
+	}
+	,set_dragDirectly: function(v) {
+		this.setDragDirectly(v);
+		return v;
+	}
+	,get_dragDirectlySet: function() {
+		return this.isDragDirectlySet();
+	}
+	,set_dragDirectlySet: function(v) {
+		this.setDragDirectlySet(v);
+		return v;
+	}
+	,updateUI: function() {
+		this.setUI(org.aswing.UIManager.getUI(this));
+	}
+	,getDefaultBasicUIClass: function() {
+		return org.aswing.plaf.basic.BasicFrameUI;
+	}
+	,setUI: function(newUI) {
+		if(js.Boot.__instanceof(newUI,org.aswing.plaf.FrameUI)) org.aswing.JWindow.prototype.setUI.call(this,newUI); else throw new org.aswing.error.Error("JFrame just accept FrameUI instance!!!");
+	}
+	,getTitleBar: function() {
+		return this._titleBar;
+	}
+	,setTitleBar: function(t) {
+		if(this._titleBar != t) {
+			var old = this._titleBar;
+			if(this._titleBar != null) {
+				this._titleBar.setFrame(null);
+				this.remove(this._titleBar.getSelf());
+			}
+			this._titleBar = t;
+			if(this._titleBar != null) {
+				this._titleBar.setText(this.getTitle());
+				this._titleBar.setIcon(this.getIcon());
+				this.insert(0,this._titleBar.getSelf(),"Title");
+				this._titleBar.setFrame(this);
+			}
+			this.dispatchEvent(new org.aswing.event.PropertyChangeEvent("titleBar",old,t));
+		}
+	}
+	,getFrameUI: function() {
+		return org.aswing.AsWingUtils["as"](this.getUI(),org.aswing.plaf.FrameUI);
+	}
+	,getUIClassID: function() {
+		return "FrameUI";
+	}
+	,setTitle: function(t) {
+		if(this._title != t) {
+			this._title = t;
+			if(this.getTitleBar() != null) this.getTitleBar().setText(t);
+			this.repaint();
+			this.revalidate();
+		}
+	}
+	,getTitle: function() {
+		return this._title;
+	}
+	,setIcon: function(ico) {
+		if(this._icon != ico) {
+			this._icon = ico;
+			if(this.getTitleBar() != null) this.getTitleBar().setIcon(ico);
+			this.repaint();
+			this.revalidate();
+		}
+	}
+	,getIcon: function() {
+		return this._icon;
+	}
+	,setResizable: function(b) {
+		if(this._resizable != b) {
+			this._resizable = b;
+			this.getResizer().setEnabled(b);
+			this.repaint();
+			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
+		}
+	}
+	,isResizable: function() {
+		return this._resizable;
+	}
+	,setDragable: function(b) {
+		if(this._dragable != b) {
+			this._dragable = b;
+			this.repaint();
+			this.revalidate();
+			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
+		}
+	}
+	,isDragable: function() {
+		return this._dragable;
+	}
+	,setClosable: function(b) {
+		if(this._closable != b) {
+			this._closable = b;
+			this.repaint();
+			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
+		}
+	}
+	,isClosable: function() {
+		return this._closable;
+	}
+	,pack: function() {
+		if(this.getState() == 0) org.aswing.JWindow.prototype.pack.call(this);
+	}
+	,getMaximizedBounds: function() {
+		if(this.maximizedBounds == null) {
+			var b = org.aswing.AsWingUtils.getVisibleMaximizedBounds(this.parent);
+			return this.getInsets().getOutsideBounds(b);
+		} else return this.maximizedBounds.clone();
+	}
+	,setMaximizedBounds: function(b) {
+		if(b != null) {
+			this.maximizedBounds = b.clone();
+			this.revalidate();
+		} else this.maximizedBounds = null;
+	}
+	,setDefaultCloseOperation: function(operation) {
+		if(operation != 0 && operation != 1 && operation != 2) operation = 2;
+		this._defaultCloseOperation = operation;
+	}
+	,getDefaultCloseOperation: function() {
+		return this._defaultCloseOperation;
+	}
+	,setState: function(s,programmatic) {
+		if(programmatic == null) programmatic = true;
+		if(this.state != s) {
+			if(this.state == 0) this.lastNormalStateBounds.setRect(this.getComBounds());
+			this.state = s;
+			this.fireStateChanged();
+			if(this.state == 2) this.precessIconified(programmatic); else if((this.state & 4) == 4 || (this.state & 8) == 8) this.precessMaximized(programmatic); else this.precessRestored(programmatic);
+			this.doStateChange();
+		}
+	}
+	,isMaximized: function() {
+		return (this.state & 4) == 4 || (this.state & 8) == 8;
+	}
+	,doStateChange: function() {
+		if(this.state == 2) {
+			var iconifiedSize = new org.aswing.geom.IntDimension(60,20);
+			if(this._titleBar != null) iconifiedSize = this._titleBar.getSelf().getMinimumSize();
+			this.setSize(this.getInsets().getOutsideSize(iconifiedSize));
+			var frameMaxBounds = this.getMaximizedBounds();
+			if(this.get_x() < frameMaxBounds.x) this.set_x(frameMaxBounds.x);
+		} else if(this.state == 0) this.setBounds(this.lastNormalStateBounds); else this.setSizeToFixMaxmimized();
+		if(this.getResizer() != null) this.getResizer().setEnabled(this.isResizable() && this.state == 0);
+		this.revalidateIfNecessary();
+	}
+	,__frameMoved: function(e) {
+		if(this.state == 2) this.lastNormalStateBounds.setLocation(e.getNewLocation());
+	}
+	,__frameAddedToStage: function(e) {
+		org.aswing.AsWingManager.getStage().addEventListener(openfl.events.Event.RESIZE,$bind(this,this.__frameStageResized),false,0,false);
+	}
+	,__frameRemovedFromStage: function(e) {
+		if(org.aswing.AsWingManager.getStage() != null) org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.Event.RESIZE,$bind(this,this.__frameStageResized));
+	}
+	,__frameStageResized: function(e) {
+		if(this.get_stage() == null || org.aswing.AsWingManager.getStage().scaleMode != openfl.display.StageScaleMode.NO_SCALE) return;
+		if(this.isMaximized()) {
+			this.setSizeToFixMaxmimized();
+			this.revalidateIfNecessary();
+		}
+	}
+	,setSizeToFixMaxmimized: function() {
+		var maxBounds = this.getMaximizedBounds();
+		var b = this.getComBounds();
+		if((this.state & 4) == 4) {
+			b.x = maxBounds.x;
+			b.width = maxBounds.width;
+		}
+		if((this.state & 8) == 8) {
+			b.y = maxBounds.y;
+			b.height = maxBounds.height;
+		}
+		this.setBounds(b);
+	}
+	,precessIconified: function(programmatic) {
+		if(programmatic == null) programmatic = true;
+		this.doSubPopusVisible();
+		this.dispatchEvent(new org.aswing.event.FrameEvent("frameIconified",programmatic));
+	}
+	,precessRestored: function(programmatic) {
+		if(programmatic == null) programmatic = true;
+		this.doSubPopusVisible();
+		this.dispatchEvent(new org.aswing.event.FrameEvent("frameRestored",programmatic));
+	}
+	,precessMaximized: function(programmatic) {
+		if(programmatic == null) programmatic = true;
+		this.doSubPopusVisible();
+		this.dispatchEvent(new org.aswing.event.FrameEvent("frameMaximized",programmatic));
+	}
+	,doSubPopusVisible: function() {
+		var owneds = this.getOwnedEquipedPopups();
+		var _g1 = 0;
+		var _g = owneds.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var pop = owneds[i];
+			pop.getGroundContainer().set_visible(pop.shouldGroundVisible());
+		}
+	}
+	,shouldOwnedPopupGroundVisible: function(popup) {
+		if(this.getState() == 2) return false;
+		return org.aswing.JWindow.prototype.shouldOwnedPopupGroundVisible.call(this,popup);
+	}
+	,getState: function() {
+		return this.state;
+	}
+	,setResizer: function(r) {
+		if(r != this.resizer) {
+			this.resizer = r;
+			if(this.resizerController == null) this.resizerController = org.aswing.resizer.ResizerController.create(this,r); else this.resizerController.setResizer(this.resizer);
+			this.resizerController.setResizable(this.isResizable());
+		}
+	}
+	,getResizer: function() {
+		return this.resizer;
+	}
+	,setResizeDirectly: function(b) {
+		if(this.resizerController != null) this.resizerController.setResizeDirectly(b);
+	}
+	,isResizeDirectly: function() {
+		if(this.resizerController != null) return this.resizer.isResizeDirectly(); else return false;
+	}
+	,setDragDirectly: function(b) {
+		this._dragDirectly = b;
+		this.setDragDirectlySet(true);
+	}
+	,isDragDirectly: function() {
+		return this._dragDirectly;
+	}
+	,setDragDirectlySet: function(b) {
+		this._dragDirectlySet = b;
+	}
+	,isDragDirectlySet: function() {
+		return this._dragDirectlySet;
+	}
+	,closeReleased: function() {
+		this.dispatchEvent(new org.aswing.event.FrameEvent("frameClosing",false));
+		this.tryToClose();
+	}
+	,tryToClose: function() {
+		if(this._defaultCloseOperation == 1) this.hide(); else if(this._defaultCloseOperation == 2) this.dispose();
+	}
+	,fireStateChanged: function(programmatic) {
+		if(programmatic == null) programmatic = true;
+		this.dispatchEvent(new org.aswing.event.InteractiveEvent("stateChanged",programmatic));
+	}
+	,initModalMC: function() {
+		org.aswing.JWindow.prototype.initModalMC.call(this);
+		this.getModalMC().addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__flashModelFrame));
+	}
+	,__flashModelFrame: function(e) {
+		if(this.getFrameUI() != null) this.getFrameUI().flashModalFrame();
+	}
+	,__class__: org.aswing.JFrame
+	,__properties__: $extend(org.aswing.JWindow.prototype.__properties__,{set_dragDirectlySet:"set_dragDirectlySet",get_dragDirectlySet:"get_dragDirectlySet",set_dragDirectly:"set_dragDirectly",get_dragDirectly:"get_dragDirectly",set_closable:"set_closable",get_closable:"get_closable",set_resizable:"set_resizable",get_resizable:"get_resizable",set_dragable:"set_dragable",get_dragable:"get_dragable",set_defaultCloseOperation:"set_defaultCloseOperation",get_defaultCloseOperation:"get_defaultCloseOperation",set_icon:"set_icon",get_icon:"get_icon",set_title:"set_title",get_title:"get_title",set_titleBar:"set_titleBar",get_titleBar:"get_titleBar"})
+});
+jive.Dialog = function(owner,title,modal) {
+	if(modal == null) modal = false;
+	if(title == null) title = "";
+	org.aswing.JFrame.call(this,owner,title,modal);
+	this.set_resizable(false);
+	this.set_defaultCloseOperation(1);
+	this.get_content().addEventListener("comAdded",$bind(this,this.updateSizeAndLocation));
+};
+$hxClasses["jive.Dialog"] = jive.Dialog;
+jive.Dialog.__name__ = ["jive","Dialog"];
+jive.Dialog.__super__ = org.aswing.JFrame;
+jive.Dialog.prototype = $extend(org.aswing.JFrame.prototype,{
+	updateSizeAndLocation: function(e) {
+		this.pack();
+		this.set_location(new org.aswing.geom.IntPoint(Std["int"]((openfl.Lib.get_current().get_stage().get_stageWidth() - this.get_currentSize().width) / 2),Std["int"]((openfl.Lib.get_current().get_stage().get_stageHeight() - this.get_currentSize().height) / 2)));
+	}
+	,setContentPane: function(cp) {
+		if(null != this.get_content()) this.get_content().addEventListener("comAdded",$bind(this,this.updateSizeAndLocation));
+		org.aswing.JFrame.prototype.setContentPane.call(this,cp);
+		cp.addEventListener("comAdded",$bind(this,this.updateSizeAndLocation));
+	}
+	,setVisible: function(v) {
+		this.updateSizeAndLocation(null);
+		org.aswing.JFrame.prototype.setVisible.call(this,v);
+	}
+	,__class__: jive.Dialog
+});
 jive.Navigation = function() {
 	this.routes = new haxe.ds.StringMap();
 };
@@ -9797,6 +13338,265 @@ org.aswing.plaf.BaseComponentUI.prototype = {
 	}
 	,__class__: org.aswing.plaf.BaseComponentUI
 };
+org.aswing.plaf.AdjusterUI = function() { };
+$hxClasses["org.aswing.plaf.AdjusterUI"] = org.aswing.plaf.AdjusterUI;
+org.aswing.plaf.AdjusterUI.__name__ = ["org","aswing","plaf","AdjusterUI"];
+org.aswing.plaf.AdjusterUI.__interfaces__ = [org.aswing.plaf.ComponentUI];
+org.aswing.plaf.AdjusterUI.prototype = {
+	__class__: org.aswing.plaf.AdjusterUI
+};
+jive.plaf = {};
+jive.plaf.flat = {};
+jive.plaf.flat.FlatAdjusterUI = function() {
+	org.aswing.plaf.BaseComponentUI.call(this);
+	this.inputText = new org.aswing.JTextField("",3);
+	this.inputText.setFocusable(false);
+};
+$hxClasses["jive.plaf.flat.FlatAdjusterUI"] = jive.plaf.flat.FlatAdjusterUI;
+jive.plaf.flat.FlatAdjusterUI.__name__ = ["jive","plaf","flat","FlatAdjusterUI"];
+jive.plaf.flat.FlatAdjusterUI.__interfaces__ = [org.aswing.plaf.AdjusterUI];
+jive.plaf.flat.FlatAdjusterUI.__super__ = org.aswing.plaf.BaseComponentUI;
+jive.plaf.flat.FlatAdjusterUI.prototype = $extend(org.aswing.plaf.BaseComponentUI.prototype,{
+	getInputText: function() {
+		return this.inputText;
+	}
+	,getPopupSlider: function() {
+		return null;
+	}
+	,installUI: function(c) {
+		this.adjuster = c;
+		this.installDefaults();
+		this.installComponents();
+		this.installListeners();
+	}
+	,uninstallUI: function(c) {
+		this.adjuster = c;
+		this.uninstallDefaults();
+		this.uninstallComponents();
+		this.uninstallListeners();
+	}
+	,getPropertyPrefix: function() {
+		return "Adjuster.";
+	}
+	,installDefaults: function() {
+		var pp = this.getPropertyPrefix();
+		org.aswing.LookAndFeel.installBorderAndBFDecorators(this.adjuster,pp);
+		org.aswing.LookAndFeel.installColorsAndFont(this.adjuster,pp);
+		org.aswing.LookAndFeel.installBasicProperties(this.adjuster,pp);
+		this.cornerRadius = this.getNumber(pp + "cornerRadius");
+	}
+	,uninstallDefaults: function() {
+		org.aswing.LookAndFeel.uninstallBorderAndBFDecorators(this.adjuster);
+	}
+	,installComponents: function() {
+		this.initInputText();
+		this.plusButton = this.createPlusButton();
+		this.minusButton = this.createMinusButton();
+		this.adjuster.addChild(this.inputText);
+		this.adjuster.addChild(this.plusButton);
+		this.adjuster.addChild(this.minusButton);
+		this.inputText.addEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onInputTextMouseWheel));
+		this.plusButton.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onPlusButtonPressed));
+		this.minusButton.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onMinusButtonPressed));
+	}
+	,uninstallComponents: function() {
+		this.inputText.removeEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onInputTextMouseWheel));
+		this.plusButton.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onPlusButtonPressed));
+		this.minusButton.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onMinusButtonPressed));
+		this.adjuster.removeChild(this.inputText);
+		this.adjuster.removeChild(this.plusButton);
+		this.adjuster.removeChild(this.minusButton);
+	}
+	,installListeners: function() {
+		this.adjuster.addStateListener($bind(this,this.__onValueChanged));
+		this.adjuster.addEventListener("focusKeyDown",$bind(this,this.__onInputTextKeyDown));
+		this.adjuster.addEventListener("focusGained",$bind(this,this.__onFocusGained));
+		this.adjuster.addEventListener("focusLost",$bind(this,this.__onFocusLost));
+	}
+	,uninstallListeners: function() {
+		this.adjuster.removeStateListener($bind(this,this.__onValueChanged));
+		this.adjuster.removeEventListener("focusKeyDown",$bind(this,this.__onInputTextKeyDown));
+		this.adjuster.removeEventListener("focusGained",$bind(this,this.__onFocusGained));
+		this.adjuster.removeEventListener("focusLost",$bind(this,this.__onFocusLost));
+	}
+	,paint: function(c,g,b) {
+		org.aswing.plaf.BaseComponentUI.prototype.paint.call(this,c,g,b);
+		var text = this.getShouldFilledText();
+		if(text != this.inputText.getText()) this.inputText.setText(text);
+		this.layoutAdjuster();
+		this.getInputText().setEditable(this.adjuster.isEditable());
+		this.getInputText().setEnabled(this.adjuster.isEnabled());
+		this.plusButton.setEnabled(this.adjuster.isEnabled());
+		this.minusButton.setEnabled(this.adjuster.isEnabled());
+		g.drawLine(new org.aswing.graphics.Pen(c.get_background().offsetHLS(0,-0.2,-0.2)),this.plusButton.get_x() - 1,b.y - 1,this.plusButton.get_x() - 1,b.y + b.height + 1);
+		g.drawLine(new org.aswing.graphics.Pen(c.get_background().offsetHLS(0,-0.2,-0.2)),this.plusButton.get_x(),b.y + (b.height / 2 | 0),b.x + b.width,b.y + (b.height / 2 | 0));
+	}
+	,getInternalFocusObject: function(c) {
+		return this.inputText.getTextField();
+	}
+	,initInputText: function() {
+		this.inputText.setColumns(this.adjuster.getColumns());
+		this.inputText.setForeground(null);
+		this.inputText.setFont(this.adjuster.getFont());
+		this.inputText.setBorder(new org.aswing.border.EmptyBorder(null,new org.aswing.Insets(0,10,0,10)));
+		this.inputText.setBackgroundDecorator(null);
+	}
+	,createButton: function() {
+		var btn = new org.aswing.JButton(null);
+		btn.setMargin(new org.aswing.Insets(2,5,2,5));
+		btn.setForeground(null);
+		btn.setBackground(null);
+		btn.setFont(null);
+		btn.setFocusable(false);
+		return btn;
+	}
+	,createPlusButton: function() {
+		var btn = this.createButton();
+		btn.setIcon(new jive.plaf.flat.icon.PlusIcon(6,this.adjuster.get_mideground()));
+		btn.setBackgroundDecorator(new jive.plaf.flat.adjuster.PlusButtonBackground(this.adjuster.get_background(),this.adjuster.get_background().offsetHLS(0,0.1,0),this.adjuster.get_background().offsetHLS(0,-0.1,0),this.cornerRadius));
+		return btn;
+	}
+	,createMinusButton: function() {
+		var btn = this.createButton();
+		btn.setIcon(new jive.plaf.flat.icon.MinusIcon(6,this.adjuster.get_mideground()));
+		btn.setBackgroundDecorator(new jive.plaf.flat.adjuster.MinusButtonBackground(this.adjuster.get_background(),this.adjuster.get_background().offsetHLS(0,0.1,0),this.adjuster.get_background().offsetHLS(0,-0.1,0),this.cornerRadius));
+		return btn;
+	}
+	,fillInputTextWithCurrentValue: function() {
+		this.inputText.setText(this.getShouldFilledText());
+	}
+	,getShouldFilledText: function() {
+		var value = this.adjuster.getValue();
+		var text = (this.adjuster.getValueTranslator())(value);
+		return text;
+	}
+	,getTextButtonGap: function() {
+		return 1;
+	}
+	,layoutAdjuster: function() {
+		var td = this.adjuster.getSize();
+		var insets = this.adjuster.getInsets();
+		var top = insets.top;
+		var left = insets.left;
+		var right = td.width - insets.right;
+		var gap = this.getTextButtonGap();
+		var height = td.height - insets.top - insets.bottom;
+		var buttonSize = this.plusButton.getPreferredSize();
+		this.plusButton.setSizeWH(buttonSize.width,(height / 2 | 0) + 1);
+		this.plusButton.setLocationXY(right - buttonSize.width,top - 1);
+		this.minusButton.setSizeWH(buttonSize.width,height / 2 | 0);
+		this.minusButton.setLocationXY(right - buttonSize.width,top + (height / 2 | 0) + 1);
+		this.inputText.setLocationXY(left,top - 1);
+		this.inputText.setSizeWH(td.width - insets.left - insets.right - buttonSize.width - gap,height + 2);
+	}
+	,getPreferredSize: function(c) {
+		var insets = this.adjuster.getInsets();
+		var textSize = this.inputText.getPreferredSize();
+		var btnSize = this.plusButton.getPreferredSize();
+		var size = new org.aswing.geom.IntDimension(textSize.width + this.getTextButtonGap() + btnSize.width,textSize.height);
+		return insets.getOutsideSize(size);
+	}
+	,getMinimumSize: function(c) {
+		return this.adjuster.getInsets().getOutsideSize(new org.aswing.geom.IntDimension(0,0));
+	}
+	,getMaximumSize: function(c) {
+		return org.aswing.geom.IntDimension.createBigDimension();
+	}
+	,__onValueChanged: function(e) {
+		this.fillInputTextWithCurrentValue();
+	}
+	,__onInputTextMouseWheel: function(e) {
+		this.adjuster.setValue(this.adjuster.getValue() + e.delta * this.getUnitIncrement());
+	}
+	,__onPlusButtonPressed: function(e) {
+		this.adjuster.setValue(this.adjuster.getValue() + this.getUnitIncrement());
+		this.fillInputTextWithCurrentValue();
+		this.fireActionEvent();
+	}
+	,__onMinusButtonPressed: function(e) {
+		this.adjuster.setValue(this.adjuster.getValue() - this.getUnitIncrement());
+		this.fillInputTextWithCurrentValue();
+		this.fireActionEvent();
+	}
+	,__inputTextAction: function(fireActOnlyIfChanged) {
+		if(fireActOnlyIfChanged == null) fireActOnlyIfChanged = false;
+		var text = this.inputText.getText();
+		var value = (this.adjuster.getValueParser())(text);
+		this.adjuster.setValue(value);
+		this.fillInputTextWithCurrentValue();
+		if(!fireActOnlyIfChanged) this.fireActionEvent(); else if(value != this.startEditingValue) this.fireActionEvent();
+	}
+	,fireActionEvent: function() {
+		this.startEditingValue = this.adjuster.getValue();
+		this.adjuster.dispatchEvent(new org.aswing.event.AWEvent("act"));
+	}
+	,__onFocusGained: function(e) {
+		this.startEditingValue = this.adjuster.getValue();
+	}
+	,__onFocusLost: function(e) {
+		this.__inputTextAction(true);
+	}
+	,__onInputTextKeyDown: function(e) {
+		var code = e.keyCode;
+		var unit = this.getUnitIncrement();
+		var block = unit * 10;
+		var delta = 0;
+		if((function($this) {
+			var $r;
+			var $int = code;
+			$r = $int < 0?4294967296.0 + $int:$int + 0.0;
+			return $r;
+		}(this)) == 13) {
+			this.__inputTextAction(false);
+			return;
+		}
+		if((function($this) {
+			var $r;
+			var int1 = code;
+			$r = int1 < 0?4294967296.0 + int1:int1 + 0.0;
+			return $r;
+		}(this)) == 38) delta = unit; else if((function($this) {
+			var $r;
+			var int2 = code;
+			$r = int2 < 0?4294967296.0 + int2:int2 + 0.0;
+			return $r;
+		}(this)) == 40) delta = -unit; else if((function($this) {
+			var $r;
+			var int3 = code;
+			$r = int3 < 0?4294967296.0 + int3:int3 + 0.0;
+			return $r;
+		}(this)) == 33) delta = block; else if((function($this) {
+			var $r;
+			var int4 = code;
+			$r = int4 < 0?4294967296.0 + int4:int4 + 0.0;
+			return $r;
+		}(this)) == 34) delta = -block; else if((function($this) {
+			var $r;
+			var int5 = code;
+			$r = int5 < 0?4294967296.0 + int5:int5 + 0.0;
+			return $r;
+		}(this)) == 36) {
+			this.adjuster.setValue(this.adjuster.getMinimum());
+			return;
+		} else if((function($this) {
+			var $r;
+			var int6 = code;
+			$r = int6 < 0?4294967296.0 + int6:int6 + 0.0;
+			return $r;
+		}(this)) == 35) {
+			this.adjuster.setValue(this.adjuster.getMaximum() - this.adjuster.getExtent());
+			return;
+		}
+		this.adjuster.setValue(this.adjuster.getValue() + delta);
+	}
+	,setUnitIncrement: function(increment) {
+		this.unitIncrement = increment;
+	}
+	,getUnitIncrement: function() {
+		if(null == this.unitIncrement) return Std["int"]((this.adjuster.getMaximum() - this.adjuster.getMinimum()) / 20); else return this.unitIncrement;
+	}
+	,__class__: jive.plaf.flat.FlatAdjusterUI
+});
 org.aswing.geom = {};
 org.aswing.geom.IntRectangle = function(x,y,width,height) {
 	if(height == null) height = 0;
@@ -10105,8 +13905,6 @@ org.aswing.plaf.basic.BasicButtonUI.prototype = $extend(org.aswing.plaf.BaseComp
 	}
 	,__class__: org.aswing.plaf.basic.BasicButtonUI
 });
-jive.plaf = {};
-jive.plaf.flat = {};
 jive.plaf.flat.FlatButtonUI = function() {
 	org.aswing.plaf.basic.BasicButtonUI.call(this);
 };
@@ -10812,30 +14610,30 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		return table;
 	}
 	,initClassDefaults: function(table) {
-		var uiDefaults = ["ButtonUI",jive.plaf.flat.FlatButtonUI,"TextFieldUI",jive.plaf.flat.FlatTextFieldUI,"CheckBoxUI",jive.plaf.flat.FlatCheckBoxUI,"RadioButtonUI",jive.plaf.flat.FlatRadioButtonUI,"MenuUI",jive.plaf.flat.FlatMenuUI,"ComboBoxUI",jive.plaf.flat.FlatComboBoxUI,"ScrollBarUI",jive.plaf.flat.FlatScrollBarUI,"SliderUI",jive.plaf.flat.FlatSliderUI,"TabbedPaneUI",jive.plaf.flat.FlatTabbedPaneUI];
+		var uiDefaults = ["ButtonUI",jive.plaf.flat.FlatButtonUI,"TextFieldUI",jive.plaf.flat.FlatTextFieldUI,"CheckBoxUI",jive.plaf.flat.FlatCheckBoxUI,"RadioButtonUI",jive.plaf.flat.FlatRadioButtonUI,"MenuUI",jive.plaf.flat.FlatMenuUI,"ComboBoxUI",jive.plaf.flat.FlatComboBoxUI,"ScrollBarUI",jive.plaf.flat.FlatScrollBarUI,"SliderUI",jive.plaf.flat.FlatSliderUI,"TabbedPaneUI",jive.plaf.flat.FlatTabbedPaneUI,"AdjusterUI",jive.plaf.flat.FlatAdjusterUI,"AccordionHeaderButtonUI",jive.plaf.flat.accordion.AccordionHeaderButtonUI,"TableUI",jive.plaf.flat.FlatTableUI];
 		table.putDefaults(uiDefaults);
 	}
 	,initSystemColorDefaults: function(table) {
-		var defaultSystemColors = ["white",16777215,"turquoise",1752220,"emerald",3066993,"peter-river",3447003,"amethyst",10181046,"wet-asphalt",3426654,"clouds",15528177,"silver",12436423,"concrete",9807270,"asbestos",8359053,"midnight-blue",8359053];
+		var defaultSystemColors = ["white",16777215,"turquoise",1752220,"emerald",3066993,"nephritis",2600544,"peter-river",3447003,"amethyst",10181046,"wet-asphalt",3426654,"clouds",15528177,"silver",12436423,"concrete",9807270,"asbestos",8359053,"midnight-blue",8359053,"carrot",15105570,"pomegranate",12597547,"orange",15965202,"pumpkin",13849600];
 		var _g1 = 0;
 		var _g = defaultSystemColors.length;
 		while(_g1 < _g) {
 			var i = _g1++;
 			table.set(defaultSystemColors[i],new org.aswing.plaf.ASColorUIResource(defaultSystemColors[i + 1]));
 		}
-		defaultSystemColors = ["window",new org.aswing.plaf.ASColorUIResource(16777215),"windowText",table.get("wet-asphalt"),"menu",table.get("wet-asphalt"),"menuText",table.get("clouds"),"control",table.get("asbestos"),"controlMide",table.get("silver"),"controlText",new org.aswing.plaf.ASColorUIResource(16777215),"selectionForeground",new org.aswing.plaf.ASColorUIResource(16777215),"focusForeground",table.get("turquoise")];
+		defaultSystemColors = ["window",new org.aswing.plaf.ASColorUIResource(16777215),"windowText",table.get("wet-asphalt"),"menu",table.get("wet-asphalt"),"menuText",table.get("clouds"),"control",table.get("asbestos"),"controlMide",table.get("silver"),"controlText",new org.aswing.plaf.ASColorUIResource(16777215),"selectionForeground",new org.aswing.plaf.ASColorUIResource(16777215),"focusForeground",table.get("turquoise"),"highlightControl",table.get("turquoise"),"darkControlBackground",table.get("wet-asphalt")];
 		var _g11 = 0;
 		var _g2 = defaultSystemColors.length;
 		while(_g11 < _g2) {
 			var i1 = _g11++;
 			table.set(defaultSystemColors[i1],defaultSystemColors[i1 + 1]);
 		}
-		table.set("selectionBackground",table.get("turquoise"));
+		table.set("selectionBackground",table.get("highlightControl"));
 		table.set("focusInner",new org.aswing.plaf.ASColorUIResource(4259648,0.3));
 		table.set("focusOutter",new org.aswing.plaf.ASColorUIResource(4259648,0.4));
 	}
 	,initSystemFontDefaults: function(table) {
-		var defaultSystemFonts = ["systemFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14),"menuFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14),"topMenuFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Bold.ttf",16),"controlFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",16,false),"windowFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14,true)];
+		var defaultSystemFonts = ["systemFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14),"menuFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14),"topMenuFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Bold.ttf",16),"controlFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",16,false),"windowFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Regular.ttf",14,true),"controlHeaderFont",new org.aswing.plaf.ASFontUIResource("assets/Lato-Bold.ttf",18)];
 		table.putDefaults(defaultSystemFonts);
 	}
 	,initCommonUtils: function(table) {
@@ -10848,7 +14646,7 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 	,initComponentDefaults: function(table) {
 		var buttonBG = table.get("silver");
 		var textBG = table.get("clouds");
-		var comDefaults = ["Button.background",buttonBG,"Button.foreground",table.get("white"),"Button.mideground",table.get("turquoise"),"Button.opaque",true,"Button.focusable",true,"Button.font",table.getFont("controlFont"),"Button.bg",jive.plaf.flat.background.FlatButtonBackground,"Button.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,-0.02,0.34,0.22,5),"Button.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"Button.textShiftOffset",0,"Button.textFilters",null,"Button.textGap",5];
+		var comDefaults = ["Button.background",buttonBG,"Button.foreground",table.get("white"),"Button.mideground",table.get("highlightControl"),"Button.opaque",true,"Button.focusable",true,"Button.font",table.getFont("controlFont"),"Button.bg",jive.plaf.flat.background.FlatButtonBackground,"Button.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,-0.02,0.34,0.22,5),"Button.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"Button.textShiftOffset",0,"Button.textFilters",null,"Button.textGap",5];
 		table.putDefaults(comDefaults);
 		var f = new Array();
 		f.push(new openfl.filters.DropShadowFilter(1,45,0,0.0,1,1,1,1));
@@ -10858,11 +14656,11 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		table.putDefaults(comDefaults);
 		comDefaults = ["ToggleButton.background",buttonBG,"ToggleButton.foreground",table.get("clouds"),"ToggleButton.mideground",table.get("controlMide"),"ToggleButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,-0.02,0.34,0.22,5),"ToggleButton.opaque",true,"ToggleButton.focusable",true,"ToggleButton.font",table.getFont("controlFont"),"ToggleButton.bg",jive.plaf.flat.background.FlatButtonBackground,"ToggleButton.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"ToggleButton.textShiftOffset",1,"ToggleButton.textFilters",null,"ToggleButton.textGap",5];
 		table.putDefaults(comDefaults);
-		comDefaults = ["RadioButton.background",table.get("silver"),"RadioButton.foreground",table.get("wet-asphalt"),"RadioButton.mideground",table.get("turquoise"),"RadioButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.8,0.01,0.4,0.30,0,new org.aswing.plaf.UIStyleTune(0.4,0.1,0.1,0.00)),"RadioButton.opaque",false,"RadioButton.focusable",true,"RadioButton.font",table.getFont("systemFont"),"RadioButton.icon",jive.plaf.flat.icon.FlatRadioButtonIcon,"RadioButton.margin",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"RadioButton.textShiftOffset",0,"RadioButton.textGap",10,"RadioButton.textFilters",[]];
+		comDefaults = ["RadioButton.background",table.get("silver"),"RadioButton.foreground",table.get("wet-asphalt"),"RadioButton.mideground",table.get("highlightControl"),"RadioButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.8,0.01,0.4,0.30,0,new org.aswing.plaf.UIStyleTune(0.4,0.1,0.1,0.00)),"RadioButton.opaque",false,"RadioButton.focusable",true,"RadioButton.font",table.getFont("systemFont"),"RadioButton.icon",jive.plaf.flat.icon.FlatRadioButtonIcon,"RadioButton.margin",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"RadioButton.textShiftOffset",0,"RadioButton.textGap",10,"RadioButton.textFilters",[]];
 		table.putDefaults(comDefaults);
 		comDefaults = ["TextField.background",table.get("window"),"TextField.foreground",table.get("wet-asphalt"),"TextField.mideground",table.get("silver"),"TextField.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.30,3),"TextField.opaque",true,"TextField.focusable",true,"TextField.font",table.getFont("systemFont"),"TextField.bg",jive.plaf.flat.background.FlatTextComponentBackground,"TextField.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(7,15,7,15))];
 		table.putDefaults(comDefaults);
-		comDefaults = ["CheckBox.background",table.get("silver"),"CheckBox.foreground",table.get("windowText"),"CheckBox.mideground",table.get("turquoise"),"CheckBox.tickColor",new org.aswing.plaf.ASColorUIResource(16777215),"CheckBox.colorAdjust",new org.aswing.plaf.UIStyleTune(0.8,0.01,0.4,0.30,5,new org.aswing.plaf.UIStyleTune(0.5,-0.2,0.5,0.70)),"CheckBox.opaque",false,"CheckBox.focusable",true,"CheckBox.font",table.getFont("systemFont"),"CheckBox.icon",jive.plaf.flat.icon.FlatCheckBoxIcon,"CheckBox.margin",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"CheckBox.textShiftOffset",0,"CheckBox.textGap",10,"CheckBox.textFilters",[]];
+		comDefaults = ["CheckBox.background",table.get("silver"),"CheckBox.foreground",table.get("windowText"),"CheckBox.mideground",table.get("highlightControl"),"CheckBox.tickColor",new org.aswing.plaf.ASColorUIResource(16777215),"CheckBox.colorAdjust",new org.aswing.plaf.UIStyleTune(0.8,0.01,0.4,0.30,5,new org.aswing.plaf.UIStyleTune(0.5,-0.2,0.5,0.70)),"CheckBox.opaque",false,"CheckBox.focusable",true,"CheckBox.font",table.getFont("systemFont"),"CheckBox.icon",jive.plaf.flat.icon.FlatCheckBoxIcon,"CheckBox.margin",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"CheckBox.textShiftOffset",0,"CheckBox.textGap",10,"CheckBox.textFilters",[]];
 		table.putDefaults(comDefaults);
 		comDefaults = ["Separator.background",new org.aswing.plaf.ASColorUIResource(3507061,0.3),"Separator.foreground",this.NULL_COLOR,"Separator.mideground",this.NULL_COLOR,"Separator.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Separator.opaque",false,"Separator.focusable",false];
 		table.putDefaults(comDefaults);
@@ -10870,7 +14668,7 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		table.putDefaults(comDefaults);
 		comDefaults = ["ScrollPane.background",table.get("window"),"ScrollPane.foreground",table.get("windowText"),"ScrollPane.mideground",table.get("controlMide"),"ScrollPane.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"ScrollPane.opaque",false,"ScrollPane.focusable",false,"ScrollPane.font",table.getFont("windowFont")];
 		table.putDefaults(comDefaults);
-		comDefaults = ["ProgressBar.background",new org.aswing.plaf.ASColorUIResource(15461871),"ProgressBar.foreground",table.get("windowText"),"ProgressBar.mideground",table.get("turquoise"),"ProgressBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.50,6,new org.aswing.plaf.UIStyleTune(0.34,-0.4,0.01,0.50,6)),"ProgressBar.opaque",true,"ProgressBar.focusable",false,"ProgressBar.barWidth",12,"ProgressBar.font",new org.aswing.plaf.ASFontUIResource("Tahoma",9),"ProgressBar.bg",jive.plaf.flat.background.FlatProgressBarBackground,"ProgressBar.fg",jive.plaf.flat.background.FlatProgressBarIcon,"ProgressBar.indeterminateDelay",100];
+		comDefaults = ["ProgressBar.background",new org.aswing.plaf.ASColorUIResource(15461871),"ProgressBar.foreground",table.get("windowText"),"ProgressBar.mideground",table.get("highlightControl"),"ProgressBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.50,6,new org.aswing.plaf.UIStyleTune(0.34,-0.4,0.01,0.50,6)),"ProgressBar.opaque",true,"ProgressBar.focusable",false,"ProgressBar.barWidth",12,"ProgressBar.font",new org.aswing.plaf.ASFontUIResource("Tahoma",9),"ProgressBar.bg",jive.plaf.flat.background.FlatProgressBarBackground,"ProgressBar.fg",jive.plaf.flat.background.FlatProgressBarIcon,"ProgressBar.indeterminateDelay",100];
 		table.putDefaults(comDefaults);
 		comDefaults = ["Viewport.background",table.get("window"),"Viewport.foreground",table.get("windowText"),"Viewport.mideground",table.get("controlMide"),"Viewport.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Viewport.opaque",false,"Viewport.focusable",true,"Viewport.font",table.getFont("windowFont")];
 		table.putDefaults(comDefaults);
@@ -10878,9 +14676,9 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		table.putDefaults(comDefaults);
 		comDefaults = ["TextArea.background",table.get("window"),"TextArea.foreground",table.get("wet-asphalt"),"TextArea.mideground",table.get("concrete"),"TextArea.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.30,5),"TextArea.opaque",true,"TextArea.focusable",true,"TextArea.font",table.getFont("controlFont"),"TextArea.bg",org.aswing.plaf.basic.background.TextComponentBackBround,"TextArea.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(7,15,7,15))];
 		table.putDefaults(comDefaults);
-		comDefaults = ["Frame.background",new org.aswing.plaf.ASColorUIResource(15132390),"Frame.foreground",new org.aswing.plaf.ASColorUIResource(6710886),"Frame.mideground",new org.aswing.plaf.ASColorUIResource(11195674),"Frame.colorAdjust",new org.aswing.plaf.UIStyleTune(0.10,0.0,0.0,0.30,10,new org.aswing.plaf.UIStyleTune(0.10,0.0,0.0,0.60,10)),"Frame.opaque",true,"Frame.focusable",true,"Frame.dragDirectly",true,"Frame.resizeArrow",new org.aswing.plaf.ASColorUIResource(2977161),"Frame.resizeArrowLight",new org.aswing.plaf.ASColorUIResource(14869214),"Frame.resizeArrowDark",new org.aswing.plaf.ASColorUIResource(3042698),"Frame.resizer",org.aswing.resizer.DefaultResizer,"Frame.font",table.get("windowFont"),"Frame.resizerMargin",new org.aswing.plaf.InsetsUIResource(2,1,6,6),"Frame.bg",org.aswing.plaf.basic.background.FrameBackground,"Frame.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(0,6,12,12)),"Frame.icon",org.aswing.plaf.basic.icon.TitleIcon,"Frame.iconifiedIcon",org.aswing.plaf.basic.icon.FrameIconifiedIcon,"Frame.normalIcon",org.aswing.plaf.basic.icon.FrameNormalIcon,"Frame.maximizeIcon",org.aswing.plaf.basic.icon.FrameMaximizeIcon,"Frame.closeIcon",org.aswing.plaf.basic.icon.FrameCloseIcon];
+		comDefaults = ["Frame.background",new org.aswing.plaf.ASColorUIResource(16448250),"Frame.foreground",new org.aswing.plaf.ASColorUIResource(6710886),"Frame.mideground",table.get("concrete"),"Frame.colorAdjust",new org.aswing.plaf.UIStyleTune(0.10,0.0,0.0,0.30,5,new org.aswing.plaf.UIStyleTune(0.10,0.0,0.0,0.60,5)),"Frame.opaque",true,"Frame.focusable",true,"Frame.dragDirectly",true,"Frame.resizeArrow",new org.aswing.plaf.ASColorUIResource(2977161),"Frame.resizeArrowLight",new org.aswing.plaf.ASColorUIResource(14869214),"Frame.resizeArrowDark",new org.aswing.plaf.ASColorUIResource(3042698),"Frame.resizer",org.aswing.resizer.DefaultResizer,"Frame.font",table.get("controlFont"),"Frame.resizerMargin",new org.aswing.plaf.InsetsUIResource(2,1,6,6),"Frame.bg",jive.plaf.flat.background.FlatFrameBackground,"Frame.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(0,40,40,40)),"Frame.icon",org.aswing.plaf.basic.icon.TitleIcon,"Frame.iconifiedIcon",org.aswing.plaf.basic.icon.FrameIconifiedIcon,"Frame.normalIcon",org.aswing.plaf.basic.icon.FrameNormalIcon,"Frame.maximizeIcon",org.aswing.plaf.basic.icon.FrameMaximizeIcon,"Frame.closeIcon",jive.plaf.flat.icon.FrameCloseIcon];
 		table.putDefaults(comDefaults);
-		comDefaults = ["FrameTitleBar.background",new org.aswing.plaf.ASColorUIResource(12902502),"FrameTitleBar.foreground",new org.aswing.plaf.ASColorUIResource(33965),"FrameTitleBar.mideground",new org.aswing.plaf.ASColorUIResource(12507997),"FrameTitleBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.24,0.01,0.18,0.50,0,new org.aswing.plaf.UIStyleTune(0.2,-0.28,0.08,0.10,1)),"FrameTitleBar.opaque",true,"FrameTitleBar.focusable",false,"FrameTitleBar.titleBarHeight",25,"FrameTitleBar.buttonGap",2,"FrameTitleBar.font",table.get("windowFont"),"FrameTitleBar.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(7,0,0,0)),"FrameTitleBar.icon",org.aswing.plaf.basic.icon.TitleIcon,"FrameTitleBar.iconifiedIcon",org.aswing.plaf.basic.icon.FrameIconifiedIcon,"FrameTitleBar.normalIcon",org.aswing.plaf.basic.icon.FrameNormalIcon,"FrameTitleBar.maximizeIcon",org.aswing.plaf.basic.icon.FrameMaximizeIcon,"FrameTitleBar.closeIcon",org.aswing.plaf.basic.icon.FrameCloseIcon];
+		comDefaults = ["FrameTitleBar.background",new org.aswing.plaf.ASColorUIResource(12902502),"FrameTitleBar.foreground",table.get("wet-asphalt"),"FrameTitleBar.mideground",table.get("concrete"),"FrameTitleBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.24,0.01,0.18,0.50,0,new org.aswing.plaf.UIStyleTune(0.2,-0.28,0.08,0.10,1)),"FrameTitleBar.opaque",true,"FrameTitleBar.focusable",false,"FrameTitleBar.titleBarHeight",50,"FrameTitleBar.buttonGap",0,"FrameTitleBar.font",table.get("controlHeaderFont"),"FrameTitleBar.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(30,0,30,0)),"FrameTitleBar.icon",org.aswing.plaf.basic.icon.TitleIcon,"FrameTitleBar.iconifiedIcon",org.aswing.plaf.basic.icon.FrameIconifiedIcon,"FrameTitleBar.normalIcon",org.aswing.plaf.basic.icon.FrameNormalIcon,"FrameTitleBar.maximizeIcon",org.aswing.plaf.basic.icon.FrameMaximizeIcon,"FrameTitleBar.closeIcon",jive.plaf.flat.icon.FrameCloseIcon];
 		table.putDefaults(comDefaults);
 		f = new Array();
 		f.push(new openfl.filters.DropShadowFilter(4.0,45,0,0.3,2.0,2.0,0.5));
@@ -10892,11 +14690,11 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		table.putDefaults(comDefaults);
 		comDefaults = ["Spacer.background",table.get("window"),"Spacer.foreground",table.get("window"),"Spacer.mideground",table.get("controlMide"),"Spacer.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Spacer.opaque",false,"Spacer.focusable",false];
 		table.putDefaults(comDefaults);
-		comDefaults = ["ComboBox.font",table.getFont("systemFont"),"ComboBox.background",table.get("window"),"ComboBox.foreground",table.get("wet-asphalt"),"ComboBox.mideground",table.get("concrete"),"ComboBox.notEditableBackground",table.get("turquoise"),"ComboBox.notEditableForeground",new org.aswing.plaf.ASColorUIResource(16777215),"ComboBox.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.32,5,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"ComboBox.opaque",true,"ComboBox.focusable",true,"ComboBox.popupBackground",new org.aswing.plaf.ASColorUIResource(14935269),"ComboBox.popupBorder",jive.plaf.flat.border.FlatComboBoxPopupBorder,"ComboBox.bg",jive.plaf.flat.background.FlatInputBackground,"ComboBox.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(7,15,7,15))];
+		comDefaults = ["ComboBox.font",table.getFont("systemFont"),"ComboBox.background",table.get("window"),"ComboBox.foreground",table.get("wet-asphalt"),"ComboBox.mideground",table.get("concrete"),"ComboBox.notEditableBackground",table.get("highlightControl"),"ComboBox.notEditableForeground",new org.aswing.plaf.ASColorUIResource(16777215),"ComboBox.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.32,5,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"ComboBox.opaque",true,"ComboBox.focusable",true,"ComboBox.popupBackground",new org.aswing.plaf.ASColorUIResource(14935269),"ComboBox.popupBorder",jive.plaf.flat.border.FlatComboBoxPopupBorder,"ComboBox.bg",jive.plaf.flat.background.FlatInputBackground,"ComboBox.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(7,15,7,15))];
 		table.putDefaults(comDefaults);
-		comDefaults = ["Slider.font",table.getFont("controlFont"),"Slider.background",new org.aswing.plaf.ASColorUIResource(15461871),"Slider.foreground",table.get("windowText"),"Slider.mideground",table.get("turquoise"),"Slider.progressColor",table.get("turquoise"),"Slider.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.50,6,new org.aswing.plaf.UIStyleTune(0.2,0.00,0.4,0.00,0)),"Slider.opaque",false,"Slider.focusable",true,"Slider.thumbIcon",jive.plaf.flat.icon.FlatSliderThumbIcon];
+		comDefaults = ["Slider.font",table.getFont("controlFont"),"Slider.background",new org.aswing.plaf.ASColorUIResource(15461871),"Slider.foreground",table.get("windowText"),"Slider.mideground",table.get("highlightControl"),"Slider.progressColor",table.get("highlightControl"),"Slider.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.50,6,new org.aswing.plaf.UIStyleTune(0.2,0.00,0.4,0.00,0)),"Slider.opaque",false,"Slider.focusable",true,"Slider.thumbIcon",jive.plaf.flat.icon.FlatSliderThumbIcon];
 		table.putDefaults(comDefaults);
-		comDefaults = ["Adjuster.background",textBG,"Adjuster.foreground",table.get("controlText"),"Adjuster.mideground",new org.aswing.plaf.ASColorUIResource(9026304),"Adjuster.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.32,3,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"Adjuster.opaque",true,"Adjuster.focusable",true,"Adjuster.font",table.getFont("controlFont"),"Adjuster.thumbIcon",org.aswing.plaf.basic.adjuster.PopupSliderThumbIcon,"Adjuster.bg",org.aswing.plaf.basic.background.InputBackground,"Adjuster.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(1,3,2,3))];
+		comDefaults = ["Adjuster.background",new org.aswing.plaf.ASColorUIResource(15461871),"Adjuster.foreground",table.get("windowText"),"Adjuster.mideground",table.get("windowText"),"Adjuster.opaque",false,"Adjuster.focusable",true,"Adjuster.font",table.getFont("controlFont"),"Adjuster.border",jive.plaf.flat.adjuster.AdjusterBorder,"Adjuster.bg",jive.plaf.flat.adjuster.AdjusterBackground,"Adjuster.cornerRadius",5.0];
 		table.putDefaults(comDefaults);
 		comDefaults = ["Stepper.font",table.getFont("controlFont"),"Stepper.background",textBG,"Stepper.foreground",table.get("controlText"),"Stepper.mideground",new org.aswing.plaf.ASColorUIResource(9026304),"Stepper.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,-0.30,0.0,0.32,3,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"Stepper.opaque",true,"Stepper.focusable",true,"Stepper.bg",org.aswing.plaf.basic.background.InputBackground,"Stepper.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(1,3,2,3))];
 		table.putDefaults(comDefaults);
@@ -10906,34 +14704,36 @@ jive.plaf.flat.FlatLookAndFeel.prototype = $extend(org.aswing.LookAndFeel.protot
 		table.putDefaults(comDefaults);
 		comDefaults = ["ColorChooser.background",table.get("window"),"ColorChooser.foreground",table.get("controlText"),"ColorChooser.mideground",table.get("controlMide"),"ColorChooser.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"ColorChooser.opaque",false,"ColorChooser.focusable",false,"ColorChooser.font",table.getFont("controlFont"),"ColorChooser.border",org.aswing.plaf.basic.border.ColorChooserBorder];
 		table.putDefaults(comDefaults);
-		comDefaults = ["Accordion.font",table.getFont("controlFont"),"Accordion.background",table.get("window"),"Accordion.foreground",new org.aswing.plaf.ASColorUIResource(16777214),"Accordion.mideground",table.get("controlMide"),"Accordion.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Accordion.opaque",false,"Accordion.focusable",true,"Accordion.motionSpeed",50,"Accordion.tabMargin",new org.aswing.plaf.InsetsUIResource(2,3,3,2)];
+		comDefaults = ["Accordion.font",table.getFont("controlFont"),"Accordion.background",table.get("silver"),"Accordion.foreground",table.get("controlText"),"Accordion.mideground",table.get("controlMide"),"Accordion.opaque",false,"Accordion.focusable",true,"Accordion.motionSpeed",1000,"Accordion.tabMargin",new org.aswing.plaf.InsetsUIResource(5,10,7,10),"Accordion.header",jive.plaf.flat.accordion.AccordionHeader,"Accordion.itemContainer",jive.plaf.flat.accordion.AccordionItemContainer];
 		table.putDefaults(comDefaults);
-		comDefaults = ["TabbedPane.background",table.get("window"),"TabbedPane.foreground",table.get("windowText"),"TabbedPane.mideground",new org.aswing.plaf.ASColorUIResource(13421772),"TabbedPane.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.14,0.01,0.50,5,new org.aswing.plaf.UIStyleTune(0.05,-0.23,0.01,0.50,4)),"TabbedPane.opaque",false,"TabbedPane.focusable",true,"TabbedPane.arrowShadowColor",new org.aswing.plaf.ASColorUIResource(0),"TabbedPane.arrowLightColor",new org.aswing.plaf.ASColorUIResource(4473924),"TabbedPane.font",table.getFont("controlFont"),"TabbedPane.tabMargin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"TabbedPane.contentMargin",new org.aswing.plaf.InsetsUIResource(10,2,2,2),"TabbedPane.selectedTabExpandInsets",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"TabbedPane.tabBorderInsets",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"TabbedPane.contentRoundLineThickness",1,"TabbedPane.tabGap",3,"TabbedPane.tab",jive.plaf.flat.tabbedpane.FlatTabbedPaneTab,"TabbedPane.topBlankSpace",0,"TabbedPane.maxTabWidth",1000];
-		table.putDefaults(comDefaults);
-		comDefaults = ["TabButton.background",table.get("window"),"TabButton.foreground",table.get("windowText"),"TabButton.mideground",new org.aswing.plaf.ASColorUIResource(14803425),"TabButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.14,0.01,0.50,5,new org.aswing.plaf.UIStyleTune(0.05,-0.23,0.01,0.50,4)),"TabButton.focusable",true,"TabButton.font",table.getFont("controlFont"),"TabButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,-0.02,0.34,0.22,5),"TabButton.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"TabButton.textShiftOffset",0,"TabButton.textFilters",null,"TabButton.textGap",5,"TabButton.normalColor",new org.aswing.plaf.ASColorUIResource(16777215),"TabButton.rolloverColor",new org.aswing.plaf.ASColorUIResource(14803425),"TabButton.selectedColor",new org.aswing.plaf.ASColorUIResource(16777215),"TabButton.borderColor",new org.aswing.plaf.ASColorUIResource(13421772)];
-		table.putDefaults(comDefaults);
-		comDefaults = ["ClosableTabbedPane.background",new org.aswing.plaf.ASColorUIResource(15198181),"ClosableTabbedPane.foreground",table.get("controlText"),"ClosableTabbedPane.mideground",new org.aswing.plaf.ASColorUIResource(5095888),"ClosableTabbedPane.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.24,0.01,0.50,4),"ClosableTabbedPane.opaque",false,"ClosableTabbedPane.focusable",true,"ClosableTabbedPane.shadow",new org.aswing.plaf.ASColorUIResource(8947848),"ClosableTabbedPane.darkShadow",new org.aswing.plaf.ASColorUIResource(4473924),"ClosableTabbedPane.light",table.getColor("controlHighlight"),"ClosableTabbedPane.highlight",new org.aswing.plaf.ASColorUIResource(16777215),"ClosableTabbedPane.arrowShadowColor",new org.aswing.plaf.ASColorUIResource(0),"ClosableTabbedPane.arrowLightColor",new org.aswing.plaf.ASColorUIResource(4473924),"ClosableTabbedPane.font",table.getFont("controlFont"),"ClosableTabbedPane.tabMargin",new org.aswing.plaf.InsetsUIResource(2,3,1,3),"ClosableTabbedPane.contentMargin",new org.aswing.plaf.InsetsUIResource(8,2,2,2),"ClosableTabbedPane.contentRoundLineThickness",2,"ClosableTabbedPane.topBlankSpace",4,"ClosableTabbedPane.maxTabWidth",1000];
-		table.putDefaults(comDefaults);
-		comDefaults = ["Table.background",new org.aswing.plaf.ASColorUIResource(3182497,0.0),"Table.foreground",table.get("controlText"),"Table.mideground",new org.aswing.plaf.ASColorUIResource(15461355),"Table.colorAdjust",new org.aswing.plaf.UIStyleTune(0.10,-0.2,0.10,0.20,0),"Table.opaque",true,"Table.focusable",true,"Table.font",table.getFont("controlFont"),"Table.selectionBackground",table.get("selectionBackground"),"Table.selectionForeground",table.get("selectionForeground"),"Table.gridColor",new org.aswing.plaf.ASColorUIResource(14079702),"Table.bg",org.aswing.plaf.basic.background.TableBackground,"Table.border",new org.aswing.plaf.basic.border.EmptyBorderResource(null,new org.aswing.Insets(2,2,2,2))];
-		table.putDefaults(comDefaults);
-		comDefaults = ["TableHeader.font",table.getFont("controlFont"),"TableHeader.background",new org.aswing.plaf.ASColorUIResource(14408667),"TableHeader.foreground",table.get("controlText"),"TableHeader.mideground",new org.aswing.plaf.ASColorUIResource(10329501),"TableHeader.colorAdjust",new org.aswing.plaf.UIStyleTune(0.06,0.2,0.10,0.5,0,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"TableHeader.opaque",true,"TableHeader.focusable",true,"TableHeader.gridColor",new org.aswing.plaf.ASColorUIResource(14079702),"TableHeader.bg",org.aswing.plaf.basic.background.TableHeaderBackground,"TableHeader.border",null,"TableHeader.cellBorder",org.aswing.plaf.basic.border.TableHeaderCellBorder,"TableHeader.sortableCellBorder",org.aswing.plaf.basic.border.TableHeaderCellBorder];
-		table.putDefaults(comDefaults);
-		comDefaults = ["Tree.background",new org.aswing.plaf.ASColorUIResource(3376538,0),"Tree.foreground",table.get("controlText"),"Tree.mideground",table.get("controlMide"),"Tree.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Tree.opaque",false,"Tree.focusable",true,"Tree.font",table.getFont("controlFont"),"Tree.selectionBackground",table.get("selectionBackground"),"Tree.selectionForeground",table.get("selectionForeground"),"Tree.leafIcon",org.aswing.tree.TreeLeafIcon,"Tree.folderExpandedIcon",org.aswing.tree.TreeFolderIcon,"Tree.folderCollapsedIcon",org.aswing.tree.TreeFolderIcon,"Tree.leftChildIndent",10,"Tree.rightChildIndent",0,"Tree.rowHeight",16,"Tree.expandControl",org.aswing.plaf.basic.tree.BasicExpandControl,"Tree.border",null];
-		table.putDefaults(comDefaults);
-		comDefaults = ["ToolBar.background",new org.aswing.plaf.ASColorUIResource(10866204),"ToolBar.foreground",table.get("windowText"),"ToolBar.mideground",table.get("controlMide"),"ToolBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"ToolBar.opaque",true,"ToolBar.focusable",false];
-		table.putDefaults(comDefaults);
-		comDefaults = ["MenuItem.background",table.get("menu"),"MenuItem.foreground",table.get("menuText"),"MenuItem.mideground",table.get("controlMide"),"MenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"MenuItem.opaque",false,"MenuItem.focusable",false,"MenuItem.font",table.getFont("menuFont"),"MenuItem.selectionBackground",table.get("selectionBackground"),"MenuItem.selectionForeground",table.get("selectionForeground"),"MenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"MenuItem.acceleratorFont",table.getFont("menuFont"),"MenuItem.acceleratorForeground",table.get("menuText"),"MenuItem.acceleratorSelectionForeground",table.get("menu"),"MenuItem.border",null,"MenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"MenuItem.checkIcon",org.aswing.plaf.basic.icon.MenuItemCheckIcon,"MenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
-		table.putDefaults(comDefaults);
-		comDefaults = ["CheckBoxMenuItem.background",table.get("menu"),"CheckBoxMenuItem.foreground",table.get("menuText"),"CheckBoxMenuItem.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"CheckBoxMenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"CheckBoxMenuItem.opaque",false,"CheckBoxMenuItem.focusable",false,"CheckBoxMenuItem.font",table.getFont("menuFont"),"CheckBoxMenuItem.selectionBackground",table.get("selectionBackground"),"CheckBoxMenuItem.selectionForeground",table.get("selectionForeground"),"CheckBoxMenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"CheckBoxMenuItem.acceleratorFont",table.getFont("menuFont"),"CheckBoxMenuItem.acceleratorForeground",table.get("menuText"),"CheckBoxMenuItem.acceleratorSelectionForeground",table.get("menu"),"CheckBoxMenuItem.border",null,"CheckBoxMenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"CheckBoxMenuItem.checkIcon",org.aswing.plaf.basic.icon.CheckBoxMenuItemCheckIcon,"CheckBoxMenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
-		table.putDefaults(comDefaults);
-		comDefaults = ["RadioButtonMenuItem.background",table.get("menu"),"RadioButtonMenuItem.foreground",table.get("menuText"),"RadioButtonMenuItem.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"RadioButtonMenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"RadioButtonMenuItem.opaque",false,"RadioButtonMenuItem.focusable",false,"RadioButtonMenuItem.font",table.getFont("menuFont"),"RadioButtonMenuItem.selectionBackground",table.get("selectionBackground"),"RadioButtonMenuItem.selectionForeground",table.get("selectionForeground"),"RadioButtonMenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"RadioButtonMenuItem.acceleratorFont",table.getFont("menuFont"),"RadioButtonMenuItem.acceleratorForeground",table.get("menuText"),"RadioButtonMenuItem.acceleratorSelectionForeground",table.get("menu"),"RadioButtonMenuItem.border",null,"RadioButtonMenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"RadioButtonMenuItem.checkIcon",org.aswing.plaf.basic.icon.RadioButtonMenuItemCheckIcon,"RadioButtonMenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
-		table.putDefaults(comDefaults);
-		comDefaults = ["Menu.background",table.get("menu"),"Menu.foreground",table.get("menuText"),"Menu.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"Menu.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"Menu.opaque",false,"Menu.focusable",false,"Menu.font",table.getFont("menuFont"),"Menu.topMenuFont",table.getFont("topMenuFont"),"Menu.selectionBackground",table.get("turquoise"),"Menu.selectionForeground",table.get("menuText"),"Menu.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"Menu.acceleratorFont",table.getFont("menuFont"),"Menu.acceleratorForeground",table.get("menuText"),"Menu.acceleratorSelectionForeground",table.get("menu"),"Menu.border",null,"Menu.arrowIcon",jive.plaf.flat.icon.FlatMenuArrowIcon,"Menu.checkIcon",org.aswing.plaf.basic.icon.MenuCheckIcon,"Menu.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"Menu.useMenuBarBackgroundForTopLevel",true,"Menu.menuPopupOffsetX",0,"Menu.menuPopupOffsetY",5,"Menu.submenuPopupOffsetX",3,"Menu.submenuPopupOffsetY",0,"Menu.textGap",10];
-		table.putDefaults(comDefaults);
-		comDefaults = ["PopupMenu.background",table.get("menu"),"PopupMenu.foreground",table.get("menuText"),"PopupMenu.mideground",table.get("controlMide"),"PopupMenu.colorAdjust",new org.aswing.plaf.UIStyleTune(0.14,-0.14,0.06,0.20,5),"PopupMenu.opaque",true,"PopupMenu.focusable",false,"PopupMenu.font",table.getFont("menuFont"),"PopupMenu.borderColor",table.get("controlDkShadow"),"PopupMenu.border",jive.plaf.flat.border.FlatPopupMenuBorder];
-		table.putDefaults(comDefaults);
-		comDefaults = ["MenuBar.background",table.get("menu"),"MenuBar.foreground",table.get("menuText"),"MenuBar.mideground",table.get("turquoise"),"MenuBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20,5),"MenuBar.opaque",true,"MenuBar.focusable",true,"MenuBar.font",table.getFont("menuFont"),"MenuBar.border",null];
-		table.putDefaults(comDefaults);
+		var comDefaults1 = ["AccordionHeaderButton.background",table.get("darkControlBackground"),"AccordionHeaderButton.foreground",table.get("controlText"),"AccordionHeaderButton.opaque",true,"AccordionHeaderButton.focusable",true,"AccordionHeaderButton.shadow",table.getColor("controlShadow"),"AccordionHeaderButton.darkShadow",table.getColor("controlDkShadow"),"AccordionHeaderButton.light",table.getColor("controlHighlight"),"AccordionHeaderButton.highlight",table.getColor("controlLtHighlight"),"AccordionHeaderButton.bg",jive.plaf.flat.accordion.AccordionHeaderButtonBackground,"AccordionHeaderButton.textShiftOffset",1,"AccordionHeaderButton.cornerRadius",5];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["TabbedPane.background",table.get("window"),"TabbedPane.foreground",table.get("windowText"),"TabbedPane.mideground",new org.aswing.plaf.ASColorUIResource(13421772),"TabbedPane.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.14,0.01,0.50,5,new org.aswing.plaf.UIStyleTune(0.05,-0.23,0.01,0.50,4)),"TabbedPane.opaque",false,"TabbedPane.focusable",true,"TabbedPane.arrowShadowColor",new org.aswing.plaf.ASColorUIResource(0),"TabbedPane.arrowLightColor",new org.aswing.plaf.ASColorUIResource(4473924),"TabbedPane.font",table.getFont("controlFont"),"TabbedPane.tabMargin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"TabbedPane.contentMargin",new org.aswing.plaf.InsetsUIResource(10,2,2,2),"TabbedPane.selectedTabExpandInsets",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"TabbedPane.tabBorderInsets",new org.aswing.plaf.InsetsUIResource(0,0,0,0),"TabbedPane.contentRoundLineThickness",1,"TabbedPane.tabGap",3,"TabbedPane.tab",jive.plaf.flat.tabbedpane.FlatTabbedPaneTab,"TabbedPane.topBlankSpace",0,"TabbedPane.maxTabWidth",1000];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["TabButton.background",table.get("window"),"TabButton.foreground",table.get("windowText"),"TabButton.mideground",new org.aswing.plaf.ASColorUIResource(14803425),"TabButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.14,0.01,0.50,5,new org.aswing.plaf.UIStyleTune(0.05,-0.23,0.01,0.50,4)),"TabButton.focusable",true,"TabButton.font",table.getFont("controlFont"),"TabButton.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,-0.02,0.34,0.22,5),"TabButton.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"TabButton.textShiftOffset",0,"TabButton.textFilters",null,"TabButton.textGap",5,"TabButton.normalColor",new org.aswing.plaf.ASColorUIResource(16777215),"TabButton.rolloverColor",new org.aswing.plaf.ASColorUIResource(14803425),"TabButton.selectedColor",new org.aswing.plaf.ASColorUIResource(16777215),"TabButton.borderColor",new org.aswing.plaf.ASColorUIResource(13421772)];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["ClosableTabbedPane.background",new org.aswing.plaf.ASColorUIResource(15198181),"ClosableTabbedPane.foreground",table.get("controlText"),"ClosableTabbedPane.mideground",new org.aswing.plaf.ASColorUIResource(5095888),"ClosableTabbedPane.colorAdjust",new org.aswing.plaf.UIStyleTune(0.01,-0.24,0.01,0.50,4),"ClosableTabbedPane.opaque",false,"ClosableTabbedPane.focusable",true,"ClosableTabbedPane.shadow",new org.aswing.plaf.ASColorUIResource(8947848),"ClosableTabbedPane.darkShadow",new org.aswing.plaf.ASColorUIResource(4473924),"ClosableTabbedPane.light",table.getColor("controlHighlight"),"ClosableTabbedPane.highlight",new org.aswing.plaf.ASColorUIResource(16777215),"ClosableTabbedPane.arrowShadowColor",new org.aswing.plaf.ASColorUIResource(0),"ClosableTabbedPane.arrowLightColor",new org.aswing.plaf.ASColorUIResource(4473924),"ClosableTabbedPane.font",table.getFont("controlFont"),"ClosableTabbedPane.tabMargin",new org.aswing.plaf.InsetsUIResource(2,3,1,3),"ClosableTabbedPane.contentMargin",new org.aswing.plaf.InsetsUIResource(8,2,2,2),"ClosableTabbedPane.contentRoundLineThickness",2,"ClosableTabbedPane.topBlankSpace",4,"ClosableTabbedPane.maxTabWidth",1000];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["Table.background",new org.aswing.plaf.ASColorUIResource(16777215,0.0),"Table.foreground",table.get("wet-asphalt"),"Table.mideground",new org.aswing.plaf.ASColorUIResource(15856113),"Table.colorAdjust",new org.aswing.plaf.UIStyleTune(0.10,-0.2,0.10,0.20,5),"Table.opaque",true,"Table.focusable",true,"Table.font",table.getFont("controlFont"),"Table.selectionBackground",table.get("selectionBackground"),"Table.selectionForeground",table.get("selectionForeground"),"Table.gridColor",new org.aswing.plaf.ASColorUIResource(14079702),"Table.bg",jive.plaf.flat.background.FlatTableBackground,"Table.border",new jive.plaf.flat.border.TableLineBorder(null,table.get("silver"),1,5)];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["TableHeader.font",table.getFont("topMenuFont"),"TableHeader.background",new org.aswing.plaf.ASColorUIResource(14408667),"TableHeader.foreground",table.get("wet-asphalt"),"TableHeader.mideground",table.get("silver"),"TableHeader.colorAdjust",new org.aswing.plaf.UIStyleTune(0.06,0.2,0.10,0.5,0,new org.aswing.plaf.UIStyleTune(0.04,0.05,0.20,0.1)),"TableHeader.opaque",true,"TableHeader.focusable",true,"TableHeader.gridColor",new org.aswing.plaf.ASColorUIResource(14079702),"TableHeader.bg",jive.plaf.flat.background.FlatTableHeaderBackground,"TableHeader.border",null,"TableHeader.cellBorder",jive.plaf.flat.border.TableHeaderCellBorder,"TableHeader.sortableCellBorder",jive.plaf.flat.border.TableHeaderCellBorder];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["Tree.background",new org.aswing.plaf.ASColorUIResource(3376538,0),"Tree.foreground",table.get("controlText"),"Tree.mideground",table.get("controlMide"),"Tree.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"Tree.opaque",false,"Tree.focusable",true,"Tree.font",table.getFont("controlFont"),"Tree.selectionBackground",table.get("selectionBackground"),"Tree.selectionForeground",table.get("selectionForeground"),"Tree.leafIcon",org.aswing.tree.TreeLeafIcon,"Tree.folderExpandedIcon",org.aswing.tree.TreeFolderIcon,"Tree.folderCollapsedIcon",org.aswing.tree.TreeFolderIcon,"Tree.leftChildIndent",10,"Tree.rightChildIndent",0,"Tree.rowHeight",16,"Tree.expandControl",org.aswing.plaf.basic.tree.BasicExpandControl,"Tree.border",null];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["ToolBar.background",new org.aswing.plaf.ASColorUIResource(10866204),"ToolBar.foreground",table.get("windowText"),"ToolBar.mideground",table.get("controlMide"),"ToolBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20),"ToolBar.opaque",true,"ToolBar.focusable",false];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["MenuItem.background",table.get("menu"),"MenuItem.foreground",table.get("menuText"),"MenuItem.mideground",table.get("controlMide"),"MenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"MenuItem.opaque",false,"MenuItem.focusable",false,"MenuItem.font",table.getFont("menuFont"),"MenuItem.selectionBackground",table.get("selectionBackground"),"MenuItem.selectionForeground",table.get("selectionForeground"),"MenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"MenuItem.acceleratorFont",table.getFont("menuFont"),"MenuItem.acceleratorForeground",table.get("menuText"),"MenuItem.acceleratorSelectionForeground",table.get("menu"),"MenuItem.border",null,"MenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"MenuItem.checkIcon",org.aswing.plaf.basic.icon.MenuItemCheckIcon,"MenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["CheckBoxMenuItem.background",table.get("menu"),"CheckBoxMenuItem.foreground",table.get("menuText"),"CheckBoxMenuItem.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"CheckBoxMenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"CheckBoxMenuItem.opaque",false,"CheckBoxMenuItem.focusable",false,"CheckBoxMenuItem.font",table.getFont("menuFont"),"CheckBoxMenuItem.selectionBackground",table.get("selectionBackground"),"CheckBoxMenuItem.selectionForeground",table.get("selectionForeground"),"CheckBoxMenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"CheckBoxMenuItem.acceleratorFont",table.getFont("menuFont"),"CheckBoxMenuItem.acceleratorForeground",table.get("menuText"),"CheckBoxMenuItem.acceleratorSelectionForeground",table.get("menu"),"CheckBoxMenuItem.border",null,"CheckBoxMenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"CheckBoxMenuItem.checkIcon",org.aswing.plaf.basic.icon.CheckBoxMenuItemCheckIcon,"CheckBoxMenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["RadioButtonMenuItem.background",table.get("menu"),"RadioButtonMenuItem.foreground",table.get("menuText"),"RadioButtonMenuItem.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"RadioButtonMenuItem.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"RadioButtonMenuItem.opaque",false,"RadioButtonMenuItem.focusable",false,"RadioButtonMenuItem.font",table.getFont("menuFont"),"RadioButtonMenuItem.selectionBackground",table.get("selectionBackground"),"RadioButtonMenuItem.selectionForeground",table.get("selectionForeground"),"RadioButtonMenuItem.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"RadioButtonMenuItem.acceleratorFont",table.getFont("menuFont"),"RadioButtonMenuItem.acceleratorForeground",table.get("menuText"),"RadioButtonMenuItem.acceleratorSelectionForeground",table.get("menu"),"RadioButtonMenuItem.border",null,"RadioButtonMenuItem.arrowIcon",org.aswing.plaf.basic.icon.MenuItemArrowIcon,"RadioButtonMenuItem.checkIcon",org.aswing.plaf.basic.icon.RadioButtonMenuItemCheckIcon,"RadioButtonMenuItem.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15)];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["Menu.background",table.get("menu"),"Menu.foreground",table.get("menuText"),"Menu.mideground",new org.aswing.plaf.ASColorUIResource(6118749),"Menu.colorAdjust",new org.aswing.plaf.UIStyleTune(0.0,0.0,0.0,0.0,5),"Menu.opaque",false,"Menu.focusable",false,"Menu.font",table.getFont("menuFont"),"Menu.topMenuFont",table.getFont("topMenuFont"),"Menu.selectionBackground",table.get("highlightControl"),"Menu.selectionForeground",table.get("menuText"),"Menu.disabledForeground",new org.aswing.plaf.ASColorUIResource(8947848),"Menu.acceleratorFont",table.getFont("menuFont"),"Menu.acceleratorForeground",table.get("menuText"),"Menu.acceleratorSelectionForeground",table.get("menu"),"Menu.border",null,"Menu.arrowIcon",jive.plaf.flat.icon.FlatMenuArrowIcon,"Menu.checkIcon",org.aswing.plaf.basic.icon.MenuCheckIcon,"Menu.margin",new org.aswing.plaf.InsetsUIResource(7,15,7,15),"Menu.useMenuBarBackgroundForTopLevel",true,"Menu.menuPopupOffsetX",0,"Menu.menuPopupOffsetY",5,"Menu.submenuPopupOffsetX",3,"Menu.submenuPopupOffsetY",0,"Menu.textGap",10];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["PopupMenu.background",table.get("menu"),"PopupMenu.foreground",table.get("menuText"),"PopupMenu.mideground",table.get("controlMide"),"PopupMenu.colorAdjust",new org.aswing.plaf.UIStyleTune(0.14,-0.14,0.06,0.20,5),"PopupMenu.opaque",true,"PopupMenu.focusable",false,"PopupMenu.font",table.getFont("menuFont"),"PopupMenu.borderColor",table.get("controlDkShadow"),"PopupMenu.border",jive.plaf.flat.border.FlatPopupMenuBorder];
+		table.putDefaults(comDefaults1);
+		comDefaults1 = ["MenuBar.background",table.get("menu"),"MenuBar.foreground",table.get("menuText"),"MenuBar.mideground",table.get("highlightControl"),"MenuBar.colorAdjust",new org.aswing.plaf.UIStyleTune(0.18,0.05,0.20,0.20,5),"MenuBar.opaque",true,"MenuBar.focusable",true,"MenuBar.font",table.getFont("menuFont"),"MenuBar.border",null];
+		table.putDefaults(comDefaults1);
 	}
 	,__class__: jive.plaf.flat.FlatLookAndFeel
 });
@@ -13295,6 +17095,390 @@ jive.plaf.flat.FlatTabbedPaneUI.prototype = $extend(org.aswing.plaf.basic.BasicT
 	}
 	,__class__: jive.plaf.flat.FlatTabbedPaneUI
 });
+org.aswing.plaf.TableUI = function() { };
+$hxClasses["org.aswing.plaf.TableUI"] = org.aswing.plaf.TableUI;
+org.aswing.plaf.TableUI.__name__ = ["org","aswing","plaf","TableUI"];
+org.aswing.plaf.TableUI.__interfaces__ = [org.aswing.plaf.ComponentUI];
+org.aswing.plaf.TableUI.prototype = {
+	__class__: org.aswing.plaf.TableUI
+};
+org.aswing.plaf.basic.BasicTableUI = function() {
+	org.aswing.plaf.BaseComponentUI.call(this);
+	this.focusRow = 0;
+	this.focusColumn = 0;
+};
+$hxClasses["org.aswing.plaf.basic.BasicTableUI"] = org.aswing.plaf.basic.BasicTableUI;
+org.aswing.plaf.basic.BasicTableUI.__name__ = ["org","aswing","plaf","basic","BasicTableUI"];
+org.aswing.plaf.basic.BasicTableUI.__interfaces__ = [org.aswing.plaf.TableUI];
+org.aswing.plaf.basic.BasicTableUI.__super__ = org.aswing.plaf.BaseComponentUI;
+org.aswing.plaf.basic.BasicTableUI.prototype = $extend(org.aswing.plaf.BaseComponentUI.prototype,{
+	installUI: function(c) {
+		if(js.Boot.__instanceof(c,org.aswing.JTable)) this.table = c; else this.table = null;
+		this.installDefaults();
+		this.installListeners();
+	}
+	,getPropertyPrefix: function() {
+		return "Table.";
+	}
+	,installDefaults: function() {
+		var pp = this.getPropertyPrefix();
+		org.aswing.LookAndFeel.installColorsAndFont(this.table,pp);
+		org.aswing.LookAndFeel.installBorderAndBFDecorators(this.table,pp);
+		org.aswing.LookAndFeel.installBasicProperties(this.table,pp);
+		var sbg = this.table.getSelectionBackground();
+		if(sbg == null || js.Boot.__instanceof(sbg,org.aswing.plaf.UIResource)) this.table.setSelectionBackground(this.getColor(pp + "selectionBackground"));
+		var sfg = this.table.getSelectionForeground();
+		if(sfg == null || js.Boot.__instanceof(sfg,org.aswing.plaf.UIResource)) this.table.setSelectionForeground(this.getColor(pp + "selectionForeground"));
+		var gridColor = this.table.getGridColor();
+		if(gridColor == null || js.Boot.__instanceof(gridColor,org.aswing.plaf.UIResource)) this.table.setGridColor(this.getColor(pp + "gridColor"));
+	}
+	,installListeners: function() {
+		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onTablePress));
+		this.table.addEventListener("release",$bind(this,this.__onTableRelease));
+		this.table.addEventListener("clickCount",$bind(this,this.__onTableClicked));
+		this.table.addEventListener("focusKeyDown",$bind(this,this.__onTableKeyDown));
+		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onTableMouseWheel));
+	}
+	,uninstallUI: function(c) {
+		this.uninstallDefaults();
+		this.uninstallListeners();
+	}
+	,uninstallDefaults: function() {
+		org.aswing.LookAndFeel.uninstallBorderAndBFDecorators(this.table);
+	}
+	,uninstallListeners: function() {
+		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onTablePress));
+		this.table.removeEventListener("release",$bind(this,this.__onTableRelease));
+		this.table.removeEventListener("clickCount",$bind(this,this.__onTableClicked));
+		this.table.removeEventListener("focusKeyDown",$bind(this,this.__onTableKeyDown));
+		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onTableMouseWheel));
+		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
+	}
+	,__onTablePress: function(e) {
+		if(!this.table.getCellPane().hitTestMouse()) return;
+		this.selectMousePointed(e);
+		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
+		var editor = this.table.getCellEditor();
+		if(editor != null && editor.isCellEditing()) this.table.getCellEditor().stopCellEditing();
+	}
+	,__onTableClicked: function(e) {
+		if(!this.table.getCellPane().hitTestMouse()) return;
+		var p = this.getMousePosOnTable();
+		var row = this.table.rowAtPoint(p);
+		var column = this.table.columnAtPoint(p);
+		if(this.table.editCellAt(row,column,e.getCount())) {
+		}
+	}
+	,__onTableRelease: function(e) {
+		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
+	}
+	,__onTableMouseMove: function(e) {
+		this.addSelectMousePointed();
+	}
+	,__onTableMouseWheel: function(e) {
+		if(!this.table.isEnabled()) return;
+		if(!this.table.getCellPane().hitTestMouse()) return;
+		var viewPos = this.table.getViewPosition();
+		viewPos.y -= e.delta * this.table.getVerticalUnitIncrement();
+		this.table.setViewPosition(viewPos);
+	}
+	,selectMousePointed: function(e) {
+		var p = this.getMousePosOnTable();
+		var row = this.table.rowAtPoint(p);
+		var column = this.table.columnAtPoint(p);
+		if(column == -1 || row == -1) return;
+		this.makeSelectionChange(row,column,e);
+	}
+	,addSelectMousePointed: function() {
+		var p = this.getMousePosOnTable();
+		var row = this.table.rowAtPoint(p);
+		var column = this.table.columnAtPoint(p);
+		if(column == -1 || row == -1) return;
+		this.changeSelection(row,column,false,true);
+	}
+	,makeSelectionChange: function(row,column,e) {
+		this.recordFocusIndecis(row,column);
+		var ctrl = e.ctrlKey;
+		var shift = e.shiftKey;
+		if(ctrl && shift) {
+			var rm = this.table.getSelectionModel();
+			var cm = this.table.getColumnModel().getSelectionModel();
+			var anchorRow = rm.getAnchorSelectionIndex();
+			var anchorCol = cm.getAnchorSelectionIndex();
+			if(this.table.isCellSelected(anchorRow,anchorCol)) {
+				rm.addSelectionInterval(anchorRow,row,false);
+				cm.addSelectionInterval(anchorCol,column,false);
+			} else {
+				rm.removeSelectionInterval(anchorRow,row,false);
+				rm.addSelectionInterval(row,row,false);
+				rm.setAnchorSelectionIndex(anchorRow);
+				cm.removeSelectionInterval(anchorCol,column,false);
+				cm.addSelectionInterval(column,column,false);
+				cm.setAnchorSelectionIndex(anchorCol);
+			}
+		} else this.changeSelection(row,column,ctrl,!ctrl && shift);
+	}
+	,changeSelection: function(rowIndex,columnIndex,toggle,extend) {
+		this.recordFocusIndecis(rowIndex,columnIndex);
+		this.table.changeSelection(rowIndex,columnIndex,toggle,extend,false);
+	}
+	,getMousePosOnTable: function() {
+		var p = this.table.getMousePosition();
+		return this.table.getLogicLocationFromPixelLocation(p);
+	}
+	,getEditionKey: function() {
+		return org.aswing.AWKeyboard.ENTER;
+	}
+	,getSelectionKey: function() {
+		return org.aswing.AWKeyboard.SPACE;
+	}
+	,createGridGraphics: function() {
+		if(this.gridShape == null) {
+			this.gridShape = new openfl.display.Shape();
+			this.table.getCellPane().addChild(this.gridShape);
+		}
+		this.gridShape.get_graphics().clear();
+		return new org.aswing.graphics.Graphics2D(this.gridShape.get_graphics());
+	}
+	,paint: function(c,g,b) {
+		org.aswing.plaf.BaseComponentUI.prototype.paint.call(this,c,g,b);
+		g = this.createGridGraphics();
+		var rowCount = this.table.getRowCount();
+		var columnCount = this.table.getColumnCount();
+		if(rowCount <= 0 || columnCount <= 0) return;
+		var extentSize = this.table.getExtentSize();
+		var viewPos = this.table.getViewPosition();
+		var startX = -viewPos.x;
+		var startY = -viewPos.y;
+		var vb = new org.aswing.geom.IntRectangle();
+		vb.setSize(extentSize);
+		vb.setLocation(viewPos);
+		var upperLeft = vb.getLocation();
+		var lowerRight = vb.rightBottom();
+		var rMin = this.table.rowAtPoint(upperLeft);
+		var rMax = this.table.rowAtPoint(lowerRight);
+		if(rMin == -1) rMin = 0;
+		if(rMax == -1) rMax = rowCount - 1;
+		var cMin = this.table.columnAtPoint(upperLeft);
+		var cMax = this.table.columnAtPoint(lowerRight);
+		if(cMin == -1) cMin = 0;
+		if(cMax == -1) cMax = columnCount - 1;
+		var minCell = this.table.getCellRect(rMin,cMin,true);
+		var maxCell = this.table.getCellRect(rMax,cMax,true);
+		var damagedArea = minCell.union(maxCell);
+		damagedArea.setLocation(damagedArea.getLocation().move(startX,startY));
+		var pen = new org.aswing.graphics.Pen(this.table.getGridColor(),1);
+		if(this.table.getShowHorizontalLines()) {
+			var x1 = damagedArea.x + 0.5;
+			var x2 = damagedArea.x + damagedArea.width - 1;
+			var y = damagedArea.y + 0.5;
+			var rh = this.table.getRowHeight();
+			var _g1 = rMin;
+			var _g = rMax + 2;
+			while(_g1 < _g) {
+				var row = _g1++;
+				if(row == rowCount) y -= 1;
+				g.drawLine(pen,x1,y,x2,y);
+				y += rh;
+			}
+		}
+		if(this.table.getShowVerticalLines()) {
+			var cm = this.table.getColumnModel();
+			var x = damagedArea.x + 0.5;
+			var y1 = damagedArea.y + 0.5;
+			var y2 = y1 + damagedArea.height - 1;
+			var _g11 = cMin;
+			var _g2 = cMax + 2;
+			while(_g11 < _g2) {
+				var column = _g11++;
+				if(column == columnCount) x -= 1;
+				g.drawLine(pen,x,y1,x,y2);
+				if(column < columnCount) x += cm.getColumn(column).getWidth();
+			}
+		}
+	}
+	,__onTableKeyDown: function(e) {
+		if(!this.table.isEnabled()) return;
+		var rDir = 0;
+		var cDir = 0;
+		var code = e.keyCode;
+		if(code == org.aswing.AWKeyboard.LEFT) cDir = -1; else if(code == org.aswing.AWKeyboard.RIGHT) cDir = 1; else if(code == org.aswing.AWKeyboard.UP) rDir = -1; else if(code == org.aswing.AWKeyboard.DOWN) rDir = 1;
+		if(cDir != 0 || rDir != 0) {
+			this.moveFocus(rDir,cDir,e);
+			var fm = org.aswing.FocusManager.getManager(this.table.get_stage());
+			if(fm != null) fm.setTraversing(true);
+			this.table.paintFocusRect();
+			return;
+		}
+		if(code == this.getSelectionKey()) this.table.changeSelection(this.focusRow,this.focusColumn,true,false); else if(code == this.getEditionKey()) this.table.editCellAt(this.focusRow,this.focusColumn,-1);
+	}
+	,recordFocusIndecis: function(row,column) {
+		this.focusRow = row;
+		this.focusColumn = column;
+	}
+	,restrictRow: function(row) {
+		return Std["int"](Math.max(0,Math.min(this.table.getRowCount() - 1,row)));
+	}
+	,restrictColumn: function(column) {
+		return Std["int"](Math.max(0,Math.min(this.table.getColumnCount() - 1,column)));
+	}
+	,moveFocus: function(rDir,cDir,e) {
+		var ctrl = e.ctrlKey;
+		var shift = e.shiftKey;
+		this.focusRow += rDir | 0;
+		this.focusRow = this.restrictRow(this.focusRow);
+		this.focusColumn += cDir | 0;
+		this.focusColumn = this.restrictColumn(this.focusColumn);
+		if(ctrl != true) this.changeSelection(this.focusRow,this.focusColumn,ctrl,!ctrl && shift);
+		this.table.ensureCellIsVisible(this.focusRow,this.focusColumn);
+	}
+	,paintFocus: function(c,g,b) {
+		this.paintCurrentCellFocus(g);
+	}
+	,paintCurrentCellFocus: function(g) {
+		this.paintCellFocusWithRowColumn(g,this.focusRow,this.focusColumn);
+	}
+	,paintCellFocusWithRowColumn: function(g,row,column) {
+		var rect = this.table.getCellRect(row,column,true);
+		rect.setLocation(this.table.getPixelLocationFromLogicLocation(rect.getLocation()));
+		g.drawRectangle(new org.aswing.graphics.Pen(this.getDefaultFocusColorOutter(),2),rect.x,rect.y,rect.width,rect.height);
+	}
+	,createTableSize: function(width) {
+		var height = 0;
+		var rowCount = this.table.getRowCount();
+		if(rowCount > 0 && this.table.getColumnCount() > 0) {
+			var r = this.table.getCellRect(rowCount - 1,0,true);
+			height = r.y + r.height;
+		}
+		height += this.table.getTableHeader().getPreferredHeight();
+		if(this.table.getFooter() != null) height += this.table.getFooter().getPreferredHeight();
+		return new org.aswing.geom.IntDimension(width,height);
+	}
+	,getViewSize: function(table) {
+		var width = 0;
+		var enumeration = table.getColumnModel().getColumns();
+		var _g1 = 0;
+		var _g = enumeration.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var aColumn = enumeration[i];
+			width += aColumn.getPreferredWidth();
+		}
+		var d = this.createTableSize(width);
+		if(table.getAutoResizeMode() != 0) d.width = table.getExtentSize().width; else d.width = table.getColumnModel().getTotalColumnWidth();
+		d.height -= table.getTableHeader().getHeight();
+		if(table.getFooter() != null) d.height -= table.getFooter().getHeight();
+		return d;
+	}
+	,getMinimumSize: function(c) {
+		var width = 0;
+		var enumeration = this.table.getColumnModel().getColumns();
+		var _g1 = 0;
+		var _g = enumeration.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var aColumn = enumeration[i];
+			width += aColumn.getMinWidth();
+		}
+		return this.table.getInsets().getOutsideSize(new org.aswing.geom.IntDimension(width,0));
+	}
+	,getPreferredSize: function(c) {
+		var width = 0;
+		var enumeration = this.table.getColumnModel().getColumns();
+		var _g1 = 0;
+		var _g = enumeration.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var aColumn = enumeration[i];
+			width += aColumn.getPreferredWidth();
+		}
+		return this.table.getInsets().getOutsideSize(this.createTableSize(width));
+	}
+	,getMaximumSize: function(c) {
+		return org.aswing.geom.IntDimension.createBigDimension();
+	}
+	,toString: function() {
+		return "BasicTableUI[]";
+	}
+	,__class__: org.aswing.plaf.basic.BasicTableUI
+});
+jive.plaf.flat.FlatTableUI = function() {
+	org.aswing.plaf.basic.BasicTableUI.call(this);
+	this.mask = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.FlatTableUI"] = jive.plaf.flat.FlatTableUI;
+jive.plaf.flat.FlatTableUI.__name__ = ["jive","plaf","flat","FlatTableUI"];
+jive.plaf.flat.FlatTableUI.__super__ = org.aswing.plaf.basic.BasicTableUI;
+jive.plaf.flat.FlatTableUI.prototype = $extend(org.aswing.plaf.basic.BasicTableUI.prototype,{
+	paint: function(c,g,b) {
+		org.aswing.plaf.basic.BasicTableUI.prototype.paint.call(this,c,g,b);
+		g = this.createGridGraphics();
+		var rowCount = this.table.getRowCount();
+		var columnCount = this.table.getColumnCount();
+		if(rowCount <= 0 || columnCount <= 0) return;
+		var extentSize = this.table.getExtentSize();
+		var viewPos = this.table.getViewPosition();
+		var startX = -viewPos.x;
+		var startY = -viewPos.y;
+		var vb = new org.aswing.geom.IntRectangle();
+		vb.setSize(extentSize);
+		vb.setLocation(viewPos);
+		var upperLeft = vb.getLocation();
+		var lowerRight = vb.rightBottom();
+		var rMin = this.table.rowAtPoint(upperLeft);
+		var rMax = this.table.rowAtPoint(lowerRight);
+		if(rMin == -1) rMin = 0;
+		if(rMax == -1) rMax = rowCount - 1;
+		var cMin = this.table.columnAtPoint(upperLeft);
+		var cMax = this.table.columnAtPoint(lowerRight);
+		if(cMin == -1) cMin = 0;
+		if(cMax == -1) cMax = columnCount - 1;
+		var minCell = this.table.getCellRect(rMin,cMin,true);
+		var maxCell = this.table.getCellRect(rMax,cMax,true);
+		var damagedArea = minCell.union(maxCell);
+		damagedArea.setLocation(damagedArea.getLocation().move(startX,startY));
+		var rh = this.table.getRowHeight();
+		var x1 = damagedArea.x + 0.5;
+		var x2 = damagedArea.x + damagedArea.width - 1;
+		var y = damagedArea.y + 0.5 + rh;
+		var _g1 = rMin + 1;
+		var _g = rMax + 1;
+		while(_g1 < _g) {
+			var row = _g1++;
+			if(row == rowCount) y -= 1;
+			g.fillRectangle(new org.aswing.graphics.SolidBrush(c.get_mideground()),x1,y,x2 - x1,rh);
+			y += 2 * rh;
+		}
+		var rh1 = this.table.getRowHeight();
+		var x11 = damagedArea.x + 0.5;
+		var x21 = damagedArea.x + damagedArea.width - 1;
+		var y1 = damagedArea.y + 0.5;
+		var _g11 = rMin;
+		var _g2 = rMax + 1;
+		while(_g11 < _g2) {
+			var row1 = _g11++;
+			if(row1 == rowCount) y1 -= 1;
+			if(row1 == this.table.getSelectedRow()) g.fillRectangle(new org.aswing.graphics.SolidBrush(this.table.getSelectionBackground()),x11,y1,x21 - x11,rh1);
+			y1 += rh1;
+		}
+		this.mask.get_graphics().clear();
+		var mg = new org.aswing.graphics.Graphics2D(this.mask.get_graphics());
+		var mb = new org.aswing.graphics.SolidBrush(org.aswing.ASColor.WHITE);
+		mg.fillRoundRect(mb,b.x + 1,b.y,extentSize.width - 2,extentSize.height,c.get_styleTune().round);
+		mg.fillRectangle(mb,b.x + 1,b.y,extentSize.width - 2,c.get_styleTune().round * 2);
+	}
+	,createGridGraphics: function() {
+		if(this.gridShape == null) {
+			this.gridShape = new openfl.display.Shape();
+			this.table.getCellPane().addChild(this.mask);
+			this.table.getCellPane().set_mask(this.mask);
+			this.table.getCellPane().addChildAt(this.gridShape,0);
+		}
+		this.gridShape.get_graphics().clear();
+		return new org.aswing.graphics.Graphics2D(this.gridShape.get_graphics());
+	}
+	,__class__: jive.plaf.flat.FlatTableUI
+});
 org.aswing.plaf.basic.BasicTextComponentUI = function() {
 	org.aswing.plaf.BaseComponentUI.call(this);
 };
@@ -13452,728 +17636,110 @@ jive.plaf.flat.TextCellComponent.prototype = $extend(org.aswing.JPanel.prototype
 	,__class__: jive.plaf.flat.TextCellComponent
 	,__properties__: $extend(org.aswing.JPanel.prototype.__properties__,{set_value:"set_value",get_value:"get_value"})
 });
-org.aswing.plaf.UIResource = function() { };
-$hxClasses["org.aswing.plaf.UIResource"] = org.aswing.plaf.UIResource;
-org.aswing.plaf.UIResource.__name__ = ["org","aswing","plaf","UIResource"];
-org.aswing.Decorator = function() { };
-$hxClasses["org.aswing.Decorator"] = org.aswing.Decorator;
-org.aswing.Decorator.__name__ = ["org","aswing","Decorator"];
-org.aswing.Decorator.prototype = {
-	__class__: org.aswing.Decorator
+org.aswing.plaf.basic.tabbedpane = {};
+org.aswing.plaf.basic.tabbedpane.Tab = function() { };
+$hxClasses["org.aswing.plaf.basic.tabbedpane.Tab"] = org.aswing.plaf.basic.tabbedpane.Tab;
+org.aswing.plaf.basic.tabbedpane.Tab.__name__ = ["org","aswing","plaf","basic","tabbedpane","Tab"];
+org.aswing.plaf.basic.tabbedpane.Tab.prototype = {
+	__class__: org.aswing.plaf.basic.tabbedpane.Tab
 };
-org.aswing.GroundDecorator = function() { };
-$hxClasses["org.aswing.GroundDecorator"] = org.aswing.GroundDecorator;
-org.aswing.GroundDecorator.__name__ = ["org","aswing","GroundDecorator"];
-org.aswing.GroundDecorator.__interfaces__ = [org.aswing.Decorator];
-org.aswing.GroundDecorator.prototype = {
-	__class__: org.aswing.GroundDecorator
+org.aswing.plaf.basic.accordion = {};
+org.aswing.plaf.basic.accordion.BasicAccordionHeader = function() {
 };
-jive.plaf.flat.background = {};
-jive.plaf.flat.background.FlatButtonBackground = function() {
-	this.shape = new openfl.display.Shape();
+$hxClasses["org.aswing.plaf.basic.accordion.BasicAccordionHeader"] = org.aswing.plaf.basic.accordion.BasicAccordionHeader;
+org.aswing.plaf.basic.accordion.BasicAccordionHeader.__name__ = ["org","aswing","plaf","basic","accordion","BasicAccordionHeader"];
+org.aswing.plaf.basic.accordion.BasicAccordionHeader.__interfaces__ = [org.aswing.plaf.basic.tabbedpane.Tab];
+org.aswing.plaf.basic.accordion.BasicAccordionHeader.prototype = {
+	set_maxPlacement: function(v) {
+		this.maxPlacement = v;
+		return v;
+	}
+	,initTab: function(owner) {
+		this.owner = owner;
+		this.button = this.createHeaderButton();
+	}
+	,setTabPlacement: function(tp) {
+		this.placement = tp;
+	}
+	,getTabPlacement: function() {
+		return this.placement;
+	}
+	,createHeaderButton: function() {
+		return new org.aswing.JButton();
+	}
+	,setTextAndIcon: function(text,icon) {
+		this.button.setText(text);
+		this.button.setIcon(icon);
+	}
+	,setFont: function(font) {
+		this.button.setFont(font);
+	}
+	,setForeground: function(color) {
+		this.button.setForeground(color);
+	}
+	,setSelected: function(b) {
+	}
+	,setVerticalAlignment: function(alignment) {
+		this.button.setVerticalAlignment(alignment);
+	}
+	,setHorizontalAlignment: function(alignment) {
+		this.button.setHorizontalAlignment(alignment);
+	}
+	,setVerticalTextPosition: function(textPosition) {
+		this.button.setVerticalTextPosition(textPosition);
+	}
+	,setHorizontalTextPosition: function(textPosition) {
+		this.button.setHorizontalTextPosition(textPosition);
+	}
+	,setIconTextGap: function(iconTextGap) {
+		this.button.setIconTextGap(iconTextGap);
+	}
+	,setMargin: function(m) {
+		this.button.setMargin(m);
+	}
+	,getTabComponent: function() {
+		return this.button;
+	}
+	,__class__: org.aswing.plaf.basic.accordion.BasicAccordionHeader
+	,__properties__: {set_maxPlacement:"set_maxPlacement"}
 };
-$hxClasses["jive.plaf.flat.background.FlatButtonBackground"] = jive.plaf.flat.background.FlatButtonBackground;
-jive.plaf.flat.background.FlatButtonBackground.__name__ = ["jive","plaf","flat","background","FlatButtonBackground"];
-jive.plaf.flat.background.FlatButtonBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatButtonBackground.prototype = {
-	updateDecorator: function(c,g,bounds) {
-		var b;
-		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) b = c; else b = null;
-		if(b == null) return;
-		this.shape.get_graphics().clear();
-		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-		bounds = bounds.clone();
-		var color = c.get_background();
-		if(js.Boot.__instanceof(b,org.aswing.JButton)) {
-			var _b;
-			if(js.Boot.__instanceof(b,org.aswing.JButton)) _b = b; else _b = null;
-			if(_b.isDefaultButton()) color = c.get_mideground();
-		}
-		if(c.get_opaque()) {
-			if(Math.abs(b.transitBackgroundFactor) < 1) {
-				var factor = b.transitBackgroundFactor * jive.plaf.flat.background.FlatButtonBackground.luminanceFactor;
-				color = color.offsetHLS(0,factor,0);
-			} else {
-				var model = b.get_model();
-				var isPressing = model.isArmed() || model.isSelected();
-				if(isPressing) color = color.offsetHLS(0,-jive.plaf.flat.background.FlatButtonBackground.luminanceFactor,0); else if(b.get_model().isRollOver()) color = color.offsetHLS(0,jive.plaf.flat.background.FlatButtonBackground.luminanceFactor,0);
-			}
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(color),bounds.x,bounds.y,bounds.width,bounds.height,b.get_styleTune().round);
-		}
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: jive.plaf.flat.background.FlatButtonBackground
+jive.plaf.flat.accordion = {};
+jive.plaf.flat.accordion.AccordionHeader = function() {
+	org.aswing.plaf.basic.accordion.BasicAccordionHeader.call(this);
 };
-jive.plaf.flat.background.FlatInputBackground = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.background.FlatInputBackground"] = jive.plaf.flat.background.FlatInputBackground;
-jive.plaf.flat.background.FlatInputBackground.__name__ = ["jive","plaf","flat","background","FlatInputBackground"];
-jive.plaf.flat.background.FlatInputBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatInputBackground.prototype = {
-	updateDecorator: function(c,g,bounds) {
-		this.shape.set_visible(c.get_opaque());
-		if(c.get_opaque()) {
-			this.shape.get_graphics().clear();
-			var cb;
-			if(js.Boot.__instanceof(c,org.aswing.JComboBox)) cb = c; else cb = null;
-			if(null == cb) return;
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			bounds = c.get_border().getBorderInsets(null,null).getOutsideBounds(bounds);
-			var bgColor = c.get_background();
-			if(!cb.get_editable() && cb.get_enabled()) bgColor = cb.get_notEditableBackground();
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(bgColor),bounds.x + 1,bounds.y + 1,bounds.width - 2,bounds.height - 2,c.get_styleTune().round);
-			var borderColor = c.get_mideground();
-			if(!c.get_enabled()) borderColor = borderColor.offsetHLS(0,0.2,0); else if(!cb.get_editable()) borderColor = cb.get_notEditableBackground(); else borderColor = org.aswing.ASColor.getColorBetween(borderColor,org.aswing.UIManager.getColor("focusForeground"),cb.transitFocusFactor);
-			g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,1.5,c.get_styleTune().round - 1);
-		}
+$hxClasses["jive.plaf.flat.accordion.AccordionHeader"] = jive.plaf.flat.accordion.AccordionHeader;
+jive.plaf.flat.accordion.AccordionHeader.__name__ = ["jive","plaf","flat","accordion","AccordionHeader"];
+jive.plaf.flat.accordion.AccordionHeader.__super__ = org.aswing.plaf.basic.accordion.BasicAccordionHeader;
+jive.plaf.flat.accordion.AccordionHeader.prototype = $extend(org.aswing.plaf.basic.accordion.BasicAccordionHeader.prototype,{
+	createHeaderButton: function() {
+		var b = new jive.plaf.flat.accordion.AccordionHeaderButton();
+		b.setHorizontalAlignment(2);
+		b.setIcon(new jive.plaf.flat.icon.ExpandIcon(8,new org.aswing.ASColor(13421772),false));
+		return b;
 	}
-	,getDisplay: function(c) {
-		return this.shape;
+	,setSelected: function(b) {
+		if(this.button.get_selected() == b) return;
+		this.button.setSelected(b);
+		if(b) this.button.setIcon(new jive.plaf.flat.icon.ExpandIcon(8,new org.aswing.ASColor(13421772),true)); else this.button.setIcon(new jive.plaf.flat.icon.ExpandIcon(8,new org.aswing.ASColor(13421772),false));
 	}
-	,__class__: jive.plaf.flat.background.FlatInputBackground
-};
-jive.plaf.flat.background.FlatPanelBackground = function() {
-};
-$hxClasses["jive.plaf.flat.background.FlatPanelBackground"] = jive.plaf.flat.background.FlatPanelBackground;
-jive.plaf.flat.background.FlatPanelBackground.__name__ = ["jive","plaf","flat","background","FlatPanelBackground"];
-jive.plaf.flat.background.FlatPanelBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatPanelBackground.prototype = {
-	getDisplay: function(c) {
-		return null;
+	,setHorizontalAlignment: function(alignment) {
 	}
-	,updateDecorator: function(c,g,b) {
-		if(c.isOpaque()) g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground()),b.x,b.y,b.width,b.height,10);
+	,setTextAndIcon: function(text,icon) {
+		this.button.setText(text);
 	}
-	,__class__: jive.plaf.flat.background.FlatPanelBackground
-};
-jive.plaf.flat.background.FlatProgressBarBackground = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.background.FlatProgressBarBackground"] = jive.plaf.flat.background.FlatProgressBarBackground;
-jive.plaf.flat.background.FlatProgressBarBackground.__name__ = ["jive","plaf","flat","background","FlatProgressBarBackground"];
-jive.plaf.flat.background.FlatProgressBarBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatProgressBarBackground.prototype = {
-	getDisplay: function(c) {
-		return this.shape;
+	,setTabPlacement: function(tp) {
+		org.aswing.plaf.basic.accordion.BasicAccordionHeader.prototype.setTabPlacement.call(this,tp);
+		var b = org.aswing.AsWingUtils["as"](this.button,jive.plaf.flat.accordion.AccordionHeaderButton);
+		b.set_tabPlacement(tp);
 	}
-	,updateDecorator: function(c,g,b) {
-		if(js.Boot.__instanceof(c,org.aswing.Orientable) && c.isOpaque()) {
-			var bar;
-			if(js.Boot.__instanceof(c,org.aswing.Orientable)) bar = c; else bar = null;
-			var verticle = bar.getOrientation() == 1;
-			this.shape.get_graphics().clear();
-			var style = c.getStyleTune();
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			b = b.clone();
-			var radius = 0;
-			if(verticle) radius = Math.floor(b.width / 2); else radius = Math.floor(b.height / 2);
-			if(radius > style.round) radius = style.round;
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground().changeAlpha(1)),b.x,b.y,b.width,b.height,radius);
-			this.shape.set_alpha(c.getBackground().getAlpha());
-		}
+	,set_maxPlacement: function(v) {
+		this.maxPlacement = v;
+		var b = org.aswing.AsWingUtils["as"](this.button,jive.plaf.flat.accordion.AccordionHeaderButton);
+		b.maxPlacement = v;
+		return v;
 	}
-	,__class__: jive.plaf.flat.background.FlatProgressBarBackground
-};
-jive.plaf.flat.background.FlatProgressBarIcon = function() {
-	this.shape = new openfl.display.Shape();
-	this.indeterminatePercent = 0;
-};
-$hxClasses["jive.plaf.flat.background.FlatProgressBarIcon"] = jive.plaf.flat.background.FlatProgressBarIcon;
-jive.plaf.flat.background.FlatProgressBarIcon.__name__ = ["jive","plaf","flat","background","FlatProgressBarIcon"];
-jive.plaf.flat.background.FlatProgressBarIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatProgressBarIcon.prototype = {
-	getDisplay: function(c) {
-		return this.shape;
-	}
-	,updateDecorator: function(c,g,b) {
-		if(js.Boot.__instanceof(c,org.aswing.JProgressBar)) {
-			var bar;
-			if(js.Boot.__instanceof(c,org.aswing.JProgressBar)) bar = c; else bar = null;
-			b = b.clone();
-			var percent;
-			if(bar.isIndeterminate()) {
-				percent = this.indeterminatePercent;
-				this.indeterminatePercent += 0.01;
-				if(this.indeterminatePercent > 1) this.indeterminatePercent = 0;
-			} else percent = bar.getPercentComplete();
-			var verticle = bar.getOrientation() == 1;
-			this.shape.get_graphics().clear();
-			var style = c.getStyleTune().get_mide();
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			var radius = 0;
-			if(verticle) {
-				radius = Math.floor(b.width / 2);
-				b.height = b.height * percent | 0;
-			} else {
-				radius = Math.floor(b.height / 2);
-				b.width = b.width * percent | 0;
-			}
-			if(radius > style.round) radius = style.round;
-			if(b.width > 1) g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_mideground()),b.x,b.y,b.width,b.height,radius);
-		}
-	}
-	,__class__: jive.plaf.flat.background.FlatProgressBarIcon
-};
-jive.plaf.flat.background.FlatScrollBarBackground = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.background.FlatScrollBarBackground"] = jive.plaf.flat.background.FlatScrollBarBackground;
-jive.plaf.flat.background.FlatScrollBarBackground.__name__ = ["jive","plaf","flat","background","FlatScrollBarBackground"];
-jive.plaf.flat.background.FlatScrollBarBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatScrollBarBackground.prototype = {
-	getDisplay: function(c) {
-		return this.shape;
-	}
-	,updateDecorator: function(c,g,b) {
-		if(js.Boot.__instanceof(c,org.aswing.Orientable) && c.isOpaque()) {
-			var bar;
-			if(js.Boot.__instanceof(c,org.aswing.Orientable)) bar = c; else bar = null;
-			var verticle = bar.getOrientation() == 1;
-			this.shape.get_graphics().clear();
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			b = b.clone();
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
-		}
-	}
-	,__class__: jive.plaf.flat.background.FlatScrollBarBackground
-};
-org.aswing.plaf.basic.background = {};
-org.aswing.plaf.basic.background.ScrollBarThumb = function() {
-	this.thumb = new org.aswing.AWSprite();
-	this.rollover = false;
-	this.pressed = false;
-	this.initSelfHandlers();
-};
-$hxClasses["org.aswing.plaf.basic.background.ScrollBarThumb"] = org.aswing.plaf.basic.background.ScrollBarThumb;
-org.aswing.plaf.basic.background.ScrollBarThumb.__name__ = ["org","aswing","plaf","basic","background","ScrollBarThumb"];
-org.aswing.plaf.basic.background.ScrollBarThumb.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-org.aswing.plaf.basic.background.ScrollBarThumb.prototype = {
-	updateDecorator: function(c,g,bounds) {
-		this.thumb.set_x(bounds.x);
-		this.thumb.set_y(bounds.y);
-		this.size = bounds.getSize();
-		if(js.Boot.__instanceof(c,org.aswing.JScrollBar)) this.bar = c; else this.bar = null;
-		this.verticle = this.bar.getOrientation() == 1;
-		this.paint();
-	}
-	,paint: function() {
-		var x = 0;
-		var y = 0;
-		var w = this.size.width;
-		var h = this.size.height;
-		this.thumb.get_graphics().clear();
-		var g = new org.aswing.graphics.Graphics2D(this.thumb.get_graphics());
-		var b;
-		var direction;
-		var notchSize;
-		if(this.verticle) {
-			direction = Math.PI / 2;
-			notchSize = w - 6 | 0;
-		} else {
-			direction = 0;
-			notchSize = h - 6 | 0;
-		}
-		b = new org.aswing.geom.IntRectangle(x | 0,y | 0,w | 0,h | 0);
-		var tune = this.bar.getStyleTune().get_mide();
-		var style;
-		var cl = this.bar.getMideground().changeAlpha(1);
-		if(!this.bar.isEnabled()) {
-			cl = cl.offsetHLS(0,-0.06,-0.03);
-			tune = tune.sharpen(0.4);
-		} else if(this.pressed) tune = tune.sharpen(0.8); else if(this.rollover) cl = cl.offsetHLS(0,0.06,0);
-		style = new org.aswing.StyleResult(cl,tune);
-		org.aswing.plaf.basic.BasicGraphicsUtils.fillGradientRoundRect(g,b,style,direction);
-		org.aswing.plaf.basic.BasicGraphicsUtils.drawGradientRoundRectLine(g,b,1,style,direction);
-		b = b.clone();
-		b.grow(-1,-1);
-		var innerStyle = new org.aswing.StyleResult(cl,tune);
-		innerStyle.bdark = innerStyle.cdark.offsetHLS(0,0.06,0);
-		innerStyle.blight = innerStyle.clight.offsetHLS(0,0.06,0);
-		org.aswing.plaf.basic.BasicGraphicsUtils.drawGradientRoundRectLine(g,b,1,innerStyle,direction);
-		var snotchX = 0;
-		var snotchY = 0;
-		var lightPen = new org.aswing.graphics.Pen(innerStyle.blight,1,true,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE);
-		var darkPen = new org.aswing.graphics.Pen(style.blight,1,true,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE);
-		if(this.verticle) {
-			snotchX = x + 3 | 0;
-			snotchY = y + h / 2 - 3 | 0;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-			snotchY += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-			snotchY += 1;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-			snotchY += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-			snotchY += 1;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-			snotchY += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
-		} else {
-			snotchX = x + w / 2 - 3 | 0;
-			snotchY = y + 3 | 0;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-			snotchX += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-			snotchX += 1;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-			snotchX += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-			snotchX += 1;
-			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-			snotchX += 1;
-			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
-		}
-		this.thumb.set_alpha(this.bar.getMideground().getAlpha());
-	}
-	,getDisplay: function(c) {
-		return this.thumb;
-	}
-	,initSelfHandlers: function() {
-		this.thumb.addEventListener(openfl.events.MouseEvent.ROLL_OUT,$bind(this,this.__rollOutListener));
-		this.thumb.addEventListener(openfl.events.MouseEvent.ROLL_OVER,$bind(this,this.__rollOverListener));
-		this.thumb.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__mouseDownListener));
-		this.thumb.addEventListener("release",$bind(this,this.__mouseUpListener));
-	}
-	,__rollOverListener: function(e) {
-		this.rollover = true;
-		this.paint();
-	}
-	,__rollOutListener: function(e) {
-		this.rollover = false;
-		if(this.pressed != true) this.paint();
-	}
-	,__mouseDownListener: function(e) {
-		this.pressed = true;
-		this.paint();
-	}
-	,__mouseUpListener: function(e) {
-		if(this.pressed) {
-			this.pressed = false;
-			this.paint();
-		}
-	}
-	,__class__: org.aswing.plaf.basic.background.ScrollBarThumb
-};
-jive.plaf.flat.background.FlatScrollBarThumb = function() {
-	org.aswing.plaf.basic.background.ScrollBarThumb.call(this);
-};
-$hxClasses["jive.plaf.flat.background.FlatScrollBarThumb"] = jive.plaf.flat.background.FlatScrollBarThumb;
-jive.plaf.flat.background.FlatScrollBarThumb.__name__ = ["jive","plaf","flat","background","FlatScrollBarThumb"];
-jive.plaf.flat.background.FlatScrollBarThumb.__super__ = org.aswing.plaf.basic.background.ScrollBarThumb;
-jive.plaf.flat.background.FlatScrollBarThumb.prototype = $extend(org.aswing.plaf.basic.background.ScrollBarThumb.prototype,{
-	paint: function() {
-		this.thumb.get_graphics().clear();
-		var g = new org.aswing.graphics.Graphics2D(this.thumb.get_graphics());
-		var cl = this.bar.get_mideground();
-		if(!this.bar.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.03); else if(this.rollover) cl = cl.offsetHLS(0,-0.2,0);
-		g.fillRoundRect(new org.aswing.graphics.SolidBrush(cl),this.verticle?2:0,this.verticle?0:2,this.verticle?this.size.width - 4:this.size.width,this.verticle?this.size.height:this.size.height - 4,(Math.min(this.size.width,this.size.height) - 4) / 2);
-	}
-	,__class__: jive.plaf.flat.background.FlatScrollBarThumb
+	,__class__: jive.plaf.flat.accordion.AccordionHeader
 });
-jive.plaf.flat.background.FlatTextComponentBackground = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.background.FlatTextComponentBackground"] = jive.plaf.flat.background.FlatTextComponentBackground;
-jive.plaf.flat.background.FlatTextComponentBackground.__name__ = ["jive","plaf","flat","background","FlatTextComponentBackground"];
-jive.plaf.flat.background.FlatTextComponentBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.background.FlatTextComponentBackground.prototype = {
-	updateDecorator: function(c,g,bounds) {
-		this.shape.set_visible(c.get_opaque());
-		if(c.get_opaque()) {
-			this.shape.get_graphics().clear();
-			var textComponent;
-			if(js.Boot.__instanceof(c,org.aswing.JTextComponent)) textComponent = c; else textComponent = null;
-			if(null == textComponent) return;
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			bounds = c.get_border().getBorderInsets(null,null).getOutsideBounds(bounds);
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),bounds.x + 1,bounds.y + 1,bounds.width - 2,bounds.height - 2,c.get_styleTune().round);
-			var borderColor = c.get_mideground();
-			if(!c.get_enabled() || !textComponent.get_editable()) borderColor = borderColor.offsetHLS(0,0.2,0); else borderColor = org.aswing.ASColor.getColorBetween(borderColor,org.aswing.UIManager.getColor("focusForeground"),textComponent.transitFocusFactor);
-			g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,2,c.get_styleTune().round - 1);
-		}
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: jive.plaf.flat.background.FlatTextComponentBackground
-};
-org.aswing.Border = function() { };
-$hxClasses["org.aswing.Border"] = org.aswing.Border;
-org.aswing.Border.__name__ = ["org","aswing","Border"];
-org.aswing.Border.__interfaces__ = [org.aswing.Decorator];
-org.aswing.Border.prototype = {
-	__class__: org.aswing.Border
-};
-jive.plaf.flat.border = {};
-jive.plaf.flat.border.FlatComboBoxPopupBorder = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.border.FlatComboBoxPopupBorder"] = jive.plaf.flat.border.FlatComboBoxPopupBorder;
-jive.plaf.flat.border.FlatComboBoxPopupBorder.__name__ = ["jive","plaf","flat","border","FlatComboBoxPopupBorder"];
-jive.plaf.flat.border.FlatComboBoxPopupBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
-jive.plaf.flat.border.FlatComboBoxPopupBorder.prototype = {
-	updateBorder: function(c,g,b) {
-		this.shape.get_graphics().clear();
-		b = b.clone();
-		b.y += 10;
-		b.height -= 10;
-		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-		g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
-	}
-	,getBorderInsets: function(c,b) {
-		return new org.aswing.Insets(10,0,0,0);
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: jive.plaf.flat.border.FlatComboBoxPopupBorder
-};
-jive.plaf.flat.border.FlatPopupMenuBorder = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.border.FlatPopupMenuBorder"] = jive.plaf.flat.border.FlatPopupMenuBorder;
-jive.plaf.flat.border.FlatPopupMenuBorder.__name__ = ["jive","plaf","flat","border","FlatPopupMenuBorder"];
-jive.plaf.flat.border.FlatPopupMenuBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
-jive.plaf.flat.border.FlatPopupMenuBorder.prototype = {
-	updateBorder: function(c,g,b) {
-		this.shape.get_graphics().clear();
-		if(c.isOpaque()) {
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
-		}
-		this.shape.set_visible(c.isOpaque());
-	}
-	,getBorderInsets: function(com,bounds) {
-		return new org.aswing.Insets(3,3,3,3);
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: jive.plaf.flat.border.FlatPopupMenuBorder
-};
-jive.plaf.flat.border.TextCellComponentBorder = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.border.TextCellComponentBorder"] = jive.plaf.flat.border.TextCellComponentBorder;
-jive.plaf.flat.border.TextCellComponentBorder.__name__ = ["jive","plaf","flat","border","TextCellComponentBorder"];
-jive.plaf.flat.border.TextCellComponentBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
-jive.plaf.flat.border.TextCellComponentBorder.prototype = {
-	updateBorder: function(c,g,b) {
-		this.shape.get_graphics().clear();
-		var tc;
-		if(js.Boot.__instanceof(c,jive.plaf.flat.TextCellComponent)) tc = c; else tc = null;
-		if(null == tc) return;
-		b = b.clone();
-		var brush = new org.aswing.graphics.SolidBrush(c.get_background().offsetHLS(0,-0.1 * tc.transitBackgroundFactor,0));
-		var round = c.get_styleTune().round;
-		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-		if(tc.isFirst) {
-			g.fillRoundRect(brush,b.x,b.y,b.width,2 * round,round);
-			g.fillRectangle(brush,b.x,b.y + round,b.width,b.height - round);
-		} else if(tc.isLast) {
-			g.fillRoundRect(brush,b.x,b.y + b.height - 2 * round,b.width,2 * round,round);
-			g.fillRectangle(brush,b.x,b.y,b.width,b.height - round);
-		} else g.fillRectangle(brush,b.x,b.y,b.width,b.height);
-	}
-	,getBorderInsets: function(c,b) {
-		return new org.aswing.Insets(7,15,7,15);
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: jive.plaf.flat.border.TextCellComponentBorder
-};
-org.aswing.Icon = function() { };
-$hxClasses["org.aswing.Icon"] = org.aswing.Icon;
-org.aswing.Icon.__name__ = ["org","aswing","Icon"];
-org.aswing.Icon.__interfaces__ = [org.aswing.Decorator];
-org.aswing.Icon.prototype = {
-	__class__: org.aswing.Icon
-};
-jive.plaf.flat.icon = {};
-jive.plaf.flat.icon.FlatCheckBoxIcon = function() {
-	this.sprite = new openfl.display.Sprite();
-	this.sprite.mouseChildren = false;
-	this.sprite.mouseEnabled = false;
-	this.box = new openfl.display.Sprite();
-	this.dot = new openfl.display.Sprite();
-	this.sprite.addChild(this.box);
-	this.sprite.addChild(this.dot);
-};
-$hxClasses["jive.plaf.flat.icon.FlatCheckBoxIcon"] = jive.plaf.flat.icon.FlatCheckBoxIcon;
-jive.plaf.flat.icon.FlatCheckBoxIcon.__name__ = ["jive","plaf","flat","icon","FlatCheckBoxIcon"];
-jive.plaf.flat.icon.FlatCheckBoxIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
-jive.plaf.flat.icon.FlatCheckBoxIcon.prototype = {
-	updateIcon: function(c,g,x,y) {
-		var b;
-		if(js.Boot.__instanceof(c,org.aswing.JCheckBox)) b = c; else b = null;
-		var model = b.getModel();
-		this.box.get_graphics().clear();
-		var g1 = new org.aswing.graphics.Graphics2D(this.box.get_graphics());
-		var w = this.getIconWidth(c);
-		var h = this.getIconHeight(c);
-		var cl = c.get_background();
-		var drawDot = model.isArmed() || model.isSelected() || model.isRollOver();
-		if(b.transitBackgroundFactor < 0) cl = org.aswing.ASColor.getColorBetween(c.get_background(),c.get_mideground(),-b.transitBackgroundFactor);
-		if(!b.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.4);
-		g1.fillRoundRect(new org.aswing.graphics.SolidBrush(cl),x,y,w,h,b.get_styleTune().round);
-		this.dot.get_graphics().clear();
-		if(drawDot) {
-			g1 = new org.aswing.graphics.Graphics2D(this.dot.get_graphics());
-			cl = b.tickColor;
-			g1.beginDraw(new org.aswing.graphics.Pen(cl,1.6));
-			g1.moveTo(x + w * 5 / 20,y + h / 2);
-			g1.lineTo(x + w * 9 / 20,y + h * 14 / 20);
-			g1.lineTo(x + w * 15 / 20,y + h * 7 / 20);
-			g1.endDraw();
-		}
-		this.dot.set_visible(drawDot);
-	}
-	,getIconHeight: function(c) {
-		return 20;
-	}
-	,getIconWidth: function(c) {
-		return 20;
-	}
-	,getDisplay: function(c) {
-		return this.sprite;
-	}
-	,__class__: jive.plaf.flat.icon.FlatCheckBoxIcon
-};
-org.aswing.plaf.basic.icon = {};
-org.aswing.plaf.basic.icon.SolidArrowIcon = function(arrow,size,color) {
-	this.arrow = arrow;
-	this.width = size;
-	this.height = size;
-	this.shape = new openfl.display.Shape();
-	this.paintIconWithColor(color);
-};
-$hxClasses["org.aswing.plaf.basic.icon.SolidArrowIcon"] = org.aswing.plaf.basic.icon.SolidArrowIcon;
-org.aswing.plaf.basic.icon.SolidArrowIcon.__name__ = ["org","aswing","plaf","basic","icon","SolidArrowIcon"];
-org.aswing.plaf.basic.icon.SolidArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
-org.aswing.plaf.basic.icon.SolidArrowIcon.prototype = {
-	updateIcon: function(com,g,x,y) {
-		this.shape.set_x(x);
-		this.shape.set_y(y);
-	}
-	,paintIconWithColor: function(cl) {
-		var x = 0;
-		var y = 0;
-		this.shape.get_graphics().clear();
-		var g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-		var center = new openfl.geom.Point(x + this.width / 2,y + this.height / 2);
-		var w = this.width;
-		var ps1 = new Array();
-		ps1.push(this.nextPoint(center,this.arrow,w / 2 / 2));
-		var back = this.nextPoint(center,this.arrow + Math.PI,w / 2 / 2);
-		ps1.push(this.nextPoint(back,this.arrow - Math.PI / 2,w / 2));
-		ps1.push(this.nextPoint(back,this.arrow + Math.PI / 2,w / 2));
-		g.fillPolygon(new org.aswing.graphics.SolidBrush(cl),ps1);
-	}
-	,nextPoint: function(op,direction,distance) {
-		return new openfl.geom.Point(op.x + Math.cos(direction) * distance,op.y + Math.sin(direction) * distance);
-	}
-	,getIconHeight: function(c) {
-		return this.height | 0;
-	}
-	,getIconWidth: function(c) {
-		return this.width | 0;
-	}
-	,setArrow: function(arrow) {
-		this.arrow = arrow;
-	}
-	,getDisplay: function(c) {
-		return this.shape;
-	}
-	,__class__: org.aswing.plaf.basic.icon.SolidArrowIcon
-};
-jive.plaf.flat.icon.FlatComboBoxArrowIcon = function() {
-	org.aswing.plaf.basic.icon.SolidArrowIcon.call(this,Math.PI / 2,12,org.aswing.ASColor.BLACK);
-};
-$hxClasses["jive.plaf.flat.icon.FlatComboBoxArrowIcon"] = jive.plaf.flat.icon.FlatComboBoxArrowIcon;
-jive.plaf.flat.icon.FlatComboBoxArrowIcon.__name__ = ["jive","plaf","flat","icon","FlatComboBoxArrowIcon"];
-jive.plaf.flat.icon.FlatComboBoxArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource];
-jive.plaf.flat.icon.FlatComboBoxArrowIcon.__super__ = org.aswing.plaf.basic.icon.SolidArrowIcon;
-jive.plaf.flat.icon.FlatComboBoxArrowIcon.prototype = $extend(org.aswing.plaf.basic.icon.SolidArrowIcon.prototype,{
-	updateIcon: function(c,g,x,y) {
-		org.aswing.plaf.basic.icon.SolidArrowIcon.prototype.updateIcon.call(this,c,g,x,y);
-		var m;
-		if(js.Boot.__instanceof(c,org.aswing.JButton)) m = c; else m = null;
-		if(null == m) return;
-		this.paintIconWithColor(m.get_selected() || m.get_model().isRollOver()?m.get_foreground():m.get_mideground());
-	}
-	,__class__: jive.plaf.flat.icon.FlatComboBoxArrowIcon
-});
-jive.plaf.flat.icon.FlatMenuArrowIcon = function() {
-	org.aswing.plaf.basic.icon.SolidArrowIcon.call(this,0,12,org.aswing.ASColor.BLACK);
-};
-$hxClasses["jive.plaf.flat.icon.FlatMenuArrowIcon"] = jive.plaf.flat.icon.FlatMenuArrowIcon;
-jive.plaf.flat.icon.FlatMenuArrowIcon.__name__ = ["jive","plaf","flat","icon","FlatMenuArrowIcon"];
-jive.plaf.flat.icon.FlatMenuArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource];
-jive.plaf.flat.icon.FlatMenuArrowIcon.__super__ = org.aswing.plaf.basic.icon.SolidArrowIcon;
-jive.plaf.flat.icon.FlatMenuArrowIcon.prototype = $extend(org.aswing.plaf.basic.icon.SolidArrowIcon.prototype,{
-	updateIcon: function(c,g,x,y) {
-		org.aswing.plaf.basic.icon.SolidArrowIcon.prototype.updateIcon.call(this,c,g,x,y);
-		var m;
-		if(js.Boot.__instanceof(c,org.aswing.JMenu)) m = c; else m = null;
-		if(null == m) return;
-		if(m.isTopLevelMenu()) this.arrow = Math.PI / 2; else this.arrow = 0.0;
-		this.paintIconWithColor(m.get_selected() || m.get_model().isRollOver()?m.get_foreground():m.get_background().offsetHLS(0,0.1,0));
-	}
-	,__class__: jive.plaf.flat.icon.FlatMenuArrowIcon
-});
-jive.plaf.flat.icon.FlatRadioButtonIcon = function() {
-	this.sprite = new openfl.display.Sprite();
-	this.sprite.mouseChildren = false;
-	this.sprite.mouseEnabled = false;
-	this.box = new openfl.display.Sprite();
-	this.dot = new openfl.display.Sprite();
-	this.sprite.addChild(this.box);
-	this.sprite.addChild(this.dot);
-};
-$hxClasses["jive.plaf.flat.icon.FlatRadioButtonIcon"] = jive.plaf.flat.icon.FlatRadioButtonIcon;
-jive.plaf.flat.icon.FlatRadioButtonIcon.__name__ = ["jive","plaf","flat","icon","FlatRadioButtonIcon"];
-jive.plaf.flat.icon.FlatRadioButtonIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
-jive.plaf.flat.icon.FlatRadioButtonIcon.prototype = {
-	updateIcon: function(c,g,x,y) {
-		var b;
-		if(js.Boot.__instanceof(c,org.aswing.JRadioButton)) b = c; else b = null;
-		var model = b.getModel();
-		this.box.get_graphics().clear();
-		var g1 = new org.aswing.graphics.Graphics2D(this.box.get_graphics());
-		var w = this.getIconWidth(c);
-		var h = this.getIconHeight(c);
-		var cl = c.get_background();
-		var drawDot = model.isArmed() || model.isSelected() || model.isRollOver();
-		if(b.transitBackgroundFactor < 0) cl = org.aswing.ASColor.getColorBetween(c.get_background(),c.get_mideground(),-b.transitBackgroundFactor);
-		if(!b.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.4);
-		g1.fillCircle(new org.aswing.graphics.SolidBrush(cl),w / 2,h / 2,w * 10 / 20);
-		g1.fillCircle(new org.aswing.graphics.SolidBrush(new org.aswing.ASColor(16777215)),w / 2,h / 2,w * 6 / 20);
-		this.dot.get_graphics().clear();
-		if(drawDot) {
-			g1 = new org.aswing.graphics.Graphics2D(this.dot.get_graphics());
-			g1.fillCircle(new org.aswing.graphics.SolidBrush(cl),w / 2,h / 2,w * 3 / 20);
-		}
-		this.dot.set_visible(drawDot);
-	}
-	,getIconHeight: function(c) {
-		return 20;
-	}
-	,getIconWidth: function(c) {
-		return 20;
-	}
-	,getDisplay: function(c) {
-		return this.sprite;
-	}
-	,__class__: jive.plaf.flat.icon.FlatRadioButtonIcon
-};
-jive.plaf.flat.icon.FlatSliderThumbIcon = function() {
-	this.thumb = new openfl.display.Sprite();
-};
-$hxClasses["jive.plaf.flat.icon.FlatSliderThumbIcon"] = jive.plaf.flat.icon.FlatSliderThumbIcon;
-jive.plaf.flat.icon.FlatSliderThumbIcon.__name__ = ["jive","plaf","flat","icon","FlatSliderThumbIcon"];
-jive.plaf.flat.icon.FlatSliderThumbIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
-jive.plaf.flat.icon.FlatSliderThumbIcon.prototype = {
-	getPropertyPrefix: function() {
-		return "Slider.";
-	}
-	,initThumb: function(c) {
-		var upState = new openfl.display.Shape();
-		var g = new org.aswing.graphics.Graphics2D(upState.get_graphics());
-		this.paintThumb(g,c,true,false);
-		var overState = new openfl.display.Shape();
-		g = new org.aswing.graphics.Graphics2D(overState.get_graphics());
-		this.paintThumb(g,c,true,true);
-		var downState = new openfl.display.Shape();
-		g = new org.aswing.graphics.Graphics2D(downState.get_graphics());
-		this.paintThumb(g,c,true,true,true);
-		this.enabledButton = new org.aswing.SimpleButton();
-		this.enabledButton.upState = upState;
-		this.enabledButton.overState = upState;
-		this.enabledButton.downState = downState;
-		this.enabledButton.hitTestState = upState;
-		this.enabledButton.set_useHandCursor(false);
-		this.enabledButton.show();
-		this.thumb.addChild(this.enabledButton);
-		upState = new openfl.display.Shape();
-		g = new org.aswing.graphics.Graphics2D(upState.get_graphics());
-		this.paintThumb(g,c,false,false);
-		this.disabledButton = new org.aswing.SimpleButton();
-		this.disabledButton.upState = upState;
-		this.disabledButton.overState = upState;
-		this.disabledButton.downState = upState;
-		this.disabledButton.hitTestState = upState;
-		this.disabledButton.set_useHandCursor(false);
-		this.disabledButton.show();
-		this.thumb.addChild(this.disabledButton);
-		this.disabledButton.set_visible(false);
-	}
-	,paintThumb: function(g,c,enabled,over,down) {
-		if(down == null) down = false;
-		var tune = c.getStyleTune().get_mide();
-		var cl = c.getMideground().offsetHLS(0,0.05,0);
-		if(enabled != true) cl = cl.offsetHLS(0,0.1,-0.5); else if(down) cl = cl.offsetHLS(0,-0.1,0); else if(over) cl = cl.offsetHLS(0,0.05,0);
-		var w = this.getIconWidth(null);
-		var h = this.getIconHeight(null);
-		g.fillEllipse(new org.aswing.graphics.SolidBrush(cl),0,0,w,h);
-	}
-	,updateIcon: function(c,g,x,y) {
-		if(this.enabledButton == null) this.initThumb(c);
-		this.thumb.set_x(x);
-		this.thumb.set_y(y);
-		this.disabledButton.set_visible(!c.isEnabled());
-		this.enabledButton.set_visible(c.isEnabled());
-	}
-	,getIconHeight: function(c) {
-		return 18;
-	}
-	,getIconWidth: function(c) {
-		return 18;
-	}
-	,getDisplay: function(c) {
-		return this.thumb;
-	}
-	,__class__: jive.plaf.flat.icon.FlatSliderThumbIcon
-};
-jive.plaf.flat.tabbedpane = {};
-jive.plaf.flat.tabbedpane.FlatTabBackground = function(tab) {
-	this.tab = tab;
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["jive.plaf.flat.tabbedpane.FlatTabBackground"] = jive.plaf.flat.tabbedpane.FlatTabBackground;
-jive.plaf.flat.tabbedpane.FlatTabBackground.__name__ = ["jive","plaf","flat","tabbedpane","FlatTabBackground"];
-jive.plaf.flat.tabbedpane.FlatTabBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-jive.plaf.flat.tabbedpane.FlatTabBackground.prototype = {
-	getDisplay: function(c) {
-		return this.shape;
-	}
-	,updateDecorator: function(c,g,bounds) {
-		this.shape.get_graphics().clear();
-		var button;
-		if(js.Boot.__instanceof(c,jive.plaf.flat.tabbedpane.FlatTabButton)) button = c; else button = null;
-		if(button != null && this.tab != null) {
-			bounds = bounds.clone();
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			var model = button.get_model();
-			var color = button.normalColor;
-			if(button.transitBackgroundFactor < 0) color = org.aswing.ASColor.getColorBetween(button.normalColor,button.selectedColor,-button.transitBackgroundFactor); else color = org.aswing.ASColor.getColorBetween(button.normalColor,button.rolloverColor,button.transitBackgroundFactor);
-			var placement = this.tab.getTabPlacement();
-			if(placement == 1) bounds.height += c.get_styleTune().round * 2 | 0; else if(placement == 3) {
-				bounds.height += c.get_styleTune().round * 2 | 0;
-				bounds.y -= c.get_styleTune().round * 2 | 0;
-			} else if(placement == 2) bounds.width += c.get_styleTune().round * 2 | 0; else {
-				bounds.width += c.get_styleTune().round * 2 | 0;
-				bounds.x -= c.get_styleTune().round * 2 | 0;
-			}
-			if(null != color) g.fillRoundRect(new org.aswing.graphics.SolidBrush(color),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round);
-			if(model.isSelected()) g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(button.borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,1,c.get_styleTune().round - 1);
-		}
-	}
-	,__class__: jive.plaf.flat.tabbedpane.FlatTabBackground
-};
 org.aswing.AbstractButton = function(text,icon) {
 	if(text == null) text = "";
 	this.transitBackgroundFactor = 0.0;
@@ -14800,6 +18366,1435 @@ org.aswing.JButton.prototype = $extend(org.aswing.AbstractButton.prototype,{
 	}
 	,__class__: org.aswing.JButton
 });
+jive.plaf.flat.accordion.AccordionHeaderButton = function() {
+	org.aswing.JButton.call(this);
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionHeaderButton"] = jive.plaf.flat.accordion.AccordionHeaderButton;
+jive.plaf.flat.accordion.AccordionHeaderButton.__name__ = ["jive","plaf","flat","accordion","AccordionHeaderButton"];
+jive.plaf.flat.accordion.AccordionHeaderButton.__super__ = org.aswing.JButton;
+jive.plaf.flat.accordion.AccordionHeaderButton.prototype = $extend(org.aswing.JButton.prototype,{
+	set_tabPlacement: function(v) {
+		this.tabPlacement = v;
+		this.repaint();
+		return v;
+	}
+	,set_maxPlacement: function(v) {
+		this.maxPlacement = v;
+		this.repaint();
+		return v;
+	}
+	,getUIClassID: function() {
+		return "AccordionHeaderButtonUI";
+	}
+	,__class__: jive.plaf.flat.accordion.AccordionHeaderButton
+	,__properties__: $extend(org.aswing.JButton.prototype.__properties__,{set_tabPlacement:"set_tabPlacement"})
+});
+org.aswing.plaf.UIResource = function() { };
+$hxClasses["org.aswing.plaf.UIResource"] = org.aswing.plaf.UIResource;
+org.aswing.plaf.UIResource.__name__ = ["org","aswing","plaf","UIResource"];
+org.aswing.Decorator = function() { };
+$hxClasses["org.aswing.Decorator"] = org.aswing.Decorator;
+org.aswing.Decorator.__name__ = ["org","aswing","Decorator"];
+org.aswing.Decorator.prototype = {
+	__class__: org.aswing.Decorator
+};
+org.aswing.GroundDecorator = function() { };
+$hxClasses["org.aswing.GroundDecorator"] = org.aswing.GroundDecorator;
+org.aswing.GroundDecorator.__name__ = ["org","aswing","GroundDecorator"];
+org.aswing.GroundDecorator.__interfaces__ = [org.aswing.Decorator];
+org.aswing.GroundDecorator.prototype = {
+	__class__: org.aswing.GroundDecorator
+};
+jive.plaf.flat.accordion.AccordionHeaderButtonBackground = function() {
+	this.cornerRaduis = -1;
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionHeaderButtonBackground"] = jive.plaf.flat.accordion.AccordionHeaderButtonBackground;
+jive.plaf.flat.accordion.AccordionHeaderButtonBackground.__name__ = ["jive","plaf","flat","accordion","AccordionHeaderButtonBackground"];
+jive.plaf.flat.accordion.AccordionHeaderButtonBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.accordion.AccordionHeaderButtonBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		var b;
+		if(js.Boot.__instanceof(c,jive.plaf.flat.accordion.AccordionHeaderButton)) b = c; else b = null;
+		if(b == null) return;
+		if(this.cornerRaduis <= 0) this.cornerRaduis = c.getUI().getNumber("AccordionHeaderButton.cornerRadius");
+		bounds = bounds.clone();
+		if(c.isOpaque()) {
+			var model = b.getModel();
+			var isPressing = model.isArmed() && b.isEnabled();
+			var isRollover = (model.isRollOver() || model.isSelected()) && b.isEnabled() && !isPressing;
+			var isSelected = model.isSelected();
+			var isFirst = b.tabPlacement == 0;
+			var isLast = b.tabPlacement == b.maxPlacement;
+			var topLeftRadius;
+			if(isFirst) topLeftRadius = this.cornerRaduis; else topLeftRadius = 0;
+			var topRightRadius;
+			if(isFirst) topRightRadius = this.cornerRaduis; else topRightRadius = 0;
+			var bottomLeftRadius;
+			if(isLast && !isSelected) bottomLeftRadius = this.cornerRaduis; else bottomLeftRadius = 0;
+			var bottomRightRadius;
+			if(isLast && !isSelected) bottomRightRadius = this.cornerRaduis; else bottomRightRadius = 0;
+			var color;
+			if(isPressing && !isSelected) color = c.get_background().offsetHLS(0,-0.1,0); else if(isRollover && !isSelected) color = c.get_background().offsetHLS(0,0.1,0); else color = c.get_background();
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(color),bounds.x,bounds.y,bounds.width,bounds.height,topLeftRadius,topRightRadius,bottomLeftRadius,bottomRightRadius);
+		}
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.accordion.AccordionHeaderButtonBackground
+};
+jive.plaf.flat.accordion.AccordionHeaderButtonUI = function() {
+	org.aswing.plaf.basic.BasicButtonUI.call(this);
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionHeaderButtonUI"] = jive.plaf.flat.accordion.AccordionHeaderButtonUI;
+jive.plaf.flat.accordion.AccordionHeaderButtonUI.__name__ = ["jive","plaf","flat","accordion","AccordionHeaderButtonUI"];
+jive.plaf.flat.accordion.AccordionHeaderButtonUI.__super__ = org.aswing.plaf.basic.BasicButtonUI;
+jive.plaf.flat.accordion.AccordionHeaderButtonUI.prototype = $extend(org.aswing.plaf.basic.BasicButtonUI.prototype,{
+	getPropertyPrefix: function() {
+		return "AccordionHeaderButton.";
+	}
+	,paintIcon: function(b,g,iconRect) {
+		if(b.isSelected()) iconRect.y += 2;
+		org.aswing.plaf.basic.BasicButtonUI.prototype.paintIcon.call(this,b,g,iconRect);
+	}
+	,__class__: jive.plaf.flat.accordion.AccordionHeaderButtonUI
+});
+jive.plaf.flat.accordion.AccordionItemBackground = function() {
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionItemBackground"] = jive.plaf.flat.accordion.AccordionItemBackground;
+jive.plaf.flat.accordion.AccordionItemBackground.__name__ = ["jive","plaf","flat","accordion","AccordionItemBackground"];
+jive.plaf.flat.accordion.AccordionItemBackground.__interfaces__ = [org.aswing.GroundDecorator];
+jive.plaf.flat.accordion.AccordionItemBackground.prototype = {
+	updateDecorator: function(c,g,b) {
+		g.clear();
+		g.fillRectangle(new org.aswing.graphics.SolidBrush(new org.aswing.ASColor(16448250)),b.x - c.getInsets().left,b.y - c.getInsets().top,b.width + c.getInsets().getMarginWidth(),b.height + c.getInsets().getMarginHeight());
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.accordion.AccordionItemBackground
+};
+org.aswing.Border = function() { };
+$hxClasses["org.aswing.Border"] = org.aswing.Border;
+org.aswing.Border.__name__ = ["org","aswing","Border"];
+org.aswing.Border.__interfaces__ = [org.aswing.Decorator];
+org.aswing.Border.prototype = {
+	__class__: org.aswing.Border
+};
+org.aswing.border = {};
+org.aswing.border.DecorateBorder = function(interior) {
+	this.interior = interior;
+};
+$hxClasses["org.aswing.border.DecorateBorder"] = org.aswing.border.DecorateBorder;
+org.aswing.border.DecorateBorder.__name__ = ["org","aswing","border","DecorateBorder"];
+org.aswing.border.DecorateBorder.__interfaces__ = [org.aswing.Border];
+org.aswing.border.DecorateBorder.prototype = {
+	setInterior: function(interior) {
+		this.interior = interior;
+	}
+	,getInterior: function() {
+		return this.interior;
+	}
+	,getDisplayImp: function() {
+		return null;
+	}
+	,updateBorderImp: function(com,g,bounds) {
+		throw new org.aswing.error.ImpMissError();
+	}
+	,getBorderInsetsImp: function(c,bounds) {
+		throw new org.aswing.error.ImpMissError();
+		return new org.aswing.Insets();
+	}
+	,getDisplay: function(c) {
+		var inter = this.getInterior();
+		if(inter != null) {
+			var interDis = inter.getDisplay(c);
+			var selfDis = this.getDisplayImp();
+			if(interDis == null) return selfDis; else if(selfDis == null) return interDis; else {
+				if(this.disContainer == null) {
+					this.disContainer = new openfl.display.Sprite();
+					this.disContainer.addChild(selfDis);
+					this.disContainer.addChild(interDis);
+				}
+				return this.disContainer;
+			}
+		} else return this.getDisplayImp();
+	}
+	,updateBorder: function(c,g,bounds) {
+		this.updateBorderImp(c,g,bounds);
+		if(this.getInterior() != null) {
+			var interiorBounds = this.getBorderInsetsImp(c,bounds).getInsideBounds(bounds);
+			this.getInterior().updateBorder(c,g,interiorBounds);
+		}
+	}
+	,getBorderInsets: function(c,bounds) {
+		var insets = this.getBorderInsetsImp(c,bounds);
+		if(this.getInterior() != null) {
+			var interiorBounds = insets.getInsideBounds(bounds);
+			insets.addInsets(this.getInterior().getBorderInsets(c,interiorBounds));
+		}
+		return insets;
+	}
+	,__class__: org.aswing.border.DecorateBorder
+};
+jive.plaf.flat.accordion.AccordionItemBorder = function(interior,color,thickness,radius) {
+	if(radius == null) radius = 5;
+	if(thickness == null) thickness = 1;
+	org.aswing.border.DecorateBorder.call(this,interior);
+	if(color == null) color = org.aswing.ASColor.BLACK;
+	this.color = color;
+	this.thickness = thickness;
+	this.radius = radius;
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionItemBorder"] = jive.plaf.flat.accordion.AccordionItemBorder;
+jive.plaf.flat.accordion.AccordionItemBorder.__name__ = ["jive","plaf","flat","accordion","AccordionItemBorder"];
+jive.plaf.flat.accordion.AccordionItemBorder.__super__ = org.aswing.border.DecorateBorder;
+jive.plaf.flat.accordion.AccordionItemBorder.prototype = $extend(org.aswing.border.DecorateBorder.prototype,{
+	updateBorderImp: function(com,g,b) {
+		var accordion = org.aswing.AsWingUtils["as"](com.parent,org.aswing.JAccordion);
+		if(null == accordion) return;
+		var itemIndex = accordion.getIndex(com);
+		var isLast = itemIndex == accordion.getComponentCount() - 1;
+		var isSelected = itemIndex == accordion.getSelectedIndex();
+		var topLeftRadius = 0;
+		var topRightRadius = 0;
+		var bottomLeftRadius;
+		if(isLast && isSelected) bottomLeftRadius = this.radius; else bottomLeftRadius = 0;
+		var bottomRightRadius;
+		if(isLast && isSelected) bottomRightRadius = this.radius; else bottomRightRadius = 0;
+		g.beginFill(new org.aswing.graphics.SolidBrush(this.color));
+		g.roundRect(b.x,b.y,b.width,b.height,topLeftRadius,topRightRadius,bottomLeftRadius,bottomRightRadius);
+		var innerTopLeftRadius = topLeftRadius - this.thickness;
+		var innerTopRightRadius = topRightRadius - this.thickness;
+		var innerBottomLeftRadius = bottomLeftRadius - this.thickness;
+		var innerBottomRightRadius = bottomRightRadius - this.thickness;
+		g.roundRect(b.x + this.thickness,b.y + this.thickness,b.width - this.thickness * 2,b.height - this.thickness * 2,innerTopLeftRadius,innerTopRightRadius,innerBottomLeftRadius,innerBottomRightRadius);
+		g.endFill();
+	}
+	,getBorderInsetsImp: function(com,bounds) {
+		var width = Std["int"](Math.ceil(this.thickness + this.radius - this.radius * 0.707106781186547));
+		return new org.aswing.Insets(width,width,width,width);
+	}
+	,getDisplayImp: function() {
+		return null;
+	}
+	,__class__: jive.plaf.flat.accordion.AccordionItemBorder
+});
+jive.plaf.flat.accordion.AccordionItemContainer = function() {
+	org.aswing.JPanel.call(this);
+	this.setLayout(new org.aswing.BorderLayout());
+	this.set_backgroundDecorator(new jive.plaf.flat.accordion.AccordionItemBackground());
+	this.set_border(new jive.plaf.flat.accordion.AccordionItemBorder(new org.aswing.border.EmptyBorder(null,new org.aswing.Insets(15,15,15,15)),new org.aswing.ASColor(12303291),1,5));
+};
+$hxClasses["jive.plaf.flat.accordion.AccordionItemContainer"] = jive.plaf.flat.accordion.AccordionItemContainer;
+jive.plaf.flat.accordion.AccordionItemContainer.__name__ = ["jive","plaf","flat","accordion","AccordionItemContainer"];
+jive.plaf.flat.accordion.AccordionItemContainer.__super__ = org.aswing.JPanel;
+jive.plaf.flat.accordion.AccordionItemContainer.prototype = $extend(org.aswing.JPanel.prototype,{
+	__class__: jive.plaf.flat.accordion.AccordionItemContainer
+});
+jive.plaf.flat.adjuster = {};
+jive.plaf.flat.adjuster.AdjusterBackground = function() {
+};
+$hxClasses["jive.plaf.flat.adjuster.AdjusterBackground"] = jive.plaf.flat.adjuster.AdjusterBackground;
+jive.plaf.flat.adjuster.AdjusterBackground.__name__ = ["jive","plaf","flat","adjuster","AdjusterBackground"];
+jive.plaf.flat.adjuster.AdjusterBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.adjuster.AdjusterBackground.prototype = {
+	updateDecorator: function(c,g,b) {
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.adjuster.AdjusterBackground
+};
+jive.plaf.flat.adjuster.AdjusterBorder = function() {
+};
+$hxClasses["jive.plaf.flat.adjuster.AdjusterBorder"] = jive.plaf.flat.adjuster.AdjusterBorder;
+jive.plaf.flat.adjuster.AdjusterBorder.__name__ = ["jive","plaf","flat","adjuster","AdjusterBorder"];
+jive.plaf.flat.adjuster.AdjusterBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
+jive.plaf.flat.adjuster.AdjusterBorder.prototype = {
+	updateBorder: function(c,g,r) {
+		g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(c.get_background().offsetHLS(0,-0.2,-0.2)),r.x,r.y,r.width,r.height,5,1);
+	}
+	,getBorderInsets: function(com,bounds) {
+		return new org.aswing.Insets(2,1,2,1);
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.adjuster.AdjusterBorder
+};
+jive.plaf.flat.adjuster.MinusButtonBackground = function(normalBg,rolloverBg,pressedBg,cornerRadius) {
+	this.normalBg = normalBg;
+	this.rolloverBg = rolloverBg;
+	this.pressedBg = pressedBg;
+	this.cornerRadius = cornerRadius;
+};
+$hxClasses["jive.plaf.flat.adjuster.MinusButtonBackground"] = jive.plaf.flat.adjuster.MinusButtonBackground;
+jive.plaf.flat.adjuster.MinusButtonBackground.__name__ = ["jive","plaf","flat","adjuster","MinusButtonBackground"];
+jive.plaf.flat.adjuster.MinusButtonBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.adjuster.MinusButtonBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		var b = c;
+		var model = b.getModel();
+		var isPressing = model.isArmed() && b.isEnabled();
+		var isRollover = (model.isRollOver() || model.isSelected()) && b.isEnabled() && !isPressing;
+		var color;
+		if(isPressing) color = this.pressedBg; else if(isRollover) color = this.rolloverBg; else color = this.normalBg;
+		g.beginFill(new org.aswing.graphics.SolidBrush(color));
+		g.moveTo(bounds.x,bounds.y);
+		g.lineTo(bounds.x + bounds.width,bounds.y);
+		g.lineTo(bounds.x + bounds.width,bounds.y + bounds.height - this.cornerRadius);
+		g.curveTo(bounds.x + bounds.width,bounds.y + bounds.height,bounds.x + bounds.width - this.cornerRadius,bounds.y + bounds.height);
+		g.lineTo(bounds.x,bounds.y + bounds.height);
+		g.lineTo(bounds.x,bounds.y);
+		g.endFill();
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.adjuster.MinusButtonBackground
+};
+jive.plaf.flat.adjuster.PlusButtonBackground = function(normalBg,rolloverBg,pressedBg,cornerRadius) {
+	this.normalBg = normalBg;
+	this.rolloverBg = rolloverBg;
+	this.pressedBg = pressedBg;
+	this.cornerRadius = cornerRadius;
+};
+$hxClasses["jive.plaf.flat.adjuster.PlusButtonBackground"] = jive.plaf.flat.adjuster.PlusButtonBackground;
+jive.plaf.flat.adjuster.PlusButtonBackground.__name__ = ["jive","plaf","flat","adjuster","PlusButtonBackground"];
+jive.plaf.flat.adjuster.PlusButtonBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.adjuster.PlusButtonBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		var b = c;
+		var model = b.getModel();
+		var isPressing = model.isArmed() && b.isEnabled();
+		var isRollover = (model.isRollOver() || model.isSelected()) && b.isEnabled() && !isPressing;
+		var color;
+		if(isPressing) color = this.pressedBg; else if(isRollover) color = this.rolloverBg; else color = this.normalBg;
+		g.beginFill(new org.aswing.graphics.SolidBrush(color));
+		g.moveTo(bounds.x,bounds.y);
+		g.lineTo(bounds.x + bounds.width - this.cornerRadius,bounds.y);
+		g.curveTo(bounds.x + bounds.width,bounds.y,bounds.x + bounds.width,bounds.y + this.cornerRadius);
+		g.lineTo(bounds.x + bounds.width,bounds.y + bounds.height);
+		g.lineTo(bounds.x,bounds.y + bounds.height);
+		g.lineTo(bounds.x,bounds.y);
+		g.endFill();
+	}
+	,getDisplay: function(c) {
+		return null;
+	}
+	,__class__: jive.plaf.flat.adjuster.PlusButtonBackground
+};
+jive.plaf.flat.background = {};
+jive.plaf.flat.background.FlatButtonBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatButtonBackground"] = jive.plaf.flat.background.FlatButtonBackground;
+jive.plaf.flat.background.FlatButtonBackground.__name__ = ["jive","plaf","flat","background","FlatButtonBackground"];
+jive.plaf.flat.background.FlatButtonBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatButtonBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		var b;
+		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) b = c; else b = null;
+		if(b == null) return;
+		this.shape.get_graphics().clear();
+		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		bounds = bounds.clone();
+		var color = c.get_background();
+		if(js.Boot.__instanceof(b,org.aswing.JButton)) {
+			var _b;
+			if(js.Boot.__instanceof(b,org.aswing.JButton)) _b = b; else _b = null;
+			if(_b.isDefaultButton()) color = c.get_mideground();
+		}
+		if(c.get_opaque()) {
+			if(Math.abs(b.transitBackgroundFactor) < 1) {
+				var factor = b.transitBackgroundFactor * jive.plaf.flat.background.FlatButtonBackground.luminanceFactor;
+				color = color.offsetHLS(0,factor,0);
+			} else {
+				var model = b.get_model();
+				var isPressing = model.isArmed() || model.isSelected();
+				if(isPressing) color = color.offsetHLS(0,-jive.plaf.flat.background.FlatButtonBackground.luminanceFactor,0); else if(b.get_model().isRollOver()) color = color.offsetHLS(0,jive.plaf.flat.background.FlatButtonBackground.luminanceFactor,0);
+			}
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(color),bounds.x,bounds.y,bounds.width,bounds.height,b.get_styleTune().round);
+		}
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.background.FlatButtonBackground
+};
+jive.plaf.flat.background.FlatFrameBackground = function() {
+	this.shape = new openfl.display.Sprite();
+	this.shape.mouseChildren = false;
+	this.shape.mouseEnabled = false;
+};
+$hxClasses["jive.plaf.flat.background.FlatFrameBackground"] = jive.plaf.flat.background.FlatFrameBackground;
+jive.plaf.flat.background.FlatFrameBackground.__name__ = ["jive","plaf","flat","background","FlatFrameBackground"];
+jive.plaf.flat.background.FlatFrameBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatFrameBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		if(c.isOpaque()) {
+			var shadowW = 6;
+			var shadowH = 6;
+			var shadowScale = 1;
+			b = new org.aswing.geom.IntRectangle(1,2,Std["int"](c.getWidth() - shadowW - 1),Std["int"](c.getHeight() - shadowH - 2));
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			var ui = org.aswing.AsWingUtils["as"](c.getUI(),org.aswing.plaf.FrameUI);
+			if(ui != null) {
+				if(!ui.isPaintActivedFrame()) shadowScale = 0.5;
+			}
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
+			var shape_f = new Array();
+			shape_f.push(new openfl.filters.DropShadowFilter(2,45,0,c.get_styleTune().shadowAlpha * shadowScale,shadowW,shadowH,1,1));
+			this.shape.set_filters(shape_f);
+		}
+		this.shape.set_visible(c.isOpaque());
+	}
+	,__class__: jive.plaf.flat.background.FlatFrameBackground
+};
+jive.plaf.flat.background.FlatInputBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatInputBackground"] = jive.plaf.flat.background.FlatInputBackground;
+jive.plaf.flat.background.FlatInputBackground.__name__ = ["jive","plaf","flat","background","FlatInputBackground"];
+jive.plaf.flat.background.FlatInputBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatInputBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		this.shape.set_visible(c.get_opaque());
+		if(c.get_opaque()) {
+			this.shape.get_graphics().clear();
+			var cb;
+			if(js.Boot.__instanceof(c,org.aswing.JComboBox)) cb = c; else cb = null;
+			if(null == cb) return;
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			bounds = c.get_border().getBorderInsets(null,null).getOutsideBounds(bounds);
+			var bgColor = c.get_background();
+			if(!cb.get_editable() && cb.get_enabled()) bgColor = cb.get_notEditableBackground();
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(bgColor),bounds.x + 1,bounds.y + 1,bounds.width - 2,bounds.height - 2,c.get_styleTune().round);
+			var borderColor = c.get_mideground();
+			if(!c.get_enabled()) borderColor = borderColor.offsetHLS(0,0.2,0); else if(!cb.get_editable()) borderColor = cb.get_notEditableBackground(); else borderColor = org.aswing.ASColor.getColorBetween(borderColor,org.aswing.UIManager.getColor("focusForeground"),cb.transitFocusFactor);
+			g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,1.5,c.get_styleTune().round - 1);
+		}
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.background.FlatInputBackground
+};
+jive.plaf.flat.background.FlatPanelBackground = function() {
+};
+$hxClasses["jive.plaf.flat.background.FlatPanelBackground"] = jive.plaf.flat.background.FlatPanelBackground;
+jive.plaf.flat.background.FlatPanelBackground.__name__ = ["jive","plaf","flat","background","FlatPanelBackground"];
+jive.plaf.flat.background.FlatPanelBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatPanelBackground.prototype = {
+	getDisplay: function(c) {
+		return null;
+	}
+	,updateDecorator: function(c,g,b) {
+		if(c.isOpaque()) g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground()),b.x,b.y,b.width,b.height,10);
+	}
+	,__class__: jive.plaf.flat.background.FlatPanelBackground
+};
+jive.plaf.flat.background.FlatProgressBarBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatProgressBarBackground"] = jive.plaf.flat.background.FlatProgressBarBackground;
+jive.plaf.flat.background.FlatProgressBarBackground.__name__ = ["jive","plaf","flat","background","FlatProgressBarBackground"];
+jive.plaf.flat.background.FlatProgressBarBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatProgressBarBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		if(js.Boot.__instanceof(c,org.aswing.Orientable) && c.isOpaque()) {
+			var bar;
+			if(js.Boot.__instanceof(c,org.aswing.Orientable)) bar = c; else bar = null;
+			var verticle = bar.getOrientation() == 1;
+			this.shape.get_graphics().clear();
+			var style = c.getStyleTune();
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			b = b.clone();
+			var radius = 0;
+			if(verticle) radius = Math.floor(b.width / 2); else radius = Math.floor(b.height / 2);
+			if(radius > style.round) radius = style.round;
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground().changeAlpha(1)),b.x,b.y,b.width,b.height,radius);
+			this.shape.set_alpha(c.getBackground().getAlpha());
+		}
+	}
+	,__class__: jive.plaf.flat.background.FlatProgressBarBackground
+};
+jive.plaf.flat.background.FlatProgressBarIcon = function() {
+	this.shape = new openfl.display.Shape();
+	this.indeterminatePercent = 0;
+};
+$hxClasses["jive.plaf.flat.background.FlatProgressBarIcon"] = jive.plaf.flat.background.FlatProgressBarIcon;
+jive.plaf.flat.background.FlatProgressBarIcon.__name__ = ["jive","plaf","flat","background","FlatProgressBarIcon"];
+jive.plaf.flat.background.FlatProgressBarIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatProgressBarIcon.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		if(js.Boot.__instanceof(c,org.aswing.JProgressBar)) {
+			var bar;
+			if(js.Boot.__instanceof(c,org.aswing.JProgressBar)) bar = c; else bar = null;
+			b = b.clone();
+			var percent;
+			if(bar.isIndeterminate()) {
+				percent = this.indeterminatePercent;
+				this.indeterminatePercent += 0.01;
+				if(this.indeterminatePercent > 1) this.indeterminatePercent = 0;
+			} else percent = bar.getPercentComplete();
+			var verticle = bar.getOrientation() == 1;
+			this.shape.get_graphics().clear();
+			var style = c.getStyleTune().get_mide();
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			var radius = 0;
+			if(verticle) {
+				radius = Math.floor(b.width / 2);
+				b.height = b.height * percent | 0;
+			} else {
+				radius = Math.floor(b.height / 2);
+				b.width = b.width * percent | 0;
+			}
+			if(radius > style.round) radius = style.round;
+			if(b.width > 1) g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_mideground()),b.x,b.y,b.width,b.height,radius);
+		}
+	}
+	,__class__: jive.plaf.flat.background.FlatProgressBarIcon
+};
+jive.plaf.flat.background.FlatScrollBarBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatScrollBarBackground"] = jive.plaf.flat.background.FlatScrollBarBackground;
+jive.plaf.flat.background.FlatScrollBarBackground.__name__ = ["jive","plaf","flat","background","FlatScrollBarBackground"];
+jive.plaf.flat.background.FlatScrollBarBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatScrollBarBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		if(js.Boot.__instanceof(c,org.aswing.Orientable) && c.isOpaque()) {
+			var bar;
+			if(js.Boot.__instanceof(c,org.aswing.Orientable)) bar = c; else bar = null;
+			var verticle = bar.getOrientation() == 1;
+			this.shape.get_graphics().clear();
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			b = b.clone();
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
+		}
+	}
+	,__class__: jive.plaf.flat.background.FlatScrollBarBackground
+};
+org.aswing.plaf.basic.background = {};
+org.aswing.plaf.basic.background.ScrollBarThumb = function() {
+	this.thumb = new org.aswing.AWSprite();
+	this.rollover = false;
+	this.pressed = false;
+	this.initSelfHandlers();
+};
+$hxClasses["org.aswing.plaf.basic.background.ScrollBarThumb"] = org.aswing.plaf.basic.background.ScrollBarThumb;
+org.aswing.plaf.basic.background.ScrollBarThumb.__name__ = ["org","aswing","plaf","basic","background","ScrollBarThumb"];
+org.aswing.plaf.basic.background.ScrollBarThumb.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+org.aswing.plaf.basic.background.ScrollBarThumb.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		this.thumb.set_x(bounds.x);
+		this.thumb.set_y(bounds.y);
+		this.size = bounds.getSize();
+		if(js.Boot.__instanceof(c,org.aswing.JScrollBar)) this.bar = c; else this.bar = null;
+		this.verticle = this.bar.getOrientation() == 1;
+		this.paint();
+	}
+	,paint: function() {
+		var x = 0;
+		var y = 0;
+		var w = this.size.width;
+		var h = this.size.height;
+		this.thumb.get_graphics().clear();
+		var g = new org.aswing.graphics.Graphics2D(this.thumb.get_graphics());
+		var b;
+		var direction;
+		var notchSize;
+		if(this.verticle) {
+			direction = Math.PI / 2;
+			notchSize = w - 6 | 0;
+		} else {
+			direction = 0;
+			notchSize = h - 6 | 0;
+		}
+		b = new org.aswing.geom.IntRectangle(x | 0,y | 0,w | 0,h | 0);
+		var tune = this.bar.getStyleTune().get_mide();
+		var style;
+		var cl = this.bar.getMideground().changeAlpha(1);
+		if(!this.bar.isEnabled()) {
+			cl = cl.offsetHLS(0,-0.06,-0.03);
+			tune = tune.sharpen(0.4);
+		} else if(this.pressed) tune = tune.sharpen(0.8); else if(this.rollover) cl = cl.offsetHLS(0,0.06,0);
+		style = new org.aswing.StyleResult(cl,tune);
+		org.aswing.plaf.basic.BasicGraphicsUtils.fillGradientRoundRect(g,b,style,direction);
+		org.aswing.plaf.basic.BasicGraphicsUtils.drawGradientRoundRectLine(g,b,1,style,direction);
+		b = b.clone();
+		b.grow(-1,-1);
+		var innerStyle = new org.aswing.StyleResult(cl,tune);
+		innerStyle.bdark = innerStyle.cdark.offsetHLS(0,0.06,0);
+		innerStyle.blight = innerStyle.clight.offsetHLS(0,0.06,0);
+		org.aswing.plaf.basic.BasicGraphicsUtils.drawGradientRoundRectLine(g,b,1,innerStyle,direction);
+		var snotchX = 0;
+		var snotchY = 0;
+		var lightPen = new org.aswing.graphics.Pen(innerStyle.blight,1,true,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE);
+		var darkPen = new org.aswing.graphics.Pen(style.blight,1,true,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE);
+		if(this.verticle) {
+			snotchX = x + 3 | 0;
+			snotchY = y + h / 2 - 3 | 0;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+			snotchY += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+			snotchY += 1;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+			snotchY += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+			snotchY += 1;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+			snotchY += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX + notchSize,snotchY);
+		} else {
+			snotchX = x + w / 2 - 3 | 0;
+			snotchY = y + 3 | 0;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+			snotchX += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+			snotchX += 1;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+			snotchX += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+			snotchX += 1;
+			g.drawLine(lightPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+			snotchX += 1;
+			g.drawLine(darkPen,snotchX,snotchY,snotchX,snotchY + notchSize);
+		}
+		this.thumb.set_alpha(this.bar.getMideground().getAlpha());
+	}
+	,getDisplay: function(c) {
+		return this.thumb;
+	}
+	,initSelfHandlers: function() {
+		this.thumb.addEventListener(openfl.events.MouseEvent.ROLL_OUT,$bind(this,this.__rollOutListener));
+		this.thumb.addEventListener(openfl.events.MouseEvent.ROLL_OVER,$bind(this,this.__rollOverListener));
+		this.thumb.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__mouseDownListener));
+		this.thumb.addEventListener("release",$bind(this,this.__mouseUpListener));
+	}
+	,__rollOverListener: function(e) {
+		this.rollover = true;
+		this.paint();
+	}
+	,__rollOutListener: function(e) {
+		this.rollover = false;
+		if(this.pressed != true) this.paint();
+	}
+	,__mouseDownListener: function(e) {
+		this.pressed = true;
+		this.paint();
+	}
+	,__mouseUpListener: function(e) {
+		if(this.pressed) {
+			this.pressed = false;
+			this.paint();
+		}
+	}
+	,__class__: org.aswing.plaf.basic.background.ScrollBarThumb
+};
+jive.plaf.flat.background.FlatScrollBarThumb = function() {
+	org.aswing.plaf.basic.background.ScrollBarThumb.call(this);
+};
+$hxClasses["jive.plaf.flat.background.FlatScrollBarThumb"] = jive.plaf.flat.background.FlatScrollBarThumb;
+jive.plaf.flat.background.FlatScrollBarThumb.__name__ = ["jive","plaf","flat","background","FlatScrollBarThumb"];
+jive.plaf.flat.background.FlatScrollBarThumb.__super__ = org.aswing.plaf.basic.background.ScrollBarThumb;
+jive.plaf.flat.background.FlatScrollBarThumb.prototype = $extend(org.aswing.plaf.basic.background.ScrollBarThumb.prototype,{
+	paint: function() {
+		this.thumb.get_graphics().clear();
+		var g = new org.aswing.graphics.Graphics2D(this.thumb.get_graphics());
+		var cl = this.bar.get_mideground();
+		if(!this.bar.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.03); else if(this.rollover) cl = cl.offsetHLS(0,-0.2,0);
+		g.fillRoundRect(new org.aswing.graphics.SolidBrush(cl),this.verticle?2:0,this.verticle?0:2,this.verticle?this.size.width - 4:this.size.width,this.verticle?this.size.height:this.size.height - 4,(Math.min(this.size.width,this.size.height) - 4) / 2);
+	}
+	,__class__: jive.plaf.flat.background.FlatScrollBarThumb
+});
+org.aswing.plaf.basic.background.TableBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["org.aswing.plaf.basic.background.TableBackground"] = org.aswing.plaf.basic.background.TableBackground;
+org.aswing.plaf.basic.background.TableBackground.__name__ = ["org","aswing","plaf","basic","background","TableBackground"];
+org.aswing.plaf.basic.background.TableBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+org.aswing.plaf.basic.background.TableBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		if(c.isOpaque()) {
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			var tune = c.getStyleTune().get_mide();
+			var cl = c.getMideground();
+			var style = new org.aswing.StyleResult(cl,tune);
+			b = b.clone();
+			style.cdark = style.cdark.changeAlpha(1);
+			style.clight = style.clight.changeAlpha(1);
+			org.aswing.plaf.basic.BasicGraphicsUtils.fillGradientRoundRect(g,b,style,-Math.PI / 2);
+			var bd = style.bdark;
+			var f = new Array();
+			f.push(new openfl.filters.GlowFilter(16777215,0.5,2,2,20,1,true));
+			f.push(new openfl.filters.GlowFilter(bd.getRGB(),1,2,2,20,1));
+			this.shape.set_filters(f);
+			this.shape.set_alpha(cl.getAlpha());
+		}
+		this.shape.set_visible(c.isOpaque());
+	}
+	,__class__: org.aswing.plaf.basic.background.TableBackground
+};
+jive.plaf.flat.background.FlatTableBackground = function() {
+	org.aswing.plaf.basic.background.TableBackground.call(this);
+};
+$hxClasses["jive.plaf.flat.background.FlatTableBackground"] = jive.plaf.flat.background.FlatTableBackground;
+jive.plaf.flat.background.FlatTableBackground.__name__ = ["jive","plaf","flat","background","FlatTableBackground"];
+jive.plaf.flat.background.FlatTableBackground.__super__ = org.aswing.plaf.basic.background.TableBackground;
+jive.plaf.flat.background.FlatTableBackground.prototype = $extend(org.aswing.plaf.basic.background.TableBackground.prototype,{
+	updateDecorator: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		if(c.isOpaque()) {
+		}
+		this.shape.set_visible(c.isOpaque());
+	}
+	,__class__: jive.plaf.flat.background.FlatTableBackground
+});
+jive.plaf.flat.background.FlatTableHeaderBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatTableHeaderBackground"] = jive.plaf.flat.background.FlatTableHeaderBackground;
+jive.plaf.flat.background.FlatTableHeaderBackground.__name__ = ["jive","plaf","flat","background","FlatTableHeaderBackground"];
+jive.plaf.flat.background.FlatTableHeaderBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatTableHeaderBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		if(c.isOpaque()) {
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			g.drawLine(new org.aswing.graphics.Pen(c.get_mideground()),b.x,b.y + b.height - 1,b.x + b.width,b.y + b.height - 1);
+		}
+		this.shape.set_visible(c.isOpaque());
+	}
+	,__class__: jive.plaf.flat.background.FlatTableHeaderBackground
+};
+jive.plaf.flat.background.FlatTextComponentBackground = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.background.FlatTextComponentBackground"] = jive.plaf.flat.background.FlatTextComponentBackground;
+jive.plaf.flat.background.FlatTextComponentBackground.__name__ = ["jive","plaf","flat","background","FlatTextComponentBackground"];
+jive.plaf.flat.background.FlatTextComponentBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.background.FlatTextComponentBackground.prototype = {
+	updateDecorator: function(c,g,bounds) {
+		this.shape.set_visible(c.get_opaque());
+		if(c.get_opaque()) {
+			this.shape.get_graphics().clear();
+			var textComponent;
+			if(js.Boot.__instanceof(c,org.aswing.JTextComponent)) textComponent = c; else textComponent = null;
+			if(null == textComponent) return;
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			bounds = c.get_border().getBorderInsets(null,null).getOutsideBounds(bounds);
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),bounds.x + 1,bounds.y + 1,bounds.width - 2,bounds.height - 2,c.get_styleTune().round);
+			var borderColor = c.get_mideground();
+			if(!c.get_enabled() || !textComponent.get_editable()) borderColor = borderColor.offsetHLS(0,0.2,0); else borderColor = org.aswing.ASColor.getColorBetween(borderColor,org.aswing.UIManager.getColor("focusForeground"),textComponent.transitFocusFactor);
+			g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,2,c.get_styleTune().round - 1);
+		}
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.background.FlatTextComponentBackground
+};
+jive.plaf.flat.border = {};
+jive.plaf.flat.border.ExtendedLineBorder = function(interior,color,thickness,topLeftRadius,topRightRadius,bottomRightRadius,bottomLeftRadius) {
+	if(bottomLeftRadius == null) bottomLeftRadius = 0;
+	if(bottomRightRadius == null) bottomRightRadius = 0;
+	if(topRightRadius == null) topRightRadius = 0;
+	if(topLeftRadius == null) topLeftRadius = 0;
+	if(thickness == null) thickness = 1;
+	org.aswing.border.DecorateBorder.call(this,interior);
+	if(color == null) color = org.aswing.ASColor.BLACK;
+	this.color = color;
+	this.thickness = thickness;
+	this.topLeftRadius = topLeftRadius;
+	this.topRightRadius = topRightRadius;
+	this.bottomLeftRadius = bottomLeftRadius;
+	this.bottomRightRadius = bottomRightRadius;
+};
+$hxClasses["jive.plaf.flat.border.ExtendedLineBorder"] = jive.plaf.flat.border.ExtendedLineBorder;
+jive.plaf.flat.border.ExtendedLineBorder.__name__ = ["jive","plaf","flat","border","ExtendedLineBorder"];
+jive.plaf.flat.border.ExtendedLineBorder.__super__ = org.aswing.border.DecorateBorder;
+jive.plaf.flat.border.ExtendedLineBorder.prototype = $extend(org.aswing.border.DecorateBorder.prototype,{
+	updateBorderImp: function(com,g,b) {
+		g.beginFill(new org.aswing.graphics.SolidBrush(this.color));
+		g.roundRect(b.x,b.y,b.width,b.height,this.topLeftRadius,this.topRightRadius,this.bottomLeftRadius,this.bottomRightRadius);
+		var innerTopLeftRadius = this.topLeftRadius - this.thickness;
+		var innerTopRightRadius = this.topRightRadius - this.thickness;
+		var innerBottomLeftRadius = this.bottomLeftRadius - this.thickness;
+		var innerBottomRightRadius = this.bottomRightRadius - this.thickness;
+		g.roundRect(b.x + this.thickness,b.y + this.thickness,b.width - this.thickness * 2,b.height - this.thickness * 2,innerTopLeftRadius,innerTopRightRadius,innerBottomLeftRadius,innerBottomRightRadius);
+		g.endFill();
+	}
+	,getBorderInsetsImp: function(com,bounds) {
+		var width = Std["int"](Math.ceil(this.thickness + this.topLeftRadius - this.topLeftRadius * 0.707106781186547));
+		return new org.aswing.Insets(width,width,width,width);
+	}
+	,getDisplayImp: function() {
+		return null;
+	}
+	,__class__: jive.plaf.flat.border.ExtendedLineBorder
+});
+jive.plaf.flat.border.FlatComboBoxPopupBorder = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.border.FlatComboBoxPopupBorder"] = jive.plaf.flat.border.FlatComboBoxPopupBorder;
+jive.plaf.flat.border.FlatComboBoxPopupBorder.__name__ = ["jive","plaf","flat","border","FlatComboBoxPopupBorder"];
+jive.plaf.flat.border.FlatComboBoxPopupBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
+jive.plaf.flat.border.FlatComboBoxPopupBorder.prototype = {
+	updateBorder: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		b = b.clone();
+		b.y += 10;
+		b.height -= 10;
+		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.get_background()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
+	}
+	,getBorderInsets: function(c,b) {
+		return new org.aswing.Insets(10,0,0,0);
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.border.FlatComboBoxPopupBorder
+};
+jive.plaf.flat.border.FlatPopupMenuBorder = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.border.FlatPopupMenuBorder"] = jive.plaf.flat.border.FlatPopupMenuBorder;
+jive.plaf.flat.border.FlatPopupMenuBorder.__name__ = ["jive","plaf","flat","border","FlatPopupMenuBorder"];
+jive.plaf.flat.border.FlatPopupMenuBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
+jive.plaf.flat.border.FlatPopupMenuBorder.prototype = {
+	updateBorder: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		if(c.isOpaque()) {
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			g.fillRoundRect(new org.aswing.graphics.SolidBrush(c.getBackground()),b.x,b.y,b.width,b.height,c.get_styleTune().round);
+		}
+		this.shape.set_visible(c.isOpaque());
+	}
+	,getBorderInsets: function(com,bounds) {
+		return new org.aswing.Insets(3,3,3,3);
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.border.FlatPopupMenuBorder
+};
+jive.plaf.flat.border.TableHeaderCellBorder = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.border.TableHeaderCellBorder"] = jive.plaf.flat.border.TableHeaderCellBorder;
+jive.plaf.flat.border.TableHeaderCellBorder.__name__ = ["jive","plaf","flat","border","TableHeaderCellBorder"];
+jive.plaf.flat.border.TableHeaderCellBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
+jive.plaf.flat.border.TableHeaderCellBorder.prototype = {
+	updateBorder: function(c,g,b) {
+		b = b.clone();
+		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) haxe.Log.trace("header AbstractButton",{ fileName : "TableHeaderCellBorder.hx", lineNumber : 40, className : "jive.plaf.flat.border.TableHeaderCellBorder", methodName : "updateBorder"});
+		var headerCell;
+		if(js.Boot.__instanceof(c,org.aswing.table.DefaultTextHeaderCell)) headerCell = c; else headerCell = null;
+		if(null == headerCell) return;
+		if(b.height > 0 && headerCell.columnIndex < headerCell.table.getColumnCount() - 1) g.drawLine(new org.aswing.graphics.Pen(c.get_mideground()),b.x + b.width - 1,b.y,b.x + b.width - 1,b.y + b.height);
+	}
+	,getBorderInsets: function(com,bounds) {
+		return new org.aswing.Insets(0,0,1,1);
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.border.TableHeaderCellBorder
+};
+org.aswing.border.LineBorder = function(interior,color,thickness,round) {
+	if(round == null) round = 0;
+	if(thickness == null) thickness = 1;
+	org.aswing.border.DecorateBorder.call(this,interior);
+	if(color == null) color = org.aswing.ASColor.BLACK;
+	this.color = color;
+	this.thickness = thickness;
+	this.round = round;
+};
+$hxClasses["org.aswing.border.LineBorder"] = org.aswing.border.LineBorder;
+org.aswing.border.LineBorder.__name__ = ["org","aswing","border","LineBorder"];
+org.aswing.border.LineBorder.__super__ = org.aswing.border.DecorateBorder;
+org.aswing.border.LineBorder.prototype = $extend(org.aswing.border.DecorateBorder.prototype,{
+	updateBorderImp: function(com,g,b) {
+		var t = this.thickness;
+		if(this.round <= 0) g.drawRectangle(new org.aswing.graphics.Pen(this.color,this.thickness),b.x + t / 2,b.y + t / 2,b.width - t,b.height - t); else g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(this.color),b.x,b.y,b.width,b.height,this.round,t);
+	}
+	,getBorderInsetsImp: function(com,bounds) {
+		var width = Std["int"](Math.ceil(this.thickness + this.round - this.round * 0.707106781186547));
+		return new org.aswing.Insets(width,width,width,width);
+	}
+	,getDisplayImp: function() {
+		return null;
+	}
+	,getColor: function() {
+		return this.color;
+	}
+	,setColor: function(color) {
+		this.color = color;
+	}
+	,getThickness: function() {
+		return this.thickness;
+	}
+	,setThickness: function(thickness) {
+		this.thickness = thickness;
+	}
+	,getRound: function() {
+		return this.round;
+	}
+	,setRound: function(round) {
+		this.round = round;
+	}
+	,__class__: org.aswing.border.LineBorder
+});
+org.aswing.plaf.basic.border = {};
+org.aswing.plaf.basic.border.LineBorderResource = function(interior,color,thickness,round) {
+	if(round == null) round = 0;
+	if(thickness == null) thickness = 1;
+	org.aswing.border.LineBorder.call(this,interior,color,thickness,round);
+};
+$hxClasses["org.aswing.plaf.basic.border.LineBorderResource"] = org.aswing.plaf.basic.border.LineBorderResource;
+org.aswing.plaf.basic.border.LineBorderResource.__name__ = ["org","aswing","plaf","basic","border","LineBorderResource"];
+org.aswing.plaf.basic.border.LineBorderResource.__interfaces__ = [org.aswing.plaf.UIResource];
+org.aswing.plaf.basic.border.LineBorderResource.__super__ = org.aswing.border.LineBorder;
+org.aswing.plaf.basic.border.LineBorderResource.prototype = $extend(org.aswing.border.LineBorder.prototype,{
+	__class__: org.aswing.plaf.basic.border.LineBorderResource
+});
+jive.plaf.flat.border.TableLineBorder = function(interior,color,thickness,round) {
+	if(round == null) round = 0;
+	if(thickness == null) thickness = 1;
+	org.aswing.plaf.basic.border.LineBorderResource.call(this,interior,color,thickness,round);
+};
+$hxClasses["jive.plaf.flat.border.TableLineBorder"] = jive.plaf.flat.border.TableLineBorder;
+jive.plaf.flat.border.TableLineBorder.__name__ = ["jive","plaf","flat","border","TableLineBorder"];
+jive.plaf.flat.border.TableLineBorder.__super__ = org.aswing.plaf.basic.border.LineBorderResource;
+jive.plaf.flat.border.TableLineBorder.prototype = $extend(org.aswing.plaf.basic.border.LineBorderResource.prototype,{
+	getBorderInsetsImp: function(com,bounds) {
+		return new org.aswing.Insets(0,0,1,0);
+	}
+	,__class__: jive.plaf.flat.border.TableLineBorder
+});
+jive.plaf.flat.border.TextCellComponentBorder = function() {
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.border.TextCellComponentBorder"] = jive.plaf.flat.border.TextCellComponentBorder;
+jive.plaf.flat.border.TextCellComponentBorder.__name__ = ["jive","plaf","flat","border","TextCellComponentBorder"];
+jive.plaf.flat.border.TextCellComponentBorder.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Border];
+jive.plaf.flat.border.TextCellComponentBorder.prototype = {
+	updateBorder: function(c,g,b) {
+		this.shape.get_graphics().clear();
+		var tc;
+		if(js.Boot.__instanceof(c,jive.plaf.flat.TextCellComponent)) tc = c; else tc = null;
+		if(null == tc) return;
+		b = b.clone();
+		var brush = new org.aswing.graphics.SolidBrush(c.get_background().offsetHLS(0,-0.1 * tc.transitBackgroundFactor,0));
+		var round = c.get_styleTune().round;
+		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		if(tc.isFirst) {
+			g.fillRoundRect(brush,b.x,b.y,b.width,2 * round,round);
+			g.fillRectangle(brush,b.x,b.y + round,b.width,b.height - round);
+		} else if(tc.isLast) {
+			g.fillRoundRect(brush,b.x,b.y + b.height - 2 * round,b.width,2 * round,round);
+			g.fillRectangle(brush,b.x,b.y,b.width,b.height - round);
+		} else g.fillRectangle(brush,b.x,b.y,b.width,b.height);
+	}
+	,getBorderInsets: function(c,b) {
+		return new org.aswing.Insets(7,15,7,15);
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.border.TextCellComponentBorder
+};
+org.aswing.Icon = function() { };
+$hxClasses["org.aswing.Icon"] = org.aswing.Icon;
+org.aswing.Icon.__name__ = ["org","aswing","Icon"];
+org.aswing.Icon.__interfaces__ = [org.aswing.Decorator];
+org.aswing.Icon.prototype = {
+	__class__: org.aswing.Icon
+};
+jive.plaf.flat.icon = {};
+jive.plaf.flat.icon.ExpandIcon = function(size,color,expanded) {
+	if(expanded == null) expanded = false;
+	if(size == null) size = 16;
+	if(null == color) color = org.aswing.ASColor.LIGHT_GRAY;
+	this.size = size;
+	this.color = color;
+	this.expanded = expanded;
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.icon.ExpandIcon"] = jive.plaf.flat.icon.ExpandIcon;
+jive.plaf.flat.icon.ExpandIcon.__name__ = ["jive","plaf","flat","icon","ExpandIcon"];
+jive.plaf.flat.icon.ExpandIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.ExpandIcon.prototype = {
+	updateIcon: function(com,g,x,y) {
+		this.shape.set_x(x);
+		this.shape.set_y(y);
+		x = 0;
+		y = 0;
+		var g1 = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		g1.beginFill(new org.aswing.graphics.SolidBrush(this.color));
+		g1.moveTo(0,0);
+		if(this.expanded) {
+			g1.lineTo(this.size,0);
+			g1.lineTo(this.size / 2,3 * this.size / 4);
+		} else {
+			g1.lineTo(3 * this.size / 4,this.size / 2);
+			g1.lineTo(0,this.size);
+		}
+		g1.lineTo(0,0);
+		g1.endFill();
+	}
+	,getIconHeight: function(c) {
+		return this.size | 0;
+	}
+	,getIconWidth: function(c) {
+		return this.size | 0;
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.icon.ExpandIcon
+};
+jive.plaf.flat.icon.FlatCheckBoxIcon = function() {
+	this.sprite = new openfl.display.Sprite();
+	this.sprite.mouseChildren = false;
+	this.sprite.mouseEnabled = false;
+	this.box = new openfl.display.Sprite();
+	this.dot = new openfl.display.Sprite();
+	this.sprite.addChild(this.box);
+	this.sprite.addChild(this.dot);
+};
+$hxClasses["jive.plaf.flat.icon.FlatCheckBoxIcon"] = jive.plaf.flat.icon.FlatCheckBoxIcon;
+jive.plaf.flat.icon.FlatCheckBoxIcon.__name__ = ["jive","plaf","flat","icon","FlatCheckBoxIcon"];
+jive.plaf.flat.icon.FlatCheckBoxIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.FlatCheckBoxIcon.prototype = {
+	updateIcon: function(c,g,x,y) {
+		var b;
+		if(js.Boot.__instanceof(c,org.aswing.JCheckBox)) b = c; else b = null;
+		var model = b.getModel();
+		this.box.get_graphics().clear();
+		var g1 = new org.aswing.graphics.Graphics2D(this.box.get_graphics());
+		var w = this.getIconWidth(c);
+		var h = this.getIconHeight(c);
+		var cl = c.get_background();
+		var drawDot = model.isArmed() || model.isSelected() || model.isRollOver();
+		if(b.transitBackgroundFactor < 0) cl = org.aswing.ASColor.getColorBetween(c.get_background(),c.get_mideground(),-b.transitBackgroundFactor);
+		if(!b.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.4);
+		g1.fillRoundRect(new org.aswing.graphics.SolidBrush(cl),x,y,w,h,b.get_styleTune().round);
+		this.dot.get_graphics().clear();
+		if(drawDot) {
+			g1 = new org.aswing.graphics.Graphics2D(this.dot.get_graphics());
+			cl = b.tickColor;
+			g1.beginDraw(new org.aswing.graphics.Pen(cl,1.6));
+			g1.moveTo(x + w * 5 / 20,y + h / 2);
+			g1.lineTo(x + w * 9 / 20,y + h * 14 / 20);
+			g1.lineTo(x + w * 15 / 20,y + h * 7 / 20);
+			g1.endDraw();
+		}
+		this.dot.set_visible(drawDot);
+	}
+	,getIconHeight: function(c) {
+		return 20;
+	}
+	,getIconWidth: function(c) {
+		return 20;
+	}
+	,getDisplay: function(c) {
+		return this.sprite;
+	}
+	,__class__: jive.plaf.flat.icon.FlatCheckBoxIcon
+};
+org.aswing.plaf.basic.icon = {};
+org.aswing.plaf.basic.icon.SolidArrowIcon = function(arrow,size,color) {
+	this.arrow = arrow;
+	this.width = size;
+	this.height = size;
+	this.shape = new openfl.display.Shape();
+	this.paintIconWithColor(color);
+};
+$hxClasses["org.aswing.plaf.basic.icon.SolidArrowIcon"] = org.aswing.plaf.basic.icon.SolidArrowIcon;
+org.aswing.plaf.basic.icon.SolidArrowIcon.__name__ = ["org","aswing","plaf","basic","icon","SolidArrowIcon"];
+org.aswing.plaf.basic.icon.SolidArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+org.aswing.plaf.basic.icon.SolidArrowIcon.prototype = {
+	updateIcon: function(com,g,x,y) {
+		this.shape.set_x(x);
+		this.shape.set_y(y);
+	}
+	,paintIconWithColor: function(cl) {
+		var x = 0;
+		var y = 0;
+		this.shape.get_graphics().clear();
+		var g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		var center = new openfl.geom.Point(x + this.width / 2,y + this.height / 2);
+		var w = this.width;
+		var ps1 = new Array();
+		ps1.push(this.nextPoint(center,this.arrow,w / 2 / 2));
+		var back = this.nextPoint(center,this.arrow + Math.PI,w / 2 / 2);
+		ps1.push(this.nextPoint(back,this.arrow - Math.PI / 2,w / 2));
+		ps1.push(this.nextPoint(back,this.arrow + Math.PI / 2,w / 2));
+		g.fillPolygon(new org.aswing.graphics.SolidBrush(cl),ps1);
+	}
+	,nextPoint: function(op,direction,distance) {
+		return new openfl.geom.Point(op.x + Math.cos(direction) * distance,op.y + Math.sin(direction) * distance);
+	}
+	,getIconHeight: function(c) {
+		return this.height | 0;
+	}
+	,getIconWidth: function(c) {
+		return this.width | 0;
+	}
+	,setArrow: function(arrow) {
+		this.arrow = arrow;
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: org.aswing.plaf.basic.icon.SolidArrowIcon
+};
+jive.plaf.flat.icon.FlatComboBoxArrowIcon = function() {
+	org.aswing.plaf.basic.icon.SolidArrowIcon.call(this,Math.PI / 2,12,org.aswing.ASColor.BLACK);
+};
+$hxClasses["jive.plaf.flat.icon.FlatComboBoxArrowIcon"] = jive.plaf.flat.icon.FlatComboBoxArrowIcon;
+jive.plaf.flat.icon.FlatComboBoxArrowIcon.__name__ = ["jive","plaf","flat","icon","FlatComboBoxArrowIcon"];
+jive.plaf.flat.icon.FlatComboBoxArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource];
+jive.plaf.flat.icon.FlatComboBoxArrowIcon.__super__ = org.aswing.plaf.basic.icon.SolidArrowIcon;
+jive.plaf.flat.icon.FlatComboBoxArrowIcon.prototype = $extend(org.aswing.plaf.basic.icon.SolidArrowIcon.prototype,{
+	updateIcon: function(c,g,x,y) {
+		org.aswing.plaf.basic.icon.SolidArrowIcon.prototype.updateIcon.call(this,c,g,x,y);
+		var m;
+		if(js.Boot.__instanceof(c,org.aswing.JButton)) m = c; else m = null;
+		if(null == m) return;
+		this.paintIconWithColor(m.get_selected() || m.get_model().isRollOver()?m.get_foreground():m.get_mideground());
+	}
+	,__class__: jive.plaf.flat.icon.FlatComboBoxArrowIcon
+});
+jive.plaf.flat.icon.FlatMenuArrowIcon = function() {
+	org.aswing.plaf.basic.icon.SolidArrowIcon.call(this,0,12,org.aswing.ASColor.BLACK);
+};
+$hxClasses["jive.plaf.flat.icon.FlatMenuArrowIcon"] = jive.plaf.flat.icon.FlatMenuArrowIcon;
+jive.plaf.flat.icon.FlatMenuArrowIcon.__name__ = ["jive","plaf","flat","icon","FlatMenuArrowIcon"];
+jive.plaf.flat.icon.FlatMenuArrowIcon.__interfaces__ = [org.aswing.plaf.UIResource];
+jive.plaf.flat.icon.FlatMenuArrowIcon.__super__ = org.aswing.plaf.basic.icon.SolidArrowIcon;
+jive.plaf.flat.icon.FlatMenuArrowIcon.prototype = $extend(org.aswing.plaf.basic.icon.SolidArrowIcon.prototype,{
+	updateIcon: function(c,g,x,y) {
+		org.aswing.plaf.basic.icon.SolidArrowIcon.prototype.updateIcon.call(this,c,g,x,y);
+		var m;
+		if(js.Boot.__instanceof(c,org.aswing.JMenu)) m = c; else m = null;
+		if(null == m) return;
+		if(m.isTopLevelMenu()) this.arrow = Math.PI / 2; else this.arrow = 0.0;
+		this.paintIconWithColor(m.get_selected() || m.get_model().isRollOver()?m.get_foreground():m.get_background().offsetHLS(0,0.1,0));
+	}
+	,__class__: jive.plaf.flat.icon.FlatMenuArrowIcon
+});
+jive.plaf.flat.icon.FlatRadioButtonIcon = function() {
+	this.sprite = new openfl.display.Sprite();
+	this.sprite.mouseChildren = false;
+	this.sprite.mouseEnabled = false;
+	this.box = new openfl.display.Sprite();
+	this.dot = new openfl.display.Sprite();
+	this.sprite.addChild(this.box);
+	this.sprite.addChild(this.dot);
+};
+$hxClasses["jive.plaf.flat.icon.FlatRadioButtonIcon"] = jive.plaf.flat.icon.FlatRadioButtonIcon;
+jive.plaf.flat.icon.FlatRadioButtonIcon.__name__ = ["jive","plaf","flat","icon","FlatRadioButtonIcon"];
+jive.plaf.flat.icon.FlatRadioButtonIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.FlatRadioButtonIcon.prototype = {
+	updateIcon: function(c,g,x,y) {
+		var b;
+		if(js.Boot.__instanceof(c,org.aswing.JRadioButton)) b = c; else b = null;
+		var model = b.getModel();
+		this.box.get_graphics().clear();
+		var g1 = new org.aswing.graphics.Graphics2D(this.box.get_graphics());
+		var w = this.getIconWidth(c);
+		var h = this.getIconHeight(c);
+		var cl = c.get_background();
+		var drawDot = model.isArmed() || model.isSelected() || model.isRollOver();
+		if(b.transitBackgroundFactor < 0) cl = org.aswing.ASColor.getColorBetween(c.get_background(),c.get_mideground(),-b.transitBackgroundFactor);
+		if(!b.get_enabled()) cl = cl.offsetHLS(0,0.1,-0.4);
+		g1.fillCircle(new org.aswing.graphics.SolidBrush(cl),w / 2,h / 2,w * 10 / 20);
+		g1.fillCircle(new org.aswing.graphics.SolidBrush(new org.aswing.ASColor(16777215)),w / 2,h / 2,w * 6 / 20);
+		this.dot.get_graphics().clear();
+		if(drawDot) {
+			g1 = new org.aswing.graphics.Graphics2D(this.dot.get_graphics());
+			g1.fillCircle(new org.aswing.graphics.SolidBrush(cl),w / 2,h / 2,w * 3 / 20);
+		}
+		this.dot.set_visible(drawDot);
+	}
+	,getIconHeight: function(c) {
+		return 20;
+	}
+	,getIconWidth: function(c) {
+		return 20;
+	}
+	,getDisplay: function(c) {
+		return this.sprite;
+	}
+	,__class__: jive.plaf.flat.icon.FlatRadioButtonIcon
+};
+jive.plaf.flat.icon.FlatSliderThumbIcon = function() {
+	this.thumb = new openfl.display.Sprite();
+};
+$hxClasses["jive.plaf.flat.icon.FlatSliderThumbIcon"] = jive.plaf.flat.icon.FlatSliderThumbIcon;
+jive.plaf.flat.icon.FlatSliderThumbIcon.__name__ = ["jive","plaf","flat","icon","FlatSliderThumbIcon"];
+jive.plaf.flat.icon.FlatSliderThumbIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.FlatSliderThumbIcon.prototype = {
+	getPropertyPrefix: function() {
+		return "Slider.";
+	}
+	,initThumb: function(c) {
+		var upState = new openfl.display.Shape();
+		var g = new org.aswing.graphics.Graphics2D(upState.get_graphics());
+		this.paintThumb(g,c,true,false);
+		var overState = new openfl.display.Shape();
+		g = new org.aswing.graphics.Graphics2D(overState.get_graphics());
+		this.paintThumb(g,c,true,true);
+		var downState = new openfl.display.Shape();
+		g = new org.aswing.graphics.Graphics2D(downState.get_graphics());
+		this.paintThumb(g,c,true,true,true);
+		this.enabledButton = new org.aswing.SimpleButton();
+		this.enabledButton.upState = upState;
+		this.enabledButton.overState = upState;
+		this.enabledButton.downState = downState;
+		this.enabledButton.hitTestState = upState;
+		this.enabledButton.set_useHandCursor(false);
+		this.enabledButton.show();
+		this.thumb.addChild(this.enabledButton);
+		upState = new openfl.display.Shape();
+		g = new org.aswing.graphics.Graphics2D(upState.get_graphics());
+		this.paintThumb(g,c,false,false);
+		this.disabledButton = new org.aswing.SimpleButton();
+		this.disabledButton.upState = upState;
+		this.disabledButton.overState = upState;
+		this.disabledButton.downState = upState;
+		this.disabledButton.hitTestState = upState;
+		this.disabledButton.set_useHandCursor(false);
+		this.disabledButton.show();
+		this.thumb.addChild(this.disabledButton);
+		this.disabledButton.set_visible(false);
+	}
+	,paintThumb: function(g,c,enabled,over,down) {
+		if(down == null) down = false;
+		var tune = c.getStyleTune().get_mide();
+		var cl = c.getMideground().offsetHLS(0,0.05,0);
+		if(enabled != true) cl = cl.offsetHLS(0,0.1,-0.5); else if(down) cl = cl.offsetHLS(0,-0.1,0); else if(over) cl = cl.offsetHLS(0,0.05,0);
+		var w = this.getIconWidth(null);
+		var h = this.getIconHeight(null);
+		g.fillEllipse(new org.aswing.graphics.SolidBrush(cl),0,0,w,h);
+	}
+	,updateIcon: function(c,g,x,y) {
+		if(this.enabledButton == null) this.initThumb(c);
+		this.thumb.set_x(x);
+		this.thumb.set_y(y);
+		this.disabledButton.set_visible(!c.isEnabled());
+		this.enabledButton.set_visible(c.isEnabled());
+	}
+	,getIconHeight: function(c) {
+		return 15;
+	}
+	,getIconWidth: function(c) {
+		return 15;
+	}
+	,getDisplay: function(c) {
+		return this.thumb;
+	}
+	,__class__: jive.plaf.flat.icon.FlatSliderThumbIcon
+};
+jive.plaf.flat.icon.FrameIcon = function(width) {
+	if(width == null) width = 16;
+	this.width = width;
+	this.height = width;
+	this.sprite = new openfl.display.Sprite();
+	this.sprite.mouseChildren = false;
+	this.sprite.mouseEnabled = false;
+	this.box = new openfl.display.Shape();
+	this.dot = new openfl.display.Shape();
+	this.sprite.addChild(this.box);
+	this.sprite.addChild(this.dot);
+};
+$hxClasses["jive.plaf.flat.icon.FrameIcon"] = jive.plaf.flat.icon.FrameIcon;
+jive.plaf.flat.icon.FrameIcon.__name__ = ["jive","plaf","flat","icon","FrameIcon"];
+jive.plaf.flat.icon.FrameIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.FrameIcon.prototype = {
+	getColor: function(c) {
+		return c.getMideground();
+	}
+	,updateIcon: function(c,g,x,y) {
+		this.box.get_graphics().clear();
+		g = new org.aswing.graphics.Graphics2D(this.box.get_graphics());
+		var b;
+		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) b = c; else b = null;
+		if(b == null) return;
+		var bounds = new org.aswing.geom.IntRectangle(x,y,this.width,this.height);
+		bounds.width -= 1;
+		bounds.height -= 1;
+		var cl = c.get_mideground();
+		var model = b.getModel();
+		var isPressing = model.isArmed() || model.isSelected();
+		var shadowScale = 1;
+		if(!b.isEnabled()) cl = cl.offsetHLS(0,0.2,0); else if(model.isRollOver()) cl = cl.offsetHLS(0,-0.2,0);
+		var box_f = new Array();
+		box_f.push(new openfl.filters.DropShadowFilter(1,45,16777215,c.get_styleTune().shadowAlpha * shadowScale,1,1,1,1));
+		this.box.set_filters(box_f);
+		this.dot.get_graphics().clear();
+		this.updateIconImp(cl,new org.aswing.graphics.Graphics2D(this.dot.get_graphics()),x,y);
+	}
+	,updateIconImp: function(color,g,x,y) {
+	}
+	,getSize: function() {
+		return this.width;
+	}
+	,getIconHeight: function(c) {
+		return this.width;
+	}
+	,getIconWidth: function(c) {
+		return this.height;
+	}
+	,getDisplay: function(c) {
+		return this.sprite;
+	}
+	,__class__: jive.plaf.flat.icon.FrameIcon
+};
+jive.plaf.flat.icon.FrameCloseIcon = function() {
+	jive.plaf.flat.icon.FrameIcon.call(this);
+};
+$hxClasses["jive.plaf.flat.icon.FrameCloseIcon"] = jive.plaf.flat.icon.FrameCloseIcon;
+jive.plaf.flat.icon.FrameCloseIcon.__name__ = ["jive","plaf","flat","icon","FrameCloseIcon"];
+jive.plaf.flat.icon.FrameCloseIcon.__super__ = jive.plaf.flat.icon.FrameIcon;
+jive.plaf.flat.icon.FrameCloseIcon.prototype = $extend(jive.plaf.flat.icon.FrameIcon.prototype,{
+	updateIconImp: function(c,g,x,y) {
+		var gap = 4;
+		var w = this.width - 1 - gap * 2;
+		var h = this.height - 1 - gap * 2;
+		var x1 = x + gap;
+		var y1 = y + gap;
+		var lightPane = new org.aswing.graphics.Pen(c,2,true,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.ROUND);
+		g.drawLine(lightPane,x1,y1,x1 + w,y1 + h);
+		g.drawLine(lightPane,x1 + w,y1,x1,y1 + h);
+	}
+	,__class__: jive.plaf.flat.icon.FrameCloseIcon
+});
+jive.plaf.flat.icon.MinusIcon = function(size,color) {
+	this.width = size;
+	this.height = size;
+	this.color = color;
+	this.shape = new openfl.display.Shape();
+	var x = 0;
+	var y = 0;
+	var g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+	var pen = new org.aswing.graphics.Pen(color,2);
+	var halfSize = size / 2;
+	g.drawLine(pen,0,halfSize,size,halfSize);
+};
+$hxClasses["jive.plaf.flat.icon.MinusIcon"] = jive.plaf.flat.icon.MinusIcon;
+jive.plaf.flat.icon.MinusIcon.__name__ = ["jive","plaf","flat","icon","MinusIcon"];
+jive.plaf.flat.icon.MinusIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.MinusIcon.prototype = {
+	updateIcon: function(com,g,x,y) {
+		this.shape.set_x(x);
+		this.shape.set_y(y);
+	}
+	,getIconHeight: function(c) {
+		return this.height | 0;
+	}
+	,getIconWidth: function(c) {
+		return this.width | 0;
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.icon.MinusIcon
+};
+jive.plaf.flat.icon.PlusIcon = function(size,color) {
+	this.width = size;
+	this.height = size;
+	this.color = color;
+	this.shape = new openfl.display.Shape();
+	var x = 0;
+	var y = 0;
+	var g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+	var pen = new org.aswing.graphics.Pen(color,2);
+	var halfSize = size / 2;
+	g.drawLine(pen,0,halfSize,size,halfSize);
+	g.drawLine(pen,halfSize,0,halfSize,size);
+};
+$hxClasses["jive.plaf.flat.icon.PlusIcon"] = jive.plaf.flat.icon.PlusIcon;
+jive.plaf.flat.icon.PlusIcon.__name__ = ["jive","plaf","flat","icon","PlusIcon"];
+jive.plaf.flat.icon.PlusIcon.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.Icon];
+jive.plaf.flat.icon.PlusIcon.prototype = {
+	updateIcon: function(com,g,x,y) {
+		this.shape.set_x(x);
+		this.shape.set_y(y);
+	}
+	,getIconHeight: function(c) {
+		return this.height | 0;
+	}
+	,getIconWidth: function(c) {
+		return this.width | 0;
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: jive.plaf.flat.icon.PlusIcon
+};
+jive.plaf.flat.tabbedpane = {};
+jive.plaf.flat.tabbedpane.FlatTabBackground = function(tab) {
+	this.tab = tab;
+	this.shape = new openfl.display.Shape();
+};
+$hxClasses["jive.plaf.flat.tabbedpane.FlatTabBackground"] = jive.plaf.flat.tabbedpane.FlatTabBackground;
+jive.plaf.flat.tabbedpane.FlatTabBackground.__name__ = ["jive","plaf","flat","tabbedpane","FlatTabBackground"];
+jive.plaf.flat.tabbedpane.FlatTabBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
+jive.plaf.flat.tabbedpane.FlatTabBackground.prototype = {
+	getDisplay: function(c) {
+		return this.shape;
+	}
+	,updateDecorator: function(c,g,bounds) {
+		this.shape.get_graphics().clear();
+		var button;
+		if(js.Boot.__instanceof(c,jive.plaf.flat.tabbedpane.FlatTabButton)) button = c; else button = null;
+		if(button != null && this.tab != null) {
+			bounds = bounds.clone();
+			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+			var model = button.get_model();
+			var color = button.normalColor;
+			if(button.transitBackgroundFactor < 0) color = org.aswing.ASColor.getColorBetween(button.normalColor,button.selectedColor,-button.transitBackgroundFactor); else color = org.aswing.ASColor.getColorBetween(button.normalColor,button.rolloverColor,button.transitBackgroundFactor);
+			var placement = this.tab.getTabPlacement();
+			if(placement == 1) bounds.height += c.get_styleTune().round * 2 | 0; else if(placement == 3) {
+				bounds.height += c.get_styleTune().round * 2 | 0;
+				bounds.y -= c.get_styleTune().round * 2 | 0;
+			} else if(placement == 2) bounds.width += c.get_styleTune().round * 2 | 0; else {
+				bounds.width += c.get_styleTune().round * 2 | 0;
+				bounds.x -= c.get_styleTune().round * 2 | 0;
+			}
+			if(null != color) g.fillRoundRect(new org.aswing.graphics.SolidBrush(color),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round);
+			if(model.isSelected()) g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(button.borderColor),bounds.x,bounds.y,bounds.width,bounds.height,c.get_styleTune().round,1,c.get_styleTune().round - 1);
+		}
+	}
+	,__class__: jive.plaf.flat.tabbedpane.FlatTabBackground
+};
 jive.plaf.flat.tabbedpane.FlatTabButton = function() {
 	org.aswing.JButton.call(this);
 	this.setName("FlatTabButton");
@@ -14819,13 +19814,6 @@ jive.plaf.flat.tabbedpane.FlatTabButton.prototype = $extend(org.aswing.JButton.p
 	}
 	,__class__: jive.plaf.flat.tabbedpane.FlatTabButton
 });
-org.aswing.plaf.basic.tabbedpane = {};
-org.aswing.plaf.basic.tabbedpane.Tab = function() { };
-$hxClasses["org.aswing.plaf.basic.tabbedpane.Tab"] = org.aswing.plaf.basic.tabbedpane.Tab;
-org.aswing.plaf.basic.tabbedpane.Tab.__name__ = ["org","aswing","plaf","basic","tabbedpane","Tab"];
-org.aswing.plaf.basic.tabbedpane.Tab.prototype = {
-	__class__: org.aswing.plaf.basic.tabbedpane.Tab
-};
 org.aswing.plaf.basic.tabbedpane.BasicTabbedPaneTab = function() {
 	this.placement = 0;
 };
@@ -30226,7 +35214,6 @@ org.aswing.AssetIcon.prototype = {
 		return v;
 	}
 	,validate: function() {
-		if(null == this.assetContainer) this.assetContainer = org.aswing.AsWingUtils.createSprite(null,"assetContainer");
 		if(this._width == -1 && this._height == -1) {
 			if(this.get_asset() != null) {
 				this._width = Std["int"](this.get_asset().get_width());
@@ -30235,12 +35222,15 @@ org.aswing.AssetIcon.prototype = {
 				this._width = 0;
 				this._height = 0;
 			}
-		} else if(this._asset != null) {
-			if(this.assetContainer.__children.length > 0) this.assetContainer.removeChildAt(0);
-			this.assetContainer.addChild(this._asset);
-			if(this.get_scale()) {
-				this._asset.set_width(this.get_width());
-				this._asset.set_height(this.get_height());
+		} else {
+			if(null == this.assetContainer) this.assetContainer = org.aswing.AsWingUtils.createSprite(null,"assetContainer");
+			if(this._asset != null) {
+				if(this.assetContainer.__children.length > 0) this.assetContainer.removeChildAt(0);
+				this.assetContainer.addChild(this._asset);
+				if(this.get_scale()) {
+					this._asset.set_width(this.get_width());
+					this._asset.set_height(this.get_height());
+				}
 			}
 		}
 	}
@@ -31024,10 +36014,18 @@ org.aswing.CursorManager.__name__ = ["org","aswing","CursorManager"];
 org.aswing.CursorManager.getManager = function(stage) {
 	if(stage == null) stage = org.aswing.AsWingManager.getStage();
 	if(stage == null) return null;
-	var manager = org.aswing.CursorManager.managers.getValue(stage);
+	var manager = org.aswing.CursorManager.managers.hashValues.get((function($this) {
+		var $r;
+		if(stage.___id___ == null) {
+			stage.___id___ = org.aswing.util.WeakMap.nextObjectID++;
+			if(org.aswing.util.WeakMap.nextObjectID == 2147483647) org.aswing.util.WeakMap.nextObjectID = 0;
+		}
+		$r = stage.___id___;
+		return $r;
+	}(this)));
 	if(manager == null) {
 		manager = new org.aswing.CursorManager(stage);
-		org.aswing.CursorManager.managers.put(stage,manager);
+		org.aswing.CursorManager.managers.set(stage,manager);
 	}
 	return manager;
 };
@@ -31938,6 +36936,7 @@ org.aswing.FocusManager.getManager = function(theStage) {
 		manager = new org.aswing.FocusManager(theStage);
 		org.aswing.FocusManager.managers.set(theStage,manager);
 	}
+	manager.init(theStage);
 	return manager;
 };
 org.aswing.FocusManager.setManager = function(theStage,newManager) {
@@ -32011,10 +37010,12 @@ org.aswing.FocusManager.prototype = {
 		}
 	}
 	,__focusPaintedComRemoved: function(e) {
+		if(null == this.focusRect) return;
 		this.focusRect.get_graphics().clear();
 		this.removeistenerToFocusPaintedComponent();
 	}
 	,__focusPaintedComMoved: function(e) {
+		if(null == this.focusRect) return;
 		if(this.focusRect.get_visible()) {
 			var dx = e.getNewLocation().x - e.getOldLocation().x;
 			var dy = e.getNewLocation().y - e.getOldLocation().y;
@@ -32025,6 +37026,7 @@ org.aswing.FocusManager.prototype = {
 		}
 	}
 	,__focusPaintedComResized: function(e) {
+		if(null == this.focusRect) return;
 		if(this.focusRect.get_visible()) this.focusPaintedComponent.paintFocusRect(true);
 	}
 	,uninit: function() {
@@ -32251,6 +37253,296 @@ org.aswing.Insets.prototype = {
 	}
 	,__class__: org.aswing.Insets
 };
+org.aswing.JAccordion = function() {
+	org.aswing.AbstractTabbedPane.call(this);
+	this.setName("JAccordion");
+	this.updateUI();
+};
+$hxClasses["org.aswing.JAccordion"] = org.aswing.JAccordion;
+org.aswing.JAccordion.__name__ = ["org","aswing","JAccordion"];
+org.aswing.JAccordion.__super__ = org.aswing.AbstractTabbedPane;
+org.aswing.JAccordion.prototype = $extend(org.aswing.AbstractTabbedPane.prototype,{
+	updateUI: function() {
+		this.setUI(org.aswing.UIManager.getUI(this));
+	}
+	,getDefaultBasicUIClass: function() {
+		return org.aswing.plaf.basic.BasicAccordionUI;
+	}
+	,getUIClassID: function() {
+		return "AccordionUI";
+	}
+	,setLayout: function(layout) {
+		if(js.Boot.__instanceof(layout,org.aswing.plaf.ComponentUI)) org.aswing.AbstractTabbedPane.prototype.setLayout.call(this,layout); else throw new org.aswing.error.Error("Cannot set non-AccordionUI layout to JAccordion!");
+	}
+	,insertTab: function(i,com,title,icon,tip) {
+		if(title == null) title = "";
+		var item = com;
+		if(null != this.itemContainerClass) {
+			var container = org.aswing.AsWingUtils["as"](Type.createInstance(this.itemContainerClass,[]),org.aswing.JPanel);
+			if(null != container) {
+				container.append(item);
+				item = container;
+			}
+		}
+		org.aswing.AbstractTabbedPane.prototype.insertTab.call(this,i,item,title,icon,tip);
+	}
+	,__class__: org.aswing.JAccordion
+});
+org.aswing.Orientable = function() { };
+$hxClasses["org.aswing.Orientable"] = org.aswing.Orientable;
+org.aswing.Orientable.__name__ = ["org","aswing","Orientable"];
+org.aswing.Orientable.prototype = {
+	__class__: org.aswing.Orientable
+};
+org.aswing.JAdjuster = function(columns,orientation) {
+	if(orientation == null) orientation = 1;
+	if(columns == null) columns = 3;
+	org.aswing.Component.call(this);
+	this.setColumns(columns);
+	this.setOrientation(orientation);
+	this._editable = true;
+	this._valueTranslator = org.aswing.JAdjuster.DEFAULT_VALUE_TRANSLATOR;
+	this._valueParser = org.aswing.JAdjuster.DEFAULT_VALUE_PARSER;
+	this.setModel(new org.aswing.DefaultBoundedRangeModel(50,0,0,100));
+	this.updateUI();
+};
+$hxClasses["org.aswing.JAdjuster"] = org.aswing.JAdjuster;
+org.aswing.JAdjuster.__name__ = ["org","aswing","JAdjuster"];
+org.aswing.JAdjuster.__interfaces__ = [org.aswing.EditableComponent,org.aswing.Orientable];
+org.aswing.JAdjuster.DEFAULT_VALUE_TRANSLATOR = function(value) {
+	return value + "";
+};
+org.aswing.JAdjuster.DEFAULT_VALUE_PARSER = function(text) {
+	var value = Std.parseInt(text);
+	if(value == 0) value = 0;
+	return value;
+};
+org.aswing.JAdjuster.__super__ = org.aswing.Component;
+org.aswing.JAdjuster.prototype = $extend(org.aswing.Component.prototype,{
+	get_model: function() {
+		return this.getModel();
+	}
+	,set_model: function(v) {
+		this.setModel(v);
+		return v;
+	}
+	,get_orientation: function() {
+		return this.getOrientation();
+	}
+	,set_orientation: function(v) {
+		this.setOrientation(v);
+		return v;
+	}
+	,get_value: function() {
+		return this.getValue();
+	}
+	,set_value: function(v) {
+		var __oldValue__ = this.get_value();
+		if(v == __oldValue__) return __oldValue__;
+		this.setValue(v);
+		this.__fieldBindings__.dispatch("value",__oldValue__,this.get_value());
+		return v;
+	}
+	,get_extent: function() {
+		return this.getExtent();
+	}
+	,set_extent: function(v) {
+		this.setExtent(v);
+		return v;
+	}
+	,get_minimum: function() {
+		return this.getMinimum();
+	}
+	,set_minimum: function(v) {
+		this.setMinimum(v);
+		return v;
+	}
+	,get_maximum: function() {
+		return this.getMaximum();
+	}
+	,set_maximum: function(v) {
+		this.setMaximum(v);
+		return v;
+	}
+	,get_isAdjusting: function() {
+		return this.getValueIsAdjusting();
+	}
+	,get_columns: function() {
+		return this.getColumns();
+	}
+	,set_columns: function(v) {
+		this.setColumns(v);
+		return v;
+	}
+	,get_editable: function() {
+		return this.isEditable();
+	}
+	,set_editable: function(v) {
+		this.setEditable(v);
+		return v;
+	}
+	,get_valueTranslator: function() {
+		return this.getValueTranslator();
+	}
+	,set_valueTranslator: function(v) {
+		this.setValueTranslator(v);
+		return v;
+	}
+	,get_valueParser: function() {
+		return this.getValueParser();
+	}
+	,set_valueParser: function(v) {
+		this.setValueParser(v);
+		return v;
+	}
+	,get_stepSize: function() {
+		var fui = org.aswing.AsWingUtils["as"](this.get_ui(),jive.plaf.flat.FlatAdjusterUI);
+		if(null != fui) return fui.getUnitIncrement(); else return 0;
+	}
+	,set_stepSize: function(v) {
+		var fui = org.aswing.AsWingUtils["as"](this.get_ui(),jive.plaf.flat.FlatAdjusterUI);
+		if(null != fui) fui.setUnitIncrement(v);
+		return v;
+	}
+	,setUI: function(newUI) {
+		if(js.Boot.__instanceof(newUI,org.aswing.plaf.AdjusterUI)) org.aswing.Component.prototype.setUI.call(this,newUI); else throw new openfl.errors.Error("JComboBox ui should implemented ComboBoxUI interface!");
+	}
+	,getAdjusterUI: function() {
+		return org.aswing.AsWingUtils["as"](this.getUI(),org.aswing.plaf.AdjusterUI);
+	}
+	,updateUI: function() {
+		this.setUI(org.aswing.UIManager.getUI(this));
+	}
+	,getDefaultBasicUIClass: function() {
+		return org.aswing.plaf.basic.BasicAdjusterUI;
+	}
+	,getUIClassID: function() {
+		return "AdjusterUI";
+	}
+	,setColumns: function(columns) {
+		if(columns < 0) columns = 0;
+		if(this._columns != columns) {
+			this._columns = columns;
+			if(this.getInputText() != null) this.getInputText().setColumns(columns);
+			this.revalidate();
+		}
+	}
+	,getColumns: function() {
+		return this._columns;
+	}
+	,getOrientation: function() {
+		return this._orientation;
+	}
+	,setOrientation: function(orientation) {
+		this._orientation = orientation;
+		if(this.getPopupSlider() != null) this.getPopupSlider().setOrientation(orientation);
+	}
+	,getModel: function() {
+		return this._model;
+	}
+	,setModel: function(newModel) {
+		if(this._model != null) this._model.removeStateListener($bind(this,this.__onModelStateChanged));
+		this._model = newModel;
+		if(this._model != null) {
+			this._model.addStateListener($bind(this,this.__onModelStateChanged));
+			if(this._ui != null) this.getPopupSlider().setModel(this._model);
+		}
+	}
+	,__onModelStateChanged: function(event) {
+		if(!this.get_isAdjusting()) this.__fieldBindings__.dispatch("value",null,null);
+		this.dispatchEvent(new org.aswing.event.InteractiveEvent("stateChanged",event.isProgrammatic()));
+	}
+	,getPopupSlider: function() {
+		if(this.getAdjusterUI() == null) return null;
+		return this.getAdjusterUI().getPopupSlider();
+	}
+	,getInputText: function() {
+		if(this.getAdjusterUI() == null) return null;
+		return this.getAdjusterUI().getInputText();
+	}
+	,setValueTranslator: function(translator) {
+		if(this._valueTranslator != translator) {
+			this._valueTranslator = translator;
+			this.repaint();
+		}
+	}
+	,getValueTranslator: function() {
+		return this._valueTranslator;
+	}
+	,setValueParser: function(parser) {
+		if(this._valueParser != parser) {
+			this._valueParser = parser;
+			this.repaint();
+		}
+	}
+	,getValueParser: function() {
+		return this._valueParser;
+	}
+	,setEditable: function(b) {
+		if(this._editable != b) {
+			this._editable = b;
+			this.repaint();
+			this.revalidate();
+		}
+	}
+	,isEditable: function() {
+		return this._editable;
+	}
+	,getValue: function() {
+		return this.getModel().getValue();
+	}
+	,setValue: function(value) {
+		var m = this.getModel();
+		m.setValue(value);
+	}
+	,getExtent: function() {
+		return this.getModel().getExtent();
+	}
+	,setExtent: function(extent) {
+		this.getModel().setExtent(extent);
+	}
+	,getMinimum: function() {
+		return this.getModel().getMinimum();
+	}
+	,setMinimum: function(minimum) {
+		this.getModel().setMinimum(minimum);
+	}
+	,getMaximum: function() {
+		return this.getModel().getMaximum();
+	}
+	,setMaximum: function(maximum) {
+		this.getModel().setMaximum(maximum);
+	}
+	,getValueIsAdjusting: function() {
+		return this.getModel().getValueIsAdjusting();
+	}
+	,setValueIsAdjusting: function(b) {
+		var m = this.getModel();
+		m.setValueIsAdjusting(b);
+	}
+	,setValues: function(newValue,newExtent,newMin,newMax) {
+		var m = this.getModel();
+		m.setRangeProperties(newValue,newExtent,newMin,newMax,m.getValueIsAdjusting());
+	}
+	,addActionListener: function(listener,priority,useWeakReference) {
+		if(useWeakReference == null) useWeakReference = false;
+		if(priority == null) priority = 0;
+		this.addEventListener("act",listener,false,priority,useWeakReference);
+	}
+	,removeActionListener: function(listener) {
+		this.removeEventListener("act",listener);
+	}
+	,addStateListener: function(listener,priority,useWeakReference) {
+		if(useWeakReference == null) useWeakReference = false;
+		if(priority == null) priority = 0;
+		this.addEventListener("stateChanged",listener,false,priority);
+	}
+	,removeStateListener: function(listener) {
+		this.removeEventListener("stateChanged",listener);
+	}
+	,__class__: org.aswing.JAdjuster
+	,__properties__: $extend(org.aswing.Component.prototype.__properties__,{set_stepSize:"set_stepSize",get_stepSize:"get_stepSize",set_valueParser:"set_valueParser",get_valueParser:"get_valueParser",set_valueTranslator:"set_valueTranslator",get_valueTranslator:"get_valueTranslator",set_editable:"set_editable",get_editable:"get_editable",set_columns:"set_columns",get_columns:"get_columns",get_isAdjusting:"get_isAdjusting",set_maximum:"set_maximum",get_maximum:"get_maximum",set_minimum:"set_minimum",get_minimum:"get_minimum",set_extent:"set_extent",get_extent:"get_extent",set_value:"set_value",get_value:"get_value",set_orientation:"set_orientation",get_orientation:"get_orientation",set_model:"set_model",get_model:"get_model"})
+});
 org.aswing.JToggleButton = function(text,icon) {
 	if(text == null) text = "";
 	org.aswing.AbstractButton.call(this,text,icon);
@@ -32605,882 +37897,6 @@ org.aswing.JComboBox.prototype = $extend(org.aswing.Component.prototype,{
 	,__class__: org.aswing.JComboBox
 	,__properties__: $extend(org.aswing.Component.prototype.__properties__,{set_notEditableBackground:"set_notEditableBackground",get_notEditableBackground:"get_notEditableBackground",set_notEditableForeground:"set_notEditableForeground",get_notEditableForeground:"get_notEditableForeground",get_length:"get_length",set_selectedIndex:"set_selectedIndex",get_selectedIndex:"get_selectedIndex",set_selectedItem:"set_selectedItem",get_selectedItem:"get_selectedItem",set_popupVisible:"set_popupVisible",get_popupVisible:"get_popupVisible",set_model:"set_model",get_model:"get_model",set_listCellFactory:"set_listCellFactory",get_listCellFactory:"get_listCellFactory",get_popupList:"get_popupList",set_editor:"set_editor",get_editor:"get_editor",set_maximumRowCount:"set_maximumRowCount",get_maximumRowCount:"get_maximumRowCount",set_editable:"set_editable",get_editable:"get_editable"})
 });
-org.aswing.JRootPane = function() {
-	org.aswing.Container.call(this);
-	this.setName("JRootPane");
-	this.mnemonicJustActed = false;
-	this._layout = new org.aswing.BorderLayout();
-	this.mnemonics = new haxe.ds.IntMap();
-	this.keyManager = new org.aswing.KeyboardManager();
-	this.keyManager.init(this);
-	this.triggerProxy = this;
-	this.setMnemonicTriggerProxy(null);
-};
-$hxClasses["org.aswing.JRootPane"] = org.aswing.JRootPane;
-org.aswing.JRootPane.__name__ = ["org","aswing","JRootPane"];
-org.aswing.JRootPane.__super__ = org.aswing.Container;
-org.aswing.JRootPane.prototype = $extend(org.aswing.Container.prototype,{
-	get_defaultButton: function() {
-		return this.getDefaultButton();
-	}
-	,set_defaultButton: function(v) {
-		this.setDefaultButton(v);
-		return v;
-	}
-	,setDefaultButton: function(button) {
-		if(this._defaultButton != button) {
-			if(this._defaultButton != null) this._defaultButton.repaint();
-			this._defaultButton = button;
-			this._defaultButton.repaint();
-		}
-	}
-	,getDefaultButton: function() {
-		return this._defaultButton;
-	}
-	,setMenuBar: function(menuBar) {
-		throw new org.aswing.error.ImpMissError();
-	}
-	,getKeyMap: function() {
-		return this.keyManager.getKeyMap();
-	}
-	,getKeyboardManager: function() {
-		return this.keyManager;
-	}
-	,setKeyMapActived: function(b) {
-		this.keyManager.setEnabled(b);
-	}
-	,setMnemonicTriggerProxy: function(trigger) {
-		if(trigger != this.triggerProxy) {
-			if(this.triggerProxy != null) {
-			}
-			this.triggerProxy = trigger;
-			if(trigger == null) trigger = this;
-		}
-	}
-	,registerMnemonic: function(button) {
-		if(button.getMnemonic() >= 0) this.mnemonics.set(button.getMnemonic(),button);
-	}
-	,unregisterMnemonic: function(button) {
-		if(this.mnemonics.get(button.getMnemonic()) == button) this.mnemonics.remove(button.getMnemonic());
-	}
-	,__keyDown: function(e) {
-		this.mnemonicJustActed = false;
-		var code = e.keyCode | 0;
-		if(code == org.aswing.AWKeyboard.ENTER) {
-			var dfBtn = this.getDefaultButton();
-			if(dfBtn != null) {
-				if(dfBtn.isShowing() && dfBtn.isEnabled()) {
-					dfBtn.doClick();
-					this.mnemonicJustActed = true;
-					return;
-				}
-			}
-		}
-		if(this.get_stage() == null) return;
-		var mnBtn = this.mnemonics.get(code | 0);
-		if(mnBtn != null) {
-			if(mnBtn.isShowing() && mnBtn.isEnabled()) {
-				mnBtn.doClick();
-				var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
-				if(fm != null) {
-					fm.setTraversing(true);
-					mnBtn.paintFocusRect();
-				}
-				this.mnemonicJustActed = true;
-			}
-		}
-	}
-	,__removedFromStage: function(e) {
-		this.mnemonics = null;
-	}
-	,__class__: org.aswing.JRootPane
-	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_defaultButton:"set_defaultButton",get_defaultButton:"get_defaultButton"})
-});
-org.aswing.JPopup = function(owner,modal) {
-	if(modal == null) modal = false;
-	org.aswing.JRootPane.call(this);
-	if(owner == null) owner = org.aswing.AsWingManager.getRoot(false);
-	if(js.Boot.__instanceof(owner,org.aswing.JPopup) || js.Boot.__instanceof(owner,openfl.display.DisplayObjectContainer)) this._owner = owner; else if(owner != null) throw new org.aswing.error.Error(Std.string(this) + " JPopup's owner is not a DisplayObjectContainer or JPopup, owner is : " + Std.string(owner));
-	this._modal = modal;
-	this.setName("JPopup");
-	this.ground_mc = new openfl.display.Sprite();
-	this.ground_mc.name = "ground_mc";
-	this.ground_mc.set_visible(false);
-	this.lastLAF = org.aswing.UIManager.getLookAndFeel();
-	this.modalMC = new openfl.display.Sprite();
-	this.initModalMC();
-	this.set_d_visible(false);
-	this.ground_mc.addChild(this.modalMC);
-	this.ground_mc.addChild(this);
-	this.ownedEquipedPopups = new Array();
-	this.addEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__popupOpennedAddToList));
-	this.addEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__popupOfffromDisplayList));
-};
-$hxClasses["org.aswing.JPopup"] = org.aswing.JPopup;
-org.aswing.JPopup.__name__ = ["org","aswing","JPopup"];
-org.aswing.JPopup.getPopups = function(st) {
-	if(st == null) st = org.aswing.AsWingManager.getStage();
-	var fm = org.aswing.FocusManager.getManager(st);
-	return fm.getPopupsVector().toArray();
-};
-org.aswing.JPopup.getOwnedPopupsWithOwner = function(owner) {
-	var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
-	if(fm != null) {
-		var ws = new Array();
-		var pv = fm.getPopupsVector();
-		var n = pv.size();
-		var _g = 0;
-		while(_g < n) {
-			var i = _g++;
-			var w = org.aswing.AsWingUtils["as"](pv.get(i),org.aswing.JPopup);
-			if(w.getOwner() == owner) ws.push(w);
-		}
-		return ws;
-	} else return [];
-};
-org.aswing.JPopup.__super__ = org.aswing.JRootPane;
-org.aswing.JPopup.prototype = $extend(org.aswing.JRootPane.prototype,{
-	get_owner: function() {
-		return this.getOwner();
-	}
-	,set_owner: function(v) {
-		this.changeOwner(v);
-		return v;
-	}
-	,get_modal: function() {
-		return this.isModal();
-	}
-	,set_modal: function(v) {
-		this.setModal(v);
-		return v;
-	}
-	,__popupOpennedAddToList: function(e) {
-		var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
-		if(!fm.getPopupsVector().contains(this)) fm.getPopupsVector().append(this);
-		org.aswing.AsWingManager.getStage().addEventListener(openfl.events.Event.RESIZE,$bind(this,this.__resetModelMCWhenStageResized),false,0,false);
-	}
-	,__popupOfffromDisplayList: function(e) {
-		var fm = org.aswing.FocusManager.getManager(org.aswing.AsWingManager.getStage());
-		if(fm != null) {
-			fm.getPopupsVector().remove(this);
-			fm.uninit();
-		}
-		org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.Event.RESIZE,$bind(this,this.__resetModelMCWhenStageResized));
-	}
-	,isValidateRoot: function() {
-		return true;
-	}
-	,setEnabled: function(b) {
-		org.aswing.JRootPane.prototype.setEnabled.call(this,b);
-		this.ground_mc.mouseEnabled = this.isEnabled();
-	}
-	,getOwner: function() {
-		return this._owner;
-	}
-	,getPopupOwner: function() {
-		return org.aswing.AsWingUtils["as"](this._owner,org.aswing.JPopup);
-	}
-	,getDisplayOwner: function() {
-		return org.aswing.AsWingUtils["as"](this._owner,openfl.display.DisplayObjectContainer);
-	}
-	,changeOwner: function(owner) {
-		if(owner == null) owner = org.aswing.AsWingManager.getRoot(false);
-		if(this._owner != owner) {
-			this._owner = owner;
-			if(this.isAddedToList()) {
-				if(owner == null) throw new org.aswing.error.Error("This popup is alreay on display list, can't be owned to null, please dispose it first."); else this.equipPopupContents();
-			}
-		}
-	}
-	,setModal: function(m) {
-		if(this._modal != m) {
-			this._modal = m;
-			this.modalMC.set_visible(this._modal);
-			this.resetModalMC();
-		}
-	}
-	,isModal: function() {
-		return this._modal;
-	}
-	,show: function() {
-		this.setVisible(true);
-	}
-	,getGroundContainer: function() {
-		return this.ground_mc;
-	}
-	,setVisible: function(v) {
-		if(v != this.get_visible() || v && !this.isAddedToList()) {
-			org.aswing.JRootPane.prototype.setVisible.call(this,v);
-			if(v) {
-				if(!this.isAddedToList()) this.equipPopupContents();
-				this.resetModalMC();
-				this.dispatchEvent(new org.aswing.event.PopupEvent("popupOpened"));
-			} else this.dispatchEvent(new org.aswing.event.PopupEvent("popupClosed"));
-		}
-		this.ground_mc.set_visible(this.shouldGroundVisible());
-		if(v) this.toFront();
-	}
-	,pack: function() {
-		org.aswing.JRootPane.prototype.pack.call(this);
-		this.revalidateIfNecessary();
-	}
-	,isAddedToList: function() {
-		return this.ground_mc.parent != null;
-	}
-	,hide: function() {
-		this.setVisible(false);
-	}
-	,dispose: function() {
-		if(this.isAddedToList()) {
-			var st = org.aswing.AsWingManager.getStage();
-			this.set_d_visible(false);
-			this.disposeProcess(st);
-			if(this.ground_mc.parent != null) this.ground_mc.parent.removeChild(this.ground_mc);
-			if(this.getPopupOwner() != null) this.getPopupOwner().removeOwnedEquipedPopup(this);
-			this.dispatchEvent(new org.aswing.event.PopupEvent("popupClosed"));
-		}
-	}
-	,disposeProcess: function(st) {
-		this.removeEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__popupOfffromDisplayList));
-		this.removeEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__popupOpennedAddToList));
-	}
-	,shouldGroundVisible: function() {
-		var pOwner = this.getPopupOwner();
-		if(pOwner != null) return pOwner.shouldOwnedPopupGroundVisible(this);
-		return this.isVisible();
-	}
-	,shouldOwnedPopupGroundVisible: function(popup) {
-		return popup.isVisible();
-	}
-	,toBack: function() {
-		if(this.isAddedToList() && this.isVisible()) {
-			var po = this.getPopupOwner();
-			if(po == null) {
-				if(!org.aswing.util.DepthManager.isBottom(this.ground_mc)) org.aswing.util.DepthManager.bringToBottom(this.ground_mc);
-			} else if(po.parent != null) {
-				var destIndex = po.parent.getChildIndex(po) + 1;
-				if(this.ground_mc != null && this.ground_mc.parent != null && this.ground_mc.parent.getChildIndex(this.ground_mc) != destIndex) this.ground_mc.parent.setChildIndex(this.ground_mc,destIndex);
-			}
-		}
-	}
-	,toFront: function() {
-		if(this.isAddedToList() && this.isVisible()) {
-			if(!org.aswing.util.DepthManager.isTop(this.ground_mc)) org.aswing.util.DepthManager.bringToTop(this.ground_mc);
-		}
-	}
-	,startDrag: function(lockCenter,bounds) {
-		if(lockCenter == null) lockCenter = false;
-		if(org.aswing.AsWingManager.getStage() != null) {
-			org.aswing.JRootPane.prototype.startDrag.call(this,lockCenter,bounds);
-			org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving));
-			org.aswing.AsWingManager.getStage().addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving),false,0,false);
-			this.lastDragPos = this.getLocation();
-		}
-	}
-	,stopDrag: function() {
-		org.aswing.JRootPane.prototype.stopDrag.call(this);
-		if(org.aswing.AsWingManager.getStage() != null) org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__dragMoving));
-	}
-	,__dragMoving: function(e) {
-		this._bounds.x = Std["int"](this.get_d_x());
-		this._bounds.y = Std["int"](this.get_d_y());
-		var newPos = this.getLocation();
-		if(!newPos.equals(this.lastDragPos)) this.dispatchEvent(new org.aswing.event.MovedEvent(this.lastDragPos,newPos));
-		this.lastDragPos = newPos;
-	}
-	,getOwnedPopups: function() {
-		return org.aswing.JPopup.getOwnedPopupsWithOwner(this);
-	}
-	,getOwnedEquipedPopups: function() {
-		return this.ownedEquipedPopups;
-	}
-	,getPopupAncestorMC: function() {
-		var ow = this;
-		while(ow.getPopupOwner() != null) ow = ow.getPopupOwner();
-		return ow.getDisplayOwner();
-	}
-	,getModalMC: function() {
-		return this.modalMC;
-	}
-	,resetModalMC: function() {
-		if(!this.isModal()) {
-			this.modalMC.set_width(0);
-			this.modalMC.set_height(0);
-			this.modalMC.set_visible(false);
-			return;
-		}
-		this.modalMC.set_visible(true);
-		var globalBounds = org.aswing.AsWingUtils.getVisibleMaximizedBounds(this.ground_mc);
-		this.modalMC.set_width(globalBounds.width + 200);
-		this.modalMC.set_height(globalBounds.height + 200);
-		this.modalMC.set_x(globalBounds.x - 100);
-		this.modalMC.set_y(globalBounds.y - 100);
-	}
-	,initModalMC: function() {
-		this.modalMC.set_visible(this._modal);
-		this.modalMC.get_graphics().clear();
-		var modalColor = new org.aswing.ASColor(0,0);
-		var g = new org.aswing.graphics.Graphics2D(this.modalMC.get_graphics());
-		g.fillRectangle(new org.aswing.graphics.SolidBrush(modalColor),0,0,1,1);
-	}
-	,addOwnedEquipedPopup: function(pop) {
-		this.ownedEquipedPopups.push(pop);
-	}
-	,removeOwnedEquipedPopup: function(pop) {
-		HxOverrides.remove(this.ownedEquipedPopups,pop);
-	}
-	,__resetModelMCWhenStageResized: function(e) {
-		if(this.isVisible()) this.resetModalMC();
-	}
-	,equipPopupContents: function() {
-		if(js.Boot.__instanceof(this._owner,org.aswing.JPopup)) {
-			var jwo = org.aswing.AsWingUtils["as"](this._owner,org.aswing.JPopup);
-			jwo.ground_mc.addChild(this.ground_mc);
-			jwo.addOwnedEquipedPopup(this);
-		} else if(js.Boot.__instanceof(this._owner,openfl.display.DisplayObjectContainer)) {
-			var ownerMC = org.aswing.AsWingUtils["as"](this._owner,openfl.display.DisplayObjectContainer);
-			ownerMC.addChild(this.ground_mc);
-		} else throw new org.aswing.error.Error(Std.string(this) + " JPopup's owner is not a mc or JPopup, owner is : " + Std.string(this._owner));
-		if(this.lastLAF != org.aswing.UIManager.getLookAndFeel()) {
-			org.aswing.AsWingUtils.updateChildrenUI(this);
-			this.lastLAF = org.aswing.UIManager.getLookAndFeel();
-		}
-	}
-	,__class__: org.aswing.JPopup
-	,__properties__: $extend(org.aswing.JRootPane.prototype.__properties__,{set_modal:"set_modal",get_modal:"get_modal",set_owner:"set_owner",get_owner:"get_owner"})
-});
-org.aswing.JWindow = function(owner,modal) {
-	if(modal == null) modal = false;
-	org.aswing.JPopup.call(this,owner,modal);
-	this.setName("JWindow");
-	this._actived = false;
-	this.focusObject = new openfl.display.Sprite();
-	this.focusObject.name = "hidden_focus_obj";
-	this.focusObject.set_visible(false);
-	this._activable = true;
-	this.addChild(this.focusObject);
-	this._layout = new org.aswing.WindowLayout();
-	this.setFocusTraversalPolicy(new org.aswing.WindowOrderFocusTraversalPolicy());
-	this.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__activeWhenPress),true);
-	this.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__activeWhenPressWindowSelf));
-};
-$hxClasses["org.aswing.JWindow"] = org.aswing.JWindow;
-org.aswing.JWindow.__name__ = ["org","aswing","JWindow"];
-org.aswing.JWindow.getWindows = function(st) {
-	if(st == null) st = org.aswing.AsWingManager.getStage();
-	var fm = org.aswing.FocusManager.getManager(st);
-	var vec = fm.getPopupsVector();
-	var arr = new Array();
-	var _g1 = 0;
-	var _g = vec.size();
-	while(_g1 < _g) {
-		var i = _g1++;
-		var win = vec.get(i);
-		if(js.Boot.__instanceof(win,org.aswing.JWindow)) arr.push(win);
-	}
-	return arr;
-};
-org.aswing.JWindow.getOwnedWindowsWithOwner = function(owner) {
-	var fm = org.aswing.FocusManager.getManager(owner.get_stage());
-	if(fm != null) {
-		var ws = new Array();
-		var vec = fm.getPopupsVector();
-		var n = vec.size();
-		var _g = 0;
-		while(_g < n) {
-			var i = _g++;
-			var w = vec.get(i);
-			if(js.Boot.__instanceof(w,org.aswing.JWindow) && w.getOwner() == owner) ws.push(w);
-		}
-		return ws;
-	} else return [];
-};
-org.aswing.JWindow.__super__ = org.aswing.JPopup;
-org.aswing.JWindow.prototype = $extend(org.aswing.JPopup.prototype,{
-	get_content: function() {
-		return this.getContentPane();
-	}
-	,set_content: function(v) {
-		this.setContentPane(v);
-		return v;
-	}
-	,get_activable: function() {
-		return this.isActivable();
-	}
-	,set_activable: function(v) {
-		this.setActivable(v);
-		return v;
-	}
-	,get_actived: function() {
-		return this.isActive();
-	}
-	,set_actived: function(v) {
-		this.setActive(v);
-		return v;
-	}
-	,setLayout: function(layout) {
-		if(js.Boot.__instanceof(layout,org.aswing.WindowLayout)) {
-			var oldLayout = org.aswing.AsWingUtils["as"](this._layout,org.aswing.WindowLayout);
-			org.aswing.JPopup.prototype.setLayout.call(this,layout);
-			if(oldLayout != null) {
-				if(oldLayout.getTitleBar() != null) layout.addLayoutComponent(oldLayout.getTitleBar(),"Title");
-				if(oldLayout.getContentPane() != null) layout.addLayoutComponent(oldLayout.getContentPane(),"Content");
-			}
-		} else throw new org.aswing.error.Error("Can not set a non-WindowLayout Layout to JWindow");
-	}
-	,paintImmediately: function() {
-		if(this.isVisible()) {
-			var minimizSize = this.getMinimumSize();
-			var needSize = new org.aswing.geom.IntDimension(Std["int"](Math.max(this.getWidth(),minimizSize.width)),Std["int"](Math.max(this.getHeight(),minimizSize.height)));
-			this.setSize(needSize);
-			org.aswing.JPopup.prototype.paintImmediately.call(this);
-			this.revalidateIfNecessary();
-		} else org.aswing.JPopup.prototype.paintImmediately.call(this);
-	}
-	,getContentPane: function() {
-		if(this.contentPane == null) {
-			var p = new org.aswing.Container();
-			p.setLayout(new org.aswing.BorderLayout());
-			this.setContentPaneImp(p);
-		}
-		return this.contentPane;
-	}
-	,setContentPane: function(cp) {
-		if(cp != this.contentPane) {
-			if(cp == null) throw new org.aswing.error.Error(Std.string(this) + " Can not set null to be JWindow's contentPane!"); else this.setContentPaneImp(cp);
-		}
-	}
-	,setContentPaneImp: function(cp) {
-		if(this.contentPane != null) this.contentPane.removeFromContainer();
-		this.contentPane = cp;
-		this.append(this.contentPane,"Content");
-	}
-	,getWindowOwner: function() {
-		return org.aswing.AsWingUtils["as"](this._owner,org.aswing.JWindow);
-	}
-	,getOwnedWindows: function() {
-		return org.aswing.JWindow.getOwnedWindowsWithOwner(this);
-	}
-	,setVisible: function(v) {
-		org.aswing.JPopup.prototype.setVisible.call(this,v);
-		if(v && this.isActivable()) this.setActive(true); else this.lostActiveAction(this.get_stage());
-	}
-	,setActivable: function(b) {
-		this._activable = b;
-	}
-	,isActivable: function() {
-		return this._activable;
-	}
-	,disposeProcess: function(st) {
-		this.lostActiveAction(st);
-	}
-	,isActive: function() {
-		return this._actived;
-	}
-	,setActive: function(b) {
-		if(this._actived != b) {
-			if(b) this.active(); else this.deactive(this.get_stage());
-		}
-	}
-	,focusAtThisWindow: function() {
-		var defaultFocus = this.focusWhenDeactive;
-		if(defaultFocus == null || !(org.aswing.AsWingUtils.isAncestor(this,defaultFocus) && defaultFocus.isShowing() && defaultFocus.isFocusable() && defaultFocus.isEnabled())) defaultFocus = this.getFocusTraversalPolicy().getDefaultComponent(this);
-		if(defaultFocus == null) defaultFocus = this;
-		this.focusWhenDeactive = null;
-		defaultFocus.requestFocus();
-	}
-	,lostActiveAction: function(st) {
-		if(this.isActive()) {
-			this.deactive(st);
-			if(this.getLootActiveFrom() != null && this.getLootActiveFrom().isShowing()) this.getLootActiveFrom().active();
-		}
-		this.setLootActiveFrom(null);
-	}
-	,getLootActiveFrom: function() {
-		return this.lootActiveFrom;
-	}
-	,setLootActiveFrom: function(activeOwner) {
-		if(this.lootActiveFrom != null) this.lootActiveFrom.removeEventListener("popupClosed",$bind(this,this.__lootActiveFromHide));
-		var oldLookActiveFrom = this.lootActiveFrom;
-		this.lootActiveFrom = activeOwner;
-		if(this.lootActiveFrom != null) this.lootActiveFrom.addEventListener("popupClosed",$bind(this,this.__lootActiveFromHide),false,0,false);
-		if(activeOwner != null && activeOwner.getLootActiveFrom() == this) activeOwner.setLootActiveFrom(oldLookActiveFrom);
-	}
-	,__lootActiveFromHide: function(e) {
-		if(this.lootActiveFrom != null) this.setLootActiveFrom(this.lootActiveFrom.lootActiveFrom);
-	}
-	,active: function(programmatic) {
-		if(programmatic == null) programmatic = true;
-		var fm = org.aswing.FocusManager.getManager(this.get_stage());
-		if(fm == null) return;
-		this._actived = true;
-		var vec = fm.getPopupsVector();
-		var _g1 = 0;
-		var _g = vec.size();
-		while(_g1 < _g) {
-			var i = _g1++;
-			var w = org.aswing.AsWingUtils["as"](vec.get(i),org.aswing.JWindow);
-			if(w != null && w != this) {
-				if(w.isActive()) {
-					w.deactive(w.get_stage(),programmatic);
-					if(w.isShowing()) this.setLootActiveFrom(w);
-				}
-			}
-		}
-		fm.setActiveWindow(this);
-		this.focusAtThisWindow();
-		this.dispatchEvent(new org.aswing.event.WindowEvent("windowActived",programmatic));
-	}
-	,deactive: function(st,programmatic) {
-		if(programmatic == null) programmatic = true;
-		this._actived = false;
-		var fm = org.aswing.FocusManager.getManager(st);
-		if(fm == null) return;
-		this.focusWhenDeactive = fm.getFocusOwner();
-		if(!org.aswing.AsWingUtils.isAncestor(this,this.focusWhenDeactive)) this.focusWhenDeactive = null;
-		fm.setActiveWindow(null);
-		this.dispatchEvent(new org.aswing.event.WindowEvent("windowDeactived",programmatic));
-	}
-	,getInternalFocusObject: function() {
-		return this.focusObject;
-	}
-	,__activeWhenPress: function(e) {
-		if(this.getWindowOwner() != null) this.getWindowOwner().toFront();
-		this.toFront();
-		if(this.isActivable() && !this.isActive()) this.active(false);
-	}
-	,__activeWhenPressWindowSelf: function(e) {
-		if(e.target == this) this.__activeWhenPress(e);
-	}
-	,__class__: org.aswing.JWindow
-	,__properties__: $extend(org.aswing.JPopup.prototype.__properties__,{set_actived:"set_actived",get_actived:"get_actived",set_activable:"set_activable",get_activable:"get_activable",set_content:"set_content",get_content:"get_content"})
-});
-org.aswing.JFrame = function(owner,title,modal) {
-	if(modal == null) modal = false;
-	if(title == null) title = "";
-	org.aswing.JWindow.call(this,owner,modal);
-	this.setClipMasked(true);
-	this._title = title;
-	this.state = 0;
-	this.defaultCloseOperation = 2;
-	this._dragable = true;
-	this._resizable = true;
-	this._closable = true;
-	this._icon = org.aswing.plaf.DefaultEmptyDecoraterResource.INSTANCE;
-	this.lastNormalStateBounds = new org.aswing.geom.IntRectangle(0,0,200,100);
-	this.setName("JFrame");
-	this.addEventListener(openfl.events.Event.ADDED_TO_STAGE,$bind(this,this.__frameAddedToStage));
-	this.addEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__frameRemovedFromStage));
-	this.addEventListener("moved",$bind(this,this.__frameMoved),false,0,false);
-	this.updateUI();
-	this.setTitleBar(new org.aswing.JFrameTitleBar());
-};
-$hxClasses["org.aswing.JFrame"] = org.aswing.JFrame;
-org.aswing.JFrame.__name__ = ["org","aswing","JFrame"];
-org.aswing.JFrame.__super__ = org.aswing.JWindow;
-org.aswing.JFrame.prototype = $extend(org.aswing.JWindow.prototype,{
-	get_titleBar: function() {
-		return this.getTitleBar();
-	}
-	,set_titleBar: function(v) {
-		this.setTitleBar(v);
-		return v;
-	}
-	,get_title: function() {
-		return this.getTitle();
-	}
-	,set_title: function(v) {
-		this.setTitle(v);
-		return v;
-	}
-	,get_icon: function() {
-		return this.getIcon();
-	}
-	,set_icon: function(v) {
-		this.setIcon(v);
-		return v;
-	}
-	,get_dragable: function() {
-		return this.isDragable();
-	}
-	,set_dragable: function(v) {
-		this.setDragable(v);
-		return v;
-	}
-	,get_resizable: function() {
-		return this.isResizable();
-	}
-	,set_resizable: function(v) {
-		this.setResizable(v);
-		return v;
-	}
-	,get_closable: function() {
-		return this.isClosable();
-	}
-	,set_closable: function(v) {
-		this.setClosable(v);
-		return v;
-	}
-	,get_dragDirectly: function() {
-		return this.isDragDirectly();
-	}
-	,set_dragDirectly: function(v) {
-		this.setDragDirectly(v);
-		return v;
-	}
-	,get_dragDirectlySet: function() {
-		return this.isDragDirectlySet();
-	}
-	,set_dragDirectlySet: function(v) {
-		this.setDragDirectlySet(v);
-		return v;
-	}
-	,updateUI: function() {
-		this.setUI(org.aswing.UIManager.getUI(this));
-	}
-	,getDefaultBasicUIClass: function() {
-		return org.aswing.plaf.basic.BasicFrameUI;
-	}
-	,setUI: function(newUI) {
-		if(js.Boot.__instanceof(newUI,org.aswing.plaf.FrameUI)) org.aswing.JWindow.prototype.setUI.call(this,newUI); else throw new org.aswing.error.Error("JFrame just accept FrameUI instance!!!");
-	}
-	,getTitleBar: function() {
-		return this._titleBar;
-	}
-	,setTitleBar: function(t) {
-		if(this._titleBar != t) {
-			var old = this._titleBar;
-			if(this._titleBar != null) {
-				this._titleBar.setFrame(null);
-				this.remove(this._titleBar.getSelf());
-			}
-			this._titleBar = t;
-			if(this._titleBar != null) {
-				this._titleBar.setText(this.getTitle());
-				this._titleBar.setIcon(this.getIcon());
-				this.insert(0,this._titleBar.getSelf(),"Title");
-				this._titleBar.setFrame(this);
-			}
-			this.dispatchEvent(new org.aswing.event.PropertyChangeEvent("titleBar",old,t));
-		}
-	}
-	,getFrameUI: function() {
-		return org.aswing.AsWingUtils["as"](this.getUI(),org.aswing.plaf.FrameUI);
-	}
-	,getUIClassID: function() {
-		return "FrameUI";
-	}
-	,setTitle: function(t) {
-		if(this._title != t) {
-			this._title = t;
-			if(this.getTitleBar() != null) this.getTitleBar().setText(t);
-			this.repaint();
-			this.revalidate();
-		}
-	}
-	,getTitle: function() {
-		return this._title;
-	}
-	,setIcon: function(ico) {
-		if(this._icon != ico) {
-			this._icon = ico;
-			if(this.getTitleBar() != null) this.getTitleBar().setIcon(ico);
-			this.repaint();
-			this.revalidate();
-		}
-	}
-	,getIcon: function() {
-		return this._icon;
-	}
-	,setResizable: function(b) {
-		if(this._resizable != b) {
-			this._resizable = b;
-			this.getResizer().setEnabled(b);
-			this.repaint();
-			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
-		}
-	}
-	,isResizable: function() {
-		return this._resizable;
-	}
-	,setDragable: function(b) {
-		if(this._dragable != b) {
-			this._dragable = b;
-			this.repaint();
-			this.revalidate();
-			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
-		}
-	}
-	,isDragable: function() {
-		return this._dragable;
-	}
-	,setClosable: function(b) {
-		if(this._closable != b) {
-			this._closable = b;
-			this.repaint();
-			this.dispatchEvent(new org.aswing.event.FrameEvent("frameAbilityChanged",true));
-		}
-	}
-	,isClosable: function() {
-		return this._closable;
-	}
-	,pack: function() {
-		if(this.getState() == 0) org.aswing.JWindow.prototype.pack.call(this);
-	}
-	,getMaximizedBounds: function() {
-		if(this.maximizedBounds == null) {
-			var b = org.aswing.AsWingUtils.getVisibleMaximizedBounds(this.parent);
-			return this.getInsets().getOutsideBounds(b);
-		} else return this.maximizedBounds.clone();
-	}
-	,setMaximizedBounds: function(b) {
-		if(b != null) {
-			this.maximizedBounds = b.clone();
-			this.revalidate();
-		} else this.maximizedBounds = null;
-	}
-	,setDefaultCloseOperation: function(operation) {
-		if(operation != 0 && operation != 1 && operation != 2) operation = 2;
-		this.defaultCloseOperation = operation;
-	}
-	,getDefaultCloseOperation: function() {
-		return this.defaultCloseOperation;
-	}
-	,setState: function(s,programmatic) {
-		if(programmatic == null) programmatic = true;
-		if(this.state != s) {
-			if(this.state == 0) this.lastNormalStateBounds.setRect(this.getComBounds());
-			this.state = s;
-			this.fireStateChanged();
-			if(this.state == 2) this.precessIconified(programmatic); else if((this.state & 4) == 4 || (this.state & 8) == 8) this.precessMaximized(programmatic); else this.precessRestored(programmatic);
-			this.doStateChange();
-		}
-	}
-	,isMaximized: function() {
-		return (this.state & 4) == 4 || (this.state & 8) == 8;
-	}
-	,doStateChange: function() {
-		if(this.state == 2) {
-			var iconifiedSize = new org.aswing.geom.IntDimension(60,20);
-			if(this._titleBar != null) iconifiedSize = this._titleBar.getSelf().getMinimumSize();
-			this.setSize(this.getInsets().getOutsideSize(iconifiedSize));
-			var frameMaxBounds = this.getMaximizedBounds();
-			if(this.get_x() < frameMaxBounds.x) this.set_x(frameMaxBounds.x);
-		} else if(this.state == 0) this.setBounds(this.lastNormalStateBounds); else this.setSizeToFixMaxmimized();
-		if(this.getResizer() != null) this.getResizer().setEnabled(this.isResizable() && this.state == 0);
-		this.revalidateIfNecessary();
-	}
-	,__frameMoved: function(e) {
-		if(this.state == 2) this.lastNormalStateBounds.setLocation(e.getNewLocation());
-	}
-	,__frameAddedToStage: function(e) {
-		org.aswing.AsWingManager.getStage().addEventListener(openfl.events.Event.RESIZE,$bind(this,this.__frameStageResized),false,0,false);
-	}
-	,__frameRemovedFromStage: function(e) {
-		if(org.aswing.AsWingManager.getStage() != null) org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.Event.RESIZE,$bind(this,this.__frameStageResized));
-	}
-	,__frameStageResized: function(e) {
-		if(this.get_stage() == null || org.aswing.AsWingManager.getStage().scaleMode != openfl.display.StageScaleMode.NO_SCALE) return;
-		if(this.isMaximized()) {
-			this.setSizeToFixMaxmimized();
-			this.revalidateIfNecessary();
-		}
-	}
-	,setSizeToFixMaxmimized: function() {
-		var maxBounds = this.getMaximizedBounds();
-		var b = this.getComBounds();
-		if((this.state & 4) == 4) {
-			b.x = maxBounds.x;
-			b.width = maxBounds.width;
-		}
-		if((this.state & 8) == 8) {
-			b.y = maxBounds.y;
-			b.height = maxBounds.height;
-		}
-		this.setBounds(b);
-	}
-	,precessIconified: function(programmatic) {
-		if(programmatic == null) programmatic = true;
-		this.doSubPopusVisible();
-		this.dispatchEvent(new org.aswing.event.FrameEvent("frameIconified",programmatic));
-	}
-	,precessRestored: function(programmatic) {
-		if(programmatic == null) programmatic = true;
-		this.doSubPopusVisible();
-		this.dispatchEvent(new org.aswing.event.FrameEvent("frameRestored",programmatic));
-	}
-	,precessMaximized: function(programmatic) {
-		if(programmatic == null) programmatic = true;
-		this.doSubPopusVisible();
-		this.dispatchEvent(new org.aswing.event.FrameEvent("frameMaximized",programmatic));
-	}
-	,doSubPopusVisible: function() {
-		var owneds = this.getOwnedEquipedPopups();
-		var _g1 = 0;
-		var _g = owneds.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			var pop = owneds[i];
-			pop.getGroundContainer().set_visible(pop.shouldGroundVisible());
-		}
-	}
-	,shouldOwnedPopupGroundVisible: function(popup) {
-		if(this.getState() == 2) return false;
-		return org.aswing.JWindow.prototype.shouldOwnedPopupGroundVisible.call(this,popup);
-	}
-	,getState: function() {
-		return this.state;
-	}
-	,setResizer: function(r) {
-		if(r != this.resizer) {
-			this.resizer = r;
-			if(this.resizerController == null) this.resizerController = org.aswing.resizer.ResizerController.create(this,r); else this.resizerController.setResizer(this.resizer);
-			this.resizerController.setResizable(this.isResizable());
-		}
-	}
-	,getResizer: function() {
-		return this.resizer;
-	}
-	,setResizeDirectly: function(b) {
-		if(this.resizerController != null) this.resizerController.setResizeDirectly(b);
-	}
-	,isResizeDirectly: function() {
-		if(this.resizerController != null) return this.resizer.isResizeDirectly(); else return false;
-	}
-	,setDragDirectly: function(b) {
-		this._dragDirectly = b;
-		this.setDragDirectlySet(true);
-	}
-	,isDragDirectly: function() {
-		return this._dragDirectly;
-	}
-	,setDragDirectlySet: function(b) {
-		this._dragDirectlySet = b;
-	}
-	,isDragDirectlySet: function() {
-		return this._dragDirectlySet;
-	}
-	,closeReleased: function() {
-		this.dispatchEvent(new org.aswing.event.FrameEvent("frameClosing",false));
-		this.tryToClose();
-	}
-	,tryToClose: function() {
-		if(this.defaultCloseOperation == 1) this.hide(); else if(this.defaultCloseOperation == 2) this.dispose();
-	}
-	,fireStateChanged: function(programmatic) {
-		if(programmatic == null) programmatic = true;
-		this.dispatchEvent(new org.aswing.event.InteractiveEvent("stateChanged",programmatic));
-	}
-	,initModalMC: function() {
-		org.aswing.JWindow.prototype.initModalMC.call(this);
-		this.getModalMC().addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__flashModelFrame));
-	}
-	,__flashModelFrame: function(e) {
-		if(this.getFrameUI() != null) this.getFrameUI().flashModalFrame();
-	}
-	,__class__: org.aswing.JFrame
-	,__properties__: $extend(org.aswing.JWindow.prototype.__properties__,{set_dragDirectlySet:"set_dragDirectlySet",get_dragDirectlySet:"get_dragDirectlySet",set_dragDirectly:"set_dragDirectly",get_dragDirectly:"get_dragDirectly",set_closable:"set_closable",get_closable:"get_closable",set_resizable:"set_resizable",get_resizable:"get_resizable",set_dragable:"set_dragable",get_dragable:"get_dragable",set_icon:"set_icon",get_icon:"get_icon",set_title:"set_title",get_title:"get_title",set_titleBar:"set_titleBar",get_titleBar:"get_titleBar"})
-});
 org.aswing.JFrameTitleBar = function() {
 	org.aswing.Container.call(this);
 	this.setClipMasked(true);
@@ -33492,7 +37908,6 @@ org.aswing.JFrameTitleBar = function() {
 	this.buttonPaneLayout = new org.aswing.SoftBoxLayout(0,0);
 	this.buttonPane.setLayout(this.buttonPaneLayout);
 	var labelPane = new org.aswing.Container();
-	labelPane.setBorder(new org.aswing.border.EmptyBorder(null,new org.aswing.Insets(-3)));
 	labelPane.setLayout(new org.aswing.BorderLayout());
 	this.titleLabel = new org.aswing.JLabel();
 	this.titleLabel.setHorizontalAlignment(2);
@@ -33504,8 +37919,8 @@ org.aswing.JFrameTitleBar = function() {
 	labelPane.mouseChildren = false;
 	this.append(labelPane,"Center");
 	var btnpP = new org.aswing.Container();
-	btnpP.setLayout(new org.aswing.BorderLayout());
-	btnpP.append(this.buttonPane,"North");
+	btnpP.setLayout(new org.aswing.CenterLayout());
+	btnpP.append(this.buttonPane);
 	this.append(btnpP,"East");
 	this.setIconifiedButton(this.createIconifiedButton());
 	this.setMaximizeButton(this.createMaximizeButton());
@@ -33822,6 +38237,7 @@ org.aswing.JLabel = function(text,icon,horizontalAlignment) {
 	this._horizontalAlignment = horizontalAlignment;
 	this._iconTextGap = 4;
 	this._selectable = false;
+	this.readyToPaint = true;
 	this.updateUI();
 };
 $hxClasses["org.aswing.JLabel"] = org.aswing.JLabel;
@@ -33918,8 +38334,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 	,setText: function(text) {
 		if(this._text != text) {
 			this._text = text;
-			this.repaint();
-			this.invalidate();
+			this.repaintAndRevalidate();
 		}
 	}
 	,getText: function() {
@@ -33944,8 +38359,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 			this.uninstallIcon(this._icon);
 			this._icon = icon;
 			this.installIcon(this._icon);
-			this.repaint();
-			this.invalidate();
+			this.repaintAndRevalidate();
 		}
 	}
 	,getIcon: function() {
@@ -33964,10 +38378,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 		if(disabledIcon != oldValue) {
 			this.uninstallIcon(oldValue);
 			this.installIcon(disabledIcon);
-			if(!this.isEnabled()) {
-				this.repaint();
-				this.invalidate();
-			}
+			if(!this.isEnabled()) this.repaintAndRevalidate();
 		}
 	}
 	,getVerticalAlignment: function() {
@@ -34004,8 +38415,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 	,setHorizontalTextPosition: function(textPosition) {
 		if(textPosition == this._horizontalTextPosition) return; else {
 			this._horizontalTextPosition = textPosition | 0;
-			this.repaint();
-			this.revalidate();
+			this.repaintAndRevalidate();
 		}
 	}
 	,getIconTextGap: function() {
@@ -34014,10 +38424,7 @@ org.aswing.JLabel.prototype = $extend(org.aswing.Component.prototype,{
 	,setIconTextGap: function(iconTextGap) {
 		var oldValue = this._iconTextGap;
 		this._iconTextGap = iconTextGap | 0;
-		if(iconTextGap != oldValue) {
-			this.revalidate();
-			this.repaint();
-		}
+		if(iconTextGap != oldValue) this.repaintAndRevalidate();
 	}
 	,__class__: org.aswing.JLabel
 	,__properties__: $extend(org.aswing.Component.prototype.__properties__,{set_textFilters:"set_textFilters",get_textFilters:"get_textFilters",set_selectable:"set_selectable",get_selectable:"get_selectable",set_iconTextGap:"set_iconTextGap",get_iconTextGap:"get_iconTextGap",set_horizontalTextPosition:"set_horizontalTextPosition",get_horizontalTextPosition:"get_horizontalTextPosition",set_verticalTextPosition:"set_verticalTextPosition",get_verticalTextPosition:"get_verticalTextPosition",set_horizontalAlignment:"set_horizontalAlignment",get_horizontalAlignment:"get_horizontalAlignment",set_verticalAlignment:"set_verticalAlignment",get_verticalAlignment:"get_verticalAlignment",set_disabledIcon:"set_disabledIcon",get_disabledIcon:"get_disabledIcon",set_text:"set_text",get_text:"get_text",set_icon:"set_icon",get_icon:"get_icon"})
@@ -35843,12 +40250,6 @@ org.aswing.JPopupMenu.prototype = $extend(org.aswing.Container.prototype,{
 	,__class__: org.aswing.JPopupMenu
 	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_inUse:"set_inUse",get_inUse:"get_inUse",set_invoker:"set_invoker",get_invoker:"get_invoker"})
 });
-org.aswing.Orientable = function() { };
-$hxClasses["org.aswing.Orientable"] = org.aswing.Orientable;
-org.aswing.Orientable.__name__ = ["org","aswing","Orientable"];
-org.aswing.Orientable.prototype = {
-	__class__: org.aswing.Orientable
-};
 org.aswing.JProgressBar = function(orient,min,max) {
 	if(max == null) max = 100;
 	if(min == null) min = 0;
@@ -37201,6 +41602,13 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 		this.setSelectionModel(v);
 		return v;
 	}
+	,get_selectionMode: function() {
+		return this.get_selectionModel().getSelectionMode();
+	}
+	,set_selectionMode: function(v) {
+		this.setSelectionMode(v);
+		return v;
+	}
 	,get_tableHeader: function() {
 		return this.getTableHeader();
 	}
@@ -37334,6 +41742,49 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 		this.setHorizontalBlockIncrement(v);
 		return v;
 	}
+	,get_selectedItem: function() {
+		var index = this.getSelectedRow();
+		var model = this.get_dataModel();
+		if(index >= 0) {
+			var sorter;
+			if(js.Boot.__instanceof(model,org.aswing.table.sorter.TableSorter)) sorter = model; else sorter = null;
+			if(null != sorter) {
+				index = sorter.modelIndex(index);
+				model = sorter.get_tableModel();
+			}
+			var propertyModel;
+			if(js.Boot.__instanceof(model,org.aswing.table.PropertyTableModel)) propertyModel = model; else propertyModel = null;
+			if(null == propertyModel || null == propertyModel.get_list()) return null; else return propertyModel.get_list().getElementAt(index);
+		} else return null;
+	}
+	,set_selectedItem: function(v) {
+		var __oldValue__ = this.get_selectedItem();
+		if(v == __oldValue__) return __oldValue__;
+		var model = this.get_dataModel();
+		var sorter;
+		if(js.Boot.__instanceof(model,org.aswing.table.sorter.TableSorter)) sorter = model; else sorter = null;
+		if(null != sorter) model = sorter.get_tableModel();
+		var propertyModel;
+		if(js.Boot.__instanceof(model,org.aswing.table.PropertyTableModel)) propertyModel = model; else propertyModel = null;
+		if(null != propertyModel) {
+			var index = -1;
+			var _g1 = 0;
+			var _g = propertyModel.get_list().getSize();
+			while(_g1 < _g) {
+				var i = _g1++;
+				if(v == propertyModel.get_list().getElementAt(i)) {
+					index = i;
+					break;
+				}
+			}
+			if(index > 0) {
+				if(null != sorter) index = sorter.viewIndex(index);
+				this.setRowSelectionInterval(index,index);
+			}
+		}
+		this.__fieldBindings__.dispatch("selectedItem",__oldValue__,this.get_selectedItem());
+		return v;
+	}
 	,initWithModels: function(dm,cm,sm) {
 		this.setLayout(this);
 		this.cellPane = new org.aswing.CellPane();
@@ -37344,10 +41795,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 		this.append(this.headerPane);
 		this.rowCells = new Array();
 		this._viewPosition = new org.aswing.geom.IntPoint();
-		if(cm == null) {
-			cm = this.createDefaultColumnModel();
-			this._autoCreateColumnsFromModel = true;
-		}
+		if(cm == null) cm = this.createDefaultColumnModel();
 		this.setColumnModel(cm);
 		if(sm == null) sm = this.createDefaultSelectionModel();
 		this.setSelectionModel(sm);
@@ -37469,7 +41917,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 	}
 	,setGridColor: function(gridColor) {
 		if(gridColor == null) {
-			haxe.Log.trace("New color is null, Ignored",{ fileName : "JTable.hx", lineNumber : 711, className : "org.aswing.JTable", methodName : "setGridColor"});
+			haxe.Log.trace("New color is null, Ignored",{ fileName : "JTable.hx", lineNumber : 791, className : "org.aswing.JTable", methodName : "setGridColor"});
 			return;
 		}
 		this._gridColor = gridColor;
@@ -38002,7 +42450,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 	}
 	,setModel: function(dataModel) {
 		if(dataModel == null) {
-			haxe.Log.trace("Can't set null TableModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2200, className : "org.aswing.JTable", methodName : "setModel"});
+			haxe.Log.trace("Can't set null TableModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2281, className : "org.aswing.JTable", methodName : "setModel"});
 			return;
 		}
 		if(this._dataModel != dataModel) {
@@ -38018,7 +42466,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 	}
 	,setColumnModel: function(columnModel) {
 		if(columnModel == null) {
-			haxe.Log.trace("Cannot set a null ColumnModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2239, className : "org.aswing.JTable", methodName : "setColumnModel"});
+			haxe.Log.trace("Cannot set a null ColumnModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2320, className : "org.aswing.JTable", methodName : "setColumnModel"});
 			return;
 		}
 		var old = this._columnModel;
@@ -38035,7 +42483,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 	}
 	,setSelectionModel: function(newModel) {
 		if(newModel == null) {
-			haxe.Log.trace("Cannot set a null SelectionModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2281, className : "org.aswing.JTable", methodName : "setSelectionModel"});
+			haxe.Log.trace("Cannot set a null SelectionModel to JTable, Ignored",{ fileName : "JTable.hx", lineNumber : 2362, className : "org.aswing.JTable", methodName : "setSelectionModel"});
 			return;
 		}
 		var oldModel = this._selectionModel;
@@ -38145,6 +42593,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 		}
 		this.rowSelectionAdjusting = isAdjusting;
 		this.dispatchEvent(new org.aswing.event.SelectionEvent("rowSelectionChanged",e.getFirstIndex(),e.getLastIndex(),e.isProgrammatic()));
+		this.__fieldBindings__.dispatch("selectedItem",null,null);
 		this.resizeAndRepaint();
 	}
 	,editingStopped: function(source) {
@@ -38374,8 +42823,8 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 		var value = this.getValueAt(row,column);
 		var cell = this.rowCells[cr][cc];
 		if(cell == null) {
-			haxe.Log.trace("Logic Error : rowCells[" + cr + "][" + cc + "] = undefined",{ fileName : "JTable.hx", lineNumber : 3057, className : "org.aswing.JTable", methodName : "layoutCell"});
-			haxe.Log.trace("rowCells.length = " + this.rowCells.length,{ fileName : "JTable.hx", lineNumber : 3058, className : "org.aswing.JTable", methodName : "layoutCell"});
+			haxe.Log.trace("Logic Error : rowCells[" + cr + "][" + cc + "] = undefined",{ fileName : "JTable.hx", lineNumber : 3139, className : "org.aswing.JTable", methodName : "layoutCell"});
+			haxe.Log.trace("rowCells.length = " + this.rowCells.length,{ fileName : "JTable.hx", lineNumber : 3140, className : "org.aswing.JTable", methodName : "layoutCell"});
 		}
 		cell.setCellValue(value);
 		cell.setTableCellStatus(this,this.isCellSelected(row,column),row,column);
@@ -38604,7 +43053,7 @@ org.aswing.JTable.prototype = $extend(org.aswing.Container.prototype,{
 	,invalidateLayout: function(target) {
 	}
 	,__class__: org.aswing.JTable
-	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_horizontalBlockIncrement:"set_horizontalBlockIncrement",get_horizontalBlockIncrement:"get_horizontalBlockIncrement",set_horizontalUnitIncrement:"set_horizontalUnitIncrement",get_horizontalUnitIncrement:"get_horizontalUnitIncrement",set_verticalBlockIncrement:"set_verticalBlockIncrement",get_verticalBlockIncrement:"get_verticalBlockIncrement",set_verticalUnitIncrement:"set_verticalUnitIncrement",get_verticalUnitIncrement:"get_verticalUnitIncrement",set_viewPosition:"set_viewPosition",get_viewPosition:"get_viewPosition",set_cellSelectionEnabled:"set_cellSelectionEnabled",get_cellSelectionEnabled:"get_cellSelectionEnabled",set_columnSelectionAllowed:"set_columnSelectionAllowed",get_columnSelectionAllowed:"get_columnSelectionAllowed",set_rowSelectionAllowed:"set_rowSelectionAllowed",get_rowSelectionAllowed:"get_rowSelectionAllowed",set_preferredViewportSize:"set_preferredViewportSize",get_preferredViewportSize:"get_preferredViewportSize",set_autoCreateColumnsFromModel:"set_autoCreateColumnsFromModel",get_autoCreateColumnsFromModel:"get_autoCreateColumnsFromModel",set_autoResizeMode:"set_autoResizeMode",get_autoResizeMode:"get_autoResizeMode",set_showVerticalLines:"set_showVerticalLines",get_showVerticalLines:"get_showVerticalLines",set_showHorizontalLines:"set_showHorizontalLines",get_showHorizontalLines:"get_showHorizontalLines",set_gridColor:"set_gridColor",get_gridColor:"get_gridColor",set_cellSpacing:"set_cellSpacing",get_cellSpacing:"get_cellSpacing",set_rowMargin:"set_rowMargin",get_rowMargin:"get_rowMargin",set_rowHeight:"set_rowHeight",get_rowHeight:"get_rowHeight",set_footer:"set_footer",get_footer:"get_footer",set_tableHeader:"set_tableHeader",get_tableHeader:"get_tableHeader",set_selectionModel:"set_selectionModel",get_selectionModel:"get_selectionModel",set_columnModel:"set_columnModel",get_columnModel:"get_columnModel",set_dataModel:"set_dataModel",get_dataModel:"get_dataModel"})
+	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_selectedItem:"set_selectedItem",get_selectedItem:"get_selectedItem",set_horizontalBlockIncrement:"set_horizontalBlockIncrement",get_horizontalBlockIncrement:"get_horizontalBlockIncrement",set_horizontalUnitIncrement:"set_horizontalUnitIncrement",get_horizontalUnitIncrement:"get_horizontalUnitIncrement",set_verticalBlockIncrement:"set_verticalBlockIncrement",get_verticalBlockIncrement:"get_verticalBlockIncrement",set_verticalUnitIncrement:"set_verticalUnitIncrement",get_verticalUnitIncrement:"get_verticalUnitIncrement",set_viewPosition:"set_viewPosition",get_viewPosition:"get_viewPosition",set_cellSelectionEnabled:"set_cellSelectionEnabled",get_cellSelectionEnabled:"get_cellSelectionEnabled",set_columnSelectionAllowed:"set_columnSelectionAllowed",get_columnSelectionAllowed:"get_columnSelectionAllowed",set_rowSelectionAllowed:"set_rowSelectionAllowed",get_rowSelectionAllowed:"get_rowSelectionAllowed",set_preferredViewportSize:"set_preferredViewportSize",get_preferredViewportSize:"get_preferredViewportSize",set_autoCreateColumnsFromModel:"set_autoCreateColumnsFromModel",get_autoCreateColumnsFromModel:"get_autoCreateColumnsFromModel",set_autoResizeMode:"set_autoResizeMode",get_autoResizeMode:"get_autoResizeMode",set_showVerticalLines:"set_showVerticalLines",get_showVerticalLines:"get_showVerticalLines",set_showHorizontalLines:"set_showHorizontalLines",get_showHorizontalLines:"get_showHorizontalLines",set_gridColor:"set_gridColor",get_gridColor:"get_gridColor",set_cellSpacing:"set_cellSpacing",get_cellSpacing:"get_cellSpacing",set_rowMargin:"set_rowMargin",get_rowMargin:"get_rowMargin",set_rowHeight:"set_rowHeight",get_rowHeight:"get_rowHeight",set_footer:"set_footer",get_footer:"get_footer",set_tableHeader:"set_tableHeader",get_tableHeader:"get_tableHeader",set_selectionMode:"set_selectionMode",get_selectionMode:"get_selectionMode",set_selectionModel:"set_selectionModel",get_selectionModel:"get_selectionModel",set_columnModel:"set_columnModel",get_columnModel:"get_columnModel",set_dataModel:"set_dataModel",get_dataModel:"get_dataModel"})
 });
 org.aswing.JTextField = function(text,columns) {
 	if(columns == null) columns = 0;
@@ -38698,6 +43147,7 @@ org.aswing.JTextField.prototype = $extend(org.aswing.JTextComponent.prototype,{
 	}
 	,paintFocusRect: function(force) {
 		if(force == null) force = false;
+		if(null == this.get_stage()) return;
 		org.aswing.FocusManager.getManager(this.get_stage()).setTraversalEnabled(true);
 		org.aswing.JTextComponent.prototype.paintFocusRect.call(this,true);
 	}
@@ -41624,62 +46074,137 @@ org.aswing.WindowOrderFocusTraversalPolicy.prototype = $extend(org.aswing.Contai
 	}
 	,__class__: org.aswing.WindowOrderFocusTraversalPolicy
 });
-org.aswing.border = {};
-org.aswing.border.DecorateBorder = function(interior) {
-	this.interior = interior;
-};
-$hxClasses["org.aswing.border.DecorateBorder"] = org.aswing.border.DecorateBorder;
-org.aswing.border.DecorateBorder.__name__ = ["org","aswing","border","DecorateBorder"];
-org.aswing.border.DecorateBorder.__interfaces__ = [org.aswing.Border];
-org.aswing.border.DecorateBorder.prototype = {
-	setInterior: function(interior) {
-		this.interior = interior;
+org.aswing.border.BevelBorder = function(interior,bevelType,highlightOuterColor,highlightInnerColor,shadowOuterColor,shadowInnerColor,thickness) {
+	if(thickness == null) thickness = 2;
+	if(bevelType == null) bevelType = 1;
+	org.aswing.border.DecorateBorder.call(this,interior);
+	this.bevelType = bevelType;
+	if(highlightInnerColor != null && shadowOuterColor == null) {
+		this.highlightOuter = highlightOuterColor.brighter();
+		this.highlightInner = highlightOuterColor;
+		this.shadowOuter = null;
+		this.shadowInner = null;
+	} else {
+		this.highlightOuter = highlightOuterColor;
+		this.highlightInner = highlightInnerColor;
+		this.shadowOuter = shadowOuterColor;
+		this.shadowInner = shadowInnerColor;
 	}
-	,getInterior: function() {
-		return this.interior;
+	this.thickness = thickness;
+};
+$hxClasses["org.aswing.border.BevelBorder"] = org.aswing.border.BevelBorder;
+org.aswing.border.BevelBorder.__name__ = ["org","aswing","border","BevelBorder"];
+org.aswing.border.BevelBorder.__super__ = org.aswing.border.DecorateBorder;
+org.aswing.border.BevelBorder.prototype = $extend(org.aswing.border.DecorateBorder.prototype,{
+	updateBorderImp: function(com,g,b) {
+		if(this.bevelType == 0) this.paintRaisedBevel(com,g,b.x,b.y,b.width,b.height); else this.paintLoweredBevel(com,g,b.x,b.y,b.width,b.height);
+	}
+	,getBorderInsetsImp: function(c,bounds) {
+		return new org.aswing.Insets(this.thickness | 0,this.thickness | 0,this.thickness | 0,this.thickness | 0);
 	}
 	,getDisplayImp: function() {
 		return null;
 	}
-	,updateBorderImp: function(com,g,bounds) {
-		throw new org.aswing.error.ImpMissError();
+	,setThickness: function(t) {
+		this.thickness = t;
 	}
-	,getBorderInsetsImp: function(c,bounds) {
-		throw new org.aswing.error.ImpMissError();
-		return new org.aswing.Insets();
+	,getThickness: function() {
+		return this.thickness;
 	}
-	,getDisplay: function(c) {
-		var inter = this.getInterior();
-		if(inter != null) {
-			var interDis = inter.getDisplay(c);
-			var selfDis = this.getDisplayImp();
-			if(interDis == null) return selfDis; else if(selfDis == null) return interDis; else {
-				if(this.disContainer == null) {
-					this.disContainer = new openfl.display.Sprite();
-					this.disContainer.addChild(selfDis);
-					this.disContainer.addChild(interDis);
-				}
-				return this.disContainer;
-			}
-		} else return this.getDisplayImp();
+	,getHighlightOuterColorWith: function(c) {
+		var highlight = this.getHighlightOuterColor();
+		if(highlight == null) highlight = c.getBackground().brighter().brighter();
+		return highlight;
 	}
-	,updateBorder: function(c,g,bounds) {
-		this.updateBorderImp(c,g,bounds);
-		if(this.getInterior() != null) {
-			var interiorBounds = this.getBorderInsetsImp(c,bounds).getInsideBounds(bounds);
-			this.getInterior().updateBorder(c,g,interiorBounds);
-		}
+	,getHighlightInnerColorWith: function(c) {
+		var highlight = this.getHighlightInnerColor();
+		if(highlight == null) highlight = c.getBackground().brighter();
+		return highlight;
 	}
-	,getBorderInsets: function(c,bounds) {
-		var insets = this.getBorderInsetsImp(c,bounds);
-		if(this.getInterior() != null) {
-			var interiorBounds = insets.getInsideBounds(bounds);
-			insets.addInsets(this.getInterior().getBorderInsets(c,interiorBounds));
-		}
-		return insets;
+	,getShadowInnerColorWith: function(c) {
+		var shadow = this.getShadowInnerColor();
+		if(shadow == null) shadow = c.getBackground().darker();
+		return shadow;
 	}
-	,__class__: org.aswing.border.DecorateBorder
-};
+	,getShadowOuterColorWith: function(c) {
+		var shadow = this.getShadowOuterColor();
+		if(shadow == null) shadow = c.getBackground().darker().darker();
+		return shadow;
+	}
+	,setHighlightOuterColor: function(color) {
+		this.highlightOuter = color;
+	}
+	,getHighlightOuterColor: function() {
+		return this.highlightOuter;
+	}
+	,setHighlightInnerColor: function(color) {
+		this.highlightInner = color;
+	}
+	,getHighlightInnerColor: function() {
+		return this.highlightInner;
+	}
+	,setShadowInnerColor: function(color) {
+		this.shadowInner = color;
+	}
+	,getShadowInnerColor: function() {
+		return this.shadowInner;
+	}
+	,setShadowOuterColor: function(color) {
+		this.shadowOuter = color;
+	}
+	,getShadowOuterColor: function() {
+		return this.shadowOuter;
+	}
+	,setBevelType: function(bevelType) {
+		this.bevelType = bevelType | 0;
+	}
+	,getBevelType: function() {
+		return this.bevelType;
+	}
+	,paintRaisedBevel: function(c,g,x,y,width,height) {
+		var h = height;
+		var w = width;
+		var pt = this.thickness / 2;
+		x += pt / 2;
+		y += pt / 2;
+		w -= pt;
+		h -= pt;
+		var pen = new org.aswing.graphics.Pen(this.getHighlightOuterColorWith(c),pt,false,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE,openfl.display.JointStyle.MITER);
+		g.drawLine(pen,x,y,x,y + h - pt);
+		g.drawLine(pen,x + pt,y,x + w - pt,y);
+		pen.setColor(this.getHighlightInnerColorWith(c));
+		g.drawLine(pen,x + pt,y + pt,x + pt,y + h - 2 * pt);
+		g.drawLine(pen,x + 2 * pt,y + pt,x + w - 2 * pt,y + pt);
+		pen.setColor(this.getShadowOuterColorWith(c));
+		g.drawLine(pen,x,y + h - 0 * pt,x + w - 0 * pt,y + h - 0 * pt);
+		g.drawLine(pen,x + w - 0 * pt,y,x + w - 0 * pt,y + h - pt);
+		pen.setColor(this.getShadowInnerColorWith(c));
+		g.drawLine(pen,x + pt,y + h - pt,x + w - pt,y + h - pt);
+		g.drawLine(pen,x + w - pt,y + pt,x + w - pt,y + h - 2 * pt);
+	}
+	,paintLoweredBevel: function(c,g,x,y,width,height) {
+		var h = height;
+		var w = width;
+		var pt = this.thickness / 2;
+		x += pt / 2;
+		y += pt / 2;
+		w -= pt;
+		h -= pt;
+		var pen = new org.aswing.graphics.Pen(this.getShadowInnerColorWith(c),pt,false,openfl.display.LineScaleMode.NORMAL,openfl.display.CapsStyle.SQUARE,openfl.display.JointStyle.MITER);
+		g.drawLine(pen,x,y,x,y + h - pt);
+		g.drawLine(pen,x + pt,y,x + w - pt,y);
+		pen.setColor(this.getShadowOuterColorWith(c));
+		g.drawLine(pen,x + pt,y + pt,x + pt,y + h - 2 * pt);
+		g.drawLine(pen,x + 2 * pt,y + pt,x + w - 2 * pt,y + pt);
+		pen.setColor(this.getHighlightOuterColorWith(c));
+		g.drawLine(pen,x,y + h - 0 * pt,x + w - 0 * pt,y + h - 0 * pt);
+		g.drawLine(pen,x + w - 0 * pt,y,x + w - 0 * pt,y + h - pt);
+		pen.setColor(this.getHighlightInnerColorWith(c));
+		g.drawLine(pen,x + pt,y + h - pt,x + w - pt,y + h - pt);
+		g.drawLine(pen,x + w - pt,y + pt,x + w - pt,y + h - 2 * pt);
+	}
+	,__class__: org.aswing.border.BevelBorder
+});
 org.aswing.border.EmptyBorder = function(interior,margin) {
 	org.aswing.border.DecorateBorder.call(this,interior);
 	if(margin == null) this.margin = new org.aswing.Insets(); else this.margin = margin.clone();
@@ -41750,50 +46275,6 @@ org.aswing.border.EmptyBorder.prototype = $extend(org.aswing.border.DecorateBord
 	}
 	,__class__: org.aswing.border.EmptyBorder
 	,__properties__: {set_right:"set_right",get_right:"get_right",set_bottom:"set_bottom",get_bottom:"get_bottom",set_left:"set_left",get_left:"get_left",set_top:"set_top",get_top:"get_top"}
-});
-org.aswing.border.LineBorder = function(interior,color,thickness,round) {
-	if(round == null) round = 0;
-	if(thickness == null) thickness = 1;
-	org.aswing.border.DecorateBorder.call(this,interior);
-	if(color == null) color = org.aswing.ASColor.BLACK;
-	this.color = color;
-	this.thickness = thickness;
-	this.round = round;
-};
-$hxClasses["org.aswing.border.LineBorder"] = org.aswing.border.LineBorder;
-org.aswing.border.LineBorder.__name__ = ["org","aswing","border","LineBorder"];
-org.aswing.border.LineBorder.__super__ = org.aswing.border.DecorateBorder;
-org.aswing.border.LineBorder.prototype = $extend(org.aswing.border.DecorateBorder.prototype,{
-	updateBorderImp: function(com,g,b) {
-		var t = this.thickness;
-		if(this.round <= 0) g.drawRectangle(new org.aswing.graphics.Pen(this.color,this.thickness),b.x + t / 2,b.y + t / 2,b.width - t,b.height - t); else g.fillRoundRectRingWithThickness(new org.aswing.graphics.SolidBrush(this.color),b.x,b.y,b.width,b.height,this.round,t);
-	}
-	,getBorderInsetsImp: function(com,bounds) {
-		var width = Std["int"](Math.ceil(this.thickness + this.round - this.round * 0.707106781186547));
-		return new org.aswing.Insets(width,width,width,width);
-	}
-	,getDisplayImp: function() {
-		return null;
-	}
-	,getColor: function() {
-		return this.color;
-	}
-	,setColor: function(color) {
-		this.color = color;
-	}
-	,getThickness: function() {
-		return this.thickness;
-	}
-	,setThickness: function(thickness) {
-		this.thickness = thickness;
-	}
-	,getRound: function() {
-		return this.round;
-	}
-	,setRound: function(round) {
-		this.round = round;
-	}
-	,__class__: org.aswing.border.LineBorder
 });
 org.aswing.dnd = {};
 org.aswing.dnd.DraggingImage = function() { };
@@ -43457,13 +47938,6 @@ org.aswing.plaf.FrameUI.__interfaces__ = [org.aswing.plaf.ComponentUI];
 org.aswing.plaf.FrameUI.prototype = {
 	__class__: org.aswing.plaf.FrameUI
 };
-org.aswing.plaf.TableUI = function() { };
-$hxClasses["org.aswing.plaf.TableUI"] = org.aswing.plaf.TableUI;
-org.aswing.plaf.TableUI.__name__ = ["org","aswing","plaf","TableUI"];
-org.aswing.plaf.TableUI.__interfaces__ = [org.aswing.plaf.ComponentUI];
-org.aswing.plaf.TableUI.prototype = {
-	__class__: org.aswing.plaf.TableUI
-};
 org.aswing.plaf.TreeUI = function() { };
 $hxClasses["org.aswing.plaf.TreeUI"] = org.aswing.plaf.TreeUI;
 org.aswing.plaf.TreeUI.__name__ = ["org","aswing","plaf","TreeUI"];
@@ -43471,6 +47945,727 @@ org.aswing.plaf.TreeUI.__interfaces__ = [org.aswing.plaf.ComponentUI];
 org.aswing.plaf.TreeUI.prototype = {
 	__class__: org.aswing.plaf.TreeUI
 };
+org.aswing.plaf.basic.BasicAccordionUI = function() {
+	org.aswing.plaf.BaseComponentUI.call(this);
+};
+$hxClasses["org.aswing.plaf.basic.BasicAccordionUI"] = org.aswing.plaf.basic.BasicAccordionUI;
+org.aswing.plaf.basic.BasicAccordionUI.__name__ = ["org","aswing","plaf","basic","BasicAccordionUI"];
+org.aswing.plaf.basic.BasicAccordionUI.__interfaces__ = [org.aswing.LayoutManager];
+org.aswing.plaf.basic.BasicAccordionUI.__super__ = org.aswing.plaf.BaseComponentUI;
+org.aswing.plaf.basic.BasicAccordionUI.prototype = $extend(org.aswing.plaf.BaseComponentUI.prototype,{
+	installUI: function(c) {
+		this.headers = new Array();
+		this.destSize = new org.aswing.geom.IntDimension();
+		if(js.Boot.__instanceof(c,org.aswing.JAccordion)) this.accordion = c; else this.accordion = null;
+		this.installDefaults();
+		this.installComponents();
+		this.installListeners();
+	}
+	,uninstallUI: function(c) {
+		if(js.Boot.__instanceof(c,org.aswing.JAccordion)) this.accordion = c; else this.accordion = null;
+		this.uninstallDefaults();
+		this.uninstallComponents();
+		this.uninstallListeners();
+	}
+	,getPropertyPrefix: function() {
+		return "Accordion.";
+	}
+	,installDefaults: function() {
+		this.accordion.setLayout(this);
+		var pp = this.getPropertyPrefix();
+		org.aswing.LookAndFeel.installBorderAndBFDecorators(this.accordion,pp);
+		org.aswing.LookAndFeel.installColorsAndFont(this.accordion,pp);
+		org.aswing.LookAndFeel.installBasicProperties(this.accordion,pp);
+		this.motionSpeed = this.getInt(pp + "motionSpeed");
+		if(this.motionSpeed <= 0 || this.motionSpeed == 0) this.motionSpeed = org.aswing.plaf.basic.BasicAccordionUI.MOTION_SPEED;
+		var tabMargin = this.getInsets(pp + "tabMargin");
+		if(tabMargin == null) tabMargin = new org.aswing.plaf.InsetsUIResource(1,1,1,1);
+		var i = this.accordion.getMargin();
+		if(i == null || js.Boot.__instanceof(i,org.aswing.plaf.UIResource)) this.accordion.setMargin(tabMargin);
+		this.accordion.itemContainerClass = this.getClass(pp + "itemContainer");
+	}
+	,uninstallDefaults: function() {
+		org.aswing.LookAndFeel.uninstallBorderAndBFDecorators(this.accordion);
+	}
+	,installComponents: function() {
+		this.headerContainer = new openfl.display.Sprite();
+		this.accordion.addChild(this.headerContainer);
+		this.synTabs();
+		this.synHeaderProperties();
+	}
+	,uninstallComponents: function() {
+		var _g1 = 0;
+		var _g = this.headers.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var header = this.getHeader(i);
+			this.headerContainer.removeChild(header.getTabComponent());
+			header.getTabComponent().removeEventListener(openfl.events.MouseEvent.CLICK,$bind(this,this.__tabClick));
+		}
+		this.headers.slice(0);
+		this.accordion.removeChild(this.headerContainer);
+	}
+	,installListeners: function() {
+		this.accordion.addStateListener($bind(this,this.__onSelectionChanged));
+		this.accordion.addEventListener("focusKeyDown",$bind(this,this.__onKeyDown));
+		this.motionTimer = new org.aswing.util.Timer(40);
+		this.motionTimer.addEventListener("act",$bind(this,this.__onMotion));
+	}
+	,uninstallListeners: function() {
+		this.accordion.removeStateListener($bind(this,this.__onSelectionChanged));
+		this.accordion.removeEventListener("focusKeyDown",$bind(this,this.__onKeyDown));
+		this.motionTimer.stop();
+		this.motionTimer = null;
+	}
+	,paintFocus: function(c,g,b) {
+		var header = this.getSelectedHeader();
+		if(header != null) header.getTabComponent().paintFocusRect(true); else org.aswing.plaf.BaseComponentUI.prototype.paintFocus.call(this,c,g,b);
+	}
+	,paint: function(c,g,b) {
+		org.aswing.plaf.BaseComponentUI.prototype.paint.call(this,c,g,b);
+	}
+	,createNewHeader: function() {
+		var header = org.aswing.AsWingUtils["as"](this.getInstance(this.getPropertyPrefix() + "header"),org.aswing.plaf.basic.tabbedpane.Tab);
+		if(header == null) header = new org.aswing.plaf.basic.accordion.BasicAccordionHeader();
+		header.initTab(this.accordion);
+		header.getTabComponent().setFocusable(false);
+		return header;
+	}
+	,getHeader: function(i) {
+		return org.aswing.AsWingUtils["as"](this.headers[i],org.aswing.plaf.basic.tabbedpane.Tab);
+	}
+	,synTabs: function() {
+		var comCount = this.accordion.getComponentCount();
+		if(comCount != this.headers.length) {
+			var i;
+			var header;
+			if(comCount > this.headers.length) {
+				var _g = this.headers.length;
+				while(_g < comCount) {
+					var i1 = _g++;
+					header = this.createNewHeader();
+					header.setTextAndIcon(this.accordion.getTitleAt(i1),this.accordion.getIconAt(i1));
+					this.setHeaderProperties(header);
+					header.getTabComponent().setToolTipText(this.accordion.getTipAt(i1));
+					header.getTabComponent().addEventListener(openfl.events.MouseEvent.CLICK,$bind(this,this.__tabClick));
+					this.headerContainer.addChild(header.getTabComponent());
+					this.headers.push(header);
+				}
+			} else {
+				var _g1 = 0;
+				var _g2 = this.headers.length - comCount;
+				while(_g1 < _g2) {
+					var i2 = _g1++;
+					header = org.aswing.AsWingUtils["as"](this.headers.pop(),org.aswing.plaf.basic.tabbedpane.Tab);
+					header.getTabComponent().removeEventListener(openfl.events.MouseEvent.CLICK,$bind(this,this.__tabClick));
+					this.headerContainer.removeChild(header.getTabComponent());
+				}
+			}
+		}
+	}
+	,synHeaderProperties: function() {
+		var _g1 = 0;
+		var _g = this.headers.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var header = this.getHeader(i);
+			header.setTextAndIcon(this.accordion.getTitleAt(i),this.accordion.getIconAt(i));
+			this.setHeaderProperties(header);
+			header.getTabComponent().setUIElement(true);
+			header.getTabComponent().setEnabled(this.accordion.isEnabledAt(i));
+			header.getTabComponent().setVisible(this.accordion.isVisibleAt(i));
+			header.getTabComponent().setToolTipText(this.accordion.getTipAt(i));
+			header.setTabPlacement(i);
+			var h;
+			if(js.Boot.__instanceof(header,org.aswing.plaf.basic.accordion.BasicAccordionHeader)) h = header; else h = null;
+			if(null == h) return;
+			h.set_maxPlacement(this.headers.length - 1);
+		}
+	}
+	,setHeaderProperties: function(header) {
+		header.setHorizontalAlignment(this.accordion.getHorizontalAlignment());
+		header.setHorizontalTextPosition(this.accordion.getHorizontalTextPosition());
+		header.setIconTextGap(this.accordion.getIconTextGap());
+		header.setMargin(this.accordion.getMargin());
+		header.setVerticalAlignment(this.accordion.getVerticalAlignment());
+		header.setVerticalTextPosition(this.accordion.getVerticalTextPosition());
+		header.setFont(this.accordion.getFont());
+		header.setForeground(this.accordion.getForeground());
+	}
+	,ensureHeadersOnTopDepths: function() {
+		this.accordion.bringToTop(this.headerContainer);
+	}
+	,getSelectedHeader: function() {
+		if(this.accordion.getSelectedIndex() >= 0) return this.getHeader(this.accordion.getSelectedIndex()); else return null;
+	}
+	,indexOfHeaderComponent: function(tab) {
+		var _g1 = 0;
+		var _g = this.headers.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			if(this.getHeader(i).getTabComponent() == tab) return i;
+		}
+		return -1;
+	}
+	,__tabClick: function(e) {
+		this.accordion.setSelectedIndex(this.indexOfHeaderComponent(org.aswing.AsWingUtils["as"](e.currentTarget,org.aswing.Component)));
+	}
+	,__onSelectionChanged: function(e) {
+		this.accordion.revalidate();
+		this.accordion.repaint();
+	}
+	,__onKeyDown: function(e) {
+		if(this.headers.length > 0) {
+			var n = this.accordion.getComponentCount();
+			var code = e.keyCode;
+			var index;
+			if(code == org.aswing.AWKeyboard.DOWN) {
+				this.setTraversingTrue();
+				index = this.accordion.getSelectedIndex();
+				index++;
+				while(index < n && (!this.accordion.isEnabledAt(index) || !this.accordion.isVisibleAt(index))) index++;
+				if(index >= n) return;
+				this.accordion.setSelectedIndex(index);
+			} else if(code == org.aswing.AWKeyboard.UP) {
+				this.setTraversingTrue();
+				index = this.accordion.getSelectedIndex();
+				index--;
+				while(index >= 0 && (!this.accordion.isEnabledAt(index) || !this.accordion.isVisibleAt(index))) index--;
+				if(index < 0) return;
+				this.accordion.setSelectedIndex(index);
+			}
+		}
+	}
+	,setTraversingTrue: function() {
+		var fm = org.aswing.FocusManager.getManager(this.accordion.get_stage());
+		if(fm != null) fm.setTraversing(true);
+	}
+	,__onMotion: function(e) {
+		var isFinished = true;
+		var n = this.headerDestinations.length;
+		var selected = this.accordion.getSelectedIndex();
+		var i = 0;
+		var child;
+		var _g = 0;
+		while(_g < n) {
+			var i1 = _g++;
+			var header = this.getHeader(i1);
+			var tab = header.getTabComponent();
+			var curY = tab.getY();
+			var desY = this.headerDestinations[i1];
+			var toY;
+			if(Math.abs(desY - curY) <= this.motionSpeed) toY = desY; else {
+				if(desY > curY) toY = curY + this.motionSpeed; else toY = curY - this.motionSpeed;
+				isFinished = false;
+			}
+			tab.setLocationXY(tab.getX(),toY);
+			tab.validate();
+			child = this.accordion.getComponent(i1);
+			child.setLocationXY(child.getX(),toY + tab.getHeight());
+		}
+		this.adjustClipSizes();
+		if(isFinished) {
+			this.motionTimer.stop();
+			var _g1 = 0;
+			while(_g1 < n) {
+				var i2 = _g1++;
+				child = this.accordion.getComponent(i2);
+				if(selected == i2) child.setVisible(true); else child.setVisible(false);
+			}
+		}
+		var _g2 = 0;
+		while(_g2 < n) {
+			var i3 = _g2++;
+			child = this.accordion.getComponent(i3);
+			child.validate();
+		}
+	}
+	,adjustClipSizes: function() {
+		var n = this.headerDestinations.length;
+		var _g = 0;
+		while(_g < n) {
+			var i = _g++;
+			var child = this.accordion.getComponent(i);
+			var orderY = this.childrenOrderYs[i];
+			if(child.isVisible()) child.setClipSize(new org.aswing.geom.IntDimension(this.destSize.width,this.destSize.height - (child.getY() - orderY)));
+		}
+	}
+	,addLayoutComponent: function(comp,constraints) {
+		this.synTabs();
+	}
+	,removeLayoutComponent: function(comp) {
+		this.synTabs();
+	}
+	,invalidateLayout: function(target) {
+	}
+	,layoutContainer: function(target) {
+		this.synHeaderProperties();
+		var insets = this.accordion.getInsets();
+		var i = 0;
+		var x = insets.left;
+		var y = insets.top;
+		var w = this.accordion.getWidth() - x - insets.right;
+		var h = this.accordion.getHeight() - y - insets.bottom;
+		var header;
+		var tab;
+		var size;
+		var count = this.accordion.getComponentCount();
+		var selected = this.accordion.getSelectedIndex();
+		if(selected < 0) {
+			if(count > 0) this.accordion.setSelectedIndex(0);
+			return;
+		}
+		this.headerDestinations = new Array();
+		this.childrenOrderYs = new Array();
+		var vX;
+		var vY;
+		var vWidth;
+		var vHeight;
+		vHeight = h;
+		vWidth = w;
+		vX = x;
+		var _g1 = 0;
+		var _g = selected + 1;
+		while(_g1 < _g) {
+			var i1 = _g1++;
+			if(!this.accordion.isVisibleAt(i1)) continue;
+			header = this.getHeader(i1);
+			tab = header.getTabComponent();
+			size = tab.getPreferredSize();
+			tab.setSizeWH(w,size.height);
+			tab.setLocationXY(x,tab.getY());
+			this.accordion.getComponent(i1).setLocationXY(x,tab.getY() + size.height);
+			this.headerDestinations[i1] = y;
+			y += size.height;
+			this.childrenOrderYs[i1] = y;
+			vHeight -= size.height;
+			if(i1 == selected) {
+				header.setSelected(true);
+				this.accordion.getComponent(i1).setVisible(true);
+			} else header.setSelected(false);
+			tab.validate();
+		}
+		vY = y;
+		var _g2 = selected + 1;
+		while(_g2 < count) {
+			var i2 = _g2++;
+			if(!this.accordion.isVisibleAt(i2)) continue;
+			header = this.getHeader(i2);
+			tab = header.getTabComponent();
+			y += tab.getPreferredSize().height;
+			this.childrenOrderYs[i2] = y;
+		}
+		y = this.accordion.getHeight() - insets.bottom;
+		i = count - 1;
+		while(i > selected) {
+			if(!this.accordion.isVisibleAt(i)) continue;
+			header = this.getHeader(i);
+			tab = header.getTabComponent();
+			size = tab.getPreferredSize();
+			y -= size.height;
+			this.headerDestinations[i] = y;
+			tab.setSizeWH(w,size.height);
+			tab.setLocationXY(x,tab.getY());
+			this.accordion.getComponent(i).setLocationXY(x,tab.getY() + size.height);
+			header.setSelected(false);
+			vHeight -= size.height;
+			tab.validate();
+			i--;
+		}
+		this.destSize.setSizeWH(vWidth,vHeight);
+		var _g3 = 0;
+		while(_g3 < count) {
+			var i3 = _g3++;
+			if(!this.accordion.isVisibleAt(i3)) continue;
+			if(this.accordion.getComponent(i3).isVisible()) this.accordion.getComponent(i3).setSize(this.destSize);
+		}
+		this.motionTimer.start();
+		this.__onMotion(null);
+		this.ensureHeadersOnTopDepths();
+	}
+	,preferredLayoutSize: function(target) {
+		if(target == this.accordion) {
+			this.synHeaderProperties();
+			var insets = this.accordion.getInsets();
+			var w = 0;
+			var h = 0;
+			var i = 0;
+			var size;
+			var _g1 = 0;
+			var _g = this.accordion.getComponentCount();
+			while(_g1 < _g) {
+				var i1 = _g1++;
+				size = this.accordion.getComponent(i1).getPreferredSize();
+				w = Std["int"](Math.max(w,size.width));
+				h = Std["int"](Math.max(h,size.height));
+			}
+			var _g11 = 0;
+			var _g2 = this.accordion.getComponentCount();
+			while(_g11 < _g2) {
+				var i2 = _g11++;
+				size = this.getHeader(i2).getTabComponent().getPreferredSize();
+				w = Std["int"](Math.max(w,size.width));
+				h += size.height;
+			}
+			return insets.getOutsideSize(new org.aswing.geom.IntDimension(w,h));
+		}
+		return null;
+	}
+	,minimumLayoutSize: function(target) {
+		if(target == this.accordion) {
+			this.synHeaderProperties();
+			var insets = this.accordion.getInsets();
+			var w = 0;
+			var h = 0;
+			var i = 0;
+			var size;
+			var _g1 = 0;
+			var _g = this.accordion.getComponentCount();
+			while(_g1 < _g) {
+				var i1 = _g1++;
+				size = this.accordion.getComponent(i1).getMinimumSize();
+				w = Std["int"](Math.max(w,size.width));
+				h = Std["int"](Math.max(h,size.height));
+			}
+			var _g11 = 0;
+			var _g2 = this.accordion.getComponentCount();
+			while(_g11 < _g2) {
+				var i2 = _g11++;
+				size = this.getHeader(i2).getTabComponent().getMinimumSize();
+				w = Std["int"](Math.max(w,size.width));
+				h += size.height;
+			}
+			return insets.getOutsideSize(new org.aswing.geom.IntDimension(w,h));
+		}
+		return null;
+	}
+	,maximumLayoutSize: function(target) {
+		return org.aswing.geom.IntDimension.createBigDimension();
+	}
+	,getLayoutAlignmentX: function(target) {
+		return 0;
+	}
+	,getLayoutAlignmentY: function(target) {
+		return 0;
+	}
+	,getMaximumSize: function(c) {
+		return this.maximumLayoutSize(this.accordion);
+	}
+	,getMinimumSize: function(c) {
+		return this.minimumLayoutSize(this.accordion);
+	}
+	,getPreferredSize: function(c) {
+		return this.preferredLayoutSize(this.accordion);
+	}
+	,__class__: org.aswing.plaf.basic.BasicAccordionUI
+});
+org.aswing.plaf.basic.BasicAdjusterUI = function() {
+	org.aswing.plaf.BaseComponentUI.call(this);
+	this.inputText = new org.aswing.JTextField("",3);
+	this.inputText.setFocusable(false);
+	this.popupSlider = new org.aswing.JSlider();
+	this.popupSlider.setFocusable(false);
+	this.popupSlider.setOpaque(false);
+};
+$hxClasses["org.aswing.plaf.basic.BasicAdjusterUI"] = org.aswing.plaf.basic.BasicAdjusterUI;
+org.aswing.plaf.basic.BasicAdjusterUI.__name__ = ["org","aswing","plaf","basic","BasicAdjusterUI"];
+org.aswing.plaf.basic.BasicAdjusterUI.__interfaces__ = [org.aswing.plaf.AdjusterUI];
+org.aswing.plaf.basic.BasicAdjusterUI.__super__ = org.aswing.plaf.BaseComponentUI;
+org.aswing.plaf.basic.BasicAdjusterUI.prototype = $extend(org.aswing.plaf.BaseComponentUI.prototype,{
+	getPopupSlider: function() {
+		return this.popupSlider;
+	}
+	,getInputText: function() {
+		return this.inputText;
+	}
+	,installUI: function(c) {
+		if(js.Boot.__instanceof(c,org.aswing.JAdjuster)) this.adjuster = c; else this.adjuster = null;
+		this.installDefaults();
+		this.installComponents();
+		this.installListeners();
+	}
+	,uninstallUI: function(c) {
+		if(js.Boot.__instanceof(c,org.aswing.JAdjuster)) this.adjuster = c; else this.adjuster = null;
+		this.uninstallDefaults();
+		this.uninstallComponents();
+		this.uninstallListeners();
+	}
+	,getPropertyPrefix: function() {
+		return "Adjuster.";
+	}
+	,installDefaults: function() {
+		var pp = this.getPropertyPrefix();
+		org.aswing.LookAndFeel.installBorderAndBFDecorators(this.adjuster,pp);
+		org.aswing.LookAndFeel.installColorsAndFont(this.adjuster,pp);
+		org.aswing.LookAndFeel.installBasicProperties(this.adjuster,pp);
+	}
+	,uninstallDefaults: function() {
+		org.aswing.LookAndFeel.uninstallBorderAndBFDecorators(this.adjuster);
+	}
+	,installComponents: function() {
+		this.initInputText();
+		this.initPopupSlider();
+		this.arrowButton = this.createArrowButton();
+		this.arrowButton.setUIElement(true);
+		this.popupSlider.setUIElement(true);
+		this.popupSliderUI = this.createPopupSliderUI();
+		this.popupSlider.setUI(this.popupSliderUI);
+		this.popupSlider.setModel(this.adjuster.getModel());
+		this.adjuster.addChild(this.inputText);
+		this.adjuster.addChild(this.arrowButton);
+		this.inputText.getTextField().addEventListener(openfl.events.Event.CHANGE,$bind(this,this.__textChanged));
+		this.inputText.addEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onInputTextMouseWheel));
+		this.arrowButton.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onArrowButtonPressed));
+		this.arrowButton.addEventListener("release",$bind(this,this.__onArrowButtonReleased));
+	}
+	,uninstallComponents: function() {
+		this.inputText.getTextField().removeEventListener(openfl.events.Event.CHANGE,$bind(this,this.__textChanged));
+		this.inputText.removeEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onInputTextMouseWheel));
+		this.arrowButton.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onArrowButtonPressed));
+		this.arrowButton.removeEventListener("release",$bind(this,this.__onArrowButtonReleased));
+		this.adjuster.removeChild(this.arrowButton);
+		this.adjuster.removeChild(this.inputText);
+		if(this.popup != null && this.popup.isVisible()) this.popup.dispose();
+	}
+	,installListeners: function() {
+		this.adjuster.addStateListener($bind(this,this.__onValueChanged));
+		this.adjuster.addEventListener("focusKeyDown",$bind(this,this.__onInputTextKeyDown));
+		this.adjuster.addEventListener("focusGained",$bind(this,this.__onFocusGained));
+		this.adjuster.addEventListener("focusLost",$bind(this,this.__onFocusLost));
+	}
+	,uninstallListeners: function() {
+		this.adjuster.removeStateListener($bind(this,this.__onValueChanged));
+		this.adjuster.removeEventListener("focusKeyDown",$bind(this,this.__onInputTextKeyDown));
+		this.adjuster.removeEventListener("focusGained",$bind(this,this.__onFocusGained));
+		this.adjuster.removeEventListener("focusLost",$bind(this,this.__onFocusLost));
+	}
+	,paint: function(c,g,b) {
+		org.aswing.plaf.BaseComponentUI.prototype.paint.call(this,c,g,b);
+		this.fillInputTextWithCurrentValue();
+		this.layoutAdjuster();
+		this.getInputText().setEditable(this.adjuster.isEditable());
+		this.getInputText().setEnabled(this.adjuster.isEnabled());
+		this.arrowButton.setEnabled(this.adjuster.isEnabled());
+		this.inputText.setFont(this.adjuster.getFont());
+		this.inputText.setForeground(this.adjuster.getForeground());
+	}
+	,paintBackGround: function(c,g,b) {
+	}
+	,getInternalFocusObject: function(c) {
+		return this.inputText.getTextField();
+	}
+	,initInputText: function() {
+		this.inputText.setForeground(null);
+		this.inputText.setColumns(this.adjuster.getColumns());
+		this.inputText.setBackgroundDecorator(null);
+		this.inputText.setOpaque(false);
+		this.inputText.setBorder(null);
+		this.inputText.setFont(this.adjuster.getFont());
+	}
+	,initPopupSlider: function() {
+		this.popupSlider.setOrientation(this.adjuster.getOrientation());
+	}
+	,createArrowButton: function() {
+		var btn = new org.aswing.JButton("",this.createArrowIcon());
+		btn.setFocusable(false);
+		btn.setBackgroundDecorator(null);
+		btn.setMargin(new org.aswing.Insets());
+		btn.setBorder(null);
+		btn.setMideground(null);
+		btn.setStyleTune(null);
+		btn.setForeground(null);
+		btn.setBackground(null);
+		btn.setFont(null);
+		return btn;
+	}
+	,createPopupSliderUI: function() {
+		return new org.aswing.plaf.basic.adjuster.PopupSliderUI();
+	}
+	,createArrowIcon: function() {
+		return new org.aswing.plaf.basic.icon.ArrowIcon(Math.PI / 2,16);
+	}
+	,getPopup: function() {
+		if(this.popup == null) {
+			this.popup = new org.aswing.JPopup();
+			this.popup.append(this.popupSlider,"Center");
+			this.popup.set_filters([new openfl.filters.DropShadowFilter(4,45,0,0.3)]);
+		}
+		return this.popup;
+	}
+	,fillInputTextWithCurrentValue: function() {
+		this.inputText.setText(this.getShouldFilledText());
+	}
+	,getShouldFilledText: function() {
+		var value = this.adjuster.getValue();
+		var text = (this.adjuster.getValueTranslator())(value);
+		return text;
+	}
+	,getTextButtonGap: function() {
+		return 1;
+	}
+	,layoutAdjuster: function() {
+		var td = this.adjuster.getSize();
+		var insets = this.adjuster.getInsets();
+		var top = insets.top;
+		var left = insets.left;
+		var right = td.width - insets.right;
+		var gap = this.getTextButtonGap();
+		var height = td.height - insets.top - insets.bottom;
+		var buttonSize = this.arrowButton.getPreferredSize();
+		this.arrowButton.setSizeWH(buttonSize.width,height);
+		this.arrowButton.setLocationXY(right - buttonSize.width,top);
+		this.inputText.setLocationXY(left,top);
+		this.inputText.setSizeWH(td.width - insets.left - insets.right - buttonSize.width - gap,height);
+	}
+	,getPreferredSize: function(c) {
+		var insets = this.adjuster.getInsets();
+		var textSize = this.inputText.getPreferredSize();
+		var btnSize = this.arrowButton.getPreferredSize();
+		var size = new org.aswing.geom.IntDimension(textSize.width + this.getTextButtonGap() + btnSize.width,Std["int"](Math.max(textSize.height,btnSize.height)));
+		return insets.getOutsideSize(size);
+	}
+	,getMinimumSize: function(c) {
+		return this.adjuster.getInsets().getOutsideSize(this.arrowButton.getPreferredSize());
+	}
+	,getMaximumSize: function(c) {
+		return org.aswing.geom.IntDimension.createBigDimension();
+	}
+	,__onValueChanged: function(e) {
+		if(this.textInputing != true) this.fillInputTextWithCurrentValue();
+	}
+	,__onInputTextMouseWheel: function(e) {
+		this.adjuster.setValue(this.adjuster.getValue() + e.delta * this.getUnitIncrement());
+	}
+	,__textChanged: function(e) {
+		this.textInputing = true;
+		var text = this.inputText.getText();
+		var value = Std["int"]((this.adjuster.getValueParser())(text));
+		this.adjuster.setValue(value);
+		this.textInputing = false;
+	}
+	,__inputTextAction: function(fireActOnlyIfChanged) {
+		if(fireActOnlyIfChanged == null) fireActOnlyIfChanged = false;
+		var text = this.inputText.getText();
+		var value = Std["int"]((this.adjuster.getValueParser())(text));
+		this.adjuster.setValue(value);
+		this.fillInputTextWithCurrentValue();
+		if(fireActOnlyIfChanged != true) this.fireActionEvent(); else if(value != this.startEditingValue) this.fireActionEvent();
+	}
+	,fireActionEvent: function() {
+		this.startEditingValue = this.adjuster.getValue();
+		this.adjuster.dispatchEvent(new org.aswing.event.AWEvent("act"));
+	}
+	,__onFocusGained: function(e) {
+		this.startEditingValue = this.adjuster.getValue();
+	}
+	,__onFocusLost: function(e) {
+		this.__inputTextAction(true);
+	}
+	,__onInputTextKeyDown: function(e) {
+		var code = e.keyCode;
+		var unit = this.getUnitIncrement();
+		var block;
+		if(this.popupSlider.getMajorTickSpacing() > 0) block = this.popupSlider.getMajorTickSpacing(); else block = unit * 10;
+		var delta = 0;
+		if(code == org.aswing.AWKeyboard.ENTER) {
+			this.__inputTextAction(false);
+			return;
+		}
+		if(code == org.aswing.AWKeyboard.UP) delta = unit; else if(code == org.aswing.AWKeyboard.DOWN) delta = -unit; else if(code == org.aswing.AWKeyboard.PAGE_UP) delta = block; else if(code == org.aswing.AWKeyboard.PAGE_DOWN) delta = -block; else if(code == org.aswing.AWKeyboard.HOME) {
+			this.adjuster.setValue(this.adjuster.getMinimum());
+			return;
+		} else if(code == org.aswing.AWKeyboard.END) {
+			this.adjuster.setValue(this.adjuster.getMaximum() - this.adjuster.getExtent());
+			return;
+		}
+		this.adjuster.setValue(this.adjuster.getValue() + delta);
+	}
+	,__onArrowButtonPressed: function(e) {
+		var popupWindow = this.getPopup();
+		if(popupWindow.isOnStage()) popupWindow.dispose();
+		popupWindow.changeOwner(org.aswing.AsWingUtils.getOwnerAncestor(this.adjuster));
+		popupWindow.pack();
+		popupWindow.show();
+		var max = this.adjuster.getMaximum();
+		var min = this.adjuster.getMinimum();
+		var pw = popupWindow.getWidth();
+		var ph = popupWindow.getHeight();
+		var sw = this.getSliderTrackWidth();
+		var sh = this.getSliderTrackHeight();
+		var insets = popupWindow.getInsets();
+		var sliderInsets = this.popupSliderUI.getTrackMargin();
+		insets.top += sliderInsets.top;
+		insets.left += sliderInsets.left;
+		insets.bottom += sliderInsets.bottom;
+		insets.right += sliderInsets.right;
+		var mouseP = this.adjuster.getMousePosition();
+		var windowP = new org.aswing.geom.IntPoint(mouseP.x - pw / 2 | 0,mouseP.y - ph / 2 | 0);
+		var value = this.adjuster.getValue();
+		var valueL;
+		if(this.adjuster.getOrientation() == 1) {
+			valueL = (value - min) / (max - min) * sh;
+			windowP.y = mouseP.y - (sh - valueL) - insets.top | 0;
+		} else {
+			valueL = (value - min) / (max - min) * sw;
+			windowP.x = mouseP.x - valueL - insets.left | 0;
+			windowP.y += Std["int"](this.adjuster.getHeight() / 4);
+		}
+		var agp = this.adjuster.getGlobalLocation();
+		agp.move(windowP.x,windowP.y);
+		popupWindow.setLocation(agp);
+		this.startMousePoint = this.adjuster.getMousePosition();
+		this.startValue = this.adjuster.getValue();
+		if(org.aswing.AsWingManager.getStage() != null) {
+			org.aswing.AsWingManager.getStage().addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onMouseMoveOnSlider),false,0,false);
+			this.adjuster.addEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__onMouseMoveOnSliderRemovedFromStage),false,0,false);
+		}
+	}
+	,__onMouseMoveOnSliderRemovedFromStage: function(e) {
+		org.aswing.AsWingManager.getStage().removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onMouseMoveOnSlider));
+		this.adjuster.removeEventListener(openfl.events.Event.REMOVED_FROM_STAGE,$bind(this,this.__onMouseMoveOnSliderRemovedFromStage));
+	}
+	,__onArrowButtonReleased: function(e) {
+		if(this.adjuster.get_stage() != null) this.__onMouseMoveOnSliderRemovedFromStage(null);
+		this.popup.dispose();
+		this.fireActionEvent();
+	}
+	,__onMouseMoveOnSlider: function(e) {
+		var delta = 0;
+		var valueDelta = 0;
+		var range = this.adjuster.getMaximum() - this.adjuster.getMinimum();
+		var p = this.adjuster.getMousePosition();
+		if(this.adjuster.getOrientation() == 1) {
+			delta = -p.y + this.startMousePoint.y;
+			valueDelta = delta / this.getSliderTrackHeight() * range;
+		} else {
+			delta = p.x - this.startMousePoint.x;
+			valueDelta = delta / this.getSliderTrackWidth() * range;
+		}
+		this.adjuster.setValue(this.startValue + valueDelta | 0);
+		e.updateAfterEvent();
+	}
+	,getUnitIncrement: function() {
+		var unit = 0;
+		if(this.popupSlider.getMinorTickSpacing() > 0) unit = this.popupSlider.getMinorTickSpacing(); else if(this.popupSlider.getMajorTickSpacing() > 0) unit = this.popupSlider.getMajorTickSpacing(); else {
+			var range = this.popupSlider.getMaximum() - this.popupSlider.getMinimum();
+			if(range > 2) unit = Std["int"](Math.max(1,Math.round(range / 500))); else unit = range / 100 | 0;
+		}
+		return unit;
+	}
+	,getSliderTrackWidth: function() {
+		var sliderInsets = this.popupSliderUI.getTrackMargin();
+		var w = this.popupSlider.getWidth();
+		if(w == 0) w = this.popupSlider.getPreferredWidth();
+		return w - sliderInsets.left - sliderInsets.right;
+	}
+	,getSliderTrackHeight: function() {
+		var sliderInsets = this.popupSliderUI.getTrackMargin();
+		var h = this.popupSlider.getHeight();
+		if(h == 0) h = this.popupSlider.getPreferredHeight();
+		return h - sliderInsets.top - sliderInsets.bottom;
+	}
+	,__class__: org.aswing.plaf.basic.BasicAdjusterUI
+});
 org.aswing.plaf.basic.BasicToggleButtonUI = function() {
 	org.aswing.plaf.basic.BasicButtonUI.call(this);
 };
@@ -43763,7 +48958,6 @@ org.aswing.plaf.basic.BasicFrameUI.prototype = $extend(org.aswing.plaf.BaseCompo
 				this.startMousePos = this.frame.getMousePosition();
 				this.startPos = this.frame.getLocation();
 				if(org.aswing.AsWingManager.getStage() != null) org.aswing.AsWingManager.getStage().addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onMouseMove),false,0,false);
-				haxe.Log.trace("__onTitleBarPress",{ fileName : "BasicFrameUI.hx", lineNumber : 264, className : "org.aswing.plaf.basic.BasicFrameUI", methodName : "__onTitleBarPress"});
 			}
 		}
 	}
@@ -43948,7 +49142,7 @@ org.aswing.plaf.basic.BasicGraphicsUtils.disabledColor = function(cl) {
 	var hue = bg.getHue();
 	var lum = bg.getLuminance();
 	var sat = bg.getSaturation();
-	if(lum < 0.6) lum += 0.1; else lum -= 0.1;
+	if(lum < 0.8) lum += 0.15; else lum -= 0.15;
 	sat -= 0.2;
 	return org.aswing.ASColor.getASColorWithHLS(hue,lum,sat,bg.getAlpha());
 };
@@ -45297,306 +50491,6 @@ org.aswing.plaf.basic.BasicTableHeaderUI.prototype = $extend(org.aswing.plaf.Bas
 	}
 	,__class__: org.aswing.plaf.basic.BasicTableHeaderUI
 });
-org.aswing.plaf.basic.BasicTableUI = function() {
-	org.aswing.plaf.BaseComponentUI.call(this);
-	this.focusRow = 0;
-	this.focusColumn = 0;
-};
-$hxClasses["org.aswing.plaf.basic.BasicTableUI"] = org.aswing.plaf.basic.BasicTableUI;
-org.aswing.plaf.basic.BasicTableUI.__name__ = ["org","aswing","plaf","basic","BasicTableUI"];
-org.aswing.plaf.basic.BasicTableUI.__interfaces__ = [org.aswing.plaf.TableUI];
-org.aswing.plaf.basic.BasicTableUI.__super__ = org.aswing.plaf.BaseComponentUI;
-org.aswing.plaf.basic.BasicTableUI.prototype = $extend(org.aswing.plaf.BaseComponentUI.prototype,{
-	installUI: function(c) {
-		if(js.Boot.__instanceof(c,org.aswing.JTable)) this.table = c; else this.table = null;
-		this.installDefaults();
-		this.installListeners();
-	}
-	,getPropertyPrefix: function() {
-		return "Table.";
-	}
-	,installDefaults: function() {
-		var pp = this.getPropertyPrefix();
-		org.aswing.LookAndFeel.installColorsAndFont(this.table,pp);
-		org.aswing.LookAndFeel.installBorderAndBFDecorators(this.table,pp);
-		org.aswing.LookAndFeel.installBasicProperties(this.table,pp);
-		var sbg = this.table.getSelectionBackground();
-		if(sbg == null || js.Boot.__instanceof(sbg,org.aswing.plaf.UIResource)) this.table.setSelectionBackground(this.getColor(pp + "selectionBackground"));
-		var sfg = this.table.getSelectionForeground();
-		if(sfg == null || js.Boot.__instanceof(sfg,org.aswing.plaf.UIResource)) this.table.setSelectionForeground(this.getColor(pp + "selectionForeground"));
-		var gridColor = this.table.getGridColor();
-		if(gridColor == null || js.Boot.__instanceof(gridColor,org.aswing.plaf.UIResource)) this.table.setGridColor(this.getColor(pp + "gridColor"));
-	}
-	,installListeners: function() {
-		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onTablePress));
-		this.table.addEventListener("release",$bind(this,this.__onTableRelease));
-		this.table.addEventListener("clickCount",$bind(this,this.__onTableClicked));
-		this.table.addEventListener("focusKeyDown",$bind(this,this.__onTableKeyDown));
-		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onTableMouseWheel));
-	}
-	,uninstallUI: function(c) {
-		this.uninstallDefaults();
-		this.uninstallListeners();
-	}
-	,uninstallDefaults: function() {
-		org.aswing.LookAndFeel.uninstallBorderAndBFDecorators(this.table);
-	}
-	,uninstallListeners: function() {
-		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__onTablePress));
-		this.table.removeEventListener("release",$bind(this,this.__onTableRelease));
-		this.table.removeEventListener("clickCount",$bind(this,this.__onTableClicked));
-		this.table.removeEventListener("focusKeyDown",$bind(this,this.__onTableKeyDown));
-		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_WHEEL,$bind(this,this.__onTableMouseWheel));
-		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
-	}
-	,__onTablePress: function(e) {
-		if(!this.table.getCellPane().hitTestMouse()) return;
-		this.selectMousePointed(e);
-		this.table.addEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
-		var editor = this.table.getCellEditor();
-		if(editor != null && editor.isCellEditing()) this.table.getCellEditor().stopCellEditing();
-	}
-	,__onTableClicked: function(e) {
-		if(!this.table.getCellPane().hitTestMouse()) return;
-		var p = this.getMousePosOnTable();
-		var row = this.table.rowAtPoint(p);
-		var column = this.table.columnAtPoint(p);
-		if(this.table.editCellAt(row,column,e.getCount())) {
-		}
-	}
-	,__onTableRelease: function(e) {
-		this.table.removeEventListener(openfl.events.MouseEvent.MOUSE_MOVE,$bind(this,this.__onTableMouseMove));
-	}
-	,__onTableMouseMove: function(e) {
-		this.addSelectMousePointed();
-	}
-	,__onTableMouseWheel: function(e) {
-		if(!this.table.isEnabled()) return;
-		if(!this.table.getCellPane().hitTestMouse()) return;
-		var viewPos = this.table.getViewPosition();
-		viewPos.y -= e.delta * this.table.getVerticalUnitIncrement();
-		this.table.setViewPosition(viewPos);
-	}
-	,selectMousePointed: function(e) {
-		var p = this.getMousePosOnTable();
-		var row = this.table.rowAtPoint(p);
-		var column = this.table.columnAtPoint(p);
-		if(column == -1 || row == -1) return;
-		this.makeSelectionChange(row,column,e);
-	}
-	,addSelectMousePointed: function() {
-		var p = this.getMousePosOnTable();
-		var row = this.table.rowAtPoint(p);
-		var column = this.table.columnAtPoint(p);
-		if(column == -1 || row == -1) return;
-		this.changeSelection(row,column,false,true);
-	}
-	,makeSelectionChange: function(row,column,e) {
-		this.recordFocusIndecis(row,column);
-		var ctrl = e.ctrlKey;
-		var shift = e.shiftKey;
-		if(ctrl && shift) {
-			var rm = this.table.getSelectionModel();
-			var cm = this.table.getColumnModel().getSelectionModel();
-			var anchorRow = rm.getAnchorSelectionIndex();
-			var anchorCol = cm.getAnchorSelectionIndex();
-			if(this.table.isCellSelected(anchorRow,anchorCol)) {
-				rm.addSelectionInterval(anchorRow,row,false);
-				cm.addSelectionInterval(anchorCol,column,false);
-			} else {
-				rm.removeSelectionInterval(anchorRow,row,false);
-				rm.addSelectionInterval(row,row,false);
-				rm.setAnchorSelectionIndex(anchorRow);
-				cm.removeSelectionInterval(anchorCol,column,false);
-				cm.addSelectionInterval(column,column,false);
-				cm.setAnchorSelectionIndex(anchorCol);
-			}
-		} else this.changeSelection(row,column,ctrl,!ctrl && shift);
-	}
-	,changeSelection: function(rowIndex,columnIndex,toggle,extend) {
-		this.recordFocusIndecis(rowIndex,columnIndex);
-		this.table.changeSelection(rowIndex,columnIndex,toggle,extend,false);
-	}
-	,getMousePosOnTable: function() {
-		var p = this.table.getMousePosition();
-		return this.table.getLogicLocationFromPixelLocation(p);
-	}
-	,getEditionKey: function() {
-		return org.aswing.AWKeyboard.ENTER;
-	}
-	,getSelectionKey: function() {
-		return org.aswing.AWKeyboard.SPACE;
-	}
-	,createGridGraphics: function() {
-		if(this.gridShape == null) {
-			this.gridShape = new openfl.display.Shape();
-			this.table.getCellPane().addChild(this.gridShape);
-		}
-		this.gridShape.get_graphics().clear();
-		return new org.aswing.graphics.Graphics2D(this.gridShape.get_graphics());
-	}
-	,paint: function(c,g,b) {
-		org.aswing.plaf.BaseComponentUI.prototype.paint.call(this,c,g,b);
-		g = this.createGridGraphics();
-		var rowCount = this.table.getRowCount();
-		var columnCount = this.table.getColumnCount();
-		if(rowCount <= 0 || columnCount <= 0) return;
-		var extentSize = this.table.getExtentSize();
-		var viewPos = this.table.getViewPosition();
-		var startX = -viewPos.x;
-		var startY = -viewPos.y;
-		var vb = new org.aswing.geom.IntRectangle();
-		vb.setSize(extentSize);
-		vb.setLocation(viewPos);
-		var upperLeft = vb.getLocation();
-		var lowerRight = vb.rightBottom();
-		var rMin = this.table.rowAtPoint(upperLeft);
-		var rMax = this.table.rowAtPoint(lowerRight);
-		if(rMin == -1) rMin = 0;
-		if(rMax == -1) rMax = rowCount - 1;
-		var cMin = this.table.columnAtPoint(upperLeft);
-		var cMax = this.table.columnAtPoint(lowerRight);
-		if(cMin == -1) cMin = 0;
-		if(cMax == -1) cMax = columnCount - 1;
-		var minCell = this.table.getCellRect(rMin,cMin,true);
-		var maxCell = this.table.getCellRect(rMax,cMax,true);
-		var damagedArea = minCell.union(maxCell);
-		damagedArea.setLocation(damagedArea.getLocation().move(startX,startY));
-		var pen = new org.aswing.graphics.Pen(this.table.getGridColor(),1);
-		if(this.table.getShowHorizontalLines()) {
-			var x1 = damagedArea.x + 0.5;
-			var x2 = damagedArea.x + damagedArea.width - 1;
-			var y = damagedArea.y + 0.5;
-			var rh = this.table.getRowHeight();
-			var _g1 = rMin;
-			var _g = rMax + 2;
-			while(_g1 < _g) {
-				var row = _g1++;
-				if(row == rowCount) y -= 1;
-				g.drawLine(pen,x1,y,x2,y);
-				y += rh;
-			}
-		}
-		if(this.table.getShowVerticalLines()) {
-			var cm = this.table.getColumnModel();
-			var x = damagedArea.x + 0.5;
-			var y1 = damagedArea.y + 0.5;
-			var y2 = y1 + damagedArea.height - 1;
-			var _g11 = cMin;
-			var _g2 = cMax + 2;
-			while(_g11 < _g2) {
-				var column = _g11++;
-				if(column == columnCount) x -= 1;
-				g.drawLine(pen,x,y1,x,y2);
-				if(column < columnCount) x += cm.getColumn(column).getWidth();
-			}
-		}
-	}
-	,__onTableKeyDown: function(e) {
-		if(!this.table.isEnabled()) return;
-		var rDir = 0;
-		var cDir = 0;
-		var code = e.keyCode;
-		if(code == org.aswing.AWKeyboard.LEFT) cDir = -1; else if(code == org.aswing.AWKeyboard.RIGHT) cDir = 1; else if(code == org.aswing.AWKeyboard.UP) rDir = -1; else if(code == org.aswing.AWKeyboard.DOWN) rDir = 1;
-		if(cDir != 0 || rDir != 0) {
-			this.moveFocus(rDir,cDir,e);
-			var fm = org.aswing.FocusManager.getManager(this.table.get_stage());
-			if(fm != null) fm.setTraversing(true);
-			this.table.paintFocusRect();
-			return;
-		}
-		if(code == this.getSelectionKey()) this.table.changeSelection(this.focusRow,this.focusColumn,true,false); else if(code == this.getEditionKey()) this.table.editCellAt(this.focusRow,this.focusColumn,-1);
-	}
-	,recordFocusIndecis: function(row,column) {
-		this.focusRow = row;
-		this.focusColumn = column;
-	}
-	,restrictRow: function(row) {
-		return Std["int"](Math.max(0,Math.min(this.table.getRowCount() - 1,row)));
-	}
-	,restrictColumn: function(column) {
-		return Std["int"](Math.max(0,Math.min(this.table.getColumnCount() - 1,column)));
-	}
-	,moveFocus: function(rDir,cDir,e) {
-		var ctrl = e.ctrlKey;
-		var shift = e.shiftKey;
-		this.focusRow += rDir | 0;
-		this.focusRow = this.restrictRow(this.focusRow);
-		this.focusColumn += cDir | 0;
-		this.focusColumn = this.restrictColumn(this.focusColumn);
-		if(ctrl != true) this.changeSelection(this.focusRow,this.focusColumn,ctrl,!ctrl && shift);
-		this.table.ensureCellIsVisible(this.focusRow,this.focusColumn);
-	}
-	,paintFocus: function(c,g,b) {
-		this.paintCurrentCellFocus(g);
-	}
-	,paintCurrentCellFocus: function(g) {
-		this.paintCellFocusWithRowColumn(g,this.focusRow,this.focusColumn);
-	}
-	,paintCellFocusWithRowColumn: function(g,row,column) {
-		var rect = this.table.getCellRect(row,column,true);
-		rect.setLocation(this.table.getPixelLocationFromLogicLocation(rect.getLocation()));
-		g.drawRectangle(new org.aswing.graphics.Pen(this.getDefaultFocusColorOutter(),2),rect.x,rect.y,rect.width,rect.height);
-	}
-	,createTableSize: function(width) {
-		var height = 0;
-		var rowCount = this.table.getRowCount();
-		if(rowCount > 0 && this.table.getColumnCount() > 0) {
-			var r = this.table.getCellRect(rowCount - 1,0,true);
-			height = r.y + r.height;
-		}
-		height += this.table.getTableHeader().getPreferredHeight();
-		if(this.table.getFooter() != null) height += this.table.getFooter().getPreferredHeight();
-		return new org.aswing.geom.IntDimension(width,height);
-	}
-	,getViewSize: function(table) {
-		var width = 0;
-		var enumeration = table.getColumnModel().getColumns();
-		var _g1 = 0;
-		var _g = enumeration.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			var aColumn = enumeration[i];
-			width += aColumn.getPreferredWidth();
-		}
-		var d = this.createTableSize(width);
-		if(table.getAutoResizeMode() != 0) d.width = table.getExtentSize().width; else d.width = table.getColumnModel().getTotalColumnWidth();
-		d.height -= table.getTableHeader().getHeight();
-		if(table.getFooter() != null) d.height -= table.getFooter().getHeight();
-		return d;
-	}
-	,getMinimumSize: function(c) {
-		var width = 0;
-		var enumeration = this.table.getColumnModel().getColumns();
-		var _g1 = 0;
-		var _g = enumeration.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			var aColumn = enumeration[i];
-			width += aColumn.getMinWidth();
-		}
-		return this.table.getInsets().getOutsideSize(new org.aswing.geom.IntDimension(width,0));
-	}
-	,getPreferredSize: function(c) {
-		var width = 0;
-		var enumeration = this.table.getColumnModel().getColumns();
-		var _g1 = 0;
-		var _g = enumeration.length;
-		while(_g1 < _g) {
-			var i = _g1++;
-			var aColumn = enumeration[i];
-			width += aColumn.getPreferredWidth();
-		}
-		return this.table.getInsets().getOutsideSize(this.createTableSize(width));
-	}
-	,getMaximumSize: function(c) {
-		return org.aswing.geom.IntDimension.createBigDimension();
-	}
-	,toString: function() {
-		return "BasicTableUI[]";
-	}
-	,__class__: org.aswing.plaf.basic.BasicTableUI
-});
 org.aswing.plaf.basic.BasicTextAreaUI = function() {
 	org.aswing.plaf.basic.BasicTextComponentUI.call(this);
 };
@@ -46561,6 +51455,53 @@ org.aswing.plaf.basic.adjuster.PopupSliderThumbIcon.prototype = $extend(org.aswi
 	}
 	,__class__: org.aswing.plaf.basic.adjuster.PopupSliderThumbIcon
 });
+org.aswing.plaf.basic.adjuster.PopupSliderUI = function() {
+	org.aswing.plaf.basic.BasicSliderUI.call(this);
+};
+$hxClasses["org.aswing.plaf.basic.adjuster.PopupSliderUI"] = org.aswing.plaf.basic.adjuster.PopupSliderUI;
+org.aswing.plaf.basic.adjuster.PopupSliderUI.__name__ = ["org","aswing","plaf","basic","adjuster","PopupSliderUI"];
+org.aswing.plaf.basic.adjuster.PopupSliderUI.__super__ = org.aswing.plaf.basic.BasicSliderUI;
+org.aswing.plaf.basic.adjuster.PopupSliderUI.prototype = $extend(org.aswing.plaf.basic.BasicSliderUI.prototype,{
+	getPropertyPrefix: function() {
+		return "Adjuster.";
+	}
+	,countTrackRect: function(b) {
+		var thumbSize = this.getThumbSize();
+		var h_margin;
+		var v_margin;
+		if(this.isVertical()) {
+			v_margin = Math.ceil(thumbSize.height / 2.0);
+			h_margin = (thumbSize.width - 4) / 2 | 0;
+			this.trackDrawRect.setRectXYWH(b.x + h_margin,b.y + v_margin,thumbSize.width - h_margin * 2,b.height - v_margin * 2);
+			this.trackRect.setRectXYWH(b.x,b.y + v_margin,thumbSize.width,b.height - v_margin * 2);
+		} else {
+			h_margin = Math.ceil(thumbSize.width / 2.0);
+			v_margin = (thumbSize.height - 4) / 2 | 0;
+			this.trackDrawRect.setRectXYWH(b.x + h_margin,b.y + v_margin,b.width - h_margin * 2,thumbSize.height - v_margin * 2);
+			this.trackRect.setRectXYWH(b.x + h_margin,b.y,b.width - h_margin * 2,thumbSize.height);
+		}
+	}
+	,paintTrack: function(g,drawRect) {
+		this.trackCanvas.get_graphics().clear();
+		if(!this.slider.getPaintTrack()) return;
+		g = new org.aswing.graphics.Graphics2D(this.trackCanvas.get_graphics());
+		var verticle = this.slider.getOrientation() == 1;
+		var style = this.slider.getStyleTune();
+		var b = drawRect.clone();
+		var radius = 0;
+		if(verticle) radius = Math.floor(b.width / 2); else radius = Math.floor(b.height / 2);
+		if(radius > style.round) radius = style.round;
+		g.fillRoundRect(new org.aswing.graphics.SolidBrush(this.slider.getBackground()),b.x,b.y,b.width,b.height,radius);
+		var f = new Array();
+		f.push(new openfl.filters.GlowFilter(0,style.shadowAlpha,5,5,1,1,true));
+		f.push(new openfl.filters.DropShadowFilter(1,45,16777215,0.3,1,1,1,1));
+		this.trackCanvas.set_filters(f);
+	}
+	,getPrefferedLength: function() {
+		return 100;
+	}
+	,__class__: org.aswing.plaf.basic.adjuster.PopupSliderUI
+});
 org.aswing.plaf.basic.background.ButtonBackground = function() {
 	this.shape = new openfl.display.Shape();
 };
@@ -46887,38 +51828,6 @@ org.aswing.plaf.basic.background.ScrollBarBackground.prototype = {
 	}
 	,__class__: org.aswing.plaf.basic.background.ScrollBarBackground
 };
-org.aswing.plaf.basic.background.TableBackground = function() {
-	this.shape = new openfl.display.Shape();
-};
-$hxClasses["org.aswing.plaf.basic.background.TableBackground"] = org.aswing.plaf.basic.background.TableBackground;
-org.aswing.plaf.basic.background.TableBackground.__name__ = ["org","aswing","plaf","basic","background","TableBackground"];
-org.aswing.plaf.basic.background.TableBackground.__interfaces__ = [org.aswing.plaf.UIResource,org.aswing.GroundDecorator];
-org.aswing.plaf.basic.background.TableBackground.prototype = {
-	getDisplay: function(c) {
-		return this.shape;
-	}
-	,updateDecorator: function(c,g,b) {
-		this.shape.get_graphics().clear();
-		if(c.isOpaque()) {
-			g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
-			var tune = c.getStyleTune().get_mide();
-			var cl = c.getMideground();
-			var style = new org.aswing.StyleResult(cl,tune);
-			b = b.clone();
-			style.cdark = style.cdark.changeAlpha(1);
-			style.clight = style.clight.changeAlpha(1);
-			org.aswing.plaf.basic.BasicGraphicsUtils.fillGradientRoundRect(g,b,style,-Math.PI / 2);
-			var bd = style.bdark;
-			var f = new Array();
-			f.push(new openfl.filters.GlowFilter(16777215,0.5,2,2,20,1,true));
-			f.push(new openfl.filters.GlowFilter(bd.getRGB(),1,2,2,20,1));
-			this.shape.set_filters(f);
-			this.shape.set_alpha(cl.getAlpha());
-		}
-		this.shape.set_visible(c.isOpaque());
-	}
-	,__class__: org.aswing.plaf.basic.background.TableBackground
-};
 org.aswing.plaf.basic.background.TableHeaderBackground = function() {
 	this.shape = new openfl.display.Shape();
 };
@@ -47043,7 +51952,6 @@ org.aswing.plaf.basic.background.ToolTipBackground.prototype = {
 	}
 	,__class__: org.aswing.plaf.basic.background.ToolTipBackground
 };
-org.aswing.plaf.basic.border = {};
 org.aswing.plaf.basic.border.ColorChooserBorder = function() {
 	org.aswing.border.EmptyBorder.call(this,null,new org.aswing.Insets(6,6,6,6));
 };
@@ -47153,8 +52061,11 @@ org.aswing.plaf.basic.border.TableHeaderCellBorder.prototype = {
 		b = b.clone();
 		b.height -= 4;
 		b.y += 2;
-		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) haxe.Log.trace("header AbstractButton",{ fileName : "TableHeaderCellBorder.hx", lineNumber : 38, className : "org.aswing.plaf.basic.border.TableHeaderCellBorder", methodName : "updateBorder"});
-		if(b.height > 0) {
+		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) haxe.Log.trace("header AbstractButton",{ fileName : "TableHeaderCellBorder.hx", lineNumber : 40, className : "org.aswing.plaf.basic.border.TableHeaderCellBorder", methodName : "updateBorder"});
+		var headerCell;
+		if(js.Boot.__instanceof(c,org.aswing.table.DefaultTextHeaderCell)) headerCell = c; else headerCell = null;
+		if(null == headerCell) return;
+		if(b.height > 0 && headerCell.columnIndex < headerCell.table.getColumnCount() - 1) {
 			var cl = c.getBackground();
 			var dark = cl.offsetHLS(0,-0.2,0);
 			var light = cl.offsetHLS(0,0.06,0);
@@ -47282,9 +52193,6 @@ org.aswing.plaf.basic.icon.ArrowIcon.prototype = {
 		matrix.createGradientBox(w + 1,w + 1,0.333333333333333315 * Math.PI,x + w / 8 - 0.5,y + w / 8 - 0.5);
 		var brush = new org.aswing.graphics.GradientBrush(org.aswing.graphics.GradientBrush.RADIAL,[style.clight.getRGB(),style.cdark.getRGB()],[style.clight.getAlpha(),style.cdark.getAlpha()],[0,255],matrix);
 		g.fillPolygon(brush,ps1);
-		var f = new Array();
-		f.push(new openfl.filters.DropShadowFilter(1,45,0,style.shadow,0,0,1,1));
-		this.shape.set_filters(f);
 	}
 	,nextPoint: function(p,dir,dis) {
 		return new openfl.geom.Point(p.x + Math.cos(dir) * dis,p.y + Math.sin(dir) * dis);
@@ -48452,7 +53360,7 @@ org.aswing.table.DefaultTableColumnModel.__interfaces__ = [org.aswing.table.Tabl
 org.aswing.table.DefaultTableColumnModel.prototype = {
 	addColumn: function(aColumn) {
 		if(aColumn == null) {
-			haxe.Log.trace("Adding null column ignored",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 59, className : "org.aswing.table.DefaultTableColumnModel", methodName : "addColumn"});
+			haxe.Log.trace("Adding null column ignored",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 60, className : "org.aswing.table.DefaultTableColumnModel", methodName : "addColumn"});
 			return;
 		}
 		this.tableColumns.push(aColumn);
@@ -48474,7 +53382,7 @@ org.aswing.table.DefaultTableColumnModel.prototype = {
 	}
 	,moveColumn: function(columnIndex,newIndex) {
 		if(columnIndex < 0 || columnIndex >= this.getColumnCount() || newIndex < 0 || newIndex >= this.getColumnCount()) {
-			haxe.Log.trace("Error : moveColumn() - Index out of range",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 112, className : "org.aswing.table.DefaultTableColumnModel", methodName : "moveColumn"});
+			haxe.Log.trace("Error : moveColumn() - Index out of range",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 113, className : "org.aswing.table.DefaultTableColumnModel", methodName : "moveColumn"});
 			throw new org.aswing.error.Error("moveColumn() - Index out of range");
 			return;
 		}
@@ -48506,7 +53414,7 @@ org.aswing.table.DefaultTableColumnModel.prototype = {
 	}
 	,getColumnIndex: function(identifier) {
 		if(identifier == null) {
-			haxe.Log.trace("Error : Identifier is null",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 186, className : "org.aswing.table.DefaultTableColumnModel", methodName : "getColumnIndex"});
+			haxe.Log.trace("Error : Identifier is null",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 187, className : "org.aswing.table.DefaultTableColumnModel", methodName : "getColumnIndex"});
 			throw new org.aswing.error.Error("Identifier is null");
 		}
 		var enumeration = this.getColumns();
@@ -48520,7 +53428,7 @@ org.aswing.table.DefaultTableColumnModel.prototype = {
 			if(identifier == aColumn.getIdentifier()) return index;
 			index++;
 		}
-		haxe.Log.trace("Error : Identifier is null",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 199, className : "org.aswing.table.DefaultTableColumnModel", methodName : "getColumnIndex"});
+		haxe.Log.trace("Error : Identifier is null",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 200, className : "org.aswing.table.DefaultTableColumnModel", methodName : "getColumnIndex"});
 		throw new org.aswing.error.Error("Identifier not found");
 	}
 	,getColumn: function(columnIndex) {
@@ -48546,7 +53454,7 @@ org.aswing.table.DefaultTableColumnModel.prototype = {
 	}
 	,setSelectionModel: function(newModel) {
 		if(newModel == null) {
-			haxe.Log.trace("Setting null ListSelectionModel ignored",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 285, className : "org.aswing.table.DefaultTableColumnModel", methodName : "setSelectionModel"});
+			haxe.Log.trace("Setting null ListSelectionModel ignored",{ fileName : "DefaultTableColumnModel.hx", lineNumber : 286, className : "org.aswing.table.DefaultTableColumnModel", methodName : "setSelectionModel"});
 			return;
 		}
 		var oldModel = this.selectionModel;
@@ -48735,7 +53643,14 @@ org.aswing.table.DefaultTableModel.rotate = function(v,a,b,shift) {
 };
 org.aswing.table.DefaultTableModel.__super__ = org.aswing.table.AbstractTableModel;
 org.aswing.table.DefaultTableModel.prototype = $extend(org.aswing.table.AbstractTableModel.prototype,{
-	initWithRowcountColumncount: function(rowCount,columnCount) {
+	get_data: function() {
+		return this.getData();
+	}
+	,set_data: function(v) {
+		this.setData(v);
+		return v;
+	}
+	,initWithRowcountColumncount: function(rowCount,columnCount) {
 		return this.initWithNamesRowcount(new Array(),rowCount);
 	}
 	,initWithNamesRowcount: function(columnNames,rowCount) {
@@ -48886,6 +53801,7 @@ org.aswing.table.DefaultTableModel.prototype = $extend(org.aswing.table.Abstract
 		return "DefaultTableModel[dataArray:" + Std.string(this.dataArray) + ",\n names:" + Std.string(this.columnNames) + "]";
 	}
 	,__class__: org.aswing.table.DefaultTableModel
+	,__properties__: {set_data:"set_data",get_data:"get_data"}
 });
 org.aswing.table.TableCell = function() { };
 $hxClasses["org.aswing.table.TableCell"] = org.aswing.table.TableCell;
@@ -48959,6 +53875,8 @@ org.aswing.table.DefaultTextHeaderCell.__name__ = ["org","aswing","table","Defau
 org.aswing.table.DefaultTextHeaderCell.__super__ = org.aswing.table.DefaultTextCell;
 org.aswing.table.DefaultTextHeaderCell.prototype = $extend(org.aswing.table.DefaultTextCell.prototype,{
 	setTableCellStatus: function(table,isSelected,row,column) {
+		this.columnIndex = column;
+		this.table = table;
 		var header = table.getTableHeader();
 		if(header != null) {
 			org.aswing.table.DefaultTextCell.prototype.setBackground.call(this,header.getBackground());
@@ -49013,7 +53931,21 @@ org.aswing.table.JTableHeader.__name__ = ["org","aswing","table","JTableHeader"]
 org.aswing.table.JTableHeader.__interfaces__ = [org.aswing.table.TableColumnModelListener];
 org.aswing.table.JTableHeader.__super__ = org.aswing.Container;
 org.aswing.table.JTableHeader.prototype = $extend(org.aswing.Container.prototype,{
-	updateUI: function() {
+	get_columnModel: function() {
+		return this.getColumnModel();
+	}
+	,set_columnModel: function(v) {
+		this.setColumnModel(v);
+		return v;
+	}
+	,get_rowHeight: function() {
+		return this.getRowHeight();
+	}
+	,set_rowHeight: function(v) {
+		this.setRowHeight(v);
+		return v;
+	}
+	,updateUI: function() {
 		this.setUI(org.aswing.UIManager.getUI(this));
 		this.resizeAndRepaint();
 		this.invalidate();
@@ -49045,14 +53977,14 @@ org.aswing.table.JTableHeader.prototype = $extend(org.aswing.Container.prototype
 	}
 	,setRowHeight: function(rowHeight) {
 		if(rowHeight < 1) {
-			haxe.Log.trace("Error : New row height less than 1",{ fileName : "JTableHeader.hx", lineNumber : 136, className : "org.aswing.table.JTableHeader", methodName : "setRowHeight"});
+			haxe.Log.trace("Error : New row height less than 1",{ fileName : "JTableHeader.hx", lineNumber : 151, className : "org.aswing.table.JTableHeader", methodName : "setRowHeight"});
 			throw new org.aswing.error.Error("New row height less than 1");
 		}
-		this.rowHeight = rowHeight;
+		this._rowHeight = rowHeight;
 		this.resizeAndRepaint();
 	}
 	,getRowHeight: function() {
-		return this.rowHeight;
+		return this._rowHeight;
 	}
 	,setReorderingAllowed: function(reorderingAllowed) {
 		this.reorderingAllowed = reorderingAllowed;
@@ -49096,19 +54028,19 @@ org.aswing.table.JTableHeader.prototype = $extend(org.aswing.Container.prototype
 	}
 	,setColumnModel: function(columnModel) {
 		if(columnModel == null) {
-			haxe.Log.trace("Cannot set a null ColumnModel, Ignored",{ fileName : "JTableHeader.hx", lineNumber : 279, className : "org.aswing.table.JTableHeader", methodName : "setColumnModel"});
+			haxe.Log.trace("Cannot set a null ColumnModel, Ignored",{ fileName : "JTableHeader.hx", lineNumber : 294, className : "org.aswing.table.JTableHeader", methodName : "setColumnModel"});
 			return;
 		}
-		var old = this.columnModel;
+		var old = this._columnModel;
 		if(columnModel != old) {
 			if(old != null) old.removeColumnModelListener(this);
-			this.columnModel = columnModel;
+			this._columnModel = columnModel;
 			columnModel.addColumnModelListener(this);
 			this.resizeAndRepaint();
 		}
 	}
 	,getColumnModel: function() {
-		return this.columnModel;
+		return this._columnModel;
 	}
 	,columnAdded: function(e) {
 		this.resizeAndRepaint();
@@ -49147,6 +54079,7 @@ org.aswing.table.JTableHeader.prototype = $extend(org.aswing.Container.prototype
 		this.resizingColumn = aColumn;
 	}
 	,__class__: org.aswing.table.JTableHeader
+	,__properties__: $extend(org.aswing.Container.prototype.__properties__,{set_rowHeight:"set_rowHeight",get_rowHeight:"get_rowHeight",set_columnModel:"set_columnModel",get_columnModel:"get_columnModel"})
 });
 org.aswing.table.PoorTextCell = function() {
 	org.aswing.Component.call(this);
@@ -49172,7 +54105,7 @@ org.aswing.table.PoorTextCell.prototype = $extend(org.aswing.Component.prototype
 			this.setFontValidated(true);
 		}
 		org.aswing.AsWingUtils.applyTextColor(this.textField,this.getForeground());
-		this.textField.set_x(b.x);
+		this.textField.set_x(b.x + 10);
 		this.textField.set_y(b.y + (b.height - this.textField.get_textHeight()) / 2);
 		if(this.isOpaque()) {
 			this.get_graphics().clear();
@@ -49229,6 +54162,123 @@ org.aswing.table.PoorTextCell.prototype = $extend(org.aswing.Component.prototype
 	}
 	,__class__: org.aswing.table.PoorTextCell
 });
+org.aswing.table.PropertyTableModel = function(listModel,names,properties,translators) {
+	org.aswing.table.AbstractTableModel.call(this);
+	this.setList(listModel);
+	if(null != names) this._names = names.slice(); else this._names = [];
+	if(null != properties) this._properties = properties.slice(); else this._properties = [];
+	if(null != translators) this.translators = translators.slice(); else this.translators = [];
+	this._columnsEditable = [];
+};
+$hxClasses["org.aswing.table.PropertyTableModel"] = org.aswing.table.PropertyTableModel;
+org.aswing.table.PropertyTableModel.__name__ = ["org","aswing","table","PropertyTableModel"];
+org.aswing.table.PropertyTableModel.__interfaces__ = [org.aswing.event.ListDataListener];
+org.aswing.table.PropertyTableModel.__super__ = org.aswing.table.AbstractTableModel;
+org.aswing.table.PropertyTableModel.prototype = $extend(org.aswing.table.AbstractTableModel.prototype,{
+	get_list: function() {
+		return this.getList();
+	}
+	,set_list: function(v) {
+		this.setList(v);
+		return v;
+	}
+	,get_names: function() {
+		return this._names;
+	}
+	,set_names: function(v) {
+		this._names = v;
+		this.fireTableStructureChanged();
+		return v;
+	}
+	,get_properties: function() {
+		return this._properties;
+	}
+	,set_properties: function(v) {
+		this._properties = v;
+		this.fireTableStructureChanged();
+		return v;
+	}
+	,get_columnsEditable: function() {
+		return this._columnsEditable;
+	}
+	,set_columnsEditable: function(v) {
+		this._columnsEditable = v;
+		this.fireTableStructureChanged();
+		return v;
+	}
+	,setList: function(listModel) {
+		if(this._list != null) this._list.removeListDataListener(this);
+		this._list = listModel;
+		if(this._list != null) this._list.addListDataListener(this);
+		this.fireTableDataChanged();
+	}
+	,getList: function() {
+		return this._list;
+	}
+	,getProperties: function() {
+		return this._properties.slice();
+	}
+	,getRowCount: function() {
+		if(this._list != null) return this._list.getSize(); else return 0;
+	}
+	,getColumnCount: function() {
+		return this._names.length;
+	}
+	,getValueAt: function(rowIndex,columnIndex) {
+		var translator = this.translators[columnIndex];
+		var info = this._list.getElementAt(rowIndex);
+		var key = this._properties[columnIndex];
+		if(translator != null) {
+			if(Reflect.isFunction(translator)) return translator(info,key); else if(js.Boot.__instanceof(translator,org.aswing.table.PropertyTranslator)) return (js.Boot.__instanceof(translator,org.aswing.table.PropertyTranslator)?translator:null).translate(info,key); else throw new org.aswing.error.Error("Translator must be a PropertyTranslator or a Function : " + Std.string(translator));
+		} else {
+			if(key == ".") return info;
+			return Reflect.field(info,key);
+		}
+	}
+	,getColumnName: function(column) {
+		return this._names[column];
+	}
+	,isCellEditable: function(row,column) {
+		if(this._columnsEditable[column] == null) return true; else return this._columnsEditable[column] == true;
+	}
+	,isColumnEditable: function(column) {
+		return this.isCellEditable(0,column);
+	}
+	,setColumnEditable: function(column,editable) {
+		this._columnsEditable[column] = editable;
+	}
+	,setAllCellEditable: function(editable) {
+		var _g1 = 0;
+		var _g = this.getColumnCount();
+		while(_g1 < _g) {
+			var i = _g1++;
+			this._columnsEditable[i] = editable;
+		}
+	}
+	,setValueAt: function(aValue,rowIndex,columnIndex) {
+		var info = this._list.getElementAt(rowIndex);
+		var key = this._properties[columnIndex];
+		info[key] = aValue;
+		this.fireTableCellUpdated(rowIndex,columnIndex);
+	}
+	,intervalAdded: function(e) {
+		this.fireTableRowsInserted(e.getIndex0(),e.getIndex1());
+	}
+	,intervalRemoved: function(e) {
+		this.fireTableRowsDeleted(e.getIndex0(),e.getIndex1());
+	}
+	,contentsChanged: function(e) {
+		this.fireTableRowsUpdated(e.getIndex0(),e.getIndex1());
+	}
+	,__class__: org.aswing.table.PropertyTableModel
+	,__properties__: {set_columnsEditable:"set_columnsEditable",get_columnsEditable:"get_columnsEditable",set_properties:"set_properties",get_properties:"get_properties",set_names:"set_names",get_names:"get_names",set_list:"set_list",get_list:"get_list"}
+});
+org.aswing.table.PropertyTranslator = function() { };
+$hxClasses["org.aswing.table.PropertyTranslator"] = org.aswing.table.PropertyTranslator;
+org.aswing.table.PropertyTranslator.__name__ = ["org","aswing","table","PropertyTranslator"];
+org.aswing.table.PropertyTranslator.prototype = {
+	__class__: org.aswing.table.PropertyTranslator
+};
 org.aswing.table.Resizable2 = function() { };
 $hxClasses["org.aswing.table.Resizable2"] = org.aswing.table.Resizable2;
 org.aswing.table.Resizable2.__name__ = ["org","aswing","table","Resizable2"];
@@ -49318,31 +54368,80 @@ org.aswing.table.Resizable3Imp2.prototype = {
 org.aswing.table.TableColumn = function(modelIndex,width,cellRenderer,cellEditor) {
 	if(width == null) width = 75;
 	if(modelIndex == null) modelIndex = 0;
-	this.modelIndex = modelIndex;
-	this.width = width;
-	this.preferredWidth = width;
+	this._modelIndex = modelIndex;
+	this._width = width;
+	this._preferredWidth = width;
 	this.cellRenderer = cellRenderer;
 	this.cellEditor = cellEditor;
-	this.minWidth = 17;
-	this.maxWidth = 100000;
-	this.isResizable = true;
-	this.headerValue = null;
+	this._minWidth = 17;
+	this._maxWidth = 100000;
+	this._isResizable = true;
+	this._headerValue = null;
 	openfl.events.EventDispatcher.call(this);
 };
 $hxClasses["org.aswing.table.TableColumn"] = org.aswing.table.TableColumn;
 org.aswing.table.TableColumn.__name__ = ["org","aswing","table","TableColumn"];
 org.aswing.table.TableColumn.__super__ = openfl.events.EventDispatcher;
 org.aswing.table.TableColumn.prototype = $extend(openfl.events.EventDispatcher.prototype,{
-	firePropertyChangeIfReallyChanged: function(propertyName,oldValue,newValue) {
+	get_modelIndex: function() {
+		return this.getModelIndex();
+	}
+	,set_modelIndex: function(v) {
+		this.setModelIndex(v);
+		return v;
+	}
+	,get_width: function() {
+		return this.getWidth();
+	}
+	,set_width: function(v) {
+		this.setWidth(v);
+		return v;
+	}
+	,get_minWidth: function() {
+		return this.getMinWidth();
+	}
+	,set_minWidth: function(v) {
+		this.setMinWidth(v);
+		return v;
+	}
+	,get_preferredWidth: function() {
+		return this.getPreferredWidth();
+	}
+	,set_preferredWidth: function(v) {
+		this.setPreferredWidth(v);
+		return v;
+	}
+	,get_maxWidth: function() {
+		return this.getMaxWidth();
+	}
+	,set_maxWidth: function(v) {
+		this.setMaxWidth(v);
+		return v;
+	}
+	,get_headerValue: function() {
+		return this.getHeaderValue();
+	}
+	,set_headerValue: function(v) {
+		this.setHeaderValue(v);
+		return v;
+	}
+	,get_isResizable: function() {
+		return this.getResizable();
+	}
+	,set_isResizable: function(v) {
+		this.setResizable(v);
+		return v;
+	}
+	,firePropertyChangeIfReallyChanged: function(propertyName,oldValue,newValue) {
 		if(oldValue != newValue) this.dispatchEvent(new org.aswing.event.PropertyChangeEvent(propertyName,oldValue,newValue));
 	}
 	,setModelIndex: function(modelIndex) {
-		var old = this.modelIndex;
-		this.modelIndex = modelIndex;
+		var old = this._modelIndex;
+		this._modelIndex = modelIndex;
 		this.firePropertyChangeIfReallyChanged("modelIndex",old,modelIndex);
 	}
 	,getModelIndex: function() {
-		return this.modelIndex;
+		return this._modelIndex;
 	}
 	,setIdentifier: function(identifier) {
 		var old = this.identifier;
@@ -49353,12 +54452,12 @@ org.aswing.table.TableColumn.prototype = $extend(openfl.events.EventDispatcher.p
 		if(this.identifier != null) return this.identifier; else return this.getHeaderValue();
 	}
 	,setHeaderValue: function(headerValue) {
-		var old = this.headerValue;
-		this.headerValue = headerValue;
+		var old = this._headerValue;
+		this._headerValue = headerValue;
 		this.firePropertyChangeIfReallyChanged("headerValue",old,headerValue);
 	}
 	,getHeaderValue: function() {
-		return this.headerValue;
+		return this._headerValue;
 	}
 	,setHeaderCellFactory: function(headerRenderer) {
 		var old = this.headerRenderer;
@@ -49385,48 +54484,48 @@ org.aswing.table.TableColumn.prototype = $extend(openfl.events.EventDispatcher.p
 		return this.cellEditor;
 	}
 	,setWidth: function(width) {
-		var old = this.width;
-		this.width = Std["int"](Math.min(Math.max(width,this.minWidth),this.maxWidth));
-		this.firePropertyChangeIfReallyChanged("width",old,this.width);
+		var old = this._width;
+		this._width = Std["int"](Math.min(Math.max(width,this._minWidth),this._maxWidth));
+		this.firePropertyChangeIfReallyChanged("width",old,this._width);
 	}
 	,getWidth: function() {
-		return this.width;
+		return this._width;
 	}
 	,setPreferredWidth: function(preferredWidth) {
-		var old = this.preferredWidth;
-		this.preferredWidth = Std["int"](Math.min(Math.max(preferredWidth,this.minWidth),this.maxWidth));
-		this.firePropertyChangeIfReallyChanged("preferredWidth",old,this.preferredWidth);
+		var old = this._preferredWidth;
+		this._preferredWidth = Std["int"](Math.min(Math.max(preferredWidth,this._minWidth),this._maxWidth));
+		this.firePropertyChangeIfReallyChanged("preferredWidth",old,this._preferredWidth);
 	}
 	,getPreferredWidth: function() {
-		return this.preferredWidth;
+		return this._preferredWidth;
 	}
 	,setMinWidth: function(minWidth) {
-		var old = this.minWidth;
-		this.minWidth = Std["int"](Math.max(minWidth,0));
-		if(this.width < minWidth) this.setWidth(minWidth);
-		if(this.preferredWidth < minWidth) this.setPreferredWidth(minWidth);
-		this.firePropertyChangeIfReallyChanged("minWidth",old,this.minWidth);
+		var old = this._minWidth;
+		this._minWidth = Std["int"](Math.max(minWidth,0));
+		if(this._width < minWidth) this.setWidth(minWidth);
+		if(this._preferredWidth < minWidth) this.setPreferredWidth(minWidth);
+		this.firePropertyChangeIfReallyChanged("minWidth",old,this._minWidth);
 	}
 	,getMinWidth: function() {
-		return this.minWidth;
+		return this._minWidth;
 	}
 	,setMaxWidth: function(maxWidth) {
-		var old = this.maxWidth;
-		this.maxWidth = Std["int"](Math.max(this.minWidth,maxWidth));
-		if(this.width > maxWidth) this.setWidth(maxWidth);
-		if(this.preferredWidth > maxWidth) this.setPreferredWidth(maxWidth);
-		this.firePropertyChangeIfReallyChanged("maxWidth",old,this.maxWidth);
+		var old = this._maxWidth;
+		this._maxWidth = Std["int"](Math.max(this._minWidth,maxWidth));
+		if(this._width > maxWidth) this.setWidth(maxWidth);
+		if(this._preferredWidth > maxWidth) this.setPreferredWidth(maxWidth);
+		this.firePropertyChangeIfReallyChanged("maxWidth",old,this._maxWidth);
 	}
 	,getMaxWidth: function() {
-		return this.maxWidth;
+		return this._maxWidth;
 	}
 	,setResizable: function(isResizable) {
-		var old = this.isResizable;
-		this.isResizable = isResizable;
-		this.firePropertyChangeIfReallyChanged("isResizable",old,this.isResizable);
+		var old = this._isResizable;
+		this._isResizable = isResizable;
+		this.firePropertyChangeIfReallyChanged("isResizable",old,this._isResizable);
 	}
 	,getResizable: function() {
-		return this.isResizable;
+		return this._isResizable;
 	}
 	,sizeWidthToFit: function() {
 		if(this.headerRenderer == null) return;
@@ -49451,6 +54550,7 @@ org.aswing.table.TableColumn.prototype = $extend(openfl.events.EventDispatcher.p
 		return factory;
 	}
 	,__class__: org.aswing.table.TableColumn
+	,__properties__: {set_isResizable:"set_isResizable",get_isResizable:"get_isResizable",set_headerValue:"set_headerValue",get_headerValue:"get_headerValue",set_maxWidth:"set_maxWidth",get_maxWidth:"get_maxWidth",set_preferredWidth:"set_preferredWidth",get_preferredWidth:"get_preferredWidth",set_minWidth:"set_minWidth",get_minWidth:"get_minWidth",set_width:"set_width",get_width:"get_width",set_modelIndex:"set_modelIndex",get_modelIndex:"get_modelIndex"}
 });
 org.aswing.table.TableColumnModelEvent = function(source,from,_to) {
 	org.aswing.event.ModelEvent.call(this,source);
@@ -49468,6 +54568,403 @@ org.aswing.table.TableColumnModelEvent.prototype = $extend(org.aswing.event.Mode
 		return this.toIndex;
 	}
 	,__class__: org.aswing.table.TableColumnModelEvent
+});
+org.aswing.table.sorter = {};
+org.aswing.table.sorter.Arrow = function(descending,size) {
+	this.shape = new openfl.display.Shape();
+	if(descending) this.arrow = Math.PI / 2; else this.arrow = -Math.PI / 2;
+	this.width = size;
+};
+$hxClasses["org.aswing.table.sorter.Arrow"] = org.aswing.table.sorter.Arrow;
+org.aswing.table.sorter.Arrow.__name__ = ["org","aswing","table","sorter","Arrow"];
+org.aswing.table.sorter.Arrow.__interfaces__ = [org.aswing.Icon];
+org.aswing.table.sorter.Arrow.prototype = {
+	getIconWidth: function(c) {
+		return this.width;
+	}
+	,getIconHeight: function(c) {
+		return this.width;
+	}
+	,updateIcon: function(c,g,x,y) {
+		this.shape.get_graphics().clear();
+		g = new org.aswing.graphics.Graphics2D(this.shape.get_graphics());
+		var center = new openfl.geom.Point(x,c.getHeight() / 2);
+		var w = this.width;
+		var ps1 = new Array();
+		ps1.push(this.nextPoint(center,this.arrow,w / 2 / 2));
+		var back = this.nextPoint(center,this.arrow + Math.PI,w / 2 / 2);
+		ps1.push(this.nextPoint(back,this.arrow - Math.PI / 2,w / 2));
+		ps1.push(this.nextPoint(back,this.arrow + Math.PI / 2,w / 2));
+		var cl = c.getMideground();
+		var style;
+		var adjuster = c.getStyleTune().get_mide();
+		if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) {
+			var b;
+			if(js.Boot.__instanceof(c,org.aswing.AbstractButton)) b = c; else b = null;
+			var model = b.getModel();
+			var isPressing = model.isArmed() || model.isSelected();
+			var hue = cl.getHue();
+			var offHue = hue + 0.21;
+			if(offHue > 1) offHue = offHue - 1;
+			if(offHue < 0) offHue = offHue + 1;
+			if(!b.isEnabled()) {
+				cl = cl.offsetHLS(0,-0.06,-0.03);
+				adjuster = adjuster.sharpen(0.4);
+				cl = cl.offsetHLS(0,-0.10,-0.10);
+			} else if(isPressing) {
+				adjuster = adjuster.sharpen(0.8);
+				cl = cl.offsetHLS(offHue - hue,-0.06,0);
+			} else if(model.isRollOver()) cl = cl.offsetHLS(offHue - hue,0.1,0.3);
+		}
+		style = new org.aswing.StyleResult(cl,adjuster);
+		var matrix = new openfl.geom.Matrix();
+		matrix.createGradientBox(w + 1,w + 1,0.333333333333333315 * Math.PI,x + w / 8 - 0.5,y + w / 8 - 0.5);
+		var brush = new org.aswing.graphics.GradientBrush(org.aswing.graphics.GradientBrush.RADIAL,[style.clight.getRGB(),style.cdark.getRGB()],[style.clight.getAlpha(),style.cdark.getAlpha()],[0,255],matrix);
+		g.fillPolygon(brush,ps1);
+	}
+	,nextPoint: function(p,dir,dis) {
+		return new openfl.geom.Point(p.x + Math.cos(dir) * dis,p.y + Math.sin(dir) * dis);
+	}
+	,getDisplay: function(c) {
+		return this.shape;
+	}
+	,__class__: org.aswing.table.sorter.Arrow
+};
+org.aswing.table.sorter.Directive = function(column,direction) {
+	this.column = column;
+	this.direction = direction;
+};
+$hxClasses["org.aswing.table.sorter.Directive"] = org.aswing.table.sorter.Directive;
+org.aswing.table.sorter.Directive.__name__ = ["org","aswing","table","sorter","Directive"];
+org.aswing.table.sorter.Directive.prototype = {
+	__class__: org.aswing.table.sorter.Directive
+};
+org.aswing.table.sorter.Row = function(tableSorter,index) {
+	this.tableSorter = tableSorter;
+	this.modelIndex = index;
+};
+$hxClasses["org.aswing.table.sorter.Row"] = org.aswing.table.sorter.Row;
+org.aswing.table.sorter.Row.__name__ = ["org","aswing","table","sorter","Row"];
+org.aswing.table.sorter.Row.prototype = {
+	compareTo: function(o) {
+		var row1 = this.modelIndex;
+		var row2 = (js.Boot.__instanceof(o,org.aswing.table.sorter.Row)?o:null).modelIndex;
+		var sortingColumns = this.tableSorter.getSortingColumns();
+		var tableModel = this.tableSorter.getTableModel();
+		var _g1 = 0;
+		var _g = sortingColumns.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var directive = org.aswing.AsWingUtils["as"](sortingColumns[i],org.aswing.table.sorter.Directive);
+			var column = directive.column;
+			var o1 = tableModel.getValueAt(row1,column);
+			var o2 = tableModel.getValueAt(row2,column);
+			var comparison = 0;
+			if(o1 == null && o2 == null) comparison = 0; else if(o1 == null) comparison = -1; else if(o2 == null) comparison = 1; else {
+				var comparator = this.tableSorter.getComparator(column);
+				comparison = comparator(o1,o2);
+			}
+			if(comparison != 0) if(directive.direction == -1) return -comparison; else return comparison;
+		}
+		return 0;
+	}
+	,getModelIndex: function() {
+		return this.modelIndex;
+	}
+	,__class__: org.aswing.table.sorter.Row
+};
+org.aswing.table.sorter.SortableHeaderRenderer = function(originalRenderer,tableSorter) {
+	this.originalRenderer = originalRenderer;
+	this.tableSorter = tableSorter;
+};
+$hxClasses["org.aswing.table.sorter.SortableHeaderRenderer"] = org.aswing.table.sorter.SortableHeaderRenderer;
+org.aswing.table.sorter.SortableHeaderRenderer.__name__ = ["org","aswing","table","sorter","SortableHeaderRenderer"];
+org.aswing.table.sorter.SortableHeaderRenderer.__interfaces__ = [org.aswing.table.TableCellFactory];
+org.aswing.table.sorter.SortableHeaderRenderer.prototype = {
+	createNewCell: function(isHeader) {
+		return new org.aswing.table.sorter.SortableTextHeaderCell(this.tableSorter);
+	}
+	,getTableCellFactory: function() {
+		return null;
+	}
+	,__class__: org.aswing.table.sorter.SortableHeaderRenderer
+};
+org.aswing.table.sorter.SortableTextHeaderCell = function(tableSorter) {
+	org.aswing.table.DefaultTextHeaderCell.call(this);
+	this.setBorder(org.aswing.UIManager.getBorder("TableHeader.sortableCellBorder"));
+	this.setBackgroundDecorator(org.aswing.UIManager.getGroundDecorator("TableHeader.sortableCellBackground"));
+	this.tableSorter = tableSorter;
+	this.setHorizontalTextPosition(2);
+	this.setIconTextGap(6);
+	this.setMideground(null);
+	this.setStyleTune(null);
+};
+$hxClasses["org.aswing.table.sorter.SortableTextHeaderCell"] = org.aswing.table.sorter.SortableTextHeaderCell;
+org.aswing.table.sorter.SortableTextHeaderCell.__name__ = ["org","aswing","table","sorter","SortableTextHeaderCell"];
+org.aswing.table.sorter.SortableTextHeaderCell.__super__ = org.aswing.table.DefaultTextHeaderCell;
+org.aswing.table.sorter.SortableTextHeaderCell.prototype = $extend(org.aswing.table.DefaultTextHeaderCell.prototype,{
+	setTableCellStatus: function(table,isSelected,row,column) {
+		org.aswing.table.DefaultTextHeaderCell.prototype.setTableCellStatus.call(this,table,isSelected,row,column);
+		var modelColumn = table.convertColumnIndexToModel(column);
+		this.setIcon(this.tableSorter.getHeaderRendererIcon(modelColumn,this.getFont().getSize() - 2));
+	}
+	,__class__: org.aswing.table.sorter.SortableTextHeaderCell
+});
+org.aswing.table.sorter.TableSorter = function(tableModel,tableHeader) {
+	org.aswing.table.AbstractTableModel.call(this);
+	this.initStatics();
+	this.columnComparators = new haxe.ds.StringMap();
+	this.sortingColumns = new Array();
+	this._columnSortables = new Array();
+	this.tableModelListener = this;
+	this.setTableHeader(tableHeader);
+	this.setTableModel(tableModel);
+};
+$hxClasses["org.aswing.table.sorter.TableSorter"] = org.aswing.table.sorter.TableSorter;
+org.aswing.table.sorter.TableSorter.__name__ = ["org","aswing","table","sorter","TableSorter"];
+org.aswing.table.sorter.TableSorter.__interfaces__ = [org.aswing.event.TableModelListener];
+org.aswing.table.sorter.TableSorter.EMPTY_DIRECTIVE = null;
+org.aswing.table.sorter.TableSorter.NUMBER_COMAPRATOR = null;
+org.aswing.table.sorter.TableSorter.LEXICAL_COMPARATOR = null;
+org.aswing.table.sorter.TableSorter.__super__ = org.aswing.table.AbstractTableModel;
+org.aswing.table.sorter.TableSorter.prototype = $extend(org.aswing.table.AbstractTableModel.prototype,{
+	get_tableModel: function() {
+		return this.getTableModel();
+	}
+	,set_tableModel: function(v) {
+		this.setTableModel(v);
+		return v;
+	}
+	,get_columnSortables: function() {
+		return this._columnSortables;
+	}
+	,set_columnSortables: function(v) {
+		this._columnSortables = v;
+		var _g1 = 0;
+		var _g = this._columnSortables.length;
+		while(_g1 < _g) {
+			var column = _g1++;
+			if(!this._columnSortables[column] && this.getSortingStatus(column) != 0) this.setSortingStatus(column,0);
+		}
+		this.fireTableStructureChanged();
+		return v;
+	}
+	,get_tableHeader: function() {
+		return this.getTableHeader();
+	}
+	,set_tableHeader: function(v) {
+		this.setTableHeader(v);
+		return v;
+	}
+	,initStatics: function() {
+		if(org.aswing.table.sorter.TableSorter.inited != true) {
+			org.aswing.table.sorter.TableSorter.EMPTY_DIRECTIVE = new org.aswing.table.sorter.Directive(-1,0);
+			org.aswing.table.sorter.TableSorter.NUMBER_COMAPRATOR = function(o1,o2) {
+				o1 = Std.parseFloat(o1);
+				o2 = Std.parseFloat(o2);
+				if(o1 == o2) return 0; else if(o1 > o2) return 1; else return -1;
+			};
+			org.aswing.table.sorter.TableSorter.LEXICAL_COMPARATOR = function(o11,o21) {
+				o11 = o11.toString();
+				o21 = o21.toString();
+				if(o11 == o21) return 0; else if(o11 > o21) return 1; else return -1;
+			};
+			org.aswing.table.sorter.TableSorter.inited = true;
+		}
+	}
+	,clearSortingState: function() {
+		this.viewToModel = null;
+		this.modelToView = null;
+	}
+	,getTableModel: function() {
+		return this._tableModel;
+	}
+	,setTableModel: function(tableModel) {
+		if(this._tableModel != null) this._tableModel.removeTableModelListener(this.tableModelListener);
+		this._tableModel = tableModel;
+		if(this._tableModel != null) this._tableModel.addTableModelListener(this.tableModelListener);
+		this.clearSortingState();
+		this.fireTableStructureChanged();
+	}
+	,getTableHeader: function() {
+		return this._tableHeader;
+	}
+	,setTableHeader: function(tableHeader) {
+		if(this._tableHeader != null) {
+			this._tableHeader.removeEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__mousePress));
+			this._tableHeader.removeEventListener("release",$bind(this,this.__mouseRelease));
+			var defaultRenderer = this._tableHeader.getDefaultRenderer();
+			if(js.Boot.__instanceof(defaultRenderer,org.aswing.table.sorter.SortableHeaderRenderer)) this._tableHeader.setDefaultRenderer((js.Boot.__instanceof(defaultRenderer,org.aswing.table.sorter.SortableHeaderRenderer)?defaultRenderer:null).getTableCellFactory());
+		}
+		this._tableHeader = tableHeader;
+		if(this._tableHeader != null) {
+			this._tableHeader.addEventListener(openfl.events.MouseEvent.MOUSE_DOWN,$bind(this,this.__mousePress));
+			this._tableHeader.addEventListener("release",$bind(this,this.__mouseRelease));
+			new org.aswing.table.sorter.SortableHeaderRenderer(this._tableHeader.getDefaultRenderer(),this);
+			this._tableHeader.setDefaultRenderer(new org.aswing.table.sorter.SortableHeaderRenderer(this._tableHeader.getDefaultRenderer(),this));
+		}
+	}
+	,isSorting: function() {
+		return this.sortingColumns.length != 0;
+	}
+	,getSortingColumns: function() {
+		return this.sortingColumns;
+	}
+	,setColumnSortable: function(column,sortable) {
+		if(this.isColumnSortable(column) != sortable) {
+			this._columnSortables[column] = sortable;
+			if(!sortable && this.getSortingStatus(column) != 0) this.setSortingStatus(column,0);
+		}
+	}
+	,isColumnSortable: function(column) {
+		return this._columnSortables[column] != false;
+	}
+	,getDirective: function(column) {
+		var _g1 = 0;
+		var _g = this.sortingColumns.length;
+		while(_g1 < _g) {
+			var i = _g1++;
+			var directive = org.aswing.AsWingUtils["as"](this.sortingColumns[i],org.aswing.table.sorter.Directive);
+			if(directive.column == column) return directive;
+		}
+		return org.aswing.table.sorter.TableSorter.EMPTY_DIRECTIVE;
+	}
+	,getSortingStatus: function(column) {
+		return this.getDirective(column).direction | 0;
+	}
+	,sortingStatusChanged: function() {
+		this.clearSortingState();
+		this.fireTableDataChanged();
+		if(this._tableHeader != null) this._tableHeader.repaint();
+	}
+	,setSortingStatus: function(column,status) {
+		var directive = this.getDirective(column);
+		if(directive != org.aswing.table.sorter.TableSorter.EMPTY_DIRECTIVE) org.aswing.util.ArrayUtils.removeFromArray(this.sortingColumns,directive);
+		if(status != 0) this.sortingColumns.push(new org.aswing.table.sorter.Directive(column,status));
+		this.sortingStatusChanged();
+	}
+	,getHeaderRendererIcon: function(column,size) {
+		var directive = this.getDirective(column);
+		if(directive == org.aswing.table.sorter.TableSorter.EMPTY_DIRECTIVE) return null;
+		return new org.aswing.table.sorter.Arrow(directive.direction == -1,size);
+	}
+	,cancelSorting: function() {
+		this.sortingColumns.splice(0,this.sortingColumns.length);
+		this.sortingStatusChanged();
+	}
+	,setColumnComparator: function(columnClass,comparator) {
+		if(comparator == null) this.columnComparators.remove(columnClass); else this.columnComparators.set(columnClass,comparator);
+	}
+	,getComparator: function(column) {
+		var columnType = this._tableModel.getColumnClass(column);
+		var comparator = this.columnComparators.get(columnType);
+		if(comparator != null) return comparator;
+		if(columnType == "Number") return org.aswing.table.sorter.TableSorter.NUMBER_COMAPRATOR; else return org.aswing.table.sorter.TableSorter.LEXICAL_COMPARATOR;
+	}
+	,getViewToModel: function() {
+		if(this.viewToModel == null) {
+			var tableModelRowCount = this._tableModel.getRowCount();
+			this.viewToModel = new Array();
+			var _g = 0;
+			while(_g < tableModelRowCount) {
+				var row = _g++;
+				this.viewToModel[row] = new org.aswing.table.sorter.Row(this,row);
+			}
+			if(this.isSorting()) this.viewToModel.sort($bind(this,this.sortImp));
+		}
+		return this.viewToModel;
+	}
+	,sortImp: function(row1,row2) {
+		return row1.compareTo(row2);
+	}
+	,modelIndex: function(viewIndex) {
+		return this.getViewToModel()[viewIndex].getModelIndex();
+	}
+	,viewIndex: function(modelIndex) {
+		return this.getModelToView()[modelIndex];
+	}
+	,getModelToView: function() {
+		if(this.modelToView == null) {
+			var n = this.getViewToModel().length;
+			this.modelToView = new Array();
+			var _g = 0;
+			while(_g < n) {
+				var i = _g++;
+				this.modelToView[this.modelIndex(i)] = i;
+			}
+		}
+		return this.modelToView;
+	}
+	,getRowCount: function() {
+		if(this._tableModel == null) return 0; else return this._tableModel.getRowCount();
+	}
+	,getColumnCount: function() {
+		if(this._tableModel == null) return 0; else return this._tableModel.getColumnCount();
+	}
+	,getColumnName: function(column) {
+		return this._tableModel.getColumnName(column);
+	}
+	,getColumnClass: function(column) {
+		return this._tableModel.getColumnClass(column);
+	}
+	,isCellEditable: function(row,column) {
+		return this._tableModel.isCellEditable(this.modelIndex(row),column);
+	}
+	,getValueAt: function(row,column) {
+		return this._tableModel.getValueAt(this.modelIndex(row),column);
+	}
+	,setValueAt: function(aValue,row,column) {
+		this._tableModel.setValueAt(aValue,this.modelIndex(row),column);
+	}
+	,tableChanged: function(e) {
+		if(!this.isSorting()) {
+			this.clearSortingState();
+			this.fireTableChanged(e);
+			return;
+		}
+		if(e.getFirstRow() == -1) {
+			this.cancelSorting();
+			this.fireTableChanged(e);
+			return;
+		}
+		var column = e.getColumn();
+		if(e.getFirstRow() == e.getLastRow() && column != -1 && this.getSortingStatus(column) == 0 && this.modelToView != null) {
+			var viewIndex = this.getModelToView()[e.getFirstRow()];
+			this.fireTableChanged(new org.aswing.event.TableModelEvent(this,viewIndex,viewIndex,column,e.getType()));
+			return;
+		}
+		this.clearSortingState();
+		this.fireTableDataChanged();
+		return;
+	}
+	,__mousePress: function(e) {
+		var header = org.aswing.AsWingUtils["as"](e.currentTarget,org.aswing.table.JTableHeader);
+		this.pressedPoint = header.getMousePosition();
+	}
+	,__mouseRelease: function(e) {
+		if(e.isReleasedOutSide()) return;
+		var h = org.aswing.AsWingUtils["as"](e.currentTarget,org.aswing.table.JTableHeader);
+		var point = h.getMousePosition();
+		if(!point.equals(this.pressedPoint)) return;
+		var columnModel = h.getColumnModel();
+		var viewColumn = columnModel.getColumnIndexAtX(h.getMousePosition().x);
+		if(viewColumn == -1) return;
+		var column = columnModel.getColumn(viewColumn).getModelIndex();
+		if(column != -1 && this.isColumnSortable(column)) {
+			var status = this.getSortingStatus(column);
+			if(e.ctrlKey != true) this.cancelSorting();
+			status = this.nextSortingStatus(status,e.shiftKey);
+			this.setSortingStatus(column,status);
+		}
+	}
+	,nextSortingStatus: function(curStatus,shiftKey) {
+		var status = curStatus;
+		status = status + (shiftKey?-1:1);
+		status = (status + 4) % 3 - 1;
+		return status;
+	}
+	,__class__: org.aswing.table.sorter.TableSorter
+	,__properties__: {set_tableHeader:"set_tableHeader",get_tableHeader:"get_tableHeader",set_columnSortables:"set_columnSortables",get_columnSortables:"get_columnSortables",set_tableModel:"set_tableModel",get_tableModel:"get_tableModel"}
 });
 org.aswing.tree.RowMapper = function() { };
 $hxClasses["org.aswing.tree.RowMapper"] = org.aswing.tree.RowMapper;
@@ -52255,8 +57752,8 @@ org.aswing.util.DepthManager.bringToBottom = function(mc) {
 	if(parent.getChildIndex(mc) != 0) parent.setChildIndex(mc,0);
 };
 org.aswing.util.DepthManager.bringToTop = function(mc) {
+	if(null == mc || null == mc.parent) return;
 	var parent = mc.parent;
-	if(parent == null) return;
 	var maxIndex = parent.__children.length - 1;
 	if(parent.getChildIndex(mc) != maxIndex) parent.setChildIndex(mc,maxIndex);
 };
@@ -53670,7 +59167,7 @@ view.MainView = function() {
 	this.menuBar_initialized = false;
 	org.aswing.JWindow.call(this);
 	this.set_defaultButton(this.get_demoView().get_buttonsView().get_defButton());
-	this.get_content().append(this.get_jPanel__0());
+	this.set_content(this.get_jPanel__0());
 };
 $hxClasses["view.MainView"] = view.MainView;
 view.MainView.__name__ = ["view","MainView"];
@@ -53681,9 +59178,9 @@ view.MainView.prototype = $extend(org.aswing.JWindow.prototype,{
 	}
 	,get_emptyBorder__0: function() {
 		var res = new org.aswing.border.EmptyBorder();
-		res.set_top(30);
+		res.set_top(10);
 		res.set_right(30);
-		res.set_bottom(30);
+		res.set_bottom(10);
 		res.set_left(30);
 		return res;
 	}
@@ -54242,19 +59739,28 @@ org.aswing.ASColor.MAGENTA = new org.aswing.ASColor(16711935);
 org.aswing.ASColor.CYAN = new org.aswing.ASColor(65535);
 org.aswing.ASColor.BLUE = new org.aswing.ASColor(255);
 org.aswing.ASColor.HALO_BLUE = new org.aswing.ASColor(2881013);
+org.aswing.Component.__meta__ = { fields : { visibility : { bindable : null}}};
 org.aswing.Component.MAX_CLICK_INTERVAL = 400;
 org.aswing.Component.AWML_INDEX = 0;
 org.aswing.Component.bg_trigger_brush = new org.aswing.graphics.SolidBrush(new org.aswing.ASColor(0,0));
+demo.view.AccordionView.__meta__ = { fields : { dataContext : { bindable : null}}};
+demo.view.AdjusterView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.view.ButtonsView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.view.ComboBoxView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.view.DemoView.__meta__ = { fields : { dataContext : { bindable : null}}};
+demo.view.FrameView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.view.ProgressView.__meta__ = { fields : { dataContext : { bindable : null}}};
+demo.view.TableView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.view.TextView.__meta__ = { fields : { dataContext : { bindable : null}}};
 demo.viewmodel.Spotable.__meta__ = { fields : { selectedSpotIndex : { bindable : null}}};
-demo.viewmodel.ButtonsViewModel.__meta__ = { fields : { buttonsLog : { bindable : null}, defaultButtonCommand : { bindable : null}, basicButtonCommand : { bindable : null}, messagesButtonCommand : { bindable : null}, weatherButtonCommand : { bindable : null}, calendarButtonCommand : { bindable : null}, xmlSource : { bindable : null}, haxeSource : { bindable : null}, selectedSpotIndex : { bindable : null}}};
+demo.viewmodel.AccordionViewModel.__meta__ = { fields : { xmlSource : { bindable : null}, haxeSource : { bindable : null}, haxeLogo : { bindable : null}, selectedSpotIndex : { bindable : null}}};
 demo.viewmodel.ComboBoxViewModel.__meta__ = { fields : { email : { bindable : null}, password : { bindable : null}, role : { bindable : null}, xmlSource : { bindable : null}, haxeSource : { bindable : null}, selectedSpotIndex : { bindable : null}}};
-demo.viewmodel.DemoViewModel.__meta__ = { fields : { buttonsVM : { bindable : null}, textVM : { bindable : null}, progressVM : { bindable : null}, comboboxVM : { bindable : null}, menuSelectedIndex : { bindable : null}, areLinksVisible : { bindable : null}}};
+demo.viewmodel.AdjusterViewModel.__meta__ = { fields : { isLoginDialogShowed : { bindable : null}, openLoginDialogCommand : { bindable : null}, iphoneQuantity : { bindable : null}, galaxyQuantity : { bindable : null}, lumiaQuantity : { bindable : null}, totalCost : { bindable : null}}};
+demo.viewmodel.ButtonsViewModel.__meta__ = { fields : { buttonsLog : { bindable : null}, defaultButtonCommand : { bindable : null}, basicButtonCommand : { bindable : null}, messagesButtonCommand : { bindable : null}, weatherButtonCommand : { bindable : null}, calendarButtonCommand : { bindable : null}, xmlSource : { bindable : null}, haxeSource : { bindable : null}, selectedSpotIndex : { bindable : null}}};
+demo.viewmodel.DemoViewModel.__meta__ = { fields : { buttonsVM : { bindable : null}, textVM : { bindable : null}, progressVM : { bindable : null}, comboboxVM : { bindable : null}, accordionVM : { bindable : null}, frameVM : { bindable : null}, adjusterVM : { bindable : null}, tableVM : { bindable : null}, menuSelectedIndex : { bindable : null}, areLinksVisible : { bindable : null}}};
+demo.viewmodel.FrameViewModel.__meta__ = { fields : { isLoginDialogShowed : { bindable : null}, openLoginDialogCommand : { bindable : null}}};
 demo.viewmodel.ProgressViewModel.__meta__ = { fields : { isScrollbarIndeterminate : { bindable : null}, sliderValue : { bindable : null}, xmlSource : { bindable : null}, haxeSource : { bindable : null}, selectedSpotIndex : { bindable : null}}};
+demo.viewmodel.TableViewModel.__meta__ = { fields : { isLoginDialogShowed : { bindable : null}, openLoginDialogCommand : { bindable : null}, languages : { bindable : null}, selectedItem : { bindable : null}, highest : { bindable : null}, lowest : { bindable : null}, languageOfYear : { bindable : null}, informationPanelVisibility : { bindable : null}}};
 demo.viewmodel.TextViewModel.__meta__ = { fields : { predator : { bindable : null}, prey : { bindable : null}, predatorVictimSentence : { bindable : null}, xmlSource : { bindable : null}, haxeSource : { bindable : null}, selectedSpotIndex : { bindable : null}}};
 haxe.Template.splitter = new EReg("(::[A-Za-z0-9_ ()&|!+=/><*.\"-]+::|\\$\\$([A-Za-z0-9_-]+)\\()","");
 haxe.Template.expr_splitter = new EReg("(\\(|\\)|[ \r\n\t]*\"[^\"]*\"[ \r\n\t]*|[!+=/><*.&|-]+)","");
@@ -54280,6 +59786,15 @@ haxe.xml.Parser.escapes = (function($this) {
 	$r = h;
 	return $r;
 }(this));
+org.aswing.JFrame.NORMAL = 0;
+org.aswing.JFrame.ICONIFIED = 2;
+org.aswing.JFrame.MAXIMIZED_HORIZ = 4;
+org.aswing.JFrame.MAXIMIZED_VERT = 8;
+org.aswing.JFrame.MAXIMIZED = 12;
+org.aswing.JFrame.DO_NOTHING_ON_CLOSE = 0;
+org.aswing.JFrame.HIDE_ON_CLOSE = 1;
+org.aswing.JFrame.DISPOSE_ON_CLOSE = 2;
+org.aswing.JFrame.PROPERTY_TITLE_BAR = "titleBar";
 org.aswing.JTextComponent.__meta__ = { fields : { text : { bindable : null}}};
 org.aswing.JTextArea.AUTO_INCREMENT = -2147483648;
 org.aswing.JTextArea.defaultMaxChars = 0;
@@ -54301,8 +59816,6 @@ org.aswing.plaf.basic.BasicScrollBarUI.scrollSpeedThrottle = 60;
 org.aswing.plaf.basic.BasicScrollBarUI.initialScrollSpeedThrottle = 500;
 org.aswing.plaf.basic.BasicSliderUI.scrollSpeedThrottle = 60;
 org.aswing.plaf.basic.BasicSliderUI.initialScrollSpeedThrottle = 500;
-jive.plaf.flat.background.FlatButtonBackground.luminanceFactor = 0.04;
-jive.plaf.flat.tabbedpane.FlatTabBackground.luminanceFactor = 0.1;
 org.aswing.AbstractButton.__meta__ = { fields : { selected : { bindable : null}}};
 org.aswing.AbstractButton.CENTER = 0;
 org.aswing.AbstractButton.TOP = 1;
@@ -54311,6 +59824,8 @@ org.aswing.AbstractButton.BOTTOM = 3;
 org.aswing.AbstractButton.RIGHT = 4;
 org.aswing.AbstractButton.HORIZONTAL = 0;
 org.aswing.AbstractButton.VERTICAL = 1;
+jive.plaf.flat.background.FlatButtonBackground.luminanceFactor = 0.1;
+jive.plaf.flat.tabbedpane.FlatTabBackground.luminanceFactor = 0.1;
 js.Boot.__toStr = {}.toString;
 lime.Assets.cache = new lime.AssetCache();
 lime.Assets.libraries = new haxe.ds.StringMap();
@@ -55933,16 +61448,10 @@ org.aswing.FlowLayout.CENTER = 0;
 org.aswing.FlowLayout.RIGHT = 4;
 org.aswing.FocusManager.managers = new org.aswing.util.WeakMap();
 org.aswing.FocusManager.defaultTraversalEnabled = true;
+org.aswing.JAdjuster.__meta__ = { fields : { value : { bindable : null}}};
+org.aswing.JAdjuster.HORIZONTAL = 0;
+org.aswing.JAdjuster.VERTICAL = 1;
 org.aswing.JComboBox.__meta__ = { fields : { selectedItem : { bindable : null}, selectedIndex : { bindable : null}}};
-org.aswing.JFrame.NORMAL = 0;
-org.aswing.JFrame.ICONIFIED = 2;
-org.aswing.JFrame.MAXIMIZED_HORIZ = 4;
-org.aswing.JFrame.MAXIMIZED_VERT = 8;
-org.aswing.JFrame.MAXIMIZED = 12;
-org.aswing.JFrame.DO_NOTHING_ON_CLOSE = 0;
-org.aswing.JFrame.HIDE_ON_CLOSE = 1;
-org.aswing.JFrame.DISPOSE_ON_CLOSE = 2;
-org.aswing.JFrame.PROPERTY_TITLE_BAR = "titleBar";
 org.aswing.JLabel.CENTER = 0;
 org.aswing.JLabel.TOP = 1;
 org.aswing.JLabel.LEFT = 2;
@@ -55982,6 +61491,7 @@ org.aswing.JTabbedPane.TOP = 1;
 org.aswing.JTabbedPane.LEFT = 2;
 org.aswing.JTabbedPane.BOTTOM = 3;
 org.aswing.JTabbedPane.RIGHT = 4;
+org.aswing.JTable.__meta__ = { fields : { selectedItem : { bindable : null}}};
 org.aswing.JTable.AUTO_INCREMENT = -2147483647;
 org.aswing.JTable.AUTO_RESIZE_OFF = 0;
 org.aswing.JTable.AUTO_RESIZE_NEXT_COLUMN = 1;
@@ -56039,6 +61549,8 @@ org.aswing.VectorListModel.RETURNINDEXEDARRAY = 8;
 org.aswing.VectorListModel.NUMERIC = 16;
 org.aswing.WindowLayout.TITLE = "Title";
 org.aswing.WindowLayout.CONTENT = "Content";
+org.aswing.border.BevelBorder.RAISED = 0;
+org.aswing.border.BevelBorder.LOWERED = 1;
 org.aswing.dnd.DragManager.TYPE_NONE = 0;
 org.aswing.dnd.DragManager.TYPE_MOVE = 1;
 org.aswing.dnd.DragManager.TYPE_COPY = 2;
@@ -56130,6 +61642,7 @@ org.aswing.plaf.EmptyUIResources.INSETS = new org.aswing.plaf.InsetsUIResource()
 org.aswing.plaf.EmptyUIResources.FONT = new org.aswing.plaf.ASFontUIResource();
 org.aswing.plaf.EmptyUIResources.COLOR = new org.aswing.plaf.ASColorUIResource();
 org.aswing.plaf.EmptyUIResources.STYLE_TUNE = new org.aswing.plaf.UIStyleTune();
+org.aswing.plaf.basic.BasicAccordionUI.MOTION_SPEED = 50;
 org.aswing.plaf.basic.BasicGraphicsUtils.gradientRatio = [0,255];
 org.aswing.plaf.basic.BasicGraphicsUtils.roundRectBtmFix = 0.5;
 org.aswing.plaf.basic.BasicGraphicsUtils.sharedMatrix = new openfl.geom.Matrix();
@@ -56146,6 +61659,10 @@ org.aswing.table.TableColumn.COLUMN_WIDTH_PROPERTY = "columWidth";
 org.aswing.table.TableColumn.HEADER_VALUE_PROPERTY = "headerValue";
 org.aswing.table.TableColumn.HEADER_RENDERER_PROPERTY = "headerRenderer";
 org.aswing.table.TableColumn.CELL_RENDERER_PROPERTY = "cellRenderer";
+org.aswing.table.sorter.TableSorter.DESCENDING = -1;
+org.aswing.table.sorter.TableSorter.NOT_SORTED = 0;
+org.aswing.table.sorter.TableSorter.ASCENDING = 1;
+org.aswing.table.sorter.TableSorter.inited = false;
 org.aswing.tree.DefaultMutableTreeNode.AWML_INDEX = 0;
 org.aswing.tree.DefaultTreeSelectionModel.SINGLE_TREE_SELECTION = 1;
 org.aswing.tree.DefaultTreeSelectionModel.CONTIGUOUS_TREE_SELECTION = 2;
