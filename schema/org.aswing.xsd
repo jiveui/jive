@@ -3432,6 +3432,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="editable" type="xs:boolean"/>
 <xs:element minOccurs="0" name="valueTranslator" type="xs:string"/>
 <xs:element minOccurs="0" name="valueParser" type="xs:string"/>
+<xs:element minOccurs="0" name="stepSize" type="xs:int"/>
 </xs:all>
 <xs:attribute name="model" type="xs:string"/>
 <xs:attribute name="orientation" type="xs:int"/>
@@ -3444,6 +3445,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="editable" type="xs:boolean"/>
 <xs:attribute name="valueTranslator" type="xs:string"/>
 <xs:attribute name="valueParser" type="xs:string"/>
+<xs:attribute name="stepSize" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

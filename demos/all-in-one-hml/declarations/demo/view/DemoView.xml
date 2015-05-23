@@ -31,7 +31,7 @@
                     <e:String>'Progress bar and Slider'</e:String>
                     <e:String>'Combo Box'</e:String>
                     <e:String>'Accordion'</e:String>
-                    <e:String>'Frame'</e:String>
+                    <e:String>'Dialog'</e:String>
                     <e:String>'Adjuster'</e:String>
                     <e:String>'Table'</e:String>
                 </VectorListModel>

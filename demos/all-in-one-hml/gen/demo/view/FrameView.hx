@@ -38,11 +38,11 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
     inline function get_jLabel__0():org.aswing.JLabel {
         /* declarations/demo/view/FrameView.xml:14 characters: 5-11 */
         var res = new org.aswing.JLabel();
-        /* declarations/demo/view/FrameView.xml:14 characters: 35-54 */
+        /* declarations/demo/view/FrameView.xml:14 characters: 29-48 */
         res.horizontalAlignment = org.aswing.AsWingConstants.LEFT;
         /* declarations/demo/view/FrameView.xml:14 characters: 13-17 */
-        res.text = 'Frame/Dialog';
-        /* declarations/demo/view/FrameView.xml:14 characters: 89-100 */
+        res.text = 'Dialog';
+        /* declarations/demo/view/FrameView.xml:14 characters: 83-94 */
         res.constraints = org.aswing.BorderLayout.NORTH;
         /* declarations/demo/view/FrameView.xml:15 characters: 9-13 */
         res.font = get_aSFont__0();

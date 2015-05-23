@@ -323,7 +323,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 		unitIncrement = increment;
 	}
 	
-	function getUnitIncrement(): Int {
+	public function getUnitIncrement(): Int {
     	return if (null == unitIncrement) Std.int((adjuster.getMaximum() - adjuster.getMinimum()) / 20) else unitIncrement;
     }
 }

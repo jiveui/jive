@@ -11,7 +11,7 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Frame/Dialog'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="'Dialog'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
             <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
         </font>

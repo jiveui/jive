@@ -79,7 +79,7 @@ class DemoView extends org.aswing.JPanel implements jive.DataContextControllable
 
     inline function get_string__5():String {
         /* declarations/demo/view/DemoView.xml:34 characters: 21-29 */
-        var res = 'Frame';
+        var res = 'Dialog';
         return res;
     }
 

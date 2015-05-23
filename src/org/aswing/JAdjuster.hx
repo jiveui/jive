@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import jive.plaf.flat.FlatAdjusterUI;
 import bindx.Bind;
 import flash.errors.Error;
 import org.aswing.event.InteractiveEvent;
@@ -144,6 +145,20 @@ class JAdjuster extends Component  implements Orientable implements EditableComp
     private var _valueParser: String -> Int;
     private function get_valueParser(): String -> Int { return getValueParser(); }
     private function set_valueParser(v: String -> Int): String -> Int { setValueParser(v); return v; }
+
+    public var stepSize(get, set): Int;
+    private function get_stepSize(): Int {
+        var fui: FlatAdjusterUI = AsWingUtils.as(ui, FlatAdjusterUI);
+        return if (null != fui) fui.getUnitIncrement() else 0;
+    }
+    private function set_stepSize(v: Int): Int {
+        var fui: FlatAdjusterUI = AsWingUtils.as(ui, FlatAdjusterUI);
+        if (null != fui) {
+            fui.setUnitIncrement(v);
+        }
+        return v;
+    }
+
 
 	/**
 	 * Creates a adjuster with the specified columns input text and orientation<p>

@@ -24,7 +24,116 @@
         <TabInfo title="'Demo'">
             <content>
                 <JPanel>
-                    <JAdjuster/>
+                    <border><border:EmptyBorder top="30"/></border>
+                    <SoftBox gap="7">
+                        <border>
+                            <border:LineBorder thickness="1" round="5">
+                                <border:interior>
+                                    <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
+                                </border:interior>
+                                <border:color>
+                                    <ASColor rgb="0xe1e1e1"/>
+                                </border:color>
+                            </border:LineBorder>
+                        </border>
+
+                        <JLabel text="'Shopping Cart'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <font>
+                                <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                            </font>
+                            <border><border:EmptyBorder bottom="10"/></border>
+                        </JLabel>
+
+                        <JPanel>
+                            <layout>
+                                <FlowLayout hgap="0"/>
+                            </layout>
+                            <JLabel text="'Apple iPhone 6 64 GB'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="250" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JLabel text="'$812.98'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="100" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JAdjuster value="{Binding iphoneQuantity mode=twoway}" minimum="0" maximum="5" stepSize="1"/>
+                        </JPanel>
+                        <JPanel>
+                            <layout>
+                                <FlowLayout hgap="0"/>
+                            </layout>
+                            <JLabel text="'Samsung Galaxy S6 Edge 64GB'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="250" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JLabel text="'$1019.99'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="100" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JAdjuster value="{Binding galaxyQuantity mode=twoway}" minimum="0" maximum="3" stepSize="1"/>
+                        </JPanel>
+                        <JPanel>
+                            <layout>
+                                <FlowLayout hgap="0"/>
+                            </layout>
+                            <JLabel text="'Nokia Lumia 930'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="250" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JLabel text="'$342.49'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <preferredSize>
+                                    <geom:IntDimension width="100" height="-1"/>
+                                </preferredSize>
+                            </JLabel>
+                            <JAdjuster value="{Binding lumiaQuantity mode=twoway}" minimum="0" maximum="2" stepSize="1"/>
+                        </JPanel>
+                        <JPanel>
+                            <layout>
+                                <FlowLayout hgap="0"/>
+                            </layout>
+                            <border>
+                                <border:EmptyBorder top="20"/>
+                            </border>
+                            <layout>
+                                <BorderLayout/>
+                            </layout>
+                            <JPanel constraints="org.aswing.BorderLayout.WEST">
+                                <layout>
+                                    <FlowLayout hgap="0"/>
+                                </layout>
+                                <JLabel text="'Total:'">
+                                    <font>
+                                        <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                    </font>
+                                </JLabel>
+                                <JLabel text="{Binding totalCost}">
+                                    <font>
+                                        <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                    </font>
+                                </JLabel>
+                            </JPanel>
+                            <JPanel constraints="org.aswing.BorderLayout.EAST">
+                                <layout>
+                                    <FlowLayout hgap="0"/>
+                                </layout>
+                                <JButton text="'Cancel'"/>
+                                <JSpacer>
+                                    <preferredSize><geom:IntDimension width="15" height="15"/></preferredSize>
+                                </JSpacer>
+                                <JButton text="'Checkout'" >
+                                    <background>
+                                        <ASColor rgb="0x2ecc71"/>
+                                    </background>
+                                </JButton>
+                            </JPanel>
+
+                        </JPanel>
+                    </SoftBox>
                 </JPanel>
             </content>
         </TabInfo>
