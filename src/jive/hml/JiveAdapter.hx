@@ -35,7 +35,9 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 			new IEventDispatcherAdapter(),
 			new JiveXMLAdapter(),
             new AssetIconAdapter(),
-            new BaseCommandAdapter()
+            new BaseCommandAdapter(),
+            new DefaultTableColumnModelAdapter(),
+            new AbstractTableModelAdapter()
 		]);
 	}
 
@@ -146,6 +148,8 @@ class ContainerWithMetaWriter extends ComponentWithMetaWriter {
 		var t = child.superType;
 		if (t.indexOf("JPopup") >= 0 || t.indexOf("JWindow") >= 0 || t.indexOf("JFrame") >= 0 || t.indexOf("Dialog") >= 0) {
             method.push('${universalGet(child)}.owner = null;');
+        } else if (assign){
+            method.push('$scope = ${universalGet(child)};');
         } else {
             method.push('$scope.append(${universalGet(child)});');
         }
@@ -257,6 +261,34 @@ class BaseCommandAdapter extends ComponentAdapter {
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 
+    }
+}
+
+class AbstractTableModelAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.table.AbstractTableModel;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+
+class DefaultTableColumnModelAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.table.DefaultTableColumnModel;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+        return [new DefaultTableColumnModelNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+    }
+}
+
+class DefaultTableColumnModelNodeWithMetaWriter extends ComponentWithMetaWriter {
+    override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+        method.push('$scope.addColumn(${universalGet(child)});');
     }
 }
 #end

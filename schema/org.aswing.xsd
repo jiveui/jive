@@ -69,108 +69,116 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ButtonBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ComboBoxBackground" />
-<xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
-<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="jive-plaf-flat-icon:PlusIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
-<xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
 <xs:element ref="SolidBackground" />
-<xs:element ref="org-aswing-plaf-basic-icon:SliderThumbIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameIconifiedIcon" />
 <xs:element ref="org-aswing-colorchooser:NoColorIcon" />
-<xs:element ref="org-aswing-border:DecorateBorder" />
-<xs:element ref="jive-plaf-flat-icon:MinusIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:TextComponentBackBround" />
 <xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
-<xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
-<xs:element ref="AssetIcon" />
-<xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:ArrowIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:MenuCheckIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:RadioButtonMenuItemCheckIcon" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicClosableTabbedPaneTab" />
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuItemArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameCloseIcon" />
 <xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
-<xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
-<xs:element ref="org-aswing-plaf-basic-icon:FrameIcon" />
-<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
-<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:ScrollBarArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:InputBackground" />
 <xs:element ref="MultipleAssetIcon" />
-<xs:element ref="org-aswing-plaf-basic-background:ToggleButtonBackground" />
-<xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
-<xs:element ref="org-aswing-colorchooser:ColorRectIcon" />
-<xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
-<xs:element ref="jive-plaf-flat-icon:ExpandIcon" />
-<xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
 <xs:element ref="org-aswing-border:SimpleTitledBorder" />
 <xs:element ref="org-aswing-plaf-basic-background:TableBackground" />
 <xs:element ref="AssetBackground" />
 <xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonBackground" />
-<xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuArrowIcon" />
-<xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
+<xs:element ref="org-aswing-plaf-basic-border:LineBorderResource" />
 <xs:element ref="jive-plaf-flat-border:ExtendedLineBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
-<xs:element ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
 <xs:element ref="SimpleButtonIcon" />
 <xs:element ref="jive-plaf-flat-background:FlatScrollBarBackground" />
-<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
 <xs:element ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element ref="jive-plaf-flat-icon:FlatCheckBoxIcon" />
-<xs:element ref="EmptyIcon" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
 <xs:element ref="org-aswing-plaf-basic-icon:RadioButtonIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:MenuItemCheckIcon" />
 <xs:element ref="org-aswing-plaf-basic-background:PanelBackground" />
 <xs:element ref="org-aswing-border:CaveBorder" />
 <xs:element ref="jive-plaf-flat-background:FlatProgressBarBackground" />
 <xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderThumbIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameMaximizeIcon" />
 <xs:element ref="org-aswing-border:TitledBorder" />
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
 <xs:element ref="Icon" />
-<xs:element ref="Border" />
-<xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
-<xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
 <xs:element ref="jive-plaf-flat-accordion:AccordionItemBackground" />
-<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
-<xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
-<xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-icon:FrameCloseIcon" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
-<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
-<xs:element ref="jive-plaf-flat-adjuster:MinusButtonBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
-<xs:element ref="org-aswing-tree:TreeFolderIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatTableBackground" />
 <xs:element ref="jive-plaf-flat-accordion:AccordionItemBorder" />
 <xs:element ref="org-aswing-colorchooser:PreviewColorIcon" />
-<xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:DividerIcon" />
-<xs:element ref="org-aswing-plaf-basic-border:TextComponentBorder" />
 <xs:element ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
 <xs:element ref="org-aswing-border:BevelBorder" />
-<xs:element ref="LoadIcon" />
-<xs:element ref="org-aswing-tree:TreeLeafIcon" />
 <xs:element ref="jive-plaf-flat-adjuster:AdjusterBorder" />
 <xs:element ref="SimpleButtonIconToggle" />
-<xs:element ref="jive-plaf-flat-adjuster:AdjusterBackground" />
 <xs:element ref="GroundDecorator" />
 <xs:element ref="org-aswing-plaf-basic-background:ListBackground" />
 <xs:element ref="org-aswing-plaf-basic-icon:TitleIcon" />
-<xs:element ref="org-aswing-border:SideLineBorder" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarBackground" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:TabBackground" />
 <xs:element ref="org-aswing-table-sorter:Arrow" />
+<xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
+<xs:element ref="jive-plaf-flat-border:FlatComboBoxPopupBorder" />
+<xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
+<xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:SliderThumbIcon" />
+<xs:element ref="org-aswing-border:DecorateBorder" />
+<xs:element ref="jive-plaf-flat-icon:MinusIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
+<xs:element ref="AssetIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:ArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuCheckIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:RadioButtonMenuItemCheckIcon" />
+<xs:element ref="jive-plaf-flat-border:TableHeaderCellBorder" />
+<xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameIcon" />
+<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:ScrollBarArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-background:ToggleButtonBackground" />
+<xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
+<xs:element ref="org-aswing-colorchooser:ColorRectIcon" />
+<xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
+<xs:element ref="jive-plaf-flat-icon:ExpandIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
+<xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
+<xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
+<xs:element ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
+<xs:element ref="EmptyIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuItemCheckIcon" />
+<xs:element ref="Border" />
+<xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatTableHeaderBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
+<xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
+<xs:element ref="jive-plaf-flat-adjuster:MinusButtonBackground" />
+<xs:element ref="org-aswing-tree:TreeFolderIcon" />
+<xs:element ref="jive-plaf-flat-icon:FrameIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:TextComponentBorder" />
+<xs:element ref="LoadIcon" />
+<xs:element ref="org-aswing-tree:TreeLeafIcon" />
+<xs:element ref="jive-plaf-flat-adjuster:AdjusterBackground" />
+<xs:element ref="org-aswing-border:SideLineBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatFrameBackground" />
 <xs:element ref="GradientBackground" />
 <xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
-<xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
 <xs:element ref="org-aswing-border:LineBorder" />
 <xs:element ref="jive-plaf-flat-adjuster:PlusButtonBackground" />
-<xs:element ref="jive-plaf-flat-border:FlatComboBoxPopupBorder" />
 </xs:choice>
 </xs:complexType>
 
@@ -261,6 +269,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="jive-plaf-flat-accordion:AccordionItemBackground" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicClosableTabbedPaneTab" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatTableHeaderBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
 <xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
 <xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
@@ -268,6 +277,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
 <xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatTableBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:InputBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ToggleButtonBackground" />
 <xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
@@ -278,6 +288,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-background:ListBackground" />
 <xs:element ref="org-aswing-plaf-basic-background:ScrollBarBackground" />
 <xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
+<xs:element ref="jive-plaf-flat-background:FlatFrameBackground" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:TabBackground" />
 <xs:element ref="GradientBackground" />
 <xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
@@ -618,26 +629,29 @@ xmlns:flash-events="flash.events"
 <xs:choice>
 <xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
 <xs:element ref="org-aswing-border:EmptyBorder" />
-<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
-<xs:element ref="jive-plaf-flat-accordion:AccordionItemBorder" />
 <xs:element ref="org-aswing-border:CaveBorder" />
-<xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
-<xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
+<xs:element ref="org-aswing-border:TitledBorder" />
+<xs:element ref="org-aswing-border:DecorateBorder" />
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionItemBorder" />
+<xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
+<xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:TextComponentBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
 <xs:element ref="org-aswing-border:SimpleTitledBorder" />
-<xs:element ref="org-aswing-border:TitledBorder" />
 <xs:element ref="org-aswing-border:BevelBorder" />
-<xs:element ref="org-aswing-border:DecorateBorder" />
 <xs:element ref="jive-plaf-flat-adjuster:AdjusterBorder" />
-<xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:LineBorderResource" />
 <xs:element ref="org-aswing-border:SideLineBorder" />
 <xs:element ref="jive-plaf-flat-border:ExtendedLineBorder" />
-<xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
 <xs:element ref="org-aswing-border:LineBorder" />
@@ -1129,6 +1143,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-plaf-basic-icon:MenuCheckIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:RadioButtonMenuItemCheckIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:MenuItemArrowIcon" />
+<xs:element ref="jive-plaf-flat-icon:FrameCloseIcon" />
 <xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
 <xs:element ref="org-aswing-plaf-basic-icon:FrameCloseIcon" />
 <xs:element ref="org-aswing-tree:TreeFolderIcon" />
@@ -1139,6 +1154,7 @@ xmlns:flash-events="flash.events"
 <xs:element ref="org-aswing-colorchooser:PreviewColorIcon" />
 <xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
 <xs:element ref="org-aswing-colorchooser:ColorRectIcon" />
+<xs:element ref="jive-plaf-flat-icon:FrameIcon" />
 <xs:element ref="org-aswing-plaf:DefaultEmptyDecoraterResource" />
 <xs:element ref="org-aswing-plaf-basic-splitpane:DividerIcon" />
 <xs:element ref="jive-plaf-flat-icon:ExpandIcon" />
@@ -1908,6 +1924,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="dataModel" type="org-aswing-table:TableModelSchemaTypeValue"/>
 <xs:element minOccurs="0" name="columnModel" type="org-aswing-table:TableColumnModelSchemaTypeValue"/>
 <xs:element minOccurs="0" name="selectionModel" type="ListSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="selectionMode" type="xs:int"/>
 <xs:element minOccurs="0" name="tableHeader" type="org-aswing-table:JTableHeaderSchemaTypeValue"/>
 <xs:element minOccurs="0" name="footer" type="ComponentSchemaTypeValue"/>
 <xs:element minOccurs="0" name="rowHeight" type="xs:int"/>
@@ -1928,10 +1945,12 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="verticalBlockIncrement" type="xs:int"/>
 <xs:element minOccurs="0" name="horizontalUnitIncrement" type="xs:int"/>
 <xs:element minOccurs="0" name="horizontalBlockIncrement" type="xs:int"/>
+<xs:element minOccurs="0" name="selectedItem" type="xs:string"/>
 </xs:all>
 <xs:attribute name="dataModel" type="xs:string"/>
 <xs:attribute name="columnModel" type="xs:string"/>
 <xs:attribute name="selectionModel" type="xs:string"/>
+<xs:attribute name="selectionMode" type="xs:int"/>
 <xs:attribute name="tableHeader" type="xs:string"/>
 <xs:attribute name="footer" type="xs:string"/>
 <xs:attribute name="rowHeight" type="xs:int"/>
@@ -1952,6 +1971,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="verticalBlockIncrement" type="xs:int"/>
 <xs:attribute name="horizontalUnitIncrement" type="xs:int"/>
 <xs:attribute name="horizontalBlockIncrement" type="xs:int"/>
+<xs:attribute name="selectedItem" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

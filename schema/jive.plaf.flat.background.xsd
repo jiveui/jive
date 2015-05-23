@@ -19,14 +19,23 @@ xmlns:empty="empty"
 <xs:complexType name="FlatScrollBarThumbSchemaTypeValue">
 <xs:all><xs:element ref="FlatScrollBarThumb"/></xs:all></xs:complexType>
 
+<xs:complexType name="FlatTableBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTableBackground"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatProgressBarIconSchemaTypeValue">
 <xs:all><xs:element ref="FlatProgressBarIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatButtonBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatButtonBackground"/></xs:all></xs:complexType>
 
+<xs:complexType name="FlatFrameBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatFrameBackground"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatPanelBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatPanelBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTableHeaderBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTableHeaderBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="FlatScrollBarBackgroundSchemaType">
 <xs:complexContent>
@@ -73,6 +82,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatTableBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-background:TableBackgroundSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="FlatProgressBarIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -91,7 +109,25 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FlatFrameBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="FlatPanelBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTableHeaderBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -106,7 +142,10 @@ xmlns:empty="empty"
 <xs:element name="FlatInputBackground" type="FlatInputBackgroundSchemaType"/>
 <xs:element name="FlatTextComponentBackground" type="FlatTextComponentBackgroundSchemaType"/>
 <xs:element name="FlatScrollBarThumb" type="FlatScrollBarThumbSchemaType"/>
+<xs:element name="FlatTableBackground" type="FlatTableBackgroundSchemaType"/>
 <xs:element name="FlatProgressBarIcon" type="FlatProgressBarIconSchemaType"/>
 <xs:element name="FlatButtonBackground" type="FlatButtonBackgroundSchemaType"/>
+<xs:element name="FlatFrameBackground" type="FlatFrameBackgroundSchemaType"/>
 <xs:element name="FlatPanelBackground" type="FlatPanelBackgroundSchemaType"/>
+<xs:element name="FlatTableHeaderBackground" type="FlatTableHeaderBackgroundSchemaType"/>
 </xs:schema>

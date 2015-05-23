@@ -1,6 +1,5 @@
 package org.aswing.table;
 
-
 import org.aswing.error.Error;
 import org.aswing.ListModel;
 import org.aswing.event.ListDataEvent;
@@ -54,13 +53,46 @@ import org.aswing.AsWingUtils;
  */
 class PropertyTableModel extends AbstractTableModel  implements ListDataListener{
 	
-	private var list:ListModel;
-	private var names:Array<Dynamic>;
-	private var properties:Array<String>;
+	private var _list:ListModel;
+	private var _names:Array<Dynamic>;
+	private var _properties:Array<String>;
+
+    public var list(get, set): ListModel;
+    private function get_list(): ListModel { return getList(); }
+    private function set_list(v: ListModel): ListModel {
+        setList(v);
+        return v;
+    }
+
+    public var names(get, set): Array<Dynamic>;
+    private function get_names(): Array<Dynamic> { return _names; }
+    private function set_names(v: Array<Dynamic>): Array<Dynamic> {
+        _names = v;
+        fireTableStructureChanged();
+        return v;
+    }
+
+    public var properties(get, set): Array<String>;
+    private function get_properties(): Array<String> { return _properties; }
+    private function set_properties(v: Array<String>): Array<String> {
+        _properties = v;
+        fireTableStructureChanged();
+        return v;
+    }
+
 	private var translators:Array<Dynamic>;
-	private var columnsEditable:Array<Dynamic>;
-	
-	/**
+
+    public var columnsEditable(get, set): Array<Dynamic>;
+    private var _columnsEditable: Array<Dynamic>;
+    private function get_columnsEditable(): Array<Dynamic> { return _columnsEditable; }
+    private function set_columnsEditable(v: Array<Dynamic>): Array<Dynamic> {
+        _columnsEditable = v;
+        fireTableStructureChanged();
+        return v;
+    }
+
+
+    /**
 	 * Create a Property table model, column headers, properties names, and translators.
 	 * @param listModel the list model that contains the row objects.
 	 * @param names column header labels.
@@ -68,13 +100,13 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @param translators the translators for each column, a null translator for a columns means return the property 
 	 * of that name directly. translator can be a PropertyTranslator instance or a Function(info:*, key:String):*
 	 */
-	public function new(listModel:ListModel, names:Array<Dynamic>, properties:Array<String>, translators:Array<Dynamic>){
+	public function new(listModel:ListModel = null, names:Array<Dynamic> = null, properties:Array<String> = null, translators:Array<Dynamic> = null){
 		super();
 		this.setList(listModel);
-		this.names = names.copy();
-		this.properties = properties.copy();
-		this.translators = translators.copy();
-		columnsEditable = new Array<Dynamic>();
+        this._names = if (null != names) names.copy() else [];
+        this._properties = if (null != properties) properties.copy() else [];
+        this.translators = if (null != translators) translators.copy() else [];
+		_columnsEditable = [];
 	}
 	
 	/**
@@ -82,12 +114,12 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @param listModel the row object datas.
 	 */
 	public function setList(listModel:ListModel):Void{
-		if(list != null){
-			list.removeListDataListener(this);
+		if(_list != null){
+			_list.removeListDataListener(this);
 		}
-		list = listModel;
-		if(list != null){
-			list.addListDataListener(this);
+		_list = listModel;
+		if(_list != null){
+			_list.addListDataListener(this);
 		}
 		fireTableDataChanged();
 	}
@@ -97,7 +129,7 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @returns the row data provider.
 	 */
 	public function getList():ListModel{
-		return list;
+		return _list;
 	}
 	
 	/**
@@ -105,19 +137,19 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @see #PropertyTableModel
 	 */
 	public function getProperties():Array<Dynamic>{
-		return properties.copy();
+		return _properties.copy();
 	}
 
 	override public function getRowCount():Int{
-		if(list!=null)	{
-			return list.getSize();
+		if(_list!=null)	{
+			return _list.getSize();
 		}else{
 			return 0;
 		}
 	}
 
 	override public function getColumnCount():Int{
-		return names.length;
+		return _names.length;
 	}
 	
 	/**
@@ -126,8 +158,8 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 */
 	override public function getValueAt(rowIndex:Int, columnIndex:Int):Dynamic{
 		var translator:Dynamic= translators[columnIndex];
-		var info:Dynamic =  list.getElementAt(rowIndex) ;
-		var key:String= properties[columnIndex];
+		var info:Dynamic =  _list.getElementAt(rowIndex) ;
+		var key:String= _properties[columnIndex];
 		if(translator != null){
 			 if(Reflect.isFunction(translator)){
 				return translator(info, key);
@@ -149,7 +181,7 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * Returns the column name for specified column.
 	 */
 	override public function getColumnName(column:Int):String{
-		return names[column];
+		return _names[column];
 	}
 	
 	/**
@@ -163,10 +195,10 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @see #setAllCellEditable()
 	 */
 	override public function isCellEditable(row:Int, column:Int):Bool{
-		if(columnsEditable[column] == null){
+		if(_columnsEditable[column] == null){
 			return true;
 		}else{
-			return columnsEditable[column] == true;
+			return _columnsEditable[column] == true;
 		}
 	}
 
@@ -189,7 +221,7 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 * @param editable editable or not
 	 */
 	public function setColumnEditable(column:Int, editable:Bool):Void{
-		columnsEditable[column] = editable;
+		_columnsEditable[column] = editable;
 	}
 	
 	/**
@@ -198,13 +230,13 @@ class PropertyTableModel extends AbstractTableModel  implements ListDataListener
 	 */
 	public function setAllCellEditable(editable:Bool):Void{
 		for(i in 0...getColumnCount() ){
-			columnsEditable[i] = editable;
+			_columnsEditable[i] = editable;
 		}
 	}
 	
 	override public function setValueAt(aValue:Dynamic, rowIndex:Int, columnIndex:Int):Void{
-		var info: Dynamic =  list.getElementAt(rowIndex) ;
-		var key:String = properties[columnIndex];
+		var info: Dynamic =  _list.getElementAt(rowIndex) ;
+		var key:String = _properties[columnIndex];
 		Reflect.setField(info,key,aValue);
 		fireTableCellUpdated(rowIndex, columnIndex);
 	}

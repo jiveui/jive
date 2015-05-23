@@ -23,12 +23,27 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 
 	private static var uiClassID:String= "TableHeaderUI";
 	private var table:JTable;
-	private var columnModel:TableColumnModel;
+
+    public var columnModel(get, set): TableColumnModel;
+    private var _columnModel: TableColumnModel;
+    private function get_columnModel(): TableColumnModel { return getColumnModel(); }
+    private function set_columnModel(v: TableColumnModel): TableColumnModel {
+        setColumnModel(v);
+        return v;
+    }
+
 	private var reorderingAllowed:Bool;
 	private var resizingAllowed:Bool;
 	private var resizingColumn:TableColumn;
 	private var defaultRenderer:TableCellFactory;
-	private var rowHeight:Int;
+
+    public var rowHeight(get, set): Int;
+    private var _rowHeight: Int;
+    private function get_rowHeight(): Int { return getRowHeight(); }
+    private function set_rowHeight(v: Int): Int {
+        setRowHeight(v);
+        return v;
+    }
 
 	/**
 	 * Constructs a <code>JTableHeader</code> which is initialized with
@@ -39,7 +54,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	 * @param cm	the column model for the table
 	 * @see #createDefaultColumnModel()
 	 */
-	public function new(cm:TableColumnModel){
+	public function new(cm:TableColumnModel = null){
 		super();
 		setName("JTableHeader");
 		setFocusable(false);
@@ -137,7 +152,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 			throw new Error("New row height less than 1"); 
 		}
 		//var old:int = this.rowHeight;
-		this.rowHeight = rowHeight;
+		this._rowHeight = rowHeight;
 		resizeAndRepaint();
 		//firePropertyChange("rowHeight", old, rowHeight);
 	}
@@ -150,7 +165,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	 * @see	 #setAllRowHeight()
 	 */	
 	public function getRowHeight():Int{
-		return rowHeight;
+		return _rowHeight;
 	}
 		
 	/**
@@ -279,12 +294,12 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 			trace("Cannot set a null ColumnModel, Ignored");
 			return;
 		}
-		var old:TableColumnModel = this.columnModel;
+		var old:TableColumnModel = this._columnModel;
 		if (columnModel != old){
 			if (old != null){
 				old.removeColumnModelListener(this);
 			}
-			this.columnModel = columnModel;
+			this._columnModel = columnModel;
 			columnModel.addColumnModelListener(this);
 			//firePropertyChange("columnModel", old, columnModel);
 			resizeAndRepaint();
@@ -299,7 +314,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	 * @see	#setColumnModel()
 	 */	
 	public function getColumnModel():TableColumnModel{
-		return columnModel;
+		return _columnModel;
 	}
 	
 	//****************************************************

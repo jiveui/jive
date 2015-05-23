@@ -2146,8 +2146,7 @@ class Component extends AWSprite implements IBindable {
 	 * @see #setPreferredSize()
 	 */	
 	@:dox(hide) public function getPreferredSize():IntDimension {
-		
-		if(isDirectReturnSize(_preferredSize)){
+        if(isDirectReturnSize(_preferredSize)){
 			return _preferredSize.clone();
 		}else if(isCachePreferSizes() && cachedPreferredSize != null){
 			return cachedPreferredSize.clone();
@@ -2442,7 +2441,7 @@ class Component extends AWSprite implements IBindable {
      *
      * By default all components' prefer sizes(max, min, prefer) have caches, if you 
      * make some call that cached a invalided component's sizes but then you modify
-     * the component again, so it's prefer size need to be renew, 
+     * the component again, so it's prefer size need to be renew,
      * `Component.invalidatePreferSizeCaches` will be helpful now.
      *
      * Generally you do not need to call this method manually unless you get above situation.

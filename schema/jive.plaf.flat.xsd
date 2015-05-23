@@ -6,6 +6,9 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
 <xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:complexType name="FlatTableUISchemaTypeValue">
+<xs:all><xs:element ref="FlatTableUI"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatMenuUISchemaTypeValue">
 <xs:all><xs:element ref="FlatMenuUI"/></xs:all></xs:complexType>
 
@@ -82,6 +85,15 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 
 <xs:complexType name="FlatListCellFactorySchemaTypeValue">
 <xs:all><xs:element ref="FlatListCellFactory"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTableUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicTableUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="FlatMenuUISchemaType">
 <xs:complexContent>
@@ -262,6 +274,7 @@ xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
 </xs:complexType>
 
 
+<xs:element name="FlatTableUI" type="FlatTableUISchemaType"/>
 <xs:element name="FlatMenuUI" type="FlatMenuUISchemaType"/>
 <xs:element name="FlatTabbedPaneUI" type="FlatTabbedPaneUISchemaType"/>
 <xs:element name="FlatAdjusterUI" type="FlatAdjusterUISchemaType"/>

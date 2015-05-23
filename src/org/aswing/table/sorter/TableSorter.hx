@@ -41,12 +41,39 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     
     private static var inited:Bool= false;
 
-    private var tableModel:TableModel;
+    public var tableModel(get, set): TableModel;
+    private var _tableModel: TableModel;
+    private function get_tableModel(): TableModel { return getTableModel(); }
+    private function set_tableModel(v: TableModel): TableModel {
+        setTableModel(v);
+        return v;
+    }
+
     private var viewToModel:Array<Dynamic>; //Row[]
     private var modelToView:Array<Dynamic>; //int[]
-    private var columnSortables:Array<Dynamic>;
 
-    private var tableHeader:JTableHeader;
+    public var columnSortables(get, set): Array<Dynamic>;
+    private var _columnSortables: Array<Dynamic>;
+    private function get_columnSortables(): Array<Dynamic> { return _columnSortables; }
+    private function set_columnSortables(v: Array<Dynamic>): Array<Dynamic> {
+        _columnSortables = v;
+        for (column in 0..._columnSortables.length) {
+            if(!_columnSortables[column] && getSortingStatus(column) != NOT_SORTED){
+                setSortingStatus(column, NOT_SORTED);
+            }
+        }
+        fireTableStructureChanged();
+        return v;
+    }
+
+    public var tableHeader(get, set): JTableHeader;
+    private var _tableHeader: JTableHeader;
+    private function get_tableHeader(): JTableHeader { return getTableHeader(); }
+    private function set_tableHeader(v: JTableHeader): JTableHeader {
+        setTableHeader(v);
+        return v;
+    }
+
     private var tableModelListener:TableModelListener;
     private var columnComparators:haxe.ds.StringMap<Dynamic ->Dynamic-> Int>;
     private var sortingColumns:Array<Dynamic>;
@@ -56,12 +83,12 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 	 * TableSorter(tableModel:TableModel)<br>
 	 * TableSorter()<br>
 	 */
-    public function new(tableModel:TableModel, tableHeader:JTableHeader=null) {
+    public function new(tableModel:TableModel = null, tableHeader:JTableHeader=null) {
         super();
         initStatics();
         columnComparators  = new haxe.ds.StringMap<Dynamic ->Dynamic-> Int>();
         sortingColumns     = new Array<Dynamic>();
-        columnSortables    = new Array<Dynamic>();
+        _columnSortables    = new Array<Dynamic>();
         tableModelListener = this;
         setTableHeader(tableHeader);
         setTableModel(tableModel);
@@ -92,7 +119,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     }
 
     public function getTableModel():TableModel {
-        return tableModel;
+        return _tableModel;
     }
 	
 	/**
@@ -100,13 +127,13 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 	 * @param tableModel the tableModel
 	 */
     public function setTableModel(tableModel:TableModel):Void{
-        if (this.tableModel != null) {
-            this.tableModel.removeTableModelListener(tableModelListener);
+        if (this._tableModel != null) {
+            this._tableModel.removeTableModelListener(tableModelListener);
         }
 
-        this.tableModel = tableModel;
-        if (this.tableModel != null) {
-            this.tableModel.addTableModelListener(tableModelListener);
+        this._tableModel = tableModel;
+        if (this._tableModel != null) {
+            this._tableModel.addTableModelListener(tableModelListener);
         }
 
         clearSortingState();
@@ -114,7 +141,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     }
 
     public function getTableHeader():JTableHeader {
-        return tableHeader;
+        return _tableHeader;
     }
 	
 	/**
@@ -122,20 +149,20 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 	 * @param tableHeader the table header
 	 */
     public function setTableHeader(tableHeader:JTableHeader):Void{
-        if (this.tableHeader != null) {
-            this.tableHeader.removeEventListener(MouseEvent.MOUSE_DOWN, __mousePress);
-            this.tableHeader.removeEventListener(ReleaseEvent.RELEASE, __mouseRelease);
-            var defaultRenderer:TableCellFactory = this.tableHeader.getDefaultRenderer();
+        if (this._tableHeader != null) {
+            this._tableHeader.removeEventListener(MouseEvent.MOUSE_DOWN, __mousePress);
+            this._tableHeader.removeEventListener(ReleaseEvent.RELEASE, __mouseRelease);
+            var defaultRenderer:TableCellFactory = this._tableHeader.getDefaultRenderer();
             if (Std.is(defaultRenderer,SortableHeaderRenderer)) {
-                this.tableHeader.setDefaultRenderer((AsWingUtils.as(defaultRenderer,SortableHeaderRenderer)).getTableCellFactory());
+                this._tableHeader.setDefaultRenderer((AsWingUtils.as(defaultRenderer,SortableHeaderRenderer)).getTableCellFactory());
             }
         }
-        this.tableHeader = tableHeader;
-        if (this.tableHeader != null) {
-            this.tableHeader.addEventListener(MouseEvent.MOUSE_DOWN, __mousePress);
-            this.tableHeader.addEventListener(ReleaseEvent.RELEASE, __mouseRelease);
-			new SortableHeaderRenderer(this.tableHeader.getDefaultRenderer(), this);
-            this.tableHeader.setDefaultRenderer(  new SortableHeaderRenderer(this.tableHeader.getDefaultRenderer(), this));
+        this._tableHeader = tableHeader;
+        if (this._tableHeader != null) {
+            this._tableHeader.addEventListener(MouseEvent.MOUSE_DOWN, __mousePress);
+            this._tableHeader.addEventListener(ReleaseEvent.RELEASE, __mouseRelease);
+			new SortableHeaderRenderer(this._tableHeader.getDefaultRenderer(), this);
+            this._tableHeader.setDefaultRenderer(  new SortableHeaderRenderer(this._tableHeader.getDefaultRenderer(), this));
         }
     }
 
@@ -154,7 +181,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
      */
     public function setColumnSortable(column:Int, sortable:Bool):Void{
     	if(isColumnSortable(column) != sortable){
-    		columnSortables[column] = sortable;
+    		_columnSortables[column] = sortable;
     		if(!sortable && getSortingStatus(column) != NOT_SORTED){
     			setSortingStatus(column, NOT_SORTED);
     		}
@@ -166,7 +193,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
      * @return true if the column is sortable, false otherwish
      */    
     public function isColumnSortable(column:Int):Bool{
-    	return columnSortables[column] != false;
+    	return _columnSortables[column] != false;
     }
     
     private function getDirective(column:Int):Directive {
@@ -186,8 +213,8 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     private function sortingStatusChanged():Void{
         clearSortingState();
         fireTableDataChanged();
-        if (tableHeader != null) {
-            tableHeader.repaint();
+        if (_tableHeader != null) {
+            _tableHeader.repaint();
         }
     }
 	
@@ -252,7 +279,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 	 * @see #setColumnComparator()
 	 */
     public function getComparator(column:Int):Dynamic ->Dynamic-> Int{
-        var columnType:String= tableModel.getColumnClass(column);
+        var columnType:String= _tableModel.getColumnClass(column);
         var comparator:Dynamic -> Dynamic->Int=  columnComparators.get(columnType)  ;
         if (comparator != null) {
             return comparator;
@@ -266,7 +293,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 
     private function getViewToModel():Array<Dynamic>{
         if (viewToModel == null) {
-            var tableModelRowCount:Int= tableModel.getRowCount();
+            var tableModelRowCount:Int= _tableModel.getRowCount();
             viewToModel = new Array<Dynamic>();
             for (row in 0...tableModelRowCount){
                 viewToModel[row] = new Row(this, row);
@@ -291,6 +318,10 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
         return getViewToModel()[viewIndex].getModelIndex();
     }
 
+    public function viewIndex(modelIndex:Int): Int {
+        return getModelToView()[modelIndex];
+    }
+
     private function getModelToView():Array<Dynamic>{ //int[]
         if (modelToView == null) {
             var n:Int= getViewToModel().length;
@@ -305,31 +336,31 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     // TableModel interface methods 
 
     override public function getRowCount():Int{
-        return (tableModel == null) ? 0 : tableModel.getRowCount();
+        return (_tableModel == null) ? 0 : _tableModel.getRowCount();
     }
 
     override public function getColumnCount():Int{
-        return (tableModel == null) ? 0 : tableModel.getColumnCount();
+        return (_tableModel == null) ? 0 : _tableModel.getColumnCount();
     }
 
     override public function getColumnName(column:Int):String{
-        return tableModel.getColumnName(column);
+        return _tableModel.getColumnName(column);
     }
 
     override public function getColumnClass(column:Int):String{
-        return tableModel.getColumnClass(column);
+        return _tableModel.getColumnClass(column);
     }
 
     override public function isCellEditable(row:Int, column:Int):Bool{
-        return tableModel.isCellEditable(modelIndex(row), column);
+        return _tableModel.isCellEditable(modelIndex(row), column);
     }
 
     override public function getValueAt(row:Int, column:Int):Dynamic{
-        return tableModel.getValueAt(modelIndex(row), column);
+        return _tableModel.getValueAt(modelIndex(row), column);
     }
 
     override public function setValueAt(aValue:Dynamic, row:Int, column:Int):Void{
-        tableModel.setValueAt(aValue, modelIndex(row), column);
+        _tableModel.setValueAt(aValue, modelIndex(row), column);
     }
 
     public function tableChanged(e:TableModelEvent):Void{

@@ -221,7 +221,11 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="AbstractTableModelSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="columnsEditable" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="data" type="empty:ArraySchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="columnsEditable" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -230,7 +234,11 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="DefaultTextCellSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="columnIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="table" type="org-aswing:JTableSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="columnIndex" type="xs:int"/>
+<xs:attribute name="table" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -284,7 +292,21 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="modelIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="minWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="preferredWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="maxWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="headerValue" type="xs:string"/>
+<xs:element minOccurs="0" name="isResizable" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="modelIndex" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="minWidth" type="xs:int"/>
+<xs:attribute name="preferredWidth" type="xs:int"/>
+<xs:attribute name="maxWidth" type="xs:int"/>
+<xs:attribute name="headerValue" type="xs:string"/>
+<xs:attribute name="isResizable" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -338,7 +360,11 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="org-aswing:ContainerSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="columnModel" type="TableColumnModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rowHeight" type="xs:int"/>
 </xs:all>
+<xs:attribute name="columnModel" type="xs:string"/>
+<xs:attribute name="rowHeight" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -365,7 +391,9 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="columnClasses" type="empty:ArraySchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="columnClasses" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -374,6 +402,7 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="TableColumn" />
 </xs:all>
 </xs:extension>
 </xs:complexContent>
@@ -383,7 +412,15 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="AbstractTableModelSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="list" type="org-aswing:ListModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="names" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="properties" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="columnsEditable" type="empty:ArraySchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="list" type="xs:string"/>
+<xs:attribute name="names" type="xs:string"/>
+<xs:attribute name="properties" type="xs:string"/>
+<xs:attribute name="columnsEditable" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

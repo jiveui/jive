@@ -7,14 +7,8 @@ package org.aswing.table;
 
 import org.aswing.Component;
 import org.aswing.event.PropertyChangeEvent;
-	import flash.events.EventDispatcher;
+import flash.events.EventDispatcher;
 	
-/**
- * Dispatched when a property changed.
- * @eventType org.aswing.event.PropertyChangeEvent.PROPERTY_CHANGE
- */
-// [Event(name="propertyChange", type="org.aswing.event.PropertyChangeEvent")]
-
 /**
  *  A <code>TableColumn</code> represents all the attributes of a column in a
  *  <code>JTable</code>, such as width, resizibility, minimum and maximum width.
@@ -44,6 +38,7 @@ import org.aswing.event.PropertyChangeEvent;
  *  <p>
  * @author paling
  */
+@:event("org.aswing.event.PropertyChangeEvent.PROPERTY_CHANGE", "Dispatched when a property changed")
 class TableColumn extends EventDispatcher{
 	
 	inline public static var COLUMN_WIDTH_PROPERTY:String= "columWidth";
@@ -51,17 +46,68 @@ class TableColumn extends EventDispatcher{
 	inline public static var HEADER_RENDERER_PROPERTY:String= "headerRenderer";
 	inline public static var CELL_RENDERER_PROPERTY:String= "cellRenderer";
 	
-	private var modelIndex:Int;
+    public var modelIndex(get, set): Int;
+    private var _modelIndex: Int;
+    private function get_modelIndex(): Int { return getModelIndex(); }
+    private function set_modelIndex(v: Int): Int {
+        setModelIndex(v);
+        return v;
+    }
+
 	private var identifier:Dynamic;
-	private var width:Int;
-	private var minWidth:Int;
-	private var preferredWidth:Int;
-	private var maxWidth:Int;
+
+    public var width(get, set): Int;
+    private var _width: Int;
+    private function get_width(): Int { return getWidth(); }
+    private function set_width(v: Int): Int {
+        setWidth(v);
+        return v;
+    }
+
+    public var minWidth(get, set): Int;
+    private var _minWidth: Int;
+    private function get_minWidth(): Int { return getMinWidth(); }
+    private function set_minWidth(v: Int): Int {
+        setMinWidth(v);
+        return v;
+    }
+
+    public var preferredWidth(get, set): Int;
+    private var _preferredWidth: Int;
+    private function get_preferredWidth(): Int { return getPreferredWidth(); }
+    private function set_preferredWidth(v: Int): Int {
+        setPreferredWidth(v);
+        return v;
+    }
+
+    public var maxWidth(get, set): Int;
+    private var _maxWidth: Int;
+    private function get_maxWidth(): Int { return getMaxWidth(); }
+    private function set_maxWidth(v: Int): Int {
+        setMaxWidth(v);
+        return v;
+    }
+
 	private var headerRenderer:TableCellFactory;
-	private var headerValue:Dynamic;
+
+    public var headerValue(get, set): Dynamic;
+    private var _headerValue: Dynamic;
+    private function get_headerValue(): Dynamic { return getHeaderValue(); }
+    private function set_headerValue(v: Dynamic): Dynamic {
+        setHeaderValue(v);
+        return v;
+    }
+
 	private var cellRenderer:TableCellFactory;
 	private var cellEditor:TableCellEditor;
-	private var isResizable:Bool;
+
+    public var isResizable(get, set): Bool;
+    private var _isResizable: Bool;
+    private function get_isResizable(): Bool { return getResizable(); }
+    private function set_isResizable(v: Bool): Bool {
+        setResizable(v);
+        return v;
+    }
 	
 	/**
 	 * Create a TableColumn.
@@ -71,16 +117,16 @@ class TableColumn extends EventDispatcher{
 	 * @param cellEditor   (optional)the cell editor for this column cells
 	 */
 	public function new(modelIndex:Int=0, width:Int=75, cellRenderer:TableCellFactory=null, cellEditor:TableCellEditor=null){
-		this.modelIndex = modelIndex;
-		this.width = width;
-		this.preferredWidth = width;
+		this._modelIndex = modelIndex;
+		this._width = width;
+		this._preferredWidth = width;
 		this.cellRenderer = cellRenderer;
 		this.cellEditor = cellEditor;
-		minWidth = 17;
-		maxWidth = 100000; //default max width
-		isResizable = true;
+		_minWidth = 17;
+		_maxWidth = 100000; //default max width
+		_isResizable = true;
 		//resizedPostingDisableCount = 0;
-		headerValue = null;
+		_headerValue = null;
 		super();
 	}
 	
@@ -90,14 +136,16 @@ class TableColumn extends EventDispatcher{
 		}
 	}
 	
-	public function setModelIndex(modelIndex:Int):Void{
-		var old:Int= this.modelIndex;
-		this.modelIndex = modelIndex;
+	@:dox(hide)
+    public function setModelIndex(modelIndex:Int):Void{
+		var old:Int= this._modelIndex;
+		this._modelIndex = modelIndex;
 		firePropertyChangeIfReallyChanged("modelIndex", old, modelIndex);
 	}
-	
+
+    @:dox(hide)
 	public function getModelIndex():Int{
-		return modelIndex;
+		return _modelIndex;
 	}
 	
 	public function setIdentifier(identifier:Dynamic):Void{
@@ -109,15 +157,17 @@ class TableColumn extends EventDispatcher{
 	public function getIdentifier():Dynamic{
 		return (((identifier != null) ? identifier : getHeaderValue()));
 	}
-	
+
+    @:dox(hide)
 	public function setHeaderValue(headerValue:Dynamic):Void{
-		var old:Dynamic= this.headerValue;
-		this.headerValue = headerValue;
+		var old:Dynamic= this._headerValue;
+		this._headerValue = headerValue;
 		firePropertyChangeIfReallyChanged("headerValue", old, headerValue);
 	}
-	
+
+    @:dox(hide)
 	public function getHeaderValue():Dynamic{
-		return headerValue;
+		return _headerValue;
 	}
 	
 	public function setHeaderCellFactory(headerRenderer:TableCellFactory):Void{
@@ -150,66 +200,76 @@ class TableColumn extends EventDispatcher{
 		return cellEditor;
 	}
 	
-	public function setWidth(width:Int):Void{
-		var old:Int= this.width;
-		this.width = Std.int(Math.min(Math.max(width, minWidth), maxWidth));
-		firePropertyChangeIfReallyChanged("width", old, this.width);
+	@:dox(hide)
+    public function setWidth(width:Int):Void{
+		var old:Int= this._width;
+		this._width = Std.int(Math.min(Math.max(width, _minWidth), _maxWidth));
+		firePropertyChangeIfReallyChanged("width", old, this._width);
 	}
-	
+
+    @:dox(hide)
 	public function getWidth():Int{
-		return width;
+		return _width;
 	}
-	
+
+    @:dox(hide)
 	public function setPreferredWidth(preferredWidth:Int):Void{
-		var old:Int= this.preferredWidth;
-		this.preferredWidth = Std.int(Math.min(Math.max(preferredWidth, minWidth), maxWidth));
-		firePropertyChangeIfReallyChanged("preferredWidth", old, this.preferredWidth);
+		var old:Int= this._preferredWidth;
+		this._preferredWidth = Std.int(Math.min(Math.max(preferredWidth, _minWidth), _maxWidth));
+		firePropertyChangeIfReallyChanged("preferredWidth", old, this._preferredWidth);
 	}
-	
+
+    @:dox(hide)
 	public function getPreferredWidth():Int{
-		return preferredWidth;
+		return _preferredWidth;
 	}
-	
+
+    @:dox(hide)
 	public function setMinWidth(minWidth:Int):Void{
-		var old:Int= this.minWidth;
-		this.minWidth = Std.int(Math.max(minWidth, 0));
-		if (width < minWidth){
+		var old:Int= this._minWidth;
+		this._minWidth = Std.int(Math.max(minWidth, 0));
+		if (_width < minWidth){
 			setWidth(minWidth);
 		}
-		if (preferredWidth < minWidth){
+		if (_preferredWidth < minWidth){
 			setPreferredWidth(minWidth);
 		}
-		firePropertyChangeIfReallyChanged("minWidth", old, this.minWidth);
+		firePropertyChangeIfReallyChanged("minWidth", old, this._minWidth);
 	}
-	
+
+    @:dox(hide)
 	public function getMinWidth():Int{
-		return minWidth;
+		return _minWidth;
 	}
-	
+
+    @:dox(hide)
 	public function setMaxWidth(maxWidth:Int):Void{
-		var old:Int= this.maxWidth;
-		this.maxWidth =Std.int( Math.max(minWidth, maxWidth));
-		if (width > maxWidth){
+		var old:Int= this._maxWidth;
+		this._maxWidth =Std.int( Math.max(_minWidth, maxWidth));
+		if (_width > maxWidth){
 			setWidth(maxWidth);
 		}
-		if (preferredWidth > maxWidth){
+		if (_preferredWidth > maxWidth){
 			setPreferredWidth(maxWidth);
 		}
-		firePropertyChangeIfReallyChanged("maxWidth", old, this.maxWidth);
+		firePropertyChangeIfReallyChanged("maxWidth", old, this._maxWidth);
 	}
-	
+
+    @:dox(hide)
 	public function getMaxWidth():Int{
-		return maxWidth;
+		return _maxWidth;
 	}
-	
+
+    @:dox(hide)
 	public function setResizable(isResizable:Bool):Void{
-		var old:Bool= this.isResizable;
-		this.isResizable = isResizable;
-		firePropertyChangeIfReallyChanged("isResizable", old, this.isResizable);
+		var old:Bool= this._isResizable;
+		this._isResizable = isResizable;
+		firePropertyChangeIfReallyChanged("isResizable", old, this._isResizable);
 	}
-	
+
+    @:dox(hide)
 	public function getResizable():Bool{
-		return isResizable;
+		return _isResizable;
 	}
 	
     /**

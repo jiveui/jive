@@ -18,8 +18,18 @@ xmlns:empty="empty"
 <xs:complexType name="FlatRadioButtonIconSchemaTypeValue">
 <xs:all><xs:element ref="FlatRadioButtonIcon"/></xs:all></xs:complexType>
 
+<xs:complexType name="FrameIconSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FrameCloseIcon" />
+<xs:element ref="FrameIcon" />
+</xs:choice>
+</xs:complexType>
+
 <xs:complexType name="PlusIconSchemaTypeValue">
 <xs:all><xs:element ref="PlusIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameCloseIconSchemaTypeValue">
+<xs:all><xs:element ref="FrameCloseIcon"/></xs:all></xs:complexType>
 
 <xs:complexType name="ExpandIconSchemaTypeValue">
 <xs:all><xs:element ref="ExpandIcon"/></xs:all></xs:complexType>
@@ -66,9 +76,27 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FrameIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="PlusIconSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameCloseIconSchemaType">
+<xs:complexContent>
+<xs:extension base="FrameIconSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -113,7 +141,9 @@ xmlns:empty="empty"
 <xs:element name="FlatMenuArrowIcon" type="FlatMenuArrowIconSchemaType"/>
 <xs:element name="MinusIcon" type="MinusIconSchemaType"/>
 <xs:element name="FlatRadioButtonIcon" type="FlatRadioButtonIconSchemaType"/>
+<xs:element name="FrameIcon" type="FrameIconSchemaType"/>
 <xs:element name="PlusIcon" type="PlusIconSchemaType"/>
+<xs:element name="FrameCloseIcon" type="FrameCloseIconSchemaType"/>
 <xs:element name="ExpandIcon" type="ExpandIconSchemaType"/>
 <xs:element name="FlatComboBoxArrowIcon" type="FlatComboBoxArrowIconSchemaType"/>
 <xs:element name="FlatSliderThumbIcon" type="FlatSliderThumbIconSchemaType"/>

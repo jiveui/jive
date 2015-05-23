@@ -197,8 +197,8 @@ class JLabel extends Component {
      */
 	public function new(?text:String="", ?icon:Icon=null, ?horizontalAlignment:Int=0) {
 		_textFilters=null;
-			super();
-			setClipMasked(true);
+		super();
+		setClipMasked(true);
 		setName("JLabel");
 		//default
     	this._verticalAlignment = CENTER;
@@ -212,6 +212,7 @@ class JLabel extends Component {
     	
     	_iconTextGap = 4;
     	_selectable = false;
+        readyToPaint = true;
 		
 		updateUI();
 	}
@@ -247,8 +248,7 @@ class JLabel extends Component {
 	public function setText(text:String):Void {
 		if(this._text != text){
 			this._text = text;
-			repaint();
-			invalidate();
+			repaintAndRevalidate();
 		}
 	}
 
@@ -285,8 +285,7 @@ class JLabel extends Component {
 			uninstallIcon(this._icon);
 			this._icon = icon;
 			installIcon(this._icon);
-			repaint();
-			invalidate();
+			repaintAndRevalidate();
 		}
 	}
 
@@ -333,8 +332,7 @@ class JLabel extends Component {
         	uninstallIcon(oldValue);
         	installIcon(disabledIcon);
             if (!isEnabled()) {
-                repaint();
-				invalidate();
+                repaintAndRevalidate();
             }
         }
     }
@@ -474,8 +472,7 @@ class JLabel extends Component {
         	return;
         }else{
         	_horizontalTextPosition = Std.int(textPosition);
-        	repaint();
-        	revalidate();
+            repaintAndRevalidate();
         }
     }
     
@@ -503,8 +500,7 @@ class JLabel extends Component {
         var oldValue:Float= this._iconTextGap;
         this._iconTextGap = Std.int(iconTextGap);
         if (iconTextGap != oldValue) {
-            revalidate();
-            repaint();
+            repaintAndRevalidate();
         }
     }
 

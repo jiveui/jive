@@ -32,7 +32,7 @@ class AbstractTableModel implements TableModel{
 	/** List of listeners */
 	private var listenerList:Array<Dynamic>;
 	
-	private var columnClasses:Array<Dynamic>;
+	public var columnClasses:Array<Dynamic>;
 	
 	public function new(){
 		listenerList = new Array<Dynamic>();

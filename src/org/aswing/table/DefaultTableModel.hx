@@ -21,7 +21,23 @@ class DefaultTableModel extends AbstractTableModel{
 	/** The <code>Array</code> of column names. */
 	private var columnNames:Array<Dynamic>;
 	
-	private var columnsEditable:Array<Dynamic>;
+	public var columnsEditable:Array<Dynamic>;
+
+    /**
+	 *  Replaces the current <code>dataArray</code> instance variable
+	 *  with the new <code>Vector</code> of rows, <code>dataArray</code>.
+	 *  Each row is represented in <code>dataArray</code> as a
+	 *  <code>Vector</code> of <code>Object</code> values.
+	 *  <p>Note that passing in a <code>null</code> value for
+	 *  <code>dataArray</code> results in unspecified behavior,
+	 *  an possibly an exception.
+	 */
+    public var data(get, set): Array<Array<Dynamic>>;
+	private function get_data(): Array<Array<Dynamic>> { return cast(getData()); }
+	private function set_data(v: Array<Array<Dynamic>>): Array<Array<Dynamic>> {
+	    setData(v);
+	    return v;
+	}
 
 	/**
 	 * Constructs a default <code>DefaultTableModel</code> 
@@ -103,6 +119,7 @@ class DefaultTableModel extends AbstractTableModel{
 	 * @see #newRowsAdded()
 	 * @see #setDataArray()
 	 */
+    @:dox(hide)
 	public function getData():Array<Dynamic>{
 		return dataArray;
 	}
@@ -120,7 +137,8 @@ class DefaultTableModel extends AbstractTableModel{
 	 * @see #getData()
 	 */
 
-	public function setData(dataArray:Array<Array<Dynamic>>):Void{
+	@:dox(hide)
+    public function setData(dataArray:Array<Array<Dynamic>>):Void{
 		setDataNames(dataArray, columnNames);
 	}
 

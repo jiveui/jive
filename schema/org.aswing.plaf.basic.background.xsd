@@ -53,7 +53,11 @@ xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
 <xs:all><xs:element ref="TableHeaderBackground"/></xs:all></xs:complexType>
 
 <xs:complexType name="TableBackgroundSchemaTypeValue">
-<xs:all><xs:element ref="TableBackground"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat-background:FlatTableBackground" />
+<xs:element ref="TableBackground" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="ToggleButtonBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="ToggleButtonBackground"/></xs:all></xs:complexType>

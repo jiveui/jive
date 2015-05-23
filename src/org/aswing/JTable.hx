@@ -4,6 +4,9 @@
 	
 package org.aswing;
 
+import org.aswing.table.PropertyTableModel;
+import org.aswing.AsWingUtils;
+import org.aswing.table.sorter.TableSorter;
 import flash.geom.Rectangle;
 import org.aswing.error.Error;
 import org.aswing.event.TableModelListener;
@@ -162,6 +165,34 @@ class JTable extends Container  implements Viewportable implements TableModelLis
     private var _selectionModel: ListSelectionModel;
     private function get_selectionModel(): ListSelectionModel { return getSelectionModel(); }
     private function set_selectionModel(v: ListSelectionModel): ListSelectionModel { setSelectionModel(v); return v; }
+
+    /**
+	 * Sets the table's selection mode to allow only single selections, a single
+	 * contiguous interval, or multiple intervals.
+	 * <P>
+	 * <bold>Note:</bold>
+	 * <code>JTable</code> provides all the methods for handling
+	 * column and row selection.  When setting states,
+	 * such as <code>setSelectionMode</code>, it not only
+	 * updates the mode for the row selection model but also sets similar
+	 * values in the selection model of the <code>columnModel</code>.
+	 * If you want to have the row and column selection models operating
+	 * in different modes, set them both directly.
+	 * <p>
+	 * Both the row and column selection models for <code>JTable</code>
+	 * default to using a <code>DefaultListSelectionModel</code>
+	 * so that <code>JTable</code> works the same way as the
+	 * <code>JList</code>. See the <code>setSelectionMode</code> method
+	 * in <code>JList</code> for details about the modes.
+	 *
+	 * @see JList#setSelectionModel()
+	 */
+    public var selectionMode(get, set): Int;
+    private function get_selectionMode(): Int { return selectionModel.getSelectionMode(); }
+    private function set_selectionMode(v: Int): Int {
+        setSelectionMode(v);
+        return v;
+    }
 	
 	private var cellPane:Container;
 	private var headerPane:Container;
@@ -370,7 +401,56 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	/** Stored cell value before any edition. */
 	private var _storedValue:Dynamic;
 
-	/**
+
+    /**
+	* It works only if dataModel is `PropertyTableModel` or `TableSorter` with `PropertyTableModel` inside.
+    **/
+    @bindable public var selectedItem(get, set): Dynamic;
+    private function get_selectedItem(): Dynamic {
+        var index = getSelectedRow();
+        var model = dataModel;
+        if (index >= 0) {
+            var sorter: TableSorter = AsWingUtils.as(model, TableSorter);
+            if (null != sorter) {
+                index = sorter.modelIndex(index);
+                model = sorter.tableModel;
+            }
+            var propertyModel: PropertyTableModel = AsWingUtils.as(model, PropertyTableModel);
+            if (null == propertyModel || null == propertyModel.list) {
+                return null;
+            } else {
+                return propertyModel.list.getElementAt(index);
+            }
+        } else {
+            return null;
+        }
+    }
+
+    private function set_selectedItem(v: Dynamic): Dynamic {
+        var model = dataModel;
+        var sorter: TableSorter = AsWingUtils.as(model, TableSorter);
+        if (null != sorter) {
+            model = sorter.tableModel;
+        }
+        var propertyModel: PropertyTableModel = AsWingUtils.as(model, PropertyTableModel);
+        if (null != propertyModel) {
+            var index = -1;
+            for(i in 0...propertyModel.list.getSize()) {
+                if (v == propertyModel.list.getElementAt(i)) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index > 0) {
+                if (null != sorter) { index = sorter.viewIndex(index); }
+                setRowSelectionInterval(index, index);
+            }
+        }
+        return v;
+    }
+
+    /**
 	 * Constructs a default <code>JTable</code>.
 	 */
 	public function new(dm:TableModel=null){
@@ -420,7 +500,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		
 		if (cm == null){
 			cm = createDefaultColumnModel();
-			_autoCreateColumnsFromModel = true;
+//			_autoCreateColumnsFromModel = true;
 		}
 		//trace("cm = " + cm);
 		setColumnModel(cm);
@@ -1068,7 +1148,8 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 	 * in <code>JList</code> for details about the modes.
 	 *
 	 * @see JList#setSelectionMode()
-	 */		
+	 */
+    @:dox(hide)
 	public function setSelectionMode(selectionMode:Int):Void{
 		clearSelection();
 		getSelectionModel().setSelectionMode(selectionMode);
@@ -2531,6 +2612,7 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		rowSelectionAdjusting = isAdjusting;
 		dispatchEvent(new SelectionEvent(SelectionEvent.ROW_SELECTION_CHANGED, 
 			e.getFirstIndex(), e.getLastIndex(), e.isProgrammatic()));
+        bindx.Bind.notify(this.selectedItem);
 		resizeAndRepaint();
 	}
 	

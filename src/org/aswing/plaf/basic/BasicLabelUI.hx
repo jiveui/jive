@@ -99,7 +99,7 @@ class BasicLabelUI extends BaseComponentUI{
     override public function paint(c:Component, g:Graphics2D, r:IntRectangle):Void{
     	super.paint(c, g, r);
     	var b:JLabel = AsWingUtils.as(c,JLabel);
-    	
+
     	viewRect.setRect(r);
     	
     	textRect.x = textRect.y = textRect.width = textRect.height = 0;
@@ -241,7 +241,7 @@ class BasicLabelUI extends BaseComponentUI{
         	size = r.getSize();
         }
         size = b.getInsets().getOutsideSize(size);
-		
+
         return size;
     }    
     

@@ -70,7 +70,13 @@ xmlns:org-aswing-table="org.aswing.table"
 <xs:complexContent>
 <xs:extension base="org-aswing-table:AbstractTableModelSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="tableModel" type="org-aswing-table:TableModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="columnSortables" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="tableHeader" type="org-aswing-table:JTableHeaderSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="tableModel" type="xs:string"/>
+<xs:attribute name="columnSortables" type="xs:string"/>
+<xs:attribute name="tableHeader" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

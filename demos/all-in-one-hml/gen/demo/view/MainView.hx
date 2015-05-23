@@ -73,6 +73,6 @@ class MainView extends org.aswing.JWindow implements jive.DataContextControllabl
         /* declarations/demo/view/MainView.xml:6 characters: 10-23 */
         this.defaultButton = demoView.buttonsView.defButton;
         /* declarations/demo/view/MainView.xml:9 characters: 5-12 */
-        this.content.append(get_box__0());
+        this.content = get_box__0();
     }
 }

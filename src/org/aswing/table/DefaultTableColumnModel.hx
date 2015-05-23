@@ -17,6 +17,7 @@ import org.aswing.event.SelectionEvent;
  * <p>
  * @author paling
  */
+@:children("org.aswing.table.TableColumn")
 class DefaultTableColumnModel implements TableColumnModel{
 	
 	/** Array of TableColumn objects in this model */

@@ -560,7 +560,7 @@ class FrameView extends org.aswing.JPanel implements jive.DataContextControllabl
         /* declarations/demo/view/FrameView.xml:59 characters: 13-18 */
         res.modal = true;
         /* declarations/demo/view/FrameView.xml:60 characters: 9-16 */
-        res.content.append(get_softBox__0());
+        res.content = get_softBox__0();
         return res;
     }
 

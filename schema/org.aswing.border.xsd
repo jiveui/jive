@@ -23,17 +23,19 @@ xmlns:empty="empty"
 <xs:element ref="EmptyBorder" />
 <xs:element ref="jive-plaf-flat-accordion:AccordionItemBorder" />
 <xs:element ref="CaveBorder" />
-<xs:element ref="SideLineBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
-<xs:element ref="jive-plaf-flat-border:ExtendedLineBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
-<xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
-<xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
 <xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
-<xs:element ref="LineBorder" />
 <xs:element ref="SimpleTitledBorder" />
 <xs:element ref="TitledBorder" />
 <xs:element ref="BevelBorder" />
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:LineBorderResource" />
+<xs:element ref="SideLineBorder" />
+<xs:element ref="jive-plaf-flat-border:ExtendedLineBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
+<xs:element ref="LineBorder" />
 <xs:element ref="DecorateBorder" />
 </xs:choice>
 </xs:complexType>
@@ -59,6 +61,8 @@ xmlns:empty="empty"
 
 <xs:complexType name="LineBorderSchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:LineBorderResource" />
 <xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
 <xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
 <xs:element ref="LineBorder" />

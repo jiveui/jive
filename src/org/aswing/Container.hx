@@ -8,33 +8,7 @@ package org.aswing;
 import flash.display.DisplayObject; 
 import org.aswing.error.Error;
 import org.aswing.event.ContainerEvent;
-	import org.aswing.geom.IntDimension;
-//--------------------------------------
-//  Events
-//--------------------------------------
-	
-/**
- * Dispatched when a component is added to a container. 
- * The following methods trigger this event: 
- * Container.addChild(com:Component), 
- * Container.addChildAt(com:Component, index:int), 
- * Container.append(), Container.insert(). 
- * 
- * @eventType org.aswing.event.ContainerEvent.COM_ADDED
- */
-// [Event(name="comAdded", type="org.aswing.event.ContainerEvent")]
-
-/**
- * Dispatched when a component is removed from a container.
- * The following methods trigger this event: 
- * Container.removeChild(com:Component), 
- * Container.removeChildAt(com:Component, index:int), 
- * Container.remove(), Container.removeAt(). 
- *
- *  @eventType org.aswing.event.ContainerEvent.COM_REMOVED
- */
-// [Event(name="comRemoved", type="org.aswing.event.ContainerEvent")]
-
+import org.aswing.geom.IntDimension;
 
 /**
  * Container can contain many component to be his child, all children are in its bounds,
@@ -58,7 +32,9 @@ import org.aswing.event.ContainerEvent;
  * </ul>
  * </p>
  * @author paling
- */	
+ */
+@:event("org.aswing.event.ContainerEvent.COM_ADDED", "Dispatched when a component is added to a container")
+@:event("org.aswing.event.ContainerEvent.COM_REMOVED", "Dispatched when a component is removed from a container")
 @:children("org.aswing.Component")
 class Container extends Component{
 	

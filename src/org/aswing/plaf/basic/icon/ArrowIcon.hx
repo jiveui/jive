@@ -90,9 +90,9 @@ class ArrowIcon implements Icon implements UIResource{
 			matrix
 		);		
 		g.fillPolygon(brush, ps1);
-		var f :Array<BitmapFilter>= new Array<BitmapFilter>();
-        f.push(new  DropShadowFilter(1, 45, 0x0, style.shadow, 0, 0, 1, 1));
-		shape.filters = f;
+//		var f :Array<BitmapFilter>= new Array<BitmapFilter>();
+//        f.push(new  DropShadowFilter(1, 45, 0x0, style.shadow, 0, 0, 1, 1));
+//		shape.filters = f;
 		 
 	}
 	

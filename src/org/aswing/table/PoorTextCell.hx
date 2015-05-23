@@ -44,7 +44,7 @@ class PoorTextCell extends Component  implements TableCell{
 			setFontValidated(true);
 		}
 		AsWingUtils.applyTextColor(textField, getForeground());
-		textField.x = b.x;
+		textField.x = b.x + 10;
 		textField.y = b.y + (b.height-textField.textHeight)/2;
 		if(isOpaque()){
 			graphics.clear();

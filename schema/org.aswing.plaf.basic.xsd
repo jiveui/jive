@@ -18,7 +18,11 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:all><xs:element ref="BasicAdjusterUI"/></xs:all></xs:complexType>
 
 <xs:complexType name="BasicTableUISchemaTypeValue">
-<xs:all><xs:element ref="BasicTableUI"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatTableUI" />
+<xs:element ref="BasicTableUI" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="BasicTextAreaUISchemaTypeValue">
 <xs:all><xs:element ref="BasicTextAreaUI"/></xs:all></xs:complexType>
