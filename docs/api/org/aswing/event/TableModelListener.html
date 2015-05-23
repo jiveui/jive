@@ -1,63 +1,66 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>org.aswing.event.TableModelListener</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="http://ngrebenshikov.github.io/jive/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">interface </span><span class="type">org.aswing.event.TableModelListener</span></code></h1></div><div class="body"><div><table class="related-types toggle" style="margin-top:16px;"><tbody><tr><td colspan="2"><strong>Implementors</strong></td></tr><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:4px;" src="../../../triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="../../../org/aswing/table/sorter/TableSorter.html">TableSorter</a>, <a href="../../../org/aswing/JTable.html">JTable</a></td><style>.table-col p {margin-bottom: 0;}</style><td class="toggle-show"><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../../org/aswing/table/sorter/TableSorter.html">TableSorter</a></td><td class="table-col"><p>A class that make your JTable sortable. Usage:
+<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>TableModelListener</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="http://ngrebenshikov.github.io/jive/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">interface </span><span class="type">org.aswing.event.TableModelListener</span></code></h1></div><div class="body"><div><table class="related-types toggle" style="margin-top:16px;"><tbody><tr><td colspan="2"><strong>Implementors</strong></td></tr><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:4px;" src="../../../triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="../../../org/aswing/table/sorter/TableSorter.html">TableSorter</a>, <a href="../../../org/aswing/JTable.html">JTable</a></td><style>.table-col p {margin-bottom: 0;}</style><td class="toggle-show"><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../../org/aswing/table/sorter/TableSorter.html">TableSorter</a></td><td class="table-col"><p>A class that make your JTable sortable. Usage:
 <pre>
 var sorter:TableSorter = new TableSorter(yourTableModel);
 sorter.setTableHeader(yourTable.getTableHeader());
 yourTable.setModel(sorter);
-</pre></p></td></tr><tr><td width="200"><a href="../../../org/aswing/JTable.html">JTable</a></td><td class="table-col"><p>The <code><a href="../../org/aswing/JTable.html">JTable</a></code> is used to display and edit regular two-dimensional tables
+</pre>
+@author paling</p></td></tr><tr><td width="200"><a href="../../../org/aswing/JTable.html">JTable</a></td><td class="table-col"><p>The <code>JTable</code> is used to display and edit regular two-dimensional tables
 of cells.
 <p>
-The <code><a href="../../org/aswing/JTable.html">JTable</a></code> has many
+The <code>JTable</code> has many
 facilities that make it possible to customize its rendering and editing
 but provides defaults for these features so that simple tables can be
 set up easily.  For example, to set up a table with 10 rows and 10
 columns of numbers:
 <p>
 <pre>
-class MyTableModel extends AbstractTableModel{
-public function getColumnCount():int { return 10; }
-public function getRowCount():int { return 10;}
-public getValueAt(row:int, col:int) { return row*col; }
-};
-var dataModel:MyTableModel = new MyTableModel();
-var table:JTable = new JTable(dataModel);
-var scrollpane:JScrollPane = new JScrollPane(table);
+ class MyTableModel extends AbstractTableModel{
+   public function getColumnCount():int { return 10; }
+   public function getRowCount():int { return 10;}
+   public getValueAt(row:int, col:int) { return row*col; }
+ };
+ var dataModel:MyTableModel = new MyTableModel();
+ var table:JTable = new JTable(dataModel);
+ var scrollpane:JScrollPane = new JScrollPane(table);
 </pre>
 <p>
-Note that if you wish to use a <code><a href="../../org/aswing/JTable.html">JTable</a></code> in a standalone
-view (outside of a <code><a href="../../org/aswing/JScrollPane.html">JScrollPane</a></code>) and want the header
+Note that if you wish to use a <code>JTable</code> in a standalone
+view (outside of a <code>JScrollPane</code>) and want the header
 displayed, you can get it using {@link #getTableHeader} and
 display it separately.
 <p>
-When designing applications that use the <code><a href="../../org/aswing/JTable.html">JTable</a></code> it is worth paying
+When designing applications that use the <code>JTable</code> it is worth paying
 close attention to the data structures that will represent the table's data.
-The <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code> is a model implementation that
-uses a <code><a href="../../flash/Vector.html">Vector</a></code> of <code><a href="../../flash/Vector.html">Vector</a></code>s of <code><a href="../../flash/utils/Object.html">Object</a></code>s to
+The <code>DefaultTableModel</code> is a model implementation that
+uses a <code>Vector</code> of <code>Vector</code>s of <code>Object</code>s to
 store the cell values. As well as copying the data from an
-application into the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code>,
+application into the <code>DefaultTableModel</code>,
 it is also possible to wrap the data in the methods of the
-<code><a href="../../org/aswing/table/TableModel.html">TableModel</a></code> interface so that the data can be passed to the
-<code><a href="../../org/aswing/JTable.html">JTable</a></code> directly, as in the example above. This often results
+<code>TableModel</code> interface so that the data can be passed to the
+<code>JTable</code> directly, as in the example above. This often results
 in more efficient applications because the model is free to choose the
 internal representation that best suits the data.
-A good rule of thumb for deciding whether to use the <code><a href="../../org/aswing/table/AbstractTableModel.html">AbstractTableModel</a></code>
-or the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code> is to use the <code><a href="../../org/aswing/table/AbstractTableModel.html">AbstractTableModel</a></code>
-as the base class for creating subclasses and the <code><a href="../../org/aswing/table/DefaultTableModel.html">DefaultTableModel</a></code>
+A good rule of thumb for deciding whether to use the <code>AbstractTableModel</code>
+or the <code>DefaultTableModel</code> is to use the <code>AbstractTableModel</code>
+as the base class for creating subclasses and the <code>DefaultTableModel</code>
 when subclassing is not required.
 <p>
-The <code><a href="../../org/aswing/JTable.html">JTable</a></code> uses integers exclusively to refer to both the rows and the columns
-of the model that it displays. The <code><a href="../../org/aswing/JTable.html">JTable</a></code> simply takes a tabular range of cells
+The <code>JTable</code> uses integers exclusively to refer to both the rows and the columns
+of the model that it displays. The <code>JTable</code> simply takes a tabular range of cells
 and uses <code>getValueAt(int, int)</code> to retrieve the
 values from the model during painting.
 <p>
-By default, columns may be rearranged in the <code><a href="../../org/aswing/JTable.html">JTable</a></code> so that the
+By default, columns may be rearranged in the <code>JTable</code> so that the
 view's columns appear in a different order to the columns in the model.
 This does not affect the implementation of the model at all: when the
-columns are reordered, the <code><a href="../../org/aswing/JTable.html">JTable</a></code> maintains the new order of the columns
+columns are reordered, the <code>JTable</code> maintains the new order of the columns
 internally and converts its column indices before querying the model.
 <p>
-To listen table row selection change event, by <code>this.<a href="#addSelectionListener">addSelectionListener</a>()</code>
-To listen column selection see <code>org.aswing.table.<a href="../../org/aswing/table/TableColumnModel.html#addColumnModelListener">TableColumnModel.addColumnModelListener</a></code> <br>
-To listen other Table events see <code>org.aswing.table.<a href="../../org/aswing/table/TableModel.html#addTableModelListener">TableModel.addTableModelListener</a></code></p></td></tr></tbody></table></td></tr></tbody></table></div><div class="doc"><p>TableModelListener defines the interface for an object that listens
-to changes in a TableModel.</p><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></li>    </ul></div></div><h2>Instance Fields</h2><div class="platform platform-jive"><a name="tableChanged"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#tableChanged"><span class="identifier">tableChanged</span></a>(e:<a class="type" href="../../../org/aswing/event/TableModelEvent.html">TableModelEvent</a>): <a class="type" href="../../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>This fine grain notification tells listeners the exact range
+To listen table row selection change event, by <code>this.addSelectionListener()</code>
+To listen column selection see <code><a href="../../org/aswing/table/TableColumnModel.html">org.aswing.table.TableColumnModel</a>#addColumnModelListener</code> <br>
+To listen other Table events see <code><a href="../../org/aswing/table/TableModel.html">org.aswing.table.TableModel</a>#addTableModelListener</code>
+@author paling</p></td></tr></tbody></table></td></tr></tbody></table></div><div class="doc"><p>TableModelListener defines the interface for an object that listens
+to changes in a TableModel.
+@author paling</p></div><h2>Instance Fields</h2><div class="platform platform-jive"><a name="tableChanged"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">function</span> <a href="#tableChanged"><span class="identifier">tableChanged</span></a>(e:<a class="type" href="../../../org/aswing/event/TableModelEvent.html">TableModelEvent</a>): <a class="type" href="../../../Void.html">Void</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>This fine grain notification tells listeners the exact range
 of cells, rows, or columns that changed.</p></div></div></div></div></div></body></html>

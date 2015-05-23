@@ -1,90 +1,100 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>org.aswing.event.InteractiveEvent</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="http://ngrebenshikov.github.io/jive/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">class </span><span class="type">org.aswing.event.InteractiveEvent</span><span class="keyword"> extends</span> <a class="type" href="../../../org/aswing/event/AWEvent.html">AWEvent</a></code></h1></div><div class="body"><div><table class="related-types toggle" style="margin-top:16px;"><tbody><tr><td colspan="2"><strong>Sub classes</strong></td></tr><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:4px;" src="../../../triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="../../../org/aswing/event/FrameEvent.html">FrameEvent</a>, <a href="../../../org/aswing/event/ScrollPaneEvent.html">ScrollPaneEvent</a>, <a href="../../../org/aswing/event/SelectionEvent.html">SelectionEvent</a>, <a href="../../../org/aswing/event/TreeSelectionEvent.html">TreeSelectionEvent</a>, <a href="../../../org/aswing/event/WindowEvent.html">WindowEvent</a></td><style>.table-col p {margin-bottom: 0;}</style><td class="toggle-show"><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../../org/aswing/event/FrameEvent.html">FrameEvent</a></td><td class="table-col"><p>Event for JFrame.</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/ScrollPaneEvent.html">ScrollPaneEvent</a></td><td class="table-col"><p>The event for <code><a href="../../../org/aswing/JScrollPane.html">JScrollPane</a></code>.</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/SelectionEvent.html">SelectionEvent</a></td><td class="table-col"><p>The event for list and table selection change.</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/TreeSelectionEvent.html">TreeSelectionEvent</a></td><td class="table-col"><p>An event that characterizes a change in the current
+<html lang="en"><head><meta charset="utf-8"/><link href="../../../bootstrap-combined.min.css" rel="stylesheet" /><script type="text/javascript" src="../../../jquery-1.9.1.min.js"></script><script type="text/javascript" src="../../../bootstrap.min.js"></script><link href="../../../styles.css" rel="stylesheet" /><link href="../../../custom.css" rel="stylesheet" /><link rel="icon" href="../../../favicon.ico" type="image/x-icon"></link><script type="text/javascript" src="../../../nav.js"></script><script type="text/javascript" src="../../../index.js"></script><script type="text/javascript">var dox = {rootPath: "../../../",platforms: ["jive"]};</script><title>InteractiveEvent</title></head><body><div class="navbar navbar-fixed-top">    <div class="navbar-inner">            <a class="navbar-brand pull-left" href="http://ngrebenshikov.github.io/jive/">                <img alt="Jive" src="../../..//logo-dark.png" style="padding:10px"/>            </a>            <p class="navbar-text pull-left header">API documentation</p>        </div></div><div id="container">            <div id="left-side">            <form class="search" id="searchForm">                <input id="search" type="text" class="search-query" placeholder="Filter" autocomplete="off"/>            </form>            <div id="nav">            </div>            </div><div id="content"><div class="header"><h1><code><span class="directive">class </span><span class="type">org.aswing.event.InteractiveEvent</span><span class="keyword"> extends</span> <a class="type" href="../../../org/aswing/event/AWEvent.html">AWEvent</a></code></h1></div><div class="body"><div><table class="related-types toggle" style="margin-top:16px;"><tbody><tr><td colspan="2"><strong>Sub classes</strong></td></tr><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:4px;" src="../../../triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="../../../org/aswing/event/FrameEvent.html">FrameEvent</a>, <a href="../../../org/aswing/event/ScrollPaneEvent.html">ScrollPaneEvent</a>, <a href="../../../org/aswing/event/SelectionEvent.html">SelectionEvent</a>, <a href="../../../org/aswing/event/TreeSelectionEvent.html">TreeSelectionEvent</a>, <a href="../../../org/aswing/event/WindowEvent.html">WindowEvent</a></td><style>.table-col p {margin-bottom: 0;}</style><td class="toggle-show"><table class="table table-condensed"><tbody><tr><td width="200"><a href="../../../org/aswing/event/FrameEvent.html">FrameEvent</a></td><td class="table-col"><p>Event for JFrame.
+@see org.aswing.JFrame
+@author paling</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/ScrollPaneEvent.html">ScrollPaneEvent</a></td><td class="table-col"><p>The event for <code>JScrollPane</code>.
+@author paling</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/SelectionEvent.html">SelectionEvent</a></td><td class="table-col"><p>The event for list and table selection change.
+@see org.aswing.JList
+@see org.aswing.JTable
+@see org.aswing.ListSelectionModel
+@author paling</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/TreeSelectionEvent.html">TreeSelectionEvent</a></td><td class="table-col"><p>An event that characterizes a change in the current
 selection.  The change is based on any number of paths.
 TreeSelectionListeners will generally query the source of
 the event for the new selected status of each potentially
-changed row.</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/WindowEvent.html">WindowEvent</a></td><td class="table-col"><p>The event for window.</p></td></tr></tbody></table></td></tr></tbody></table></div><div class="doc"><p>The event that has is about interactive. 
+changed row.</p></td></tr><tr><td width="200"><a href="../../../org/aswing/event/WindowEvent.html">WindowEvent</a></td><td class="table-col"><p>The event for window.
+@see org.aswing.JWindow
+@author paling</p></td></tr></tbody></table></td></tr></tbody></table></div><div class="doc"><p>The event that has is about interactive. 
 <p>
 The important property <code>programmatic</code> indicated that 
 whether or not the event is fired by the programmatic reason or user mouse/keyboard interaction reason.
-</p></p><div class="see"><h3>See Also</h3><ul>        <li>this.<a href="#isProgrammatic">isProgrammatic</a>()
-</li>    </ul></div><div class="authors"><h3>Authors</h3><ul>        <li><p>paling</p></li>    </ul></div></div><h2>Class Fields</h2><div class="platform platform-jive"><a name="SCROLL_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#SCROLL_CHANGED"><span class="identifier">SCROLL_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/InteractiveEvent.html#SCROLL_CHANGED">InteractiveEvent.SCROLL_CHANGED</a></code> constant defines the value of the
-<code>type</code> property of the event object for a <code>scrollChanged</code> event.</p>
-<p><p>The properties of the event object have the following values:</p>
-<table class="innertable"></p>
-<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`isProgrammatic()`&lt;/td&gt;&lt;td&gt;True means this event is fired by 
-	the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
-  event listener that handles the event. For example, if you use
-  `comp.addEventListener()` to register an event listener,
-  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
-  it is not always the Object listening for the event.
-  Use the `currentTarget` property to always access the
-  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+</p>
+@see #isProgrammatic()
+@author paling</p></div><h2>Class Fields</h2><div class="platform platform-jive"><a name="SCROLL_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#SCROLL_CHANGED"><span class="identifier">SCROLL_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code>InteractiveEvent.SCROLL_CHANGED</code> constant defines the value of the
+ <code>type</code> property of the event object for a <code>scrollChanged</code> event.</p>
+<p> <p>The properties of the event object have the following values:</p>
+ <table class="innertable">
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td><code>bubbles</code></td><td>false</td></tr>
+    <tr><td><code>cancelable</code></td><td>false</td></tr>
+    <tr><td><code>isProgrammatic()</code></td><td>True means this event is fired by </p>
+<pre><code>the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
 </code></pre>
-<p></table></p>
-<p>@eventType scrollChanged</p></div></div><div class="platform platform-jive"><a name="SELECTION_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#SELECTION_CHANGED"><span class="identifier">SELECTION_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/InteractiveEvent.html#SELECTION_CHANGED">InteractiveEvent.SELECTION_CHANGED</a></code> constant defines the value of the
-<code>type</code> property of the event object for a <code>selectionChanged</code> event.</p>
-<p><p>The properties of the event object have the following values:</p>
-<table class="innertable"></p>
-<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`isProgrammatic()`&lt;/td&gt;&lt;td&gt;True means this event is fired by 
-	the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
-  event listener that handles the event. For example, if you use
-  `comp.addEventListener()` to register an event listener,
-  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
-  it is not always the Object listening for the event.
-  Use the `currentTarget` property to always access the
-  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+<p>    <tr><td><code>currentTarget</code></td><td>The Object that defines the
+      event listener that handles the event. For example, if you use
+      <code>comp.addEventListener()</code> to register an event listener,
+      comp is the value of the <code>currentTarget</code>. </td></tr>
+    <tr><td><code>target</code></td><td>The Object that dispatched the event;
+      it is not always the Object listening for the event.
+      Use the <code>currentTarget</code> property to always access the
+      Object listening for the event.</td></tr>
+ </table></p>
+<p> @eventType scrollChanged</p></div></div><div class="platform platform-jive"><a name="SELECTION_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#SELECTION_CHANGED"><span class="identifier">SELECTION_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code>InteractiveEvent.SELECTION_CHANGED</code> constant defines the value of the
+ <code>type</code> property of the event object for a <code>selectionChanged</code> event.</p>
+<p> <p>The properties of the event object have the following values:</p>
+ <table class="innertable">
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td><code>bubbles</code></td><td>false</td></tr>
+    <tr><td><code>cancelable</code></td><td>false</td></tr>
+    <tr><td><code>isProgrammatic()</code></td><td>True means this event is fired by </p>
+<pre><code>the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
 </code></pre>
-<p></table></p>
-<p>@eventType selectionChanged</p></div></div><div class="platform platform-jive"><a name="STATE_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#STATE_CHANGED"><span class="identifier">STATE_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/InteractiveEvent.html#STATE_CHANGED">InteractiveEvent.STATE_CHANGED</a></code> constant defines the value of the
-<code>type</code> property of the event object for a <code>stateChanged</code> event.</p>
-<p><p>The properties of the event object have the following values:</p>
-<table class="innertable"></p>
-<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`isProgrammatic()`&lt;/td&gt;&lt;td&gt;True means this event is fired by 
-	the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
-  event listener that handles the event. For example, if you use
-  `comp.addEventListener()` to register an event listener,
-  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
-  it is not always the Object listening for the event.
-  Use the `currentTarget` property to always access the
-  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+<p>    <tr><td><code>currentTarget</code></td><td>The Object that defines the
+      event listener that handles the event. For example, if you use
+      <code>comp.addEventListener()</code> to register an event listener,
+      comp is the value of the <code>currentTarget</code>. </td></tr>
+    <tr><td><code>target</code></td><td>The Object that dispatched the event;
+      it is not always the Object listening for the event.
+      Use the <code>currentTarget</code> property to always access the
+      Object listening for the event.</td></tr>
+ </table></p>
+<p> @eventType selectionChanged</p></div></div><div class="platform platform-jive"><a name="STATE_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#STATE_CHANGED"><span class="identifier">STATE_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code>InteractiveEvent.STATE_CHANGED</code> constant defines the value of the
+ <code>type</code> property of the event object for a <code>stateChanged</code> event.</p>
+<p> <p>The properties of the event object have the following values:</p>
+ <table class="innertable">
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td><code>bubbles</code></td><td>false</td></tr>
+    <tr><td><code>cancelable</code></td><td>false</td></tr>
+    <tr><td><code>isProgrammatic()</code></td><td>True means this event is fired by </p>
+<pre><code>the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
 </code></pre>
-<p></table></p>
-<p>@eventType stateChanged</p></div></div><div class="platform platform-jive"><a name="TEXT_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#TEXT_CHANGED"><span class="identifier">TEXT_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code><a href="../../../org/aswing/event/InteractiveEvent.html#TEXT_CHANGED">InteractiveEvent.TEXT_CHANGED</a></code> constant defines the value of the
-<code>type</code> property of the event object for a <code>textChanged</code> event.</p>
-<p><p>The properties of the event object have the following values:</p>
-<table class="innertable"></p>
-<pre><code>&lt;tr&gt;&lt;th&gt;Property&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`bubbles`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`cancelable`&lt;/td&gt;&lt;td&gt;false&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`isProgrammatic()`&lt;/td&gt;&lt;td&gt;True means this event is fired by 
-	the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`currentTarget`&lt;/td&gt;&lt;td&gt;The Object that defines the
-  event listener that handles the event. For example, if you use
-  `comp.addEventListener()` to register an event listener,
-  comp is the value of the `currentTarget`. &lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td&gt;`target`&lt;/td&gt;&lt;td&gt;The Object that dispatched the event;
-  it is not always the Object listening for the event.
-  Use the `currentTarget` property to always access the
-  Object listening for the event.&lt;/td&gt;&lt;/tr&gt;
+<p>    <tr><td><code>currentTarget</code></td><td>The Object that defines the
+      event listener that handles the event. For example, if you use
+      <code>comp.addEventListener()</code> to register an event listener,
+      comp is the value of the <code>currentTarget</code>. </td></tr>
+    <tr><td><code>target</code></td><td>The Object that dispatched the event;
+      it is not always the Object listening for the event.
+      Use the <code>currentTarget</code> property to always access the
+      Object listening for the event.</td></tr>
+ </table></p>
+<p> @eventType stateChanged</p></div></div><div class="platform platform-jive"><a name="TEXT_CHANGED"></a><h3 style="line-height: 15px;"><p><code style="margin-left: -5px;"><span class="keyword">static </span><span class="keyword">var</span> <a href="#TEXT_CHANGED"><span class="identifier">TEXT_CHANGED</span></a>:<a class="type" href="../../../String.html">String</a></code></p></h3><div class="doc" style="margin-bottom: 0px;margin-top: 0px;"><p>The <code>InteractiveEvent.TEXT_CHANGED</code> constant defines the value of the
+ <code>type</code> property of the event object for a <code>textChanged</code> event.</p>
+<p> <p>The properties of the event object have the following values:</p>
+ <table class="innertable">
+    <tr><th>Property</th><th>Value</th></tr>
+    <tr><td><code>bubbles</code></td><td>false</td></tr>
+    <tr><td><code>cancelable</code></td><td>false</td></tr>
+    <tr><td><code>isProgrammatic()</code></td><td>True means this event is fired by </p>
+<pre><code>the programmatic reason, false means user mouse/keyboard interaction reason.&lt;/td&gt;&lt;/tr&gt;
 </code></pre>
-<p></table></p>
-<p>@eventType textChanged</p></div></div><h2>Instance Fields</h2><table class="super-types toggle" style="margin-top:-5px;margin-bottom:10px;"><tbody><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:0px;margin-top:-2px;" src="../../..//triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="#" onclick="toggleInherited(this)">Show inherited public instance fields</a></td><td class="toggle-show"><a href="#" onclick="toggleInherited(this)">Hide inherited public instance fields</a><table class="table table-condensed" width="500"><tbody><tr><td width="200"><p>Inherited from <a href="../../../org/aswing/event/AWEvent.html">AWEvent</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../org/aswing/event/AWEvent.html#clone"><span class="identifier">clone</span></a>():<a class="type" href="../../../flash/events/Event.html">Event</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
+<p>    <tr><td><code>currentTarget</code></td><td>The Object that defines the
+      event listener that handles the event. For example, if you use
+      <code>comp.addEventListener()</code> to register an event listener,
+      comp is the value of the <code>currentTarget</code>. </td></tr>
+    <tr><td><code>target</code></td><td>The Object that dispatched the event;
+      it is not always the Object listening for the event.
+      Use the <code>currentTarget</code> property to always access the
+      Object listening for the event.</td></tr>
+ </table></p>
+<p> @eventType textChanged</p></div></div><h2>Instance Fields</h2><table class="super-types toggle" style="margin-top:-5px;margin-bottom:10px;"><tbody><tr><td width="12" style="vertical-align:top;"><a href="#" onclick="toggleInherited(this)"><img style="padding-top:0px;margin-top:-2px;" src="../../..//triangle-closed.png"></img></a></td><td class="toggle-hide"><a href="#" onclick="toggleInherited(this)">Show inherited public instance fields</a></td><td class="toggle-show"><a href="#" onclick="toggleInherited(this)">Hide inherited public instance fields</a><table class="table table-condensed" width="500"><tbody><tr><td width="200"><p>Inherited from <a href="../../../org/aswing/event/AWEvent.html">AWEvent</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">function</span> <a href="../../../org/aswing/event/AWEvent.html#clone"><span class="identifier">clone</span></a>():<a class="type" href="../../../flash/events/Event.html">Event</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
 </td></tr></table></td></tr><tr><td width="200"><p>Inherited from <a href="../../../flash/events/Event.html">Event</a></p><p></p><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#bubbles"><span class="identifier">bubbles</span></a>:<a class="type" href="../../../Bool.html">Bool</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
 </td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#cancelable"><span class="identifier">cancelable</span></a>:<a class="type" href="../../../Bool.html">Bool</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
 </td></tr></table><table width="100%"><tr><td><code><span class="keyword">var</span> <a href="../../../flash/events/Event.html#currentTarget"><span class="identifier">currentTarget</span></a>:<a class="type" href="../../../Dynamic.html">Dynamic</a></code><!--p style="margin-bottom: 0;margin-left: 15px;font-size: 12px;">::raw api.getShortDesc(field)::</p-->
