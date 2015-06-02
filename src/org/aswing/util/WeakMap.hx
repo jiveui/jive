@@ -2,9 +2,9 @@ package org.aswing.util;
  
   
 #if flash
-    typedef WeakMap<K,T> = haxe.ds.WeakMap<K,T>;
+    typedef WeakMap<K:{},T> = haxe.ds.WeakMap<K,T>;
 #else
-class WeakMap <K, T> {
+class WeakMap <K:{}, T> {
 	/** @private */ private var hashKeys: haxe.ds.IntMap<K>;
 	/** @private */ private var hashValues: haxe.ds.IntMap<T>;
 
