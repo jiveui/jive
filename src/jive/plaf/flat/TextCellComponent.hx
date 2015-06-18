@@ -94,7 +94,7 @@ class TextCellComponent extends JPanel {
 
     private function __resized(e:ResizedEvent):Void {
         if(label.getWidth() < label.getPreferredWidth()){
-            label.setToolTipText(value.toString());
+            label.setToolTipText(value);
             sharedToolTip.registerComponent(label);
         }else{
             label.setToolTipText(null);

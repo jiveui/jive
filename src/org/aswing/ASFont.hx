@@ -4,7 +4,8 @@
 
 package org.aswing;
 
-	
+
+import flash.text.Font;
 import flash.text.TextField;
 import flash.text.TextFormat;
 import flash.text.TextFormatAlign;
@@ -19,11 +20,32 @@ import org.aswing.geom.IntDimension;
  */
 class ASFont {
 	
- 	public var name(default, set):String;
+ 	public var family: String;
+
+    public var name(default, set):String;
 	private function set_name(v: String): String {
+
 		#if flash
 		if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
 		#end
+
+        #if iphone
+        if (Assets.exists(v, AssetType.FONT)) {
+            var font = Assets.getFont(v);
+            var details = Font.load(font.fontName);
+            if (null != details) {
+                family = details.family_name;
+            } else {
+                family = name;
+            }
+            v = font.fontName;
+        }
+        #else
+        family = v;
+        #end
+
+        trace(family);
+
 		name = v; textFormat = getTextFormat(); return v;
 	}
 
@@ -59,7 +81,7 @@ class ASFont {
 	* @param embedFontsOrAdvancedPros a boolean to indicate whether or not embedFonts or a `ASFontAdvProperties` instance.
 	*/
 	public function new(name:String="Tahoma", size:Float=11, bold:Bool=false, italic:Bool=false, underline:Bool=false, 
-		embedFontsOrAdvancedPros:Dynamic=null){
+		embedFontsOrAdvancedPros:Dynamic=null, family=null){
 		this.name = name;
 		this.size = Std.int(size);
 		this.bold = bold;

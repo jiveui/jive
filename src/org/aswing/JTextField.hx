@@ -55,7 +55,6 @@ class JTextField extends JTextComponent{
 
 		setName("JTextField");
 		getTextField().multiline = false;
-		getTextField().text = text;
 		#if (flash9)
 		setMaxChars(defaultMaxChars);
 		#end
@@ -70,7 +69,8 @@ class JTextField extends JTextComponent{
         addChildAt(hintTextField, 0);
 
         getTextField().addEventListener(Event.CHANGE, function(e) { updateHintTextField(); });
-        updateHintTextField();
+
+        this.text = text;
 
         updateUI();
 	}
