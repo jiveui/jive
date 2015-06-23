@@ -58,7 +58,10 @@ class AWSprite extends Sprite
 		this.clipMasked=false;
 			super();
 		//focusRect = false;
-		usingBitmap = false;
+        usingBitmap = false;
+		#if ios
+        //setUsingBitmap(true);
+        #end
 		clipMaskRect = new IntRectangle();
 		setClipMasked(clipMasked);
 		addEventListener(MouseEvent.MOUSE_DOWN, __awSpriteMouseDownListener);

@@ -28,13 +28,13 @@
     <orderEntry type="library" name="actuate" level="project" />
     <orderEntry type="library" name="openfl-snapsvg" level="project" />
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/lib/haxe/lib/openfl/2,1,7">
+      <library name="haxelib|/usr/lib/haxe/lib/openfl/1,2,2">
         <CLASSES>
-          <root url="file:///usr/lib/haxe/lib/openfl/2,1,7" />
+          <root url="file:///usr/lib/haxe/lib/openfl/1,2,2" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/lib/haxe/lib/openfl/2,1,7" />
+          <root url="file:///usr/lib/haxe/lib/openfl/1,2,2" />
         </SOURCES>
       </library>
     </orderEntry>

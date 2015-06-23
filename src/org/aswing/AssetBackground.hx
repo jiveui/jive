@@ -21,17 +21,37 @@ import flash.display.DisplayObject;
 class AssetBackground implements GroundDecorator {
 
 	public var asset: DisplayObject;
+    public var keepRatio: Bool;
 
-	public function new(asset:DisplayObject = null) {
+	public function new(asset:DisplayObject = null, keepRatio: Bool = false) {
 		this.asset = asset;
+        this.keepRatio = keepRatio;
 	}
 	
 	public function updateDecorator(com:Component, g:Graphics2D, bounds:IntRectangle): Void {
-		if (null != asset) {
-			asset.x = bounds.x;
-			asset.y = bounds.y;
-			asset.width = bounds.width;
-			asset.height = bounds.height;
+        if (null != asset) {
+            if (!keepRatio) {
+                asset.x = bounds.x;
+                asset.y = bounds.y;
+                asset.width = bounds.width;
+                asset.height = bounds.height;
+            } else {
+                var w = asset.width/asset.scaleX;
+                var h = asset.height/asset.scaleY;
+
+                //put the background to the center
+                if (w/h < bounds.width/bounds.height) {
+                    asset.width = bounds.width;
+                    asset.height = h * bounds.width / w;
+                    asset.x = 0;
+                    asset.y = -(asset.height-bounds.height)/2;
+                } else {
+                    asset.height = bounds.height;
+                    asset.width = w * bounds.height / h;
+                    asset.y = 0;
+                    asset.x = -(asset.width-bounds.width)/2;
+                }
+           }
 		}
 	}
 	

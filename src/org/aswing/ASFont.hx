@@ -44,8 +44,6 @@ class ASFont {
         family = v;
         #end
 
-        trace(family);
-
 		name = v; textFormat = getTextFormat(); return v;
 	}
 

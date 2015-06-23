@@ -1,6 +1,7 @@
 package jive.hml;
 
 #if macro
+import haxe.rtti.CType.MetaData;
 import hml.xml.writer.DefaultNodeWriter;
 import hml.xml.writer.IHaxeWriter;
 import hml.xml.adapters.base.MergedAdapter;
@@ -35,6 +36,7 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 			new IEventDispatcherAdapter(),
 			new JiveXMLAdapter(),
             new AssetIconAdapter(),
+            new AssetBackgroundAdapter(),
             new BaseCommandAdapter(),
             new DefaultTableColumnModelAdapter(),
             new AbstractTableModelAdapter()
@@ -249,6 +251,15 @@ class JMenuNodeWithMetaWriter extends ComponentWithMetaWriter {
 class AssetIconAdapter extends ComponentAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : org.aswing.AssetIcon;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class AssetBackgroundAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.AssetBackground;
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 

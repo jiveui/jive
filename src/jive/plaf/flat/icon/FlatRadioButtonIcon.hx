@@ -5,6 +5,7 @@
 package jive.plaf.flat.icon;
 
 
+import org.aswing.UIManager;
 import org.aswing.JRadioButton;
 import org.aswing.JCheckBox;
 import org.aswing.AsWingUtils;
@@ -81,11 +82,11 @@ class FlatRadioButtonIcon implements Icon implements UIResource {
 	}
 	
 	public function getIconHeight(c:Component):Int{
-		return 20;
+        return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else 20;
 	}
 	
 	public function getIconWidth(c:Component):Int{
-		return 20;
+        return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else 20;
 	}
 	
 	public function getDisplay(c:Component):DisplayObject{
