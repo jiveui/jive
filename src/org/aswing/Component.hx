@@ -877,8 +877,8 @@ class Component extends AWSprite implements IBindable {
 	#if(cpp)
     override private function set_visible(value:Bool):Bool {
 		setVisible(value);
-			return value;
-		}
+		return value;
+	}
 	
 	override private function get_visible():Bool {
 		return super.visible;
