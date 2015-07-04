@@ -30,7 +30,6 @@ class MessageBox extends Dialog {
         setResizable(false);
         content = new JPanel();
         {
-//            content.border = new EmptyBorder(null, Insets.createIdentic(UIManager.get("margin")));
             var label = new JLabel(text);
             label.font = UIManager.get("systemFont").changeSize(Std.int(UIManager.get("fontSize")*0.85));
             content.append(label);

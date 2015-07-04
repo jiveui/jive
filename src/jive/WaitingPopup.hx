@@ -30,7 +30,6 @@ class WaitingPopup extends Dialog {
         setResizable(false);
         setClosable(false);
         content = new JPanel(new CenterLayout());
-        content.border = new EmptyBorder(null, Insets.createIdentic(UIManager.get("margin")));
         content.append(new JLabel(title));
     }
 
