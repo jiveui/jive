@@ -5,6 +5,7 @@
 package jive.plaf.flat.icon;
 
 
+import org.aswing.UIManager;
 import org.aswing.AsWingUtils;
 import org.aswing.AsWingUtils;
 import flash.display.DisplayObject;
@@ -44,8 +45,10 @@ class FrameIcon implements Icon implements UIResource {
 	/**
 	 * @param width the width of the icon square.
 	 */	
-	public function new(width:Int=16){
-		this.width = width;
+	public function new(width:Int=0){
+        if (0 == width) width = UIManager.get("iconSize");
+
+        this.width = width;
 		height = width;
 		sprite = new Sprite();
 		sprite.mouseChildren = false;

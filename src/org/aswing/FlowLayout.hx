@@ -50,6 +50,9 @@ class FlowLayout extends EmptyLayout{
      */
     inline public static var RIGHT:Int= AsWingConstants.RIGHT;
 
+    inline public static var TOP: Int = AsWingConstants.TOP;
+    inline public static var BOTTOM: Int = AsWingConstants.BOTTOM;
+
     /**
      * <code>align</code> is the property that determines
      * how each row distributes empty space.
@@ -61,6 +64,18 @@ class FlowLayout extends EmptyLayout{
      * </ul>
      */
     public var align:Int;
+
+    /**
+     * <code>align</code> is the property that determines
+     * how each row distributes vertical empty space.
+     * It can be one of the following values:
+     * <ul>
+     * <li><code>TOP</code></li>
+     * <li><code>BOTTOM</code></li>
+     * <li><code>CENTER</code></li>
+     * </ul>
+     */
+    public var verticalAlign: Int;
 
     /**
      * The flow layout manager allows a seperation of
@@ -265,7 +280,14 @@ class FlowLayout extends EmptyLayout{
 	    	var m:Component = target.getComponent(i);
 	    	var d:IntDimension = m.getSize();
 	    	if (m.isVisible()) {
-        	    m.setLocation(new IntPoint(x, Std.int(y + (height - d.height) / 2)));
+        	    m.setLocation(new IntPoint(
+                    x,
+                    switch(verticalAlign) {
+                        case TOP: y;
+                        case CENTER: Std.int(y + (height - d.height) / 2);
+                        case BOTTOM: y + height - d.height;
+                        case _: Std.int(y + (height - d.height) / 2);
+                    }));
                 x += d.width + hgap;
 	    	}
 		}

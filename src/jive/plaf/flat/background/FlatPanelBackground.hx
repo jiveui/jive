@@ -1,6 +1,7 @@
 package jive.plaf.flat.background;
 
 
+import org.aswing.UIManager;
 import flash.display.DisplayObject;
 
 import org.aswing.Component;
@@ -21,7 +22,7 @@ class FlatPanelBackground implements GroundDecorator implements UIResource{
 	
 	public function updateDecorator(c:Component, g:Graphics2D, b:IntRectangle):Void{
 		if(c.isOpaque()){
-			g.fillRoundRect(new SolidBrush(c.getBackground()), b.x, b.y, b.width, b.height, 10);
+			g.fillRoundRect(new SolidBrush(c.getBackground()), b.x, b.y, b.width, b.height, UIManager.get("cornerSize"));
 		}		
 	}
 	
