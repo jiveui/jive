@@ -345,7 +345,9 @@ class AbstractButton extends Component{
 	 	
 		setName("AbstractButton");
 	
+        #if !mobile
     	_rolloverEnabled = true;
+        #end
     	
     	_verticalAlignment = CENTER;
     	_horizontalAlignment = CENTER;
