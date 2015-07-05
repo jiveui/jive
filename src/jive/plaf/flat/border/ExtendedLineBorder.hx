@@ -13,12 +13,12 @@ import org.aswing.border.DecorateBorder;
 
 class ExtendedLineBorder extends DecorateBorder {
 	
-	private var color:ASColor;
-	private var thickness:Float;
-	private var topLeftRadius:Float;
-	private var topRightRadius:Float;
-	private var bottomLeftRadius:Float;
-	private var bottomRightRadius:Float;
+	public var color:ASColor;
+    public var thickness:Float;
+    public var topLeftRadius:Float;
+    public var topRightRadius:Float;
+    public var bottomLeftRadius:Float;
+    public var bottomRightRadius:Float;
 	
 	/**
 	 * Create a line border.

@@ -39,7 +39,8 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
             new AssetBackgroundAdapter(),
             new BaseCommandAdapter(),
             new DefaultTableColumnModelAdapter(),
-            new AbstractTableModelAdapter()
+            new AbstractTableModelAdapter(),
+            new DecorateBorderAdapter()
 		]);
 	}
 
@@ -260,6 +261,15 @@ class AssetIconAdapter extends ComponentAdapter {
 class AssetBackgroundAdapter extends ComponentAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : org.aswing.AssetBackground;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class DecorateBorderAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.border.DecorateBorder;
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 
