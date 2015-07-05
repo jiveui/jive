@@ -5,6 +5,7 @@
 package org.aswing.plaf.basic;
 
 
+import org.aswing.BoxLayout;
 import org.aswing.plaf.BaseComponentUI;
 	import org.aswing.plaf.MenuElementUI;
 	import org.aswing.plaf.UIResource;
@@ -53,7 +54,11 @@ class BasicMenuBarUI extends BaseComponentUI  implements MenuElementUI{
 		LookAndFeel.installBasicProperties(menuBar, pp);
 		var layout:LayoutManager = menuBar.getLayout();
 		if(layout == null || Std.is(layout,UIResource)){
+            #if mobile
+            menuBar.setLayout(new BoxLayout());
+            #else
 			menuBar.setLayout(new DefaultMenuLayout(DefaultMenuLayout.X_AXIS));
+            #end
 		}
 	}
 	

@@ -32,14 +32,14 @@ class Navigation {
         }
     }
 
-    public function navigate(path: Array<Dynamic>, ?after: Void -> Void) {
+    public function navigate(path: Array<Dynamic>, ?after: Void -> Void, ?runHandler: Bool = true) {
         if (null != activePath)
             for (a in activePath)
                 a.repaint();
 
         activePath = path;
         var pathString = getPathStringByMenuElements(path);
-        if (routes.exists(pathString)) {
+        if (routes.exists(pathString) && runHandler) {
             routes.get(pathString)(after);
         }
 
