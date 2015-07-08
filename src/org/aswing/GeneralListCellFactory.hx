@@ -12,10 +12,10 @@ package org.aswing;
  */	
 class GeneralListCellFactory implements ListCellFactory{
 
-	private var listCellClass:Class<Dynamic>;
-	private var shareCelles:Bool;
-	private var cellHeight:Int;
-	private var sameHeight:Bool;
+	public var listCellClass:Class<Dynamic>;
+	public var shareCelles:Bool;
+	public var cellHeight:Int;
+	public var sameHeight:Bool;
 	
 	/**
 	 * Create a list cell factory with a list cell class and other properties.
@@ -26,7 +26,7 @@ class GeneralListCellFactory implements ListCellFactory{
 	 * this param can be miss, default is 22.
 	 * @see #isShareCells()
 	 */
-	public function new(listCellClass:Class<Dynamic>, shareCelles:Bool=true, sameHeight:Bool=true, height:Int=22){
+	public function new(listCellClass:Class<Dynamic>=null, shareCelles:Bool=true, sameHeight:Bool=true, height:Int=22){
 		this.listCellClass = listCellClass;
 		this.shareCelles = shareCelles;
 		this.sameHeight = sameHeight;
@@ -35,8 +35,7 @@ class GeneralListCellFactory implements ListCellFactory{
 	}
 	
 	public function createNewCell() : ListCell {
-		
-		return AsWingUtils.as(Type.createInstance( listCellClass,[]) , ListCell);
+		return if (null != listCellClass) AsWingUtils.as(Type.createInstance(listCellClass,[]) , ListCell) else new DefaultListCell();
 	}
 	
 	/**
