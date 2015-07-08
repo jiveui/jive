@@ -11,7 +11,8 @@ class TemplateListCellFactory implements org.aswing.ListCellFactory{
     public var cellHeight:Int;
     public var sameHeight:Bool;
 
-    public function new(templateClass:Class<Dynamic> = null, shareCelles:Bool=true, sameHeight:Bool=true, height:Int=0){
+    public function new(templateClass:Class<Dynamic> = null, shareCelles:Bool=false, sameHeight:Bool=false, height:Int=0){
+        this.templateClass = templateClass;
         this.shareCelles = shareCelles;
         this.sameHeight = sameHeight;
         cellHeight = height;
