@@ -1,6 +1,7 @@
 package jive;
 
 //import assets.icons.Waiting;
+import org.aswing.event.PopupEvent;
 import org.aswing.UIManager;
 import org.aswing.CenterLayout;
 import org.aswing.JPanel;
@@ -27,6 +28,7 @@ class MessageBox extends Dialog {
 
     public function new(title: String, text: String) {
         super(null, title, true);
+        defaultCloseOperation = JFrame.DISPOSE_ON_CLOSE;
         setResizable(false);
         content = new JPanel();
         {
@@ -36,8 +38,11 @@ class MessageBox extends Dialog {
         }
     }
 
-    public static function createAndShow(title: String, text: String): MessageBox {
+    public static function createAndShow(title: String, text: String, ?after: Void -> Void): MessageBox {
         var dialog: MessageBox = new MessageBox(title, text);
+        if (null != after) {
+            dialog.addEventListener(PopupEvent.POPUP_CLOSED, function(e) { after(); });
+        }
         dialog.show();
         return dialog;
     }
