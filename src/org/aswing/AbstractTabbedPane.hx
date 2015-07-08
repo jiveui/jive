@@ -167,7 +167,7 @@ class AbstractTabbedPane extends Container {
     	_horizontalAlignment = CENTER;
     	_verticalTextPosition = CENTER;
     	_horizontalTextPosition = RIGHT;
-    	_iconTextGap = 4;
+    	_iconTextGap = if (null != UIManager.get("iconGap")) UIManager.get("iconGap") else 4;
     	
 		titles = new Array<Dynamic>();
 		icons = new Array<Dynamic>();

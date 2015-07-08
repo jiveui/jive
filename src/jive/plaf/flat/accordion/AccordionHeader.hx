@@ -1,5 +1,6 @@
 package jive.plaf.flat.accordion;
 
+import org.aswing.UIManager;
 import org.aswing.AsWingUtils;
 import org.aswing.ASColor;
 import jive.plaf.flat.icon.ExpandIcon;
@@ -18,11 +19,13 @@ class AccordionHeader extends BasicAccordionHeader {
 	public function new() {
 		super();
 	}
-	
+
+    private function getIconSize(): Int { return Std.int(UIManager.get("iconSize")*0.4); }
+
 	override private function createHeaderButton():AbstractButton {
 		var b:AbstractButton = new AccordionHeaderButton();
 		b.setHorizontalAlignment(AsWingConstants.LEFT);
-        b.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), false));
+        b.setIcon(new ExpandIcon(getIconSize(), new ASColor(0xcccccc), false));
 		return b;
 	}
 	
@@ -30,9 +33,9 @@ class AccordionHeader extends BasicAccordionHeader {
 		if (button.selected == b) return;
         button.setSelected(b);
 		if (b) {
-			button.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), true));
+			button.setIcon(new ExpandIcon(getIconSize(), new ASColor(0xcccccc), true));
 		} else {
-			button.setIcon(new ExpandIcon(8, new ASColor(0xcccccc), false));
+			button.setIcon(new ExpandIcon(getIconSize(), new ASColor(0xcccccc), false));
 		}
 	}
 	
