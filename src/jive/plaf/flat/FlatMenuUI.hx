@@ -21,7 +21,7 @@ class FlatMenuUI extends BasicMenuUI {
     override private function useCheckAndArrow():Bool { return getMenu().getComponentCount() > 0; }
 
     override public function paint(c:Component, g:Graphics2D, b:IntRectangle):Void{
-        if(isTopMenu()) {
+        if(isTopMenu() && (menuItem.font == null ||Std.is(menuItem.font , UIResource))) {
             menuItem.font = getFont(getPropertyPrefix() + "topMenuFont");
         }
         super.paint(c, g, b);

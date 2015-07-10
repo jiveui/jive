@@ -50,11 +50,12 @@ class Navigation {
 
     private function getPathStringByMenuElements(path: Array<Dynamic>): String {
         var res = "";
-        for (me in path) {
-            var mi: JMenuItem = AsWingUtils.as(me, JMenuItem);
-            if (null == mi) continue;
-            res += "/" + mi.subpath;
-        }
+        if (null != path)
+            for (me in path) {
+                var mi: JMenuItem = AsWingUtils.as(me, JMenuItem);
+                if (null == mi) continue;
+                res += "/" + mi.subpath;
+            }
         return res;
     }
 
