@@ -577,7 +577,8 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		
 		var horizontalPlacing:Bool= isTabHorizontalPlacing();
 	  	var contentBounds:IntRectangle = b.clone();
-		var tabBarBounds:IntRectangle = getTabBarSize().getBounds(0, 0);
+        var tabBarBoundsDraft:IntRectangle = getTabBarSize().getBounds(0, 0);
+		var tabBarBounds:IntRectangle = tabBarBoundsDraft.clone();
 		tabBarBounds.x = b.x;
 		tabBarBounds.y = b.y;
 		tabBarBounds.width = contentBounds.width;
@@ -585,7 +586,14 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		var transformedTabMargin:Insets = getTransformedMargin();
 		var placement:Int= tabbedPane.getTabPlacement();
 		var leadingOffset:Int= tabbedPane.getLeadingOffset();
-		if(placement == JTabbedPane.LEFT){
+
+        #if mobile
+        if(placement == JTabbedPane.TOP) {
+            leadingOffset += Std.int((contentBounds.width - tabBarBoundsDraft.width)/2);
+        }
+        #end
+
+        if(placement == JTabbedPane.LEFT){
 			tabBarBounds.y += tabBorderInsets.left + leadingOffset;//extra for expand 
 			tabBarBounds.height -= (tabBorderInsets.getMarginWidth() + leadingOffset);
 		}else if(placement == JTabbedPane.RIGHT){
@@ -639,7 +647,14 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 			selBounds = getDrawnTabBounds(selectedIndex);
 		}
 
-		drawBaseLine(tabBarBounds, g, b, selBounds);
+		#if mobile
+        var lineBounds = tabBarBounds.clone();
+        lineBounds.x -= leadingOffset;
+        lineBounds.width += leadingOffset;
+        drawBaseLine(lineBounds, g, b, selBounds);
+        #else
+        drawBaseLine(tabBarBounds, g, b, selBounds);
+        #end
 		//invisible tab after last
 		for(i in lastIndex+2...n){
 			getTab(i).getTabComponent().setVisible(false);
