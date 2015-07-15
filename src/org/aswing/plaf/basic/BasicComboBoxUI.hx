@@ -153,7 +153,7 @@ class BasicComboBoxUI extends BaseComponentUI  implements ComboBoxUI{
     	return scollPane;
     }
     
-    private function getPopup():JPopup{
+    public function getPopup():JPopup{
     	if(popup == null){
     		popup = new JPopup(AsWingManager.getRoot(), false);
     		popup.setLayout(new BorderLayout());

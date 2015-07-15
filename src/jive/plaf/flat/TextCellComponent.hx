@@ -1,5 +1,6 @@
 package jive.plaf.flat;
 
+import org.aswing.UIManager;
 import motion.easing.Linear;
 import motion.Actuate;
 import motion.Actuate;
@@ -76,7 +77,7 @@ class TextCellComponent extends JPanel {
         append(label);
 
         border = new TextCellComponentBorder();
-        styleTune = new StyleTune(0, 0, 0, 0, 5);
+        styleTune = new StyleTune(0, 0, 0, 0, UIManager.get("cornerSize"));
 
         addEventListener(MouseEvent.ROLL_OVER, function(e) { rollover = true; doBackgroundTransition(); });
         addEventListener(MouseEvent.ROLL_OUT, function(e) { rollover = false; doBackgroundTransition(); });

@@ -1,5 +1,6 @@
 package jive.plaf.flat.border;
 
+import org.aswing.UIManager;
 import flash.display.DisplayObject;
 import flash.display.Shape;
 import org.aswing.ASColor;
@@ -23,14 +24,14 @@ class FlatComboBoxPopupBorder implements Border implements UIResource{
     public function updateBorder(c:Component, g:Graphics2D, b:IntRectangle):Void{
         shape.graphics.clear();
         b = b.clone();
-        b.y += 10;
-        b.height -= 10;
+        b.y += Std.int(UIManager.get("margin")/4);
+        b.height -= Std.int(UIManager.get("margin")/4);
         g = new Graphics2D(shape.graphics);
         g.fillRoundRect(new SolidBrush(c.background), b.x, b.y, b.width, b.height, c.styleTune.round);
     }
 
     public function getBorderInsets(c:Component, b:IntRectangle):Insets{
-        return new Insets(10, 0, 0, 0);
+        return new Insets(Std.int(UIManager.get("margin")/4), 0, 0, 0);
     }
 
     public function getDisplay(c:Component):DisplayObject { return shape; }

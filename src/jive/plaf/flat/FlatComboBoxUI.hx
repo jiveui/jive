@@ -1,5 +1,7 @@
 package jive.plaf.flat;
 
+import org.aswing.UIManager;
+import org.aswing.UIManager;
 import motion.easing.Linear;
 import motion.Actuate;
 import org.aswing.StyleTune;
@@ -20,7 +22,7 @@ class FlatComboBoxUI extends BasicComboBoxUI {
     override private function createDropDownButton():Component{
         var btn:JButton = new JButton("", new FlatComboBoxArrowIcon());
         btn.setFocusable(false);
-        btn.setPreferredSize(new IntDimension(20, 20));
+        btn.setPreferredSize(new IntDimension(Std.int(UIManager.get("iconSize")/2), Std.int(UIManager.get("iconSize")/2)));
         btn.setBackgroundDecorator(null);
         btn.setMargin(new Insets());
         btn.setBorder(null);
@@ -56,7 +58,7 @@ class FlatComboBoxUI extends BasicComboBoxUI {
             scollPane.setOpaque(false);
             scollPane.setStyleProxy(box);
             scollPane.setBackground(getColor(getPropertyPrefix()+"popupBackground"));
-            scollPane.setStyleTune(new StyleTune(0, 0, 0, 0, 5));
+            scollPane.setStyleTune(new StyleTune(0, 0, 0, 0, UIManager.get("cornerSize")));
         }
         return scollPane;
     }

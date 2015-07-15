@@ -469,7 +469,13 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 					// Use default icon
 					icon = b.getIcon();
 				} 
-			} else {
+			} else if(Navigation.instance.isMenuElementActive(b)) {
+                icon = b.getSelectedIcon();
+                if(icon == null) {
+                    // Use default icon
+                    icon = b.getIcon();
+                }
+            } else {
 				icon = b.getIcon();
 			}
 		}

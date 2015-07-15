@@ -1,5 +1,6 @@
 package jive.plaf.flat.border;
 
+import org.aswing.UIManager;
 import org.aswing.AsWingUtils;
 import flash.display.DisplayObject;
 import flash.display.Shape;
@@ -43,7 +44,7 @@ class TextCellComponentBorder implements Border implements UIResource{
     }
 
     public function getBorderInsets(c:Component, b:IntRectangle):Insets{
-        return new Insets(7, 15, 7, 15);
+        return new Insets(UIManager.get("textVerticalMarginSize"), UIManager.get("textHorizontalMarginSize"), UIManager.get("textVerticalMarginSize"), UIManager.get("textHorizontalMarginSize"));
     }
 
     public function getDisplay(c:Component):DisplayObject { return shape; }
