@@ -199,11 +199,11 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 	}
 	
 	private function __onSelectionChanged(e:InteractiveEvent):Void{
-		tabbedPane.revalidate();
+        tabbedPane.revalidate();
 		tabbedPane.repaint();
 	}
 	
-	private function __onTabPanePressed(e:Event):Void { 
+	private function __onTabPanePressed(e:Event):Void {
 		if((prevButton.hitTestMouse() || nextButton.hitTestMouse())
 			&& (prevButton.isShowing() && nextButton.isShowing())){
 			return;
@@ -405,13 +405,17 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 	private function createUIAssets():Void{
 		uiRootMC = AsWingUtils.createSprite(tabbedPane, "uiRootMC");
 		tabBarMC = AsWingUtils.createSprite(uiRootMC, "tabBarMC");
-		tabBarMaskMC = AsWingUtils.createShape(uiRootMC, "tabBarMaskMC");
+        #if (!cpp)
+        tabBarMaskMC = AsWingUtils.createShape(uiRootMC, "tabBarMaskMC");
+        tabBarMC.mask = tabBarMaskMC;
+        var g:Graphics2D = new Graphics2D(tabBarMaskMC.graphics);
+        g.fillRectangle(new SolidBrush(ASColor.WHITE), 0, 0, 1, 1);
+        #end
+
 		buttonHolderMC = AsWingUtils.createSprite(uiRootMC, "buttonHolderMC");
 		
-		tabBarMC.mask = tabBarMaskMC;
-		var g:Graphics2D = new Graphics2D(tabBarMaskMC.graphics);
-		g.fillRectangle(new SolidBrush(ASColor.WHITE), 0, 0, 1, 1);
-		
+
+
 		var p:JPanel = new JPanel(new SoftBoxLayout(SoftBoxLayout.X_AXIS, 0));
 		p.setOpaque(false);
 		p.setFocusable(false);
@@ -568,10 +572,12 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		super.paint(c, g, b);
 		synTabProperties();
 
-		tabBarMaskMC.x = b.x;
+        #if (!cpp)
+        tabBarMaskMC.x = b.x;
 		tabBarMaskMC.y = b.y;
 		tabBarMaskMC.width = b.width;
 		tabBarMaskMC.height = b.height;
+        #end
 
 		g = createTabBarGraphics();
 		
