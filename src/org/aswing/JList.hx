@@ -4,6 +4,8 @@
 
 package org.aswing;
 
+import jive.events.TransformGestureEvent;
+import jive.events.GestureManager;
 import jive.plaf.flat.FlatListCellFactory;
 import org.aswing.error.Error;
 import flash.events.MouseEvent;
@@ -374,6 +376,9 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 			setModel(AsWingUtils.as(listData,ListModel)	);
 		}
 		updateUI();
+
+        gestureManager = new GestureManager(this, 0);
+        addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
 	}
 	
     @:dox(hide)
@@ -2300,4 +2305,12 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		__onDragDrop(source, dragInitiator, sourceData, mousePos);
 	}	
 	*/
+
+    private var gestureManager: GestureManager;
+
+    private function onPan(e: TransformGestureEvent) {
+        var pos = getViewPosition();
+        pos.y -= Std.int(e.offsetY);
+        setViewPosition(pos);
+    }
 }

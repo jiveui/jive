@@ -4,6 +4,8 @@
 
 package org.aswing;
 
+import jive.events.TransformGestureEvent;
+import jive.events.GestureManager;
 import flash.geom.Rectangle;
 import org.aswing.error.Error;
 import org.aswing.event.InteractiveEvent;
@@ -184,6 +186,9 @@ class JViewport extends Container  implements Viewportable {
 		if(view != null) setView(view);
 		setLayout(new ViewportLayout());
 		updateUI();
+
+        gestureManager = new GestureManager(this, 0);
+        addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
 	}
 
 	@:dox(hide)
@@ -713,4 +718,13 @@ class JViewport extends Container  implements Viewportable {
 	public function getViewportPane() : Component {
 		return this;
 	}
+
+    private var gestureManager: GestureManager;
+
+    private function onPan(e: TransformGestureEvent) {
+        var pos = getViewPosition();
+        pos.y -= Std.int(e.offsetY);
+        pos.x -= Std.int(e.offsetX);
+        setViewPosition(pos);
+    }
 }
