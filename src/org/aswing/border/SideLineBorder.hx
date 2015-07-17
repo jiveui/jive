@@ -40,9 +40,9 @@ class SideLineBorder extends DecorateBorder
      */
     inline public static var WEST :Int= 3;
 	
-	private var side:Int;
-	private var color:ASColor;
-	private var thickness:Float;
+	public var side:Int;
+	public var color:ASColor;
+	public var thickness:Float;
 	
 	/**
 	 * SideLineBorder(interior:Border, side:Number, color:ASColor, thickness:Number) <br>
