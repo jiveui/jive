@@ -212,6 +212,15 @@
         <root url="file://$PROJECT_DIR$/../MassiveUnit/src" />
       </SOURCES>
     </library>
+    <library name="nme" type="Haxe">
+      <CLASSES>
+        <root url="file:///usr/lib/haxe/lib/nme/5,0,29" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file:///usr/lib/haxe/lib/nme/5,0,29" />
+      </SOURCES>
+    </library>
     <library name="openfl-snapsvg" type="Haxe">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/../openfl-snapsvg" />

@@ -38,5 +38,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="nme" level="project" />
   </component>
 </module>

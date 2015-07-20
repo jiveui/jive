@@ -30,7 +30,11 @@ class ASFont {
 		#end
 
         #if iphone
+        #if nme
+        if (Assets.hasFont(v)) {
+        #else
         if (Assets.exists(v, AssetType.FONT)) {
+        #end
             var font = Assets.getFont(v);
             var details = Font.load(font.fontName);
             if (null != details) {
