@@ -860,16 +860,13 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	 * @see #ensureIndexIsVisible()
 	 */
 	public function setSelectedValue(value:Dynamic, programmatic:Bool=true):Void{
-        trace(_model);
 		var n:Int= _model.getSize();
 		for(i in 0...n){
 			if(_model.getElementAt(i) == value){
 				setSelectedIndex(i, programmatic);
-                trace(i);
 				return;
 			}
 		}
-        trace(-1);
 		setSelectedIndex(-1, programmatic); //there is not this value
 	}
 	
@@ -1239,7 +1236,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		var mSize:Int= m.getSize();
 		var cSize:Int= cells.getSize();
 		
-		cellPrefferSizes=new   haxe.ds.IntMap<IntDimension>();
+		cellPrefferSizes=new haxe.ds.IntMap<IntDimension>();
 		
 		var n:Int=Std.int( Math.min(mSize, cSize));
 		var i:Int;
@@ -2031,7 +2028,6 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 	
 	private function getItemIndexByCellComponent(item:Component):Int{
 		var cell:ListCell = comToCellMap.get(item.getAwmlIndex());
-		trace(cell);
 		return getItemIndexByCell(cell);
 	}
 	

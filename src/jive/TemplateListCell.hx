@@ -12,6 +12,7 @@ import org.aswing.Component;
         super();
         var c = Type.createInstance(cellComponentType,[]);
         cellComponent = AsWingUtils.as(c, Component);
+        cellComponent.visibility = false;
     }
 
     override public function setCellValue(value:Dynamic) : Void {

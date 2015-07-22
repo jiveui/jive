@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import flash.events.TouchEvent;
 import motion.easing.Linear;
 import motion.Actuate;
 import haxe.CallStack;
@@ -2921,6 +2922,7 @@ class Component extends AWSprite implements IBindable {
 		if(isDragEnabled()){
 			addEventListener(MouseEvent.MOUSE_MOVE, __mouseMove);
 			addEventListener(MouseEvent.ROLL_OUT, __rollOut);
+            addEventListener(TouchEvent.TOUCH_ROLL_OUT, __rollOut);
 			stage.addEventListener(MouseEvent.MOUSE_UP, __mouseUp, false, 0, false);
 			pressingPoint = getMousePosition();
 		}

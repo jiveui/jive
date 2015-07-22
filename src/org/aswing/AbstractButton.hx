@@ -3,6 +3,7 @@
 */
 
 package org.aswing;
+import flash.events.TouchEvent;
 import jive.Command;
 import haxe.CallStack;
 import motion.easing.Linear;
@@ -1228,7 +1229,8 @@ class AbstractButton extends Component{
     //--------------------------------------------------------------
 	
 	private function initSelfHandlers():Void {
-	 
+
+        addEventListener(TouchEvent.TOUCH_ROLL_OUT, __rollOutListener);
 		addEventListener(MouseEvent.ROLL_OUT, __rollOutListener);
 		addEventListener(MouseEvent.ROLL_OVER, __rollOverListener);
 		addEventListener(MouseEvent.MOUSE_DOWN, __mouseDownListener);
@@ -1245,6 +1247,7 @@ class AbstractButton extends Component{
 			rootPane.registerMnemonic(this);
 		}
 	}
+
 	private function __removedFromStage(e:Event):Void{
 		if(rootPane != null){
 			rootPane.unregisterMnemonic(this);
@@ -1265,7 +1268,7 @@ class AbstractButton extends Component{
 	}
 
 	private function __rollOutListener(e:MouseEvent):Void{
-		var m:ButtonModel = getModel();
+        var m:ButtonModel = getModel();
 		if(isRollOverEnabled()) {
 			if(!m.isPressed()){
 				m.setRollOver(false);
@@ -1275,7 +1278,7 @@ class AbstractButton extends Component{
 	}
 
 	private function __mouseDownListener(e:Event):Void {
-	 
+	    trace("button: mousedown");
 		getModel().setArmed(true);
 		getModel().setPressed(true);
 
