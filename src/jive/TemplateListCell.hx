@@ -6,18 +6,18 @@ import org.aswing.Component;
 
 @:generic class TemplateListCell extends org.aswing.AbstractListCell {
 
-    private var cellComponent: Dynamic;
+    private var cellComponent: Component;
 
     public function new(cellComponentType: Class<Dynamic>) {
         super();
-        var c = Type.createInstance(cellComponentType,[]);
+        var c = Type.createInstance(cellComponentType, []);
         cellComponent = AsWingUtils.as(c, Component);
         cellComponent.visibility = false;
     }
 
     override public function setCellValue(value:Dynamic) : Void {
         super.setCellValue(value);
-        cellComponent.dataContext = value;
+        Reflect.setProperty(cellComponent, "dataContext", value);
     }
 
     override public function getCellComponent() : Component {

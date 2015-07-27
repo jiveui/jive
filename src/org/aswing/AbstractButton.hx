@@ -1278,7 +1278,6 @@ class AbstractButton extends Component{
 	}
 
 	private function __mouseDownListener(e:Event):Void {
-	    trace("button: mousedown");
 		getModel().setArmed(true);
 		getModel().setPressed(true);
 

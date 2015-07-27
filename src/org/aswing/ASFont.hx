@@ -29,23 +29,32 @@ class ASFont {
 		if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
 		#end
 
-        #if iphone
-        #if nme
-        if (Assets.hasFont(v)) {
-        #else
-        if (Assets.exists(v, AssetType.FONT)) {
-        #end
-            var font = Assets.getFont(v);
-            var details = Font.load(font.fontName);
-            if (null != details) {
-                family = details.family_name;
-            } else {
-                family = name;
-            }
-            v = font.fontName;
-        }
-        #else
+//        #if iphone
+//        #if nme
+//        if (Assets.hasFont(v)) {
+//        #else
+//        if (Assets.exists(v, AssetType.FONT)) {
+//        #end
+//            var font = Assets.getFont(v);
+//            var details = Font.load(font.fontName);
+//            if (null != details) {
+//                trace(details);
+//                family = details.family_name;
+//            } else {
+//                family = v;
+//            }
+//            v = font.fontName;
+//        }
+//        #else
         family = v;
+//        #end
+
+        // TODO: get riid of the hack
+        // Hack
+        #if iphone
+        if (v.indexOf("PTS") >= 0) {
+            family = "PT Sans";
+        }
         #end
 
 		name = v; textFormat = getTextFormat(); return v;
