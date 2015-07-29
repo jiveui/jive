@@ -27,17 +27,17 @@
     <orderEntry type="library" name="hml" level="project" />
     <orderEntry type="library" name="actuate" level="project" />
     <orderEntry type="library" name="openfl-snapsvg" level="project" />
+    <orderEntry type="library" name="nme" level="project" />
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/lib/haxe/lib/openfl/1,2,2">
+      <library name="haxelib|/usr/lib/haxe/lib/openfl/3,2,0">
         <CLASSES>
-          <root url="file:///usr/lib/haxe/lib/openfl/1,2,2" />
+          <root url="file:///usr/lib/haxe/lib/openfl/3,2,0" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/lib/haxe/lib/openfl/1,2,2" />
+          <root url="file:///usr/lib/haxe/lib/openfl/3,2,0" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="nme" level="project" />
   </component>
 </module>
