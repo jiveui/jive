@@ -2,7 +2,7 @@ package jive.events;
 
 import haxe.Timer;
 import motion.easing.Quart;
-import motion.actuators.GenericActuator.IGenericActuator;
+import motion.actuators.IGenericActuator;
 import motion.Actuate;
 import org.aswing.geom.IntPoint;
 import org.aswing.AsWingManager;
