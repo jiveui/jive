@@ -33,7 +33,16 @@ class DefaultEmptyDecoraterResource implements Icon implements Border implements
 	public static var DEFAULT_BACKGROUND_COLOR:ASColorUIResource = new ASColorUIResource(0);
 	public static var DEFAULT_FOREGROUND_COLOR:ASColorUIResource = new ASColorUIResource(0xFFFFFF);
 	public static var DEFAULT_MIDEGROUND_COLOR:ASColorUIResource = new ASColorUIResource(0x1987FF);
-	public static var DEFAULT_FONT:ASFontUIResource = new ASFontUIResource();
+
+	public static var DEFAULT_FONT(get, null):ASFontUIResource;
+    private static var _DEFAULT_FONT: ASFontUIResource;
+    private static function get_DEFAULT_FONT():ASFontUIResource {
+        if (null == _DEFAULT_FONT) {
+            _DEFAULT_FONT = new ASFontUIResource();
+        }
+        return _DEFAULT_FONT;
+    }
+
 	public static var DEFAULT_STYLE_TUNE:UIStyleTune = new UIStyleTune();
 	
 	/**
@@ -44,7 +53,14 @@ class DefaultEmptyDecoraterResource implements Icon implements Border implements
 	/**
 	 * Used to be a null ui resource font. it is not a UIResource instance, so can't be replace by another LAF.
 	 */
-	public static var NULL_FONT:ASFont = new ASFont();
+	public static var NULL_FONT(get, null):ASFont;
+    private static var _NULL_FONT: ASFont;
+    private static function get_NULL_FONT():ASFont {
+        if (null == _NULL_FONT) {
+            _NULL_FONT = new ASFont();
+        }
+        return _NULL_FONT;
+    }
 	
 	/**
 	 * Used to be a null ui resource style tune. it is not a UIResource instance, so can't be replace by another LAF.

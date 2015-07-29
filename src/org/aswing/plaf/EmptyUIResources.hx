@@ -44,8 +44,14 @@ class EmptyUIResources
 	/**
 	 * The default empty value for font.
 	 */
-	public static var FONT:ASFontUIResource = new ASFontUIResource();
-	
+	public static var FONT(get, null):ASFontUIResource;
+    private static var _FONT: ASFontUIResource;
+    private static function get_FONT():ASFontUIResource {
+        if (null == _FONT) {
+            _FONT = new ASFontUIResource();
+        }
+        return _FONT;
+    }	
 	/**
 	 * The default empty value for color.
 	 */
