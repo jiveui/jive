@@ -27,6 +27,10 @@ class ASFont {
 
 		#if flash
 		if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
+        #elseif html5
+            #if !openfl_snapsvg
+            if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
+            #end
 		#end
 
 //        #if iphone
@@ -49,13 +53,15 @@ class ASFont {
         family = v;
 //        #end
 
-        // TODO: get riid of the hack
+        // TODO: get rid of the hack
         // Hack
         #if iphone
         if (v.indexOf("PTS") >= 0) {
             family = "PT Sans";
         }
         #end
+
+        trace(v);
 
 		name = v; textFormat = getTextFormat(); return v;
 	}
