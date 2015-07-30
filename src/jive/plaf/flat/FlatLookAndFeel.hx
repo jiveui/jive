@@ -4,6 +4,7 @@
 
 package jive.plaf.flat;
 
+import flash.system.Capabilities;
 import flash.filters.BitmapFilter;
 import flash.filters.DropShadowFilter;
 import jive.plaf.flat.adjuster.AdjusterBorder;
@@ -51,7 +52,8 @@ class FlatLookAndFeel extends LookAndFeel {
 	override public function getDefaults():UIDefaults{
 		var table:UIDefaults  = new UIDefaults();
 
-		initClassDefaults(table);
+		initSizeDefaults(table);
+        initClassDefaults(table);
 		initSystemColorDefaults(table);
 		initSystemFontDefaults(table);
 		initCommonUtils(table);
@@ -59,8 +61,23 @@ class FlatLookAndFeel extends LookAndFeel {
 		
 		return table;
 	}
-	
-	private function initClassDefaults(table:UIDefaults):Void{
+
+    private function initSizeDefaults(table:UIDefaults) {
+        var size = 700;
+        var fontSize: Float = 14;
+
+        table.set("fontSize", Std.int(fontSize));
+        table.set("textHorizontalMarginSize", Std.int(fontSize));
+        table.set("textVerticalMarginSize", Std.int(fontSize/2));
+        table.set("cornerSize", Std.int(fontSize/3));
+        table.set("iconSize", Std.int(1.4 * fontSize));
+        table.set("margin", Std.int(size/10));
+        table.set("scrollBarWidth", Std.int(size/60));
+        table.set("halfMargin", Std.int(size/20));
+        table.set("iconGap", Std.int(0.5 * fontSize));
+    }
+
+    private function initClassDefaults(table:UIDefaults):Void{
 		var uiDefaults:Array<Dynamic>= [
                "ButtonUI", jive.plaf.flat.FlatButtonUI,
                "TextFieldUI",jive.plaf.flat.FlatTextFieldUI,

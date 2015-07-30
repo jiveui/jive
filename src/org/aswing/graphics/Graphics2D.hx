@@ -490,6 +490,11 @@ class Graphics2D {
 	public function curveTo(controlX:Float, controlY:Float, anchorX:Float, anchorY:Float):Void{
 		target.curveTo(controlX, controlY, anchorX, anchorY);
 	}
+
+    public function cubicCurveTo(controlX1 : Float, controlY1 : Float, controlX2 : Float, controlY2 : Float, anchorX : Float, anchorY : Float) {
+        target.cubicCurveTo(controlX1, controlY1, controlX2, controlY2, anchorX, anchorY);
+    }
+
 	public function lineTo(x:Float, y:Float):Void{
 		target.lineTo(x, y);
 	}

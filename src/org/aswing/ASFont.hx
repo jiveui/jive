@@ -61,8 +61,6 @@ class ASFont {
         }
         #end
 
-        trace(v);
-
 		name = v; textFormat = getTextFormat(); return v;
 	}
 
