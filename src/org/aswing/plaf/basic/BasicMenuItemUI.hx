@@ -103,7 +103,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 		var arrowIconRect:IntRectangle = arg[5];
 		var textIconGap:Int = arg[6];
 		var menuItemGap:Int = arg[7];
-        AsWingUtils.layoutCompoundLabel(menuItem, font, text, icon, verticalAlignment,
+        text = AsWingUtils.layoutCompoundLabel(menuItem, font, text, icon, verticalAlignment,
 							horizontalAlignment, verticalTextPosition, 
 							horizontalTextPosition, viewRect, iconRect, textRect, 
 							textIconGap);
@@ -430,15 +430,13 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
         resetRects();
 		viewRect.setRect(r);
 
-		var font:ASFont = b.getFont();
+        var font:ASFont = b.getFont();
 
 		var acceleratorText:String= getAcceleratorText(b);
 		
 		// layout the text and icon
-		var text:String = "";
-		//why
-		 
-		text= layoutMenuItem(
+
+		var text = layoutMenuItem(
 			font, b.getDisplayText(), acceleratorFont, acceleratorText, b.getIcon(),
 			checkIcon, arrowIcon,
 			b.getVerticalAlignment(), b.getHorizontalAlignment(),
@@ -448,7 +446,8 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 			b.getDisplayText() == null ? 0 : textIconGap,
 			textIconGap]
 		);
-		 
+
+
 		// Paint background
 		paintMenuBackground(b, g, bgRect, background);
 		
@@ -479,7 +478,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 				icon = b.getIcon();
 			}
 		}
-		paintIcon(b, icon, g, iconRect.x, iconRect.y);
+        paintIcon(b, icon, g, iconRect.x, iconRect.y);
 		var tc:ASColor;
 		// Draw the Text
 		if(text != null && text != "") {
@@ -690,7 +689,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
 		resetRects();
 		//why
 		 
-		 layoutMenuItem(
+		text = layoutMenuItem(
 				  font, text, acceleratorFont, acceleratorText, icon, checkIcon, arrowIcon,
 				  b.getVerticalAlignment(), b.getHorizontalAlignment(),
 				  b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
