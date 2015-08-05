@@ -73,42 +73,50 @@ class FlatTableUI extends BasicTableUI {
 		var rh:Int= table.getRowHeight();
 		var x1:Float= damagedArea.x + 0.5;
 		var x2:Float= damagedArea.x + damagedArea.width - 1;
-		var y:Float= damagedArea.y + 0.5 + rh;
-		for (row in rMin + 1...rMax + 1) {
-			if(row == rowCount){
-				y -= 1;
-			}
-			g.fillRectangle(new SolidBrush(c.mideground), x1, y, x2-x1, rh);
-			y += 2*rh;
-		}
-
-		//Selection
-		var rh:Int= table.getRowHeight();
-		var x1:Float= damagedArea.x + 0.5;
-		var x2:Float= damagedArea.x + damagedArea.width - 1;
 		var y:Float= damagedArea.y + 0.5;
 		for (row in rMin...rMax + 1) {
 			if(row == rowCount){
 				y -= 1;
 			}
-			if (row == table.getSelectedRow()) {
-				g.fillRectangle(new SolidBrush(table.getSelectionBackground()), x1, y, x2 - x1, rh);
-			}
+			if (row % 2 == 1) {
+                g.fillRectangle(new SolidBrush(c.mideground), x1, y, x2-x1, rh);
+            }
 			y += rh;
 		}
-		
+
+		//Selection
+		if (table.rowSelectionAllowed) {
+            var rh:Int= table.getRowHeight();
+            var x1:Float= damagedArea.x + 0.5;
+            var x2:Float= damagedArea.x + damagedArea.width - 1;
+            var y:Float= damagedArea.y + 0.5;
+            for (row in rMin...rMax + 1) {
+                if(row == rowCount){
+                    y -= 1;
+                }
+                if (row == table.getSelectedRow()) {
+                    g.fillRectangle(new SolidBrush(table.getSelectionBackground()), x1, y, x2 - x1, rh);
+                }
+                y += rh;
+            }
+        }
+
+        #if !cpp
 		mask.graphics.clear();
 		var mg = new Graphics2D(mask.graphics);
 		var mb = new SolidBrush(ASColor.WHITE);
 		mg.fillRoundRect(mb, b.x+1, b.y, extentSize.width-2, extentSize.height, c.styleTune.round);
 		mg.fillRectangle(mb, b.x+1, b.y, extentSize.width-2, c.styleTune.round * 2);
+        #end
 	}
 	
 	private override function createGridGraphics():Graphics2D{
 		if(gridShape == null){
 			gridShape = new Shape();
+            #if !cpp
 			table.getCellPane().addChild(mask);
 			table.getCellPane().mask = mask;
+            #end
 			table.getCellPane().addChildAt(gridShape, 0);
 		}
 		gridShape.graphics.clear();
