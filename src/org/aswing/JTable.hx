@@ -4,6 +4,8 @@
 	
 package org.aswing;
 
+import jive.events.TransformGestureEvent;
+import jive.events.GestureManager;
 import org.aswing.table.PropertyTableModel;
 import org.aswing.AsWingUtils;
 import org.aswing.table.sorter.TableSorter;
@@ -464,6 +466,9 @@ class JTable extends Container  implements Viewportable implements TableModelLis
 		
 		initWithModels(dm);
 		lastTotalColumnWidth = -1;
+
+        gestureManager = new GestureManager(this, 0);
+        addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
 	}
 
 	/**
@@ -3463,7 +3468,15 @@ class JTable extends Container  implements Viewportable implements TableModelLis
     public function getViewportPane():Component{
     	return this;
     }
-    
+
+    private var gestureManager: GestureManager;
+
+    private function onPan(e: TransformGestureEvent) {
+        var pos = getViewPosition();
+        pos.y -= Std.int(e.offsetY);
+        setViewPosition(pos);
+    }
+
 	//******************************************************************
 	//------------------------Layout implementation---------------------
 	//******************************************************************

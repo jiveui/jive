@@ -364,7 +364,7 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     }
 
     public function tableChanged(e:TableModelEvent):Void{
-        // If we're not sorting by anything, just pass the event along.             
+        // If we're not sorting by anything, just pass the event along.
         if (!isSorting()) {
             clearSortingState();
             fireTableChanged(e);
@@ -428,9 +428,11 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
     	}
         var h:JTableHeader = AsWingUtils.as(e.currentTarget,JTableHeader)	;
         var point:IntPoint = h.getMousePosition();
+
         //if user are dragging the header, not sort
-        if(!point.equals(pressedPoint)){
-        	return;
+
+        if(point.distanceSq(pressedPoint) < 8){
+            return;
         }
         var columnModel:TableColumnModel = h.getColumnModel();
         var viewColumn:Int= columnModel.getColumnIndexAtX(h.getMousePosition().x);

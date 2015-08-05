@@ -23,7 +23,7 @@ class SortableTextHeaderCell extends DefaultTextHeaderCell{
 		setBackgroundDecorator(UIManager.getGroundDecorator("TableHeader.sortableCellBackground"));
 		this.tableSorter = tableSorter;
 		setHorizontalTextPosition(JLabel.LEFT);
-		setIconTextGap(6);
+		setIconTextGap(UIManager.get("iconGap"));
 		//make it user parent property
 		setMideground(null);
 		setStyleTune(null);

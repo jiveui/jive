@@ -25,11 +25,6 @@ class DefaultTextHeaderCell extends DefaultTextCell{
 		super.setBorder(UIManager.getBorder("TableHeader.cellBorder"));
 		super.setBackgroundDecorator(UIManager.getGroundDecorator("TableHeader.cellBackground"));
 		super.setOpaque(false);
-		 
-		var f :Array<BitmapFilter> = new Array<BitmapFilter>();
-		f.push(new  DropShadowFilter(1, 45, 0xFFFFFF, 0.2, 1, 1, 1, 1));
-		super.setTextFilters(f);
-		 
 	}
 	
 	override public function setTableCellStatus(table:JTable, isSelected:Bool, row:Int, column:Int):Void {

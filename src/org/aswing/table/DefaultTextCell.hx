@@ -59,6 +59,7 @@ class DefaultTextCell extends JLabel  implements TableCell{
 	public function setCellValue(value:Dynamic) : Void{
 		this.value = value;
 		setText(value + "");
+        pack();
 	}
 	
 	public function getCellValue():Dynamic{

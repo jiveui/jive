@@ -10,13 +10,13 @@ package org.aswing.table;
  */
 class GeneralTableCellFactory implements TableCellFactory{
 	
-	private var cellClass:Class<Dynamic>;
+	public var cellClass:Class<Dynamic>;
 	
 	/**
 	 * Creates a TableCellFactory with specified cell class.
 	 * @param cellClass the cell class
 	 */
-	public function new(cellClass:Class<Dynamic>){
+	public function new(cellClass:Class<Dynamic> = null){
 		this.cellClass = cellClass;
 	}
 	
@@ -26,7 +26,7 @@ class GeneralTableCellFactory implements TableCellFactory{
 	 * @return the table cell
 	 */
 	public function createNewCell(isHeader:Bool):TableCell{
-		return AsWingUtils.as(Type.createInstance( cellClass,[]) , TableCell);
+		return if (null != cellClass) AsWingUtils.as(Type.createInstance( cellClass,[]) , TableCell) else null;
 	}
 	
 	public function toString():String{

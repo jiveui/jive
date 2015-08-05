@@ -108,7 +108,21 @@ class TableColumn extends EventDispatcher{
         setResizable(v);
         return v;
     }
-	
+    
+    public var cellFactory(get, set): TableCellFactory;
+    private function get_cellFactory(): TableCellFactory { return getCellFactory(); }
+    private function set_cellFactory(v: TableCellFactory): TableCellFactory {
+        setCellFactory(v);
+        return v; 
+    }
+
+    public var headerCellFactory(get, set): TableCellFactory;
+    private function get_headerCellFactory(): TableCellFactory { return getHeaderCellFactory(); }
+    private function set_headerCellFactory(v: TableCellFactory): TableCellFactory {
+        setHeaderCellFactory(v);
+        return v;
+    }
+
 	/**
 	 * Create a TableColumn.
 	 * @param modelIndex modelIndex
