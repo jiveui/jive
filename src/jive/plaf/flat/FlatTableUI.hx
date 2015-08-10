@@ -101,28 +101,32 @@ class FlatTableUI extends BasicTableUI {
             }
         }
 
-        #if !cpp
+        //Hack for https://github.com/openfl/openfl-native/issues/50
+        // openfl-native is deprecated but the code and bug migrated to the new lib
+        #if cpp
+        table.getCellPane().mask = null;
+        table.getCellPane().mask = mask;
+        #end
+
 		mask.graphics.clear();
 		var mg = new Graphics2D(mask.graphics);
 		var mb = new SolidBrush(ASColor.WHITE);
 		mg.fillRoundRect(mb, b.x+1, b.y, extentSize.width-2, extentSize.height, c.styleTune.round);
-		mg.fillRectangle(mb, b.x+1, b.y, extentSize.width-2, c.styleTune.round * 2);
-        #end
+		mg.fillRectangle(mb, b.x+1, b.y , extentSize.width-2, c.styleTune.round*2);
+
 	}
 	
 	private override function createGridGraphics():Graphics2D{
 		if(gridShape == null){
 			gridShape = new Shape();
-            #if !cpp
-			table.getCellPane().addChild(mask);
+            table.getCellPane().addChild(mask);
 			table.getCellPane().mask = mask;
-            #end
 			table.getCellPane().addChildAt(gridShape, 0);
 		}
 		gridShape.graphics.clear();
 		return new Graphics2D(gridShape.graphics);
 	}
-		
+
 
 	
 }

@@ -21,6 +21,6 @@ import org.aswing.Component;
     }
 
     override public function getCellComponent() : Component {
-        return cast(cellComponent, Component);
+        return cellComponent;
     }
 }
