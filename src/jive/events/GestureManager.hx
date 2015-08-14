@@ -15,6 +15,8 @@ import org.aswing.Component;
 
 class GestureManager {
 
+    public var magneticBorderSize: Int;
+
     private var component: Component;
 
     private var touchBeginCoords: Map<Int,Point>;
@@ -25,7 +27,6 @@ class GestureManager {
     private var touchMoves: Map<Int, Array<Point>>;
 
     private var actuator: IGenericActuator;
-    private var magneticBorderSize: Int;
 
     private var curActuatorState: Dynamic;
     private var goalActuatorState: Dynamic;
