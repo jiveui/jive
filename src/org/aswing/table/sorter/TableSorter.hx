@@ -431,11 +431,12 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
 
         //if user are dragging the header, not sort
 
-        if(point.distanceSq(pressedPoint) < 8){
+        if(point.distance(pressedPoint) > UIManager.get("margin")){
             return;
         }
+
         var columnModel:TableColumnModel = h.getColumnModel();
-        var viewColumn:Int= columnModel.getColumnIndexAtX(h.getMousePosition().x);
+        var viewColumn:Int= columnModel.getColumnIndexAtX(point.x);
         if(viewColumn == -1){
         	return;
         }
