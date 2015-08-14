@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import flash.events.Event;
 import jive.events.TransformGestureEvent;
 import jive.events.GestureManager;
 import flash.geom.Rectangle;
@@ -719,9 +720,23 @@ class JViewport extends Container  implements Viewportable {
 		return this;
 	}
 
+
+    public var magneticBorderSize(get, set): Int;
+    private function get_magneticBorderSize(): Int { return gestureManager.magneticBorderSize; }
+    private function set_magneticBorderSize(v: Int): Int {
+        gestureManager.magneticBorderSize = v;
+        return v;
+    }
+
+
     private var gestureManager: GestureManager;
+    public static var SCROLLED = "SCROLLED";
 
     private function onPan(e: TransformGestureEvent) {
+        if (e.phase == "COMPLETED") {
+            dispatchEvent(new Event(SCROLLED));
+            return;
+        }
         var pos = getViewPosition();
         pos.y -= Std.int(e.offsetY);
         pos.x -= Std.int(e.offsetX);
