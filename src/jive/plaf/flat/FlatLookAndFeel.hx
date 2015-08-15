@@ -75,6 +75,7 @@ class FlatLookAndFeel extends LookAndFeel {
         table.set("scrollBarWidth", Std.int(size/60));
         table.set("halfMargin", Std.int(size/20));
         table.set("iconGap", Std.int(0.5 * fontSize));
+        table.set("dpiScale", Capabilities.screenDPI/72);
     }
 
     private function initClassDefaults(table:UIDefaults):Void{
