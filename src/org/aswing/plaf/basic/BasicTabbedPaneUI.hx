@@ -184,7 +184,7 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 	
 	//----------------------------------------------------------------
 	
-	private function getMousedOnTabIndex():Int{
+	public function getMousedOnTabIndex():Int{
 		var p:IntPoint = tabbedPane.getMousePosition();
 		var n:Int = tabbedPane.getComponentCount();
 		var i:Int=firstIndex;
@@ -320,7 +320,7 @@ class BasicTabbedPaneUI extends BaseComponentUI  implements LayoutManager{
 		return new ArrowIcon(direction, 16);
 	}
 		
-	private function getTabBarSize():IntDimension{
+	public function getTabBarSize():IntDimension{
 		if(tabBarSize != null){
 			return tabBarSize;
 		}
