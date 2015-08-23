@@ -244,7 +244,11 @@ class Container extends Component{
 		com.container = this;
 		if(i < 0){
 			children.push(com);
-			addChild(com);
+            if (null != foregroundChild) {
+                addChildAt(com,getHighestIndexUnderForeground());
+            } else {
+			    addChild(com);
+            }
 		}else{
 			addChildAt(com, getChildIndexWithComponentIndex(i));
 			children.insert(i, com);

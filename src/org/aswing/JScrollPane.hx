@@ -192,10 +192,11 @@ class JScrollPane extends Container {
 	 */
 	public function setView(viewOrViewport:Dynamic):Void {
 		if (//Std.is(viewOrViewport, Viewportable)
-		Std.is(viewOrViewport, JList)||
-		Std.is(viewOrViewport, JTree)||
-		Std.is(viewOrViewport, JTextArea)||
-		Std.is(viewOrViewport, JTable) 
+            Std.is(viewOrViewport, JViewport)||
+            Std.is(viewOrViewport, JList)||
+            Std.is(viewOrViewport, JTree)||
+            Std.is(viewOrViewport, JTextArea)||
+            Std.is(viewOrViewport, JTable)
 		) { 
 			setViewport(AsWingUtils.as(viewOrViewport,Viewportable));
 		}else if(Std.is(viewOrViewport,Component)){
