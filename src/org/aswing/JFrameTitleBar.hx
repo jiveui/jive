@@ -429,5 +429,9 @@ class JFrameTitleBar extends Container  implements FrameTitleBar implements UIRe
 		}
 		revalidateIfNecessary();
 	}
-	 
+
+    private override function set_foreground(v: ASColor): ASColor {
+        titleLabel.foreground = v;
+        return super.set_foreground(v);
+    }
 }

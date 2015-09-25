@@ -32,7 +32,7 @@ class MessageBox extends Dialog {
         setResizable(false);
         content = new JPanel();
         {
-            var label = new JLabel(text);
+            label = new JLabel(text);
             label.font = UIManager.get("systemFont").changeSize(Std.int(UIManager.get("fontSize")*0.85));
             content.append(label);
         }
@@ -45,5 +45,10 @@ class MessageBox extends Dialog {
         }
         dialog.show();
         return dialog;
+    }
+
+    private override function set_foreground(v: ASColor): ASColor {
+        label.foreground = v;
+        return super.set_foreground(v);
     }
 }

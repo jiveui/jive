@@ -760,4 +760,9 @@ class JFrame extends JWindow{
 			getFrameUI().flashModalFrame();
 		}
 	}
+
+    private override function set_foreground(v: ASColor): ASColor {
+        cast(_titleBar, JFrameTitleBar).foreground = v;
+        return super.set_foreground(v);
+    }
 }
