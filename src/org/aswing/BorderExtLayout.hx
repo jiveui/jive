@@ -69,6 +69,7 @@ class BorderExtLayout extends EmptyLayout{
 	private var beyondEast: Component;
 	private var beyondSouth: Component;
 
+	private var overlay: Component;
 	private var centerOverlay: Component;
 	
 	private var defaultConstraints:String;
@@ -141,6 +142,11 @@ class BorderExtLayout extends EmptyLayout{
      * The beyond south layout constraint (beyond bottom border of container).
      */
 	inline public static var BEYOND_SOUTH:String= "Beyond South";
+
+	/**
+     * The layout overlay constraint (middle of container).
+     */
+	inline public static var OVERLAY:String= "Overlay";
 
 	/**
      * The center layout overlay constraint (middle of container).
@@ -234,6 +240,8 @@ class BorderExtLayout extends EmptyLayout{
 			beyondWest = comp;
 		} else if (CENTER_OVERLAY == name) {
 			centerOverlay = comp;
+		} else if (OVERLAY == name) {
+			overlay = comp;
 		} else {
 			//defaut center
 		    center = comp;
@@ -262,6 +270,8 @@ class BorderExtLayout extends EmptyLayout{
 			beyondWest = null;
 		} else if (comp == centerOverlay) {
 			centerOverlay = null;
+		} else if (comp == overlay) {
+			overlay = null;
 		}
 
 		if (comp == firstLine) {
@@ -431,6 +441,13 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		if ((c=getChild(CENTER_OVERLAY,ltr)) != null) {
 			c.setBounds(new IntRectangle(left, top, right - left, bottom - top));
+//			d = c.getPreferredSize();
+//			c.setBounds(new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height));
+		}
+		if ((c=getChild(OVERLAY,ltr)) != null) {
+//			c.setBounds(new IntRectangle(left, top, right - left, bottom - top));
+			d = c.getPreferredSize();
+			c.setBounds(new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height));
 		}
     }
 
@@ -476,6 +493,9 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		else if (key == CENTER_OVERLAY) {
 			result = centerOverlay;
+		}
+		else if (key == OVERLAY) {
+			result = overlay;
 		}
         else if (key == CENTER) {
             result = center;
