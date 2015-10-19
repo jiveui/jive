@@ -24,8 +24,8 @@ class GradientBrush implements IBrush{
  
 	private var fillType:GradientType;
 	private var colors:Array<Int>;
-	private var alphas:Array<Dynamic>;
-	private var ratios:Array<Dynamic>;
+	private var alphas:Array<Float>;
+	private var ratios:Array<Int>;
 	private var matrix:Matrix;
 	private var spreadMethod:SpreadMethod;
 	private var interpolationMethod:InterpolationMethod;
@@ -43,8 +43,8 @@ class GradientBrush implements IBrush{
 					?spreadMethod:SpreadMethod, ?interpolationMethod:InterpolationMethod, ?focalPointRatio:Float= 0){
 		this.fillType = fillType;
 		this.colors = colors;
-		this.alphas = alphas;
-		this.ratios = ratios;
+		this.alphas = Lambda.array(Lambda.map(alphas, function(a) { return cast(a, Float);}));
+		this.ratios = Lambda.array(Lambda.map(ratios, function(a) { return cast(a, Int);}));
 		this.matrix = matrix;
 		this.spreadMethod = spreadMethod;
 		this.interpolationMethod = interpolationMethod;
@@ -81,7 +81,7 @@ class GradientBrush implements IBrush{
 	 * Pay attention that the value in the array should be between 0-1. if the value is greater than 1, 1 will be used, if the value is less than 0, 0 will be used
 	 */
 	public function setAlphas(alphas:Array<Dynamic>):Void{
-		this.alphas = alphas;
+		this.alphas = Lambda.array(Lambda.map(alphas, function(a) { return cast(a, Float);}));
 	}
 	
 	public function getRatios():Array<Dynamic>{
@@ -92,7 +92,7 @@ class GradientBrush implements IBrush{
 	 * Ratios should be between 0-255, if the value is greater than 255, 255 will be used, if the value is less than 0, 0 will be used
 	 */
 	public function setRatios(ratios:Array<Dynamic>):Void{
-		this.ratios = ratios;
+		this.ratios = Lambda.array(Lambda.map(ratios, function(a) { return cast(a, Int);}));
 	}
 	
 	public function getMatrix():Dynamic{
