@@ -280,6 +280,7 @@ xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
 <xs:element ref="org-aswing-plaf-basic-background:ComboBoxBackground" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
 <xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
+<xs:element ref="jive-plaf-flat-background:ListSeparatorBackground" />
 <xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
 <xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
 <xs:element ref="jive-plaf-flat-icon:PlusIcon" />

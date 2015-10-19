@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="lime.graphics.cairo._CairoHintStyle" xmlns="lime.graphics.cairo._CairoHintStyle" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="CairoHintStyle_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="CairoHintStyle_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoHintStyle_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="CairoHintStyle_Impl_" type="CairoHintStyle_Impl_SchemaType"/>
+</xs:schema>

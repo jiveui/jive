@@ -14,19 +14,17 @@
     <source path="../../demos/all-in-one-hml/src" />
     <source path="../../demos/all-in-one-hml/gen" />
 
-    <set name="html5-backend" value="openfl-snapsvg"/>
+    <!--<set name="html5-backend" value="openfl-snapsvg"/>-->
 
     <haxelib name="openfl" />
     <haxelib name="jive"/>
     <haxelib name="bindx"/>
 
-    <template path="../templates" />
+    <!--<template path="../templates" />-->
 
     <assets path="assets" rename=""/>
     <assets path="../../demos/all-in-one-hml/assets" rename=""/>
     <assets path="../../demos/all-in-one-hml/declarations/demo/view" rename="assets/source"/>
     <assets path="../../demos/all-in-one-hml/src/demo/viewmodel" rename="assets/source"/>
 
-    <haxedef name="desktop" if="site_target_desktop"/>
-    <haxedef name="mobile" if="site_target_mobile"/>
 </project>

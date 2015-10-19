@@ -4,7 +4,7 @@
 -lib lime
 -cp src/
 -swf bin/empty.swf
--swf-version 10.1
+-swf-version 11
 --no-output
 -main demo.GenHx
 --macro allowPackage('flash')

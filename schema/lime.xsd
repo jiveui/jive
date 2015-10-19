@@ -1,9 +1,11 @@
 <xs:schema targetNamespace="lime" xmlns="lime" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
 xmlns:openfl="openfl"
+xmlns:lime-app="lime.app"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="openfl" schemaLocation="openfl.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
 <xs:complexType name="AssetCacheSchemaTypeValue">
 <xs:all><xs:element ref="AssetCache"/></xs:all></xs:complexType>
 
@@ -38,9 +40,9 @@ xmlns:openfl="openfl"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="eventCallback" type="xs:string"/>
+<xs:element minOccurs="0" name="onChange" type="lime-app:Event_Void_VoidSchemaTypeValue"/>
 </xs:all>
-<xs:attribute name="eventCallback" type="xs:string"/>
+<xs:attribute name="onChange" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

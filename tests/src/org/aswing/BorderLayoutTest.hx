@@ -14,8 +14,8 @@ class BorderLayoutTest {
         Assert.isNotNull(panel);
         Assert.isNotNull(panel.layout);
 
-        Assert.areEqual(10, cast(panel.layout).hgap);
-        Assert.areEqual(20, cast(panel.layout).vgap);
+        Assert.areEqual(10, cast(panel.layout, BorderLayout).hgap);
+        Assert.areEqual(20, cast(panel.layout, BorderLayout).vgap);
 
         var WINDOW = new JWindow(Lib.current);
 

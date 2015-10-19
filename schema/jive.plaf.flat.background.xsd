@@ -31,6 +31,9 @@ xmlns:empty="empty"
 <xs:complexType name="FlatFrameBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatFrameBackground"/></xs:all></xs:complexType>
 
+<xs:complexType name="ListSeparatorBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ListSeparatorBackground"/></xs:all></xs:complexType>
+
 <xs:complexType name="FlatPanelBackgroundSchemaTypeValue">
 <xs:all><xs:element ref="FlatPanelBackground"/></xs:all></xs:complexType>
 
@@ -118,6 +121,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="ListSeparatorBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="FlatPanelBackgroundSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -146,6 +158,7 @@ xmlns:empty="empty"
 <xs:element name="FlatProgressBarIcon" type="FlatProgressBarIconSchemaType"/>
 <xs:element name="FlatButtonBackground" type="FlatButtonBackgroundSchemaType"/>
 <xs:element name="FlatFrameBackground" type="FlatFrameBackgroundSchemaType"/>
+<xs:element name="ListSeparatorBackground" type="ListSeparatorBackgroundSchemaType"/>
 <xs:element name="FlatPanelBackground" type="FlatPanelBackgroundSchemaType"/>
 <xs:element name="FlatTableHeaderBackground" type="FlatTableHeaderBackgroundSchemaType"/>
 </xs:schema>

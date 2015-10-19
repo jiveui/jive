@@ -1,7 +1,14 @@
 <xs:schema targetNamespace="haxe" xmlns="haxe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
 xmlns:empty="empty"
+xmlns:haxe-ds="haxe.ds"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:complexType name="JsonSchemaTypeValue">
+<xs:all><xs:element ref="Json"/></xs:all></xs:complexType>
+
 <xs:complexType name="EnumValueToolsSchemaTypeValue">
 <xs:all><xs:element ref="EnumValueTools"/></xs:all></xs:complexType>
 
@@ -14,8 +21,27 @@ xmlns:empty="empty"
 <xs:complexType name="EnumToolsSchemaTypeValue">
 <xs:all><xs:element ref="EnumTools"/></xs:all></xs:complexType>
 
+<xs:complexType name="IMapSchemaTypeValue">
+<xs:choice>
+<xs:element ref="haxe-ds:WeakMap" />
+<xs:element ref="org-aswing:UIDefaults" />
+<xs:element ref="haxe-ds:IntMap" />
+<xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="haxe-ds:ObjectMap" />
+</xs:choice>
+</xs:complexType>
+
 <xs:complexType name="LogSchemaTypeValue">
 <xs:all><xs:element ref="Log"/></xs:all></xs:complexType>
+
+<xs:complexType name="JsonSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="EnumValueToolsSchemaType">
 <xs:complexContent>
@@ -55,6 +81,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="IMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="LogSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -65,9 +100,11 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="Json" type="JsonSchemaType"/>
 <xs:element name="EnumValueTools" type="EnumValueToolsSchemaType"/>
 <xs:element name="Timer" type="TimerSchemaType"/>
 <xs:element name="CallStack" type="CallStackSchemaType"/>
 <xs:element name="EnumTools" type="EnumToolsSchemaType"/>
+<xs:element name="IMap" type="IMapSchemaType"/>
 <xs:element name="Log" type="LogSchemaType"/>
 </xs:schema>

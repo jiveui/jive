@@ -12,6 +12,9 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamPlayOptionsSchemaTypeValue">
 <xs:all><xs:element ref="NetStreamPlayOptions"/></xs:all></xs:complexType>
 
+<xs:complexType name="URLLoaderSchemaTypeValue">
+<xs:all><xs:element ref="URLLoader"/></xs:all></xs:complexType>
+
 <xs:complexType name="NetStreamSchemaTypeValue">
 <xs:all><xs:element ref="NetStream"/></xs:all></xs:complexType>
 
@@ -64,6 +67,23 @@ xmlns:flash-media="flash.media"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="URLLoaderSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="dataFormat" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="dataFormat" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="NetStreamSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
@@ -101,9 +121,11 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="peerStreams" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="soundTransform" type="flash-media:SoundTransformSchemaTypeValue"/>
 <xs:element minOccurs="0" name="time" type="xs:double"/>
+<xs:element minOccurs="0" name="useHardwareDecoder" type="xs:boolean"/>
 <xs:element minOccurs="0" name="videoCodec" type="xs:int"/>
 <xs:element minOccurs="0" name="videoReliable" type="xs:boolean"/>
 <xs:element minOccurs="0" name="videoSampleAccess" type="xs:boolean"/>
+<xs:element minOccurs="0" name="videoStreamSettings" type="flash-media:VideoStreamSettingsSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="audioCodec" type="xs:int"/>
 <xs:attribute name="audioReliable" type="xs:boolean"/>
@@ -138,9 +160,11 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="peerStreams" type="xs:string"/>
 <xs:attribute name="soundTransform" type="xs:string"/>
 <xs:attribute name="time" type="xs:double"/>
+<xs:attribute name="useHardwareDecoder" type="xs:boolean"/>
 <xs:attribute name="videoCodec" type="xs:int"/>
 <xs:attribute name="videoReliable" type="xs:boolean"/>
 <xs:attribute name="videoSampleAccess" type="xs:boolean"/>
+<xs:attribute name="videoStreamSettings" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -321,6 +345,7 @@ xmlns:flash-media="flash.media"
 
 <xs:element name="URLRequestHeader" type="URLRequestHeaderSchemaType"/>
 <xs:element name="NetStreamPlayOptions" type="NetStreamPlayOptionsSchemaType"/>
+<xs:element name="URLLoader" type="URLLoaderSchemaType"/>
 <xs:element name="NetStream" type="NetStreamSchemaType"/>
 <xs:element name="URLRequest" type="URLRequestSchemaType"/>
 <xs:element name="NetConnection" type="NetConnectionSchemaType"/>

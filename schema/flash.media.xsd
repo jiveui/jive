@@ -217,6 +217,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="codec" type="xs:string"/>
 <xs:element minOccurs="0" name="enableVAD" type="xs:boolean"/>
 <xs:element minOccurs="0" name="encodeQuality" type="xs:int"/>
+<xs:element minOccurs="0" name="enhancedOptions" type="MicrophoneEnhancedOptionsSchemaTypeValue"/>
 <xs:element minOccurs="0" name="framesPerPacket" type="xs:int"/>
 <xs:element minOccurs="0" name="gain" type="xs:double"/>
 <xs:element minOccurs="0" name="index" type="xs:int"/>
@@ -233,6 +234,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="codec" type="xs:string"/>
 <xs:attribute name="enableVAD" type="xs:boolean"/>
 <xs:attribute name="encodeQuality" type="xs:int"/>
+<xs:attribute name="enhancedOptions" type="xs:string"/>
 <xs:attribute name="framesPerPacket" type="xs:int"/>
 <xs:attribute name="gain" type="xs:double"/>
 <xs:attribute name="index" type="xs:int"/>
@@ -288,6 +290,7 @@ xmlns:flash-events="flash.events"
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="backgroundColor" type="xs:string"/>
 <xs:element minOccurs="0" name="backgroundOpacity" type="xs:string"/>
+<xs:element minOccurs="0" name="bottomInset" type="xs:string"/>
 <xs:element minOccurs="0" name="edgeColor" type="xs:string"/>
 <xs:element minOccurs="0" name="fillColor" type="xs:string"/>
 <xs:element minOccurs="0" name="fillOpacity" type="xs:string"/>
@@ -299,6 +302,7 @@ xmlns:flash-events="flash.events"
 </xs:all>
 <xs:attribute name="backgroundColor" type="xs:string"/>
 <xs:attribute name="backgroundOpacity" type="xs:string"/>
+<xs:attribute name="bottomInset" type="xs:string"/>
 <xs:attribute name="edgeColor" type="xs:string"/>
 <xs:attribute name="fillColor" type="xs:string"/>
 <xs:attribute name="fillOpacity" type="xs:string"/>
@@ -361,6 +365,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
 <xs:element minOccurs="0" name="captionStyle" type="AVCaptionStyleSchemaTypeValue"/>
 <xs:element minOccurs="0" name="captionsEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="clientLivePoint" type="xs:double"/>
 <xs:element minOccurs="0" name="currentFPS" type="xs:double"/>
 <xs:element minOccurs="0" name="decoderType" type="xs:string"/>
 <xs:element minOccurs="0" name="droppedFrames" type="xs:int"/>
@@ -378,6 +383,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="bufferTime" type="xs:double"/>
 <xs:attribute name="captionStyle" type="xs:string"/>
 <xs:attribute name="captionsEnabled" type="xs:boolean"/>
+<xs:attribute name="clientLivePoint" type="xs:double"/>
 <xs:attribute name="currentFPS" type="xs:double"/>
 <xs:attribute name="decoderType" type="xs:string"/>
 <xs:attribute name="droppedFrames" type="xs:int"/>

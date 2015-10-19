@@ -126,6 +126,7 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="text" type="xs:string"/>
 <xs:element minOccurs="0" name="textColor" type="xs:int"/>
 <xs:element minOccurs="0" name="textHeight" type="xs:double"/>
+<xs:element minOccurs="0" name="textInteractionMode" type="xs:string"/>
 <xs:element minOccurs="0" name="textWidth" type="xs:double"/>
 <xs:element minOccurs="0" name="thickness" type="xs:double"/>
 <xs:element minOccurs="0" name="type" type="xs:string"/>
@@ -166,6 +167,7 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="text" type="xs:string"/>
 <xs:attribute name="textColor" type="xs:int"/>
 <xs:attribute name="textHeight" type="xs:double"/>
+<xs:attribute name="textInteractionMode" type="xs:string"/>
 <xs:attribute name="textWidth" type="xs:double"/>
 <xs:attribute name="thickness" type="xs:double"/>
 <xs:attribute name="type" type="xs:string"/>

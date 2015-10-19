@@ -5,11 +5,15 @@ xmlns:flash-events="flash.events"
 <xs:complexType name="TextureBaseSchemaTypeValue">
 <xs:choice>
 <xs:element ref="Texture" />
+<xs:element ref="VideoTexture" />
 <xs:element ref="CubeTexture" />
 <xs:element ref="RectangleTexture" />
 <xs:element ref="TextureBase" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="VideoTextureSchemaTypeValue">
+<xs:all><xs:element ref="VideoTexture"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextureSchemaTypeValue">
 <xs:all><xs:element ref="Texture"/></xs:all></xs:complexType>
@@ -25,6 +29,19 @@ xmlns:flash-events="flash.events"
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VideoTextureSchemaType">
+<xs:complexContent>
+<xs:extension base="TextureBaseSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="videoHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="videoWidth" type="xs:int"/>
+</xs:all>
+<xs:attribute name="videoHeight" type="xs:int"/>
+<xs:attribute name="videoWidth" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -58,6 +75,7 @@ xmlns:flash-events="flash.events"
 
 
 <xs:element name="TextureBase" type="TextureBaseSchemaType"/>
+<xs:element name="VideoTexture" type="VideoTextureSchemaType"/>
 <xs:element name="Texture" type="TextureSchemaType"/>
 <xs:element name="CubeTexture" type="CubeTextureSchemaType"/>
 <xs:element name="RectangleTexture" type="RectangleTextureSchemaType"/>

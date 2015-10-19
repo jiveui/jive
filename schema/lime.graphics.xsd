@@ -1,14 +1,13 @@
 <xs:schema targetNamespace="lime.graphics" xmlns="lime.graphics" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:lime-math="lime.math"
 xmlns:empty="empty"
-xmlns:lime-utils="lime.utils"
+xmlns:lime-app="lime.app"
+xmlns:lime-ui="lime.ui"
 >
 <xs:import namespace="lime.math" schemaLocation="lime.math.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="lime.utils" schemaLocation="lime.utils.xsd" />
-<xs:complexType name="FontSchemaTypeValue">
-<xs:all><xs:element ref="Font"/></xs:all></xs:complexType>
-
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
+<xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
 <xs:complexType name="CanvasRenderContextSchemaTypeValue">
 <xs:all><xs:element ref="CanvasRenderContext"/></xs:all></xs:complexType>
 
@@ -18,32 +17,17 @@ xmlns:lime-utils="lime.utils"
 <xs:complexType name="ImageBufferSchemaTypeValue">
 <xs:all><xs:element ref="ImageBuffer"/></xs:all></xs:complexType>
 
-<xs:complexType name="GlyphRectSchemaTypeValue">
-<xs:all><xs:element ref="GlyphRect"/></xs:all></xs:complexType>
-
 <xs:complexType name="RendererSchemaTypeValue">
 <xs:all><xs:element ref="Renderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="ConsoleRenderContextSchemaTypeValue">
+<xs:all><xs:element ref="ConsoleRenderContext"/></xs:all></xs:complexType>
 
 <xs:complexType name="DOMRenderContextSchemaTypeValue">
 <xs:all><xs:element ref="DOMRenderContext"/></xs:all></xs:complexType>
 
 <xs:complexType name="ImageSchemaTypeValue">
 <xs:all><xs:element ref="Image"/></xs:all></xs:complexType>
-
-<xs:complexType name="FontSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="fontName" type="xs:string"/>
-<xs:element minOccurs="0" name="image" type="ImageSchemaTypeValue"/>
-<xs:element minOccurs="0" name="glyphs" type="xs:string"/>
-</xs:all>
-<xs:attribute name="fontName" type="xs:string"/>
-<xs:attribute name="image" type="xs:string"/>
-<xs:attribute name="glyphs" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
 
 <xs:complexType name="CanvasRenderContextSchemaType">
 <xs:complexContent>
@@ -225,6 +209,8 @@ xmlns:lime-utils="lime.utils"
 <xs:element minOccurs="0" name="ALPHA" type="xs:int"/>
 <xs:element minOccurs="0" name="RGB" type="xs:int"/>
 <xs:element minOccurs="0" name="RGBA" type="xs:int"/>
+<xs:element minOccurs="0" name="BGR_EXT" type="xs:int"/>
+<xs:element minOccurs="0" name="BGRA_EXT" type="xs:int"/>
 <xs:element minOccurs="0" name="LUMINANCE" type="xs:int"/>
 <xs:element minOccurs="0" name="LUMINANCE_ALPHA" type="xs:int"/>
 <xs:element minOccurs="0" name="UNSIGNED_SHORT_4_4_4_4" type="xs:int"/>
@@ -660,6 +646,8 @@ xmlns:lime-utils="lime.utils"
 <xs:attribute name="ALPHA" type="xs:int"/>
 <xs:attribute name="RGB" type="xs:int"/>
 <xs:attribute name="RGBA" type="xs:int"/>
+<xs:attribute name="BGR_EXT" type="xs:int"/>
+<xs:attribute name="BGRA_EXT" type="xs:int"/>
 <xs:attribute name="LUMINANCE" type="xs:int"/>
 <xs:attribute name="LUMINANCE_ALPHA" type="xs:int"/>
 <xs:attribute name="UNSIGNED_SHORT_4_4_4_4" type="xs:int"/>
@@ -976,41 +964,24 @@ xmlns:lime-utils="lime.utils"
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="bitsPerPixel" type="xs:int"/>
-<xs:element minOccurs="0" name="data" type="lime-utils:UInt8ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="format" type="xs:string"/>
 <xs:element minOccurs="0" name="height" type="xs:int"/>
 <xs:element minOccurs="0" name="premultiplied" type="xs:boolean"/>
 <xs:element minOccurs="0" name="src" type="xs:string"/>
+<xs:element minOccurs="0" name="stride" type="xs:int"/>
 <xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
 <xs:element minOccurs="0" name="width" type="xs:int"/>
 </xs:all>
 <xs:attribute name="bitsPerPixel" type="xs:int"/>
 <xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="format" type="xs:string"/>
 <xs:attribute name="height" type="xs:int"/>
 <xs:attribute name="premultiplied" type="xs:boolean"/>
 <xs:attribute name="src" type="xs:string"/>
+<xs:attribute name="stride" type="xs:int"/>
 <xs:attribute name="transparent" type="xs:boolean"/>
 <xs:attribute name="width" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="GlyphRectSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="x" type="xs:double"/>
-<xs:element minOccurs="0" name="y" type="xs:double"/>
-<xs:element minOccurs="0" name="width" type="xs:double"/>
-<xs:element minOccurs="0" name="height" type="xs:double"/>
-<xs:element minOccurs="0" name="xOffset" type="xs:int"/>
-<xs:element minOccurs="0" name="yOffset" type="xs:int"/>
-</xs:all>
-<xs:attribute name="x" type="xs:double"/>
-<xs:attribute name="y" type="xs:double"/>
-<xs:attribute name="width" type="xs:double"/>
-<xs:attribute name="height" type="xs:double"/>
-<xs:attribute name="xOffset" type="xs:int"/>
-<xs:attribute name="yOffset" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1020,10 +991,31 @@ xmlns:lime-utils="lime.utils"
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="context" type="xs:string"/>
-<xs:element minOccurs="0" name="handle" type="xs:string"/>
+<xs:element minOccurs="0" name="onContextLost" type="lime-app:Event_Void_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onContextRestored" type="lime-app:Event_lime_graphics_RenderContext_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onRender" type="lime-app:Event_Void_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="window" type="lime-ui:WindowSchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="context" type="xs:string"/>
-<xs:attribute name="handle" type="xs:string"/>
+<xs:attribute name="onContextLost" type="xs:string"/>
+<xs:attribute name="onContextRestored" type="xs:string"/>
+<xs:attribute name="onRender" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="window" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ConsoleRenderContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+</xs:all>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1252,8 +1244,9 @@ xmlns:lime-utils="lime.utils"
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="buffer" type="ImageBufferSchemaTypeValue"/>
-<xs:element minOccurs="0" name="data" type="lime-utils:UInt8ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
 <xs:element minOccurs="0" name="dirty" type="xs:boolean"/>
+<xs:element minOccurs="0" name="format" type="xs:string"/>
 <xs:element minOccurs="0" name="height" type="xs:int"/>
 <xs:element minOccurs="0" name="offsetX" type="xs:int"/>
 <xs:element minOccurs="0" name="offsetY" type="xs:int"/>
@@ -1264,10 +1257,13 @@ xmlns:lime-utils="lime.utils"
 <xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
 <xs:element minOccurs="0" name="type" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
 </xs:all>
 <xs:attribute name="buffer" type="xs:string"/>
 <xs:attribute name="data" type="xs:string"/>
 <xs:attribute name="dirty" type="xs:boolean"/>
+<xs:attribute name="format" type="xs:string"/>
 <xs:attribute name="height" type="xs:int"/>
 <xs:attribute name="offsetX" type="xs:int"/>
 <xs:attribute name="offsetY" type="xs:int"/>
@@ -1278,17 +1274,18 @@ xmlns:lime-utils="lime.utils"
 <xs:attribute name="transparent" type="xs:boolean"/>
 <xs:attribute name="type" type="xs:string"/>
 <xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
 
 
-<xs:element name="Font" type="FontSchemaType"/>
 <xs:element name="CanvasRenderContext" type="CanvasRenderContextSchemaType"/>
 <xs:element name="GLRenderContext" type="GLRenderContextSchemaType"/>
 <xs:element name="ImageBuffer" type="ImageBufferSchemaType"/>
-<xs:element name="GlyphRect" type="GlyphRectSchemaType"/>
 <xs:element name="Renderer" type="RendererSchemaType"/>
+<xs:element name="ConsoleRenderContext" type="ConsoleRenderContextSchemaType"/>
 <xs:element name="DOMRenderContext" type="DOMRenderContextSchemaType"/>
 <xs:element name="Image" type="ImageSchemaType"/>
 </xs:schema>

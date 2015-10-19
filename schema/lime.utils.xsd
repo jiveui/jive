@@ -2,117 +2,41 @@
 xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:complexType name="Int32ArraySchemaTypeValue">
-<xs:all><xs:element ref="Int32Array"/></xs:all></xs:complexType>
-
-<xs:complexType name="Float32ArraySchemaTypeValue">
-<xs:all><xs:element ref="Float32Array"/></xs:all></xs:complexType>
-
 <xs:complexType name="ArrayBufferViewSchemaTypeValue">
-<xs:choice>
-<xs:element ref="Float32Array" />
-<xs:element ref="Int32Array" />
-<xs:element ref="UInt8Array" />
-<xs:element ref="ArrayBufferView" />
-</xs:choice>
-</xs:complexType>
+<xs:all><xs:element ref="ArrayBufferView"/></xs:all></xs:complexType>
 
-<xs:complexType name="UInt8ArraySchemaTypeValue">
-<xs:all><xs:element ref="UInt8Array"/></xs:all></xs:complexType>
+<xs:complexType name="ArrayBufferIOSchemaTypeValue">
+<xs:all><xs:element ref="ArrayBufferIO"/></xs:all></xs:complexType>
 
 <xs:complexType name="IMemoryRangeSchemaTypeValue">
-<xs:choice>
-<xs:element ref="Float32Array" />
-<xs:element ref="Int32Array" />
-<xs:element ref="ArrayBufferView" />
-<xs:element ref="UInt8Array" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="Int32ArraySchemaType">
-<xs:complexContent>
-<xs:extension base="ArrayBufferViewSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-<xs:element minOccurs="0" name="__get" type="xs:string"/>
-<xs:element minOccurs="0" name="__set" type="xs:string"/>
-</xs:all>
-<xs:attribute name="length" type="xs:int"/>
-<xs:attribute name="__get" type="xs:string"/>
-<xs:attribute name="__set" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="Float32ArraySchemaType">
-<xs:complexContent>
-<xs:extension base="ArrayBufferViewSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-<xs:element minOccurs="0" name="__get" type="xs:string"/>
-<xs:element minOccurs="0" name="__set" type="xs:string"/>
-</xs:all>
-<xs:attribute name="length" type="xs:int"/>
-<xs:attribute name="__get" type="xs:string"/>
-<xs:attribute name="__set" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
+<xs:all><xs:element ref="IMemoryRange"/></xs:all></xs:complexType>
 
 <xs:complexType name="ArrayBufferViewSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
 <xs:element minOccurs="0" name="buffer" type="xs:string"/>
 <xs:element minOccurs="0" name="byteOffset" type="xs:int"/>
 <xs:element minOccurs="0" name="byteLength" type="xs:int"/>
-<xs:element minOccurs="0" name="getFloat32" type="xs:string"/>
-<xs:element minOccurs="0" name="getInt8" type="xs:string"/>
-<xs:element minOccurs="0" name="getInt16" type="xs:string"/>
-<xs:element minOccurs="0" name="getInt32" type="xs:string"/>
-<xs:element minOccurs="0" name="getUInt8" type="xs:string"/>
-<xs:element minOccurs="0" name="getUInt16" type="xs:string"/>
-<xs:element minOccurs="0" name="getUInt32" type="xs:string"/>
-<xs:element minOccurs="0" name="setFloat32" type="xs:string"/>
-<xs:element minOccurs="0" name="setInt8" type="xs:string"/>
-<xs:element minOccurs="0" name="setInt16" type="xs:string"/>
-<xs:element minOccurs="0" name="setInt32" type="xs:string"/>
-<xs:element minOccurs="0" name="setUInt8" type="xs:string"/>
-<xs:element minOccurs="0" name="setUInt16" type="xs:string"/>
-<xs:element minOccurs="0" name="setUInt32" type="xs:string"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="set" type="xs:string"/>
 </xs:all>
+<xs:attribute name="type" type="xs:string"/>
 <xs:attribute name="buffer" type="xs:string"/>
 <xs:attribute name="byteOffset" type="xs:int"/>
 <xs:attribute name="byteLength" type="xs:int"/>
-<xs:attribute name="getFloat32" type="xs:string"/>
-<xs:attribute name="getInt8" type="xs:string"/>
-<xs:attribute name="getInt16" type="xs:string"/>
-<xs:attribute name="getInt32" type="xs:string"/>
-<xs:attribute name="getUInt8" type="xs:string"/>
-<xs:attribute name="getUInt16" type="xs:string"/>
-<xs:attribute name="getUInt32" type="xs:string"/>
-<xs:attribute name="setFloat32" type="xs:string"/>
-<xs:attribute name="setInt8" type="xs:string"/>
-<xs:attribute name="setInt16" type="xs:string"/>
-<xs:attribute name="setInt32" type="xs:string"/>
-<xs:attribute name="setUInt8" type="xs:string"/>
-<xs:attribute name="setUInt16" type="xs:string"/>
-<xs:attribute name="setUInt32" type="xs:string"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="set" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="UInt8ArraySchemaType">
+<xs:complexType name="ArrayBufferIOSchemaType">
 <xs:complexContent>
-<xs:extension base="ArrayBufferViewSchemaType">
+<xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="length" type="xs:int"/>
-<xs:element minOccurs="0" name="__get" type="xs:string"/>
-<xs:element minOccurs="0" name="__set" type="xs:string"/>
 </xs:all>
-<xs:attribute name="length" type="xs:int"/>
-<xs:attribute name="__get" type="xs:string"/>
-<xs:attribute name="__set" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -127,9 +51,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
-<xs:element name="Int32Array" type="Int32ArraySchemaType"/>
-<xs:element name="Float32Array" type="Float32ArraySchemaType"/>
 <xs:element name="ArrayBufferView" type="ArrayBufferViewSchemaType"/>
-<xs:element name="UInt8Array" type="UInt8ArraySchemaType"/>
+<xs:element name="ArrayBufferIO" type="ArrayBufferIOSchemaType"/>
 <xs:element name="IMemoryRange" type="IMemoryRangeSchemaType"/>
 </xs:schema>

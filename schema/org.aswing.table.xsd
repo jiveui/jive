@@ -299,6 +299,8 @@ xmlns:flash-events="flash.events"
 <xs:element minOccurs="0" name="maxWidth" type="xs:int"/>
 <xs:element minOccurs="0" name="headerValue" type="xs:string"/>
 <xs:element minOccurs="0" name="isResizable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cellFactory" type="TableCellFactorySchemaTypeValue"/>
+<xs:element minOccurs="0" name="headerCellFactory" type="TableCellFactorySchemaTypeValue"/>
 </xs:all>
 <xs:attribute name="modelIndex" type="xs:int"/>
 <xs:attribute name="width" type="xs:int"/>
@@ -307,6 +309,8 @@ xmlns:flash-events="flash.events"
 <xs:attribute name="maxWidth" type="xs:int"/>
 <xs:attribute name="headerValue" type="xs:string"/>
 <xs:attribute name="isResizable" type="xs:boolean"/>
+<xs:attribute name="cellFactory" type="xs:string"/>
+<xs:attribute name="headerCellFactory" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -351,7 +355,9 @@ xmlns:flash-events="flash.events"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="cellClass" type="xs:string"/>
 </xs:all>
+<xs:attribute name="cellClass" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

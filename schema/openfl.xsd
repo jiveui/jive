@@ -13,6 +13,9 @@ xmlns:lime="lime"
 <xs:complexType name="AssetLibrarySchemaTypeValue">
 <xs:all><xs:element ref="AssetLibrary"/></xs:all></xs:complexType>
 
+<xs:complexType name="LibSchemaTypeValue">
+<xs:all><xs:element ref="Lib"/></xs:all></xs:complexType>
+
 <xs:complexType name="AssetsSchemaTypeValue">
 <xs:all><xs:element ref="Assets"/></xs:all></xs:complexType>
 
@@ -33,6 +36,15 @@ xmlns:lime="lime"
 <xs:complexType name="AssetLibrarySchemaType">
 <xs:complexContent>
 <xs:extension base="lime:AssetLibrarySchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LibSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -62,6 +74,7 @@ xmlns:lime="lime"
 
 <xs:element name="IAssetCache" type="IAssetCacheSchemaType"/>
 <xs:element name="AssetLibrary" type="AssetLibrarySchemaType"/>
+<xs:element name="Lib" type="LibSchemaType"/>
 <xs:element name="Assets" type="AssetsSchemaType"/>
 <xs:element name="AssetCache" type="AssetCacheSchemaType"/>
 </xs:schema>

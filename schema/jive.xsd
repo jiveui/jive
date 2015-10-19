@@ -5,10 +5,21 @@ xmlns:empty="empty"
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="DialogSchemaTypeValue">
-<xs:all><xs:element ref="Dialog"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="MessageBox" />
+<xs:element ref="WaitingPopup" />
+<xs:element ref="Dialog" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MessageBoxSchemaTypeValue">
+<xs:all><xs:element ref="MessageBox"/></xs:all></xs:complexType>
 
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
+
+<xs:complexType name="TemplateListCellSchemaTypeValue">
+<xs:all><xs:element ref="TemplateListCell"/></xs:all></xs:complexType>
 
 <xs:complexType name="NavigationSchemaTypeValue">
 <xs:all><xs:element ref="Navigation"/></xs:all></xs:complexType>
@@ -26,6 +37,12 @@ xmlns:empty="empty"
 <xs:complexType name="SpotSchemaTypeValue">
 <xs:all><xs:element ref="Spot"/></xs:all></xs:complexType>
 
+<xs:complexType name="LookAndFeelHelperSchemaTypeValue">
+<xs:all><xs:element ref="LookAndFeelHelper"/></xs:all></xs:complexType>
+
+<xs:complexType name="TemplateListCellFactorySchemaTypeValue">
+<xs:all><xs:element ref="TemplateListCellFactory"/></xs:all></xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaTypeValue">
 <xs:choice>
 <xs:element ref="OpenLinkCommand" />
@@ -33,9 +50,21 @@ xmlns:empty="empty"
 </xs:choice>
 </xs:complexType>
 
+<xs:complexType name="WaitingPopupSchemaTypeValue">
+<xs:all><xs:element ref="WaitingPopup"/></xs:all></xs:complexType>
+
 <xs:complexType name="DialogSchemaType">
 <xs:complexContent>
 <xs:extension base="org-aswing:JFrameSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MessageBoxSchemaType">
+<xs:complexContent>
+<xs:extension base="DialogSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -49,6 +78,15 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="dataContext" type="xs:string"/>
 </xs:all>
 <xs:attribute name="dataContext" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TemplateListCellSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:AbstractListCellSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -95,6 +133,32 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="LookAndFeelHelperSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TemplateListCellFactorySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="templateClass" type="xs:string"/>
+<xs:element minOccurs="0" name="shareCelles" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cellHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="sameHeight" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="templateClass" type="xs:string"/>
+<xs:attribute name="shareCelles" type="xs:boolean"/>
+<xs:attribute name="cellHeight" type="xs:int"/>
+<xs:attribute name="sameHeight" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -104,12 +168,26 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="WaitingPopupSchemaType">
+<xs:complexContent>
+<xs:extension base="DialogSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="Dialog" type="DialogSchemaType"/>
+<xs:element name="MessageBox" type="MessageBoxSchemaType"/>
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
+<xs:element name="TemplateListCell" type="TemplateListCellSchemaType"/>
 <xs:element name="Navigation" type="NavigationSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
 <xs:element name="OpenLinkCommand" type="OpenLinkCommandSchemaType"/>
 <xs:element name="Spot" type="SpotSchemaType"/>
+<xs:element name="LookAndFeelHelper" type="LookAndFeelHelperSchemaType"/>
+<xs:element name="TemplateListCellFactory" type="TemplateListCellFactorySchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
+<xs:element name="WaitingPopup" type="WaitingPopupSchemaType"/>
 </xs:schema>

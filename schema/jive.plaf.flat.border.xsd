@@ -1,8 +1,10 @@
 <xs:schema targetNamespace="jive.plaf.flat.border" xmlns="jive.plaf.flat.border" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
 xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
 xmlns:empty="empty"
 xmlns:org-aswing-border="org.aswing.border"
 >
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
@@ -28,7 +30,19 @@ xmlns:org-aswing-border="org.aswing.border"
 <xs:complexContent>
 <xs:extension base="org-aswing-border:DecorateBorderSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="color" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="topLeftRadius" type="xs:double"/>
+<xs:element minOccurs="0" name="topRightRadius" type="xs:double"/>
+<xs:element minOccurs="0" name="bottomLeftRadius" type="xs:double"/>
+<xs:element minOccurs="0" name="bottomRightRadius" type="xs:double"/>
 </xs:all>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="topLeftRadius" type="xs:double"/>
+<xs:attribute name="topRightRadius" type="xs:double"/>
+<xs:attribute name="bottomLeftRadius" type="xs:double"/>
+<xs:attribute name="bottomRightRadius" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

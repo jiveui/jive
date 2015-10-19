@@ -1,6 +1,6 @@
 -cp ../src
 -swf doc.swf
--swf-version 10.1
+-swf-version 11
 --no-output
 -xml ../docs/jive.xml
 -lib bindx

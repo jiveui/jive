@@ -21,8 +21,10 @@ xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
 xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
 xmlns:flash-display3D="flash.display3D"
 xmlns:org-aswing-ext="org.aswing.ext"
+xmlns:jive-events="jive.events"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-media="flash.media"
+xmlns:lime-app="lime.app"
 xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 >
 <xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
@@ -47,8 +49,10 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
 <xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
 <xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
+<xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
 <xs:complexType name="ErrorEventSchemaTypeValue">
 <xs:choice>
@@ -78,13 +82,16 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="jive:Dialog" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="flash-display3D-textures:VideoTexture" />
 <xs:element ref="org-aswing:JPanel" />
 <xs:element ref="org-aswing-table:JTableHeader" />
 <xs:element ref="flash-display:Shape" />
 <xs:element ref="org-aswing:JClosableTabbedPane" />
 <xs:element ref="org-aswing-ext:FormRow" />
 <xs:element ref="org-aswing:JTextComponent" />
+<xs:element ref="org-aswing:LabelComboBoxEditor" />
 <xs:element ref="flash-display:Stage3D" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:DefaultComboBoxEditor" />
 <xs:element ref="flash-media:Microphone" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
@@ -134,6 +141,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="flash-display3D:Context3D" />
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
@@ -171,6 +179,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:DefaultListSelectionModel" />
 <xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="org-aswing-colorchooser:JColorMixer" />
+<xs:element ref="flash-net:URLLoader" />
 <xs:element ref="org-aswing:JButton" />
 <xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
 <xs:element ref="org-aswing-ext:MultilineLabel" />
@@ -178,6 +187,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:JOptionPane" />
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:MenuSelectionManager" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -209,6 +219,9 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 
 <xs:complexType name="TouchEventSchemaTypeValue">
 <xs:all><xs:element ref="TouchEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="ProgressEventSchemaTypeValue">
+<xs:all><xs:element ref="ProgressEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextEventSchemaTypeValue">
 <xs:choice>
@@ -242,13 +255,16 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="jive:Dialog" />
 <xs:element ref="jive-formatting:RegExFormattedTextArea" />
 <xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="flash-display3D-textures:VideoTexture" />
 <xs:element ref="org-aswing:JPanel" />
 <xs:element ref="org-aswing-table:JTableHeader" />
 <xs:element ref="flash-display:Shape" />
 <xs:element ref="org-aswing:JClosableTabbedPane" />
 <xs:element ref="org-aswing-ext:FormRow" />
 <xs:element ref="org-aswing:JTextComponent" />
+<xs:element ref="org-aswing:LabelComboBoxEditor" />
 <xs:element ref="flash-display:Stage3D" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:DefaultComboBoxEditor" />
 <xs:element ref="flash-media:Microphone" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
@@ -298,6 +314,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="flash-display3D:Context3D" />
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
@@ -334,6 +351,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:DefaultListSelectionModel" />
 <xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="org-aswing-colorchooser:JColorMixer" />
+<xs:element ref="flash-net:URLLoader" />
 <xs:element ref="org-aswing:JButton" />
 <xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
 <xs:element ref="org-aswing-ext:MultilineLabel" />
@@ -341,6 +359,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing:JOptionPane" />
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:MenuSelectionManager" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -378,15 +397,18 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element ref="org-aswing-event:ContainerEvent" />
 <xs:element ref="org-aswing-event:FrameEvent" />
 <xs:element ref="org-aswing-event:AWEvent" />
+<xs:element ref="jive-events:GestureEvent" />
 <xs:element ref="org-aswing-event:ToolTipEvent" />
 <xs:element ref="org-aswing-event:MovedEvent" />
 <xs:element ref="org-aswing-event:ScrollPaneEvent" />
 <xs:element ref="ErrorEvent" />
 <xs:element ref="org-aswing-event:PopupEvent" />
 <xs:element ref="org-aswing-event:TabCloseEvent" />
+<xs:element ref="jive-events:TransformGestureEvent" />
 <xs:element ref="IOErrorEvent" />
 <xs:element ref="org-aswing-event:DragAndDropEvent" />
 <xs:element ref="org-aswing-event:AttachEvent" />
+<xs:element ref="ProgressEvent" />
 <xs:element ref="org-aswing-event:SelectionEvent" />
 <xs:element ref="KeyboardEvent" />
 <xs:element ref="org-aswing-event:TableCellEditEvent" />
@@ -498,6 +520,19 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="ProgressEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:double"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:double"/>
+<xs:attribute name="bytesTotal" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="TextEventSchemaType">
 <xs:complexContent>
 <xs:extension base="EventSchemaType">
@@ -602,6 +637,7 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:element name="IEventDispatcher" type="IEventDispatcherSchemaType"/>
 <xs:element name="KeyboardEvent" type="KeyboardEventSchemaType"/>
 <xs:element name="TouchEvent" type="TouchEventSchemaType"/>
+<xs:element name="ProgressEvent" type="ProgressEventSchemaType"/>
 <xs:element name="TextEvent" type="TextEventSchemaType"/>
 <xs:element name="UncaughtErrorEvents" type="UncaughtErrorEventsSchemaType"/>
 <xs:element name="FocusEvent" type="FocusEventSchemaType"/>

@@ -33,7 +33,7 @@ class Main extends Sprite {
         Navigation.instance.addRoute("/demo", function(after) { mainVM.openDemo.action(); });
         Navigation.instance.addRoute("/download", function(after) { mainVM.openDownload.action(); });
 
-        #if (!mobile)
+        #if (!site_target_mobile)
         Navigation.instance.navigate([mainView.menuBar.getMenu(1)]);
         #end
 

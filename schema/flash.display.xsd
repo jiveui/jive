@@ -5,8 +5,8 @@ xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
 xmlns:flash-utils="flash.utils"
 xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
-xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:flash="flash"
+xmlns:jive-plaf-flat="jive.plaf.flat"
 xmlns:empty="empty"
 xmlns:jive="jive"
 xmlns:org-aswing-table="org.aswing.table"
@@ -21,6 +21,7 @@ xmlns:org-aswing-ext="org.aswing.ext"
 xmlns:flash-events="flash.events"
 xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-system="flash.system"
+xmlns:lime-app="lime.app"
 xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 xmlns:flash-accessibility="flash.accessibility"
 xmlns:flash-media="flash.media"
@@ -31,8 +32,8 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
 <xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
-<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
@@ -47,6 +48,7 @@ xmlns:flash-media="flash.media"
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
 <xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.system" schemaLocation="flash.system.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
 <xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
 <xs:import namespace="flash.accessibility" schemaLocation="flash.accessibility.xsd" />
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
@@ -87,6 +89,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing:JTable" />
@@ -124,6 +127,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JTextComponent" />
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
@@ -146,6 +150,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -193,6 +198,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:JTable" />
 <xs:element ref="org-aswing:JToggleButton" />
@@ -223,6 +229,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JTextComponent" />
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
@@ -243,6 +250,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -284,6 +292,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing:JTable" />
@@ -321,6 +330,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JTextComponent" />
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
@@ -345,6 +355,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -403,6 +414,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:JTable" />
 <xs:element ref="org-aswing:JToggleButton" />
@@ -435,6 +447,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JTextComponent" />
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
@@ -456,6 +469,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -507,6 +521,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:DateLabel" />
 <xs:element ref="org-aswing:JLabel" />
 <xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="lime-app:Preloader" />
 <xs:element ref="org-aswing:JCheckBoxMenuItem" />
 <xs:element ref="org-aswing:AWTextField" />
 <xs:element ref="org-aswing:JTable" />
@@ -541,6 +556,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing:JTextComponent" />
 <xs:element ref="org-aswing:JMenuBar" />
 <xs:element ref="org-aswing:JTabbedPane" />
+<xs:element ref="jive:MessageBox" />
 <xs:element ref="org-aswing:SoftBox" />
 <xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
 <xs:element ref="org-aswing:JLabelButton" />
@@ -562,6 +578,7 @@ xmlns:flash-media="flash.media"
 <xs:element ref="org-aswing-ext:GridCellHolder" />
 <xs:element ref="org-aswing:JSharedToolTip" />
 <xs:element ref="org-aswing:JSplitPane" />
+<xs:element ref="jive:WaitingPopup" />
 <xs:element ref="org-aswing:JTextField" />
 <xs:element ref="org-aswing:AWSprite" />
 <xs:element ref="flash-_Boot:RealBoot" />
@@ -630,6 +647,7 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="currentScene" type="SceneSchemaTypeValue"/>
 <xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
 <xs:element minOccurs="0" name="framesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="isPlaying" type="xs:boolean"/>
 <xs:element minOccurs="0" name="scenes" type="empty:ArraySchemaTypeValue"/>
 <xs:element minOccurs="0" name="totalFrames" type="xs:int"/>
 <xs:element minOccurs="0" name="trackAsMenu" type="xs:boolean"/>
@@ -641,6 +659,7 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="currentScene" type="xs:string"/>
 <xs:attribute name="enabled" type="xs:boolean"/>
 <xs:attribute name="framesLoaded" type="xs:int"/>
+<xs:attribute name="isPlaying" type="xs:boolean"/>
 <xs:attribute name="scenes" type="xs:string"/>
 <xs:attribute name="totalFrames" type="xs:int"/>
 <xs:attribute name="trackAsMenu" type="xs:boolean"/>
@@ -808,8 +827,11 @@ xmlns:flash-media="flash.media"
 <xs:extension base="DisplayObjectContainerSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" name="align" type="xs:string"/>
+<xs:element minOccurs="0" name="allowsFullScreen" type="xs:boolean"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
 <xs:element minOccurs="0" name="colorCorrection" type="xs:string"/>
 <xs:element minOccurs="0" name="colorCorrectionSupport" type="xs:string"/>
+<xs:element minOccurs="0" name="displayContextInfo" type="xs:string"/>
 <xs:element minOccurs="0" name="displayState" type="xs:string"/>
 <xs:element minOccurs="0" name="focus" type="InteractiveObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="frameRate" type="xs:double"/>
@@ -819,14 +841,20 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="quality" type="xs:string"/>
 <xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
 <xs:element minOccurs="0" name="showDefaultContextMenu" type="xs:boolean"/>
+<xs:element minOccurs="0" name="softKeyboardRect" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stage3Ds" type="flash:VectorSchemaTypeValue"/>
 <xs:element minOccurs="0" name="stageFocusRect" type="xs:boolean"/>
 <xs:element minOccurs="0" name="stageHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="stageVideos" type="flash:VectorSchemaTypeValue"/>
 <xs:element minOccurs="0" name="stageWidth" type="xs:int"/>
 <xs:element minOccurs="0" name="wmodeGPU" type="xs:boolean"/>
 </xs:all>
 <xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="allowsFullScreen" type="xs:boolean"/>
+<xs:attribute name="color" type="xs:int"/>
 <xs:attribute name="colorCorrection" type="xs:string"/>
 <xs:attribute name="colorCorrectionSupport" type="xs:string"/>
+<xs:attribute name="displayContextInfo" type="xs:string"/>
 <xs:attribute name="displayState" type="xs:string"/>
 <xs:attribute name="focus" type="xs:string"/>
 <xs:attribute name="frameRate" type="xs:double"/>
@@ -836,8 +864,11 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="quality" type="xs:string"/>
 <xs:attribute name="scaleMode" type="xs:string"/>
 <xs:attribute name="showDefaultContextMenu" type="xs:boolean"/>
+<xs:attribute name="softKeyboardRect" type="xs:string"/>
+<xs:attribute name="stage3Ds" type="xs:string"/>
 <xs:attribute name="stageFocusRect" type="xs:boolean"/>
 <xs:attribute name="stageHeight" type="xs:int"/>
+<xs:attribute name="stageVideos" type="xs:string"/>
 <xs:attribute name="stageWidth" type="xs:int"/>
 <xs:attribute name="wmodeGPU" type="xs:boolean"/>
 </xs:extension>
@@ -992,6 +1023,8 @@ xmlns:flash-media="flash.media"
 <xs:element minOccurs="0" name="doubleClickEnabled" type="xs:boolean"/>
 <xs:element minOccurs="0" name="focusRect" type="xs:string"/>
 <xs:element minOccurs="0" name="mouseEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="needsSoftKeyboard" type="xs:boolean"/>
+<xs:element minOccurs="0" name="softKeyboardInputAreaOfInterest" type="flash-geom:RectangleSchemaTypeValue"/>
 <xs:element minOccurs="0" name="tabEnabled" type="xs:boolean"/>
 <xs:element minOccurs="0" name="tabIndex" type="xs:int"/>
 </xs:all>
@@ -1000,6 +1033,8 @@ xmlns:flash-media="flash.media"
 <xs:attribute name="doubleClickEnabled" type="xs:boolean"/>
 <xs:attribute name="focusRect" type="xs:string"/>
 <xs:attribute name="mouseEnabled" type="xs:boolean"/>
+<xs:attribute name="needsSoftKeyboard" type="xs:boolean"/>
+<xs:attribute name="softKeyboardInputAreaOfInterest" type="xs:string"/>
 <xs:attribute name="tabEnabled" type="xs:boolean"/>
 <xs:attribute name="tabIndex" type="xs:int"/>
 </xs:extension>

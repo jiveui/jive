@@ -5,6 +5,9 @@ xmlns:empty="empty"
 <xs:complexType name="EofSchemaTypeValue">
 <xs:all><xs:element ref="Eof"/></xs:all></xs:complexType>
 
+<xs:complexType name="BytesSchemaTypeValue">
+<xs:all><xs:element ref="Bytes"/></xs:all></xs:complexType>
+
 <xs:complexType name="EofSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -14,6 +17,18 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="BytesSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="Eof" type="EofSchemaType"/>
+<xs:element name="Bytes" type="BytesSchemaType"/>
 </xs:schema>

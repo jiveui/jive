@@ -5,7 +5,7 @@
 -cp src/
 -cp ../../demos/all-in-one-hml/gen/
 -swf bin/empty.swf
--swf-version 10.1
+-swf-version 11
 --no-output
 -main GenHx
 --macro allowPackage('flash')

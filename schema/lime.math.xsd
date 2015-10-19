@@ -46,6 +46,7 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="to3DString" type="xs:string"/>
 <xs:element minOccurs="0" name="toMozString" type="xs:string"/>
 <xs:element minOccurs="0" name="toString" type="xs:string"/>
+<xs:element minOccurs="0" name="translate" type="xs:string"/>
 <xs:element minOccurs="0" name="__transformX" type="xs:string"/>
 <xs:element minOccurs="0" name="__transformY" type="xs:string"/>
 <xs:element minOccurs="0" name="__translateTransformed" type="xs:string"/>
@@ -61,6 +62,7 @@ xmlns:empty="empty"
 <xs:attribute name="to3DString" type="xs:string"/>
 <xs:attribute name="toMozString" type="xs:string"/>
 <xs:attribute name="toString" type="xs:string"/>
+<xs:attribute name="translate" type="xs:string"/>
 <xs:attribute name="__transformX" type="xs:string"/>
 <xs:attribute name="__transformY" type="xs:string"/>
 <xs:attribute name="__translateTransformed" type="xs:string"/>
@@ -125,8 +127,6 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="setTo" type="xs:string"/>
 <xs:element minOccurs="0" name="subtract" type="xs:string"/>
 <xs:element minOccurs="0" name="toString" type="xs:string"/>
-<xs:element minOccurs="0" name="get_length" type="xs:string"/>
-<xs:element minOccurs="0" name="get_lengthSquared" type="xs:string"/>
 </xs:all>
 <xs:attribute name="length" type="xs:double"/>
 <xs:attribute name="lengthSquared" type="xs:double"/>
@@ -150,8 +150,6 @@ xmlns:empty="empty"
 <xs:attribute name="setTo" type="xs:string"/>
 <xs:attribute name="subtract" type="xs:string"/>
 <xs:attribute name="toString" type="xs:string"/>
-<xs:attribute name="get_length" type="xs:string"/>
-<xs:attribute name="get_lengthSquared" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>

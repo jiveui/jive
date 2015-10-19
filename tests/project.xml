@@ -11,7 +11,7 @@
     <source path="src" />
     <source path="gen" />
 
-    <set name="html5-backend" value="openfl-snapsvg" />
+    <!--<set name="html5-backend" value="openfl-snapsvg" />-->
 
     <haxelib name="openfl" />
     <haxelib name="munit" />

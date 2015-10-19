@@ -211,7 +211,7 @@
         <delete dir="${project.root.path}/site/haxe/bin/html5/bin"/>
         <antcall target="haxe">
             <param name="dir" value="${project.root.path}/site/haxe"/>
-            <param name="haxe.compiler.flags" value="-D ${site.target}"/>
+            <param name="haxe.compiler.flags" value="-D site_target_${site.target}"/>
             <param name="hxml" value="gen.hxml"/>
         </antcall>
         <antcall target="openfl">

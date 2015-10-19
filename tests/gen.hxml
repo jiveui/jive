@@ -4,7 +4,7 @@
 -lib hml
 -cp tests/src/
 -swf tests/bin/empty.swf
--swf-version 10.1
+-swf-version 11
 --no-output
 -main GenHx
 --macro allowPackage('flash')

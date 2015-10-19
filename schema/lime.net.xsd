@@ -1,0 +1,41 @@
+<xs:schema targetNamespace="lime.net" xmlns="lime.net" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:lime-app="lime.app"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
+<xs:complexType name="URLLoaderSchemaTypeValue">
+<xs:all><xs:element ref="URLLoader"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLLoaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="dataFormat" type="xs:string"/>
+<xs:element minOccurs="0" name="onComplete" type="lime-app:Event_lime_net_URLLoader_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onHTTPStatus" type="lime-app:Event_lime_net_URLLoader_Int_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onIOError" type="lime-app:Event_lime_net_URLLoader_String_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onOpen" type="lime-app:Event_lime_net_URLLoader_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onProgress" type="lime-app:Event_lime_net_URLLoader_Int_Int_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onSecurityError" type="lime-app:Event_lime_net_URLLoader_String_VoidSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="dataFormat" type="xs:string"/>
+<xs:attribute name="onComplete" type="xs:string"/>
+<xs:attribute name="onHTTPStatus" type="xs:string"/>
+<xs:attribute name="onIOError" type="xs:string"/>
+<xs:attribute name="onOpen" type="xs:string"/>
+<xs:attribute name="onProgress" type="xs:string"/>
+<xs:attribute name="onSecurityError" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="URLLoader" type="URLLoaderSchemaType"/>
+</xs:schema>
