@@ -95,13 +95,21 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 		inputText.addEventListener(MouseEvent.MOUSE_WHEEL, __onInputTextMouseWheel);
 		plusButton.addEventListener(MouseEvent.MOUSE_DOWN, __onPlusButtonPressed);
 		minusButton.addEventListener(MouseEvent.MOUSE_DOWN, __onMinusButtonPressed);
+		plusButton.addEventListener(MouseEvent.MOUSE_UP, __onButtonUp);
+		minusButton.addEventListener(MouseEvent.MOUSE_UP, __onButtonUp);
+        	plusButton.addEventListener(MouseEvent.MOUSE_OUT, __onButtonUp);
+		minusButton.addEventListener(MouseEvent.MOUSE_OUT, __onButtonUp);
     }
     
 	 function uninstallComponents() {
 		inputText.removeEventListener(MouseEvent.MOUSE_WHEEL, __onInputTextMouseWheel);
 		plusButton.removeEventListener(MouseEvent.MOUSE_DOWN, __onPlusButtonPressed);
 		minusButton.removeEventListener(MouseEvent.MOUSE_DOWN, __onMinusButtonPressed);
-		
+		plusButton.removeEventListener(MouseEvent.MOUSE_UP, __onButtonUp);
+		minusButton.removeEventListener(MouseEvent.MOUSE_UP, __onButtonUp);
+        	plusButton.removeEventListener(MouseEvent.MOUSE_OUT, __onButtonUp);
+        	minusButton.removeEventListener(MouseEvent.MOUSE_OUT, __onButtonUp);
+        	
 		adjuster.removeChild(inputText);
 		adjuster.removeChild(plusButton);
 		adjuster.removeChild(minusButton);
@@ -253,15 +261,40 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	}
 	
 	private function __onPlusButtonPressed(e) {
+        	isButtonDown = true;
 		adjuster.setValue(adjuster.getValue() + getUnitIncrement());
 		fillInputTextWithCurrentValue();
 		fireActionEvent();
+        	attachAutoAdjuster(getUnitIncrement());
 	}
 
 	private function __onMinusButtonPressed(e) {
+        	isButtonDown = true;
 		adjuster.setValue(adjuster.getValue() - getUnitIncrement());
 		fillInputTextWithCurrentValue();
 		fireActionEvent();
+        	attachAutoAdjuster(-getUnitIncrement());
+	}
+
+	private function __onButtonUp(e) {
+		isButtonDown = false;
+		adjusterTimer.stop();
+	}
+	
+	private function attachAutoAdjuster(unitIncrement:Int) {
+		adjusterTimer = new haxe.Timer(700);
+		adjusterTimer.run = function() {
+		    if (isButtonDown) {
+		        var timer = new haxe.Timer(150);
+		        timer.run = function() {
+		            adjuster.setValue(adjuster.getValue() + unitIncrement);
+		            fillInputTextWithCurrentValue();
+		            if (!isButtonDown)
+		                timer.stop();
+		        }
+		    }
+		    adjusterTimer.stop();
+		};
 	}
 	
 	private function __inputTextAction(fireActOnlyIfChanged:Bool=false) {
