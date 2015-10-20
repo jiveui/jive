@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import openfl.events.MouseEvent;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import org.aswing.event.ReleaseEvent;
@@ -66,6 +67,9 @@ class AWSprite extends Sprite
 		setClipMasked(clipMasked);
 		addEventListener(MouseEvent.MOUSE_DOWN, __awSpriteMouseDownListener);
 		addEventListener(Event.REMOVED_FROM_STAGE, __awStageRemovedFrom);
+
+        addEventListener(MouseEvent.MOUSE_OVER, function(e) { dispatchEvent(new MouseEvent(MouseEvent.ROLL_OVER)); });
+        addEventListener(MouseEvent.MOUSE_OUT, function(e) { dispatchEvent(new MouseEvent(MouseEvent.ROLL_OUT)); });
 	}
  
 	private function d_addChild(child:DisplayObject):DisplayObject{

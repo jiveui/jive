@@ -37,6 +37,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	var inputText: JTextField;
 
 	private var cornerRadius: Float;
+    private var isButtonDown: Bool;
 	
 	public function new(){
 		super();
@@ -261,7 +262,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	}
 	
 	private function __onPlusButtonPressed(e) {
-        	isButtonDown = true;
+        isButtonDown = true;
 		adjuster.setValue(adjuster.getValue() + getUnitIncrement());
 		fillInputTextWithCurrentValue();
 		fireActionEvent();
@@ -269,7 +270,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 	}
 
 	private function __onMinusButtonPressed(e) {
-        	isButtonDown = true;
+        isButtonDown = true;
 		adjuster.setValue(adjuster.getValue() - getUnitIncrement());
 		fillInputTextWithCurrentValue();
 		fireActionEvent();
