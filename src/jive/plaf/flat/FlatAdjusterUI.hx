@@ -1,5 +1,6 @@
 package jive.plaf.flat;
-	
+
+import haxe.Timer;
 import flash.display.InteractiveObject;
 import flash.events.Event;
 import flash.events.FocusEvent;
@@ -38,6 +39,7 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 
 	private var cornerRadius: Float;
     private var isButtonDown: Bool;
+    private var adjusterTimer: Timer;
 	
 	public function new(){
 		super();
