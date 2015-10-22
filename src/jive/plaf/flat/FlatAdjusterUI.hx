@@ -281,14 +281,15 @@ class FlatAdjusterUI extends org.aswing.plaf.BaseComponentUI implements org.aswi
 
 	private function __onButtonUp(e) {
 		isButtonDown = false;
-		adjusterTimer.stop();
+        if (adjusterTimer != null)
+		    adjusterTimer.stop();
 	}
 	
 	private function attachAutoAdjuster(unitIncrement:Int) {
 		adjusterTimer = new haxe.Timer(700);
 		adjusterTimer.run = function() {
 		    if (isButtonDown) {
-		        var timer = new haxe.Timer(150);
+		        var timer = new haxe.Timer(100);
 		        timer.run = function() {
 		            adjuster.setValue(adjuster.getValue() + unitIncrement);
 		            fillInputTextWithCurrentValue();
