@@ -22,6 +22,7 @@ class LineBorder extends DecorateBorder{
 	public var color:ASColor;
 	public var thickness:Float;
 	public var round:Float;
+    public var roundInsetsDisabled:Bool;
 	
 	/**
 	 * Create a line border.
@@ -51,8 +52,13 @@ class LineBorder extends DecorateBorder{
 	
 	override public function getBorderInsetsImp(com:Component, bounds:IntRectangle):Insets
 	{
-    	var width:Int= Std.int(Math.ceil(thickness + round - round*0.707106781186547)); //0.707106781186547 = Math.sin(45 degrees);
-    	return new Insets(width, width, width, width);
+        var roundInsets = if (roundInsetsDisabled)
+            0.0;
+        else
+            round - round*0.707106781186547; //0.707106781186547 = Math.sin(45 degrees);
+
+        var width:Int = Std.int(Math.ceil(thickness + roundInsets)); //0.707106781186547 = Math.sin(45 degrees);
+        return new Insets(width, width, width, width);
 	}
 	
 	override public function getDisplayImp():DisplayObject
