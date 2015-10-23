@@ -1,0 +1,9 @@
+-lib jive
+-lib hml
+-lib openfl
+-lib lime
+-cp src/
+--no-output
+-main GenHx
+--macro allowPackage('flash')
+#-D hml_debug

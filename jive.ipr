@@ -160,7 +160,7 @@
       <module fileurl="file://$PROJECT_DIR$/tests/jive.iml" filepath="$PROJECT_DIR$/tests/jive.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" assert-keyword="false" jdk-15="false" project-jdk-name="Haxe 3.2.0" project-jdk-type="Haxe toolkit">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
@@ -169,29 +169,29 @@
   <component name="libraryTable">
     <library name="actuate" type="Haxe">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../actuate" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/actuate/1,8,6" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../actuate" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/actuate/1,8,6" />
       </SOURCES>
     </library>
     <library name="bindx" type="Haxe">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../bindx/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/bindx/1,1,3/bindx" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../bindx/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/bindx/1,1,3/bindx" />
       </SOURCES>
     </library>
     <library name="hml" type="Haxe">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../hml/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/hml/git/src" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../hml/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/hml/git/src" />
       </SOURCES>
     </library>
     <library name="jive" type="Haxe">
@@ -205,11 +205,11 @@
     </library>
     <library name="munit" type="Haxe">
       <CLASSES>
-        <root url="file://$PROJECT_DIR$/../MassiveUnit/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/munit/2,1,2" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="file://$PROJECT_DIR$/../MassiveUnit/src" />
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/munit/2,1,2" />
       </SOURCES>
     </library>
   </component>

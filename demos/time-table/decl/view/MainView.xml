@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow
+        xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:border="org.aswing.border"
+        >
+
+    <layout>
+        <BorderLayout/>
+    </layout>
+    <JLabel text="'Test'" visible="true">
+        <border>
+            <border:EmptyBorder bottom="30"/>
+        </border>
+    </JLabel>
+</JWindow>
