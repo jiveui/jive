@@ -3,7 +3,8 @@
 */
 package org.aswing;
 
-	
+
+import org.aswing.event.PropertyChangeEvent;
 import org.aswing.Component;
 import org.aswing.Container;
 import org.aswing.EmptyLayout;
@@ -164,7 +165,7 @@ class BorderExtLayout extends EmptyLayout{
     public function new(hgap:Int= 0, vgap:Int= 0) {
 		this.hgap = hgap;
 		this.vgap = vgap;
-		this.defaultConstraints = CENTER; 
+		this.defaultConstraints = CENTER;
 		super();
     }
 	
@@ -238,6 +239,19 @@ class BorderExtLayout extends EmptyLayout{
 			beyondEast = comp;
 		} else if (BEYOND_WEST == name) {
 			beyondWest = comp;
+
+//			beyondWest.addEventListener(PropertyChangeEvent.PROPERTY_CHANGE, function(e) {
+//				var event: PropertyChangeEvent = AsWingUtils.as(e, PropertyChangeEvent);
+//				if (event.getPropertyName() == "x") {
+//					if (event.getNewValue() >= 0) {
+//						beyondWest.setEnabled(true);
+//					} else {
+//						beyondWest.setEnabled(false);
+//					}
+//				}
+//			});
+//
+//			beyondWest.setEnabled(false);
 		} else if (CENTER_OVERLAY == name) {
 			centerOverlay = comp;
 		} else if (OVERLAY == name) {
@@ -411,7 +425,10 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		if ((c=getChild(BEYOND_WEST,ltr)) != null) {
 			d = c.getPreferredSize();
-			c.setBounds(new IntRectangle(left - d.width, top, d.width, bottom - top));
+//			if (x < 0) beyondWest.enabled = false else beyondWest.enabled = true;
+			var x = Std.int(c.x); //left - d.width;
+//			if (c.isEnabled()) x = Std.int(c.x) else x = left - d.width;
+			c.setBounds(new IntRectangle(x, top, d.width, bottom - top));
 //			left += d.width + hgap;
 		}
 
