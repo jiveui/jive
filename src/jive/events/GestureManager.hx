@@ -16,6 +16,7 @@ import org.aswing.Component;
 class GestureManager {
 
     public var magneticBorderSize: Int;
+    private var smoothEnd: Bool;
 
     private var component: Component;
 
@@ -32,9 +33,10 @@ class GestureManager {
     private var goalActuatorState: Dynamic;
 
 
-    public function new(c: Component, magneticBorderSize: Int = 0) {
+    public function new(c: Component, ?smoothEnd: Bool = true, magneticBorderSize: Int = 0) {
         component = c;
         this.magneticBorderSize = magneticBorderSize;
+        this.smoothEnd = smoothEnd;
 
         goalActuatorState = {x: 0, y:0};
         curActuatorState = {x: 0, y:0};
@@ -49,17 +51,13 @@ class GestureManager {
             Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 
             component.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
-            component.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-            component.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
-
-            component.addEventListener(Event.ADDED_TO_STAGE, function(e) {
-                component.stage.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-                component.stage.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
-            });
         }
     }
 
     private function onTouchBegin(e:TouchEvent):Void {
+        component.stage.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+        component.stage.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+
         if (null != actuator) {
             Actuate.stop(actuator);
             actuator = null;
@@ -72,6 +70,14 @@ class GestureManager {
         touchBeginTimes.set(e.touchPointID, Timer.stamp());
         touchTimes.set(e.touchPointID, Timer.stamp());
         touchMoves.set(e.touchPointID, new Array<Point>());
+
+        var localCoords = component.globalToComponent(new IntPoint(
+            Std.int(touchPrevCoords.get(e.touchPointID).x),
+            Std.int(touchPrevCoords.get(e.touchPointID).y)
+        ));
+
+        component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, "TOUCH_BEGIN",
+            localCoords.x, localCoords.y, 1, 1, 0, 0, 0));
     }
 
     private function onTouchMove(e:TouchEvent):Void {
@@ -121,6 +127,9 @@ class GestureManager {
     }
 
     private function onTouchEnd(e:TouchEvent):Void {
+        component.stage.removeEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+        component.stage.removeEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+
         if (!touchBeginCoords.exists(e.touchPointID)) return;
 
         var count = Lambda.count(touchBeginCoords, function(c) {return true;});
@@ -158,21 +167,29 @@ class GestureManager {
             var actuationTime = if (Math.abs(offsetY) > magneticBorderSize) 1.5 else 0.05;
             goalActuatorState = {x: offsetX, y: offsetY};
 
-            actuator = Actuate
-                        .tween(cur, actuationTime, goalActuatorState)
-                        .ease(Quart.easeOut)
-                        .onUpdate(function() {
-                            component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, null,
-                                localCoords.x, localCoords.y, 1, 1, 0, Math.floor(cur.x - prev.x), Math.floor(cur.y - prev.y)));
+            if (smoothEnd) {
+                component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, "TOUCH_END",
+                localCoords.x, localCoords.y, 1, 1, 0, 0, 0));
 
-                            prev.x = Math.floor(cur.x);
-                            prev.y = Math.floor(cur.y);
-                            curActuatorState = {x: prev.x, y: prev.y};
-                        })
-                        .onComplete(function() {
-                            component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, "COMPLETED",
-                                localCoords.x, localCoords.y, 1, 1, 0, 0, 0));
-                        });
+                actuator = Actuate
+                            .tween(cur, actuationTime, goalActuatorState)
+                            .ease(Quart.easeOut)
+                            .onUpdate(function() {
+                                component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, null,
+                                    localCoords.x, localCoords.y, 1, 1, 0, Math.floor(cur.x - prev.x), Math.floor(cur.y - prev.y)));
+
+                                prev.x = Math.floor(cur.x);
+                                prev.y = Math.floor(cur.y);
+                                curActuatorState = {x: prev.x, y: prev.y};
+                            })
+                            .onComplete(function() {
+                                component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, "COMPLETED",
+                                    localCoords.x, localCoords.y, 1, 1, 0, 0, 0));
+                            });
+            } else {
+                component.dispatchEvent(new TransformGestureEvent(TransformGestureEvent.GESTURE_PAN, true, false, "TOUCH_END",
+                localCoords.x, localCoords.y, 1, 1, 0, 0, 0));
+            }
         }
         clearTouches();
     }
