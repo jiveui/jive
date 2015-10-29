@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-    <meta title="time-table" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
+    <meta title="empty" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
 
     <!-- output -->
-    <app main="Main" file="time-table" path="bin" />
+    <app main="Main" file="empty" path="bin" />
 
     <window width="0" height="0" background="0xFFFFFF" fps="60" if="html5 || flash"/>
 

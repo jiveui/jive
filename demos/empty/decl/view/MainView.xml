@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow
+        xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:border="org.aswing.border"
+        xmlns:geom="org.aswing.geom"
+        >
+        <layout>
+            <BorderLayout hgap="50" vgap="50"/>
+        </layout>
+        <backgroundDecorator>
+            <SolidBackground/>
+        </backgroundDecorator>
+        <background>
+            <ASColor rgb="0xFFFF11"/>
+        </background>
+        <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+            <background>
+                <ASColor rgb="0xe1e1e1"/>
+            </background>
+        </JLabel>
+        <border>
+            <border:EmptyBorder bottom="10" top="10" left="10" right="10"/>
+        </border>
+
+</JWindow>

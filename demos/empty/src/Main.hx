@@ -12,14 +12,13 @@ class Main {
     public static function main() {
 
         var mainView: MainView = new MainView();
-        trace("sdsd");
-        mainView.setBackgroundDecorator(new SolidBackground(UIManager.getColor("window")));
-        mainView.setBorder(new EmptyBorder(null, Insets.createIdentic(10)));
+
         mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 
         Lib.current.stage.addEventListener(Event.RESIZE, function(e) {
             mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
         });
+        trace("sdsd");
 
         mainView.show();
     }
