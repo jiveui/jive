@@ -420,7 +420,8 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		if ((c=getChild(BEYOND_EAST,ltr)) != null) {
 			d = c.getPreferredSize();
-			c.setBounds(new IntRectangle(right, top, d.width, bottom - top));
+			var x = Std.int(c.x);
+			c.setBounds(new IntRectangle(x, top, d.width, bottom - top));
 //			right -= d.width + hgap;
 		}
 		if ((c=getChild(BEYOND_WEST,ltr)) != null) {
@@ -454,10 +455,11 @@ class BorderExtLayout extends EmptyLayout{
 		    left += d.width + hgap;
 		}
 		if ((c=getChild(CENTER,ltr)) != null) {
-		    c.setBounds(new IntRectangle(left, top, right - left, bottom - top));
+			d = c.getPreferredSize();
+		    c.setBounds(new IntRectangle(Std.int(c.x), top, right - left, bottom - top));
 		}
 		if ((c=getChild(CENTER_OVERLAY,ltr)) != null) {
-			c.setBounds(new IntRectangle(left, top, right - left, bottom - top));
+			c.setBounds(new IntRectangle(Std.int(c.x), top, right - left, bottom - top));
 //			d = c.getPreferredSize();
 //			c.setBounds(new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height));
 		}
