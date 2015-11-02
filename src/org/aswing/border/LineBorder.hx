@@ -18,38 +18,39 @@ import org.aswing.ASColor;
  * Line border, this will paint a rounded line for a component.
  */
 class LineBorder extends DecorateBorder{
-	
+
 	public var color:ASColor;
 	public var thickness:Float;
 	public var round:Float;
     public var roundInsetsDisabled:Bool;
-	
+
 	/**
 	 * Create a line border.
 	 * @param interior interior border. Default is null;
 	 * @param color the color of the border. Default is null, means ASColor.BLACK
 	 * @param thickness the thickness of the border. Default is 1
 	 * @param round round rect radius, default is 0 means normal rectangle, not rect.
-	 */	
+	 */
 	public function new(interior:Border=null, color:ASColor=null, thickness:Float=1, round:Float=0)
 	{
 		super(interior);
 		if(color == null) color = ASColor.BLACK;
-		
+
 		this.color = color;
 		this.thickness = thickness;
 		this.round = round;
 	}
-	
+
 	override public function updateBorderImp(com:Component, g:Graphics2D, b:IntRectangle):Void{
  		var t:Float= thickness;
-    	if(round <= 0){
-    		g.drawRectangle(new Pen(color, thickness), b.x + t/2, b.y + t/2, b.width - t, b.height - t);
-    	}else{
-    		g.fillRoundRectRingWithThickness(new SolidBrush(color), b.x, b.y, b.width, b.height, round, t);
-    	}
+		if (t > 0)
+	    	if(round <= 0){
+	    		g.drawRectangle(new Pen(color, thickness), b.x + t/2, b.y + t/2, b.width - t, b.height - t);
+	    	}else{
+	    		g.fillRoundRectRingWithThickness(new SolidBrush(color), b.x, b.y, b.width, b.height, round, t);
+	    	}
 	}
-	
+
 	override public function getBorderInsetsImp(com:Component, bounds:IntRectangle):Insets
 	{
         var roundInsets = if (roundInsetsDisabled)
@@ -60,7 +61,7 @@ class LineBorder extends DecorateBorder{
         var width:Int = Std.int(Math.ceil(thickness + roundInsets)); //0.707106781186547 = Math.sin(45 degrees);
         return new Insets(width, width, width, width);
 	}
-	
+
 	override public function getDisplayImp():DisplayObject
 	{
 		return null;
@@ -88,5 +89,5 @@ class LineBorder extends DecorateBorder{
 
 	public function setRound(round:Float):Void{
 		this.round = round;
-	}    	
+	}
 }
