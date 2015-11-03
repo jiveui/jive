@@ -11,14 +11,14 @@ class Main {
 
     public static function main() {
 
+	org.aswing.AsWingManager.initAsStandard(Lib.current);
+        
         var mainView: MainView = new MainView();
-
         mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 
         Lib.current.stage.addEventListener(Event.RESIZE, function(e) {
             mainView.setSizeWH(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
         });
-        trace("sdsd");
 
         mainView.show();
     }

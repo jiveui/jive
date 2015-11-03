@@ -3,6 +3,8 @@
 -lib openfl
 -lib lime
 -cp src/
+-swf bin/empty.swf
+-swf-version 11
 --no-output
 -main GenHx
 --macro allowPackage('flash')

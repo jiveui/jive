@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-    <meta title="empty" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
+    <meta title="empty" package="empty.package" version="0.0.0" company="The Company" />
 
     <!-- output -->
     <app main="Main" file="empty" path="bin" />
@@ -11,14 +11,6 @@
     <source path="src" />
     <source path="gen" />
 
-    <!--<set name="html5-backend" value="openfl-snapsvg"/>-->
-
     <haxelib name="openfl" />
     <haxelib name="jive"/>
-
-    <template path="templates" />
-    <assets path="assets" rename=""/>
-    <assets path="decl/view" rename="assets/source"/>
-    <assets path="src/" rename="assets/source"/>
-
 </project>

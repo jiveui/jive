@@ -53,3 +53,4 @@ tests/resources/assets/Lato-Regular.woff
 site/haxe/bin/
 demos/all-in-one-hml/bin/
 localbuild/
+demos/empty/gen
