@@ -1,6 +1,7 @@
 package jive.hml;
 
 #if macro
+import lime.project.MetaData;
 import haxe.rtti.CType.MetaData;
 import hml.xml.writer.DefaultNodeWriter;
 import hml.xml.writer.IHaxeWriter;
@@ -40,7 +41,8 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
             new BaseCommandAdapter(),
             new DefaultTableColumnModelAdapter(),
             new AbstractTableModelAdapter(),
-            new DecorateBorderAdapter()
+            new DecorateBorderAdapter(),
+            new EmptyLayoutAdapter()
 		]);
 	}
 
@@ -279,6 +281,15 @@ class DecorateBorderAdapter extends ComponentAdapter {
 class BaseCommandAdapter extends ComponentAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : jive.BaseCommand;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class EmptyLayoutAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.EmptyLayout;
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 
