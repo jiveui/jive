@@ -14,7 +14,7 @@ import flash.display.Shape;
  * See `AttachIcon`, `LoadIcon`
  *
  * Authors senkay, paling, ngrebenshikov
- */	
+ */
 class AssetIcon implements Icon {
 
 	/**
@@ -63,18 +63,18 @@ class AssetIcon implements Icon {
     }
 
 
-	private var assetContainer:DisplayObjectContainer;
+	private var assetContainer:DisplayObjectContainer = null;
 	private var maskShape:Shape;
-	
+
 	/**
 	 * Creates a AssetIcon with a path to load external content.
 	 *
 	 * @param asset the icon content (DisplayObject).
 	 * @param width (optional) if you specifiled the width of the Icon, and scale is true,
-	 * 		the mc will be scale to this width when paint. If you do not specified the with, it will use 
+	 * 		the mc will be scale to this width when paint. If you do not specified the with, it will use
 	 * 		asset.width.
 	 * @param height (optional) if you specifiled the height of the Icon, and scale is true,
-	 * 		the mc will be scale to this height when paint. If you do not specified the height, it will use 
+	 * 		the mc will be scale to this height when paint. If you do not specified the height, it will use
 	 * 		asset.height.
 	 * @param scale (optional) whether scale MC to fix the width and height specified. Default is false
 	 */
@@ -87,33 +87,31 @@ class AssetIcon implements Icon {
 	}
 
 	private function validate() {
-		if (_width==-1 && _height==-1) {
-			if(asset!=null)	{
-				this._width = Std.int(asset.width);
-				this._height = Std.int(asset.height);
-			} else {
-				this._width = 0;
-				this._height = 0;
-			}
-		} else {
-			if (null == this.assetContainer) {
-				assetContainer = AsWingUtils.createSprite(null, "assetContainer");
-			}
-			if(_asset!=null) {
-                if (assetContainer.numChildren > 0) {
-                    assetContainer.removeChildAt(0);
-                }
-				assetContainer.addChild(_asset);
-				if(scale) {
-					_asset.width = width;
-					_asset.height = height;
-                }
+		if (_width == -1 && _height == -1) {
+			if (_asset != null)	{
+				this._width = Std.int(_asset.width);
+				this._height = Std.int(_asset.height);
 			}
 		}
+
+		if (null == this.assetContainer) {
+			assetContainer = AsWingUtils.createSprite(null, "assetContainer");
+		}
+
+		if (_asset != null) {
+            if (assetContainer.numChildren > 0) {
+                assetContainer.removeChildAt(0);
+            }
+			assetContainer.addChild(_asset);
+			if (_scale) {
+                _asset.width = _width;
+                _asset.height = _height;
+            }
+        }
 	}
 
 	private function updateDisplay() {}
-	
+
 	@:dox(hide)
 	public function getAsset():DisplayObject{
 		return _asset;
@@ -128,7 +126,7 @@ class AssetIcon implements Icon {
 	private function setHeight(height:Int):Void{
 		this._height = height;
 	}
-	
+
 	public function updateIcon(c:Component, g:Graphics2D, x:Int, y:Int):Void{
 		var floor:DisplayObject = getDisplay(c);
 		if(floor!=null)	{
@@ -139,20 +137,16 @@ class AssetIcon implements Icon {
 
 	@:dox(hide)
 	public function getIconHeight(c:Component):Int{
-		return _height;
+		return if (_height < 0) 0 else _height;
 	}
 
 	@:dox(hide)
 	public function getIconWidth(c:Component):Int{
-		return _width;
+		return if (_width < 0) 0 else _width;
 	}
-	
+
 	public function getDisplay(c:Component): DisplayObject {
-		if(assetContainer!=null)	{
-			return assetContainer;
-		}else{
-			return _asset;
-		}
+		return assetContainer;
 	}
- 
+
 }
