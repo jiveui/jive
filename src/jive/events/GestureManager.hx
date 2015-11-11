@@ -50,7 +50,8 @@ class GestureManager {
             // rather than gestures or mouse events
             Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 
-            component.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
+            if (!component.hasEventListener(TouchEvent.TOUCH_BEGIN))
+                component.addEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
         }
     }
 
@@ -219,5 +220,9 @@ class GestureManager {
             touchBeginTimes.remove(id);
             touchMoves.remove(id);
         }
+    }
+
+    public function removeListeners(c: Component) {
+        component.removeEventListener(TouchEvent.TOUCH_BEGIN, onTouchBegin);
     }
 }
