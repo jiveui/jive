@@ -4,7 +4,8 @@
 
 package org.aswing;
 
-	
+
+import Array;
 import org.aswing.error.Error;
 import org.aswing.plaf.ComponentUI;
 	import org.aswing.plaf.basic.BasicTabbedPaneUI;
@@ -66,7 +67,13 @@ class JTabbedPane extends AbstractTabbedPane{
     private var _leadingOffset: Int;
     private function get_leadingOffset(): Int { return getLeadingOffset(); }
     private function set_leadingOffset(v: Int): Int { setLeadingOffset(v); return v; }
-	
+
+	public var tabs(null, set):Array<JTabbedPane>;
+	public function set_tabs(v:JTabbedPane):JTabbedPane {
+		removeAll();
+		append(TabInfo);
+	}
+
 	public function new() {
 		super();
 		setName("JTabbedPane");
@@ -165,6 +172,6 @@ class JTabbedPane extends AbstractTabbedPane{
     @:dox(hide)
     override public function setVisibleAt(index:Int, visible:Bool):Void{
     	throw new Error("Not supported setVisibleAt!");  
-    }	
+    }
 	
 }
