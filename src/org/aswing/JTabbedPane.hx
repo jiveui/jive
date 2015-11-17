@@ -68,8 +68,17 @@ class JTabbedPane extends AbstractTabbedPane{
     private function get_leadingOffset(): Int { return getLeadingOffset(); }
     private function set_leadingOffset(v: Int): Int { setLeadingOffset(v); return v; }
 
-	public var tabs(null, set):Array<JTabbedPane>;
-	public function set_tabs(v:JTabbedPane):JTabbedPane {
+	public var tabs(get, set):Array<JTabbedPane>;
+	private var _tabs:Array<JTabblePane>;
+
+	private function get_tabs():Array<JTabbedPane> { return getTabs(); }
+	private function set_tabs(v:Array<JTabbedPane>):Array<JTabbedPane> { setTabs(v); return v; }
+
+	public function getTabs():Array<JTabbedPane> {
+		return _tabs;
+	}
+
+	public function setTabs(v:Array<JTabbedPane>):Array<JTabbedPane> {
 		removeAll();
 		append(TabInfo);
 	}
