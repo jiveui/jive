@@ -27,13 +27,13 @@
     <orderEntry type="library" name="hml" level="project" />
     <orderEntry type="library" name="actuate" level="project" />
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/openfl/3,3,8">
+      <library name="haxelib|D:/Programming/HaXe/haxe/lib/openfl/git">
         <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/openfl/3,3,8" />
+          <root url="file://$MODULE_DIR$/../../../../HaXe/haxe/lib/openfl/git" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/openfl/3,3,8" />
+          <root url="file://$MODULE_DIR$/../../../../HaXe/haxe/lib/openfl/git" />
         </SOURCES>
       </library>
     </orderEntry>
