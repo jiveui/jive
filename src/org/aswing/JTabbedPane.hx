@@ -70,18 +70,16 @@ class JTabbedPane extends AbstractTabbedPane{
 
 	public var tabs(get, set):Array<TabInfo>;
 	private var _tabs:Array<TabInfo>;
-	private function get_tabs():Array<TabInfo> { return getTabs(); }
-	private function set_tabs(v:Array<TabInfo>):Array<TabInfo> { setTabs(v); return v; }
 
-	public function getTabs():Array<TabInfo> {
+	private function get_tabs():Array<TabInfo> {
 		return _tabs;
 	}
-
-	public function setTabs(v:Array<TabInfo>):Void {
+	private function set_tabs(v:Array<TabInfo>):Array<TabInfo> {
 		removeAll();
 		_tabs = v;
 		for(i in _tabs)
 			appendTabInfo(i);
+		return _tabs;
 	}
 
 	public function new() {
