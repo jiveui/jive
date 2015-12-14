@@ -186,7 +186,8 @@ class BasicButtonUI extends BaseComponentUI{
             b.getVerticalAlignment(), b.getHorizontalAlignment(),
             b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
             viewRect, iconRect, textRect, 
-	    	b.getDisplayText() == null ? 0 : b.getIconTextGap());
+	    	b.getDisplayText() == null ? 0 : b.getIconTextGap(),
+            b.iconAsBackground);
 
     	paintIcon(b, g, iconRect);
     	
@@ -343,7 +344,8 @@ class BasicButtonUI extends BaseComponentUI{
             b.getVerticalAlignment(), b.getHorizontalAlignment(),
             b.getVerticalTextPosition(), b.getHorizontalTextPosition(),
             viewRect, iconRect, textRect, 
-	    	b.getDisplayText() == null ? 0 : b.getIconTextGap()
+	    	b.getDisplayText() == null ? 0 : b.getIconTextGap(),
+            b.iconAsBackground
         );
         /* The preferred size of the button is the size of 
          * the text and icon rectangles plus the buttons insets.

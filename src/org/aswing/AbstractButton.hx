@@ -337,6 +337,8 @@ class AbstractButton extends Component{
     private function get_selected(): Bool { return isSelected(); }
     private function set_selected(v: Bool): Bool { setSelected(v); return v; }
 	
+    public var iconAsBackground: Bool;
+
     public var command: Command;
 
 	public function new(text:String="", icon:Icon=null){

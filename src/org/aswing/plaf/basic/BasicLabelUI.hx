@@ -111,7 +111,7 @@ class BasicLabelUI extends BaseComponentUI{
            Std.int(b.getVerticalAlignment()), Std.int(b.getHorizontalAlignment()),
             Std.int(b.getVerticalTextPosition()), Std.int(b.getHorizontalTextPosition()),
             viewRect, iconRect, textRect, 
-	    	Std.int(b.getText() == null ? 0 : b.getIconTextGap()));
+	    	Std.int(b.getText() == null ? 0 : b.getIconTextGap()), false);
 
     	paintIcon(b, g, iconRect);
     	
@@ -226,7 +226,7 @@ class BasicLabelUI extends BaseComponentUI{
            Std.int( b.getVerticalAlignment()),Std.int(  b.getHorizontalAlignment()),
             Std.int( b.getVerticalTextPosition()), Std.int( b.getHorizontalTextPosition()),
             viewRect, iconRect, textRect, 
-	    	Std.int( b.getText() == null ? 0 : b.getIconTextGap())
+	    	Std.int( b.getText() == null ? 0 : b.getIconTextGap()), false
         );
         /* The preferred size of the button is the size of 
          * the text and icon rectangles plus the buttons insets.
