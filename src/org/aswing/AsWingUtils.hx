@@ -379,7 +379,8 @@ class AsWingUtils{
         viewR:IntRectangle,
         iconR:IntRectangle,
         textR:IntRectangle,
-        textIconGap:Int):String{
+        textIconGap:Int,
+        iconAsBackgroud:Bool):String{
 
         if (icon != null) {
             iconR.width = icon.getIconWidth(c);
@@ -426,38 +427,41 @@ class AsWingUtils{
          * horizontalTextPosition properties
          */
 
-        if (verticalTextPosition == TOP) {
-            if (horizontalTextPosition != CENTER) {
-                textR.y = 0;
-            }else {
-                textR.y = -Std.int(textR.height + gap);
-				
-            }
-        }else if (verticalTextPosition == CENTER) {
+        if (iconAsBackgroud) {
             textR.y = Std.int((iconR.height / 2) - (textR.height / 2));
-			   
-        }else { // (verticalTextPosition == BOTTOM)
-            if (horizontalTextPosition != CENTER) {
-                textR.y = Std.int(iconR.height - textR.height);
-				  
-            }else {
-                textR.y = Std.int(iconR.height + gap);
-				 
-            }
-        }
-
-        if (horizontalTextPosition == LEFT) {
-            textR.x = -Std.int(textR.width + gap);
-        }else if (horizontalTextPosition == CENTER) {
             textR.x = Std.int((iconR.width / 2) - (textR.width / 2));
-        }else { // (horizontalTextPosition == RIGHT)
-            textR.x = Std.int(iconR.width + gap);
+        } else {
+            if (verticalTextPosition == TOP) {
+                if (horizontalTextPosition != CENTER) {
+                    textR.y = 0;
+                } else {
+                    textR.y = -Std.int(textR.height + gap);
+                }
+            } else if (verticalTextPosition == CENTER) {
+                textR.y = Std.int((iconR.height / 2) - (textR.height / 2));
+    			   
+            } else { // (verticalTextPosition == BOTTOM)
+                if (horizontalTextPosition != CENTER) {
+                    textR.y = Std.int(iconR.height - textR.height);
+                } else {
+                    textR.y = Std.int(iconR.height + gap);
+    				 
+                }
+            }
+
+            if (horizontalTextPosition == LEFT) {
+                textR.x = -Std.int(textR.width + gap);
+            } else if (horizontalTextPosition == CENTER) {
+                textR.x = Std.int((iconR.width / 2) - (textR.width / 2));
+            } else { // (horizontalTextPosition == RIGHT)
+                textR.x = Std.int(iconR.width + gap);
+            }
         }
            
 
-//        trace("textR : " + textR);
-//        trace("iconR : " + iconR);
-//        trace("viewR : " + viewR);
+        // trace("textR : " + textR);
+        // trace("iconR : " + iconR);
+        // trace("viewR : " + viewR);
 
         /* labelR is the rectangle that contains iconR and textR.
          * Move it to its proper position given the labelAlignment

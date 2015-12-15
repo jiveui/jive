@@ -106,7 +106,7 @@ class BasicMenuItemUI extends BaseComponentUI  implements MenuElementUI{
         text = AsWingUtils.layoutCompoundLabel(menuItem, font, text, icon, verticalAlignment,
 							horizontalAlignment, verticalTextPosition, 
 							horizontalTextPosition, viewRect, iconRect, textRect, 
-							textIconGap);
+							textIconGap, false);
 										
         //Initialize the acceelratorText bounds rectangle textRect.  If a null
 		//or and empty String was specified we substitute "" here 
