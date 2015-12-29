@@ -4,6 +4,7 @@
 
 package org.aswing;
 
+import flash.events.Event;
 import jive.events.TransformGestureEvent;
 import jive.events.GestureManager;
 import jive.plaf.flat.FlatListCellFactory;
@@ -377,8 +378,12 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 		}
 		updateUI();
 
-        gestureManager = new GestureManager(this, 0);
-        addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
+        addEventListener(Event.ADDED_TO_STAGE, function(e) {
+            if (Std.is(parent, JScrollPane)) {
+                gestureManager = new GestureManager(this, 0);
+                addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
+            }
+        });
 	}
 	
     @:dox(hide)
