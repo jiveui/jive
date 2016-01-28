@@ -30,100 +30,100 @@ import org.aswing.event.InteractiveEvent;
  */
 class AWTextField extends TextField{
 	
-	public function new(){
-		super();
-		 addEventListener(Event.SCROLL, __onAWTextFieldScroll);
-		 addEventListener(Event.CHANGE, __onAWTextFieldChange);
-	}
-	
-	private function __onAWTextFieldScroll(e:Event):Void{
-		fireScrollChangeEvent(false);
-	}
-	
-	private function __onAWTextFieldChange(e:Event):Void{
-		fireTextChangeEvent(false);
-	}
-	
-	private function fireTextChangeEvent(programmatic:Bool=true):Void{
-		dispatchEvent(new InteractiveEvent(InteractiveEvent.TEXT_CHANGED, programmatic));		
-	}
-	
-	private function fireScrollChangeEvent(programmatic:Bool=true):Void{
-		dispatchEvent(new InteractiveEvent(InteractiveEvent.SCROLL_CHANGED, programmatic));		
-	}
-	
-	#if (!iphone)
-
-	/**
-	 * Sets the <code>htmlText</code> and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
-	 */
-	  public function set_htmlText(value:String):String{
-		htmlText = value;
-		fireTextChangeEvent();
-	
-			return value;
-		}
-	
-	/**
-	 * Sets the <code>text</code> and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
-	 */
-	 public function set_text(value:String):String{
-		text = value;
-		fireTextChangeEvent();
-	
-			return value;
-		}
-	
-	
-	 public function set_scrollH(value:Int):Int{
-		if(value != scrollH){
-			scrollH = value;
-			fireScrollChangeEvent();
-		}
-	
-			return value;
-		}
-	
-	 public function set_scrollV(value:Int):Int{
-		if(value != scrollV){
-			scrollV = value;
-			fireScrollChangeEvent();		
-		}
-	
-			return value;
-		}
-	#end
-	
-	#if (flash9)
-	
-	/**
-	 * Appends new text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
-	 */
-  
-    override public function appendText(newText:String):Void{
-		this.text+=newText ;
-		fireTextChangeEvent();
-	}
-	/**
-	 * Replace selected text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
-	 */	
-	
-    override   public function replaceSelectedText(value:String):Void {
-	 
-		 super.replaceSelectedText(value);
-		 
-		fireTextChangeEvent();
-	}
-	
-	/**
-	 * Replace text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
-	 */	
- 
-	override public function replaceText(beginIndex:Int, endIndex:Int, newText:String):Void{
-	 
-		super.replaceText(beginIndex, endIndex, newText);
-		 
-		fireTextChangeEvent();
-	}
-	#end
+//	public function new(){
+//		super();
+//		 addEventListener(Event.SCROLL, __onAWTextFieldScroll);
+//		 addEventListener(Event.CHANGE, __onAWTextFieldChange);
+//	}
+//
+//	private function __onAWTextFieldScroll(e:Event):Void{
+//		fireScrollChangeEvent(false);
+//	}
+//
+//	private function __onAWTextFieldChange(e:Event):Void{
+//		fireTextChangeEvent(false);
+//	}
+//
+//	private function fireTextChangeEvent(programmatic:Bool=true):Void{
+//		dispatchEvent(new InteractiveEvent(InteractiveEvent.TEXT_CHANGED, programmatic));
+//	}
+//
+//	private function fireScrollChangeEvent(programmatic:Bool=true):Void{
+//		dispatchEvent(new InteractiveEvent(InteractiveEvent.SCROLL_CHANGED, programmatic));
+//	}
+//
+//	#if (!iphone)
+//
+//	/**
+//	 * Sets the <code>htmlText</code> and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
+//	 */
+//	  public function set_htmlText(value:String):String{
+//		htmlText = value;
+//		fireTextChangeEvent();
+//
+//			return value;
+//		}
+//
+//	/**
+//	 * Sets the <code>text</code> and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
+//	 */
+//	 public function set_text(value:String):String{
+//		text = value;
+//		fireTextChangeEvent();
+//
+//			return value;
+//		}
+//
+//
+//	 public function set_scrollH(value:Int):Int{
+//		if(value != scrollH){
+//			scrollH = value;
+//			fireScrollChangeEvent();
+//		}
+//
+//			return value;
+//		}
+//
+//	 public function set_scrollV(value:Int):Int{
+//		if(value != scrollV){
+//			scrollV = value;
+//			fireScrollChangeEvent();
+//		}
+//
+//			return value;
+//		}
+//	#end
+//
+//	#if (flash9)
+//
+//	/**
+//	 * Appends new text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
+//	 */
+//
+//    override public function appendText(newText:String):Void{
+//		this.text+=newText ;
+//		fireTextChangeEvent();
+//	}
+//	/**
+//	 * Replace selected text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
+//	 */
+//
+//    override   public function replaceSelectedText(value:String):Void {
+//
+//		 super.replaceSelectedText(value);
+//
+//		fireTextChangeEvent();
+//	}
+//
+//	/**
+//	 * Replace text and fire <code>InteractiveEvent.TEXT_CHANGED</code> event.
+//	 */
+//
+//	override public function replaceText(beginIndex:Int, endIndex:Int, newText:String):Void{
+//
+//		super.replaceText(beginIndex, endIndex, newText);
+//
+//		fireTextChangeEvent();
+//	}
+//	#end
 }
