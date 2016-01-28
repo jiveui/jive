@@ -21,6 +21,14 @@ import org.aswing.Insets;
 import org.aswing.border.EmptyBorder;
 
 class MessageBox extends Dialog {
+    public static function createAndShow(title: String, text: String, ?after: Void -> Void): MessageBox {
+        var dialog: MessageBox = new MessageBox(title, text);
+        if (null != after) {
+            dialog.addEventListener(PopupEvent.POPUP_CLOSED, function(e) { after(); });
+        }
+        dialog.show();
+        return dialog;
+    }
 
     private var panel: SoftBox;
     //private var waitingIcon: MovieClipView;
@@ -36,15 +44,6 @@ class MessageBox extends Dialog {
             label.font = UIManager.get("systemFont").changeSize(Std.int(UIManager.get("fontSize")*0.85));
             content.append(label);
         }
-    }
-
-    public static function createAndShow(title: String, text: String, ?after: Void -> Void): MessageBox {
-        var dialog: MessageBox = new MessageBox(title, text);
-        if (null != after) {
-            dialog.addEventListener(PopupEvent.POPUP_CLOSED, function(e) { after(); });
-        }
-        dialog.show();
-        return dialog;
     }
 
     private override function set_foreground(v: ASColor): ASColor {

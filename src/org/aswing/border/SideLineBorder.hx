@@ -65,10 +65,9 @@ class SideLineBorder extends DecorateBorder
 	 */
 	public function new(interior:Border=null, side:Int=NORTH, color:ASColor=null, thickness:Float=1) {
 		super(interior);
-		if (color == null) color = ASColor.BLACK;
-		
+
 		this.side = side;
-		this.color = color;
+		this.color = (color == null) ? ASColor.BLACK : color;
 		this.thickness = thickness;
 	}
 

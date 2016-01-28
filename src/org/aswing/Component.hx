@@ -831,7 +831,7 @@ class Component extends AWSprite implements IBindable {
 	 */
 	@:dox(hide) public function setForegroundDecorator(fg:GroundDecorator):Void{
 		if(fg != _foregroundDecorator){
-			var old:Dynamic= _backgroundDecorator;
+			var old:GroundDecorator= _foregroundDecorator;
 			_foregroundDecorator = fg;
 			if(fg != null){
 				setForegroundChild(fg.getDisplay(this));
