@@ -290,7 +290,21 @@ class SoftBoxLayout extends EmptyLayout{
 		    		var cps:IntDimension = comp.getPreferredSize();
 		    		if(axis == Y_AXIS){
 		    			comp.setBounds(new IntRectangle(x, y, cw, cps.height));
-		    			y += (cps.height + gap);
+
+						var newPS:IntDimension = comp.getPreferredSize();
+						if (newPS.height != cps.height) {
+							comp.setBounds(new IntRectangle(x, y, cw, newPS.height));
+							y += (newPS.height + gap);
+
+							var c: Container = target;
+							while (c != null) {
+								c.invalidate();
+								c.validate();
+								c = c.getParent();
+							}
+						} else {
+							y += (cps.height + gap);
+						}
 		    		}else{
 		    			comp.setBounds(new IntRectangle(x, y, cps.width, ch));
 		    			x += (cps.width + gap);
