@@ -72,7 +72,7 @@ class DefaultButtonModel extends EventDispatcher  implements ButtonModel{
         }
         pressed = b;
         
-        if (isPressed() && actOnPressed || !isPressed() && isArmed()) {
+        if (isPressed() && actOnPressed || !actOnPressed && !isPressed() && isArmed()) {
         	fireActionEvent();
         }
 		
