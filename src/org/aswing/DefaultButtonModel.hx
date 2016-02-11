@@ -12,8 +12,10 @@ import org.aswing.event.AWEvent;
  * The default implementation of a <code>Button</code> component's data model.
  */
 class DefaultButtonModel extends EventDispatcher  implements ButtonModel{
-	
-	private var group:ButtonGroup;
+
+    public var actOnPressed: Bool = false;
+
+    private var group:ButtonGroup;
 	private var enabled:Bool;
 	private var rollOver:Bool;
 	private var armed:Bool;
@@ -70,7 +72,7 @@ class DefaultButtonModel extends EventDispatcher  implements ButtonModel{
         }
         pressed = b;
         
-        if(!isPressed() && isArmed()) {
+        if (isPressed() && actOnPressed || !isPressed() && isArmed()) {
         	fireActionEvent();
         }
 		
