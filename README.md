@@ -10,3 +10,5 @@ We would like to bring the features below to AsWing.
 - The better perfomance. 
 
 [The demo site about Jive written on Jive](http://jiveui.github.io/jive/).
+
+[Jive API](http://jiveui.github.io/jive/docs/api/index.html).
