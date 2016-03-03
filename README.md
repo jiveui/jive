@@ -9,4 +9,4 @@ We would like to bring the features below to AsWing.
 - The contemporary UI style (http://designmodo.github.io/Flat-UI/);
 - The better perfomance. 
 
-[The demo site about Jive written on Jive](http://ngrebenshikov.github.io/jive/).
+[The demo site about Jive written on Jive](http://jiveui.github.io/jive/).
