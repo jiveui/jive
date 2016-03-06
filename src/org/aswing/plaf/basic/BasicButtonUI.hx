@@ -4,7 +4,7 @@
 
 package org.aswing.plaf.basic;
 
-	
+
 import flash.text.TextField;
 	import flash.text.TextFormat;
 	import org.aswing.AWKeyboard;
@@ -235,9 +235,9 @@ class BasicButtonUI extends BaseComponentUI{
 		textField.y = textRect.y;
 		if(b.getMnemonicIndex() >= 0){
 			textField.setTextFormat(
-				new TextFormat(null, null, null, null, null, true), 
+				new TextFormat(null, null, null, null, null, true),
 				b.getMnemonicIndex());
-		} 
+		}
 
     	textField.filters = b.getTextFilters();
     }

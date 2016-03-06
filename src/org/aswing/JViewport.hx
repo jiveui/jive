@@ -192,6 +192,10 @@ class JViewport extends Container  implements Viewportable {
         addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
 	}
 
+	public function stopActuating() {
+		gestureManager.stopActuating();
+	}
+
 	@:dox(hide)
 	override public function updateUI():Void{
     	setUI(UIManager.getUI(this));

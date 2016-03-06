@@ -39,7 +39,7 @@ class ButtonGroup
 	 */
     public function new() {
     	selection=null;
-			buttons = new Array<Dynamic>();
+        buttons = new Array<Dynamic>();
     }
     
     /**
@@ -99,6 +99,20 @@ class ButtonGroup
             selection = null;
         }
         b.getModel().setGroup(null);
+    }
+
+    /**
+	 * Removes all buttons from the group.
+	 */
+    public function removeAll():Void{
+        if(buttons.length == 0) {
+            return;
+        }
+        selection = null;
+        for (b in buttons) {
+            b.getModel().setGroup(null);
+        }
+        buttons = new Array<Dynamic>();
     }
     
     /**

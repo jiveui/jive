@@ -55,6 +55,13 @@ class GestureManager {
         }
     }
 
+    public function stopActuating() {
+        if (null != actuator) {
+            Actuate.stop(actuator);
+            actuator = null;
+        }
+    }
+
     private function onTouchBegin(e:TouchEvent):Void {
         component.stage.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
         component.stage.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
