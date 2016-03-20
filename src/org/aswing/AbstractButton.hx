@@ -3,6 +3,8 @@
 */
 
 package org.aswing;
+import flash.Lib;
+import flash.geom.Point;
 import flash.events.TouchEvent;
 import jive.Command;
 import haxe.CallStack;
@@ -1256,6 +1258,14 @@ class AbstractButton extends Component{
 			rootPane = null;
 		}
 	}
+
+    private var mousePoint: Point;
+    private function __moveListener(e: MouseEvent): Void {
+        if (Math.sqrt((mousePoint.x - e.stageX)*(mousePoint.x - e.stageX) + (mousePoint.y - e.stageY)*(mousePoint.y - e.stageY)) > UIManager.get("margin")/2) {
+            model.setArmed(false);
+            model.setPressed(false);
+        }
+    }
 	
 	private function __rollOverListener(e:MouseEvent):Void{
 		var m:ButtonModel = getModel();
@@ -1279,17 +1289,18 @@ class AbstractButton extends Component{
 		m.setArmed(false);
 	}
 
-	private function __mouseDownListener(e:Event):Void {
+	private function __mouseDownListener(e:MouseEvent):Void {
 		getModel().setArmed(true);
 		getModel().setPressed(true);
-
+        mousePoint = new Point(e.stageX, e.stageY);
+        Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, __moveListener);
 	}
 
 	private function __mouseUpListener(e:Event):Void{
 		if(isRollOverEnabled()) {
 			getModel().setRollOver(true);
 		}
-
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, __moveListener);
     }
 
 	private function __mouseReleaseListener(e:Event):Void {
@@ -1299,6 +1310,7 @@ class AbstractButton extends Component{
 		if(isRollOverEnabled() && !hitTestMouse()){
 			getModel().setRollOver(false);
 		}
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, __moveListener);
 	}
 	
 	private function __modelActionListener(e:AWEvent):Void{
