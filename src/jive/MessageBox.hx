@@ -41,7 +41,7 @@ class MessageBox extends Dialog {
         content = new JPanel();
         {
             label = new JLabel(text);
-            label.font = UIManager.get("systemFont").changeSize(Std.int(UIManager.get("fontSize")*0.85));
+            label.font = UIManager.get("systemFont");
             content.append(label);
         }
     }
