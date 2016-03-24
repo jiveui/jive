@@ -20,6 +20,9 @@ package org.aswing;
 	import org.aswing.geom.IntPoint;
 	import org.aswing.geom.IntRectangle;
 	import org.aswing.geom.IntDimension;
+
+    using unifill.Unifill;
+
 	/**
  * A collection of utility methods for AsWing.
  * @author paling
@@ -861,19 +864,19 @@ class AsWingUtils{
             
             
             //begin binary search
-            var num:Int= text.length;
+            var num:Int= text.uLength();
             var li:Int= 0; //binary search of left index 
             var ri:Int= num; //binary search of right index
             
             while(li<ri){
                 var i:Int= Std.int(li + (ri - li)/2);
-                var subText:String= text.substr(0, i);
+                var subText:String= text.uSubstr(0, i);
                 var length:Int= Std.int(Math.ceil(lastWidth + inter_computeStringWidth(font, subText)));
                 
                 if((li == i - 1) && li>0){
                     if(length > availTextWidth){
-                        subText = text.substr(0, li);
-                        textR.width = Std.int(Math.ceil(lastWidth + inter_computeStringWidth(font, text.substr(0, li))));
+                        subText = text.uSubstr(0, li);
+                        textR.width = Std.int(Math.ceil(lastWidth + inter_computeStringWidth(font, text.uSubstr(0, li))));
                     }else{
                         textR.width = Std.int(length);
                     }
