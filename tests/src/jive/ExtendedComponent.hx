@@ -1,6 +1,6 @@
 package jive;
 
-class ExtendedComponent extends org.aswing.Component {
+class ExtendedComponent extends Component {
     @bindable public var s: String;
     @bindable public var i: Int;
 }
