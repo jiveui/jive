@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<JWindow xmlns="org.aswing">
-        <content>
-                <JPanel>
-                        <JButton text="'Text!'"/>
-                </JPanel>
-        </content>
-</JWindow>
