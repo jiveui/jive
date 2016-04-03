@@ -9,3 +9,11 @@ src/assets/fonts/*.eot
 src/assets/fonts/*.svg
 src/assets/fonts/*.woff
 tests/jive-tests.iws
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/jive.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
+.idea/workspace.xml
