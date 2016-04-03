@@ -11,6 +11,4 @@ class Component {
     public var displayObject(default, null): DisplayObject;
 
     public function new() {}
-
-    public function dispose() {}
 }
