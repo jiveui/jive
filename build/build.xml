@@ -20,61 +20,11 @@
 
     <target name="build">
         <antcall target="test"/>
-        <antcall target="build.demos"/>
         <antcall target="gen.docs"/>
         <antcall target="build.schema"/>
-        <antcall target="build.site.crossplatform"/>
     </target>
 
-    <target name="build.all-in-one-hml.prebuild">
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="hxml" value="gen.hxml"/>
-        </antcall>
-    </target>
-    <target name="build.all-in-one-hml" depends="build.all-in-one-hml.prebuild">
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml html5"/>
-        </antcall>
-    </target>
-
-    <target name="build.all-in-one-hml.flash" depends="build.all-in-one-hml.prebuild">
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml flash"/>
-        </antcall>
-    </target>
-
-    <target name="build.all-in-one-hml.windows" depends="build.all-in-one-hml.prebuild" if="${is.windows}">
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml windows"/>
-        </antcall>
-    </target>
-
-    <target name="build.all-in-one-hml.mac" depends="build.all-in-one-hml.prebuild" if="${is.mac}">
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml mac"/>
-        </antcall>
-    </target>
-
-    <target name="build.demos">
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/demos/all-in-one"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml html5"/>
-        </antcall>
-
-        <antcall target="build.all-in-one-hml"/>
-    </target>
-
-    <target name="build.schema" depends="gen.docs">
+     <target name="build.schema" depends="gen.docs">
         <exec dir="${project.root.path}" executable="haxelib" failonerror="true">
             <arg line="run hml-xsd-gen -xml ${docs.path}/jive.xml -xsd ${project.root.path}/schema -explicit"/>
         </exec>
@@ -98,9 +48,6 @@
             <param name="command" value="build"/>
             <param name="options" value="project.xml html5 -Dtest"/>
         </antcall>
-
-        <copy file="${project.root.path}/tests/bin/html5/bin/snap.svg.js"
-              tofile="${project.root.path}/tests/resources/snap.svg.js"/>
 
         <copy todir="${project.root.path}/tests/resources/assets">
             <fileset dir="${project.root.path}/tests/bin/html5/bin/assets"/>
@@ -162,111 +109,6 @@
         <copy toDir="${project.root.path}/localbuild/site/docs/api">
             <fileset dir="${project.root.path}/docs/api"/>
         </copy>
-    </target>
-
-    <target name="build.site.crossplatform">
-        <delete dir="${localbuild.path}/site"/>
-        <mkdir dir="${localbuild.path}/site"/>
-
-        <antcall target="build.site">
-            <param name="site.target" value="desktop"/>
-        </antcall>
-        <copy file="${localbuild.path}/site/jive.js" tofile="${localbuild.path}/site/jive.desktop.js"/>
-        <antcall target="build.site">
-            <param name="site.target" value="mobile"/>
-        </antcall>
-
-        <copy file="${localbuild.path}/site/jive.js" tofile="${localbuild.path}/site/jive.mobile.js" />
-
-        <replace file="${localbuild.path}/site/index.html">
-            <replacetoken><![CDATA[<script id="haxe:openfl:script" type="text/javascript" src="./jive.js"></script>]]></replacetoken>
-            <replacevalue><![CDATA[
-                <script type="text/javascript">
-                    function writeScript(src) { document.write('<' + 'scr' +  'ipt src="' + src + '"' + ' type="text/javascript" id="haxe:openfl:script"><' + '/script>'); }
-                    if( !/\?desktop\=|&desktop\=/i.test(location.href) && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                        writeScript("jive.mobile.js");
-                    } else {
-                        writeScript("jive.desktop.js");
-                    }
-                </script>
-            ]]></replacevalue>
-        </replace>
-
-        <antcall target="gen.docs"/>
-        <antcall target="copy.demos.to.site"/>
-    </target>
-
-    <target name="build.site" depends="build.all-in-one-hml.prebuild">
-
-        <condition property="site.deployment.place" value="local">
-            <not><isset property="site.deployment.place"/></not>
-        </condition>
-
-        <condition property="site.target" value="desktop">
-            <not><isset property="site.target"/></not>
-        </condition>
-
-        <echo message="Building the site. Target: ${site.target}. Deloyment: ${site.deployment.place}"/>
-
-        <delete dir="${project.root.path}/site/haxe/bin/html5/bin"/>
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/site/haxe"/>
-            <param name="haxe.compiler.flags" value="-D site_target_${site.target}"/>
-            <param name="hxml" value="gen.hxml"/>
-        </antcall>
-        <antcall target="openfl">
-            <param name="dir" value="${project.root.path}/site/haxe"/>
-            <param name="command" value="build"/>
-            <param name="options" value="project.xml html5 -Dsite_target_${site.target} -Dsite_deployment_${site.deployment.place}"/>
-        </antcall>
-
-        <copy todir="${localbuild.path}/site">
-            <fileset dir="${project.root.path}/site/haxe/bin/html5/bin"/>
-        </copy>
-
-    </target>
-
-    <target name="copy.demos.to.site">
-        <delete dir="${localbuild.path}/site/demos"/>
-        <mkdir dir="${localbuild.path}/site/demos"/>
-
-        <antcall target="make.osx.demo.package"/>
-        <antcall target="make.windows.demo.package"/>
-        <antcall target="make.flash.demo.package"/>
-    </target>
-
-
-    <target name="make.osx.demo.package" if="${is.mac}" depends="build.all-in-one-hml.mac">
-        <exec executable="hdiutil">
-            <arg line="create -srcfolder ${project.root.path}/demos/all-in-one-hml/bin/mac64/cpp/bin/ ${localbuild.path}/site/demos/jive-demo.dmg"/>
-        </exec>
-    </target>
-
-    <target name="make.windows.demo.package" if="${is.windows}" depends="build.all-in-one-hml.windows">
-        <zip basedir="${project.root.path}/demos/all-in-one-hml/bin/windows/cpp/bin" destfile="${localbuild.path}/site/demos/jive-demo.zip"/>
-    </target>
-
-    <target name="make.flash.demo.package" depends="build.all-in-one-hml.flash">
-        <antcall target="build.all-in-one-hml.flash"/>
-        <copy todir="${localbuild.path}/site" file="${project.root.path}/demos/all-in-one-hml/bin/flash/bin/all-in-one-hml.swf"/>
-    </target>
-
-    <target name="deploy.site.github">
-        <property name="site.deployment.place" value="github"/>
-        <antcall target="build.site.crossplatform"/>
-        <git:git directory="${github.deployment.path}" verbose="true" settingsRef="github">
-            <git:pull/>
-        </git:git>
-        <copy todir="${github.deployment.path}">
-            <fileset dir="${localbuild.path}/site"/>
-        </copy>
-        <git:git directory="${github.deployment.path}" verbose="true" settingsRef="github">
-            <git:add>
-                <fileset dir="${github.deployment.path}" includes="**/*"/>
-            </git:add>
-            <git:commit message="The site updated."/>
-            <git:push uri="https://github.com/ngrebenshikov/jive"/>
-        </git:git>
     </target>
 
     <target name="build.haxelib.package" depends="build.schema">

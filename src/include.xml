@@ -2,8 +2,6 @@
 <extension>
     <assets path="assets"/>
     <haxelib name="actuate"/>
-    <haxelib name="swf"/>
+    <haxelib name="svg"/>
     <haxelib name="unifill"/>
-    <haxedef name="openfl_snapsvg_without_massive_broadcasting"/>
-    <!--<haxedef name="openfl_snapsvg_render_only_changed"/>-->
 </extension>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<AssetBackground xmlns="org.aswing">
-    <asset>
-        <JButton width="50" height="50" text="'Button!!!'"/>
-    </asset>
-</AssetBackground>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ASFont xmlns="org.aswing">
-    <bold>true</bold>
-    <italic>true</italic>
-    <size>15</size>
-    <underline>false</underline>
-    <name>'Arial'</name>
-</ASFont>
