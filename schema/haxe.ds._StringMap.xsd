@@ -1,0 +1,40 @@
+<xs:schema targetNamespace="haxe.ds._StringMap" xmlns="haxe.ds._StringMap" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="StringMapKeysIteratorSchemaTypeValue">
+<xs:all><xs:element ref="StringMapKeysIterator"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringMapValuesIteratorSchemaTypeValue">
+<xs:all><xs:element ref="StringMapValuesIterator"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringMapKeysIteratorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="hasNext" type="xs:string"/>
+<xs:element minOccurs="0" name="next" type="xs:string"/>
+</xs:all>
+<xs:attribute name="hasNext" type="xs:string"/>
+<xs:attribute name="next" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StringMapValuesIteratorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="hasNext" type="xs:string"/>
+<xs:element minOccurs="0" name="next" type="xs:string"/>
+</xs:all>
+<xs:attribute name="hasNext" type="xs:string"/>
+<xs:attribute name="next" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="StringMapKeysIterator" type="StringMapKeysIteratorSchemaType"/>
+<xs:element name="StringMapValuesIterator" type="StringMapValuesIteratorSchemaType"/>
+</xs:schema>

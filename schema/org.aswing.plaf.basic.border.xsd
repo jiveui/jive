@@ -1,0 +1,188 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.border" xmlns="org.aswing.plaf.basic.border" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
+xmlns:empty="empty"
+xmlns:org-aswing-border="org.aswing.border"
+>
+<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
+<xs:complexType name="TextAreaBorderSchemaTypeValue">
+<xs:all><xs:element ref="TextAreaBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineBorderResourceSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
+<xs:element ref="LineBorderResource" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ProgressBarBorderSchemaTypeValue">
+<xs:all><xs:element ref="ProgressBarBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="TableHeaderCellBorderSchemaTypeValue">
+<xs:all><xs:element ref="TableHeaderCellBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextComponentBorderSchemaTypeValue">
+<xs:choice>
+<xs:element ref="TextFieldBorder" />
+<xs:element ref="TextAreaBorder" />
+<xs:element ref="TextComponentBorder" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ComboBoxPopupBorderSchemaTypeValue">
+<xs:all><xs:element ref="ComboBoxPopupBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextFieldBorderSchemaTypeValue">
+<xs:all><xs:element ref="TextFieldBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="PopupMenuBorderSchemaTypeValue">
+<xs:all><xs:element ref="PopupMenuBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="ComboBoxBorderSchemaTypeValue">
+<xs:all><xs:element ref="ComboBoxBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameBorderSchemaTypeValue">
+<xs:all><xs:element ref="FrameBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="EmptyBorderResourceSchemaTypeValue">
+<xs:all><xs:element ref="EmptyBorderResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="ColorChooserBorderSchemaTypeValue">
+<xs:all><xs:element ref="ColorChooserBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="ToolTipBorderSchemaTypeValue">
+<xs:all><xs:element ref="ToolTipBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextAreaBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="TextComponentBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineBorderResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ProgressBarBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableHeaderCellBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextComponentBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComboBoxPopupBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextFieldBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="TextComponentBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PopupMenuBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComboBoxBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:BevelBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmptyBorderResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorChooserBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:EmptyBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ToolTipBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:LineBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TextAreaBorder" type="TextAreaBorderSchemaType"/>
+<xs:element name="LineBorderResource" type="LineBorderResourceSchemaType"/>
+<xs:element name="ProgressBarBorder" type="ProgressBarBorderSchemaType"/>
+<xs:element name="TableHeaderCellBorder" type="TableHeaderCellBorderSchemaType"/>
+<xs:element name="TextComponentBorder" type="TextComponentBorderSchemaType"/>
+<xs:element name="ComboBoxPopupBorder" type="ComboBoxPopupBorderSchemaType"/>
+<xs:element name="TextFieldBorder" type="TextFieldBorderSchemaType"/>
+<xs:element name="PopupMenuBorder" type="PopupMenuBorderSchemaType"/>
+<xs:element name="ComboBoxBorder" type="ComboBoxBorderSchemaType"/>
+<xs:element name="FrameBorder" type="FrameBorderSchemaType"/>
+<xs:element name="EmptyBorderResource" type="EmptyBorderResourceSchemaType"/>
+<xs:element name="ColorChooserBorder" type="ColorChooserBorderSchemaType"/>
+<xs:element name="ToolTipBorder" type="ToolTipBorderSchemaType"/>
+</xs:schema>

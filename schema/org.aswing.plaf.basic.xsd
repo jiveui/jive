@@ -1,0 +1,667 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic" xmlns="org.aswing.plaf.basic" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf="org.aswing.plaf"
+xmlns:jive-plaf-flat="jive.plaf.flat"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
+>
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf" schemaLocation="org.aswing.plaf.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
+<xs:complexType name="BasicAdjusterUISchemaTypeValue">
+<xs:all><xs:element ref="BasicAdjusterUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicTableUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatTableUI" />
+<xs:element ref="BasicTableUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicTextAreaUISchemaTypeValue">
+<xs:all><xs:element ref="BasicTextAreaUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicProgressBarUISchemaTypeValue">
+<xs:all><xs:element ref="BasicProgressBarUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicScrollBarUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
+<xs:element ref="BasicScrollBarUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicToolTipUISchemaTypeValue">
+<xs:all><xs:element ref="BasicToolTipUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicToggleButtonUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicRadioButtonUI" />
+<xs:element ref="BasicCheckBoxUI" />
+<xs:element ref="BasicToggleButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicCheckBoxUISchemaTypeValue">
+<xs:all><xs:element ref="BasicCheckBoxUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicToolBarUISchemaTypeValue">
+<xs:all><xs:element ref="BasicToolBarUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicMenuItemUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicMenuUI" />
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
+<xs:element ref="BasicCheckBoxMenuItemUI" />
+<xs:element ref="BasicRadioButtonMenuItemUI" />
+<xs:element ref="BasicMenuItemUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicFrameTitleBarUISchemaTypeValue">
+<xs:all><xs:element ref="BasicFrameTitleBarUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicScrollPaneUISchemaTypeValue">
+<xs:all><xs:element ref="BasicScrollPaneUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicClosableTabbedPaneUISchemaTypeValue">
+<xs:all><xs:element ref="BasicClosableTabbedPaneUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicSplitPaneUISchemaTypeValue">
+<xs:all><xs:element ref="BasicSplitPaneUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicTabbedPaneUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicClosableTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
+<xs:element ref="BasicTabbedPaneUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicTextFieldUISchemaTypeValue">
+<xs:all><xs:element ref="BasicTextFieldUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicPanelUISchemaTypeValue">
+<xs:all><xs:element ref="BasicPanelUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicGraphicsUtilsSchemaTypeValue">
+<xs:all><xs:element ref="BasicGraphicsUtils"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicFrameUISchemaTypeValue">
+<xs:all><xs:element ref="BasicFrameUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicColorMixerUISchemaTypeValue">
+<xs:all><xs:element ref="BasicColorMixerUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicSliderUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
+<xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
+<xs:element ref="BasicSliderUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicComboBoxUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
+<xs:element ref="BasicComboBoxUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicRadioButtonUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicCheckBoxUI" />
+<xs:element ref="BasicRadioButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicColorChooserUISchemaTypeValue">
+<xs:all><xs:element ref="BasicColorChooserUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicTreeUISchemaTypeValue">
+<xs:all><xs:element ref="BasicTreeUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicStepperUISchemaTypeValue">
+<xs:all><xs:element ref="BasicStepperUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicButtonUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
+<xs:element ref="BasicRadioButtonUI" />
+<xs:element ref="BasicToggleButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
+<xs:element ref="BasicCheckBoxUI" />
+<xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonUI" />
+<xs:element ref="BasicLabelButtonUI" />
+<xs:element ref="BasicButtonUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicMenuBarUISchemaTypeValue">
+<xs:all><xs:element ref="BasicMenuBarUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicAccordionUISchemaTypeValue">
+<xs:all><xs:element ref="BasicAccordionUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicPopupMenuUISchemaTypeValue">
+<xs:all><xs:element ref="BasicPopupMenuUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicListUISchemaTypeValue">
+<xs:all><xs:element ref="BasicListUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicSpacerUISchemaTypeValue">
+<xs:all><xs:element ref="BasicSpacerUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicColorSwatchesUISchemaTypeValue">
+<xs:all><xs:element ref="BasicColorSwatchesUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="ToolBarButtonBgAdapterSchemaTypeValue">
+<xs:all><xs:element ref="ToolBarButtonBgAdapter"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicViewportUISchemaTypeValue">
+<xs:all><xs:element ref="BasicViewportUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicSeparatorUISchemaTypeValue">
+<xs:all><xs:element ref="BasicSeparatorUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicLabelUISchemaTypeValue">
+<xs:all><xs:element ref="BasicLabelUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicCheckBoxMenuItemUISchemaTypeValue">
+<xs:all><xs:element ref="BasicCheckBoxMenuItemUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicTextComponentUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicTextAreaUI" />
+<xs:element ref="jive-plaf-flat:FlatTextFieldUI" />
+<xs:element ref="BasicTextFieldUI" />
+<xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
+<xs:element ref="BasicTextComponentUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicTableHeaderUISchemaTypeValue">
+<xs:all><xs:element ref="BasicTableHeaderUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicLabelButtonUISchemaTypeValue">
+<xs:all><xs:element ref="BasicLabelButtonUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicLookAndFeelSchemaTypeValue">
+<xs:all><xs:element ref="BasicLookAndFeel"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicRadioButtonMenuItemUISchemaTypeValue">
+<xs:all><xs:element ref="BasicRadioButtonMenuItemUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicMenuUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
+<xs:element ref="BasicMenuUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultMenuLayoutSchemaTypeValue">
+<xs:all><xs:element ref="DefaultMenuLayout"/></xs:all></xs:complexType>
+
+<xs:complexType name="BasicAdjusterUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTableUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTextAreaUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicTextComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicProgressBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicScrollBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicToolTipUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicToggleButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicCheckBoxUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicRadioButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicToolBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicMenuItemUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="transitBackgroundFactor" type="xs:double"/>
+</xs:all>
+<xs:attribute name="transitBackgroundFactor" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicFrameTitleBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicScrollPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicClosableTabbedPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicTabbedPaneUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicSplitPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:SplitPaneUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTabbedPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTextFieldUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicTextComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicPanelUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicGraphicsUtilsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicFrameUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicColorMixerUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicSliderUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicComboBoxUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicRadioButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicToggleButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicColorChooserUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTreeUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicStepperUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicMenuBarUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicAccordionUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicPopupMenuUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicListUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicSpacerUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicColorSwatchesUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ToolBarButtonBgAdapterSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicViewportUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicSeparatorUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicLabelUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicCheckBoxMenuItemUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicMenuItemUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTextComponentUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicTableHeaderUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf:BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicLabelButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicLookAndFeelSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:LookAndFeelSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicRadioButtonMenuItemUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicMenuItemUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BasicMenuUISchemaType">
+<xs:complexContent>
+<xs:extension base="BasicMenuItemUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultMenuLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:SoftBoxLayoutSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BasicAdjusterUI" type="BasicAdjusterUISchemaType"/>
+<xs:element name="BasicTableUI" type="BasicTableUISchemaType"/>
+<xs:element name="BasicTextAreaUI" type="BasicTextAreaUISchemaType"/>
+<xs:element name="BasicProgressBarUI" type="BasicProgressBarUISchemaType"/>
+<xs:element name="BasicScrollBarUI" type="BasicScrollBarUISchemaType"/>
+<xs:element name="BasicToolTipUI" type="BasicToolTipUISchemaType"/>
+<xs:element name="BasicToggleButtonUI" type="BasicToggleButtonUISchemaType"/>
+<xs:element name="BasicCheckBoxUI" type="BasicCheckBoxUISchemaType"/>
+<xs:element name="BasicToolBarUI" type="BasicToolBarUISchemaType"/>
+<xs:element name="BasicMenuItemUI" type="BasicMenuItemUISchemaType"/>
+<xs:element name="BasicFrameTitleBarUI" type="BasicFrameTitleBarUISchemaType"/>
+<xs:element name="BasicScrollPaneUI" type="BasicScrollPaneUISchemaType"/>
+<xs:element name="BasicClosableTabbedPaneUI" type="BasicClosableTabbedPaneUISchemaType"/>
+<xs:element name="BasicSplitPaneUI" type="BasicSplitPaneUISchemaType"/>
+<xs:element name="BasicTabbedPaneUI" type="BasicTabbedPaneUISchemaType"/>
+<xs:element name="BasicTextFieldUI" type="BasicTextFieldUISchemaType"/>
+<xs:element name="BasicPanelUI" type="BasicPanelUISchemaType"/>
+<xs:element name="BasicGraphicsUtils" type="BasicGraphicsUtilsSchemaType"/>
+<xs:element name="BasicFrameUI" type="BasicFrameUISchemaType"/>
+<xs:element name="BasicColorMixerUI" type="BasicColorMixerUISchemaType"/>
+<xs:element name="BasicSliderUI" type="BasicSliderUISchemaType"/>
+<xs:element name="BasicComboBoxUI" type="BasicComboBoxUISchemaType"/>
+<xs:element name="BasicRadioButtonUI" type="BasicRadioButtonUISchemaType"/>
+<xs:element name="BasicColorChooserUI" type="BasicColorChooserUISchemaType"/>
+<xs:element name="BasicTreeUI" type="BasicTreeUISchemaType"/>
+<xs:element name="BasicStepperUI" type="BasicStepperUISchemaType"/>
+<xs:element name="BasicButtonUI" type="BasicButtonUISchemaType"/>
+<xs:element name="BasicMenuBarUI" type="BasicMenuBarUISchemaType"/>
+<xs:element name="BasicAccordionUI" type="BasicAccordionUISchemaType"/>
+<xs:element name="BasicPopupMenuUI" type="BasicPopupMenuUISchemaType"/>
+<xs:element name="BasicListUI" type="BasicListUISchemaType"/>
+<xs:element name="BasicSpacerUI" type="BasicSpacerUISchemaType"/>
+<xs:element name="BasicColorSwatchesUI" type="BasicColorSwatchesUISchemaType"/>
+<xs:element name="ToolBarButtonBgAdapter" type="ToolBarButtonBgAdapterSchemaType"/>
+<xs:element name="BasicViewportUI" type="BasicViewportUISchemaType"/>
+<xs:element name="BasicSeparatorUI" type="BasicSeparatorUISchemaType"/>
+<xs:element name="BasicLabelUI" type="BasicLabelUISchemaType"/>
+<xs:element name="BasicCheckBoxMenuItemUI" type="BasicCheckBoxMenuItemUISchemaType"/>
+<xs:element name="BasicTextComponentUI" type="BasicTextComponentUISchemaType"/>
+<xs:element name="BasicTableHeaderUI" type="BasicTableHeaderUISchemaType"/>
+<xs:element name="BasicLabelButtonUI" type="BasicLabelButtonUISchemaType"/>
+<xs:element name="BasicLookAndFeel" type="BasicLookAndFeelSchemaType"/>
+<xs:element name="BasicRadioButtonMenuItemUI" type="BasicRadioButtonMenuItemUISchemaType"/>
+<xs:element name="BasicMenuUI" type="BasicMenuUISchemaType"/>
+<xs:element name="DefaultMenuLayout" type="DefaultMenuLayoutSchemaType"/>
+</xs:schema>

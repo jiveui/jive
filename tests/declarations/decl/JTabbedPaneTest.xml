@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing" xmlns:geom="org.aswing.geom">
+    <content>
+        <JPanel>
+            <layout>
+                    <FlowLayout>
+                            <align>org.aswing.FlowLayout.LEFT</align>
+                            <hgap>30</hgap>
+                            <vgap>30</vgap>
+                            <margin>true</margin>
+                    </FlowLayout>
+            </layout>
+            <JTabbedPane tabPlacement="org.aswing.JTabbedPane.LEFT">
+                <margin>
+                    <Insets left="10" right="10" top="30" bottom="30"/>
+                </margin>
+                <preferredSize>
+                    <geom:IntDimension width="500" height="300"/>
+                </preferredSize>
+                <TabInfo title="'First'" tooltip="'First tooltip'">
+                    <content>
+                        <JLabel text="'First'"/>
+                    </content>
+                </TabInfo>
+                <TabInfo title="'Second'" tooltip="'Second tooltip'">
+                    <content>
+                        <JLabel text="'Second'"/>
+                    </content>
+                </TabInfo>
+                <TabInfo title="'Third'" tooltip="'Third tooltip'">
+                    <content>
+                        <JLabel text="'Third'"/>
+                    </content>
+                </TabInfo>
+            </JTabbedPane>
+        </JPanel>
+    </content>
+</JWindow>

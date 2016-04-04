@@ -1,0 +1,603 @@
+<xs:schema targetNamespace="org.aswing.plaf" xmlns="org.aswing.plaf" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
+xmlns:org-aswing-plaf-basic-tabbedpane="org.aswing.plaf.basic.tabbedpane"
+xmlns:jive-plaf-flat="jive.plaf.flat"
+xmlns:jive-plaf-flat-border="jive.plaf.flat.border"
+xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic-tree="org.aswing.plaf.basic.tree"
+xmlns:jive-plaf-flat-adjuster="jive.plaf.flat.adjuster"
+xmlns:org-aswing-table="org.aswing.table"
+xmlns:org-aswing-resizer="org.aswing.resizer"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
+xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
+xmlns:org-aswing-plaf-basic-border="org.aswing.plaf.basic.border"
+xmlns:jive-plaf-flat-icon="jive.plaf.flat.icon"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
+xmlns:org-aswing-tree="org.aswing.tree"
+xmlns:org-aswing-plaf-basic-frame="org.aswing.plaf.basic.frame"
+xmlns:org-aswing-plaf-basic-adjuster="org.aswing.plaf.basic.adjuster"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.tabbedpane" schemaLocation="org.aswing.plaf.basic.tabbedpane.xsd" />
+<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
+<xs:import namespace="jive.plaf.flat.border" schemaLocation="jive.plaf.flat.border.xsd" />
+<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.tree" schemaLocation="org.aswing.plaf.basic.tree.xsd" />
+<xs:import namespace="jive.plaf.flat.adjuster" schemaLocation="jive.plaf.flat.adjuster.xsd" />
+<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
+<xs:import namespace="org.aswing.resizer" schemaLocation="org.aswing.resizer.xsd" />
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.border" schemaLocation="org.aswing.plaf.basic.border.xsd" />
+<xs:import namespace="jive.plaf.flat.icon" schemaLocation="jive.plaf.flat.icon.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
+<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.frame" schemaLocation="org.aswing.plaf.basic.frame.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.adjuster" schemaLocation="org.aswing.plaf.basic.adjuster.xsd" />
+<xs:complexType name="ColorSwatchesUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="EmptyLayoutUIResourseSchemaTypeValue">
+<xs:all><xs:element ref="EmptyLayoutUIResourse"/></xs:all></xs:complexType>
+
+<xs:complexType name="ComponentUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="ColorSwatchesUI" />
+<xs:element ref="jive-plaf-flat:FlatTableUI" />
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToggleButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicCheckBoxUI" />
+<xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
+<xs:element ref="MenuElementUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToolBarUI" />
+<xs:element ref="TreeUI" />
+<xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicViewportUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSeparatorUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
+<xs:element ref="TableUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicAccordionUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicLabelUI" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicFrameUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicRadioButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextAreaUI" />
+<xs:element ref="AdjusterUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorMixerUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicListUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicScrollPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatTextFieldUI" />
+<xs:element ref="SplitPaneUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSpacerUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextComponentUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextFieldUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTableHeaderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicPanelUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorChooserUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicProgressBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicScrollBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
+<xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
+<xs:element ref="FrameUI" />
+<xs:element ref="BaseComponentUI" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
+<xs:element ref="SliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicStepperUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
+<xs:element ref="jive-plaf-flat:FlatAdjusterUI" />
+<xs:element ref="ComboBoxUI" />
+<xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuBarUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultsDecoratorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultsDecoratorBase" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="AdjusterUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
+<xs:element ref="jive-plaf-flat:FlatAdjusterUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TreeUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="UIStyleTuneSchemaTypeValue">
+<xs:all><xs:element ref="UIStyleTune"/></xs:all></xs:complexType>
+
+<xs:complexType name="ASColorUIResourceSchemaTypeValue">
+<xs:all><xs:element ref="ASColorUIResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicFrameUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TableUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatTableUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ASFontUIResourceSchemaTypeValue">
+<xs:all><xs:element ref="ASFontUIResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="ComboBoxUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MenuElementUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuBarUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SplitPaneUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
+<xs:element ref="SplitPaneUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DefaultsDecoratorBaseSchemaTypeValue">
+<xs:all><xs:element ref="DefaultsDecoratorBase"/></xs:all></xs:complexType>
+
+<xs:complexType name="BaseComponentUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatTableUI" />
+<xs:element ref="jive-plaf-flat:FlatScrollBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToggleButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicRadioButtonMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicCheckBoxUI" />
+<xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToolBarUI" />
+<xs:element ref="jive-plaf-flat:FlatRadioButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicViewportUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicAdjusterUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSeparatorUI" />
+<xs:element ref="jive-plaf-flat:FlatToggleButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicFrameTitleBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicAccordionUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicLabelUI" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicFrameUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSplitPaneUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicCheckBoxMenuItemUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTableUI" />
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicComboBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicPopupMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicRadioButtonUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextAreaUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorMixerUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicListUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicScrollPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatTextFieldUI" />
+<xs:element ref="SplitPaneUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSpacerUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextComponentUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTextFieldUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTableHeaderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicPanelUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorChooserUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicProgressBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicTreeUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicScrollBarUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicLabelButtonUI" />
+<xs:element ref="jive-plaf-flat-tabbedpane:TabButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatMenuUI" />
+<xs:element ref="jive-plaf-flat:FlatCheckBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicClosableTabbedPaneUI" />
+<xs:element ref="jive-plaf-flat:FlatTabbedPaneUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicStepperUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicColorSwatchesUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicButtonUI" />
+<xs:element ref="jive-plaf-flat:FlatComboBoxUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicToolTipUI" />
+<xs:element ref="jive-plaf-flat:FlatAdjusterUI" />
+<xs:element ref="jive-plaf-flat:FlatTextComponentUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicMenuBarUI" />
+<xs:element ref="BaseComponentUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SliderUISchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat:FlatSliderUI" />
+<xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderUI" />
+<xs:element ref="org-aswing-plaf-basic:BasicSliderUI" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="InsetsUIResourceSchemaTypeValue">
+<xs:all><xs:element ref="InsetsUIResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArrayUIResourceSchemaTypeValue">
+<xs:all><xs:element ref="ArrayUIResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="DefaultEmptyDecoraterResourceSchemaTypeValue">
+<xs:all><xs:element ref="DefaultEmptyDecoraterResource"/></xs:all></xs:complexType>
+
+<xs:complexType name="UIResourceSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing-plaf-basic-background:FrameBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ProgressBarBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ButtonBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ComboBoxBackground" />
+<xs:element ref="org-aswing:JFrameTitleBar" />
+<xs:element ref="org-aswing-plaf-basic-background:ToolTipBackground" />
+<xs:element ref="jive-plaf-flat-background:ListSeparatorBackground" />
+<xs:element ref="org-aswing-plaf-basic-border:PopupMenuBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatPanelBackground" />
+<xs:element ref="jive-plaf-flat-icon:PlusIcon" />
+<xs:element ref="org-aswing-resizer:DefaultResizer" />
+<xs:element ref="org-aswing-plaf-basic-border:TextAreaBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:ProgressBarBorder" />
+<xs:element ref="InsetsUIResource" />
+<xs:element ref="org-aswing-plaf-basic-icon:SliderThumbIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameIconifiedIcon" />
+<xs:element ref="jive-plaf-flat-icon:MinusIcon" />
+<xs:element ref="org-aswing-plaf-basic-background:TextComponentBackBround" />
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
+<xs:element ref="org-aswing-plaf-basic-border:TextFieldBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatProgressBarIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:ArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuCheckIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:RadioButtonMenuItemCheckIcon" />
+<xs:element ref="org-aswing-plaf-basic-tabbedpane:BasicClosableTabbedPaneTab" />
+<xs:element ref="org-aswing-plaf-basic-background:ProgressBarIcon" />
+<xs:element ref="org-aswing-table:GeneralTableCellFactoryUIResource" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuItemArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameCloseIcon" />
+<xs:element ref="jive-plaf-flat-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatTextComponentBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:TableHeaderBackground" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameIcon" />
+<xs:element ref="jive-plaf-flat-border:TextCellComponentBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:ScrollBarArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-background:InputBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ToggleButtonBackground" />
+<xs:element ref="jive-plaf-flat-icon:FlatMenuArrowIcon" />
+<xs:element ref="DefaultEmptyDecoraterResource" />
+<xs:element ref="jive-plaf-flat-icon:ExpandIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:ColorChooserBorder" />
+<xs:element ref="org-aswing-plaf-basic-background:TableBackground" />
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButtonBackground" />
+<xs:element ref="jive-plaf-flat-icon:FlatRadioButtonIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-tree:BasicExpandControl" />
+<xs:element ref="org-aswing-plaf-basic-border:LineBorderResource" />
+<xs:element ref="org-aswing-plaf-basic-frame:BasicFrameTitleBarBG" />
+<xs:element ref="org-aswing-plaf-basic-border:ComboBoxBorder" />
+<xs:element ref="jive-plaf-flat-border:FlatPopupMenuBorder" />
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarBackground" />
+<xs:element ref="org-aswing-plaf-basic-icon:CheckBoxMenuItemCheckIcon" />
+<xs:element ref="UIStyleTune" />
+<xs:element ref="org-aswing-tree:GeneralTreeCellFactoryUIResource" />
+<xs:element ref="jive-plaf-flat-icon:FlatComboBoxArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:FrameBorder" />
+<xs:element ref="jive-plaf-flat-icon:FlatCheckBoxIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:ComboBoxPopupBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:RadioButtonIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:MenuItemCheckIcon" />
+<xs:element ref="org-aswing-plaf-basic-background:PanelBackground" />
+<xs:element ref="org-aswing-plaf-basic:DefaultMenuLayout" />
+<xs:element ref="jive-plaf-flat-background:FlatProgressBarBackground" />
+<xs:element ref="org-aswing-plaf-basic-adjuster:PopupSliderThumbIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameMaximizeIcon" />
+<xs:element ref="jive-plaf-flat-border:TableLineBorder" />
+<xs:element ref="org-aswing-plaf-basic-icon:SolidArrowIcon" />
+<xs:element ref="org-aswing-plaf-basic-icon:FrameNormalIcon" />
+<xs:element ref="ASColorUIResource" />
+<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatTableHeaderBackground" />
+<xs:element ref="EmptyLayoutUIResourse" />
+<xs:element ref="jive-plaf-flat-background:FlatInputBackground" />
+<xs:element ref="org-aswing-plaf-basic-border:TableHeaderCellBorder" />
+<xs:element ref="jive-plaf-flat-icon:FrameCloseIcon" />
+<xs:element ref="ASFontUIResource" />
+<xs:element ref="org-aswing-plaf-basic-tabbedpane:CloseIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatButtonBackground" />
+<xs:element ref="jive-plaf-flat-adjuster:MinusButtonBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ScrollBarThumb" />
+<xs:element ref="org-aswing-tree:TreeFolderIcon" />
+<xs:element ref="jive-plaf-flat-background:FlatTableBackground" />
+<xs:element ref="jive-plaf-flat-icon:FrameIcon" />
+<xs:element ref="org-aswing-plaf-basic-border:ToolTipBorder" />
+<xs:element ref="org-aswing-plaf-basic-border:TextComponentBorder" />
+<xs:element ref="jive-plaf-flat-icon:FlatSliderThumbIcon" />
+<xs:element ref="org-aswing-tree:TreeLeafIcon" />
+<xs:element ref="jive-plaf-flat-adjuster:AdjusterBorder" />
+<xs:element ref="jive-plaf-flat-adjuster:AdjusterBackground" />
+<xs:element ref="org-aswing-plaf-basic-background:ListBackground" />
+<xs:element ref="org-aswing-plaf-basic-icon:TitleIcon" />
+<xs:element ref="org-aswing-plaf-basic-background:ScrollBarBackground" />
+<xs:element ref="jive-plaf-flat-background:FlatFrameBackground" />
+<xs:element ref="org-aswing-plaf-basic-tabbedpane:TabBackground" />
+<xs:element ref="org-aswing-plaf-basic:ToolBarButtonBgAdapter" />
+<xs:element ref="org-aswing-plaf-basic-border:EmptyBorderResource" />
+<xs:element ref="jive-plaf-flat-adjuster:PlusButtonBackground" />
+<xs:element ref="jive-plaf-flat-border:FlatComboBoxPopupBorder" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="EmptyUIResourcesSchemaTypeValue">
+<xs:all><xs:element ref="EmptyUIResources"/></xs:all></xs:complexType>
+
+<xs:complexType name="ColorSwatchesUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmptyLayoutUIResourseSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:EmptyLayoutSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComponentUISchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultsDecoratorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AdjusterUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TreeUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UIStyleTuneSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:StyleTuneSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ASColorUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ASColorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ASFontUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ASFontSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComboBoxUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MenuElementUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SplitPaneUISchemaType">
+<xs:complexContent>
+<xs:extension base="BaseComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultsDecoratorBaseSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BaseComponentUISchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SliderUISchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InsetsUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:InsetsSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrayUIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultEmptyDecoraterResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UIResourceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EmptyUIResourcesSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ColorSwatchesUI" type="ColorSwatchesUISchemaType"/>
+<xs:element name="EmptyLayoutUIResourse" type="EmptyLayoutUIResourseSchemaType"/>
+<xs:element name="ComponentUI" type="ComponentUISchemaType"/>
+<xs:element name="DefaultsDecorator" type="DefaultsDecoratorSchemaType"/>
+<xs:element name="AdjusterUI" type="AdjusterUISchemaType"/>
+<xs:element name="TreeUI" type="TreeUISchemaType"/>
+<xs:element name="UIStyleTune" type="UIStyleTuneSchemaType"/>
+<xs:element name="ASColorUIResource" type="ASColorUIResourceSchemaType"/>
+<xs:element name="FrameUI" type="FrameUISchemaType"/>
+<xs:element name="TableUI" type="TableUISchemaType"/>
+<xs:element name="ASFontUIResource" type="ASFontUIResourceSchemaType"/>
+<xs:element name="ComboBoxUI" type="ComboBoxUISchemaType"/>
+<xs:element name="MenuElementUI" type="MenuElementUISchemaType"/>
+<xs:element name="SplitPaneUI" type="SplitPaneUISchemaType"/>
+<xs:element name="DefaultsDecoratorBase" type="DefaultsDecoratorBaseSchemaType"/>
+<xs:element name="BaseComponentUI" type="BaseComponentUISchemaType"/>
+<xs:element name="SliderUI" type="SliderUISchemaType"/>
+<xs:element name="InsetsUIResource" type="InsetsUIResourceSchemaType"/>
+<xs:element name="ArrayUIResource" type="ArrayUIResourceSchemaType"/>
+<xs:element name="DefaultEmptyDecoraterResource" type="DefaultEmptyDecoraterResourceSchemaType"/>
+<xs:element name="UIResource" type="UIResourceSchemaType"/>
+<xs:element name="EmptyUIResources" type="EmptyUIResourcesSchemaType"/>
+</xs:schema>

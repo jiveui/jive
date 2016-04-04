@@ -1,0 +1,29 @@
+<xs:schema targetNamespace="lime.graphics.utils._ImageDataUtil" xmlns="lime.graphics.utils._ImageDataUtil" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ImageDataViewSchemaTypeValue">
+<xs:all><xs:element ref="ImageDataView"/></xs:all></xs:complexType>
+
+<xs:complexType name="ImageDataViewSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="row" type="xs:string"/>
+</xs:all>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="row" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ImageDataView" type="ImageDataViewSchemaType"/>
+</xs:schema>

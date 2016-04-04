@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel xmlns="org.aswing">
+    <JButton enabled="true">
+        <text>Hello World!</text>
+    </JButton>
+</JPanel>

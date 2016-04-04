@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing" xmlns:geom="org.aswing.geom" xmlns:haxe="http://haxe.org/">
+    <content>
+        <JPanel>
+            <layout>
+                    <FlowLayout>
+                            <align>org.aswing.FlowLayout.LEFT</align>
+                            <hgap>30</hgap>
+                            <vgap>30</vgap>
+                            <margin>true</margin>
+                    </FlowLayout>
+            </layout>
+            <JScrollPane>
+                <preferredSize>
+                    <geom:IntDimension width="500" height="300"/>
+                </preferredSize>
+                <JTable id="table"/>
+            </JScrollPane>
+        </JPanel>
+    </content>
+</JWindow>

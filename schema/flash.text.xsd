@@ -1,0 +1,234 @@
+<xs:schema targetNamespace="flash.text" xmlns="flash.text" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:flash-display="flash.display"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:complexType name="FontSchemaTypeValue">
+<xs:all><xs:element ref="Font"/></xs:all></xs:complexType>
+
+<xs:complexType name="StyleSheetSchemaTypeValue">
+<xs:all><xs:element ref="StyleSheet"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextSnapshotSchemaTypeValue">
+<xs:all><xs:element ref="TextSnapshot"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextLineMetricsSchemaTypeValue">
+<xs:all><xs:element ref="TextLineMetrics"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextFieldSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:AWTextField" />
+<xs:element ref="TextField" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TextFormatSchemaTypeValue">
+<xs:all><xs:element ref="TextFormat"/></xs:all></xs:complexType>
+
+<xs:complexType name="FontSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="fontName" type="xs:string"/>
+<xs:element minOccurs="0" name="fontStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="fontType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="fontName" type="xs:string"/>
+<xs:attribute name="fontStyle" type="xs:string"/>
+<xs:attribute name="fontType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StyleSheetSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="styleNames" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="styleNames" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextSnapshotSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="charCount" type="xs:int"/>
+</xs:all>
+<xs:attribute name="charCount" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextLineMetricsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="ascent" type="xs:double"/>
+<xs:element minOccurs="0" name="descent" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="leading" type="xs:double"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+</xs:all>
+<xs:attribute name="ascent" type="xs:double"/>
+<xs:attribute name="descent" type="xs:double"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="leading" type="xs:double"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextFieldSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-display:InteractiveObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alwaysShowSelection" type="xs:boolean"/>
+<xs:element minOccurs="0" name="antiAliasType" type="xs:string"/>
+<xs:element minOccurs="0" name="autoSize" type="xs:string"/>
+<xs:element minOccurs="0" name="background" type="xs:boolean"/>
+<xs:element minOccurs="0" name="backgroundColor" type="xs:int"/>
+<xs:element minOccurs="0" name="border" type="xs:boolean"/>
+<xs:element minOccurs="0" name="borderColor" type="xs:int"/>
+<xs:element minOccurs="0" name="bottomScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="caretIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="condenseWhite" type="xs:boolean"/>
+<xs:element minOccurs="0" name="defaultTextFormat" type="TextFormatSchemaTypeValue"/>
+<xs:element minOccurs="0" name="displayAsPassword" type="xs:boolean"/>
+<xs:element minOccurs="0" name="embedFonts" type="xs:boolean"/>
+<xs:element minOccurs="0" name="gridFitType" type="xs:string"/>
+<xs:element minOccurs="0" name="htmlText" type="xs:string"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="maxChars" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="mouseWheelEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="multiline" type="xs:boolean"/>
+<xs:element minOccurs="0" name="numLines" type="xs:int"/>
+<xs:element minOccurs="0" name="restrict" type="xs:string"/>
+<xs:element minOccurs="0" name="scrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="scrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="selectable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="selectedText" type="xs:string"/>
+<xs:element minOccurs="0" name="selectionBeginIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="selectionEndIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="sharpness" type="xs:double"/>
+<xs:element minOccurs="0" name="styleSheet" type="StyleSheetSchemaTypeValue"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="textColor" type="xs:int"/>
+<xs:element minOccurs="0" name="textHeight" type="xs:double"/>
+<xs:element minOccurs="0" name="textInteractionMode" type="xs:string"/>
+<xs:element minOccurs="0" name="textWidth" type="xs:double"/>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="useRichTextClipboard" type="xs:boolean"/>
+<xs:element minOccurs="0" name="wordWrap" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="alwaysShowSelection" type="xs:boolean"/>
+<xs:attribute name="antiAliasType" type="xs:string"/>
+<xs:attribute name="autoSize" type="xs:string"/>
+<xs:attribute name="background" type="xs:boolean"/>
+<xs:attribute name="backgroundColor" type="xs:int"/>
+<xs:attribute name="border" type="xs:boolean"/>
+<xs:attribute name="borderColor" type="xs:int"/>
+<xs:attribute name="bottomScrollV" type="xs:int"/>
+<xs:attribute name="caretIndex" type="xs:int"/>
+<xs:attribute name="condenseWhite" type="xs:boolean"/>
+<xs:attribute name="defaultTextFormat" type="xs:string"/>
+<xs:attribute name="displayAsPassword" type="xs:boolean"/>
+<xs:attribute name="embedFonts" type="xs:boolean"/>
+<xs:attribute name="gridFitType" type="xs:string"/>
+<xs:attribute name="htmlText" type="xs:string"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="maxChars" type="xs:int"/>
+<xs:attribute name="maxScrollH" type="xs:int"/>
+<xs:attribute name="maxScrollV" type="xs:int"/>
+<xs:attribute name="mouseWheelEnabled" type="xs:boolean"/>
+<xs:attribute name="multiline" type="xs:boolean"/>
+<xs:attribute name="numLines" type="xs:int"/>
+<xs:attribute name="restrict" type="xs:string"/>
+<xs:attribute name="scrollH" type="xs:int"/>
+<xs:attribute name="scrollV" type="xs:int"/>
+<xs:attribute name="selectable" type="xs:boolean"/>
+<xs:attribute name="selectedText" type="xs:string"/>
+<xs:attribute name="selectionBeginIndex" type="xs:int"/>
+<xs:attribute name="selectionEndIndex" type="xs:int"/>
+<xs:attribute name="sharpness" type="xs:double"/>
+<xs:attribute name="styleSheet" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="textColor" type="xs:int"/>
+<xs:attribute name="textHeight" type="xs:double"/>
+<xs:attribute name="textInteractionMode" type="xs:string"/>
+<xs:attribute name="textWidth" type="xs:double"/>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="useRichTextClipboard" type="xs:boolean"/>
+<xs:attribute name="wordWrap" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextFormatSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="align" type="xs:string"/>
+<xs:element minOccurs="0" name="blockIndent" type="xs:string"/>
+<xs:element minOccurs="0" name="bold" type="xs:string"/>
+<xs:element minOccurs="0" name="bullet" type="xs:string"/>
+<xs:element minOccurs="0" name="color" type="xs:string"/>
+<xs:element minOccurs="0" name="display" type="xs:string"/>
+<xs:element minOccurs="0" name="font" type="xs:string"/>
+<xs:element minOccurs="0" name="indent" type="xs:string"/>
+<xs:element minOccurs="0" name="italic" type="xs:string"/>
+<xs:element minOccurs="0" name="kerning" type="xs:string"/>
+<xs:element minOccurs="0" name="leading" type="xs:string"/>
+<xs:element minOccurs="0" name="leftMargin" type="xs:string"/>
+<xs:element minOccurs="0" name="letterSpacing" type="xs:string"/>
+<xs:element minOccurs="0" name="rightMargin" type="xs:string"/>
+<xs:element minOccurs="0" name="size" type="xs:string"/>
+<xs:element minOccurs="0" name="tabStops" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="target" type="xs:string"/>
+<xs:element minOccurs="0" name="underline" type="xs:string"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+</xs:all>
+<xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="blockIndent" type="xs:string"/>
+<xs:attribute name="bold" type="xs:string"/>
+<xs:attribute name="bullet" type="xs:string"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="display" type="xs:string"/>
+<xs:attribute name="font" type="xs:string"/>
+<xs:attribute name="indent" type="xs:string"/>
+<xs:attribute name="italic" type="xs:string"/>
+<xs:attribute name="kerning" type="xs:string"/>
+<xs:attribute name="leading" type="xs:string"/>
+<xs:attribute name="leftMargin" type="xs:string"/>
+<xs:attribute name="letterSpacing" type="xs:string"/>
+<xs:attribute name="rightMargin" type="xs:string"/>
+<xs:attribute name="size" type="xs:string"/>
+<xs:attribute name="tabStops" type="xs:string"/>
+<xs:attribute name="target" type="xs:string"/>
+<xs:attribute name="underline" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Font" type="FontSchemaType"/>
+<xs:element name="StyleSheet" type="StyleSheetSchemaType"/>
+<xs:element name="TextSnapshot" type="TextSnapshotSchemaType"/>
+<xs:element name="TextLineMetrics" type="TextLineMetricsSchemaType"/>
+<xs:element name="TextField" type="TextFieldSchemaType"/>
+<xs:element name="TextFormat" type="TextFormatSchemaType"/>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <meta title="Jive: crossplatform UI framework for Haxe" package="jive.demos" version="0.0.1" company="Nick Grebenshikov" />
+
+    <!-- output -->
+    <app main="Main" file="jive" path="bin" />
+
+    <window width="0" height="0" background="0xFFFFFF" fps="60" if="html5 || flash"/>
+    <window width="800" height="600" background="0xFFFFFF" fps="125" unless="html5 || flash" />
+
+    <!-- classpath, haxe libs -->
+    <source path="src" />
+    <source path="gen" />
+    <source path="../../demos/all-in-one-hml/src" />
+    <source path="../../demos/all-in-one-hml/gen" />
+
+    <!--<set name="html5-backend" value="openfl-snapsvg"/>-->
+
+    <haxelib name="openfl" />
+    <haxelib name="jive"/>
+    <haxelib name="bindx"/>
+
+    <!--<template path="../templates" />-->
+
+    <assets path="assets" rename=""/>
+    <assets path="../../demos/all-in-one-hml/assets" rename=""/>
+    <assets path="../../demos/all-in-one-hml/declarations/demo/view" rename="assets/source"/>
+    <assets path="../../demos/all-in-one-hml/src/demo/viewmodel" rename="assets/source"/>
+
+</project>

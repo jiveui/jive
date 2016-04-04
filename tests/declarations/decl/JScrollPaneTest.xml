@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing" xmlns:geom="org.aswing.geom" xmlns:e="empty">
+        <content>
+                <JPanel>
+                    <layout>
+                            <FlowLayout>
+                                    <align>org.aswing.FlowLayout.LEFT</align>
+                                    <hgap>30</hgap>
+                                    <vgap>30</vgap>
+                                    <margin>true</margin>
+                            </FlowLayout>
+                    </layout>
+                    <JScrollPane horizontalScrollBarPolicy="org.aswing.JScrollPane.SCROLLBAR_ALWAYS">
+                        <JList>
+                            <preferredSize>
+                                <geom:IntDimension width="100" height="200"/>
+                            </preferredSize>
+                            <model>
+                                <VectorListModel>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                    <e:String>'First'</e:String>
+                                    <e:String>'Second'</e:String>
+                                    <e:String>'Third'</e:String>
+                                    <e:String>'Four'</e:String>
+                                </VectorListModel>
+                            </model>
+                        </JList>
+                    </JScrollPane>
+                </JPanel>
+        </content>
+</JWindow>
+

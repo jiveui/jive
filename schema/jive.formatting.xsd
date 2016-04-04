@@ -1,0 +1,104 @@
+<xs:schema targetNamespace="jive.formatting" xmlns="jive.formatting" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:empty="empty"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="RegExFormattedTextAreaSchemaTypeValue">
+<xs:all><xs:element ref="RegExFormattedTextArea"/></xs:all></xs:complexType>
+
+<xs:complexType name="HaxeRegExRulesSchemaTypeValue">
+<xs:all><xs:element ref="HaxeRegExRules"/></xs:all></xs:complexType>
+
+<xs:complexType name="XmlRegExRulesSchemaTypeValue">
+<xs:choice>
+<xs:element ref="HmlRegExRules" />
+<xs:element ref="XmlRegExRules" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="RegExRuleSchemaTypeValue">
+<xs:all><xs:element ref="RegExRule"/></xs:all></xs:complexType>
+
+<xs:complexType name="RegExRulesSchemaTypeValue">
+<xs:choice>
+<xs:element ref="HaxeRegExRules" />
+<xs:element ref="XmlRegExRules" />
+<xs:element ref="HmlRegExRules" />
+<xs:element ref="RegExRules" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="HmlRegExRulesSchemaTypeValue">
+<xs:all><xs:element ref="HmlRegExRules"/></xs:all></xs:complexType>
+
+<xs:complexType name="RegExFormattedTextAreaSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JTextAreaSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="rules" type="RegExRulesSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="rules" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HaxeRegExRulesSchemaType">
+<xs:complexContent>
+<xs:extension base="RegExRulesSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="XmlRegExRulesSchemaType">
+<xs:complexContent>
+<xs:extension base="RegExRulesSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegExRuleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="regex" type="empty:ERegSchemaTypeValue"/>
+<xs:element minOccurs="0" name="action" type="xs:string"/>
+</xs:all>
+<xs:attribute name="regex" type="xs:string"/>
+<xs:attribute name="action" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RegExRulesSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="rules" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="rules" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HmlRegExRulesSchemaType">
+<xs:complexContent>
+<xs:extension base="XmlRegExRulesSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RegExFormattedTextArea" type="RegExFormattedTextAreaSchemaType"/>
+<xs:element name="HaxeRegExRules" type="HaxeRegExRulesSchemaType"/>
+<xs:element name="XmlRegExRules" type="XmlRegExRulesSchemaType"/>
+<xs:element name="RegExRule" type="RegExRuleSchemaType"/>
+<xs:element name="RegExRules" type="RegExRulesSchemaType"/>
+<xs:element name="HmlRegExRules" type="HmlRegExRulesSchemaType"/>
+</xs:schema>

@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="lime.graphics.cairo._CairoStatus" xmlns="lime.graphics.cairo._CairoStatus" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="CairoStatus_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="CairoStatus_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoStatus_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="CairoStatus_Impl_" type="CairoStatus_Impl_SchemaType"/>
+</xs:schema>

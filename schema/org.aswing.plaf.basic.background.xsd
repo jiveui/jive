@@ -1,0 +1,216 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.background" xmlns="org.aswing.plaf.basic.background" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:jive-plaf-flat-background="jive.plaf.flat.background"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive.plaf.flat.background" schemaLocation="jive.plaf.flat.background.xsd" />
+<xs:complexType name="ProgressBarBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ProgressBarBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ProgressBarIconSchemaTypeValue">
+<xs:all><xs:element ref="ProgressBarIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="ListBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ListBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FrameBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ComboBoxBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ComboBoxBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextComponentBackBroundSchemaTypeValue">
+<xs:choice>
+<xs:element ref="ComboBoxBackground" />
+<xs:element ref="InputBackground" />
+<xs:element ref="TextComponentBackBround" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="InputBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="InputBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="PanelBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="PanelBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ScrollBarThumbSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat-background:FlatScrollBarThumb" />
+<xs:element ref="ScrollBarThumb" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ToolTipBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ToolTipBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ButtonBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ButtonBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ScrollBarBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ScrollBarBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="TableHeaderBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="TableHeaderBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="TableBackgroundSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat-background:FlatTableBackground" />
+<xs:element ref="TableBackground" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ToggleButtonBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ToggleButtonBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ProgressBarBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ProgressBarIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComboBoxBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="TextComponentBackBroundSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextComponentBackBroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InputBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="TextComponentBackBroundSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PanelBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ScrollBarThumbSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ToolTipBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ButtonBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ScrollBarBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableHeaderBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TableBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ToggleButtonBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ProgressBarBackground" type="ProgressBarBackgroundSchemaType"/>
+<xs:element name="ProgressBarIcon" type="ProgressBarIconSchemaType"/>
+<xs:element name="ListBackground" type="ListBackgroundSchemaType"/>
+<xs:element name="FrameBackground" type="FrameBackgroundSchemaType"/>
+<xs:element name="ComboBoxBackground" type="ComboBoxBackgroundSchemaType"/>
+<xs:element name="TextComponentBackBround" type="TextComponentBackBroundSchemaType"/>
+<xs:element name="InputBackground" type="InputBackgroundSchemaType"/>
+<xs:element name="PanelBackground" type="PanelBackgroundSchemaType"/>
+<xs:element name="ScrollBarThumb" type="ScrollBarThumbSchemaType"/>
+<xs:element name="ToolTipBackground" type="ToolTipBackgroundSchemaType"/>
+<xs:element name="ButtonBackground" type="ButtonBackgroundSchemaType"/>
+<xs:element name="ScrollBarBackground" type="ScrollBarBackgroundSchemaType"/>
+<xs:element name="TableHeaderBackground" type="TableHeaderBackgroundSchemaType"/>
+<xs:element name="TableBackground" type="TableBackgroundSchemaType"/>
+<xs:element name="ToggleButtonBackground" type="ToggleButtonBackgroundSchemaType"/>
+</xs:schema>

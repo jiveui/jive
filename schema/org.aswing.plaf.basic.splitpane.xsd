@@ -1,0 +1,34 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.splitpane" xmlns="org.aswing.plaf.basic.splitpane" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:empty="empty"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="DividerIconSchemaTypeValue">
+<xs:all><xs:element ref="DividerIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="DividerSchemaTypeValue">
+<xs:all><xs:element ref="Divider"/></xs:all></xs:complexType>
+
+<xs:complexType name="DividerIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DividerSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ContainerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="DividerIcon" type="DividerIconSchemaType"/>
+<xs:element name="Divider" type="DividerSchemaType"/>
+</xs:schema>

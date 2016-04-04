@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="flash._Boot" xmlns="flash._Boot" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:flash="flash"
+>
+<xs:import namespace="flash" schemaLocation="flash.xsd" />
+<xs:complexType name="RealBootSchemaTypeValue">
+<xs:all><xs:element ref="RealBoot"/></xs:all></xs:complexType>
+
+<xs:complexType name="RealBootSchemaType">
+<xs:complexContent>
+<xs:extension base="flash:BootSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RealBoot" type="RealBootSchemaType"/>
+</xs:schema>

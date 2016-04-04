@@ -1,0 +1,27 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.accordion" xmlns="org.aswing.plaf.basic.accordion" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
+xmlns:empty="empty"
+>
+<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="BasicAccordionHeaderSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-plaf-flat-accordion:AccordionHeader" />
+<xs:element ref="BasicAccordionHeader" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicAccordionHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="maxPlacement" type="xs:int"/>
+</xs:all>
+<xs:attribute name="maxPlacement" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BasicAccordionHeader" type="BasicAccordionHeaderSchemaType"/>
+</xs:schema>

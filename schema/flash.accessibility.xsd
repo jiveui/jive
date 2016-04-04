@@ -1,0 +1,48 @@
+<xs:schema targetNamespace="flash.accessibility" xmlns="flash.accessibility" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="AccessibilityPropertiesSchemaTypeValue">
+<xs:all><xs:element ref="AccessibilityProperties"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccessibilityImplementationSchemaTypeValue">
+<xs:all><xs:element ref="AccessibilityImplementation"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccessibilityPropertiesSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="forceSimple" type="xs:boolean"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="noAutoLabeling" type="xs:boolean"/>
+<xs:element minOccurs="0" name="shortcut" type="xs:string"/>
+<xs:element minOccurs="0" name="silent" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="description" type="xs:string"/>
+<xs:attribute name="forceSimple" type="xs:boolean"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="noAutoLabeling" type="xs:boolean"/>
+<xs:attribute name="shortcut" type="xs:string"/>
+<xs:attribute name="silent" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccessibilityImplementationSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="errno" type="xs:int"/>
+<xs:element minOccurs="0" name="stub" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="errno" type="xs:int"/>
+<xs:attribute name="stub" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="AccessibilityProperties" type="AccessibilityPropertiesSchemaType"/>
+<xs:element name="AccessibilityImplementation" type="AccessibilityImplementationSchemaType"/>
+</xs:schema>

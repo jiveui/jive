@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GridLayout xmlns="org.aswing" hgap="5" vgap="10">
+    <rows>2</rows>
+    <columns>3</columns>
+</GridLayout>

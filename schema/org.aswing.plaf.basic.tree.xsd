@@ -1,0 +1,35 @@
+<xs:schema targetNamespace="org.aswing.plaf.basic.tree" xmlns="org.aswing.plaf.basic.tree" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="BasicExpandControlSchemaTypeValue">
+<xs:all><xs:element ref="BasicExpandControl"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpandControlSchemaTypeValue">
+<xs:choice>
+<xs:element ref="BasicExpandControl" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="BasicExpandControlSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpandControlSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BasicExpandControl" type="BasicExpandControlSchemaType"/>
+<xs:element name="ExpandControl" type="ExpandControlSchemaType"/>
+</xs:schema>

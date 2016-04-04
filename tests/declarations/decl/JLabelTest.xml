@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing" xmlns:geom="org.aswing.geom">
+    <content>
+        <JPanel>
+            <layout>
+                    <FlowLayout>
+                            <align>org.aswing.FlowLayout.LEFT</align>
+                            <hgap>30</hgap>
+                            <vgap>30</vgap>
+                            <margin>true</margin>
+                    </FlowLayout>
+            </layout>
+            <JLabel text="'First'"/>
+            <JLabel text="'Second'"/>
+            <JLabel text="'Third'"/>
+        </JPanel>
+    </content>
+</JWindow>

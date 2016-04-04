@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow xmlns="org.aswing"
+         xmlns:haxe="http://haxe.org/"
+         xmlns:geom="org.aswing.geom"
+         xmlns:demo="demo.view"
+         xmlns:jive="jive"
+         xmlns:border="org.aswing.border"
+         xmlns:e="empty"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<viewmodel.MainViewModel>]]></haxe:Implements>
+    <content>
+        <JPanel>
+            <layout>
+                <CenterLayout/>
+            </layout>
+            <SoftBox>
+                <JLabel>
+                    <icon>
+                        <AssetIcon asset="{Binding jiveIcon}" width="240" height="150" scale="true"/>
+                    </icon>
+                </JLabel>
+                <JLabel text="'Cross-platform UI framework for Haxe'"/>
+                <JLabel text="'The Mobile version is coming!'"/>
+
+                <JSeparator><preferredSize><geom:IntDimension width="10" height="10"/></preferredSize></JSeparator>
+                <JButton text="'Take a look at GitHub'">
+                    <command>
+                        <jive:OpenLinkCommand url="'http://github.com/ngrebenshikov/jive'"/>
+                    </command>
+                </JButton>
+
+                <JLabelButton text="'Desktop version'">
+                    <border>
+                        <border:EmptyBorder top="10"/>
+                    </border>
+                    <command>
+                        <jive:OpenLinkCommand url="{Binding desktopVersionUrl}"/>
+                    </command>
+                </JLabelButton>
+            </SoftBox>
+        </JPanel>
+    </content>
+</JWindow>

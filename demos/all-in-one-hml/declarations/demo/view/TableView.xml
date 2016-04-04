@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel
+        xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:geom="org.aswing.geom"
+        xmlns:border="org.aswing.border"
+        xmlns:formatting="jive.formatting"
+        xmlns:jive="jive"
+        xmlns:e="empty"
+        xmlns:table="org.aswing.table"
+        xmlns:sorter="org.aswing.table.sorter">
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.TableViewModel>]]></haxe:Implements>
+    <layout>
+        <BorderLayout/>
+    </layout>
+    <JLabel text="'Table'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+        <font>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+        </font>
+        <border>
+            <border:EmptyBorder bottom="30"/>
+        </border>
+    </JLabel>
+    <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
+        <!-- Demos -->
+        <TabInfo title="'Demo'">
+            <content>
+                <JPanel>
+                    <layout>
+                        <BorderLayout/>
+                    </layout>
+                    <JLabel text="'TIOBE Index for May 2015, www.tiobe.com'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+                        <font>
+                            <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                        </font>
+                        <border>
+                            <border:EmptyBorder top="15" bottom="15"/>
+                        </border>
+                    </JLabel>
+                    <JPanel>
+                        <layout>
+                            <BorderLayout/>
+                        </layout>
+                        <JScrollPane constraints="org.aswing.BorderLayout.CENTER">
+                            <JTable rowHeight="40" selectedItem="{Binding selectedItem mode=twoway}" selectionMode="org.aswing.JTable.SINGLE_SELECTION">
+                                <tableHeader>
+                                    <table:JTableHeader id="tableHeader" columnModel="columnModel" rowHeight="40"/>
+                                </tableHeader>
+                                <columnModel>
+                                    <table:DefaultTableColumnModel id="columnModel">
+                                        <table:TableColumn modelIndex="0" headerValue="'2015'" minWidth="80" maxWidth="80"/>
+                                        <table:TableColumn modelIndex="1" headerValue="'2014'" minWidth="80" maxWidth="80"/>
+                                        <table:TableColumn modelIndex="2" headerValue="'Programming language'"/>
+                                        <table:TableColumn modelIndex="3" headerValue="'Rating, %'" minWidth="120" maxWidth="120"/>
+                                        <table:TableColumn modelIndex="4" headerValue="'Change, %'" minWidth="120" maxWidth="120"/>
+                                    </table:DefaultTableColumnModel>
+                                </columnModel>
+                                <dataModel>
+                                    <sorter:TableSorter columnSortables="[true, true, true, true, true]" tableHeader="tableHeader">
+                                        <sorter:tableModel>
+                                            <table:PropertyTableModel
+                                                    columnsEditable="[false, false, false, false, false]"
+                                                    properties="['position', 'prevPosition', 'name', 'rating', 'change']"
+                                                    columnClasses="['Number', 'Number', null, 'Number', 'Number']"
+                                                    list="{Binding languages}" />
+                                        </sorter:tableModel>
+                                    </sorter:TableSorter>
+                                </dataModel>
+                            </JTable>
+                        </JScrollPane>
+                        <SoftBox constraints="org.aswing.BorderLayout.SOUTH" visibility="{Binding informationPanelVisibility}">
+                            <border>
+                                <border:EmptyBorder top="15"/>
+                            </border>
+                            <SoftBox>
+                                <border>
+                                    <border:LineBorder thickness="1" round="5">
+                                        <border:interior>
+                                            <border:EmptyBorder top="15" left="15" bottom="15" right="15"/>
+                                        </border:interior>
+                                        <border:color>
+                                            <ASColor rgb="0xe1e1e1"/>
+                                        </border:color>
+                                    </border:LineBorder>
+                                </border>
+                                <JPanel>
+                                    <JLabel text="'Highest:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <font>
+                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                        </font>
+                                    </JLabel>
+                                    <JLabel text="{Binding highest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border>
+                                            <border:EmptyBorder right="10"/>
+                                        </border>
+                                    </JLabel>
+
+                                    <JLabel text="'Lowest:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <font>
+                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                        </font>
+                                    </JLabel>
+                                    <JLabel text="{Binding lowest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <border>
+                                            <border:EmptyBorder right="10"/>
+                                        </border>
+                                    </JLabel>
+
+                                    <JLabel text="'Language of the year:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                        <font>
+                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                        </font>
+                                    </JLabel>
+                                    <JLabel text="{Binding languageOfYear}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                                </JPanel>
+                            </SoftBox>
+                        </SoftBox>
+                    </JPanel>
+                </JPanel>
+            </content>
+        </TabInfo>
+        <!--Sources-->
+        <TabInfo title="'View (XML source)'">
+            <content>
+                <JScrollPane>
+                    <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
+                        <formatting:rules>
+                            <formatting:HmlRegExRules/>
+                        </formatting:rules>
+                    </formatting:RegExFormattedTextArea>
+                </JScrollPane>
+            </content>
+        </TabInfo>
+        <TabInfo title="'View Model (Haxe source)'">
+            <content>
+                <JScrollPane>
+                    <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">
+                        <formatting:rules>
+                            <formatting:HaxeRegExRules/>
+                        </formatting:rules>
+                    </formatting:RegExFormattedTextArea>
+                </JScrollPane>
+            </content>
+        </TabInfo>
+    </JTabbedPane>
+ </JPanel>

@@ -1,0 +1,146 @@
+<xs:schema targetNamespace="org.aswing.colorchooser" xmlns="org.aswing.colorchooser" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:empty="empty"
+xmlns:flash-events="flash.events"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
+<xs:complexType name="NoColorIconSchemaTypeValue">
+<xs:all><xs:element ref="NoColorIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="PreviewColorIconSchemaTypeValue">
+<xs:all><xs:element ref="PreviewColorIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="ColorRectIconSchemaTypeValue">
+<xs:all><xs:element ref="ColorRectIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="DefaultColorSelectionModelSchemaTypeValue">
+<xs:all><xs:element ref="DefaultColorSelectionModel"/></xs:all></xs:complexType>
+
+<xs:complexType name="JColorMixerSchemaTypeValue">
+<xs:all><xs:element ref="JColorMixer"/></xs:all></xs:complexType>
+
+<xs:complexType name="ColorSelectionModelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultColorSelectionModel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="AbstractColorChooserPanelSchemaTypeValue">
+<xs:choice>
+<xs:element ref="org-aswing:JColorChooser" />
+<xs:element ref="JColorSwatches" />
+<xs:element ref="JColorMixer" />
+<xs:element ref="AbstractColorChooserPanel" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="JColorSwatchesSchemaTypeValue">
+<xs:all><xs:element ref="JColorSwatches"/></xs:all></xs:complexType>
+
+<xs:complexType name="VerticalLayoutSchemaTypeValue">
+<xs:all><xs:element ref="VerticalLayout"/></xs:all></xs:complexType>
+
+<xs:complexType name="NoColorIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PreviewColorIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorRectIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultColorSelectionModelSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JColorMixerSchemaType">
+<xs:complexContent>
+<xs:extension base="AbstractColorChooserPanelSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorSelectionModelSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractColorChooserPanelSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:ContainerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alphaSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="hexSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="noColorSectionVisible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="model" type="ColorSelectionModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="selectedColor" type="org-aswing:ASColorSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="alphaSectionVisible" type="xs:boolean"/>
+<xs:attribute name="hexSectionVisible" type="xs:boolean"/>
+<xs:attribute name="noColorSectionVisible" type="xs:boolean"/>
+<xs:attribute name="model" type="xs:string"/>
+<xs:attribute name="selectedColor" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JColorSwatchesSchemaType">
+<xs:complexContent>
+<xs:extension base="AbstractColorChooserPanelSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VerticalLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:EmptyLayoutSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="NoColorIcon" type="NoColorIconSchemaType"/>
+<xs:element name="PreviewColorIcon" type="PreviewColorIconSchemaType"/>
+<xs:element name="ColorRectIcon" type="ColorRectIconSchemaType"/>
+<xs:element name="DefaultColorSelectionModel" type="DefaultColorSelectionModelSchemaType"/>
+<xs:element name="JColorMixer" type="JColorMixerSchemaType"/>
+<xs:element name="ColorSelectionModel" type="ColorSelectionModelSchemaType"/>
+<xs:element name="AbstractColorChooserPanel" type="AbstractColorChooserPanelSchemaType"/>
+<xs:element name="JColorSwatches" type="JColorSwatchesSchemaType"/>
+<xs:element name="VerticalLayout" type="VerticalLayoutSchemaType"/>
+</xs:schema>

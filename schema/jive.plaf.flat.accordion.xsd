@@ -1,0 +1,109 @@
+<xs:schema targetNamespace="jive.plaf.flat.accordion" xmlns="jive.plaf.flat.accordion" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf-basic="org.aswing.plaf.basic"
+xmlns:empty="empty"
+xmlns:org-aswing-plaf-basic-accordion="org.aswing.plaf.basic.accordion"
+xmlns:org-aswing-border="org.aswing.border"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic" schemaLocation="org.aswing.plaf.basic.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.accordion" schemaLocation="org.aswing.plaf.basic.accordion.xsd" />
+<xs:import namespace="org.aswing.border" schemaLocation="org.aswing.border.xsd" />
+<xs:complexType name="AccordionHeaderButtonUISchemaTypeValue">
+<xs:all><xs:element ref="AccordionHeaderButtonUI"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionItemBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="AccordionItemBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionHeaderSchemaTypeValue">
+<xs:all><xs:element ref="AccordionHeader"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionHeaderButtonSchemaTypeValue">
+<xs:all><xs:element ref="AccordionHeaderButton"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionHeaderButtonBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="AccordionHeaderButtonBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionItemBorderSchemaTypeValue">
+<xs:all><xs:element ref="AccordionItemBorder"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionItemContainerSchemaTypeValue">
+<xs:all><xs:element ref="AccordionItemContainer"/></xs:all></xs:complexType>
+
+<xs:complexType name="AccordionHeaderButtonUISchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic:BasicButtonUISchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionItemBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-accordion:BasicAccordionHeaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionHeaderButtonSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JButtonSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="tabPlacement" type="xs:int"/>
+<xs:element minOccurs="0" name="maxPlacement" type="xs:int"/>
+</xs:all>
+<xs:attribute name="tabPlacement" type="xs:int"/>
+<xs:attribute name="maxPlacement" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionHeaderButtonBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionItemBorderSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-border:DecorateBorderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AccordionItemContainerSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing:JPanelSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="AccordionHeaderButtonUI" type="AccordionHeaderButtonUISchemaType"/>
+<xs:element name="AccordionItemBackground" type="AccordionItemBackgroundSchemaType"/>
+<xs:element name="AccordionHeader" type="AccordionHeaderSchemaType"/>
+<xs:element name="AccordionHeaderButton" type="AccordionHeaderButtonSchemaType"/>
+<xs:element name="AccordionHeaderButtonBackground" type="AccordionHeaderButtonBackgroundSchemaType"/>
+<xs:element name="AccordionItemBorder" type="AccordionItemBorderSchemaType"/>
+<xs:element name="AccordionItemContainer" type="AccordionItemContainerSchemaType"/>
+</xs:schema>

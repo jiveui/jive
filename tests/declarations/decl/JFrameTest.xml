@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JFrame
+        xmlns="org.aswing"
+        xmlns:geom="org.aswing.geom"
+        xmlns:haxe="http://haxe.org/"
+        title="'Title'"
+        width="500"
+        height="300">
+
+    <content>
+        <JPanel>
+            <layout>
+                    <BorderLayout>
+                            <hgap>30</hgap>
+                            <vgap>30</vgap>
+                    </BorderLayout>
+            </layout>
+            <JLabel text="'Hello world!'"/>
+        </JPanel>
+    </content>
+</JFrame>

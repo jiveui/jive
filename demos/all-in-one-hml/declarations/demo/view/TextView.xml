@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPanel
+        xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:geom="org.aswing.geom"
+        xmlns:border="org.aswing.border"
+        xmlns:formatting="jive.formatting"
+        xmlns:ext="org.aswing.ext">
+    <haxe:Implements><![CDATA[jive.DataContextControllable<demo.viewmodel.TextViewModel>]]></haxe:Implements>
+    <layout>
+        <BorderLayout/>
+    </layout>
+    <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+        <font>
+            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+        </font>
+        <border>
+            <border:EmptyBorder bottom="30"/>
+        </border>
+    </JLabel>
+    <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
+        <!-- Demos -->
+        <TabInfo title="'Demo'">
+            <content>
+                <SoftBox>
+                    <border><border:EmptyBorder top="30"/></border>
+                    <SoftBox axis="org.aswing.SoftBoxLayout.X_AXIS" gap="30">
+                        <SoftBox>
+                            <border>
+                                <border:LineBorder thickness="1" round="5">
+                                    <border:interior>
+                                        <border:EmptyBorder top="30" left="30" bottom="30" right="30"/>
+                                    </border:interior>
+                                    <border:color>
+                                        <ASColor rgb="0xe1e1e1"/>
+                                    </border:color>
+                                </border:LineBorder>
+                            </border>
+
+                            <JPanel>
+                                <JLabel text="'Predator'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                    <preferredSize>
+                                        <geom:IntDimension width="100" height="-1"/>
+                                    </preferredSize>
+                                </JLabel>
+                                <JTextField columns="15" inlineHint="'Lion'" text="{Binding predator mode=twoway}"/>
+                            </JPanel>
+
+                            <JPanel>
+                                <JLabel text="'Prey'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                    <preferredSize>
+                                        <geom:IntDimension width="100" height="-1"/>
+                                    </preferredSize>
+                                </JLabel>
+                                <JTextField columns="15" inlineHint="'Antelope'" text="{Binding prey mode=twoway}"/>
+                            </JPanel>
+
+                        </SoftBox>
+                        <ext:MultilineLabel text="{Binding predatorVictimSentence mode=oneway}" rows="5" columns="20" >
+                            <ext:font>
+                                <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+                            </ext:font>
+                        </ext:MultilineLabel>
+                    </SoftBox>
+                </SoftBox>
+            </content>
+        </TabInfo>
+        <!--Sources-->
+        <TabInfo title="'View (XML source)'">
+            <content>
+                <JScrollPane>
+                    <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
+                        <formatting:rules>
+                            <formatting:HmlRegExRules/>
+                        </formatting:rules>
+                    </formatting:RegExFormattedTextArea>
+                </JScrollPane>
+            </content>
+        </TabInfo>
+        <TabInfo title="'View Model (Haxe source)'">
+            <content>
+                <JScrollPane>
+                    <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">
+                        <formatting:rules>
+                            <formatting:HaxeRegExRules/>
+                        </formatting:rules>
+                    </formatting:RegExFormattedTextArea>
+                </JScrollPane>
+            </content>
+        </TabInfo>
+    </JTabbedPane>
+</JPanel>

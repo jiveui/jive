@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JWindow
+        xmlns="org.aswing"
+        xmlns:haxe="http://haxe.org/"
+        xmlns:border="org.aswing.border"
+        xmlns:geom="org.aswing.geom">
+        <content>
+    	    <JPanel>
+	        <border>
+    		    <border:EmptyBorder bottom="10" top="10" left="10" right="10"/>
+    	        </border>
+	        <layout>
+    		    <BorderLayout/>
+	        </layout>
+		<JLabel text="'Hello world!'"/>
+    	    </JPanel>
+        </content>
+</JWindow>

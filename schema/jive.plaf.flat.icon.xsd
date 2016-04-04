@@ -1,0 +1,150 @@
+<xs:schema targetNamespace="jive.plaf.flat.icon" xmlns="jive.plaf.flat.icon" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing="org.aswing"
+xmlns:org-aswing-plaf-basic-icon="org.aswing.plaf.basic.icon"
+xmlns:empty="empty"
+>
+<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
+<xs:import namespace="org.aswing.plaf.basic.icon" schemaLocation="org.aswing.plaf.basic.icon.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="FlatCheckBoxIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatCheckBoxIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatMenuArrowIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatMenuArrowIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="MinusIconSchemaTypeValue">
+<xs:all><xs:element ref="MinusIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatRadioButtonIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatRadioButtonIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameIconSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FrameCloseIcon" />
+<xs:element ref="FrameIcon" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PlusIconSchemaTypeValue">
+<xs:all><xs:element ref="PlusIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FrameCloseIconSchemaTypeValue">
+<xs:all><xs:element ref="FrameCloseIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpandIconSchemaTypeValue">
+<xs:all><xs:element ref="ExpandIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatComboBoxArrowIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatComboBoxArrowIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatSliderThumbIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatSliderThumbIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatCheckBoxIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatMenuArrowIconSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-icon:SolidArrowIconSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MinusIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatRadioButtonIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PlusIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameCloseIconSchemaType">
+<xs:complexContent>
+<xs:extension base="FrameIconSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpandIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="size" type="xs:int"/>
+<xs:element minOccurs="0" name="color" type="org-aswing:ASColorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="expanded" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="expanded" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatComboBoxArrowIconSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-icon:SolidArrowIconSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatSliderThumbIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="FlatCheckBoxIcon" type="FlatCheckBoxIconSchemaType"/>
+<xs:element name="FlatMenuArrowIcon" type="FlatMenuArrowIconSchemaType"/>
+<xs:element name="MinusIcon" type="MinusIconSchemaType"/>
+<xs:element name="FlatRadioButtonIcon" type="FlatRadioButtonIconSchemaType"/>
+<xs:element name="FrameIcon" type="FrameIconSchemaType"/>
+<xs:element name="PlusIcon" type="PlusIconSchemaType"/>
+<xs:element name="FrameCloseIcon" type="FrameCloseIconSchemaType"/>
+<xs:element name="ExpandIcon" type="ExpandIconSchemaType"/>
+<xs:element name="FlatComboBoxArrowIcon" type="FlatComboBoxArrowIconSchemaType"/>
+<xs:element name="FlatSliderThumbIcon" type="FlatSliderThumbIconSchemaType"/>
+</xs:schema>

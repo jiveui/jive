@@ -1,0 +1,90 @@
+<xs:schema targetNamespace="org.aswing.resizer" xmlns="org.aswing.resizer" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ResizeStrategySchemaTypeValue">
+<xs:choice>
+<xs:element ref="ResizeStrategyImp" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ResizerControllerSchemaTypeValue">
+<xs:all><xs:element ref="ResizerController"/></xs:all></xs:complexType>
+
+<xs:complexType name="DefaultResizerSchemaTypeValue">
+<xs:all><xs:element ref="DefaultResizer"/></xs:all></xs:complexType>
+
+<xs:complexType name="DefaultResizeBarHandlerSchemaTypeValue">
+<xs:all><xs:element ref="DefaultResizeBarHandler"/></xs:all></xs:complexType>
+
+<xs:complexType name="ResizeStrategyImpSchemaTypeValue">
+<xs:all><xs:element ref="ResizeStrategyImp"/></xs:all></xs:complexType>
+
+<xs:complexType name="ResizerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="DefaultResizer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ResizeStrategySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResizerControllerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultResizerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultResizeBarHandlerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResizeStrategyImpSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResizerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ResizeStrategy" type="ResizeStrategySchemaType"/>
+<xs:element name="ResizerController" type="ResizerControllerSchemaType"/>
+<xs:element name="DefaultResizer" type="DefaultResizerSchemaType"/>
+<xs:element name="DefaultResizeBarHandler" type="DefaultResizeBarHandlerSchemaType"/>
+<xs:element name="ResizeStrategyImp" type="ResizeStrategyImpSchemaType"/>
+<xs:element name="Resizer" type="ResizerSchemaType"/>
+</xs:schema>

@@ -1,0 +1,164 @@
+<xs:schema targetNamespace="jive.plaf.flat.background" xmlns="jive.plaf.flat.background" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:org-aswing-plaf-basic-background="org.aswing.plaf.basic.background"
+xmlns:empty="empty"
+>
+<xs:import namespace="org.aswing.plaf.basic.background" schemaLocation="org.aswing.plaf.basic.background.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="FlatScrollBarBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatScrollBarBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatProgressBarBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatProgressBarBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatInputBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatInputBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTextComponentBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTextComponentBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatScrollBarThumbSchemaTypeValue">
+<xs:all><xs:element ref="FlatScrollBarThumb"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTableBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTableBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatProgressBarIconSchemaTypeValue">
+<xs:all><xs:element ref="FlatProgressBarIcon"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatButtonBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatButtonBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatFrameBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatFrameBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="ListSeparatorBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="ListSeparatorBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatPanelBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatPanelBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatTableHeaderBackgroundSchemaTypeValue">
+<xs:all><xs:element ref="FlatTableHeaderBackground"/></xs:all></xs:complexType>
+
+<xs:complexType name="FlatScrollBarBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatProgressBarBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatInputBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTextComponentBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatScrollBarThumbSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-background:ScrollBarThumbSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTableBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="org-aswing-plaf-basic-background:TableBackgroundSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatProgressBarIconSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatButtonBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatFrameBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ListSeparatorBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatPanelBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FlatTableHeaderBackgroundSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="FlatScrollBarBackground" type="FlatScrollBarBackgroundSchemaType"/>
+<xs:element name="FlatProgressBarBackground" type="FlatProgressBarBackgroundSchemaType"/>
+<xs:element name="FlatInputBackground" type="FlatInputBackgroundSchemaType"/>
+<xs:element name="FlatTextComponentBackground" type="FlatTextComponentBackgroundSchemaType"/>
+<xs:element name="FlatScrollBarThumb" type="FlatScrollBarThumbSchemaType"/>
+<xs:element name="FlatTableBackground" type="FlatTableBackgroundSchemaType"/>
+<xs:element name="FlatProgressBarIcon" type="FlatProgressBarIconSchemaType"/>
+<xs:element name="FlatButtonBackground" type="FlatButtonBackgroundSchemaType"/>
+<xs:element name="FlatFrameBackground" type="FlatFrameBackgroundSchemaType"/>
+<xs:element name="ListSeparatorBackground" type="ListSeparatorBackgroundSchemaType"/>
+<xs:element name="FlatPanelBackground" type="FlatPanelBackgroundSchemaType"/>
+<xs:element name="FlatTableHeaderBackground" type="FlatTableHeaderBackgroundSchemaType"/>
+</xs:schema>

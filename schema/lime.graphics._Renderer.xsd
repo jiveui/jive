@@ -1,0 +1,36 @@
+<xs:schema targetNamespace="lime.graphics._Renderer" xmlns="lime.graphics._Renderer" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="RenderEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="RenderEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="RenderEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="context" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="context" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RenderEventType_Impl_" type="RenderEventType_Impl_SchemaType"/>
+<xs:element name="RenderEventInfo" type="RenderEventInfoSchemaType"/>
+</xs:schema>
