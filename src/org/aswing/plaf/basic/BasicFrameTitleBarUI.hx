@@ -5,6 +5,7 @@
 package org.aswing.plaf.basic;
 
 
+import org.aswing.geom.IntDimension;
 import org.aswing.ASColor;
 import org.aswing.Component;
 import org.aswing.FrameTitleBar;
@@ -46,6 +47,10 @@ class BasicFrameTitleBarUI extends BaseComponentUI{
 	}
 	
 	private function installComponent():Void{
+
+        bar.setButtonIconGap(getInt("FrameTitleBar.buttonGap"));
+        bar.setMinimizeHeight(getInt("FrameTitleBar.titleBarHeight"));
+
 		if(bar.getIconifiedButton()!=null){
 			bar.getIconifiedButton().setIcon(getIcon("FrameTitleBar.iconifiedIcon"));
 		}
@@ -57,11 +62,10 @@ class BasicFrameTitleBarUI extends BaseComponentUI{
 		}
 		if(bar.getCloseButton()!=null){
 			bar.getCloseButton().setIcon(getIcon("FrameTitleBar.closeIcon"));
+            bar.getCloseButton().preferredSize = new IntDimension(bar.getMinimizeHeight(), bar.getMinimizeHeight());
 		}
-			
-		bar.setButtonIconGap(getInt("FrameTitleBar.buttonGap"));
-		bar.setMinimizeHeight(getInt("FrameTitleBar.titleBarHeight"));
 		bar.getSelf().revalidateIfNecessary();
+
 	}
 	
 	private function uninstallComponent():Void{
