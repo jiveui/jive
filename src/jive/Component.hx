@@ -10,13 +10,9 @@ class Component {
 
     public var displayObject(default, null): DisplayObject;
 
-    public var parent(get, set): Container;
-    private var _parent: Container;
-    private function get_parent(): Container {
-        return _parent;
-    }
-    private function set_parent(c: Component): Component {
-        return _parent = c;
+    public var parent(default, set): Container;
+    private function set_parent(c: Container): Container {
+        return parent = c;
     }
 
     public function new() {}
@@ -27,16 +23,4 @@ class Component {
     * and remove all listeners
     **/
     public function dispose() {}
-
-    public function update(): Void {
-        reposition();
-        repaint();
-    }
-
-    /**
-    * recalculate all sizes and positions
-    **/
-    public function reposition() {}
-
-    public function repaint() {}
 }

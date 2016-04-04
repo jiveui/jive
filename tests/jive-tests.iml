@@ -12,104 +12,60 @@
       <sourceFolder url="file://$MODULE_DIR$/../src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Haxe 3.2.1" jdkType="Haxe toolkit" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="haxelib|/Users/ngrebenshikov/repositories/openfl">
+      <library name="haxelib|C:/work/transstroy/openfl">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../openfl" />
+          <root url="file://$MODULE_DIR$/../../transstroy/openfl" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../openfl" />
+          <root url="file://$MODULE_DIR$/../../transstroy/openfl" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|/Users/ngrebenshikov/repositories/MassiveUnit-ngrebenshikov/src">
+      <library name="haxelib|C:/work/transstroy/bindx/src">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../MassiveUnit-ngrebenshikov/src" />
+          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../MassiveUnit-ngrebenshikov/src" />
+          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/mcover/2,1,1">
+      <library name="haxelib|C:/work/transstroy/jive/src">
         <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/mcover/2,1,1" />
+          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/mcover/2,1,1" />
+          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/mconsole/1,6,0">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/actuate/1,8,6">
         <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/mconsole/1,6,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/mconsole/1,6,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/mlib/2,0,2">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/unifill/0,4,0">
         <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/mlib/2,0,2" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/mlib/2,0,2" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|/Users/ngrebenshikov/repositories/bindx/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../bindx/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../bindx/src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|/Users/ngrebenshikov/repositories/jive/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../jive/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../jive/src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/actuate/1,8,6">
-        <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/actuate/1,8,6" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/actuate/1,8,6" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|/usr/local/lib/haxe/lib/unifill/0,4,0">
-        <CLASSES>
-          <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,0" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
         </SOURCES>
       </library>
     </orderEntry>
