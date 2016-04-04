@@ -6,7 +6,7 @@ class GenHx {
 
 	static macro function initHML() {
 		jive.hml.JiveAdapter.register();
-		return macro hml.Hml.parse({path:"tests/bin/gen", autoCreate:true}, "tests/src");
+		return macro hml.Hml.parse({path:"tests/gen", autoCreate:true}, "tests/declarations");
 	}
 	
 }

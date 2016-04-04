@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AntConfiguration">
-    <buildFile url="file://$PROJECT_DIR$/../build/build.xml">
-      <customJdkName value="1.8" />
+    <buildFile url="file://$PROJECT_DIR$/build/build.xml">
+      <customJdkName value="1.7" />
     </buildFile>
   </component>
   <component name="CompilerConfiguration">
@@ -17,7 +17,6 @@
       <entry name="!?*.flex" />
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
-      <entry name="!?*.aj" />
     </wildcardResourcePatterns>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="false">
@@ -33,8 +32,8 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
-  <component name="HaxeProjectSettings" defines="" />
-  <component name="IdProvider" IDEtalkID="CFBB3D3DCF3549D8931E47A880C8BE80" />
+  <component name="HaxeProjectSettings" defines="html5" />
+  <component name="IdProvider" IDEtalkID="C85B4E78C0B9F4BB3ED0A561EA269812" />
   <component name="Palette2">
     <group name="Swing">
       <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
@@ -158,13 +157,60 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/jive-tests.iml" filepath="$PROJECT_DIR$/jive-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tests/jive.iml" filepath="$PROJECT_DIR$/tests/jive.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Haxe 3.2.1" project-jdk-type="Haxe toolkit">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" assert-keyword="false" jdk-15="false" project-jdk-name="Haxe 3.2.0" project-jdk-type="Haxe toolkit">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
+  <component name="libraryTable">
+    <library name="actuate" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/actuate/1,8,6" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/actuate/1,8,6" />
+      </SOURCES>
+    </library>
+    <library name="bindx" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/bindx/1,1,3/bindx" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/bindx/1,1,3/bindx" />
+      </SOURCES>
+    </library>
+    <library name="hml" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/hml/git/src" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/hml/git/src" />
+      </SOURCES>
+    </library>
+    <library name="jive" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/src" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/src" />
+      </SOURCES>
+    </library>
+    <library name="munit" type="Haxe">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/munit/2,1,2" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file://$PROJECT_DIR$/../../../HaXe/haxe/lib/munit/2,1,2" />
+      </SOURCES>
+    </library>
   </component>
 </project>

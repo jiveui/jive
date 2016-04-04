@@ -1,6 +1,6 @@
--lib lime
 -lib jive
 -lib openfl
+-lib lime
 -lib hml
 -cp tests/src/
 -swf tests/bin/empty.swf

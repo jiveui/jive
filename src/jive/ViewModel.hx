@@ -1,9 +1,8 @@
 package jive;
 
-import bindx.IBindable;
 import jive.themes.Theme;
 
-class ViewModel implements IBindable {
+class ViewModel {
     @bindable public var theme: Theme;
     public function new() {}
 }

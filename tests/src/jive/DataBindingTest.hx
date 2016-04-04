@@ -1,11 +1,10 @@
 package jive;
 
 import massive.munit.Assert;
-
 class DataBindingTest {
     @Test
     public function testBinding() {
-        var t: DataBindingTestTemplate = new DataBindingTestTemplate();
+        var t: decl.DataBindingTest = new decl.DataBindingTest();
         Assert.isNull(t.s);
         Assert.isNull(t.i);
         var context = new DataBindingModel();
