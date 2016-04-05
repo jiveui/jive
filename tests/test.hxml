@@ -1,5 +1,4 @@
 ## JavaScript
--js tests/bin/html5/bin/jive-tests.js
--cp tests
+-js bin/html5/bin/jive-tests.js
 -main Nothing
 --no-output

@@ -1,0 +1,398 @@
+<xs:schema targetNamespace="lime._backend.native._NativeApplication" xmlns="lime._backend.native._NativeApplication" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="DropEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="DropEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="JoystickEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="JoystickEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="SensorEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="SensorEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="MouseEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="MouseEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="TextEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="SensorEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="SensorEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="GamepadEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="GamepadEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="WindowEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="WindowEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="RenderEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="KeyEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="KeyEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="TextEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="RenderEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="DropEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DropEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="TouchEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="TouchEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="WindowEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="WindowEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="ApplicationEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="ApplicationEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="KeyEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="KeyEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="JoystickEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="JoystickEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="ApplicationEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="ApplicationEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="TouchEventInfoSchemaTypeValue">
+<xs:all><xs:element ref="TouchEventInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="GamepadEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="GamepadEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="MouseEventType_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="MouseEventType_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DropEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="file" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="file" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JoystickEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SensorEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="button" type="xs:int"/>
+<xs:element minOccurs="0" name="movementX" type="xs:double"/>
+<xs:element minOccurs="0" name="movementY" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="windowID" type="xs:int"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="button" type="xs:int"/>
+<xs:attribute name="movementX" type="xs:double"/>
+<xs:attribute name="movementY" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="windowID" type="xs:int"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SensorEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="z" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="z" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GamepadEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="axis" type="xs:int"/>
+<xs:element minOccurs="0" name="button" type="xs:int"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:double"/>
+</xs:all>
+<xs:attribute name="axis" type="xs:int"/>
+<xs:attribute name="button" type="xs:int"/>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="value" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WindowEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="KeyEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="start" type="xs:int"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="windowID" type="xs:int"/>
+</xs:all>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="start" type="xs:int"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="windowID" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="context" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="context" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DropEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TouchEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WindowEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="windowID" type="xs:int"/>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+</xs:all>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="windowID" type="xs:int"/>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ApplicationEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="deltaTime" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="deltaTime" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="KeyEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
+<xs:element minOccurs="0" name="modifier" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="windowID" type="xs:int"/>
+</xs:all>
+<xs:attribute name="keyCode" type="xs:int"/>
+<xs:attribute name="modifier" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="windowID" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JoystickEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="index" type="xs:int"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+</xs:all>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="index" type="xs:int"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="value" type="xs:double"/>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ApplicationEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TouchEventInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="device" type="xs:int"/>
+<xs:element minOccurs="0" name="dx" type="xs:double"/>
+<xs:element minOccurs="0" name="dy" type="xs:double"/>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="pressure" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="device" type="xs:int"/>
+<xs:attribute name="dx" type="xs:double"/>
+<xs:attribute name="dy" type="xs:double"/>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="pressure" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GamepadEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseEventType_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="DropEventInfo" type="DropEventInfoSchemaType"/>
+<xs:element name="JoystickEventType_Impl_" type="JoystickEventType_Impl_SchemaType"/>
+<xs:element name="SensorEventType_Impl_" type="SensorEventType_Impl_SchemaType"/>
+<xs:element name="MouseEventInfo" type="MouseEventInfoSchemaType"/>
+<xs:element name="TextEventType_Impl_" type="TextEventType_Impl_SchemaType"/>
+<xs:element name="SensorEventInfo" type="SensorEventInfoSchemaType"/>
+<xs:element name="GamepadEventInfo" type="GamepadEventInfoSchemaType"/>
+<xs:element name="WindowEventType_Impl_" type="WindowEventType_Impl_SchemaType"/>
+<xs:element name="RenderEventType_Impl_" type="RenderEventType_Impl_SchemaType"/>
+<xs:element name="KeyEventType_Impl_" type="KeyEventType_Impl_SchemaType"/>
+<xs:element name="TextEventInfo" type="TextEventInfoSchemaType"/>
+<xs:element name="RenderEventInfo" type="RenderEventInfoSchemaType"/>
+<xs:element name="DropEventType_Impl_" type="DropEventType_Impl_SchemaType"/>
+<xs:element name="TouchEventType_Impl_" type="TouchEventType_Impl_SchemaType"/>
+<xs:element name="WindowEventInfo" type="WindowEventInfoSchemaType"/>
+<xs:element name="ApplicationEventInfo" type="ApplicationEventInfoSchemaType"/>
+<xs:element name="KeyEventInfo" type="KeyEventInfoSchemaType"/>
+<xs:element name="JoystickEventInfo" type="JoystickEventInfoSchemaType"/>
+<xs:element name="ApplicationEventType_Impl_" type="ApplicationEventType_Impl_SchemaType"/>
+<xs:element name="TouchEventInfo" type="TouchEventInfoSchemaType"/>
+<xs:element name="GamepadEventType_Impl_" type="GamepadEventType_Impl_SchemaType"/>
+<xs:element name="MouseEventType_Impl_" type="MouseEventType_Impl_SchemaType"/>
+</xs:schema>

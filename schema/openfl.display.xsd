@@ -1,0 +1,908 @@
+<xs:schema targetNamespace="openfl.display" xmlns="openfl.display" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-system="openfl.system"
+xmlns:openfl-text="openfl.text"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+xmlns:lime-graphics="lime.graphics"
+xmlns:openfl-display3D="openfl.display3D"
+xmlns:lime-app="lime.app"
+xmlns:lime-ui="lime.ui"
+>
+<xs:import namespace="openfl.system" schemaLocation="openfl.system.xsd" />
+<xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="openfl.display3D" schemaLocation="openfl.display3D.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
+<xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
+<xs:complexType name="ShapeSchemaTypeValue">
+<xs:all><xs:element ref="Shape"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsGradientFillSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsGradientFill"/></xs:all></xs:complexType>
+
+<xs:complexType name="IGraphicsFillSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GraphicsGradientFill" />
+<xs:element ref="GraphicsBitmapFill" />
+<xs:element ref="GraphicsEndFill" />
+<xs:element ref="GraphicsSolidFill" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="JPEGEncoderOptionsSchemaTypeValue">
+<xs:all><xs:element ref="JPEGEncoderOptions"/></xs:all></xs:complexType>
+
+<xs:complexType name="SpriteSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MovieClip" />
+<xs:element ref="Sprite" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FrameLabelSchemaTypeValue">
+<xs:all><xs:element ref="FrameLabel"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsSchemaTypeValue">
+<xs:all><xs:element ref="Graphics"/></xs:all></xs:complexType>
+
+<xs:complexType name="IBitmapDrawableSchemaTypeValue">
+<xs:choice>
+<xs:element ref="OpenGLView" />
+<xs:element ref="MovieClip" />
+<xs:element ref="Bitmap" />
+<xs:element ref="Shape" />
+<xs:element ref="Loader" />
+<xs:element ref="Stage" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="Sprite" />
+<xs:element ref="BitmapData" />
+<xs:element ref="InteractiveObject" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="DisplayObject" />
+<xs:element ref="DirectRenderer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="OpenGLViewSchemaTypeValue">
+<xs:all><xs:element ref="OpenGLView"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLShaderParameterSchemaTypeValue">
+<xs:all><xs:element ref="GLShaderParameter"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsSolidFillSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsSolidFill"/></xs:all></xs:complexType>
+
+<xs:complexType name="MovieClipSchemaTypeValue">
+<xs:all><xs:element ref="MovieClip"/></xs:all></xs:complexType>
+
+<xs:complexType name="ApplicationSchemaTypeValue">
+<xs:all><xs:element ref="Application"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextureUvsSchemaTypeValue">
+<xs:all><xs:element ref="TextureUvs"/></xs:all></xs:complexType>
+
+<xs:complexType name="WindowSchemaTypeValue">
+<xs:all><xs:element ref="Window"/></xs:all></xs:complexType>
+
+<xs:complexType name="BitmapSchemaTypeValue">
+<xs:all><xs:element ref="Bitmap"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsEndFillSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsEndFill"/></xs:all></xs:complexType>
+
+<xs:complexType name="LoaderInfoSchemaTypeValue">
+<xs:all><xs:element ref="LoaderInfo"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsPathSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="IGraphicsStrokeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GraphicsStroke" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PNGEncoderOptionsSchemaTypeValue">
+<xs:all><xs:element ref="PNGEncoderOptions"/></xs:all></xs:complexType>
+
+<xs:complexType name="BitmapDataSchemaTypeValue">
+<xs:all><xs:element ref="BitmapData"/></xs:all></xs:complexType>
+
+<xs:complexType name="IGraphicsPathSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GraphicsPath" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GraphicsBitmapFillSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsBitmapFill"/></xs:all></xs:complexType>
+
+<xs:complexType name="LoaderSchemaTypeValue">
+<xs:all><xs:element ref="Loader"/></xs:all></xs:complexType>
+
+<xs:complexType name="DirectRendererSchemaTypeValue">
+<xs:choice>
+<xs:element ref="OpenGLView" />
+<xs:element ref="DirectRenderer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GraphicsStrokeSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsStroke"/></xs:all></xs:complexType>
+
+<xs:complexType name="InteractiveObjectSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MovieClip" />
+<xs:element ref="Loader" />
+<xs:element ref="Stage" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="Sprite" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="InteractiveObject" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="StageSchemaTypeValue">
+<xs:all><xs:element ref="Stage"/></xs:all></xs:complexType>
+
+<xs:complexType name="DisplayObjectSchemaTypeValue">
+<xs:choice>
+<xs:element ref="OpenGLView" />
+<xs:element ref="MovieClip" />
+<xs:element ref="Bitmap" />
+<xs:element ref="Shape" />
+<xs:element ref="Loader" />
+<xs:element ref="Stage" />
+<xs:element ref="DisplayObjectContainer" />
+<xs:element ref="Sprite" />
+<xs:element ref="InteractiveObject" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="DirectRenderer" />
+<xs:element ref="DisplayObject" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsDataSchemaTypeValue">
+<xs:choice>
+<xs:element ref="GraphicsGradientFill" />
+<xs:element ref="GraphicsBitmapFill" />
+<xs:element ref="GraphicsStroke" />
+<xs:element ref="GraphicsEndFill" />
+<xs:element ref="GraphicsPath" />
+<xs:element ref="GraphicsSolidFill" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Stage3DSchemaTypeValue">
+<xs:all><xs:element ref="Stage3D"/></xs:all></xs:complexType>
+
+<xs:complexType name="DisplayObjectContainerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MovieClip" />
+<xs:element ref="Loader" />
+<xs:element ref="Stage" />
+<xs:element ref="Sprite" />
+<xs:element ref="DisplayObjectContainer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ShaderSchemaTypeValue">
+<xs:all><xs:element ref="Shader"/></xs:all></xs:complexType>
+
+<xs:complexType name="TilesheetSchemaTypeValue">
+<xs:all><xs:element ref="Tilesheet"/></xs:all></xs:complexType>
+
+<xs:complexType name="ShapeSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="graphics" type="GraphicsSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="graphics" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsGradientFillSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alphas" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="colors" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="focalPointRatio" type="xs:double"/>
+<xs:element minOccurs="0" name="interpolationMethod" type="xs:string"/>
+<xs:element minOccurs="0" name="matrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="ratios" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="spreadMethod" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsFillType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="alphas" type="xs:string"/>
+<xs:attribute name="colors" type="xs:string"/>
+<xs:attribute name="focalPointRatio" type="xs:double"/>
+<xs:attribute name="interpolationMethod" type="xs:string"/>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="ratios" type="xs:string"/>
+<xs:attribute name="spreadMethod" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+<xs:attribute name="__graphicsFillType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsFillSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__graphicsFillType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="__graphicsFillType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JPEGEncoderOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="quality" type="xs:int"/>
+</xs:all>
+<xs:attribute name="quality" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SpriteSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="buttonMode" type="xs:boolean"/>
+<xs:element minOccurs="0" name="graphics" type="GraphicsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="hitArea" type="SpriteSchemaTypeValue"/>
+<xs:element minOccurs="0" name="useHandCursor" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="buttonMode" type="xs:boolean"/>
+<xs:attribute name="graphics" type="xs:string"/>
+<xs:attribute name="hitArea" type="xs:string"/>
+<xs:attribute name="useHandCursor" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FrameLabelSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="frame" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:all>
+<xs:attribute name="frame" type="xs:int"/>
+<xs:attribute name="name" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__hardware" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="__hardware" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IBitmapDrawableSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__worldTransform" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__worldColorTransform" type="openfl-geom:ColorTransformSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="__worldTransform" type="xs:string"/>
+<xs:attribute name="__worldColorTransform" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OpenGLViewSchemaType">
+<xs:complexContent>
+<xs:extension base="DirectRendererSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLShaderParameterSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="size" type="xs:int"/>
+<xs:element minOccurs="0" name="arraySize" type="xs:int"/>
+<xs:element minOccurs="0" name="value" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="bitmap" type="BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="smooth" type="xs:boolean"/>
+<xs:element minOccurs="0" name="repeatX" type="xs:string"/>
+<xs:element minOccurs="0" name="repeatY" type="xs:string"/>
+<xs:element minOccurs="0" name="transpose" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="arraySize" type="xs:int"/>
+<xs:attribute name="value" type="xs:string"/>
+<xs:attribute name="bitmap" type="xs:string"/>
+<xs:attribute name="smooth" type="xs:boolean"/>
+<xs:attribute name="repeatX" type="xs:string"/>
+<xs:attribute name="repeatY" type="xs:string"/>
+<xs:attribute name="transpose" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsSolidFillSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsFillType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+<xs:attribute name="__graphicsFillType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MovieClipSchemaType">
+<xs:complexContent>
+<xs:extension base="SpriteSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="currentFrame" type="xs:int"/>
+<xs:element minOccurs="0" name="currentFrameLabel" type="xs:string"/>
+<xs:element minOccurs="0" name="currentLabel" type="xs:string"/>
+<xs:element minOccurs="0" name="currentLabels" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="framesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="totalFrames" type="xs:int"/>
+</xs:all>
+<xs:attribute name="currentFrame" type="xs:int"/>
+<xs:attribute name="currentFrameLabel" type="xs:string"/>
+<xs:attribute name="currentLabel" type="xs:string"/>
+<xs:attribute name="currentLabels" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="framesLoaded" type="xs:int"/>
+<xs:attribute name="totalFrames" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ApplicationSchemaType">
+<xs:complexContent>
+<xs:extension base="lime-app:ApplicationSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextureUvsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x0" type="xs:double"/>
+<xs:element minOccurs="0" name="x1" type="xs:double"/>
+<xs:element minOccurs="0" name="x2" type="xs:double"/>
+<xs:element minOccurs="0" name="x3" type="xs:double"/>
+<xs:element minOccurs="0" name="y0" type="xs:double"/>
+<xs:element minOccurs="0" name="y1" type="xs:double"/>
+<xs:element minOccurs="0" name="y2" type="xs:double"/>
+<xs:element minOccurs="0" name="y3" type="xs:double"/>
+<xs:element minOccurs="0" name="reset" type="xs:string"/>
+</xs:all>
+<xs:attribute name="x0" type="xs:double"/>
+<xs:attribute name="x1" type="xs:double"/>
+<xs:attribute name="x2" type="xs:double"/>
+<xs:attribute name="x3" type="xs:double"/>
+<xs:attribute name="y0" type="xs:double"/>
+<xs:attribute name="y1" type="xs:double"/>
+<xs:attribute name="y2" type="xs:double"/>
+<xs:attribute name="y3" type="xs:double"/>
+<xs:attribute name="reset" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WindowSchemaType">
+<xs:complexContent>
+<xs:extension base="lime-ui:WindowSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BitmapSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bitmapData" type="BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="pixelSnapping" type="xs:string"/>
+<xs:element minOccurs="0" name="smoothing" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="bitmapData" type="xs:string"/>
+<xs:attribute name="pixelSnapping" type="xs:string"/>
+<xs:attribute name="smoothing" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsEndFillSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsFillType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+<xs:attribute name="__graphicsFillType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LoaderInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="applicationDomain" type="openfl-system:ApplicationDomainSchemaTypeValue"/>
+<xs:element minOccurs="0" name="bytes" type="xs:string"/>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="childAllowsParent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contentType" type="xs:string"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="loader" type="LoaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="loaderURL" type="xs:string"/>
+<xs:element minOccurs="0" name="parameters" type="xs:string"/>
+<xs:element minOccurs="0" name="parentAllowsChild" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sameDomain" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sharedEvents" type="openfl-events:EventDispatcherSchemaTypeValue"/>
+<xs:element minOccurs="0" name="uncaughtErrorEvents" type="openfl-events:UncaughtErrorEventsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
+<xs:attribute name="applicationDomain" type="xs:string"/>
+<xs:attribute name="bytes" type="xs:string"/>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="childAllowsParent" type="xs:boolean"/>
+<xs:attribute name="content" type="xs:string"/>
+<xs:attribute name="contentType" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="loader" type="xs:string"/>
+<xs:attribute name="loaderURL" type="xs:string"/>
+<xs:attribute name="parameters" type="xs:string"/>
+<xs:attribute name="parentAllowsChild" type="xs:boolean"/>
+<xs:attribute name="sameDomain" type="xs:boolean"/>
+<xs:attribute name="sharedEvents" type="xs:string"/>
+<xs:attribute name="uncaughtErrorEvents" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="commands" type="xs:string"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="winding" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="commands" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="winding" type="xs:string"/>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsStrokeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PNGEncoderOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="fastCompression" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="fastCompression" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BitmapDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="image" type="lime-graphics:ImageSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rect" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="__worldTransform" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__worldColorTransform" type="openfl-geom:ColorTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__cacheAsBitmap" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="image" type="xs:string"/>
+<xs:attribute name="rect" type="xs:string"/>
+<xs:attribute name="transparent" type="xs:boolean"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="__worldTransform" type="xs:string"/>
+<xs:attribute name="__worldColorTransform" type="xs:string"/>
+<xs:attribute name="__cacheAsBitmap" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsBitmapFillSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bitmapData" type="BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="matrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="repeat" type="xs:boolean"/>
+<xs:element minOccurs="0" name="smooth" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+<xs:element minOccurs="0" name="__graphicsFillType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bitmapData" type="xs:string"/>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="repeat" type="xs:boolean"/>
+<xs:attribute name="smooth" type="xs:boolean"/>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+<xs:attribute name="__graphicsFillType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LoaderSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="content" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contentLoaderInfo" type="LoaderInfoSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="content" type="xs:string"/>
+<xs:attribute name="contentLoaderInfo" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DirectRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="render" type="xs:string"/>
+</xs:all>
+<xs:attribute name="render" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsStrokeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="caps" type="xs:string"/>
+<xs:element minOccurs="0" name="fill" type="IGraphicsFillSchemaTypeValue"/>
+<xs:element minOccurs="0" name="joints" type="xs:string"/>
+<xs:element minOccurs="0" name="miterLimit" type="xs:double"/>
+<xs:element minOccurs="0" name="pixelHinting" type="xs:boolean"/>
+<xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="caps" type="xs:string"/>
+<xs:attribute name="fill" type="xs:string"/>
+<xs:attribute name="joints" type="xs:string"/>
+<xs:attribute name="miterLimit" type="xs:double"/>
+<xs:attribute name="pixelHinting" type="xs:boolean"/>
+<xs:attribute name="scaleMode" type="xs:string"/>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="InteractiveObjectSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="doubleClickEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="focusRect" type="xs:string"/>
+<xs:element minOccurs="0" name="mouseEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="needsSoftKeyboard" type="xs:boolean"/>
+<xs:element minOccurs="0" name="softKeyboardInputAreaOfInterest" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="tabEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="tabIndex" type="xs:int"/>
+</xs:all>
+<xs:attribute name="doubleClickEnabled" type="xs:boolean"/>
+<xs:attribute name="focusRect" type="xs:string"/>
+<xs:attribute name="mouseEnabled" type="xs:boolean"/>
+<xs:attribute name="needsSoftKeyboard" type="xs:boolean"/>
+<xs:attribute name="softKeyboardInputAreaOfInterest" type="xs:string"/>
+<xs:attribute name="tabEnabled" type="xs:boolean"/>
+<xs:attribute name="tabIndex" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StageSchemaType">
+<xs:complexContent>
+<xs:extension base="DisplayObjectContainerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="align" type="xs:string"/>
+<xs:element minOccurs="0" name="allowsFullScreen" type="xs:boolean"/>
+<xs:element minOccurs="0" name="allowsFullScreenInteractive" type="xs:boolean"/>
+<xs:element minOccurs="0" name="application" type="lime-app:ApplicationSchemaTypeValue"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="displayState" type="xs:string"/>
+<xs:element minOccurs="0" name="focus" type="InteractiveObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="quality" type="xs:string"/>
+<xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
+<xs:element minOccurs="0" name="stage3Ds" type="xs:string"/>
+<xs:element minOccurs="0" name="stageFocusRect" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stageHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="stageWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="window" type="lime-ui:WindowSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="align" type="xs:string"/>
+<xs:attribute name="allowsFullScreen" type="xs:boolean"/>
+<xs:attribute name="allowsFullScreenInteractive" type="xs:boolean"/>
+<xs:attribute name="application" type="xs:string"/>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="displayState" type="xs:string"/>
+<xs:attribute name="focus" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="quality" type="xs:string"/>
+<xs:attribute name="scaleMode" type="xs:string"/>
+<xs:attribute name="stage3Ds" type="xs:string"/>
+<xs:attribute name="stageFocusRect" type="xs:boolean"/>
+<xs:attribute name="stageHeight" type="xs:int"/>
+<xs:attribute name="stageWidth" type="xs:int"/>
+<xs:attribute name="window" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DisplayObjectSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="blendMode" type="xs:string"/>
+<xs:element minOccurs="0" name="cacheAsBitmap" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cacheAsBitmapMatrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="cacheAsBitmapSmooth" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cacheAsBitmapBounds" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="filters" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="loaderInfo" type="LoaderInfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="mask" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="mouseX" type="xs:double"/>
+<xs:element minOccurs="0" name="mouseY" type="xs:double"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="opaqueBackground" type="xs:string"/>
+<xs:element minOccurs="0" name="parent" type="DisplayObjectContainerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="root" type="DisplayObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rotation" type="xs:double"/>
+<xs:element minOccurs="0" name="scale9Grid" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="scaleX" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleY" type="xs:double"/>
+<xs:element minOccurs="0" name="scrollRect" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shader" type="ShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stage" type="StageSchemaTypeValue"/>
+<xs:element minOccurs="0" name="transform" type="openfl-geom:TransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="visible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="__renderTransform" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__worldColorTransform" type="openfl-geom:ColorTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__worldOffset" type="openfl-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__worldTransform" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="__drawGraphicsGL" type="xs:string"/>
+<xs:element minOccurs="0" name="__preRenderGL" type="xs:string"/>
+<xs:element minOccurs="0" name="__postRenderGL" type="xs:string"/>
+<xs:element minOccurs="0" name="__cacheGL" type="xs:string"/>
+</xs:all>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="blendMode" type="xs:string"/>
+<xs:attribute name="cacheAsBitmap" type="xs:boolean"/>
+<xs:attribute name="cacheAsBitmapMatrix" type="xs:string"/>
+<xs:attribute name="cacheAsBitmapSmooth" type="xs:boolean"/>
+<xs:attribute name="cacheAsBitmapBounds" type="xs:string"/>
+<xs:attribute name="filters" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="loaderInfo" type="xs:string"/>
+<xs:attribute name="mask" type="xs:string"/>
+<xs:attribute name="mouseX" type="xs:double"/>
+<xs:attribute name="mouseY" type="xs:double"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="opaqueBackground" type="xs:string"/>
+<xs:attribute name="parent" type="xs:string"/>
+<xs:attribute name="root" type="xs:string"/>
+<xs:attribute name="rotation" type="xs:double"/>
+<xs:attribute name="scale9Grid" type="xs:string"/>
+<xs:attribute name="scaleX" type="xs:double"/>
+<xs:attribute name="scaleY" type="xs:double"/>
+<xs:attribute name="scrollRect" type="xs:string"/>
+<xs:attribute name="shader" type="xs:string"/>
+<xs:attribute name="stage" type="xs:string"/>
+<xs:attribute name="transform" type="xs:string"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="__renderTransform" type="xs:string"/>
+<xs:attribute name="__worldColorTransform" type="xs:string"/>
+<xs:attribute name="__worldOffset" type="xs:string"/>
+<xs:attribute name="__worldTransform" type="xs:string"/>
+<xs:attribute name="__drawGraphicsGL" type="xs:string"/>
+<xs:attribute name="__preRenderGL" type="xs:string"/>
+<xs:attribute name="__postRenderGL" type="xs:string"/>
+<xs:attribute name="__cacheGL" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IGraphicsDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="__graphicsDataType" type="xs:string"/>
+</xs:all>
+<xs:attribute name="__graphicsDataType" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Stage3DSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="context3D" type="openfl-display3D:Context3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="visible" type="xs:boolean"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="context3D" type="xs:string"/>
+<xs:attribute name="visible" type="xs:boolean"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DisplayObjectContainerSchemaType">
+<xs:complexContent>
+<xs:extension base="InteractiveObjectSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="mouseChildren" type="xs:boolean"/>
+<xs:element minOccurs="0" name="numChildren" type="xs:int"/>
+<xs:element minOccurs="0" name="tabChildren" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="mouseChildren" type="xs:boolean"/>
+<xs:attribute name="numChildren" type="xs:int"/>
+<xs:attribute name="tabChildren" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="precision" type="xs:string"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="repeatX" type="xs:string"/>
+<xs:element minOccurs="0" name="repeatY" type="xs:string"/>
+<xs:element minOccurs="0" name="smooth" type="xs:string"/>
+<xs:element minOccurs="0" name="blendMode" type="xs:string"/>
+</xs:all>
+<xs:attribute name="precision" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="repeatX" type="xs:string"/>
+<xs:attribute name="repeatY" type="xs:string"/>
+<xs:attribute name="smooth" type="xs:string"/>
+<xs:attribute name="blendMode" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TilesheetSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="getTileCenter" type="xs:string"/>
+<xs:element minOccurs="0" name="getTileRect" type="xs:string"/>
+<xs:element minOccurs="0" name="getTileUVs" type="xs:string"/>
+</xs:all>
+<xs:attribute name="getTileCenter" type="xs:string"/>
+<xs:attribute name="getTileRect" type="xs:string"/>
+<xs:attribute name="getTileUVs" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Shape" type="ShapeSchemaType"/>
+<xs:element name="GraphicsGradientFill" type="GraphicsGradientFillSchemaType"/>
+<xs:element name="IGraphicsFill" type="IGraphicsFillSchemaType"/>
+<xs:element name="JPEGEncoderOptions" type="JPEGEncoderOptionsSchemaType"/>
+<xs:element name="Sprite" type="SpriteSchemaType"/>
+<xs:element name="FrameLabel" type="FrameLabelSchemaType"/>
+<xs:element name="Graphics" type="GraphicsSchemaType"/>
+<xs:element name="IBitmapDrawable" type="IBitmapDrawableSchemaType"/>
+<xs:element name="OpenGLView" type="OpenGLViewSchemaType"/>
+<xs:element name="GLShaderParameter" type="GLShaderParameterSchemaType"/>
+<xs:element name="GraphicsSolidFill" type="GraphicsSolidFillSchemaType"/>
+<xs:element name="MovieClip" type="MovieClipSchemaType"/>
+<xs:element name="Application" type="ApplicationSchemaType"/>
+<xs:element name="TextureUvs" type="TextureUvsSchemaType"/>
+<xs:element name="Window" type="WindowSchemaType"/>
+<xs:element name="Bitmap" type="BitmapSchemaType"/>
+<xs:element name="GraphicsEndFill" type="GraphicsEndFillSchemaType"/>
+<xs:element name="LoaderInfo" type="LoaderInfoSchemaType"/>
+<xs:element name="GraphicsPath" type="GraphicsPathSchemaType"/>
+<xs:element name="IGraphicsStroke" type="IGraphicsStrokeSchemaType"/>
+<xs:element name="PNGEncoderOptions" type="PNGEncoderOptionsSchemaType"/>
+<xs:element name="BitmapData" type="BitmapDataSchemaType"/>
+<xs:element name="IGraphicsPath" type="IGraphicsPathSchemaType"/>
+<xs:element name="GraphicsBitmapFill" type="GraphicsBitmapFillSchemaType"/>
+<xs:element name="Loader" type="LoaderSchemaType"/>
+<xs:element name="DirectRenderer" type="DirectRendererSchemaType"/>
+<xs:element name="GraphicsStroke" type="GraphicsStrokeSchemaType"/>
+<xs:element name="InteractiveObject" type="InteractiveObjectSchemaType"/>
+<xs:element name="Stage" type="StageSchemaType"/>
+<xs:element name="DisplayObject" type="DisplayObjectSchemaType"/>
+<xs:element name="IGraphicsData" type="IGraphicsDataSchemaType"/>
+<xs:element name="Stage3D" type="Stage3DSchemaType"/>
+<xs:element name="DisplayObjectContainer" type="DisplayObjectContainerSchemaType"/>
+<xs:element name="Shader" type="ShaderSchemaType"/>
+<xs:element name="Tilesheet" type="TilesheetSchemaType"/>
+</xs:schema>

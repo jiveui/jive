@@ -1,0 +1,71 @@
+<xs:schema targetNamespace="openfl.utils" xmlns="openfl.utils" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:haxe-io="haxe.io"
+xmlns:empty="empty"
+>
+<xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="IDataInputSchemaTypeValue">
+<xs:choice>
+<xs:element ref="ByteArrayData" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ByteArrayDataSchemaTypeValue">
+<xs:all><xs:element ref="ByteArrayData"/></xs:all></xs:complexType>
+
+<xs:complexType name="IDataOutputSchemaTypeValue">
+<xs:choice>
+<xs:element ref="ByteArrayData" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IDataInputSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesAvailable" type="xs:int"/>
+<xs:element minOccurs="0" name="endian" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+</xs:all>
+<xs:attribute name="bytesAvailable" type="xs:int"/>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ByteArrayDataSchemaType">
+<xs:complexContent>
+<xs:extension base="haxe-io:BytesSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesAvailable" type="xs:int"/>
+<xs:element minOccurs="0" name="endian" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+<xs:element minOccurs="0" name="position" type="xs:int"/>
+</xs:all>
+<xs:attribute name="bytesAvailable" type="xs:int"/>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
+<xs:attribute name="position" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IDataOutputSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="endian" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+</xs:all>
+<xs:attribute name="endian" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IDataInput" type="IDataInputSchemaType"/>
+<xs:element name="ByteArrayData" type="ByteArrayDataSchemaType"/>
+<xs:element name="IDataOutput" type="IDataOutputSchemaType"/>
+</xs:schema>

@@ -1,0 +1,90 @@
+<xs:schema targetNamespace="openfl.display3D.textures" xmlns="openfl.display3D.textures" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+xmlns:openfl-display3D="openfl.display3D"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.display3D" schemaLocation="openfl.display3D.xsd" />
+<xs:complexType name="TextureSchemaTypeValue">
+<xs:all><xs:element ref="Texture"/></xs:all></xs:complexType>
+
+<xs:complexType name="RectangleTextureSchemaTypeValue">
+<xs:all><xs:element ref="RectangleTexture"/></xs:all></xs:complexType>
+
+<xs:complexType name="CubeTextureSchemaTypeValue">
+<xs:all><xs:element ref="CubeTexture"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextureBaseSchemaTypeValue">
+<xs:choice>
+<xs:element ref="RectangleTexture" />
+<xs:element ref="CubeTexture" />
+<xs:element ref="Texture" />
+<xs:element ref="TextureBase" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TextureSchemaType">
+<xs:complexContent>
+<xs:extension base="TextureBaseSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="optimizeForRenderToTexture" type="xs:boolean"/>
+<xs:element minOccurs="0" name="mipmapsGenerated" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="optimizeForRenderToTexture" type="xs:boolean"/>
+<xs:attribute name="mipmapsGenerated" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RectangleTextureSchemaType">
+<xs:complexContent>
+<xs:extension base="TextureBaseSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="optimizeForRenderToTexture" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="optimizeForRenderToTexture" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubeTextureSchemaType">
+<xs:complexContent>
+<xs:extension base="TextureBaseSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="size" type="xs:int"/>
+<xs:element minOccurs="0" name="_textures" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="mipmapsGenerated" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="_textures" type="xs:string"/>
+<xs:attribute name="mipmapsGenerated" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextureBaseSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="context" type="openfl-display3D:Context3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="frameBuffer" type="xs:string"/>
+<xs:element minOccurs="0" name="glTexture" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
+<xs:attribute name="context" type="xs:string"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="frameBuffer" type="xs:string"/>
+<xs:attribute name="glTexture" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Texture" type="TextureSchemaType"/>
+<xs:element name="RectangleTexture" type="RectangleTextureSchemaType"/>
+<xs:element name="CubeTexture" type="CubeTextureSchemaType"/>
+<xs:element name="TextureBase" type="TextureBaseSchemaType"/>
+</xs:schema>

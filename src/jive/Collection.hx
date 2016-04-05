@@ -18,8 +18,8 @@ class Collection<T> extends EventDispatcher {
         return elements.length;
     }
 
-    @:dox(hide)
     public function new() {
+        super();
         elements = new Array();
     }
 

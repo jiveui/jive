@@ -1,0 +1,449 @@
+<xs:schema targetNamespace="openfl.events" xmlns="openfl.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-display3D-textures="openfl.display3D.textures"
+xmlns:openfl-net="openfl.net"
+xmlns:openfl-text="openfl.text"
+xmlns:openfl-display="openfl.display"
+xmlns:empty="empty"
+xmlns:jive-events="jive.events"
+xmlns:jive="jive"
+xmlns:openfl-ui="openfl.ui"
+>
+<xs:import namespace="openfl.display3D.textures" schemaLocation="openfl.display3D.textures.xsd" />
+<xs:import namespace="openfl.net" schemaLocation="openfl.net.xsd" />
+<xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="openfl.ui" schemaLocation="openfl.ui.xsd" />
+<xs:complexType name="GameInputEventSchemaTypeValue">
+<xs:all><xs:element ref="GameInputEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="IOErrorEventSchemaTypeValue">
+<xs:all><xs:element ref="IOErrorEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="EventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-events:TransformGestureEvent" />
+<xs:element ref="IOErrorEvent" />
+<xs:element ref="ErrorEvent" />
+<xs:element ref="HTTPStatusEvent" />
+<xs:element ref="MouseEvent" />
+<xs:element ref="GameInputEvent" />
+<xs:element ref="SecurityErrorEvent" />
+<xs:element ref="KeyboardEvent" />
+<xs:element ref="TouchEvent" />
+<xs:element ref="jive-events:GestureEvent" />
+<xs:element ref="FullScreenEvent" />
+<xs:element ref="jive-events:CollectionEvent" />
+<xs:element ref="FocusEvent" />
+<xs:element ref="TextEvent" />
+<xs:element ref="ActivityEvent" />
+<xs:element ref="ProgressEvent" />
+<xs:element ref="Event" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FocusEventSchemaTypeValue">
+<xs:all><xs:element ref="FocusEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="ErrorEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="IOErrorEvent" />
+<xs:element ref="SecurityErrorEvent" />
+<xs:element ref="ErrorEvent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FullScreenEventSchemaTypeValue">
+<xs:all><xs:element ref="FullScreenEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="IOErrorEvent" />
+<xs:element ref="ErrorEvent" />
+<xs:element ref="SecurityErrorEvent" />
+<xs:element ref="TextEvent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="MouseEventSchemaTypeValue">
+<xs:all><xs:element ref="MouseEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="ProgressEventSchemaTypeValue">
+<xs:all><xs:element ref="ProgressEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="KeyboardEventSchemaTypeValue">
+<xs:all><xs:element ref="KeyboardEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="HTTPStatusEventSchemaTypeValue">
+<xs:all><xs:element ref="HTTPStatusEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="ActivityEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="FullScreenEvent" />
+<xs:element ref="ActivityEvent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SecurityErrorEventSchemaTypeValue">
+<xs:all><xs:element ref="SecurityErrorEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="IEventDispatcherSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive:Component" />
+<xs:element ref="openfl-display:Shape" />
+<xs:element ref="openfl-display:LoaderInfo" />
+<xs:element ref="openfl-display:Loader" />
+<xs:element ref="openfl-ui:GameInput" />
+<xs:element ref="openfl-display:DisplayObjectContainer" />
+<xs:element ref="openfl-display:Sprite" />
+<xs:element ref="openfl-display3D-textures:RectangleTexture" />
+<xs:element ref="jive:Container" />
+<xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="jive:Collection" />
+<xs:element ref="jive:TemplatedComponent" />
+<xs:element ref="openfl-display:OpenGLView" />
+<xs:element ref="openfl-display:MovieClip" />
+<xs:element ref="openfl-display:Bitmap" />
+<xs:element ref="openfl-net:URLLoader" />
+<xs:element ref="openfl-display:Stage" />
+<xs:element ref="openfl-display:FrameLabel" />
+<xs:element ref="openfl-display3D-textures:TextureBase" />
+<xs:element ref="openfl-ui:GameInputControl" />
+<xs:element ref="openfl-display3D-textures:CubeTexture" />
+<xs:element ref="openfl-display:DisplayObject" />
+<xs:element ref="openfl-display:Stage3D" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="openfl-display3D-textures:Texture" />
+<xs:element ref="openfl-display:DirectRenderer" />
+<xs:element ref="EventDispatcher" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="UncaughtErrorEventsSchemaTypeValue">
+<xs:all><xs:element ref="UncaughtErrorEvents"/></xs:all></xs:complexType>
+
+<xs:complexType name="EventDispatcherSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive:Component" />
+<xs:element ref="openfl-display:Shape" />
+<xs:element ref="openfl-display:LoaderInfo" />
+<xs:element ref="openfl-display:Loader" />
+<xs:element ref="openfl-ui:GameInput" />
+<xs:element ref="openfl-display:DisplayObjectContainer" />
+<xs:element ref="openfl-display:Sprite" />
+<xs:element ref="openfl-display3D-textures:RectangleTexture" />
+<xs:element ref="jive:Container" />
+<xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="jive:Collection" />
+<xs:element ref="jive:TemplatedComponent" />
+<xs:element ref="openfl-display:OpenGLView" />
+<xs:element ref="openfl-display:MovieClip" />
+<xs:element ref="openfl-display:Bitmap" />
+<xs:element ref="openfl-net:URLLoader" />
+<xs:element ref="openfl-display:Stage" />
+<xs:element ref="openfl-display:FrameLabel" />
+<xs:element ref="openfl-display3D-textures:TextureBase" />
+<xs:element ref="openfl-ui:GameInputControl" />
+<xs:element ref="openfl-display3D-textures:CubeTexture" />
+<xs:element ref="openfl-display:DisplayObject" />
+<xs:element ref="openfl-display:Stage3D" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="openfl-display3D-textures:Texture" />
+<xs:element ref="openfl-display:DirectRenderer" />
+<xs:element ref="EventDispatcher" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TouchEventSchemaTypeValue">
+<xs:all><xs:element ref="TouchEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="GameInputEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="device" type="openfl-ui:GameInputDeviceSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="device" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IOErrorEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorEventSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EventSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bubbles" type="xs:boolean"/>
+<xs:element minOccurs="0" name="cancelable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="currentTarget" type="xs:string"/>
+<xs:element minOccurs="0" name="eventPhase" type="xs:string"/>
+<xs:element minOccurs="0" name="target" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bubbles" type="xs:boolean"/>
+<xs:attribute name="cancelable" type="xs:boolean"/>
+<xs:attribute name="currentTarget" type="xs:string"/>
+<xs:attribute name="eventPhase" type="xs:string"/>
+<xs:attribute name="target" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FocusEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
+<xs:element minOccurs="0" name="relatedObject" type="openfl-display:InteractiveObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="keyCode" type="xs:int"/>
+<xs:attribute name="relatedObject" type="xs:string"/>
+<xs:attribute name="shiftKey" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ErrorEventSchemaType">
+<xs:complexContent>
+<xs:extension base="TextEventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="errorID" type="xs:int"/>
+</xs:all>
+<xs:attribute name="errorID" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FullScreenEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ActivityEventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="fullScreen" type="xs:boolean"/>
+<xs:element minOccurs="0" name="interactive" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="fullScreen" type="xs:boolean"/>
+<xs:attribute name="interactive" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+</xs:all>
+<xs:attribute name="text" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MouseEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="buttonDown" type="xs:boolean"/>
+<xs:element minOccurs="0" name="commandKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="clickCount" type="xs:int"/>
+<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="delta" type="xs:int"/>
+<xs:element minOccurs="0" name="localX" type="xs:double"/>
+<xs:element minOccurs="0" name="localY" type="xs:double"/>
+<xs:element minOccurs="0" name="relatedObject" type="openfl-display:InteractiveObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stageX" type="xs:double"/>
+<xs:element minOccurs="0" name="stageY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="altKey" type="xs:boolean"/>
+<xs:attribute name="buttonDown" type="xs:boolean"/>
+<xs:attribute name="commandKey" type="xs:boolean"/>
+<xs:attribute name="clickCount" type="xs:int"/>
+<xs:attribute name="ctrlKey" type="xs:boolean"/>
+<xs:attribute name="delta" type="xs:int"/>
+<xs:attribute name="localX" type="xs:double"/>
+<xs:attribute name="localY" type="xs:double"/>
+<xs:attribute name="relatedObject" type="xs:string"/>
+<xs:attribute name="shiftKey" type="xs:boolean"/>
+<xs:attribute name="stageX" type="xs:double"/>
+<xs:attribute name="stageY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ProgressEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:double"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:double"/>
+<xs:attribute name="bytesTotal" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="KeyboardEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="charCode" type="xs:int"/>
+<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="commandKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="controlKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
+<xs:element minOccurs="0" name="keyLocation" type="xs:string"/>
+<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="altKey" type="xs:boolean"/>
+<xs:attribute name="charCode" type="xs:int"/>
+<xs:attribute name="ctrlKey" type="xs:boolean"/>
+<xs:attribute name="commandKey" type="xs:boolean"/>
+<xs:attribute name="controlKey" type="xs:boolean"/>
+<xs:attribute name="keyCode" type="xs:int"/>
+<xs:attribute name="keyLocation" type="xs:string"/>
+<xs:attribute name="shiftKey" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HTTPStatusEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="redirected" type="xs:boolean"/>
+<xs:element minOccurs="0" name="responseHeaders" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="responseURL" type="xs:string"/>
+<xs:element minOccurs="0" name="status" type="xs:int"/>
+</xs:all>
+<xs:attribute name="redirected" type="xs:boolean"/>
+<xs:attribute name="responseHeaders" type="xs:string"/>
+<xs:attribute name="responseURL" type="xs:string"/>
+<xs:attribute name="status" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActivityEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="activating" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="activating" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SecurityErrorEventSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorEventSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IEventDispatcherSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UncaughtErrorEventsSchemaType">
+<xs:complexContent>
+<xs:extension base="EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EventDispatcherSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TouchEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="commandKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="controlKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="delta" type="xs:int"/>
+<xs:element minOccurs="0" name="isPrimaryTouchPoint" type="xs:boolean"/>
+<xs:element minOccurs="0" name="localX" type="xs:double"/>
+<xs:element minOccurs="0" name="localY" type="xs:double"/>
+<xs:element minOccurs="0" name="pressure" type="xs:double"/>
+<xs:element minOccurs="0" name="relatedObject" type="openfl-display:InteractiveObjectSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sizeX" type="xs:double"/>
+<xs:element minOccurs="0" name="sizeY" type="xs:double"/>
+<xs:element minOccurs="0" name="stageX" type="xs:double"/>
+<xs:element minOccurs="0" name="stageY" type="xs:double"/>
+<xs:element minOccurs="0" name="touchPointID" type="xs:int"/>
+</xs:all>
+<xs:attribute name="altKey" type="xs:boolean"/>
+<xs:attribute name="commandKey" type="xs:boolean"/>
+<xs:attribute name="controlKey" type="xs:boolean"/>
+<xs:attribute name="ctrlKey" type="xs:boolean"/>
+<xs:attribute name="delta" type="xs:int"/>
+<xs:attribute name="isPrimaryTouchPoint" type="xs:boolean"/>
+<xs:attribute name="localX" type="xs:double"/>
+<xs:attribute name="localY" type="xs:double"/>
+<xs:attribute name="pressure" type="xs:double"/>
+<xs:attribute name="relatedObject" type="xs:string"/>
+<xs:attribute name="shiftKey" type="xs:boolean"/>
+<xs:attribute name="sizeX" type="xs:double"/>
+<xs:attribute name="sizeY" type="xs:double"/>
+<xs:attribute name="stageX" type="xs:double"/>
+<xs:attribute name="stageY" type="xs:double"/>
+<xs:attribute name="touchPointID" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GameInputEvent" type="GameInputEventSchemaType"/>
+<xs:element name="IOErrorEvent" type="IOErrorEventSchemaType"/>
+<xs:element name="Event" type="EventSchemaType"/>
+<xs:element name="FocusEvent" type="FocusEventSchemaType"/>
+<xs:element name="ErrorEvent" type="ErrorEventSchemaType"/>
+<xs:element name="FullScreenEvent" type="FullScreenEventSchemaType"/>
+<xs:element name="TextEvent" type="TextEventSchemaType"/>
+<xs:element name="MouseEvent" type="MouseEventSchemaType"/>
+<xs:element name="ProgressEvent" type="ProgressEventSchemaType"/>
+<xs:element name="KeyboardEvent" type="KeyboardEventSchemaType"/>
+<xs:element name="HTTPStatusEvent" type="HTTPStatusEventSchemaType"/>
+<xs:element name="ActivityEvent" type="ActivityEventSchemaType"/>
+<xs:element name="SecurityErrorEvent" type="SecurityErrorEventSchemaType"/>
+<xs:element name="IEventDispatcher" type="IEventDispatcherSchemaType"/>
+<xs:element name="UncaughtErrorEvents" type="UncaughtErrorEventsSchemaType"/>
+<xs:element name="EventDispatcher" type="EventDispatcherSchemaType"/>
+<xs:element name="TouchEvent" type="TouchEventSchemaType"/>
+</xs:schema>

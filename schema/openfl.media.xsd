@@ -1,0 +1,31 @@
+<xs:schema targetNamespace="openfl.media" xmlns="openfl.media" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="SoundTransformSchemaTypeValue">
+<xs:all><xs:element ref="SoundTransform"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoundTransformSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="leftToLeft" type="xs:double"/>
+<xs:element minOccurs="0" name="leftToRight" type="xs:double"/>
+<xs:element minOccurs="0" name="pan" type="xs:double"/>
+<xs:element minOccurs="0" name="rightToLeft" type="xs:double"/>
+<xs:element minOccurs="0" name="rightToRight" type="xs:double"/>
+<xs:element minOccurs="0" name="volume" type="xs:double"/>
+</xs:all>
+<xs:attribute name="leftToLeft" type="xs:double"/>
+<xs:attribute name="leftToRight" type="xs:double"/>
+<xs:attribute name="pan" type="xs:double"/>
+<xs:attribute name="rightToLeft" type="xs:double"/>
+<xs:attribute name="rightToRight" type="xs:double"/>
+<xs:attribute name="volume" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="SoundTransform" type="SoundTransformSchemaType"/>
+</xs:schema>

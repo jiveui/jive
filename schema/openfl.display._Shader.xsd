@@ -1,0 +1,45 @@
+<xs:schema targetNamespace="openfl.display._Shader" xmlns="openfl.display._Shader" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="RepeatMode_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="RepeatMode_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLShaderPrecision_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="GLShaderPrecision_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLShaderParameterInternal_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="GLShaderParameterInternal_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="RepeatMode_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLShaderPrecision_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLShaderParameterInternal_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RepeatMode_Impl_" type="RepeatMode_Impl_SchemaType"/>
+<xs:element name="GLShaderPrecision_Impl_" type="GLShaderPrecision_Impl_SchemaType"/>
+<xs:element name="GLShaderParameterInternal_Impl_" type="GLShaderParameterInternal_Impl_SchemaType"/>
+</xs:schema>

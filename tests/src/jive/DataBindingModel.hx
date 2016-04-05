@@ -1,7 +1,10 @@
 package jive;
 
+@:bindable
 class DataBindingModel extends ViewModel {
-    @bindable public var s: String = "initial";
-    @bindable public var i: Int = 555;
-    public function new() {}
+    public var s: String = "initial";
+    public var i: Int = 555;
+    public function new() {
+        super();
+    }
 }

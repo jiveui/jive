@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.display3D._Context3DTriangleFace" xmlns="openfl.display3D._Context3DTriangleFace" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Context3DTriangleFace_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="Context3DTriangleFace_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Context3DTriangleFace_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Context3DTriangleFace_Impl_" type="Context3DTriangleFace_Impl_SchemaType"/>
+</xs:schema>

@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.filters" xmlns="openfl.filters" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="BitmapFilterSchemaTypeValue">
+<xs:all><xs:element ref="BitmapFilter"/></xs:all></xs:complexType>
+
+<xs:complexType name="BitmapFilterSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="BitmapFilter" type="BitmapFilterSchemaType"/>
+</xs:schema>

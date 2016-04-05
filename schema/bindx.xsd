@@ -1,0 +1,28 @@
+<xs:schema targetNamespace="bindx" xmlns="bindx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:jive="jive"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:complexType name="IBindableSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive:Component" />
+<xs:element ref="jive:DataContextControllable" />
+<xs:element ref="jive:ViewModel" />
+<xs:element ref="jive:Container" />
+<xs:element ref="jive:TemplatedComponent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IBindableSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IBindable" type="IBindableSchemaType"/>
+</xs:schema>

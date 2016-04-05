@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="lime.graphics._PixelFormat" xmlns="lime.graphics._PixelFormat" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="PixelFormat_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="PixelFormat_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="PixelFormat_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="PixelFormat_Impl_" type="PixelFormat_Impl_SchemaType"/>
+</xs:schema>

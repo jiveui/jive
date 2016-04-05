@@ -1,4 +1,4 @@
-package jive;
+package jive.geom;
 
 enum Metric {
     virtual(v: Int);

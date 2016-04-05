@@ -1,0 +1,74 @@
+<xs:schema targetNamespace="openfl._internal.renderer.opengl" xmlns="openfl._internal.renderer.opengl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:lime-graphics-opengl="lime.graphics.opengl"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+xmlns:openfl-_internal-renderer-opengl-utils="openfl._internal.renderer.opengl.utils"
+xmlns:lime-graphics="lime.graphics"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="lime.graphics.opengl" schemaLocation="lime.graphics.opengl.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils" schemaLocation="openfl._internal.renderer.opengl.utils.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="GLBitmapSchemaTypeValue">
+<xs:all><xs:element ref="GLBitmap"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLRendererSchemaTypeValue">
+<xs:all><xs:element ref="GLRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLBitmapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractRendererSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="blendModeManager" type="openfl-_internal-renderer-opengl-utils:BlendModeManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="contextLost" type="xs:boolean"/>
+<xs:element minOccurs="0" name="defaultFramebuffer" type="lime-graphics-opengl:GLFramebufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="filterManager" type="openfl-_internal-renderer-opengl-utils:FilterManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="_glContextId" type="xs:int"/>
+<xs:element minOccurs="0" name="maskManager" type="openfl-_internal-renderer-opengl-utils:GLMaskManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="offset" type="openfl-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="options" type="xs:string"/>
+<xs:element minOccurs="0" name="preserveDrawingBuffer" type="xs:boolean"/>
+<xs:element minOccurs="0" name="projection" type="openfl-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shaderManager" type="openfl-_internal-renderer-opengl-utils:ShaderManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="spriteBatch" type="openfl-_internal-renderer-opengl-utils:SpriteBatchSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stencilManager" type="openfl-_internal-renderer-opengl-utils:StencilManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="view" type="xs:string"/>
+<xs:element minOccurs="0" name="projectionMatrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="blendModeManager" type="xs:string"/>
+<xs:attribute name="contextLost" type="xs:boolean"/>
+<xs:attribute name="defaultFramebuffer" type="xs:string"/>
+<xs:attribute name="filterManager" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="_glContextId" type="xs:int"/>
+<xs:attribute name="maskManager" type="xs:string"/>
+<xs:attribute name="offset" type="xs:string"/>
+<xs:attribute name="options" type="xs:string"/>
+<xs:attribute name="preserveDrawingBuffer" type="xs:boolean"/>
+<xs:attribute name="projection" type="xs:string"/>
+<xs:attribute name="shaderManager" type="xs:string"/>
+<xs:attribute name="spriteBatch" type="xs:string"/>
+<xs:attribute name="stencilManager" type="xs:string"/>
+<xs:attribute name="view" type="xs:string"/>
+<xs:attribute name="projectionMatrix" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GLBitmap" type="GLBitmapSchemaType"/>
+<xs:element name="GLRenderer" type="GLRendererSchemaType"/>
+</xs:schema>

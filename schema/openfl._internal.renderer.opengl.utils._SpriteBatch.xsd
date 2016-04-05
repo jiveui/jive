@@ -1,0 +1,41 @@
+<xs:schema targetNamespace="openfl._internal.renderer.opengl.utils._SpriteBatch" xmlns="openfl._internal.renderer.opengl.utils._SpriteBatch" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-_internal-renderer-opengl-shaders2="openfl._internal.renderer.opengl.shaders2"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+>
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2" schemaLocation="openfl._internal.renderer.opengl.shaders2.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:complexType name="StateSchemaTypeValue">
+<xs:all><xs:element ref="State"/></xs:all></xs:complexType>
+
+<xs:complexType name="StateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="texture" type="xs:string"/>
+<xs:element minOccurs="0" name="textureSmooth" type="xs:boolean"/>
+<xs:element minOccurs="0" name="blendMode" type="xs:string"/>
+<xs:element minOccurs="0" name="colorTransform" type="openfl-geom:ColorTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="skipColorTransform" type="xs:boolean"/>
+<xs:element minOccurs="0" name="skipColorTransformAlpha" type="xs:boolean"/>
+<xs:element minOccurs="0" name="shader" type="openfl-_internal-renderer-opengl-shaders2:ShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="shaderData" type="xs:string"/>
+<xs:element minOccurs="0" name="equals" type="xs:string"/>
+</xs:all>
+<xs:attribute name="texture" type="xs:string"/>
+<xs:attribute name="textureSmooth" type="xs:boolean"/>
+<xs:attribute name="blendMode" type="xs:string"/>
+<xs:attribute name="colorTransform" type="xs:string"/>
+<xs:attribute name="skipColorTransform" type="xs:boolean"/>
+<xs:attribute name="skipColorTransformAlpha" type="xs:boolean"/>
+<xs:attribute name="shader" type="xs:string"/>
+<xs:attribute name="shaderData" type="xs:string"/>
+<xs:attribute name="equals" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="State" type="StateSchemaType"/>
+</xs:schema>

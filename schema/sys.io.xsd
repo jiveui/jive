@@ -1,0 +1,27 @@
+<xs:schema targetNamespace="sys.io" xmlns="sys.io" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:haxe-io="haxe.io"
+xmlns:empty="empty"
+>
+<xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ProcessSchemaTypeValue">
+<xs:all><xs:element ref="Process"/></xs:all></xs:complexType>
+
+<xs:complexType name="ProcessSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="stdout" type="haxe-io:InputSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stderr" type="haxe-io:InputSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stdin" type="haxe-io:OutputSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="stdout" type="xs:string"/>
+<xs:attribute name="stderr" type="xs:string"/>
+<xs:attribute name="stdin" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Process" type="ProcessSchemaType"/>
+</xs:schema>

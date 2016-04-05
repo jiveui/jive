@@ -1,0 +1,86 @@
+<xs:schema targetNamespace="openfl._internal.renderer.canvas" xmlns="openfl._internal.renderer.canvas" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="CanvasShapeSchemaTypeValue">
+<xs:all><xs:element ref="CanvasShape"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasBitmapSchemaTypeValue">
+<xs:all><xs:element ref="CanvasBitmap"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasGraphicsSchemaTypeValue">
+<xs:all><xs:element ref="CanvasGraphics"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasRendererSchemaTypeValue">
+<xs:all><xs:element ref="CanvasRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasMaskManagerSchemaTypeValue">
+<xs:all><xs:element ref="CanvasMaskManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasTextFieldSchemaTypeValue">
+<xs:all><xs:element ref="CanvasTextField"/></xs:all></xs:complexType>
+
+<xs:complexType name="CanvasShapeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CanvasBitmapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CanvasGraphicsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CanvasRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractRendererSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CanvasMaskManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractMaskManagerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CanvasTextFieldSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="CanvasShape" type="CanvasShapeSchemaType"/>
+<xs:element name="CanvasBitmap" type="CanvasBitmapSchemaType"/>
+<xs:element name="CanvasGraphics" type="CanvasGraphicsSchemaType"/>
+<xs:element name="CanvasRenderer" type="CanvasRendererSchemaType"/>
+<xs:element name="CanvasMaskManager" type="CanvasMaskManagerSchemaType"/>
+<xs:element name="CanvasTextField" type="CanvasTextFieldSchemaType"/>
+</xs:schema>

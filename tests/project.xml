@@ -15,7 +15,8 @@
 
     <haxelib name="openfl" />
     <haxelib name="munit" />
-    <haxelib name="bindx" />
+    <haxelib name="mlib" />
+    <haxelib name="hamcrest" />
     <haxelib name="jive"/>
 
     <template path="templates" />

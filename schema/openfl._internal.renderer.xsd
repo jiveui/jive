@@ -1,0 +1,226 @@
+<xs:schema targetNamespace="openfl._internal.renderer" xmlns="openfl._internal.renderer" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-_internal-renderer-cairo="openfl._internal.renderer.cairo"
+xmlns:lime-graphics-opengl="lime.graphics.opengl"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+xmlns:openfl-_internal-renderer-console="openfl._internal.renderer.console"
+xmlns:openfl-_internal-renderer-opengl-utils="openfl._internal.renderer.opengl.utils"
+xmlns:openfl-_internal-renderer-dom="openfl._internal.renderer.dom"
+xmlns:lime-graphics="lime.graphics"
+xmlns:openfl-_internal-renderer-opengl="openfl._internal.renderer.opengl"
+xmlns:openfl-_internal-renderer-canvas="openfl._internal.renderer.canvas"
+>
+<xs:import namespace="openfl._internal.renderer.cairo" schemaLocation="openfl._internal.renderer.cairo.xsd" />
+<xs:import namespace="lime.graphics.opengl" schemaLocation="lime.graphics.opengl.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="openfl._internal.renderer.console" schemaLocation="openfl._internal.renderer.console.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils" schemaLocation="openfl._internal.renderer.opengl.utils.xsd" />
+<xs:import namespace="openfl._internal.renderer.dom" schemaLocation="openfl._internal.renderer.dom.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl" schemaLocation="openfl._internal.renderer.opengl.xsd" />
+<xs:import namespace="openfl._internal.renderer.canvas" schemaLocation="openfl._internal.renderer.canvas.xsd" />
+<xs:complexType name="DrawCommandBufferSchemaTypeValue">
+<xs:all><xs:element ref="DrawCommandBuffer"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderSessionSchemaTypeValue">
+<xs:all><xs:element ref="RenderSession"/></xs:all></xs:complexType>
+
+<xs:complexType name="AbstractRendererSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-_internal-renderer-dom:DOMRenderer" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasRenderer" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoRenderer" />
+<xs:element ref="openfl-_internal-renderer-opengl:GLRenderer" />
+<xs:element ref="openfl-_internal-renderer-console:ConsoleRenderer" />
+<xs:element ref="AbstractRenderer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PolyKSchemaTypeValue">
+<xs:all><xs:element ref="PolyK"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsPathsSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsPaths"/></xs:all></xs:complexType>
+
+<xs:complexType name="AbstractMaskManagerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLMaskManager" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMMaskManager" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoMaskManager" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasMaskManager" />
+<xs:element ref="AbstractMaskManager" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="DrawCommandReaderSchemaTypeValue">
+<xs:all><xs:element ref="DrawCommandReader"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawCommandBufferSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="types" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="types" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderSessionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="cairo" type="xs:string"/>
+<xs:element minOccurs="0" name="context" type="lime-graphics:CanvasRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="element" type="lime-graphics:DOMRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="renderer" type="AbstractRendererSchemaTypeValue"/>
+<xs:element minOccurs="0" name="roundPixels" type="xs:boolean"/>
+<xs:element minOccurs="0" name="transformProperty" type="xs:string"/>
+<xs:element minOccurs="0" name="transformOriginProperty" type="xs:string"/>
+<xs:element minOccurs="0" name="vendorPrefix" type="xs:string"/>
+<xs:element minOccurs="0" name="z" type="xs:int"/>
+<xs:element minOccurs="0" name="projectionMatrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="drawCount" type="xs:int"/>
+<xs:element minOccurs="0" name="currentBlendMode" type="xs:string"/>
+<xs:element minOccurs="0" name="activeTextures" type="xs:int"/>
+<xs:element minOccurs="0" name="shaderManager" type="openfl-_internal-renderer-opengl-utils:ShaderManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="maskManager" type="AbstractMaskManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="filterManager" type="openfl-_internal-renderer-opengl-utils:FilterManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="blendModeManager" type="openfl-_internal-renderer-opengl-utils:BlendModeManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="spriteBatch" type="openfl-_internal-renderer-opengl-utils:SpriteBatchSchemaTypeValue"/>
+<xs:element minOccurs="0" name="stencilManager" type="openfl-_internal-renderer-opengl-utils:StencilManagerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="defaultFramebuffer" type="lime-graphics-opengl:GLFramebufferSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="cairo" type="xs:string"/>
+<xs:attribute name="context" type="xs:string"/>
+<xs:attribute name="element" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="renderer" type="xs:string"/>
+<xs:attribute name="roundPixels" type="xs:boolean"/>
+<xs:attribute name="transformProperty" type="xs:string"/>
+<xs:attribute name="transformOriginProperty" type="xs:string"/>
+<xs:attribute name="vendorPrefix" type="xs:string"/>
+<xs:attribute name="z" type="xs:int"/>
+<xs:attribute name="projectionMatrix" type="xs:string"/>
+<xs:attribute name="drawCount" type="xs:int"/>
+<xs:attribute name="currentBlendMode" type="xs:string"/>
+<xs:attribute name="activeTextures" type="xs:int"/>
+<xs:attribute name="shaderManager" type="xs:string"/>
+<xs:attribute name="maskManager" type="xs:string"/>
+<xs:attribute name="filterManager" type="xs:string"/>
+<xs:attribute name="blendModeManager" type="xs:string"/>
+<xs:attribute name="spriteBatch" type="xs:string"/>
+<xs:attribute name="stencilManager" type="xs:string"/>
+<xs:attribute name="defaultFramebuffer" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="viewport" type="openfl-geom:RectangleSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="transparent" type="xs:boolean"/>
+<xs:attribute name="viewport" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PolyKSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsPathsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AbstractMaskManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawCommandReaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="buffer" type="DrawCommandBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="readBeginBitmapFill" type="xs:string"/>
+<xs:element minOccurs="0" name="readBeginFill" type="xs:string"/>
+<xs:element minOccurs="0" name="readBeginGradientFill" type="xs:string"/>
+<xs:element minOccurs="0" name="readCubicCurveTo" type="xs:string"/>
+<xs:element minOccurs="0" name="readCurveTo" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawCircle" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawEllipse" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawPath" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawRect" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawRoundRect" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawTiles" type="xs:string"/>
+<xs:element minOccurs="0" name="readDrawTriangles" type="xs:string"/>
+<xs:element minOccurs="0" name="readEndFill" type="xs:string"/>
+<xs:element minOccurs="0" name="readLineBitmapStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="readLineGradientStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="readLineStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="readLineTo" type="xs:string"/>
+<xs:element minOccurs="0" name="readMoveTo" type="xs:string"/>
+<xs:element minOccurs="0" name="readOverrideMatrix" type="xs:string"/>
+<xs:element minOccurs="0" name="skip" type="xs:string"/>
+</xs:all>
+<xs:attribute name="buffer" type="xs:string"/>
+<xs:attribute name="readBeginBitmapFill" type="xs:string"/>
+<xs:attribute name="readBeginFill" type="xs:string"/>
+<xs:attribute name="readBeginGradientFill" type="xs:string"/>
+<xs:attribute name="readCubicCurveTo" type="xs:string"/>
+<xs:attribute name="readCurveTo" type="xs:string"/>
+<xs:attribute name="readDrawCircle" type="xs:string"/>
+<xs:attribute name="readDrawEllipse" type="xs:string"/>
+<xs:attribute name="readDrawPath" type="xs:string"/>
+<xs:attribute name="readDrawRect" type="xs:string"/>
+<xs:attribute name="readDrawRoundRect" type="xs:string"/>
+<xs:attribute name="readDrawTiles" type="xs:string"/>
+<xs:attribute name="readDrawTriangles" type="xs:string"/>
+<xs:attribute name="readEndFill" type="xs:string"/>
+<xs:attribute name="readLineBitmapStyle" type="xs:string"/>
+<xs:attribute name="readLineGradientStyle" type="xs:string"/>
+<xs:attribute name="readLineStyle" type="xs:string"/>
+<xs:attribute name="readLineTo" type="xs:string"/>
+<xs:attribute name="readMoveTo" type="xs:string"/>
+<xs:attribute name="readOverrideMatrix" type="xs:string"/>
+<xs:attribute name="skip" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="DrawCommandBuffer" type="DrawCommandBufferSchemaType"/>
+<xs:element name="RenderSession" type="RenderSessionSchemaType"/>
+<xs:element name="AbstractRenderer" type="AbstractRendererSchemaType"/>
+<xs:element name="PolyK" type="PolyKSchemaType"/>
+<xs:element name="GraphicsPaths" type="GraphicsPathsSchemaType"/>
+<xs:element name="AbstractMaskManager" type="AbstractMaskManagerSchemaType"/>
+<xs:element name="DrawCommandReader" type="DrawCommandReaderSchemaType"/>
+</xs:schema>

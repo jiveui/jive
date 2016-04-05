@@ -1,0 +1,32 @@
+<xs:schema targetNamespace="openfl._internal.renderer.opengl.shaders2._DrawTrianglesShader" xmlns="openfl._internal.renderer.opengl.shaders2._DrawTrianglesShader" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Uniform_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="Uniform_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Attrib_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="Attrib_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Uniform_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Attrib_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Uniform_Impl_" type="Uniform_Impl_SchemaType"/>
+<xs:element name="Attrib_Impl_" type="Attrib_Impl_SchemaType"/>
+</xs:schema>

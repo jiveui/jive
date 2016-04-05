@@ -1,0 +1,85 @@
+<xs:schema targetNamespace="lime.utils" xmlns="lime.utils" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:haxe-io="haxe.io"
+xmlns:empty="empty"
+>
+<xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GLUtilsSchemaTypeValue">
+<xs:all><xs:element ref="GLUtils"/></xs:all></xs:complexType>
+
+<xs:complexType name="BytesSchemaTypeValue">
+<xs:all><xs:element ref="Bytes"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArrayBufferViewSchemaTypeValue">
+<xs:all><xs:element ref="ArrayBufferView"/></xs:all></xs:complexType>
+
+<xs:complexType name="LZMASchemaTypeValue">
+<xs:all><xs:element ref="LZMA"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArrayBufferIOSchemaTypeValue">
+<xs:all><xs:element ref="ArrayBufferIO"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLUtilsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BytesSchemaType">
+<xs:complexContent>
+<xs:extension base="haxe-io:BytesSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrayBufferViewSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="buffer" type="xs:string"/>
+<xs:element minOccurs="0" name="byteOffset" type="xs:int"/>
+<xs:element minOccurs="0" name="byteLength" type="xs:int"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="set" type="xs:string"/>
+</xs:all>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="buffer" type="xs:string"/>
+<xs:attribute name="byteOffset" type="xs:int"/>
+<xs:attribute name="byteLength" type="xs:int"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="set" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LZMASchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrayBufferIOSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GLUtils" type="GLUtilsSchemaType"/>
+<xs:element name="Bytes" type="BytesSchemaType"/>
+<xs:element name="ArrayBufferView" type="ArrayBufferViewSchemaType"/>
+<xs:element name="LZMA" type="LZMASchemaType"/>
+<xs:element name="ArrayBufferIO" type="ArrayBufferIOSchemaType"/>
+</xs:schema>

@@ -1,0 +1,59 @@
+<xs:schema targetNamespace="lime" xmlns="lime" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:lime-app="lime.app"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
+<xs:complexType name="AssetCacheSchemaTypeValue">
+<xs:all><xs:element ref="AssetCache"/></xs:all></xs:complexType>
+
+<xs:complexType name="AssetLibrarySchemaTypeValue">
+<xs:all><xs:element ref="AssetLibrary"/></xs:all></xs:complexType>
+
+<xs:complexType name="AssetsSchemaTypeValue">
+<xs:all><xs:element ref="Assets"/></xs:all></xs:complexType>
+
+<xs:complexType name="AssetCacheSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="audio" type="xs:string"/>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="image" type="xs:string"/>
+<xs:element minOccurs="0" name="font" type="xs:string"/>
+<xs:element minOccurs="0" name="version" type="xs:int"/>
+</xs:all>
+<xs:attribute name="audio" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="image" type="xs:string"/>
+<xs:attribute name="font" type="xs:string"/>
+<xs:attribute name="version" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AssetLibrarySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="onChange" type="lime-app:Event_Void_VoidSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="onChange" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AssetsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="AssetCache" type="AssetCacheSchemaType"/>
+<xs:element name="AssetLibrary" type="AssetLibrarySchemaType"/>
+<xs:element name="Assets" type="AssetsSchemaType"/>
+</xs:schema>

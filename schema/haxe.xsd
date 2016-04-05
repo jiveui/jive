@@ -1,0 +1,93 @@
+<xs:schema targetNamespace="haxe" xmlns="haxe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:haxe-ds="haxe.ds"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:complexType name="EnumValueToolsSchemaTypeValue">
+<xs:all><xs:element ref="EnumValueTools"/></xs:all></xs:complexType>
+
+<xs:complexType name="TimerSchemaTypeValue">
+<xs:all><xs:element ref="Timer"/></xs:all></xs:complexType>
+
+<xs:complexType name="CallStackSchemaTypeValue">
+<xs:all><xs:element ref="CallStack"/></xs:all></xs:complexType>
+
+<xs:complexType name="EnumToolsSchemaTypeValue">
+<xs:all><xs:element ref="EnumTools"/></xs:all></xs:complexType>
+
+<xs:complexType name="IMapSchemaTypeValue">
+<xs:choice>
+<xs:element ref="haxe-ds:IntMap" />
+<xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="haxe-ds:ObjectMap" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="LogSchemaTypeValue">
+<xs:all><xs:element ref="Log"/></xs:all></xs:complexType>
+
+<xs:complexType name="EnumValueToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TimerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="run" type="xs:string"/>
+</xs:all>
+<xs:attribute name="run" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CallStackSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EnumToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LogSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="EnumValueTools" type="EnumValueToolsSchemaType"/>
+<xs:element name="Timer" type="TimerSchemaType"/>
+<xs:element name="CallStack" type="CallStackSchemaType"/>
+<xs:element name="EnumTools" type="EnumToolsSchemaType"/>
+<xs:element name="IMap" type="IMapSchemaType"/>
+<xs:element name="Log" type="LogSchemaType"/>
+</xs:schema>

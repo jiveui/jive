@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.net._URLLoaderDataFormat" xmlns="openfl.net._URLLoaderDataFormat" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="URLLoaderDataFormat_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="URLLoaderDataFormat_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLLoaderDataFormat_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="URLLoaderDataFormat_Impl_" type="URLLoaderDataFormat_Impl_SchemaType"/>
+</xs:schema>

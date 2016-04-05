@@ -1,0 +1,45 @@
+<xs:schema targetNamespace="openfl.utils._Object" xmlns="openfl.utils._Object" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Iterable_SchemaTypeValue">
+<xs:all><xs:element ref="Iterable_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Object_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="Object_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Iterator_SchemaTypeValue">
+<xs:all><xs:element ref="Iterator_"/></xs:all></xs:complexType>
+
+<xs:complexType name="Iterable_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Object_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Iterator_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Iterable_" type="Iterable_SchemaType"/>
+<xs:element name="Object_Impl_" type="Object_Impl_SchemaType"/>
+<xs:element name="Iterator_" type="Iterator_SchemaType"/>
+</xs:schema>

@@ -1,0 +1,530 @@
+<xs:schema targetNamespace="openfl._internal.renderer.opengl.utils" xmlns="openfl._internal.renderer.opengl.utils" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-_internal-renderer-opengl-shaders2="openfl._internal.renderer.opengl.shaders2"
+xmlns:lime-graphics-opengl="lime.graphics.opengl"
+xmlns:empty="empty"
+xmlns:openfl-display="openfl.display"
+xmlns:openfl-geom="openfl.geom"
+xmlns:lime-graphics="lime.graphics"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2" schemaLocation="openfl._internal.renderer.opengl.shaders2.xsd" />
+<xs:import namespace="lime.graphics.opengl" schemaLocation="lime.graphics.opengl.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="GLMaskManagerSchemaTypeValue">
+<xs:all><xs:element ref="GLMaskManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="FilterManagerSchemaTypeValue">
+<xs:all><xs:element ref="FilterManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="PathBuilerSchemaTypeValue">
+<xs:all><xs:element ref="PathBuiler"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLGraphicsDataSchemaTypeValue">
+<xs:all><xs:element ref="GLGraphicsData"/></xs:all></xs:complexType>
+
+<xs:complexType name="SpriteBatchSchemaTypeValue">
+<xs:all><xs:element ref="SpriteBatch"/></xs:all></xs:complexType>
+
+<xs:complexType name="ShaderManagerSchemaTypeValue">
+<xs:all><xs:element ref="ShaderManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="StencilManagerSchemaTypeValue">
+<xs:all><xs:element ref="StencilManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLBucketSchemaTypeValue">
+<xs:all><xs:element ref="GLBucket"/></xs:all></xs:complexType>
+
+<xs:complexType name="VertexAttributeSchemaTypeValue">
+<xs:all><xs:element ref="VertexAttribute"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineStyleSchemaTypeValue">
+<xs:all><xs:element ref="LineStyle"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLStackSchemaTypeValue">
+<xs:all><xs:element ref="GLStack"/></xs:all></xs:complexType>
+
+<xs:complexType name="BlendModeManagerSchemaTypeValue">
+<xs:all><xs:element ref="BlendModeManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLBucketDataSchemaTypeValue">
+<xs:all><xs:element ref="GLBucketData"/></xs:all></xs:complexType>
+
+<xs:complexType name="GraphicsRendererSchemaTypeValue">
+<xs:all><xs:element ref="GraphicsRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="PingPongTextureSchemaTypeValue">
+<xs:all><xs:element ref="PingPongTexture"/></xs:all></xs:complexType>
+
+<xs:complexType name="VertexArraySchemaTypeValue">
+<xs:all><xs:element ref="VertexArray"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawPathSchemaTypeValue">
+<xs:all><xs:element ref="DrawPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderTextureSchemaTypeValue">
+<xs:all><xs:element ref="RenderTexture"/></xs:all></xs:complexType>
+
+<xs:complexType name="GLMaskManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractMaskManagerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FilterManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="buffer" type="lime-graphics-opengl:GLFramebufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="colorArray" type="xs:string"/>
+<xs:element minOccurs="0" name="colorBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="defaultShader" type="openfl-_internal-renderer-opengl-shaders2:DefaultShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="filterStack" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="indexBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="offsetX" type="xs:double"/>
+<xs:element minOccurs="0" name="offsetY" type="xs:double"/>
+<xs:element minOccurs="0" name="renderSession" type="openfl-_internal-renderer:RenderSessionSchemaTypeValue"/>
+<xs:element minOccurs="0" name="texturePool" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="transparent" type="xs:boolean"/>
+<xs:element minOccurs="0" name="uvArray" type="xs:string"/>
+<xs:element minOccurs="0" name="uvBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="vertexArray" type="xs:string"/>
+<xs:element minOccurs="0" name="vertexBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
+<xs:attribute name="buffer" type="xs:string"/>
+<xs:attribute name="colorArray" type="xs:string"/>
+<xs:attribute name="colorBuffer" type="xs:string"/>
+<xs:attribute name="defaultShader" type="xs:string"/>
+<xs:attribute name="filterStack" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="indexBuffer" type="xs:string"/>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+<xs:attribute name="renderSession" type="xs:string"/>
+<xs:attribute name="texturePool" type="xs:string"/>
+<xs:attribute name="transparent" type="xs:boolean"/>
+<xs:attribute name="uvArray" type="xs:string"/>
+<xs:attribute name="uvBuffer" type="xs:string"/>
+<xs:attribute name="vertexArray" type="xs:string"/>
+<xs:attribute name="vertexBuffer" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PathBuilerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLGraphicsDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="tint" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="dirty" type="xs:boolean"/>
+<xs:element minOccurs="0" name="mode" type="xs:string"/>
+<xs:element minOccurs="0" name="lastIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="data" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="glData" type="xs:string"/>
+<xs:element minOccurs="0" name="dataBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="indices" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="glIndices" type="xs:string"/>
+<xs:element minOccurs="0" name="indexBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="tint" type="xs:string"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="dirty" type="xs:boolean"/>
+<xs:attribute name="mode" type="xs:string"/>
+<xs:attribute name="lastIndex" type="xs:int"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="glData" type="xs:string"/>
+<xs:attribute name="dataBuffer" type="xs:string"/>
+<xs:attribute name="indices" type="xs:string"/>
+<xs:attribute name="glIndices" type="xs:string"/>
+<xs:attribute name="indexBuffer" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SpriteBatchSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="drawing" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="drawing" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="currentShader" type="openfl-_internal-renderer-opengl-shaders2:ShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="defaultShader" type="openfl-_internal-renderer-opengl-shaders2:DefaultShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="fillShader" type="openfl-_internal-renderer-opengl-shaders2:FillShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="patternFillShader" type="openfl-_internal-renderer-opengl-shaders2:PatternFillShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="drawTrianglesShader" type="openfl-_internal-renderer-opengl-shaders2:DrawTrianglesShaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="primitiveShader" type="openfl-_internal-renderer-opengl-shaders2:PrimitiveShaderSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="currentShader" type="xs:string"/>
+<xs:attribute name="defaultShader" type="xs:string"/>
+<xs:attribute name="fillShader" type="xs:string"/>
+<xs:attribute name="patternFillShader" type="xs:string"/>
+<xs:attribute name="drawTrianglesShader" type="xs:string"/>
+<xs:attribute name="primitiveShader" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StencilManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="count" type="xs:int"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="reverse" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stencilStack" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="stencilMask" type="xs:int"/>
+<xs:element minOccurs="0" name="prepareGraphics" type="xs:string"/>
+</xs:all>
+<xs:attribute name="count" type="xs:int"/>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="reverse" type="xs:boolean"/>
+<xs:attribute name="stencilStack" type="xs:string"/>
+<xs:attribute name="stencilMask" type="xs:int"/>
+<xs:attribute name="prepareGraphics" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLBucketSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="color" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="dirty" type="xs:boolean"/>
+<xs:element minOccurs="0" name="graphicType" type="xs:string"/>
+<xs:element minOccurs="0" name="lastIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="fillIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="mode" type="xs:string"/>
+<xs:element minOccurs="0" name="fills" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lines" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="bitmap" type="openfl-display:BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="texture" type="xs:string"/>
+<xs:element minOccurs="0" name="textureMatrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="textureRepeat" type="xs:boolean"/>
+<xs:element minOccurs="0" name="textureSmooth" type="xs:boolean"/>
+<xs:element minOccurs="0" name="textureTL" type="openfl-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="textureBR" type="openfl-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="overrideMatrix" type="openfl-geom:MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="tileBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="glTile" type="xs:string"/>
+<xs:element minOccurs="0" name="tile" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="uploadTileBuffer" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="color" type="xs:string"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="dirty" type="xs:boolean"/>
+<xs:attribute name="graphicType" type="xs:string"/>
+<xs:attribute name="lastIndex" type="xs:int"/>
+<xs:attribute name="fillIndex" type="xs:int"/>
+<xs:attribute name="mode" type="xs:string"/>
+<xs:attribute name="fills" type="xs:string"/>
+<xs:attribute name="lines" type="xs:string"/>
+<xs:attribute name="bitmap" type="xs:string"/>
+<xs:attribute name="texture" type="xs:string"/>
+<xs:attribute name="textureMatrix" type="xs:string"/>
+<xs:attribute name="textureRepeat" type="xs:boolean"/>
+<xs:attribute name="textureSmooth" type="xs:boolean"/>
+<xs:attribute name="textureTL" type="xs:string"/>
+<xs:attribute name="textureBR" type="xs:string"/>
+<xs:attribute name="overrideMatrix" type="xs:string"/>
+<xs:attribute name="tileBuffer" type="xs:string"/>
+<xs:attribute name="glTile" type="xs:string"/>
+<xs:attribute name="tile" type="xs:string"/>
+<xs:attribute name="uploadTileBuffer" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VertexAttributeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="components" type="xs:int"/>
+<xs:element minOccurs="0" name="normalized" type="xs:boolean"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="elements" type="xs:int"/>
+<xs:element minOccurs="0" name="defaultValue" type="xs:string"/>
+</xs:all>
+<xs:attribute name="components" type="xs:int"/>
+<xs:attribute name="normalized" type="xs:boolean"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="elements" type="xs:int"/>
+<xs:attribute name="defaultValue" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineStyleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="alpha" type="xs:string"/>
+<xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
+<xs:element minOccurs="0" name="caps" type="xs:string"/>
+<xs:element minOccurs="0" name="joints" type="xs:string"/>
+<xs:element minOccurs="0" name="miterLimit" type="xs:double"/>
+</xs:all>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="alpha" type="xs:string"/>
+<xs:attribute name="scaleMode" type="xs:string"/>
+<xs:attribute name="caps" type="xs:string"/>
+<xs:attribute name="joints" type="xs:string"/>
+<xs:attribute name="miterLimit" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLStackSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="lastIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="buckets" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="lastIndex" type="xs:int"/>
+<xs:attribute name="buckets" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BlendModeManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="currentBlendMode" type="xs:string"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="currentBlendMode" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GLBucketDataSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="drawMode" type="xs:int"/>
+<xs:element minOccurs="0" name="glLength" type="xs:int"/>
+<xs:element minOccurs="0" name="glStart" type="xs:int"/>
+<xs:element minOccurs="0" name="vertexArray" type="VertexArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="glVerts" type="xs:string"/>
+<xs:element minOccurs="0" name="lastVertsSize" type="xs:int"/>
+<xs:element minOccurs="0" name="verts" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="rawVerts" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stride" type="xs:int"/>
+<xs:element minOccurs="0" name="indexBuffer" type="lime-graphics-opengl:GLBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="glIndices" type="xs:string"/>
+<xs:element minOccurs="0" name="indices" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="rawIndices" type="xs:boolean"/>
+<xs:element minOccurs="0" name="available" type="xs:boolean"/>
+<xs:element minOccurs="0" name="parent" type="GLBucketSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="drawMode" type="xs:int"/>
+<xs:attribute name="glLength" type="xs:int"/>
+<xs:attribute name="glStart" type="xs:int"/>
+<xs:attribute name="vertexArray" type="xs:string"/>
+<xs:attribute name="glVerts" type="xs:string"/>
+<xs:attribute name="lastVertsSize" type="xs:int"/>
+<xs:attribute name="verts" type="xs:string"/>
+<xs:attribute name="rawVerts" type="xs:boolean"/>
+<xs:attribute name="stride" type="xs:int"/>
+<xs:attribute name="indexBuffer" type="xs:string"/>
+<xs:attribute name="glIndices" type="xs:string"/>
+<xs:attribute name="indices" type="xs:string"/>
+<xs:attribute name="rawIndices" type="xs:boolean"/>
+<xs:attribute name="available" type="xs:boolean"/>
+<xs:attribute name="parent" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GraphicsRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PingPongTextureSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="renderTexture" type="RenderTextureSchemaTypeValue"/>
+<xs:element minOccurs="0" name="oldRenderTexture" type="RenderTextureSchemaTypeValue"/>
+<xs:element minOccurs="0" name="framebuffer" type="xs:string"/>
+<xs:element minOccurs="0" name="texture" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="smoothing" type="xs:boolean"/>
+<xs:element minOccurs="0" name="useOldTexture" type="xs:boolean"/>
+<xs:element minOccurs="0" name="powerOfTwo" type="xs:boolean"/>
+<xs:element minOccurs="0" name="clear" type="xs:string"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="renderTexture" type="xs:string"/>
+<xs:attribute name="oldRenderTexture" type="xs:string"/>
+<xs:attribute name="framebuffer" type="xs:string"/>
+<xs:attribute name="texture" type="xs:string"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="smoothing" type="xs:boolean"/>
+<xs:attribute name="useOldTexture" type="xs:boolean"/>
+<xs:attribute name="powerOfTwo" type="xs:boolean"/>
+<xs:attribute name="clear" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VertexArraySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="glBuffer" type="xs:string"/>
+<xs:element minOccurs="0" name="attributes" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="buffer" type="xs:string"/>
+<xs:element minOccurs="0" name="size" type="xs:int"/>
+<xs:element minOccurs="0" name="stride" type="xs:int"/>
+<xs:element minOccurs="0" name="isStatic" type="xs:boolean"/>
+<xs:element minOccurs="0" name="bind" type="xs:string"/>
+<xs:element minOccurs="0" name="unbind" type="xs:string"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="glBuffer" type="xs:string"/>
+<xs:attribute name="attributes" type="xs:string"/>
+<xs:attribute name="buffer" type="xs:string"/>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="stride" type="xs:int"/>
+<xs:attribute name="isStatic" type="xs:boolean"/>
+<xs:attribute name="bind" type="xs:string"/>
+<xs:attribute name="unbind" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="line" type="LineStyleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="fill" type="xs:string"/>
+<xs:element minOccurs="0" name="fillIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="isRemovable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="winding" type="xs:string"/>
+<xs:element minOccurs="0" name="points" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:all>
+<xs:attribute name="line" type="xs:string"/>
+<xs:attribute name="fill" type="xs:string"/>
+<xs:attribute name="fillIndex" type="xs:int"/>
+<xs:attribute name="isRemovable" type="xs:boolean"/>
+<xs:attribute name="winding" type="xs:string"/>
+<xs:attribute name="points" type="xs:string"/>
+<xs:attribute name="type" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderTextureSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="frameBuffer" type="lime-graphics-opengl:GLFramebufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="renderBuffer" type="lime-graphics-opengl:GLRenderbufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="texture" type="lime-graphics-opengl:GLTextureSchemaTypeValue"/>
+<xs:element minOccurs="0" name="smoothing" type="xs:boolean"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="powerOfTwo" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="frameBuffer" type="xs:string"/>
+<xs:attribute name="renderBuffer" type="xs:string"/>
+<xs:attribute name="texture" type="xs:string"/>
+<xs:attribute name="smoothing" type="xs:boolean"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="powerOfTwo" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GLMaskManager" type="GLMaskManagerSchemaType"/>
+<xs:element name="FilterManager" type="FilterManagerSchemaType"/>
+<xs:element name="PathBuiler" type="PathBuilerSchemaType"/>
+<xs:element name="GLGraphicsData" type="GLGraphicsDataSchemaType"/>
+<xs:element name="SpriteBatch" type="SpriteBatchSchemaType"/>
+<xs:element name="ShaderManager" type="ShaderManagerSchemaType"/>
+<xs:element name="StencilManager" type="StencilManagerSchemaType"/>
+<xs:element name="GLBucket" type="GLBucketSchemaType"/>
+<xs:element name="VertexAttribute" type="VertexAttributeSchemaType"/>
+<xs:element name="LineStyle" type="LineStyleSchemaType"/>
+<xs:element name="GLStack" type="GLStackSchemaType"/>
+<xs:element name="BlendModeManager" type="BlendModeManagerSchemaType"/>
+<xs:element name="GLBucketData" type="GLBucketDataSchemaType"/>
+<xs:element name="GraphicsRenderer" type="GraphicsRendererSchemaType"/>
+<xs:element name="PingPongTexture" type="PingPongTextureSchemaType"/>
+<xs:element name="VertexArray" type="VertexArraySchemaType"/>
+<xs:element name="DrawPath" type="DrawPathSchemaType"/>
+<xs:element name="RenderTexture" type="RenderTextureSchemaType"/>
+</xs:schema>

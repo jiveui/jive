@@ -1,0 +1,157 @@
+<xs:schema targetNamespace="openfl._internal.text" xmlns="openfl._internal.text" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-text="openfl.text"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+>
+<xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:complexType name="TextFormatRangeSchemaTypeValue">
+<xs:all><xs:element ref="TextFormatRange"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextLayoutGroupSchemaTypeValue">
+<xs:all><xs:element ref="TextLayoutGroup"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextEngineSchemaTypeValue">
+<xs:all><xs:element ref="TextEngine"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextFormatRangeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="end" type="xs:int"/>
+<xs:element minOccurs="0" name="format" type="openfl-text:TextFormatSchemaTypeValue"/>
+<xs:element minOccurs="0" name="start" type="xs:int"/>
+</xs:all>
+<xs:attribute name="end" type="xs:int"/>
+<xs:attribute name="format" type="xs:string"/>
+<xs:attribute name="start" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextLayoutGroupSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="advances" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="ascent" type="xs:double"/>
+<xs:element minOccurs="0" name="descent" type="xs:double"/>
+<xs:element minOccurs="0" name="endIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="format" type="openfl-text:TextFormatSchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="leading" type="xs:int"/>
+<xs:element minOccurs="0" name="lineIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="offsetX" type="xs:double"/>
+<xs:element minOccurs="0" name="offsetY" type="xs:double"/>
+<xs:element minOccurs="0" name="startIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+</xs:all>
+<xs:attribute name="advances" type="xs:string"/>
+<xs:attribute name="ascent" type="xs:double"/>
+<xs:attribute name="descent" type="xs:double"/>
+<xs:attribute name="endIndex" type="xs:int"/>
+<xs:attribute name="format" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="leading" type="xs:int"/>
+<xs:attribute name="lineIndex" type="xs:int"/>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+<xs:attribute name="startIndex" type="xs:int"/>
+<xs:attribute name="width" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextEngineSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="antiAliasType" type="xs:string"/>
+<xs:element minOccurs="0" name="autoSize" type="xs:string"/>
+<xs:element minOccurs="0" name="background" type="xs:boolean"/>
+<xs:element minOccurs="0" name="backgroundColor" type="xs:int"/>
+<xs:element minOccurs="0" name="border" type="xs:boolean"/>
+<xs:element minOccurs="0" name="borderColor" type="xs:int"/>
+<xs:element minOccurs="0" name="bottomScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="bounds" type="openfl-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="caretIndex" type="xs:int"/>
+<xs:element minOccurs="0" name="displayAsPassword" type="xs:boolean"/>
+<xs:element minOccurs="0" name="embedFonts" type="xs:boolean"/>
+<xs:element minOccurs="0" name="gridFitType" type="xs:string"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="layoutGroups" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineAscents" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineBreaks" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineDescents" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineLeadings" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineHeights" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="lineWidths" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="maxChars" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="maxScrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="multiline" type="xs:boolean"/>
+<xs:element minOccurs="0" name="numLines" type="xs:int"/>
+<xs:element minOccurs="0" name="restrict" type="xs:string"/>
+<xs:element minOccurs="0" name="scrollH" type="xs:int"/>
+<xs:element minOccurs="0" name="scrollV" type="xs:int"/>
+<xs:element minOccurs="0" name="selectable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="sharpness" type="xs:double"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="textHeight" type="xs:double"/>
+<xs:element minOccurs="0" name="textFormatRanges" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="textWidth" type="xs:double"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="wordWrap" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__cairoFont" type="xs:string"/>
+<xs:element minOccurs="0" name="__font" type="openfl-text:FontSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="antiAliasType" type="xs:string"/>
+<xs:attribute name="autoSize" type="xs:string"/>
+<xs:attribute name="background" type="xs:boolean"/>
+<xs:attribute name="backgroundColor" type="xs:int"/>
+<xs:attribute name="border" type="xs:boolean"/>
+<xs:attribute name="borderColor" type="xs:int"/>
+<xs:attribute name="bottomScrollV" type="xs:int"/>
+<xs:attribute name="bounds" type="xs:string"/>
+<xs:attribute name="caretIndex" type="xs:int"/>
+<xs:attribute name="displayAsPassword" type="xs:boolean"/>
+<xs:attribute name="embedFonts" type="xs:boolean"/>
+<xs:attribute name="gridFitType" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="layoutGroups" type="xs:string"/>
+<xs:attribute name="lineAscents" type="xs:string"/>
+<xs:attribute name="lineBreaks" type="xs:string"/>
+<xs:attribute name="lineDescents" type="xs:string"/>
+<xs:attribute name="lineLeadings" type="xs:string"/>
+<xs:attribute name="lineHeights" type="xs:string"/>
+<xs:attribute name="lineWidths" type="xs:string"/>
+<xs:attribute name="maxChars" type="xs:int"/>
+<xs:attribute name="maxScrollH" type="xs:int"/>
+<xs:attribute name="maxScrollV" type="xs:int"/>
+<xs:attribute name="multiline" type="xs:boolean"/>
+<xs:attribute name="numLines" type="xs:int"/>
+<xs:attribute name="restrict" type="xs:string"/>
+<xs:attribute name="scrollH" type="xs:int"/>
+<xs:attribute name="scrollV" type="xs:int"/>
+<xs:attribute name="selectable" type="xs:boolean"/>
+<xs:attribute name="sharpness" type="xs:double"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="textHeight" type="xs:double"/>
+<xs:attribute name="textFormatRanges" type="xs:string"/>
+<xs:attribute name="textWidth" type="xs:double"/>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="wordWrap" type="xs:boolean"/>
+<xs:attribute name="__cairoFont" type="xs:string"/>
+<xs:attribute name="__font" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TextFormatRange" type="TextFormatRangeSchemaType"/>
+<xs:element name="TextLayoutGroup" type="TextLayoutGroupSchemaType"/>
+<xs:element name="TextEngine" type="TextEngineSchemaType"/>
+</xs:schema>

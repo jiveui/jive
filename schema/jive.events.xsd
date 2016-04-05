@@ -1,0 +1,82 @@
+<xs:schema targetNamespace="jive.events" xmlns="jive.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GestureEventSchemaTypeValue">
+<xs:choice>
+<xs:element ref="TransformGestureEvent" />
+<xs:element ref="GestureEvent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="CollectionEventSchemaTypeValue">
+<xs:all><xs:element ref="CollectionEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformGestureEventSchemaTypeValue">
+<xs:all><xs:element ref="TransformGestureEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="GestureManagerSchemaTypeValue">
+<xs:all><xs:element ref="GestureManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="GestureEventSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="localX" type="xs:double"/>
+<xs:element minOccurs="0" name="localY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="localX" type="xs:double"/>
+<xs:attribute name="localY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CollectionEventSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformGestureEventSchemaType">
+<xs:complexContent>
+<xs:extension base="GestureEventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="offsetX" type="xs:double"/>
+<xs:element minOccurs="0" name="offsetY" type="xs:double"/>
+<xs:element minOccurs="0" name="rotation" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleX" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleY" type="xs:double"/>
+<xs:element minOccurs="0" name="phase" type="xs:string"/>
+</xs:all>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+<xs:attribute name="rotation" type="xs:double"/>
+<xs:attribute name="scaleX" type="xs:double"/>
+<xs:attribute name="scaleY" type="xs:double"/>
+<xs:attribute name="phase" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GestureManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="magneticBorderSize" type="xs:int"/>
+</xs:all>
+<xs:attribute name="magneticBorderSize" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GestureEvent" type="GestureEventSchemaType"/>
+<xs:element name="CollectionEvent" type="CollectionEventSchemaType"/>
+<xs:element name="TransformGestureEvent" type="TransformGestureEventSchemaType"/>
+<xs:element name="GestureManager" type="GestureManagerSchemaType"/>
+</xs:schema>

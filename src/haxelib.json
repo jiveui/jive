@@ -8,8 +8,9 @@
   "releasenote": "Added flat graphics and data binding to JAccordion, JTable, Dialog and JAdjuster",
   "contributors": [ "ngrebenshikov" ],
   "dependencies": {
-    "bindx": "",
+    "bindx2": "2.5.2",
     "actuate": "",
-    "unifill": ""
+    "unifill": "",
+    "hml": "0.0.2-alpha"
   }
 }

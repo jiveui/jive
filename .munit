@@ -1,8 +1,0 @@
-version=src
-src=tests/src
-bin=tests/bin
-report=tests/report
-hxml=tests/test.hxml
-classPaths=src,tests/gen
-resources=tests/resources
-templates=tests/templates

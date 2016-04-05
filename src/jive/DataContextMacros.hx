@@ -34,9 +34,9 @@ class DataContextMacros {
                 name: "dataContext",
                 pos:Context.currentPos(),
                 access: [APublic],
-                meta: [ {pos: Context.currentPos(), params: null, name: "bindable"}],
+                meta: [ {pos: Context.currentPos(), params: null, name: ":bindable"}],
                 doc: null,
-                kind:FProp("default", "default", Context.toComplexType(Context.getType(typeName)))
+                kind:FVar(Context.toComplexType(Context.getType(typeName)))
             });
         }
 

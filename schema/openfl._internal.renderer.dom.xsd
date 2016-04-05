@@ -1,0 +1,73 @@
+<xs:schema targetNamespace="openfl._internal.renderer.dom" xmlns="openfl._internal.renderer.dom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="DOMMaskManagerSchemaTypeValue">
+<xs:all><xs:element ref="DOMMaskManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="DOMShapeSchemaTypeValue">
+<xs:all><xs:element ref="DOMShape"/></xs:all></xs:complexType>
+
+<xs:complexType name="DOMTextFieldSchemaTypeValue">
+<xs:all><xs:element ref="DOMTextField"/></xs:all></xs:complexType>
+
+<xs:complexType name="DOMRendererSchemaTypeValue">
+<xs:all><xs:element ref="DOMRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="DOMBitmapSchemaTypeValue">
+<xs:all><xs:element ref="DOMBitmap"/></xs:all></xs:complexType>
+
+<xs:complexType name="DOMMaskManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractMaskManagerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DOMShapeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DOMTextFieldSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DOMRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractRendererSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DOMBitmapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="DOMMaskManager" type="DOMMaskManagerSchemaType"/>
+<xs:element name="DOMShape" type="DOMShapeSchemaType"/>
+<xs:element name="DOMTextField" type="DOMTextFieldSchemaType"/>
+<xs:element name="DOMRenderer" type="DOMRendererSchemaType"/>
+<xs:element name="DOMBitmap" type="DOMBitmapSchemaType"/>
+</xs:schema>

@@ -1,0 +1,93 @@
+<xs:schema targetNamespace="openfl.ui" xmlns="openfl.ui" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GameInputSchemaTypeValue">
+<xs:all><xs:element ref="GameInput"/></xs:all></xs:complexType>
+
+<xs:complexType name="GameInputControlSchemaTypeValue">
+<xs:all><xs:element ref="GameInputControl"/></xs:all></xs:complexType>
+
+<xs:complexType name="MultitouchSchemaTypeValue">
+<xs:all><xs:element ref="Multitouch"/></xs:all></xs:complexType>
+
+<xs:complexType name="GameInputDeviceSchemaTypeValue">
+<xs:all><xs:element ref="GameInputDevice"/></xs:all></xs:complexType>
+
+<xs:complexType name="KeyboardSchemaTypeValue">
+<xs:all><xs:element ref="Keyboard"/></xs:all></xs:complexType>
+
+<xs:complexType name="GameInputSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GameInputControlSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="device" type="GameInputDeviceSchemaTypeValue"/>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="maxValue" type="xs:double"/>
+<xs:element minOccurs="0" name="minValue" type="xs:double"/>
+<xs:element minOccurs="0" name="value" type="xs:double"/>
+</xs:all>
+<xs:attribute name="device" type="xs:string"/>
+<xs:attribute name="id" type="xs:string"/>
+<xs:attribute name="maxValue" type="xs:double"/>
+<xs:attribute name="minValue" type="xs:double"/>
+<xs:attribute name="value" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MultitouchSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GameInputDeviceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="numControls" type="xs:int"/>
+<xs:element minOccurs="0" name="sampleInterval" type="xs:int"/>
+</xs:all>
+<xs:attribute name="enabled" type="xs:boolean"/>
+<xs:attribute name="id" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="numControls" type="xs:int"/>
+<xs:attribute name="sampleInterval" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="KeyboardSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GameInput" type="GameInputSchemaType"/>
+<xs:element name="GameInputControl" type="GameInputControlSchemaType"/>
+<xs:element name="Multitouch" type="MultitouchSchemaType"/>
+<xs:element name="GameInputDevice" type="GameInputDeviceSchemaType"/>
+<xs:element name="Keyboard" type="KeyboardSchemaType"/>
+</xs:schema>

@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.utils._ByteArray" xmlns="openfl.utils._ByteArray" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ByteArray_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="ByteArray_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="ByteArray_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ByteArray_Impl_" type="ByteArray_Impl_SchemaType"/>
+</xs:schema>

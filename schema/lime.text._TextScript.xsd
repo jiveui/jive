@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="lime.text._TextScript" xmlns="lime.text._TextScript" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="TextScript_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="TextScript_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextScript_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TextScript_Impl_" type="TextScript_Impl_SchemaType"/>
+</xs:schema>

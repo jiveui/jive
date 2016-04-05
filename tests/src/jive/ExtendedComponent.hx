@@ -1,6 +1,7 @@
 package jive;
 
+@:bindable
 class ExtendedComponent extends Component {
-    @bindable public var s: String;
-    @bindable public var i: Int;
+    public var s: String;
+    public var i: Int;
 }

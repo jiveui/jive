@@ -7,7 +7,7 @@ class DataBindingTest {
     public function testBinding() {
         var t: DataBindingTestTemplate = new DataBindingTestTemplate();
         Assert.isNull(t.s);
-        Assert.isNull(t.i);
+        Assert.areEqual(0, t.i);
         var context = new DataBindingModel();
         t.dataContext = context;
         Assert.areEqual("initial", t.s);

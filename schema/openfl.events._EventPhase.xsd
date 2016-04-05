@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.events._EventPhase" xmlns="openfl.events._EventPhase" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="EventPhase_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="EventPhase_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="EventPhase_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="EventPhase_Impl_" type="EventPhase_Impl_SchemaType"/>
+</xs:schema>

@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl" xmlns="openfl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="LibSchemaTypeValue">
+<xs:all><xs:element ref="Lib"/></xs:all></xs:complexType>
+
+<xs:complexType name="LibSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Lib" type="LibSchemaType"/>
+</xs:schema>

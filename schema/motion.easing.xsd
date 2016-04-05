@@ -1,0 +1,131 @@
+<xs:schema targetNamespace="motion.easing" xmlns="motion.easing" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ExpoSchemaTypeValue">
+<xs:all><xs:element ref="Expo"/></xs:all></xs:complexType>
+
+<xs:complexType name="QuartEaseOutSchemaTypeValue">
+<xs:all><xs:element ref="QuartEaseOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="QuartEaseInOutSchemaTypeValue">
+<xs:all><xs:element ref="QuartEaseInOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="QuartEaseInSchemaTypeValue">
+<xs:all><xs:element ref="QuartEaseIn"/></xs:all></xs:complexType>
+
+<xs:complexType name="IEasingSchemaTypeValue">
+<xs:choice>
+<xs:element ref="QuartEaseOut" />
+<xs:element ref="ExpoEaseOut" />
+<xs:element ref="ExpoEaseIn" />
+<xs:element ref="QuartEaseInOut" />
+<xs:element ref="ExpoEaseInOut" />
+<xs:element ref="QuartEaseIn" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseInOut"/></xs:all></xs:complexType>
+
+<xs:complexType name="QuartSchemaTypeValue">
+<xs:all><xs:element ref="Quart"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaTypeValue">
+<xs:all><xs:element ref="ExpoEaseIn"/></xs:all></xs:complexType>
+
+<xs:complexType name="ExpoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IEasingSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInOutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuartSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ExpoEaseInSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Expo" type="ExpoSchemaType"/>
+<xs:element name="QuartEaseOut" type="QuartEaseOutSchemaType"/>
+<xs:element name="ExpoEaseOut" type="ExpoEaseOutSchemaType"/>
+<xs:element name="QuartEaseInOut" type="QuartEaseInOutSchemaType"/>
+<xs:element name="QuartEaseIn" type="QuartEaseInSchemaType"/>
+<xs:element name="IEasing" type="IEasingSchemaType"/>
+<xs:element name="ExpoEaseInOut" type="ExpoEaseInOutSchemaType"/>
+<xs:element name="Quart" type="QuartSchemaType"/>
+<xs:element name="ExpoEaseIn" type="ExpoEaseInSchemaType"/>
+</xs:schema>

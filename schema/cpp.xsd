@@ -1,0 +1,182 @@
+<xs:schema targetNamespace="cpp" xmlns="cpp" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="RawConstPointerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="RawPointer" />
+<xs:element ref="RawConstPointer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PrimeSchemaTypeValue">
+<xs:all><xs:element ref="Prime"/></xs:all></xs:complexType>
+
+<xs:complexType name="VoidSchemaTypeValue">
+<xs:all><xs:element ref="Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="FunctionSchemaTypeValue">
+<xs:all><xs:element ref="Function"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArrayBaseSchemaTypeValue">
+<xs:all><xs:element ref="ArrayBase"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeStringSchemaTypeValue">
+<xs:all><xs:element ref="NativeString"/></xs:all></xs:complexType>
+
+<xs:complexType name="RawPointerSchemaTypeValue">
+<xs:all><xs:element ref="RawPointer"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeArraySchemaTypeValue">
+<xs:all><xs:element ref="NativeArray"/></xs:all></xs:complexType>
+
+<xs:complexType name="ConstPointerSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Pointer" />
+<xs:element ref="ConstPointer" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PointerSchemaTypeValue">
+<xs:all><xs:element ref="Pointer"/></xs:all></xs:complexType>
+
+<xs:complexType name="LibSchemaTypeValue">
+<xs:all><xs:element ref="Lib"/></xs:all></xs:complexType>
+
+<xs:complexType name="HxObjectPtrSchemaTypeValue">
+<xs:all><xs:element ref="HxObjectPtr"/></xs:all></xs:complexType>
+
+<xs:complexType name="RawConstPointerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PrimeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FunctionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="call" type="xs:string"/>
+</xs:all>
+<xs:attribute name="call" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArrayBaseSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeStringSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RawPointerSchemaType">
+<xs:complexContent>
+<xs:extension base="RawConstPointerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeArraySchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ConstPointerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="ptr" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+<xs:element minOccurs="0" name="raw" type="RawConstPointerSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="ptr" type="xs:string"/>
+<xs:attribute name="value" type="xs:string"/>
+<xs:attribute name="raw" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PointerSchemaType">
+<xs:complexContent>
+<xs:extension base="ConstPointerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="ref" type="xs:string"/>
+</xs:all>
+<xs:attribute name="ref" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LibSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="HxObjectPtrSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="RawConstPointer" type="RawConstPointerSchemaType"/>
+<xs:element name="Prime" type="PrimeSchemaType"/>
+<xs:element name="Void" type="VoidSchemaType"/>
+<xs:element name="Function" type="FunctionSchemaType"/>
+<xs:element name="ArrayBase" type="ArrayBaseSchemaType"/>
+<xs:element name="NativeString" type="NativeStringSchemaType"/>
+<xs:element name="RawPointer" type="RawPointerSchemaType"/>
+<xs:element name="NativeArray" type="NativeArraySchemaType"/>
+<xs:element name="ConstPointer" type="ConstPointerSchemaType"/>
+<xs:element name="Pointer" type="PointerSchemaType"/>
+<xs:element name="Lib" type="LibSchemaType"/>
+<xs:element name="HxObjectPtr" type="HxObjectPtrSchemaType"/>
+</xs:schema>

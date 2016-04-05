@@ -1,0 +1,58 @@
+<xs:schema targetNamespace="lime.graphics.console" xmlns="lime.graphics.console" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="VertexBufferSchemaTypeValue">
+<xs:all><xs:element ref="VertexBuffer"/></xs:all></xs:complexType>
+
+<xs:complexType name="IndexBufferSchemaTypeValue">
+<xs:all><xs:element ref="IndexBuffer"/></xs:all></xs:complexType>
+
+<xs:complexType name="VertexOutputSchemaTypeValue">
+<xs:all><xs:element ref="VertexOutput"/></xs:all></xs:complexType>
+
+<xs:complexType name="ShaderSchemaTypeValue">
+<xs:all><xs:element ref="Shader"/></xs:all></xs:complexType>
+
+<xs:complexType name="VertexBufferSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IndexBufferSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="VertexOutputSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="VertexBuffer" type="VertexBufferSchemaType"/>
+<xs:element name="IndexBuffer" type="IndexBufferSchemaType"/>
+<xs:element name="VertexOutput" type="VertexOutputSchemaType"/>
+<xs:element name="Shader" type="ShaderSchemaType"/>
+</xs:schema>

@@ -1,0 +1,71 @@
+<xs:schema targetNamespace="openfl.net" xmlns="openfl.net" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="URLRequestHeaderSchemaTypeValue">
+<xs:all><xs:element ref="URLRequestHeader"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLLoaderSchemaTypeValue">
+<xs:all><xs:element ref="URLLoader"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLRequestSchemaTypeValue">
+<xs:all><xs:element ref="URLRequest"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLRequestHeaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:all>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="URLLoaderSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="dataFormat" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="dataFormat" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="URLRequestSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="contentType" type="xs:string"/>
+<xs:element minOccurs="0" name="data" type="xs:string"/>
+<xs:element minOccurs="0" name="method" type="xs:string"/>
+<xs:element minOccurs="0" name="requestHeaders" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+<xs:element minOccurs="0" name="userAgent" type="xs:string"/>
+</xs:all>
+<xs:attribute name="contentType" type="xs:string"/>
+<xs:attribute name="data" type="xs:string"/>
+<xs:attribute name="method" type="xs:string"/>
+<xs:attribute name="requestHeaders" type="xs:string"/>
+<xs:attribute name="url" type="xs:string"/>
+<xs:attribute name="userAgent" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="URLRequestHeader" type="URLRequestHeaderSchemaType"/>
+<xs:element name="URLLoader" type="URLLoaderSchemaType"/>
+<xs:element name="URLRequest" type="URLRequestSchemaType"/>
+</xs:schema>

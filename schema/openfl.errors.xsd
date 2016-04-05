@@ -1,0 +1,102 @@
+<xs:schema targetNamespace="openfl.errors" xmlns="openfl.errors" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ErrorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="EOFError" />
+<xs:element ref="ArgumentError" />
+<xs:element ref="RangeError" />
+<xs:element ref="TypeError" />
+<xs:element ref="IOError" />
+<xs:element ref="Error" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="IOErrorSchemaTypeValue">
+<xs:choice>
+<xs:element ref="EOFError" />
+<xs:element ref="IOError" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ArgumentErrorSchemaTypeValue">
+<xs:all><xs:element ref="ArgumentError"/></xs:all></xs:complexType>
+
+<xs:complexType name="EOFErrorSchemaTypeValue">
+<xs:all><xs:element ref="EOFError"/></xs:all></xs:complexType>
+
+<xs:complexType name="RangeErrorSchemaTypeValue">
+<xs:all><xs:element ref="RangeError"/></xs:all></xs:complexType>
+
+<xs:complexType name="TypeErrorSchemaTypeValue">
+<xs:all><xs:element ref="TypeError"/></xs:all></xs:complexType>
+
+<xs:complexType name="ErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="errorID" type="xs:int"/>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:all>
+<xs:attribute name="errorID" type="xs:int"/>
+<xs:attribute name="message" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IOErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArgumentErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EOFErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="IOErrorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RangeErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TypeErrorSchemaType">
+<xs:complexContent>
+<xs:extension base="ErrorSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Error" type="ErrorSchemaType"/>
+<xs:element name="IOError" type="IOErrorSchemaType"/>
+<xs:element name="ArgumentError" type="ArgumentErrorSchemaType"/>
+<xs:element name="EOFError" type="EOFErrorSchemaType"/>
+<xs:element name="RangeError" type="RangeErrorSchemaType"/>
+<xs:element name="TypeError" type="TypeErrorSchemaType"/>
+</xs:schema>

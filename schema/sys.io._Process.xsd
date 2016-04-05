@@ -1,0 +1,32 @@
+<xs:schema targetNamespace="sys.io._Process" xmlns="sys.io._Process" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:haxe-io="haxe.io"
+>
+<xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:complexType name="StdoutSchemaTypeValue">
+<xs:all><xs:element ref="Stdout"/></xs:all></xs:complexType>
+
+<xs:complexType name="StdinSchemaTypeValue">
+<xs:all><xs:element ref="Stdin"/></xs:all></xs:complexType>
+
+<xs:complexType name="StdoutSchemaType">
+<xs:complexContent>
+<xs:extension base="haxe-io:InputSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StdinSchemaType">
+<xs:complexContent>
+<xs:extension base="haxe-io:OutputSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Stdout" type="StdoutSchemaType"/>
+<xs:element name="Stdin" type="StdinSchemaType"/>
+</xs:schema>

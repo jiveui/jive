@@ -1,8 +1,11 @@
 package jive;
 
+import openfl.events.EventDispatcher;
+import bindx.IBindable;
 import openfl.display.DisplayObject;
+import jive.geom.Metric;
 
-class Component {
+class Component extends EventDispatcher implements IBindable {
     public var x: Metric;
     public var y: Metric;
     public var width: Metric;
@@ -15,7 +18,9 @@ class Component {
         return parent = c;
     }
 
-    public function new() {}
+    public function new() {
+        super();
+    }
 
     /**
     * destroy component

@@ -1,0 +1,118 @@
+<xs:schema targetNamespace="openfl._internal.renderer.opengl.shaders2" xmlns="openfl._internal.renderer.opengl.shaders2" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:lime-graphics="lime.graphics"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:complexType name="PatternFillShaderSchemaTypeValue">
+<xs:all><xs:element ref="PatternFillShader"/></xs:all></xs:complexType>
+
+<xs:complexType name="DefaultShaderSchemaTypeValue">
+<xs:all><xs:element ref="DefaultShader"/></xs:all></xs:complexType>
+
+<xs:complexType name="ShaderSchemaTypeValue">
+<xs:choice>
+<xs:element ref="PrimitiveShader" />
+<xs:element ref="DefaultShader" />
+<xs:element ref="PatternFillShader" />
+<xs:element ref="FillShader" />
+<xs:element ref="DrawTrianglesShader" />
+<xs:element ref="Shader" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FillShaderSchemaTypeValue">
+<xs:all><xs:element ref="FillShader"/></xs:all></xs:complexType>
+
+<xs:complexType name="PrimitiveShaderSchemaTypeValue">
+<xs:all><xs:element ref="PrimitiveShader"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawTrianglesShaderSchemaTypeValue">
+<xs:all><xs:element ref="DrawTrianglesShader"/></xs:all></xs:complexType>
+
+<xs:complexType name="PatternFillShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="ShaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DefaultShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="ShaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gl" type="lime-graphics:GLRenderContextSchemaTypeValue"/>
+<xs:element minOccurs="0" name="vertexSrc" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="fragmentSrc" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="attributes" type="xs:string"/>
+<xs:element minOccurs="0" name="uniforms" type="xs:string"/>
+<xs:element minOccurs="0" name="compiled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ID" type="xs:int"/>
+<xs:element minOccurs="0" name="program" type="xs:string"/>
+<xs:element minOccurs="0" name="wrapS" type="xs:string"/>
+<xs:element minOccurs="0" name="wrapT" type="xs:string"/>
+<xs:element minOccurs="0" name="smooth" type="xs:string"/>
+<xs:element minOccurs="0" name="blendMode" type="xs:string"/>
+</xs:all>
+<xs:attribute name="gl" type="xs:string"/>
+<xs:attribute name="vertexSrc" type="xs:string"/>
+<xs:attribute name="fragmentSrc" type="xs:string"/>
+<xs:attribute name="attributes" type="xs:string"/>
+<xs:attribute name="uniforms" type="xs:string"/>
+<xs:attribute name="compiled" type="xs:boolean"/>
+<xs:attribute name="ID" type="xs:int"/>
+<xs:attribute name="program" type="xs:string"/>
+<xs:attribute name="wrapS" type="xs:string"/>
+<xs:attribute name="wrapT" type="xs:string"/>
+<xs:attribute name="smooth" type="xs:string"/>
+<xs:attribute name="blendMode" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FillShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="ShaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PrimitiveShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="ShaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawTrianglesShaderSchemaType">
+<xs:complexContent>
+<xs:extension base="ShaderSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="PatternFillShader" type="PatternFillShaderSchemaType"/>
+<xs:element name="DefaultShader" type="DefaultShaderSchemaType"/>
+<xs:element name="Shader" type="ShaderSchemaType"/>
+<xs:element name="FillShader" type="FillShaderSchemaType"/>
+<xs:element name="PrimitiveShader" type="PrimitiveShaderSchemaType"/>
+<xs:element name="DrawTrianglesShader" type="DrawTrianglesShaderSchemaType"/>
+</xs:schema>

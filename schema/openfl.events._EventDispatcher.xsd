@@ -1,0 +1,25 @@
+<xs:schema targetNamespace="openfl.events._EventDispatcher" xmlns="openfl.events._EventDispatcher" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ListenerSchemaTypeValue">
+<xs:all><xs:element ref="Listener"/></xs:all></xs:complexType>
+
+<xs:complexType name="ListenerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="callback" type="xs:string"/>
+<xs:element minOccurs="0" name="priority" type="xs:int"/>
+<xs:element minOccurs="0" name="useCapture" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="callback" type="xs:string"/>
+<xs:attribute name="priority" type="xs:int"/>
+<xs:attribute name="useCapture" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Listener" type="ListenerSchemaType"/>
+</xs:schema>

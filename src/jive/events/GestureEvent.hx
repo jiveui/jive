@@ -1,6 +1,6 @@
 package jive.events;
 
-import flash.events.Event;
+import openfl.events.Event;
 
 class GestureEvent extends Event {
     public static var GESTURE_TWO_FINGER_TAP : String = "GESTURE_TWO_FINGER_TAP";

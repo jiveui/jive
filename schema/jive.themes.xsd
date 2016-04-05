@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="jive.themes" xmlns="jive.themes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ThemeSchemaTypeValue">
+<xs:all><xs:element ref="Theme"/></xs:all></xs:complexType>
+
+<xs:complexType name="ThemeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Theme" type="ThemeSchemaType"/>
+</xs:schema>

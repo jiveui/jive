@@ -1,0 +1,23 @@
+<xs:schema targetNamespace="jive.geom" xmlns="jive.geom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="MetricPointSchemaTypeValue">
+<xs:all><xs:element ref="MetricPoint"/></xs:all></xs:complexType>
+
+<xs:complexType name="MetricPointSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:string"/>
+<xs:element minOccurs="0" name="y" type="xs:string"/>
+</xs:all>
+<xs:attribute name="x" type="xs:string"/>
+<xs:attribute name="y" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="MetricPoint" type="MetricPointSchemaType"/>
+</xs:schema>

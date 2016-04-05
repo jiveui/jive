@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl.display._InterpolationMethod" xmlns="openfl.display._InterpolationMethod" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="InterpolationMethod_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="InterpolationMethod_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="InterpolationMethod_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="InterpolationMethod_Impl_" type="InterpolationMethod_Impl_SchemaType"/>
+</xs:schema>

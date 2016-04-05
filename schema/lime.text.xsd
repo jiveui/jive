@@ -1,0 +1,114 @@
+<xs:schema targetNamespace="lime.text" xmlns="lime.text" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:lime-math="lime.math"
+xmlns:openfl-text="openfl.text"
+xmlns:empty="empty"
+>
+<xs:import namespace="lime.math" schemaLocation="lime.math.xsd" />
+<xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GlyphPositionSchemaTypeValue">
+<xs:all><xs:element ref="GlyphPosition"/></xs:all></xs:complexType>
+
+<xs:complexType name="FontSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-text:Font" />
+<xs:element ref="Font" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GlyphMetricsSchemaTypeValue">
+<xs:all><xs:element ref="GlyphMetrics"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextLayoutSchemaTypeValue">
+<xs:all><xs:element ref="TextLayout"/></xs:all></xs:complexType>
+
+<xs:complexType name="GlyphPositionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="advance" type="lime-math:Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="glyph" type="xs:string"/>
+<xs:element minOccurs="0" name="offset" type="lime-math:Vector2SchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="advance" type="xs:string"/>
+<xs:attribute name="glyph" type="xs:string"/>
+<xs:attribute name="offset" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FontSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="ascender" type="xs:int"/>
+<xs:element minOccurs="0" name="descender" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="numGlyphs" type="xs:int"/>
+<xs:element minOccurs="0" name="src" type="xs:string"/>
+<xs:element minOccurs="0" name="underlinePosition" type="xs:int"/>
+<xs:element minOccurs="0" name="underlineThickness" type="xs:int"/>
+<xs:element minOccurs="0" name="unitsPerEM" type="xs:int"/>
+</xs:all>
+<xs:attribute name="ascender" type="xs:int"/>
+<xs:attribute name="descender" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="numGlyphs" type="xs:int"/>
+<xs:attribute name="src" type="xs:string"/>
+<xs:attribute name="underlinePosition" type="xs:int"/>
+<xs:attribute name="underlineThickness" type="xs:int"/>
+<xs:attribute name="unitsPerEM" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GlyphMetricsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="advance" type="lime-math:Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="horizontalBearing" type="lime-math:Vector2SchemaTypeValue"/>
+<xs:element minOccurs="0" name="verticalBearing" type="lime-math:Vector2SchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="advance" type="xs:string"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="horizontalBearing" type="xs:string"/>
+<xs:attribute name="verticalBearing" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="direction" type="xs:string"/>
+<xs:element minOccurs="0" name="font" type="FontSchemaTypeValue"/>
+<xs:element minOccurs="0" name="glyphs" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="language" type="xs:string"/>
+<xs:element minOccurs="0" name="positions" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="script" type="xs:string"/>
+<xs:element minOccurs="0" name="size" type="xs:int"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+</xs:all>
+<xs:attribute name="direction" type="xs:string"/>
+<xs:attribute name="font" type="xs:string"/>
+<xs:attribute name="glyphs" type="xs:string"/>
+<xs:attribute name="language" type="xs:string"/>
+<xs:attribute name="positions" type="xs:string"/>
+<xs:attribute name="script" type="xs:string"/>
+<xs:attribute name="size" type="xs:int"/>
+<xs:attribute name="text" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GlyphPosition" type="GlyphPositionSchemaType"/>
+<xs:element name="Font" type="FontSchemaType"/>
+<xs:element name="GlyphMetrics" type="GlyphMetricsSchemaType"/>
+<xs:element name="TextLayout" type="TextLayoutSchemaType"/>
+</xs:schema>

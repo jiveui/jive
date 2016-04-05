@@ -1,0 +1,86 @@
+<xs:schema targetNamespace="openfl._internal.renderer.cairo" xmlns="openfl._internal.renderer.cairo" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="CairoRendererSchemaTypeValue">
+<xs:all><xs:element ref="CairoRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoShapeSchemaTypeValue">
+<xs:all><xs:element ref="CairoShape"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoBitmapSchemaTypeValue">
+<xs:all><xs:element ref="CairoBitmap"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoMaskManagerSchemaTypeValue">
+<xs:all><xs:element ref="CairoMaskManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoGraphicsSchemaTypeValue">
+<xs:all><xs:element ref="CairoGraphics"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoTextFieldSchemaTypeValue">
+<xs:all><xs:element ref="CairoTextField"/></xs:all></xs:complexType>
+
+<xs:complexType name="CairoRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractRendererSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CairoShapeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CairoBitmapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CairoMaskManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractMaskManagerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CairoGraphicsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CairoTextFieldSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="CairoRenderer" type="CairoRendererSchemaType"/>
+<xs:element name="CairoShape" type="CairoShapeSchemaType"/>
+<xs:element name="CairoBitmap" type="CairoBitmapSchemaType"/>
+<xs:element name="CairoMaskManager" type="CairoMaskManagerSchemaType"/>
+<xs:element name="CairoGraphics" type="CairoGraphicsSchemaType"/>
+<xs:element name="CairoTextField" type="CairoTextFieldSchemaType"/>
+</xs:schema>

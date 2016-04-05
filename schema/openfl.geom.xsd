@@ -1,0 +1,203 @@
+<xs:schema targetNamespace="openfl.geom" xmlns="openfl.geom" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Matrix3DSchemaTypeValue">
+<xs:all><xs:element ref="Matrix3D"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformSchemaTypeValue">
+<xs:all><xs:element ref="Transform"/></xs:all></xs:complexType>
+
+<xs:complexType name="RectangleSchemaTypeValue">
+<xs:all><xs:element ref="Rectangle"/></xs:all></xs:complexType>
+
+<xs:complexType name="ColorTransformSchemaTypeValue">
+<xs:all><xs:element ref="ColorTransform"/></xs:all></xs:complexType>
+
+<xs:complexType name="MatrixSchemaTypeValue">
+<xs:all><xs:element ref="Matrix"/></xs:all></xs:complexType>
+
+<xs:complexType name="PointSchemaTypeValue">
+<xs:all><xs:element ref="Point"/></xs:all></xs:complexType>
+
+<xs:complexType name="Vector3DSchemaTypeValue">
+<xs:all><xs:element ref="Vector3D"/></xs:all></xs:complexType>
+
+<xs:complexType name="Matrix3DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="determinant" type="xs:double"/>
+<xs:element minOccurs="0" name="position" type="Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="rawData" type="xs:string"/>
+</xs:all>
+<xs:attribute name="determinant" type="xs:double"/>
+<xs:attribute name="position" type="xs:string"/>
+<xs:attribute name="rawData" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="colorTransform" type="ColorTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="concatenatedColorTransform" type="ColorTransformSchemaTypeValue"/>
+<xs:element minOccurs="0" name="concatenatedMatrix" type="MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="matrix" type="MatrixSchemaTypeValue"/>
+<xs:element minOccurs="0" name="matrix3D" type="Matrix3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="pixelBounds" type="RectangleSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="colorTransform" type="xs:string"/>
+<xs:attribute name="concatenatedColorTransform" type="xs:string"/>
+<xs:attribute name="concatenatedMatrix" type="xs:string"/>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="matrix3D" type="xs:string"/>
+<xs:attribute name="pixelBounds" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RectangleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bottom" type="xs:double"/>
+<xs:element minOccurs="0" name="bottomRight" type="PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="left" type="xs:double"/>
+<xs:element minOccurs="0" name="right" type="xs:double"/>
+<xs:element minOccurs="0" name="size" type="PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="top" type="xs:double"/>
+<xs:element minOccurs="0" name="topLeft" type="PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="bottom" type="xs:double"/>
+<xs:attribute name="bottomRight" type="xs:string"/>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="left" type="xs:double"/>
+<xs:attribute name="right" type="xs:double"/>
+<xs:attribute name="size" type="xs:string"/>
+<xs:attribute name="top" type="xs:double"/>
+<xs:attribute name="topLeft" type="xs:string"/>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorTransformSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="alphaMultiplier" type="xs:double"/>
+<xs:element minOccurs="0" name="alphaOffset" type="xs:double"/>
+<xs:element minOccurs="0" name="blueMultiplier" type="xs:double"/>
+<xs:element minOccurs="0" name="blueOffset" type="xs:double"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="greenMultiplier" type="xs:double"/>
+<xs:element minOccurs="0" name="greenOffset" type="xs:double"/>
+<xs:element minOccurs="0" name="redMultiplier" type="xs:double"/>
+<xs:element minOccurs="0" name="redOffset" type="xs:double"/>
+</xs:all>
+<xs:attribute name="alphaMultiplier" type="xs:double"/>
+<xs:attribute name="alphaOffset" type="xs:double"/>
+<xs:attribute name="blueMultiplier" type="xs:double"/>
+<xs:attribute name="blueOffset" type="xs:double"/>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="greenMultiplier" type="xs:double"/>
+<xs:attribute name="greenOffset" type="xs:double"/>
+<xs:attribute name="redMultiplier" type="xs:double"/>
+<xs:attribute name="redOffset" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MatrixSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="a" type="xs:double"/>
+<xs:element minOccurs="0" name="b" type="xs:double"/>
+<xs:element minOccurs="0" name="c" type="xs:double"/>
+<xs:element minOccurs="0" name="d" type="xs:double"/>
+<xs:element minOccurs="0" name="tx" type="xs:double"/>
+<xs:element minOccurs="0" name="ty" type="xs:double"/>
+<xs:element minOccurs="0" name="to3DString" type="xs:string"/>
+<xs:element minOccurs="0" name="toMozString" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformInversePoint" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformInverseX" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformInverseY" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformPoint" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformX" type="xs:string"/>
+<xs:element minOccurs="0" name="__transformY" type="xs:string"/>
+<xs:element minOccurs="0" name="__translateTransformed" type="xs:string"/>
+</xs:all>
+<xs:attribute name="a" type="xs:double"/>
+<xs:attribute name="b" type="xs:double"/>
+<xs:attribute name="c" type="xs:double"/>
+<xs:attribute name="d" type="xs:double"/>
+<xs:attribute name="tx" type="xs:double"/>
+<xs:attribute name="ty" type="xs:double"/>
+<xs:attribute name="to3DString" type="xs:string"/>
+<xs:attribute name="toMozString" type="xs:string"/>
+<xs:attribute name="__transformInversePoint" type="xs:string"/>
+<xs:attribute name="__transformInverseX" type="xs:string"/>
+<xs:attribute name="__transformInverseY" type="xs:string"/>
+<xs:attribute name="__transformPoint" type="xs:string"/>
+<xs:attribute name="__transformX" type="xs:string"/>
+<xs:attribute name="__transformY" type="xs:string"/>
+<xs:attribute name="__translateTransformed" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PointSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Vector3DSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="lengthSquared" type="xs:double"/>
+<xs:element minOccurs="0" name="w" type="xs:double"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="z" type="xs:double"/>
+</xs:all>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="lengthSquared" type="xs:double"/>
+<xs:attribute name="w" type="xs:double"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="z" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Matrix3D" type="Matrix3DSchemaType"/>
+<xs:element name="Transform" type="TransformSchemaType"/>
+<xs:element name="Rectangle" type="RectangleSchemaType"/>
+<xs:element name="ColorTransform" type="ColorTransformSchemaType"/>
+<xs:element name="Matrix" type="MatrixSchemaType"/>
+<xs:element name="Point" type="PointSchemaType"/>
+<xs:element name="Vector3D" type="Vector3DSchemaType"/>
+</xs:schema>

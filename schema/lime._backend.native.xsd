@@ -1,0 +1,64 @@
+<xs:schema targetNamespace="lime._backend.native" xmlns="lime._backend.native" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="NativeMouseSchemaTypeValue">
+<xs:all><xs:element ref="NativeMouse"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeWindowSchemaTypeValue">
+<xs:all><xs:element ref="NativeWindow"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeRendererSchemaTypeValue">
+<xs:all><xs:element ref="NativeRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeApplicationSchemaTypeValue">
+<xs:all><xs:element ref="NativeApplication"/></xs:all></xs:complexType>
+
+<xs:complexType name="NativeMouseSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeWindowSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="handle" type="xs:string"/>
+</xs:all>
+<xs:attribute name="handle" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="handle" type="xs:string"/>
+</xs:all>
+<xs:attribute name="handle" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NativeApplicationSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="handle" type="xs:string"/>
+</xs:all>
+<xs:attribute name="handle" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="NativeMouse" type="NativeMouseSchemaType"/>
+<xs:element name="NativeWindow" type="NativeWindowSchemaType"/>
+<xs:element name="NativeRenderer" type="NativeRendererSchemaType"/>
+<xs:element name="NativeApplication" type="NativeApplicationSchemaType"/>
+</xs:schema>

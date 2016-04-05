@@ -1,0 +1,502 @@
+<xs:schema targetNamespace="lime.app" xmlns="lime.app" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+xmlns:openfl-display="openfl.display"
+xmlns:lime-graphics="lime.graphics"
+xmlns:lime-ui="lime.ui"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
+<xs:complexType name="Event_Int_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Int_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Int_lime_ui_JoystickHatPosition_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Int_lime_ui_JoystickHatPosition_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="PreloaderSchemaTypeValue">
+<xs:all><xs:element ref="Preloader"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Gamepad_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_Gamepad_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="IModuleSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-display:Application" />
+<xs:element ref="Application" />
+<xs:element ref="openfl-display:Stage" />
+<xs:element ref="Module" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Event_Float_Float_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Float_Float_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="ApplicationSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-display:Application" />
+<xs:element ref="Application" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="Event_Float_Float_Float_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Float_Float_Float_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_GamepadAxis_Float_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_GamepadAxis_Float_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Int_Int_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Int_Int_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_KeyCode_lime_ui_KeyModifier_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_KeyCode_lime_ui_KeyModifier_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Joystick_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_Joystick_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_graphics_RenderContext_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_graphics_RenderContext_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="EventSchemaTypeValue">
+<xs:all><xs:element ref="Event"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Touch_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_Touch_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_lime_ui_GamepadButton_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_lime_ui_GamepadButton_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="FutureSchemaTypeValue">
+<xs:all><xs:element ref="Future"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Float_Float_Int_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Float_Float_Int_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="ModuleSchemaTypeValue">
+<xs:choice>
+<xs:element ref="openfl-display:Application" />
+<xs:element ref="Application" />
+<xs:element ref="Module" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="PromiseSchemaTypeValue">
+<xs:all><xs:element ref="Promise"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Dynamic_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Dynamic_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_String_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_String_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Void_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Void_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Int_Float_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_Int_Float_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_String_Int_Int_VoidSchemaTypeValue">
+<xs:all><xs:element ref="Event_String_Int_Int_Void"/></xs:all></xs:complexType>
+
+<xs:complexType name="Event_Int_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Int_lime_ui_JoystickHatPosition_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PreloaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="complete" type="xs:boolean"/>
+<xs:element minOccurs="0" name="onComplete" type="Event_Void_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onProgress" type="Event_Int_Int_VoidSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="complete" type="xs:boolean"/>
+<xs:attribute name="onComplete" type="xs:string"/>
+<xs:attribute name="onProgress" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Gamepad_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IModuleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Float_Float_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ApplicationSchemaType">
+<xs:complexContent>
+<xs:extension base="ModuleSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="config" type="xs:string"/>
+<xs:element minOccurs="0" name="frameRate" type="xs:double"/>
+<xs:element minOccurs="0" name="modules" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="preloader" type="PreloaderSchemaTypeValue"/>
+<xs:element minOccurs="0" name="onUpdate" type="Event_Int_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="renderer" type="lime-graphics:RendererSchemaTypeValue"/>
+<xs:element minOccurs="0" name="renderers" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="window" type="lime-ui:WindowSchemaTypeValue"/>
+<xs:element minOccurs="0" name="windows" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="config" type="xs:string"/>
+<xs:attribute name="frameRate" type="xs:double"/>
+<xs:attribute name="modules" type="xs:string"/>
+<xs:attribute name="preloader" type="xs:string"/>
+<xs:attribute name="onUpdate" type="xs:string"/>
+<xs:attribute name="renderer" type="xs:string"/>
+<xs:attribute name="renderers" type="xs:string"/>
+<xs:attribute name="window" type="xs:string"/>
+<xs:attribute name="windows" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Float_Float_Float_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_GamepadAxis_Float_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Int_Int_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_KeyCode_lime_ui_KeyModifier_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Joystick_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_graphics_RenderContext_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="EventSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="dispatch" type="xs:string"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="dispatch" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_Touch_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_lime_ui_GamepadButton_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FutureSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="isCompleted" type="xs:boolean"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+</xs:all>
+<xs:attribute name="isCompleted" type="xs:boolean"/>
+<xs:attribute name="value" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Float_Float_Int_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ModuleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="onExit" type="Event_Int_VoidSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="onExit" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PromiseSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="future" type="FutureSchemaTypeValue"/>
+<xs:element minOccurs="0" name="isCompleted" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="future" type="xs:string"/>
+<xs:attribute name="isCompleted" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Dynamic_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_String_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Void_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_Int_Float_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Event_String_Int_Int_VoidSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="canceled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="__repeat" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="__listeners" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="canceled" type="xs:boolean"/>
+<xs:attribute name="__repeat" type="xs:string"/>
+<xs:attribute name="__listeners" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Event_Int_Void" type="Event_Int_VoidSchemaType"/>
+<xs:element name="Event_Int_lime_ui_JoystickHatPosition_Void" type="Event_Int_lime_ui_JoystickHatPosition_VoidSchemaType"/>
+<xs:element name="Preloader" type="PreloaderSchemaType"/>
+<xs:element name="Event_lime_ui_Gamepad_Void" type="Event_lime_ui_Gamepad_VoidSchemaType"/>
+<xs:element name="IModule" type="IModuleSchemaType"/>
+<xs:element name="Event_Float_Float_Void" type="Event_Float_Float_VoidSchemaType"/>
+<xs:element name="Application" type="ApplicationSchemaType"/>
+<xs:element name="Event_Float_Float_Float_Void" type="Event_Float_Float_Float_VoidSchemaType"/>
+<xs:element name="Event_lime_ui_GamepadAxis_Float_Void" type="Event_lime_ui_GamepadAxis_Float_VoidSchemaType"/>
+<xs:element name="Event_Int_Int_Void" type="Event_Int_Int_VoidSchemaType"/>
+<xs:element name="Event_lime_ui_KeyCode_lime_ui_KeyModifier_Void" type="Event_lime_ui_KeyCode_lime_ui_KeyModifier_VoidSchemaType"/>
+<xs:element name="Event_lime_ui_Joystick_Void" type="Event_lime_ui_Joystick_VoidSchemaType"/>
+<xs:element name="Event_lime_graphics_RenderContext_Void" type="Event_lime_graphics_RenderContext_VoidSchemaType"/>
+<xs:element name="Event" type="EventSchemaType"/>
+<xs:element name="Event_lime_ui_Touch_Void" type="Event_lime_ui_Touch_VoidSchemaType"/>
+<xs:element name="Event_lime_ui_GamepadButton_Void" type="Event_lime_ui_GamepadButton_VoidSchemaType"/>
+<xs:element name="Future" type="FutureSchemaType"/>
+<xs:element name="Event_Float_Float_Int_Void" type="Event_Float_Float_Int_VoidSchemaType"/>
+<xs:element name="Module" type="ModuleSchemaType"/>
+<xs:element name="Promise" type="PromiseSchemaType"/>
+<xs:element name="Event_Dynamic_Void" type="Event_Dynamic_VoidSchemaType"/>
+<xs:element name="Event_String_Void" type="Event_String_VoidSchemaType"/>
+<xs:element name="Event_Void_Void" type="Event_Void_VoidSchemaType"/>
+<xs:element name="Event_Int_Float_Void" type="Event_Int_Float_VoidSchemaType"/>
+<xs:element name="Event_String_Int_Int_Void" type="Event_String_Int_Int_VoidSchemaType"/>
+</xs:schema>

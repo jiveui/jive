@@ -1,0 +1,253 @@
+<xs:schema targetNamespace="openfl._internal.renderer._DrawCommandReader" xmlns="openfl._internal.renderer._DrawCommandReader" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="EndFillView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="EndFillView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="CubicCurveToView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="CubicCurveToView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="OverrideMatrixView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="OverrideMatrixView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineBitmapStyleView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="LineBitmapStyleView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineStyleView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="LineStyleView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawRoundRectView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawRoundRectView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="BeginBitmapFillView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="BeginBitmapFillView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="BeginFillView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="BeginFillView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawPathView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawPathView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="MoveToView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="MoveToView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="CurveToView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="CurveToView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawEllipseView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawEllipseView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawTrianglesView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawTrianglesView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawTilesView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawTilesView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="BeginGradientFillView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="BeginGradientFillView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawRectView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawRectView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawCircleView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="DrawCircleView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineToView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="LineToView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineGradientStyleView_Impl_SchemaTypeValue">
+<xs:all><xs:element ref="LineGradientStyleView_Impl_"/></xs:all></xs:complexType>
+
+<xs:complexType name="EndFillView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubicCurveToView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="OverrideMatrixView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineBitmapStyleView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineStyleView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawRoundRectView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BeginBitmapFillView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BeginFillView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawPathView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MoveToView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CurveToView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawEllipseView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawTrianglesView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawTilesView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BeginGradientFillView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawRectView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawCircleView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineToView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineGradientStyleView_Impl_SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="EndFillView_Impl_" type="EndFillView_Impl_SchemaType"/>
+<xs:element name="CubicCurveToView_Impl_" type="CubicCurveToView_Impl_SchemaType"/>
+<xs:element name="OverrideMatrixView_Impl_" type="OverrideMatrixView_Impl_SchemaType"/>
+<xs:element name="LineBitmapStyleView_Impl_" type="LineBitmapStyleView_Impl_SchemaType"/>
+<xs:element name="LineStyleView_Impl_" type="LineStyleView_Impl_SchemaType"/>
+<xs:element name="DrawRoundRectView_Impl_" type="DrawRoundRectView_Impl_SchemaType"/>
+<xs:element name="BeginBitmapFillView_Impl_" type="BeginBitmapFillView_Impl_SchemaType"/>
+<xs:element name="BeginFillView_Impl_" type="BeginFillView_Impl_SchemaType"/>
+<xs:element name="DrawPathView_Impl_" type="DrawPathView_Impl_SchemaType"/>
+<xs:element name="MoveToView_Impl_" type="MoveToView_Impl_SchemaType"/>
+<xs:element name="CurveToView_Impl_" type="CurveToView_Impl_SchemaType"/>
+<xs:element name="DrawEllipseView_Impl_" type="DrawEllipseView_Impl_SchemaType"/>
+<xs:element name="DrawTrianglesView_Impl_" type="DrawTrianglesView_Impl_SchemaType"/>
+<xs:element name="DrawTilesView_Impl_" type="DrawTilesView_Impl_SchemaType"/>
+<xs:element name="BeginGradientFillView_Impl_" type="BeginGradientFillView_Impl_SchemaType"/>
+<xs:element name="DrawRectView_Impl_" type="DrawRectView_Impl_SchemaType"/>
+<xs:element name="DrawCircleView_Impl_" type="DrawCircleView_Impl_SchemaType"/>
+<xs:element name="LineToView_Impl_" type="LineToView_Impl_SchemaType"/>
+<xs:element name="LineGradientStyleView_Impl_" type="LineGradientStyleView_Impl_SchemaType"/>
+</xs:schema>

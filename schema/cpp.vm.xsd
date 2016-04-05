@@ -1,0 +1,34 @@
+<xs:schema targetNamespace="cpp.vm" xmlns="cpp.vm" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ThreadSchemaTypeValue">
+<xs:all><xs:element ref="Thread"/></xs:all></xs:complexType>
+
+<xs:complexType name="DequeSchemaTypeValue">
+<xs:all><xs:element ref="Deque"/></xs:all></xs:complexType>
+
+<xs:complexType name="ThreadSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="handle" type="xs:string"/>
+</xs:all>
+<xs:attribute name="handle" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DequeSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Thread" type="ThreadSchemaType"/>
+<xs:element name="Deque" type="DequeSchemaType"/>
+</xs:schema>

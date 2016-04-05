@@ -1,0 +1,19 @@
+<xs:schema targetNamespace="openfl._internal.renderer.console" xmlns="openfl._internal.renderer.console" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+>
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:complexType name="ConsoleRendererSchemaTypeValue">
+<xs:all><xs:element ref="ConsoleRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="ConsoleRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-_internal-renderer:AbstractRendererSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ConsoleRenderer" type="ConsoleRendererSchemaType"/>
+</xs:schema>

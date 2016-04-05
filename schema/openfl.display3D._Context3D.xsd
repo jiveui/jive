@@ -1,0 +1,25 @@
+<xs:schema targetNamespace="openfl.display3D._Context3D" xmlns="openfl.display3D._Context3D" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="SamplerStateSchemaTypeValue">
+<xs:all><xs:element ref="SamplerState"/></xs:all></xs:complexType>
+
+<xs:complexType name="SamplerStateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="wrap" type="xs:string"/>
+<xs:element minOccurs="0" name="filter" type="xs:string"/>
+<xs:element minOccurs="0" name="mipfilter" type="xs:string"/>
+</xs:all>
+<xs:attribute name="wrap" type="xs:string"/>
+<xs:attribute name="filter" type="xs:string"/>
+<xs:attribute name="mipfilter" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="SamplerState" type="SamplerStateSchemaType"/>
+</xs:schema>

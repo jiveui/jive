@@ -1,0 +1,45 @@
+<xs:schema targetNamespace="haxe.ds" xmlns="haxe.ds" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="StringMapSchemaTypeValue">
+<xs:all><xs:element ref="StringMap"/></xs:all></xs:complexType>
+
+<xs:complexType name="IntMapSchemaTypeValue">
+<xs:all><xs:element ref="IntMap"/></xs:all></xs:complexType>
+
+<xs:complexType name="ObjectMapSchemaTypeValue">
+<xs:all><xs:element ref="ObjectMap"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ObjectMapSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="StringMap" type="StringMapSchemaType"/>
+<xs:element name="IntMap" type="IntMapSchemaType"/>
+<xs:element name="ObjectMap" type="ObjectMapSchemaType"/>
+</xs:schema>

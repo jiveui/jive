@@ -1,0 +1,131 @@
+<xs:schema targetNamespace="motion" xmlns="motion" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="LinearPathSchemaTypeValue">
+<xs:all><xs:element ref="LinearPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="ActuateSchemaTypeValue">
+<xs:all><xs:element ref="Actuate"/></xs:all></xs:complexType>
+
+<xs:complexType name="MotionPathSchemaTypeValue">
+<xs:all><xs:element ref="MotionPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="BezierPathSchemaTypeValue">
+<xs:choice>
+<xs:element ref="LinearPath" />
+<xs:element ref="BezierPath" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="RotationPathSchemaTypeValue">
+<xs:all><xs:element ref="RotationPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="IComponentPathSchemaTypeValue">
+<xs:choice>
+<xs:element ref="RotationPath" />
+<xs:element ref="ComponentPath" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ComponentPathSchemaTypeValue">
+<xs:all><xs:element ref="ComponentPath"/></xs:all></xs:complexType>
+
+<xs:complexType name="LinearPathSchemaType">
+<xs:complexContent>
+<xs:extension base="BezierPathSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ActuateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MotionPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="rotation" type="RotationPathSchemaTypeValue"/>
+<xs:element minOccurs="0" name="x" type="IComponentPathSchemaTypeValue"/>
+<xs:element minOccurs="0" name="y" type="IComponentPathSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="rotation" type="xs:string"/>
+<xs:attribute name="x" type="xs:string"/>
+<xs:attribute name="y" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BezierPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="control" type="xs:double"/>
+<xs:element minOccurs="0" name="end" type="xs:double"/>
+<xs:element minOccurs="0" name="strength" type="xs:double"/>
+</xs:all>
+<xs:attribute name="control" type="xs:double"/>
+<xs:attribute name="end" type="xs:double"/>
+<xs:attribute name="strength" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RotationPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="end" type="xs:double"/>
+<xs:element minOccurs="0" name="offset" type="xs:double"/>
+<xs:element minOccurs="0" name="start" type="xs:double"/>
+</xs:all>
+<xs:attribute name="end" type="xs:double"/>
+<xs:attribute name="offset" type="xs:double"/>
+<xs:attribute name="start" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IComponentPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="end" type="xs:double"/>
+<xs:element minOccurs="0" name="start" type="xs:double"/>
+</xs:all>
+<xs:attribute name="end" type="xs:double"/>
+<xs:attribute name="start" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ComponentPathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="start" type="xs:double"/>
+<xs:element minOccurs="0" name="end" type="xs:double"/>
+</xs:all>
+<xs:attribute name="start" type="xs:double"/>
+<xs:attribute name="end" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="LinearPath" type="LinearPathSchemaType"/>
+<xs:element name="Actuate" type="ActuateSchemaType"/>
+<xs:element name="MotionPath" type="MotionPathSchemaType"/>
+<xs:element name="BezierPath" type="BezierPathSchemaType"/>
+<xs:element name="RotationPath" type="RotationPathSchemaType"/>
+<xs:element name="IComponentPath" type="IComponentPathSchemaType"/>
+<xs:element name="ComponentPath" type="ComponentPathSchemaType"/>
+</xs:schema>

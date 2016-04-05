@@ -4,4 +4,5 @@
     <haxelib name="actuate"/>
     <haxelib name="svg"/>
     <haxelib name="unifill"/>
+    <haxelib name="bindx2"/>
 </extension>

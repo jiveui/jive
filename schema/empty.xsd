@@ -1,0 +1,1062 @@
+<xs:schema targetNamespace="empty" xmlns="empty" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-ui-_KeyLocation="openfl.ui._KeyLocation"
+xmlns:bindx="bindx"
+xmlns:lime-math-color-_BGRA="lime.math.color._BGRA"
+xmlns:lime-graphics-cairo-_CairoOperator="lime.graphics.cairo._CairoOperator"
+xmlns:openfl-net-_URLRequestMethod="openfl.net._URLRequestMethod"
+xmlns:motion-actuators="motion.actuators"
+xmlns:openfl-_internal-text="openfl._internal.text"
+xmlns:openfl-text-_FontType="openfl.text._FontType"
+xmlns:openfl-ui-_MultitouchInputMode="openfl.ui._MultitouchInputMode"
+xmlns:lime-graphics-utils="lime.graphics.utils"
+xmlns:lime-math-_Matrix4="lime.math._Matrix4"
+xmlns:lime-audio-openal="lime.audio.openal"
+xmlns:lime-graphics-cairo-_CairoHintStyle="lime.graphics.cairo._CairoHintStyle"
+xmlns:openfl-_internal-renderer-opengl-shaders2="openfl._internal.renderer.opengl.shaders2"
+xmlns:haxe-zip="haxe.zip"
+xmlns:openfl-_internal-renderer-opengl-shaders2-_DefaultShader="openfl._internal.renderer.opengl.shaders2._DefaultShader"
+xmlns:lime-text="lime.text"
+xmlns:lime-graphics-cairo-_CairoLineCap="lime.graphics.cairo._CairoLineCap"
+xmlns:jive-geom="jive.geom"
+xmlns:openfl-_internal-renderer-console="openfl._internal.renderer.console"
+xmlns:lime-utils-_Float64Array="lime.utils._Float64Array"
+xmlns:cpp="cpp"
+xmlns:openfl-display3D="openfl.display3D"
+xmlns:openfl-_internal-renderer-dom="openfl._internal.renderer.dom"
+xmlns:sys-io-_Process="sys.io._Process"
+xmlns:openfl-display3D-textures="openfl.display3D.textures"
+xmlns:openfl-display-_GraphicsPathWinding="openfl.display._GraphicsPathWinding"
+xmlns:openfl-text-_TextFieldType="openfl.text._TextFieldType"
+xmlns:lime-_Assets="lime._Assets"
+xmlns:lime-utils-_Int16Array="lime.utils._Int16Array"
+xmlns:openfl-display3D-_Context3DCompareMode="openfl.display3D._Context3DCompareMode"
+xmlns:jive-tools="jive.tools"
+xmlns:lime-text-_TextDirection="lime.text._TextDirection"
+xmlns:openfl-display-_StageAlign="openfl.display._StageAlign"
+xmlns:lime-ui-_GamepadButton="lime.ui._GamepadButton"
+xmlns:openfl-display-_Shader="openfl.display._Shader"
+xmlns:openfl-geom-_Orientation3D="openfl.geom._Orientation3D"
+xmlns:openfl-_internal-renderer-cairo="openfl._internal.renderer.cairo"
+xmlns:openfl-system="openfl.system"
+xmlns:openfl-display-_GradientType="openfl.display._GradientType"
+xmlns:lime-_backend-native="lime._backend.native"
+xmlns:lime-graphics-cairo-_CairoAntialias="lime.graphics.cairo._CairoAntialias"
+xmlns:lime-graphics-cairo-_CairoSurface="lime.graphics.cairo._CairoSurface"
+xmlns:openfl-events="openfl.events"
+xmlns:openfl-text-_GridFitType="openfl.text._GridFitType"
+xmlns:openfl-text-_TextFormatAlign="openfl.text._TextFormatAlign"
+xmlns:lime-graphics-cairo-_CairoFilter="lime.graphics.cairo._CairoFilter"
+xmlns:lime-graphics-cairo-_CairoExtend="lime.graphics.cairo._CairoExtend"
+xmlns:openfl-display-_BitmapDataChannel="openfl.display._BitmapDataChannel"
+xmlns:lime-app="lime.app"
+xmlns:lime-utils-_UInt8ClampedArray="lime.utils._UInt8ClampedArray"
+xmlns:lime-graphics-cairo-_CairoHintMetrics="lime.graphics.cairo._CairoHintMetrics"
+xmlns:lime-graphics-cairo-_CairoFontOptions="lime.graphics.cairo._CairoFontOptions"
+xmlns:lime-graphics-cairo-_CairoLineJoin="lime.graphics.cairo._CairoLineJoin"
+xmlns:openfl-_internal-renderer-opengl-utils-_SpriteBatch="openfl._internal.renderer.opengl.utils._SpriteBatch"
+xmlns:openfl-_internal-renderer-canvas="openfl._internal.renderer.canvas"
+xmlns:haxe-io="haxe.io"
+xmlns:openfl-media="openfl.media"
+xmlns:openfl-_internal-renderer-opengl-shaders2-_PatternFillShader="openfl._internal.renderer.opengl.shaders2._PatternFillShader"
+xmlns:lime-utils-_ArrayBuffer="lime.utils._ArrayBuffer"
+xmlns:lime-utils-_UInt32Array="lime.utils._UInt32Array"
+xmlns:openfl-display-_GraphicsPathCommand="openfl.display._GraphicsPathCommand"
+xmlns:openfl-_internal-renderer-opengl-utils-_VertexAttribute="openfl._internal.renderer.opengl.utils._VertexAttribute"
+xmlns:lime-math="lime.math"
+xmlns:lime-text-_Glyph="lime.text._Glyph"
+xmlns:lime-graphics-format="lime.graphics.format"
+xmlns:jive-themes="jive.themes"
+xmlns:lime-graphics-console="lime.graphics.console"
+xmlns:openfl-display-_JointStyle="openfl.display._JointStyle"
+xmlns:lime-graphics="lime.graphics"
+xmlns:haxe-ds="haxe.ds"
+xmlns:openfl-display-_BlendMode="openfl.display._BlendMode"
+xmlns:openfl-display-_CapsStyle="openfl.display._CapsStyle"
+xmlns:openfl-display-_TriangleCulling="openfl.display._TriangleCulling"
+xmlns:lime-graphics-cairo-_CairoFTFontFace="lime.graphics.cairo._CairoFTFontFace"
+xmlns:lime-graphics-cairo-_CairoFormat="lime.graphics.cairo._CairoFormat"
+xmlns:motion-easing="motion.easing"
+xmlns:openfl-text="openfl.text"
+xmlns:lime-system-_ThreadPool="lime.system._ThreadPool"
+xmlns:openfl-net-_URLLoaderDataFormat="openfl.net._URLLoaderDataFormat"
+xmlns:haxe="haxe"
+xmlns:lime-_backend-native-_NativeWindow="lime._backend.native._NativeWindow"
+xmlns:openfl-utils-_Object="openfl.utils._Object"
+xmlns:lime-utils-_Float32Array="lime.utils._Float32Array"
+xmlns:openfl-utils-_ByteArray="openfl.utils._ByteArray"
+xmlns:haxe-crypto="haxe.crypto"
+xmlns:lime-graphics-cairo-_CairoContent="lime.graphics.cairo._CairoContent"
+xmlns:openfl-_Vector="openfl._Vector"
+xmlns:openfl-display-_InterpolationMethod="openfl.display._InterpolationMethod"
+xmlns:lime="lime"
+xmlns:jive="jive"
+xmlns:lime-ui="lime.ui"
+xmlns:openfl-_internal-renderer-opengl-utils-_DrawPath="openfl._internal.renderer.opengl.utils._DrawPath"
+xmlns:lime-graphics-cairo-_CairoPattern="lime.graphics.cairo._CairoPattern"
+xmlns:lime-math-color-_RGBA="lime.math.color._RGBA"
+xmlns:openfl-_internal-renderer-_DrawCommandReader="openfl._internal.renderer._DrawCommandReader"
+xmlns:openfl-display3D-_Context3D="openfl.display3D._Context3D"
+xmlns:openfl-display="openfl.display"
+xmlns:lime-ui-_GamepadAxis="lime.ui._GamepadAxis"
+xmlns:lime-audio-openal-_ALDevice="lime.audio.openal._ALDevice"
+xmlns:openfl-text-_AntiAliasType="openfl.text._AntiAliasType"
+xmlns:openfl-display3D-_Context3DTriangleFace="openfl.display3D._Context3DTriangleFace"
+xmlns:lime-graphics-cairo-_CairoFontFace="lime.graphics.cairo._CairoFontFace"
+xmlns:cpp-vm="cpp.vm"
+xmlns:motion="motion"
+xmlns:openfl-net="openfl.net"
+xmlns:lime-_backend-native-_NativeApplication="lime._backend.native._NativeApplication"
+xmlns:openfl-display-_PixelSnapping="openfl.display._PixelSnapping"
+xmlns:openfl-display-_LineScaleMode="openfl.display._LineScaleMode"
+xmlns:openfl-text-_FontStyle="openfl.text._FontStyle"
+xmlns:lime-graphics-cairo="lime.graphics.cairo"
+xmlns:openfl-_internal-renderer-opengl-utils-_BlendModeManager="openfl._internal.renderer.opengl.utils._BlendModeManager"
+xmlns:openfl-utils-_Endian="openfl.utils._Endian"
+xmlns:lime-graphics-cairo-_CairoImageSurface="lime.graphics.cairo._CairoImageSurface"
+xmlns:lime-audio="lime.audio"
+xmlns:openfl-_internal-renderer="openfl._internal.renderer"
+xmlns:lime-math-_ColorMatrix="lime.math._ColorMatrix"
+xmlns:openfl-display-_StageQuality="openfl.display._StageQuality"
+xmlns:openfl-utils="openfl.utils"
+xmlns:lime-utils-_UInt16Array="lime.utils._UInt16Array"
+xmlns:openfl-display-_StageScaleMode="openfl.display._StageScaleMode"
+xmlns:lime-system-_CFFIPointer="lime.system._CFFIPointer"
+xmlns:openfl-errors="openfl.errors"
+xmlns:lime-utils="lime.utils"
+xmlns:lime-utils-_Int8Array="lime.utils._Int8Array"
+xmlns:lime-graphics-cairo-_CairoSubpixelOrder="lime.graphics.cairo._CairoSubpixelOrder"
+xmlns:sys-io="sys.io"
+xmlns:lime-utils-_UInt8Array="lime.utils._UInt8Array"
+xmlns:lime-math-color-_ARGB="lime.math.color._ARGB"
+xmlns:lime-_backend-native-_NativeMouse="lime._backend.native._NativeMouse"
+xmlns:openfl-_internal-renderer-opengl="openfl._internal.renderer.opengl"
+xmlns:openfl-_internal-renderer-opengl-shaders2-_PrimitiveShader="openfl._internal.renderer.opengl.shaders2._PrimitiveShader"
+xmlns:openfl-events-_EventPhase="openfl.events._EventPhase"
+xmlns:openfl-filters="openfl.filters"
+xmlns:lime-graphics-opengl="lime.graphics.opengl"
+xmlns:openfl-text-_TextFieldAutoSize="openfl.text._TextFieldAutoSize"
+xmlns:lime-text-_TextScript="lime.text._TextScript"
+xmlns:openfl-display-_SpreadMethod="openfl.display._SpreadMethod"
+xmlns:lime-graphics-utils-_ImageDataUtil="lime.graphics.utils._ImageDataUtil"
+xmlns:openfl-display-_StageDisplayState="openfl.display._StageDisplayState"
+xmlns:lime-utils-_Int32Array="lime.utils._Int32Array"
+xmlns:openfl="openfl"
+xmlns:openfl-_internal-renderer-opengl-utils="openfl._internal.renderer.opengl.utils"
+xmlns:openfl-utils-_CompressionAlgorithm="openfl.utils._CompressionAlgorithm"
+xmlns:openfl-ui="openfl.ui"
+xmlns:openfl-_internal-renderer-opengl-shaders2-_FillShader="openfl._internal.renderer.opengl.shaders2._FillShader"
+xmlns:motion-_Actuate="motion._Actuate"
+xmlns:haxe-_Int64="haxe._Int64"
+xmlns:openfl-_internal-renderer-opengl-shaders2-_DrawTrianglesShader="openfl._internal.renderer.opengl.shaders2._DrawTrianglesShader"
+xmlns:lime-ui-_JoystickHatPosition="lime.ui._JoystickHatPosition"
+xmlns:lime-ui-_KeyCode="lime.ui._KeyCode"
+xmlns:lime-graphics-cairo-_CairoStatus="lime.graphics.cairo._CairoStatus"
+xmlns:cpp-abi="cpp.abi"
+xmlns:lime-system="lime.system"
+xmlns:lime-graphics-_PixelFormat="lime.graphics._PixelFormat"
+xmlns:lime-audio-openal-_ALContext="lime.audio.openal._ALContext"
+xmlns:openfl-events-_EventDispatcher="openfl.events._EventDispatcher"
+xmlns:openfl-geom="openfl.geom"
+xmlns:jive-events="jive.events"
+xmlns:lime-utils-_ArrayBufferView="lime.utils._ArrayBufferView"
+xmlns:openfl-_internal-renderer-opengl-utils-_GraphicsRenderer="openfl._internal.renderer.opengl.utils._GraphicsRenderer"
+xmlns:lime-ui-_KeyModifier="lime.ui._KeyModifier"
+xmlns:lime-graphics-cairo-_CairoFillRule="lime.graphics.cairo._CairoFillRule"
+xmlns:lime-system-_System="lime.system._System"
+>
+<xs:import namespace="openfl.ui._KeyLocation" schemaLocation="openfl.ui._KeyLocation.xsd" />
+<xs:import namespace="bindx" schemaLocation="bindx.xsd" />
+<xs:import namespace="lime.math.color._BGRA" schemaLocation="lime.math.color._BGRA.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoOperator" schemaLocation="lime.graphics.cairo._CairoOperator.xsd" />
+<xs:import namespace="openfl.net._URLRequestMethod" schemaLocation="openfl.net._URLRequestMethod.xsd" />
+<xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
+<xs:import namespace="openfl._internal.text" schemaLocation="openfl._internal.text.xsd" />
+<xs:import namespace="openfl.text._FontType" schemaLocation="openfl.text._FontType.xsd" />
+<xs:import namespace="openfl.ui._MultitouchInputMode" schemaLocation="openfl.ui._MultitouchInputMode.xsd" />
+<xs:import namespace="lime.graphics.utils" schemaLocation="lime.graphics.utils.xsd" />
+<xs:import namespace="lime.math._Matrix4" schemaLocation="lime.math._Matrix4.xsd" />
+<xs:import namespace="lime.audio.openal" schemaLocation="lime.audio.openal.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoHintStyle" schemaLocation="lime.graphics.cairo._CairoHintStyle.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2" schemaLocation="openfl._internal.renderer.opengl.shaders2.xsd" />
+<xs:import namespace="haxe.zip" schemaLocation="haxe.zip.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2._DefaultShader" schemaLocation="openfl._internal.renderer.opengl.shaders2._DefaultShader.xsd" />
+<xs:import namespace="lime.text" schemaLocation="lime.text.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoLineCap" schemaLocation="lime.graphics.cairo._CairoLineCap.xsd" />
+<xs:import namespace="jive.geom" schemaLocation="jive.geom.xsd" />
+<xs:import namespace="openfl._internal.renderer.console" schemaLocation="openfl._internal.renderer.console.xsd" />
+<xs:import namespace="lime.utils._Float64Array" schemaLocation="lime.utils._Float64Array.xsd" />
+<xs:import namespace="cpp" schemaLocation="cpp.xsd" />
+<xs:import namespace="openfl.display3D" schemaLocation="openfl.display3D.xsd" />
+<xs:import namespace="openfl._internal.renderer.dom" schemaLocation="openfl._internal.renderer.dom.xsd" />
+<xs:import namespace="sys.io._Process" schemaLocation="sys.io._Process.xsd" />
+<xs:import namespace="openfl.display3D.textures" schemaLocation="openfl.display3D.textures.xsd" />
+<xs:import namespace="openfl.display._GraphicsPathWinding" schemaLocation="openfl.display._GraphicsPathWinding.xsd" />
+<xs:import namespace="openfl.text._TextFieldType" schemaLocation="openfl.text._TextFieldType.xsd" />
+<xs:import namespace="lime._Assets" schemaLocation="lime._Assets.xsd" />
+<xs:import namespace="lime.utils._Int16Array" schemaLocation="lime.utils._Int16Array.xsd" />
+<xs:import namespace="openfl.display3D._Context3DCompareMode" schemaLocation="openfl.display3D._Context3DCompareMode.xsd" />
+<xs:import namespace="jive.tools" schemaLocation="jive.tools.xsd" />
+<xs:import namespace="lime.text._TextDirection" schemaLocation="lime.text._TextDirection.xsd" />
+<xs:import namespace="openfl.display._StageAlign" schemaLocation="openfl.display._StageAlign.xsd" />
+<xs:import namespace="lime.ui._GamepadButton" schemaLocation="lime.ui._GamepadButton.xsd" />
+<xs:import namespace="openfl.display._Shader" schemaLocation="openfl.display._Shader.xsd" />
+<xs:import namespace="openfl.geom._Orientation3D" schemaLocation="openfl.geom._Orientation3D.xsd" />
+<xs:import namespace="openfl._internal.renderer.cairo" schemaLocation="openfl._internal.renderer.cairo.xsd" />
+<xs:import namespace="openfl.system" schemaLocation="openfl.system.xsd" />
+<xs:import namespace="openfl.display._GradientType" schemaLocation="openfl.display._GradientType.xsd" />
+<xs:import namespace="lime._backend.native" schemaLocation="lime._backend.native.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoAntialias" schemaLocation="lime.graphics.cairo._CairoAntialias.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoSurface" schemaLocation="lime.graphics.cairo._CairoSurface.xsd" />
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="openfl.text._GridFitType" schemaLocation="openfl.text._GridFitType.xsd" />
+<xs:import namespace="openfl.text._TextFormatAlign" schemaLocation="openfl.text._TextFormatAlign.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFilter" schemaLocation="lime.graphics.cairo._CairoFilter.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoExtend" schemaLocation="lime.graphics.cairo._CairoExtend.xsd" />
+<xs:import namespace="openfl.display._BitmapDataChannel" schemaLocation="openfl.display._BitmapDataChannel.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
+<xs:import namespace="lime.utils._UInt8ClampedArray" schemaLocation="lime.utils._UInt8ClampedArray.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoHintMetrics" schemaLocation="lime.graphics.cairo._CairoHintMetrics.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFontOptions" schemaLocation="lime.graphics.cairo._CairoFontOptions.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoLineJoin" schemaLocation="lime.graphics.cairo._CairoLineJoin.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils._SpriteBatch" schemaLocation="openfl._internal.renderer.opengl.utils._SpriteBatch.xsd" />
+<xs:import namespace="openfl._internal.renderer.canvas" schemaLocation="openfl._internal.renderer.canvas.xsd" />
+<xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:import namespace="openfl.media" schemaLocation="openfl.media.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2._PatternFillShader" schemaLocation="openfl._internal.renderer.opengl.shaders2._PatternFillShader.xsd" />
+<xs:import namespace="lime.utils._ArrayBuffer" schemaLocation="lime.utils._ArrayBuffer.xsd" />
+<xs:import namespace="lime.utils._UInt32Array" schemaLocation="lime.utils._UInt32Array.xsd" />
+<xs:import namespace="openfl.display._GraphicsPathCommand" schemaLocation="openfl.display._GraphicsPathCommand.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils._VertexAttribute" schemaLocation="openfl._internal.renderer.opengl.utils._VertexAttribute.xsd" />
+<xs:import namespace="lime.math" schemaLocation="lime.math.xsd" />
+<xs:import namespace="lime.text._Glyph" schemaLocation="lime.text._Glyph.xsd" />
+<xs:import namespace="lime.graphics.format" schemaLocation="lime.graphics.format.xsd" />
+<xs:import namespace="jive.themes" schemaLocation="jive.themes.xsd" />
+<xs:import namespace="lime.graphics.console" schemaLocation="lime.graphics.console.xsd" />
+<xs:import namespace="openfl.display._JointStyle" schemaLocation="openfl.display._JointStyle.xsd" />
+<xs:import namespace="lime.graphics" schemaLocation="lime.graphics.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:import namespace="openfl.display._BlendMode" schemaLocation="openfl.display._BlendMode.xsd" />
+<xs:import namespace="openfl.display._CapsStyle" schemaLocation="openfl.display._CapsStyle.xsd" />
+<xs:import namespace="openfl.display._TriangleCulling" schemaLocation="openfl.display._TriangleCulling.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFTFontFace" schemaLocation="lime.graphics.cairo._CairoFTFontFace.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFormat" schemaLocation="lime.graphics.cairo._CairoFormat.xsd" />
+<xs:import namespace="motion.easing" schemaLocation="motion.easing.xsd" />
+<xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="lime.system._ThreadPool" schemaLocation="lime.system._ThreadPool.xsd" />
+<xs:import namespace="openfl.net._URLLoaderDataFormat" schemaLocation="openfl.net._URLLoaderDataFormat.xsd" />
+<xs:import namespace="haxe" schemaLocation="haxe.xsd" />
+<xs:import namespace="lime._backend.native._NativeWindow" schemaLocation="lime._backend.native._NativeWindow.xsd" />
+<xs:import namespace="openfl.utils._Object" schemaLocation="openfl.utils._Object.xsd" />
+<xs:import namespace="lime.utils._Float32Array" schemaLocation="lime.utils._Float32Array.xsd" />
+<xs:import namespace="openfl.utils._ByteArray" schemaLocation="openfl.utils._ByteArray.xsd" />
+<xs:import namespace="haxe.crypto" schemaLocation="haxe.crypto.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoContent" schemaLocation="lime.graphics.cairo._CairoContent.xsd" />
+<xs:import namespace="openfl._Vector" schemaLocation="openfl._Vector.xsd" />
+<xs:import namespace="openfl.display._InterpolationMethod" schemaLocation="openfl.display._InterpolationMethod.xsd" />
+<xs:import namespace="lime" schemaLocation="lime.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="lime.ui" schemaLocation="lime.ui.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils._DrawPath" schemaLocation="openfl._internal.renderer.opengl.utils._DrawPath.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoPattern" schemaLocation="lime.graphics.cairo._CairoPattern.xsd" />
+<xs:import namespace="lime.math.color._RGBA" schemaLocation="lime.math.color._RGBA.xsd" />
+<xs:import namespace="openfl._internal.renderer._DrawCommandReader" schemaLocation="openfl._internal.renderer._DrawCommandReader.xsd" />
+<xs:import namespace="openfl.display3D._Context3D" schemaLocation="openfl.display3D._Context3D.xsd" />
+<xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
+<xs:import namespace="lime.ui._GamepadAxis" schemaLocation="lime.ui._GamepadAxis.xsd" />
+<xs:import namespace="lime.audio.openal._ALDevice" schemaLocation="lime.audio.openal._ALDevice.xsd" />
+<xs:import namespace="openfl.text._AntiAliasType" schemaLocation="openfl.text._AntiAliasType.xsd" />
+<xs:import namespace="openfl.display3D._Context3DTriangleFace" schemaLocation="openfl.display3D._Context3DTriangleFace.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFontFace" schemaLocation="lime.graphics.cairo._CairoFontFace.xsd" />
+<xs:import namespace="cpp.vm" schemaLocation="cpp.vm.xsd" />
+<xs:import namespace="motion" schemaLocation="motion.xsd" />
+<xs:import namespace="openfl.net" schemaLocation="openfl.net.xsd" />
+<xs:import namespace="lime._backend.native._NativeApplication" schemaLocation="lime._backend.native._NativeApplication.xsd" />
+<xs:import namespace="openfl.display._PixelSnapping" schemaLocation="openfl.display._PixelSnapping.xsd" />
+<xs:import namespace="openfl.display._LineScaleMode" schemaLocation="openfl.display._LineScaleMode.xsd" />
+<xs:import namespace="openfl.text._FontStyle" schemaLocation="openfl.text._FontStyle.xsd" />
+<xs:import namespace="lime.graphics.cairo" schemaLocation="lime.graphics.cairo.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils._BlendModeManager" schemaLocation="openfl._internal.renderer.opengl.utils._BlendModeManager.xsd" />
+<xs:import namespace="openfl.utils._Endian" schemaLocation="openfl.utils._Endian.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoImageSurface" schemaLocation="lime.graphics.cairo._CairoImageSurface.xsd" />
+<xs:import namespace="lime.audio" schemaLocation="lime.audio.xsd" />
+<xs:import namespace="openfl._internal.renderer" schemaLocation="openfl._internal.renderer.xsd" />
+<xs:import namespace="lime.math._ColorMatrix" schemaLocation="lime.math._ColorMatrix.xsd" />
+<xs:import namespace="openfl.display._StageQuality" schemaLocation="openfl.display._StageQuality.xsd" />
+<xs:import namespace="openfl.utils" schemaLocation="openfl.utils.xsd" />
+<xs:import namespace="lime.utils._UInt16Array" schemaLocation="lime.utils._UInt16Array.xsd" />
+<xs:import namespace="openfl.display._StageScaleMode" schemaLocation="openfl.display._StageScaleMode.xsd" />
+<xs:import namespace="lime.system._CFFIPointer" schemaLocation="lime.system._CFFIPointer.xsd" />
+<xs:import namespace="openfl.errors" schemaLocation="openfl.errors.xsd" />
+<xs:import namespace="lime.utils" schemaLocation="lime.utils.xsd" />
+<xs:import namespace="lime.utils._Int8Array" schemaLocation="lime.utils._Int8Array.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoSubpixelOrder" schemaLocation="lime.graphics.cairo._CairoSubpixelOrder.xsd" />
+<xs:import namespace="sys.io" schemaLocation="sys.io.xsd" />
+<xs:import namespace="lime.utils._UInt8Array" schemaLocation="lime.utils._UInt8Array.xsd" />
+<xs:import namespace="lime.math.color._ARGB" schemaLocation="lime.math.color._ARGB.xsd" />
+<xs:import namespace="lime._backend.native._NativeMouse" schemaLocation="lime._backend.native._NativeMouse.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl" schemaLocation="openfl._internal.renderer.opengl.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2._PrimitiveShader" schemaLocation="openfl._internal.renderer.opengl.shaders2._PrimitiveShader.xsd" />
+<xs:import namespace="openfl.events._EventPhase" schemaLocation="openfl.events._EventPhase.xsd" />
+<xs:import namespace="openfl.filters" schemaLocation="openfl.filters.xsd" />
+<xs:import namespace="lime.graphics.opengl" schemaLocation="lime.graphics.opengl.xsd" />
+<xs:import namespace="openfl.text._TextFieldAutoSize" schemaLocation="openfl.text._TextFieldAutoSize.xsd" />
+<xs:import namespace="lime.text._TextScript" schemaLocation="lime.text._TextScript.xsd" />
+<xs:import namespace="openfl.display._SpreadMethod" schemaLocation="openfl.display._SpreadMethod.xsd" />
+<xs:import namespace="lime.graphics.utils._ImageDataUtil" schemaLocation="lime.graphics.utils._ImageDataUtil.xsd" />
+<xs:import namespace="openfl.display._StageDisplayState" schemaLocation="openfl.display._StageDisplayState.xsd" />
+<xs:import namespace="lime.utils._Int32Array" schemaLocation="lime.utils._Int32Array.xsd" />
+<xs:import namespace="openfl" schemaLocation="openfl.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils" schemaLocation="openfl._internal.renderer.opengl.utils.xsd" />
+<xs:import namespace="openfl.utils._CompressionAlgorithm" schemaLocation="openfl.utils._CompressionAlgorithm.xsd" />
+<xs:import namespace="openfl.ui" schemaLocation="openfl.ui.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2._FillShader" schemaLocation="openfl._internal.renderer.opengl.shaders2._FillShader.xsd" />
+<xs:import namespace="motion._Actuate" schemaLocation="motion._Actuate.xsd" />
+<xs:import namespace="haxe._Int64" schemaLocation="haxe._Int64.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.shaders2._DrawTrianglesShader" schemaLocation="openfl._internal.renderer.opengl.shaders2._DrawTrianglesShader.xsd" />
+<xs:import namespace="lime.ui._JoystickHatPosition" schemaLocation="lime.ui._JoystickHatPosition.xsd" />
+<xs:import namespace="lime.ui._KeyCode" schemaLocation="lime.ui._KeyCode.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoStatus" schemaLocation="lime.graphics.cairo._CairoStatus.xsd" />
+<xs:import namespace="cpp.abi" schemaLocation="cpp.abi.xsd" />
+<xs:import namespace="lime.system" schemaLocation="lime.system.xsd" />
+<xs:import namespace="lime.graphics._PixelFormat" schemaLocation="lime.graphics._PixelFormat.xsd" />
+<xs:import namespace="lime.audio.openal._ALContext" schemaLocation="lime.audio.openal._ALContext.xsd" />
+<xs:import namespace="openfl.events._EventDispatcher" schemaLocation="openfl.events._EventDispatcher.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
+<xs:import namespace="lime.utils._ArrayBufferView" schemaLocation="lime.utils._ArrayBufferView.xsd" />
+<xs:import namespace="openfl._internal.renderer.opengl.utils._GraphicsRenderer" schemaLocation="openfl._internal.renderer.opengl.utils._GraphicsRenderer.xsd" />
+<xs:import namespace="lime.ui._KeyModifier" schemaLocation="lime.ui._KeyModifier.xsd" />
+<xs:import namespace="lime.graphics.cairo._CairoFillRule" schemaLocation="lime.graphics.cairo._CairoFillRule.xsd" />
+<xs:import namespace="lime.system._System" schemaLocation="lime.system._System.xsd" />
+<xs:complexType name="SysSchemaTypeValue">
+<xs:all><xs:element ref="Sys"/></xs:all></xs:complexType>
+
+<xs:complexType name="ERegSchemaTypeValue">
+<xs:all><xs:element ref="EReg"/></xs:all></xs:complexType>
+
+<xs:complexType name="UIntSchemaTypeValue">
+<xs:all><xs:element ref="UInt"/></xs:all></xs:complexType>
+
+<xs:complexType name="TypeSchemaTypeValue">
+<xs:all><xs:element ref="Type"/></xs:all></xs:complexType>
+
+<xs:complexType name="BoolSchemaTypeValue">
+<xs:all><xs:element ref="Bool"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArrayAccessSchemaTypeValue">
+<xs:all><xs:element ref="ArrayAccess"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringSchemaTypeValue">
+<xs:all><xs:element ref="String"/></xs:all></xs:complexType>
+
+<xs:complexType name="StdSchemaTypeValue">
+<xs:all><xs:element ref="Std"/></xs:all></xs:complexType>
+
+<xs:complexType name="LambdaSchemaTypeValue">
+<xs:all><xs:element ref="Lambda"/></xs:all></xs:complexType>
+
+<xs:complexType name="IntSchemaTypeValue">
+<xs:all><xs:element ref="Int"/></xs:all></xs:complexType>
+
+<xs:complexType name="ListSchemaTypeValue">
+<xs:all><xs:element ref="List"/></xs:all></xs:complexType>
+
+<xs:complexType name="RootObjectTypeSchemaTypeValue">
+<xs:choice>
+<xs:element ref="lime-system:DisplayMode" />
+<xs:element ref="openfl-display:Shape" />
+<xs:element ref="openfl-ui:GameInput" />
+<xs:element ref="lime-ui:Window" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_BlendModeManager:GLBlendFunction_Impl_" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoRenderer" />
+<xs:element ref="Sys" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:EndFillView_Impl_" />
+<xs:element ref="openfl-display:GraphicsGradientFill" />
+<xs:element ref="jive-events:GestureEvent" />
+<xs:element ref="EReg" />
+<xs:element ref="motion-actuators:PropertyPathDetails" />
+<xs:element ref="openfl-net:URLRequestHeader" />
+<xs:element ref="haxe:EnumValueTools" />
+<xs:element ref="lime-app:Event_Int_Void" />
+<xs:element ref="lime-app:Event_Int_lime_ui_JoystickHatPosition_Void" />
+<xs:element ref="openfl-display:IGraphicsFill" />
+<xs:element ref="openfl-ui:GameInputControl" />
+<xs:element ref="openfl-display3D-textures:Texture" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:CubicCurveToView_Impl_" />
+<xs:element ref="openfl-display-_JointStyle:JointStyle_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:DropEventInfo" />
+<xs:element ref="cpp:RawConstPointer" />
+<xs:element ref="haxe:Timer" />
+<xs:element ref="openfl-system:ApplicationDomain" />
+<xs:element ref="cpp-vm:Thread" />
+<xs:element ref="lime-text:GlyphPosition" />
+<xs:element ref="lime-audio:FlashAudioContext" />
+<xs:element ref="openfl-display:JPEGEncoderOptions" />
+<xs:element ref="openfl-errors:Error" />
+<xs:element ref="openfl-events:GameInputEvent" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoShape" />
+<xs:element ref="haxe-zip:Uncompress" />
+<xs:element ref="lime-_backend-native-_NativeWindow:WindowFlags_Impl_" />
+<xs:element ref="lime-ui:Gamepad" />
+<xs:element ref="haxe:CallStack" />
+<xs:element ref="openfl-ui-_KeyLocation:KeyLocation_Impl_" />
+<xs:element ref="lime-math-_ColorMatrix:ColorMatrix_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoPattern:CairoPattern_Impl_" />
+<xs:element ref="openfl-events:IOErrorEvent" />
+<xs:element ref="haxe-ds:StringMap" />
+<xs:element ref="openfl-geom:Matrix3D" />
+<xs:element ref="openfl-display-_GradientType:GradientType_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:JoystickEventType_Impl_" />
+<xs:element ref="lime-math:Vector2" />
+<xs:element ref="openfl-display3D:VertexBuffer3D" />
+<xs:element ref="lime-system:Clipboard" />
+<xs:element ref="lime-system:ThreadPool" />
+<xs:element ref="motion-easing:Expo" />
+<xs:element ref="motion-actuators:PropertyDetails" />
+<xs:element ref="Type" />
+<xs:element ref="motion:LinearPath" />
+<xs:element ref="lime-_backend-native-_NativeApplication:SensorEventType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLMaskManager" />
+<xs:element ref="motion-easing:QuartEaseOut" />
+<xs:element ref="openfl-_internal-renderer:DrawCommandBuffer" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:OverrideMatrixView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoBitmap" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_SpriteBatch:State" />
+<xs:element ref="lime-graphics-cairo-_CairoExtend:CairoExtend_Impl_" />
+<xs:element ref="lime-audio:ALCAudioContext" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DefaultShader:Attrib_Impl_" />
+<xs:element ref="jive-events:CollectionEvent" />
+<xs:element ref="cpp:Prime" />
+<xs:element ref="openfl-filters:BitmapFilter" />
+<xs:element ref="jive:DataContextControllable" />
+<xs:element ref="lime-text-_Glyph:Glyph_Impl_" />
+<xs:element ref="lime-app:Preloader" />
+<xs:element ref="openfl-events:Event" />
+<xs:element ref="openfl-display:Sprite" />
+<xs:element ref="openfl-display3D-textures:RectangleTexture" />
+<xs:element ref="lime-app:Event_lime_ui_Gamepad_Void" />
+<xs:element ref="openfl-text:TextField" />
+<xs:element ref="openfl-display-_StageScaleMode:StageScaleMode_Impl_" />
+<xs:element ref="openfl-errors:IOError" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasShape" />
+<xs:element ref="openfl-utils:IDataInput" />
+<xs:element ref="lime-_backend-native-_NativeMouse:MouseCursorType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:LineBitmapStyleView_Impl_" />
+<xs:element ref="haxe-io:Path" />
+<xs:element ref="lime-audio-openal:AL" />
+<xs:element ref="openfl-text-_GridFitType:GridFitType_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoFormat:CairoFormat_Impl_" />
+<xs:element ref="openfl-events:FocusEvent" />
+<xs:element ref="lime-graphics-opengl:GLBuffer" />
+<xs:element ref="motion:Actuate" />
+<xs:element ref="lime-graphics-format:BMP" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:FilterManager" />
+<xs:element ref="jive:Component" />
+<xs:element ref="openfl-ui:Multitouch" />
+<xs:element ref="openfl-utils-_Object:Iterable_" />
+<xs:element ref="lime-graphics-cairo-_CairoLineJoin:CairoLineJoin_Impl_" />
+<xs:element ref="lime-ui:Joystick" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:LineStyleView_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoContent:CairoContent_Impl_" />
+<xs:element ref="lime-math:Matrix3" />
+<xs:element ref="lime-math-color-_RGBA:RGBA_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:MouseEventInfo" />
+<xs:element ref="motion-easing:ExpoEaseOut" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMMaskManager" />
+<xs:element ref="lime-graphics-cairo-_CairoFTFontFace:CairoFTFontFace_Impl_" />
+<xs:element ref="openfl-display:FrameLabel" />
+<xs:element ref="openfl-display:Graphics" />
+<xs:element ref="openfl-text-_TextFormatAlign:TextFormatAlign_Impl_" />
+<xs:element ref="lime-system:System" />
+<xs:element ref="lime-utils:GLUtils" />
+<xs:element ref="openfl-utils-_Endian:Endian_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:PathBuiler" />
+<xs:element ref="openfl-events:ErrorEvent" />
+<xs:element ref="openfl-display:IBitmapDrawable" />
+<xs:element ref="lime-graphics-opengl:GLTexture" />
+<xs:element ref="motion-actuators:TransformActuator" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLGraphicsData" />
+<xs:element ref="openfl-display:OpenGLView" />
+<xs:element ref="openfl-events:FullScreenEvent" />
+<xs:element ref="openfl-display3D-_Context3D:SamplerState" />
+<xs:element ref="openfl-events:TextEvent" />
+<xs:element ref="lime-graphics-opengl:GLRenderbuffer" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_GraphicsRenderer:RenderMode_Impl_" />
+<xs:element ref="openfl-utils-_Object:Object_Impl_" />
+<xs:element ref="cpp:Void" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawRoundRectView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_PrimitiveShader:Attrib_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:BeginBitmapFillView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:SpriteBatch" />
+<xs:element ref="openfl-events:MouseEvent" />
+<xs:element ref="jive-themes:Theme" />
+<xs:element ref="lime-graphics-cairo-_CairoHintStyle:CairoHintStyle_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:ShaderManager" />
+<xs:element ref="openfl-display:GLShaderParameter" />
+<xs:element ref="lime-_backend-native-_NativeApplication:TextEventType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:StencilManager" />
+<xs:element ref="ArrayAccess" />
+<xs:element ref="motion-easing:QuartEaseInOut" />
+<xs:element ref="openfl-_internal-text:TextFormatRange" />
+<xs:element ref="openfl-utils:ByteArrayData" />
+<xs:element ref="lime-graphics:CanvasRenderContext" />
+<xs:element ref="lime-utils-_UInt8ClampedArray:UInt8ClampedArray_Impl_" />
+<xs:element ref="motion:MotionPath" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DrawTrianglesShader:Uniform_Impl_" />
+<xs:element ref="openfl-display:GraphicsSolidFill" />
+<xs:element ref="openfl-events:ProgressEvent" />
+<xs:element ref="motion-_Actuate:TransformOptions" />
+<xs:element ref="openfl-text-_TextFieldAutoSize:TextFieldAutoSize_Impl_" />
+<xs:element ref="lime-audio:HTML5AudioContext" />
+<xs:element ref="openfl-text-_FontStyle:FontStyle_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoFontOptions:CairoFontOptions_Impl_" />
+<xs:element ref="lime-utils-_Float32Array:Float32Array_Impl_" />
+<xs:element ref="motion-actuators:SimpleActuator" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_FillShader:Uniform_Impl_" />
+<xs:element ref="openfl-text:TextLineMetrics" />
+<xs:element ref="openfl-display:MovieClip" />
+<xs:element ref="openfl-display:Application" />
+<xs:element ref="lime-graphics-cairo-_CairoLineCap:CairoLineCap_Impl_" />
+<xs:element ref="motion-_Actuate:TweenTimer" />
+<xs:element ref="motion:BezierPath" />
+<xs:element ref="String" />
+<xs:element ref="lime-audio:AudioBuffer" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_BlendModeManager:GLBlendEquation_Impl_" />
+<xs:element ref="haxe:EnumTools" />
+<xs:element ref="bindx:IBindable" />
+<xs:element ref="lime-_backend-native-_NativeApplication:SensorEventInfo" />
+<xs:element ref="lime-text:Font" />
+<xs:element ref="openfl-display-_PixelSnapping:PixelSnapping_Impl_" />
+<xs:element ref="openfl-display3D-textures:CubeTexture" />
+<xs:element ref="lime-_backend-native-_NativeApplication:GamepadEventInfo" />
+<xs:element ref="Std" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:BeginFillView_Impl_" />
+<xs:element ref="lime-system-_ThreadPool:ThreadPoolMessage" />
+<xs:element ref="Lambda" />
+<xs:element ref="cpp:Function" />
+<xs:element ref="lime-graphics-console:VertexBuffer" />
+<xs:element ref="motion-easing:QuartEaseIn" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoMaskManager" />
+<xs:element ref="openfl-events:KeyboardEvent" />
+<xs:element ref="openfl-net-_URLLoaderDataFormat:URLLoaderDataFormat_Impl_" />
+<xs:element ref="lime-system:Display" />
+<xs:element ref="openfl-_internal-text:TextLayoutGroup" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasBitmap" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:PatternFillShader" />
+<xs:element ref="lime-app:IModule" />
+<xs:element ref="openfl-display-_StageDisplayState:StageDisplayState_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLBucket" />
+<xs:element ref="openfl-_internal-renderer:RenderSession" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_DrawPath:WindingRule_Impl_" />
+<xs:element ref="lime-ui-_GamepadAxis:GamepadAxis_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawPathView_Impl_" />
+<xs:element ref="openfl-display:TextureUvs" />
+<xs:element ref="cpp:ArrayBase" />
+<xs:element ref="lime-_backend-native-_NativeApplication:WindowEventType_Impl_" />
+<xs:element ref="openfl-ui-_MultitouchInputMode:MultitouchInputMode_Impl_" />
+<xs:element ref="motion-actuators:FilterActuator" />
+<xs:element ref="openfl-display:Window" />
+<xs:element ref="openfl-text-_FontType:FontType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:VertexAttribute" />
+<xs:element ref="jive-events:TransformGestureEvent" />
+<xs:element ref="lime-ui-_JoystickHatPosition:JoystickHatPosition_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:RenderEventType_Impl_" />
+<xs:element ref="lime-app:Event_Float_Float_Void" />
+<xs:element ref="lime-text:GlyphMetrics" />
+<xs:element ref="lime-text:TextLayout" />
+<xs:element ref="haxe:IMap" />
+<xs:element ref="jive:TemplatedComponent" />
+<xs:element ref="lime-app:Application" />
+<xs:element ref="lime-audio-openal-_ALDevice:ALDevice_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DrawTrianglesShader:Attrib_Impl_" />
+<xs:element ref="openfl-display-_StageAlign:StageAlign_Impl_" />
+<xs:element ref="jive-tools:TextFormatTools" />
+<xs:element ref="lime:AssetCache" />
+<xs:element ref="lime-graphics-format:PNG" />
+<xs:element ref="cpp:NativeString" />
+<xs:element ref="lime-utils-_Int16Array:Int16Array_Impl_" />
+<xs:element ref="motion-easing:IEasing" />
+<xs:element ref="jive:Container" />
+<xs:element ref="lime-graphics:GLRenderContext" />
+<xs:element ref="lime-app:Event_Float_Float_Float_Void" />
+<xs:element ref="lime-app:Event_lime_ui_GamepadAxis_Float_Void" />
+<xs:element ref="lime-graphics-utils:ImageDataUtil" />
+<xs:element ref="motion-_Actuate:EffectsOptions" />
+<xs:element ref="openfl-display3D-_Context3DTriangleFace:Context3DTriangleFace_Impl_" />
+<xs:element ref="lime-utils-_UInt32Array:UInt32Array_Impl_" />
+<xs:element ref="lime:AssetLibrary" />
+<xs:element ref="lime-graphics-cairo-_CairoFontFace:CairoFontFace_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DefaultShader:Varying_Impl_" />
+<xs:element ref="lime-utils-_ArrayBufferView:TypedArrayType_Impl_" />
+<xs:element ref="jive:Command" />
+<xs:element ref="lime-app:Event_Int_Int_Void" />
+<xs:element ref="lime-system:BackgroundWorker" />
+<xs:element ref="lime-math-color-_BGRA:BGRA_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:MoveToView_Impl_" />
+<xs:element ref="openfl-display:Bitmap" />
+<xs:element ref="openfl-display-_GraphicsPathWinding:GraphicsPathWinding_Impl_" />
+<xs:element ref="openfl-net:URLLoader" />
+<xs:element ref="motion-actuators:Timer" />
+<xs:element ref="haxe-io:Input" />
+<xs:element ref="lime-_backend-native-_NativeApplication:KeyEventType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasGraphics" />
+<xs:element ref="motion-actuators:IGenericActuator" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMShape" />
+<xs:element ref="lime-graphics-console:IndexBuffer" />
+<xs:element ref="openfl-events:HTTPStatusEvent" />
+<xs:element ref="haxe-io:Eof" />
+<xs:element ref="lime-ui-_KeyModifier:KeyModifier_Impl_" />
+<xs:element ref="lime-app:Event_lime_ui_KeyCode_lime_ui_KeyModifier_Void" />
+<xs:element ref="lime-graphics-utils-_ImageDataUtil:ImageDataView" />
+<xs:element ref="openfl-_internal-renderer:AbstractRenderer" />
+<xs:element ref="openfl-errors:ArgumentError" />
+<xs:element ref="lime-graphics-cairo-_CairoOperator:CairoOperator_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:LineStyle" />
+<xs:element ref="openfl-events:ActivityEvent" />
+<xs:element ref="lime-graphics-utils:ImageCanvasUtil" />
+<xs:element ref="lime-math:Rectangle" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLStack" />
+<xs:element ref="lime-audio-openal-_ALContext:ALContext_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoHintMetrics:CairoHintMetrics_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoImageSurface:CairoImageSurface_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoFillRule:CairoFillRule_Impl_" />
+<xs:element ref="motion-easing:ExpoEaseInOut" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasRenderer" />
+<xs:element ref="openfl-net-_URLRequestMethod:URLRequestMethod_Impl_" />
+<xs:element ref="lime-_backend-native:NativeMouse" />
+<xs:element ref="lime-graphics:FlashRenderContext" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:CurveToView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawEllipseView_Impl_" />
+<xs:element ref="openfl-geom:Transform" />
+<xs:element ref="openfl-display3D-textures:TextureBase" />
+<xs:element ref="sys-io-_Process:Stdout" />
+<xs:element ref="lime-app:Event_lime_ui_Joystick_Void" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawTrianglesView_Impl_" />
+<xs:element ref="openfl-display3D-_Context3DCompareMode:Context3DCompareMode_Impl_" />
+<xs:element ref="sys-io:Process" />
+<xs:element ref="lime-utils:Bytes" />
+<xs:element ref="openfl-net:URLRequest" />
+<xs:element ref="lime-ui-_GamepadButton:GamepadButton_Impl_" />
+<xs:element ref="openfl-text-_AntiAliasType:AntiAliasType_Impl_" />
+<xs:element ref="openfl-ui:GameInputDevice" />
+<xs:element ref="openfl-media:SoundTransform" />
+<xs:element ref="openfl-events-_EventDispatcher:Listener" />
+<xs:element ref="motion-easing:Quart" />
+<xs:element ref="openfl-utils-_ByteArray:ByteArray_Impl_" />
+<xs:element ref="lime-_backend-native:NativeWindow" />
+<xs:element ref="lime-graphics-opengl:GLProgram" />
+<xs:element ref="openfl-_internal-renderer:PolyK" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:DefaultShader" />
+<xs:element ref="lime-_Assets:AssetType_Impl_" />
+<xs:element ref="lime-app:Event_lime_graphics_RenderContext_Void" />
+<xs:element ref="openfl-display:GraphicsEndFill" />
+<xs:element ref="lime-utils-_Int8Array:Int8Array_Impl_" />
+<xs:element ref="lime-app:Event" />
+<xs:element ref="lime-app:Event_lime_ui_Touch_Void" />
+<xs:element ref="lime-ui-_KeyCode:KeyCode_Impl_" />
+<xs:element ref="haxe-io:Output" />
+<xs:element ref="openfl-geom:Rectangle" />
+<xs:element ref="lime-_backend-native-_NativeApplication:TextEventInfo" />
+<xs:element ref="openfl-display-_Shader:RepeatMode_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:RenderEventInfo" />
+<xs:element ref="lime-graphics-cairo-_CairoSurface:CairoSurface_Impl_" />
+<xs:element ref="jive:ViewModel" />
+<xs:element ref="lime-app:Event_lime_ui_GamepadButton_Void" />
+<xs:element ref="motion-actuators:GenericActuator" />
+<xs:element ref="lime-utils-_ArrayBuffer:ArrayBuffer_Impl_" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasMaskManager" />
+<xs:element ref="cpp:RawPointer" />
+<xs:element ref="cpp:NativeArray" />
+<xs:element ref="openfl-system:LoaderContext" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:BlendModeManager" />
+<xs:element ref="openfl-utils-_CompressionAlgorithm:CompressionAlgorithm_Impl_" />
+<xs:element ref="lime-graphics:ImageBuffer" />
+<xs:element ref="cpp:ConstPointer" />
+<xs:element ref="openfl-display:LoaderInfo" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawTilesView_Impl_" />
+<xs:element ref="openfl-display:GraphicsPath" />
+<xs:element ref="openfl-_Vector:Vector_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:Shader" />
+<xs:element ref="openfl-geom:ColorTransform" />
+<xs:element ref="openfl-events:SecurityErrorEvent" />
+<xs:element ref="openfl-display:IGraphicsStroke" />
+<xs:element ref="openfl-display-_BlendMode:BlendMode_Impl_" />
+<xs:element ref="haxe:Log" />
+<xs:element ref="haxe-ds:IntMap" />
+<xs:element ref="lime-_backend-native-_NativeApplication:DropEventType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl:GLBitmap" />
+<xs:element ref="openfl-display:PNGEncoderOptions" />
+<xs:element ref="lime-_backend-native-_NativeApplication:TouchEventType_Impl_" />
+<xs:element ref="lime-graphics-console:VertexOutput" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:FillShader" />
+<xs:element ref="openfl-events:IEventDispatcher" />
+<xs:element ref="openfl-errors:EOFError" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GLBucketData" />
+<xs:element ref="openfl-utils-_Object:Iterator_" />
+<xs:element ref="lime-graphics-cairo-_CairoAntialias:CairoAntialias_Impl_" />
+<xs:element ref="openfl-display-_Shader:GLShaderPrecision_Impl_" />
+<xs:element ref="openfl-geom:Matrix" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:BeginGradientFillView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:GraphicsRenderer" />
+<xs:element ref="openfl-display:BitmapData" />
+<xs:element ref="haxe-_Int64:___Int64" />
+<xs:element ref="openfl-display3D:IndexBuffer3D" />
+<xs:element ref="lime-app:Future" />
+<xs:element ref="lime-math-color-_ARGB:ARGB_Impl_" />
+<xs:element ref="openfl-display:IGraphicsPath" />
+<xs:element ref="lime-utils:ArrayBufferView" />
+<xs:element ref="List" />
+<xs:element ref="haxe-ds:ObjectMap" />
+<xs:element ref="Reflect" />
+<xs:element ref="openfl-text:TextFormat" />
+<xs:element ref="motion-easing:ExpoEaseIn" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:PingPongTexture" />
+<xs:element ref="openfl-display-_InterpolationMethod:InterpolationMethod_Impl_" />
+<xs:element ref="motion-actuators:MethodActuator" />
+<xs:element ref="lime-app:Event_Float_Float_Int_Void" />
+<xs:element ref="lime-graphics-opengl:GLFramebuffer" />
+<xs:element ref="lime-text-_TextScript:TextScript_Impl_" />
+<xs:element ref="lime-system-_System:SystemDirectory_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl:GLRenderer" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:PrimitiveShader" />
+<xs:element ref="lime-audio:AudioManager" />
+<xs:element ref="lime-system:Sensor" />
+<xs:element ref="jive-geom:MetricPoint" />
+<xs:element ref="lime-app:Module" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2:DrawTrianglesShader" />
+<xs:element ref="openfl-text:Font" />
+<xs:element ref="lime-utils-_UInt8Array:UInt8Array_Impl_" />
+<xs:element ref="openfl-display-_CapsStyle:CapsStyle_Impl_" />
+<xs:element ref="openfl-ui:Keyboard" />
+<xs:element ref="openfl-_internal-renderer-console:ConsoleRenderer" />
+<xs:element ref="lime-_backend-native-_NativeApplication:WindowEventInfo" />
+<xs:element ref="openfl-display:GraphicsBitmapFill" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoGraphics" />
+<xs:element ref="Array" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawRectView_Impl_" />
+<xs:element ref="openfl-display-_BitmapDataChannel:BitmapDataChannel_Impl_" />
+<xs:element ref="openfl-display:Loader" />
+<xs:element ref="openfl-display3D:Program3D" />
+<xs:element ref="lime-graphics:Renderer" />
+<xs:element ref="jive:Collection" />
+<xs:element ref="haxe-crypto:Md5" />
+<xs:element ref="lime-text-_TextDirection:TextDirection_Impl_" />
+<xs:element ref="openfl-geom:Point" />
+<xs:element ref="lime-utils-_UInt16Array:UInt16Array_Impl_" />
+<xs:element ref="lime-audio-openal:ALC" />
+<xs:element ref="motion-actuators:MotionPathActuator" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:VertexArray" />
+<xs:element ref="openfl-display:DirectRenderer" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawCircleView_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DefaultShader:Uniform_Impl_" />
+<xs:element ref="openfl-display:GraphicsStroke" />
+<xs:element ref="openfl-display-_StageQuality:StageQuality_Impl_" />
+<xs:element ref="openfl-display-_TriangleCulling:TriangleCulling_Impl_" />
+<xs:element ref="openfl-display3D:Context3D" />
+<xs:element ref="openfl-display-_GraphicsPathCommand:GraphicsPathCommand_Impl_" />
+<xs:element ref="lime-graphics-_PixelFormat:PixelFormat_Impl_" />
+<xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="lime-graphics-cairo:Cairo" />
+<xs:element ref="openfl-_internal-renderer:GraphicsPaths" />
+<xs:element ref="lime-graphics-opengl:GLShader" />
+<xs:element ref="openfl-_internal-renderer-canvas:CanvasTextField" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMTextField" />
+<xs:element ref="openfl-display:Stage" />
+<xs:element ref="lime-_backend-native-_NativeApplication:ApplicationEventInfo" />
+<xs:element ref="openfl-display:DisplayObject" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:DrawPath" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils-_VertexAttribute:ElementType_Impl_" />
+<xs:element ref="lime-graphics-cairo-_CairoStatus:CairoStatus_Impl_" />
+<xs:element ref="lime-utils-_Int32Array:Int32Array_Impl_" />
+<xs:element ref="openfl-errors:RangeError" />
+<xs:element ref="lime-graphics-format:JPEG" />
+<xs:element ref="lime-graphics:ConsoleRenderContext" />
+<xs:element ref="lime-graphics:DOMRenderContext" />
+<xs:element ref="cpp:Pointer" />
+<xs:element ref="lime-audio:WebAudioContext" />
+<xs:element ref="lime-utils:LZMA" />
+<xs:element ref="openfl-display:IGraphicsData" />
+<xs:element ref="openfl-display:Stage3D" />
+<xs:element ref="openfl-geom-_Orientation3D:Orientation3D_Impl_" />
+<xs:element ref="StringBuf" />
+<xs:element ref="openfl-display3D:Context3DClearMask" />
+<xs:element ref="lime-system-_CFFIPointer:CFFIPointer_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_FillShader:Attrib_Impl_" />
+<xs:element ref="openfl-display-_SpreadMethod:SpreadMethod_Impl_" />
+<xs:element ref="openfl-display-_Shader:GLShaderParameterInternal_Impl_" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_PatternFillShader:Uniform_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:KeyEventInfo" />
+<xs:element ref="openfl-display:DisplayObjectContainer" />
+<xs:element ref="lime-_backend-native:NativeRenderer" />
+<xs:element ref="openfl:Lib" />
+<xs:element ref="cpp-vm:Deque" />
+<xs:element ref="lime-_backend-native-_NativeApplication:JoystickEventInfo" />
+<xs:element ref="openfl-display-_LineScaleMode:LineScaleMode_Impl_" />
+<xs:element ref="openfl-events:UncaughtErrorEvents" />
+<xs:element ref="lime-ui:Mouse" />
+<xs:element ref="lime-_backend-native-_NativeApplication:ApplicationEventType_Impl_" />
+<xs:element ref="motion:RotationPath" />
+<xs:element ref="cpp:Lib" />
+<xs:element ref="lime-math-_Matrix4:Matrix4_Impl_" />
+<xs:element ref="openfl-events-_EventPhase:EventPhase_Impl_" />
+<xs:element ref="haxe-crypto:BaseCode" />
+<xs:element ref="lime-graphics-cairo-_CairoFilter:CairoFilter_Impl_" />
+<xs:element ref="openfl-_internal-renderer:AbstractMaskManager" />
+<xs:element ref="lime-graphics-opengl:GL" />
+<xs:element ref="motion:IComponentPath" />
+<xs:element ref="sys-io-_Process:Stdin" />
+<xs:element ref="haxe-io:Bytes" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_PrimitiveShader:Uniform_Impl_" />
+<xs:element ref="lime-_backend-native-_NativeApplication:TouchEventInfo" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMRenderer" />
+<xs:element ref="lime-system:CFFI" />
+<xs:element ref="openfl-utils:IDataOutput" />
+<xs:element ref="openfl-events:EventDispatcher" />
+<xs:element ref="openfl-_internal-renderer-cairo:CairoTextField" />
+<xs:element ref="lime-utils:ArrayBufferIO" />
+<xs:element ref="openfl-display:Shader" />
+<xs:element ref="Date" />
+<xs:element ref="lime-graphics-cairo-_CairoSubpixelOrder:CairoSubpixelOrder_Impl_" />
+<xs:element ref="lime-graphics-utils-_ImageDataUtil:ThresholdOperation_Impl_" />
+<xs:element ref="openfl-system:SecurityDomain" />
+<xs:element ref="StringTools" />
+<xs:element ref="jive:BaseCommand" />
+<xs:element ref="lime-_backend-native:NativeApplication" />
+<xs:element ref="lime-graphics-console:Shader" />
+<xs:element ref="lime-graphics:Image" />
+<xs:element ref="haxe-io:Unsigned_char__" />
+<xs:element ref="lime:Assets" />
+<xs:element ref="lime-math:Vector4" />
+<xs:element ref="openfl-text-_TextFieldType:TextFieldType_Impl_" />
+<xs:element ref="jive-events:GestureManager" />
+<xs:element ref="motion:ComponentPath" />
+<xs:element ref="lime-_backend-native-_NativeApplication:GamepadEventType_Impl_" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:LineToView_Impl_" />
+<xs:element ref="openfl-_internal-text:TextEngine" />
+<xs:element ref="lime-app:Promise" />
+<xs:element ref="openfl-_internal-renderer-opengl-shaders2-_PatternFillShader:Attrib_Impl_" />
+<xs:element ref="openfl-display:Tilesheet" />
+<xs:element ref="openfl-errors:TypeError" />
+<xs:element ref="lime-app:Event_Dynamic_Void" />
+<xs:element ref="lime-audio:ALAudioContext" />
+<xs:element ref="Math" />
+<xs:element ref="openfl-_internal-renderer-opengl-utils:RenderTexture" />
+<xs:element ref="haxe-io:BytesBuffer" />
+<xs:element ref="haxe-zip:Compress" />
+<xs:element ref="openfl-_internal-renderer:DrawCommandReader" />
+<xs:element ref="lime-app:Event_String_Void" />
+<xs:element ref="lime-graphics-opengl:GLObject" />
+<xs:element ref="lime-utils-_Float64Array:Float64Array_Impl_" />
+<xs:element ref="cpp:HxObjectPtr" />
+<xs:element ref="cpp-abi:Abi" />
+<xs:element ref="openfl-_internal-renderer-dom:DOMBitmap" />
+<xs:element ref="openfl-events:TouchEvent" />
+<xs:element ref="lime-app:Event_Void_Void" />
+<xs:element ref="lime-_backend-native-_NativeApplication:MouseEventType_Impl_" />
+<xs:element ref="openfl-geom:Vector3D" />
+<xs:element ref="lime-app:Event_Int_Float_Void" />
+<xs:element ref="lime-ui:Touch" />
+<xs:element ref="openfl-_internal-renderer-_DrawCommandReader:LineGradientStyleView_Impl_" />
+<xs:element ref="lime-app:Event_String_Int_Int_Void" />
+<xs:element ref="RootObjectType" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="ReflectSchemaTypeValue">
+<xs:all><xs:element ref="Reflect"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArraySchemaTypeValue">
+<xs:all><xs:element ref="Array"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringBufSchemaTypeValue">
+<xs:all><xs:element ref="StringBuf"/></xs:all></xs:complexType>
+
+<xs:complexType name="FloatSchemaTypeValue">
+<xs:all><xs:element ref="Float"/></xs:all></xs:complexType>
+
+<xs:complexType name="DateSchemaTypeValue">
+<xs:all><xs:element ref="Date"/></xs:all></xs:complexType>
+
+<xs:complexType name="StringToolsSchemaTypeValue">
+<xs:all><xs:element ref="StringTools"/></xs:all></xs:complexType>
+
+<xs:complexType name="MathSchemaTypeValue">
+<xs:all><xs:element ref="Math"/></xs:all></xs:complexType>
+
+<xs:complexType name="SysSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ERegSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="UIntSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="TypeSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="BoolSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="ArrayAccessSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StringSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StdSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LambdaSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="ListSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RootObjectTypeSchemaType">
+</xs:complexType>
+<xs:complexType name="ReflectSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArraySchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StringBufSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="FloatSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:complexType>
+
+<xs:complexType name="DateSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StringToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MathSchemaType">
+<xs:complexContent>
+<xs:extension base="RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Sys" type="SysSchemaType"/>
+<xs:element name="EReg" type="ERegSchemaType"/>
+<xs:element name="UInt" type="UIntSchemaType"/>
+<xs:element name="Type" type="TypeSchemaType"/>
+<xs:element name="Bool" type="BoolSchemaType"/>
+<xs:element name="ArrayAccess" type="ArrayAccessSchemaType"/>
+<xs:element name="String" type="StringSchemaType"/>
+<xs:element name="Std" type="StdSchemaType"/>
+<xs:element name="Lambda" type="LambdaSchemaType"/>
+<xs:element name="Int" type="IntSchemaType"/>
+<xs:element name="List" type="ListSchemaType"/>
+<xs:element name="RootObjectType" type="RootObjectTypeSchemaType" />
+<xs:element name="Reflect" type="ReflectSchemaType"/>
+<xs:element name="Array" type="ArraySchemaType"/>
+<xs:element name="StringBuf" type="StringBufSchemaType"/>
+<xs:element name="Float" type="FloatSchemaType"/>
+<xs:element name="Date" type="DateSchemaType"/>
+<xs:element name="StringTools" type="StringToolsSchemaType"/>
+<xs:element name="Math" type="MathSchemaType"/>
+</xs:schema>
