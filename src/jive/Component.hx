@@ -55,6 +55,6 @@ class Component extends EventDispatcher implements IBindable {
 
     public function repaint() {
         needsPaint = true;
-        if (parent != null) parent.repaint();
+        if (parent != null) parent.repaintChildren();
     }
 }

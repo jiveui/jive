@@ -8,6 +8,7 @@ using jive.geom.MetricHelper;
 class Container extends Component {
 
     private var needsLayout: Bool;
+    private var childrenNeedRepaint: Bool;
 
     public var children: Collection<Component>;
 
@@ -17,7 +18,7 @@ class Container extends Component {
     }
 
     override public function paint(size: IntDimension) {
-        if (needsPaint) {
+        if (childrenNeedRepaint) {
             for (c in children) {
                 c.paint(size);
             }
@@ -41,5 +42,10 @@ class Container extends Component {
         if (null != parent) {
             parent.relayout();
         }
+    }
+
+    public function repaintChildren() {
+        childrenNeedRepaint = true;
+        if (parent != null) parent.repaintChildren();
     }
 }
