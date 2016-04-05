@@ -1,5 +1,6 @@
 package jive;
 
+import openfl.display.Sprite;
 import jive.geom.IntDimension;
 import jive.geom.IntRectangle;
 import openfl.events.EventDispatcher;
@@ -16,7 +17,13 @@ class Component extends EventDispatcher implements IBindable {
     public var width: Metric;
     public var height: Metric;
 
-    public var displayObject(default, null): DisplayObject;
+    public var displayObject(get, null): DisplayObject;
+    private function get_displayObject(): DisplayObject {
+        if (null == displayObject) {
+            displayObject = createDisplayObject();
+        }
+        return displayObject;
+    }
 
     public var parent(default, set): Container;
     private function set_parent(c: Container): Container {
@@ -25,6 +32,10 @@ class Component extends EventDispatcher implements IBindable {
 
     public function new() {
         super();
+    }
+
+    private function createDisplayObject(): DisplayObject {
+        return new Sprite();
     }
 
     /**
