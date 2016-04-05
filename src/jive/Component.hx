@@ -1,11 +1,16 @@
 package jive;
 
+import jive.geom.IntDimension;
+import jive.geom.IntRectangle;
 import openfl.events.EventDispatcher;
 import bindx.IBindable;
 import openfl.display.DisplayObject;
 import jive.geom.Metric;
 
 class Component extends EventDispatcher implements IBindable {
+
+    private var needsPaint: Bool;
+
     public var x: Metric;
     public var y: Metric;
     public var width: Metric;
@@ -28,4 +33,17 @@ class Component extends EventDispatcher implements IBindable {
     * and remove all listeners
     **/
     public function dispose() {}
+
+    public function paint(size: IntDimension) {
+        needsPaint = false;
+    }
+
+    public function calcSize(): IntDimension {
+        return new IntDimension(0,0);
+    }
+
+    public function repaint() {
+        needsPaint = true;
+        if (parent != null) parent.repaint();
+    }
 }
