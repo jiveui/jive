@@ -1,13 +1,10 @@
 package jive;
 
 import jive.geom.IntDimension;
-import jive.geom.MetricHelper;
-
-using jive.geom.MetricHelper;
+import jive.geom.PaintDimension;
 
 class Container extends Component {
 
-    private var needsLayout: Bool;
     private var childrenNeedRepaint: Bool;
 
     public var children: Collection<Component>;
@@ -17,29 +14,15 @@ class Container extends Component {
         children = new Collection();
     }
 
-    override public function paint(size: IntDimension) {
-        if (childrenNeedRepaint) {
-            for (c in children) {
-                c.paint(size);
+    override public function paint(size: PaintDimension): IntDimension {
+        if (needsPaint) {
+            if (childrenNeedRepaint) {
+                for (c in children) {
+                    c.paint(size);
+                }
             }
+            needsPaint = false;
         }
-        needsPaint = false;
-        if (needsLayout) {
-            layout();
-        }
-        needsLayout = false;
-    }
-
-    private function layout() {
-        for (c in children) {
-            c.displayObject.x = c.x.toAbsolute(this);
-            c.displayObject.y = c.y.toAbsolute(this);
-        }
-    }
-
-    public function relayout() {
-        needsLayout = true;
-        repaintChildren();
     }
 
     public function repaintChildren() {

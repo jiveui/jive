@@ -17,9 +17,9 @@ class IntDimension{
 	 * Creates a dimension.
 	 */
 	public function new(?width:Int=0, ?height:Int=0){
-	this.width=0;
-	this.height=0;
-	this.width = width;
+		this.width=0;
+		this.height=0;
+		this.width = width;
 		this.height = height;
 	}
 	
@@ -72,7 +72,7 @@ class IntDimension{
 	 * return a new size with this size with a change.
 	 */
 	public function changedSize(deltaW:Int, deltaH:Int):IntDimension{
-		var s:IntDimension = new IntDimension(deltaW, deltaH);
+		var s:IntDimension = new IntDimension(w + deltaW, h + deltaH);
 		return s;
 	}
 	

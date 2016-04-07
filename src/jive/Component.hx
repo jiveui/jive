@@ -1,19 +1,17 @@
 package jive;
 
-import openfl.display.Sprite;
-import jive.geom.IntDimension;
-import jive.geom.IntRectangle;
-import openfl.events.EventDispatcher;
 import bindx.IBindable;
+import openfl.display.Sprite;
+import openfl.events.EventDispatcher;
 import openfl.display.DisplayObject;
-import jive.geom.Metric;
 
-using jive.geom.MetricHelper;
+import jive.geom.IntDimension;
+import jive.geom.Metric;
+import jive.geom.PaintDimension;
 
 class Component extends EventDispatcher implements IBindable {
 
     private var needsPaint: Bool;
-    private var needsCalcPreferredSize: Bool;
 
     public var x(get, set): Metric;
     private var _x: Metric;
@@ -34,8 +32,10 @@ class Component extends EventDispatcher implements IBindable {
     private var _width: Metric;
     private function get_width(): Metric { return _width; }
     private function set_width(v: Metric): Metric {
-        _width = v;
-        recalcSize();
+        if (_width != v) {
+            repaint();
+            _width = v;
+        }
         return v;
     }
 
@@ -43,31 +43,10 @@ class Component extends EventDispatcher implements IBindable {
     private var _height: Metric;
     private function get_height(): Metric { return _height; }
     private function set_height(v: Metric): Metric {
-        _height = v;
-        recalcSize();
-        return v;
-    }
-
-    public var preferredSize(get, null): IntDimension;
-    private var _preferredSize: IntDimension;
-    private function get_preferredSize(): IntDimension {
-        if (needsCalcPreferredSize) _preferredSize = calcPreferredSize();
-        needsCalcPreferredSize = false;
-        return _preferredSize;
-    }
-
-    private function calcPreferredSize(): IntDimension {
-        return new IntDimension(width.toAbsolute(this), height.toAbsolute(this));
-    }
-
-    public var paintSize(get, set): IntDimension;
-    private var _paintSize: IntDimension;
-    private function get_paintSize(): IntDimension {
-        if (null == _paintSize) _paintSize = new IntDimension();
-        return _paintSize;
-    }
-    private function set_paintSize(v: IntDimension): IntDimension {
-        _paintSize = v;
+        if (_height != v) {
+            repaint();
+            _height = v;
+        }
         return v;
     }
 
@@ -99,24 +78,14 @@ class Component extends EventDispatcher implements IBindable {
     **/
     public function dispose() {}
 
-    public function paint(size: IntDimension) {
-        needsPaint = false;
-        if (!paintSize.equals(size)) {
-            doPaint(size);
+    public function paint(size: PaintDimension): IntDimension {
+        if (needsPaint) {
+            needsPaint = false;
         }
     }
-
-    private function doPaint(size: IntDimension) {}
 
     public function repaint() {
         needsPaint = true;
         if (parent != null) parent.repaintChildren();
     }
-
-    private function recalcSize() {
-        needsCalcPreferredSize = true;
-        if (null != parent) { parent.relayout(); }
-        repaint();
-    }
-
 }
