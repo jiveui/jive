@@ -16,9 +16,7 @@ class IntDimension{
 	/**
 	 * Creates a dimension.
 	 */
-	public function new(?width:Int=0, ?height:Int=0){
-		this.width=0;
-		this.height=0;
+	public function new(width:Int=0, height:Int=0){
 		this.width = width;
 		this.height = height;
 	}

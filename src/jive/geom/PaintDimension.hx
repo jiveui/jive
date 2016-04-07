@@ -1,7 +1,7 @@
 package jive.geom;
 
 enum PaintDimension {
-    none();
+    none;
     absolute(v: IntDimension);
     prefferedSize(v: IntDimension);
 }

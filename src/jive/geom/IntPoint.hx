@@ -18,11 +18,9 @@ class IntPoint{
 	/**
 	 * Constructor
 	 */
-	public function new(?x:Int=0, ?y:Int=0){
-	this.x=0;
-	this.y=0;
-	this.x = x;
-	this.y = y;
+	public function new(x:Int=0, y:Int=0){
+		this.x = x;
+		this.y = y;
 	}
 	
 	/**
@@ -85,7 +83,7 @@ class IntPoint{
 	 * @param distance the distance in pixels.
 	 * @return the point itself.
 	 */
-	public function moveRadians(direction:Int, distance:Int):IntPoint{
+	public function moveRadians(direction:Float, distance:Float):IntPoint{
 		x += Math.round(Math.cos(direction)*distance);
 		y += Math.round(Math.sin(direction)*distance);
 		return this;

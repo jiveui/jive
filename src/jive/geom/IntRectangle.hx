@@ -23,12 +23,8 @@ class IntRectangle
 	/**
 	 * Creates a rectangle.
 	 */
-	public function new(?x:Int=0, ?y:Int=0, ?width:Int=0, ?height:Int=0){
-	this.x=0;
-	this.y=0;
-	this.width=0;
-	this.height=0;
-	setRectXYWH(x, y, width, height);
+	public function new(x:Int=0, y:Int=0, width:Int=0, height:Int=0){
+		setRectXYWH(x, y, width, height);
 	}
 	
 

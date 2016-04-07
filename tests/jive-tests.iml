@@ -27,57 +27,13 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|C:/work/transstroy/openfl">
+      <library name="haxelib|openfl">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../transstroy/openfl" />
+          <root url="C:\HaxeToolkit\haxe\lib\openfl/3,6,1/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../transstroy/openfl" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|C:/work/transstroy/jive/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|C:/HaxeToolkit/haxe/lib/actuate/1,8,6">
-        <CLASSES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|C:/work/transstroy/bindx/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="haxelib|C:/HaxeToolkit/haxe/lib/unifill/0,4,0">
-        <CLASSES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
+          <root url="C:\HaxeToolkit\haxe\lib\openfl/3,6,1/" />
         </SOURCES>
       </library>
     </orderEntry>
