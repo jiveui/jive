@@ -8,9 +8,12 @@ import bindx.IBindable;
 import openfl.display.DisplayObject;
 import jive.geom.Metric;
 
+using jive.geom.MetricHelper;
+
 class Component extends EventDispatcher implements IBindable {
 
     private var needsPaint: Bool;
+    private var needsCalcPreferredSize: Bool;
 
     public var x(get, set): Metric;
     private var _x: Metric;
@@ -32,6 +35,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_width(): Metric { return _width; }
     private function set_width(v: Metric): Metric {
         _width = v;
+        recalcSize();
         return v;
     }
 
@@ -40,6 +44,30 @@ class Component extends EventDispatcher implements IBindable {
     private function get_height(): Metric { return _height; }
     private function set_height(v: Metric): Metric {
         _height = v;
+        recalcSize();
+        return v;
+    }
+
+    public var preferredSize(get, null): IntDimension;
+    private var _preferredSize: IntDimension;
+    private function get_preferredSize(): IntDimension {
+        if (needsCalcPreferredSize) _preferredSize = calcPreferredSize();
+        needsCalcPreferredSize = false;
+        return _preferredSize;
+    }
+
+    private function calcPreferredSize(): IntDimension {
+        return new IntDimension(width.toAbsolute(this), height.toAbsolute(this));
+    }
+
+    public var paintSize(get, set): IntDimension;
+    private var _paintSize: IntDimension;
+    private function get_paintSize(): IntDimension {
+        if (null == _paintSize) _paintSize = new IntDimension();
+        return _paintSize;
+    }
+    private function set_paintSize(v: IntDimension): IntDimension {
+        _paintSize = v;
         return v;
     }
 
@@ -73,14 +101,22 @@ class Component extends EventDispatcher implements IBindable {
 
     public function paint(size: IntDimension) {
         needsPaint = false;
+        if (!paintSize.equals(size)) {
+            doPaint(size);
+        }
     }
 
-    public function calcSize(): IntDimension {
-        return new IntDimension(0,0);
-    }
+    private function doPaint(size: IntDimension) {}
 
     public function repaint() {
         needsPaint = true;
         if (parent != null) parent.repaintChildren();
     }
+
+    private function recalcSize() {
+        needsCalcPreferredSize = true;
+        if (null != parent) { parent.relayout(); }
+        repaint();
+    }
+
 }

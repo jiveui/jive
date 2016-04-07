@@ -39,9 +39,7 @@ class Container extends Component {
 
     public function relayout() {
         needsLayout = true;
-        if (null != parent) {
-            parent.relayout();
-        }
+        repaintChildren();
     }
 
     public function repaintChildren() {

@@ -2,8 +2,8 @@
 -lib jive
 -lib openfl
 -lib hml
--cp tests/src/
--cpp tests/bin
+-cp src
+-cpp bin
 --no-output
 -main GenHx
 --macro allowPackage('flash')

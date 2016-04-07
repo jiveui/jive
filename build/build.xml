@@ -35,8 +35,8 @@
             <!--<isset property="browser"/>-->
         <!--</condition>-->
         <antcall target="haxe">
-            <param name="dir" value="${project.root.path}"/>
-            <param name="hxml" value="tests/gen.hxml"/>
+            <param name="dir" value="${project.root.path}/tests"/>
+            <param name="hxml" value="gen.hxml"/>
         </antcall>
         <antcall target="munit">
             <param name="dir" value="${project.root.path}/tests"/>

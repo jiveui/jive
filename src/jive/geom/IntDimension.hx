@@ -113,8 +113,7 @@ class IntDimension{
 	/**
 	 * Returns whether or not the passing o is an same value IntDimension.
 	 */
-	public function equals(o:Dynamic):Bool{
-		var d:IntDimension = o.as(IntDimension);
+	public function equals(d:IntDimension):Bool{
 		if(d == null) return false;
 		return width==d.width && height==d.height;
 	}
