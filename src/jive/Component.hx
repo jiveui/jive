@@ -82,6 +82,8 @@ class Component extends EventDispatcher implements IBindable {
         if (needsPaint) {
             needsPaint = false;
         }
+
+        return new IntDimension(displayObject.width, displayObject.height);
     }
 
     public function repaint() {

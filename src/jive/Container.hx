@@ -15,14 +15,16 @@ class Container extends Component {
     }
 
     override public function paint(size: PaintDimension): IntDimension {
-        if (needsPaint) {
-            if (childrenNeedRepaint) {
-                for (c in children) {
-                    c.paint(size);
-                }
+        super.paint(size);
+
+        if (childrenNeedRepaint) {
+            childrenNeedRepaint = false;
+            for (c in children) {
+                c.paint(size);
             }
-            needsPaint = false;
         }
+
+        return new IntDimension(displayObject.width, displayObject.height);
     }
 
     public function repaintChildren() {
