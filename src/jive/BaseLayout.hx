@@ -11,7 +11,7 @@ class BaseLayout extends Conatainer {
     }
 
     override public function paint(size: IntDimension) {
-        super.paint(size);
+        suepet.paint(size);
         if (needsLayout) {
             layout();
         }
