@@ -7,6 +7,7 @@ using jive.geom.MetricHelper;
 
 class Container extends Component {
 
+    private var needsLayout: Bool;
     private var childrenNeedRepaint: Bool;
 
     public var children: Collection<Component>;
@@ -23,7 +24,24 @@ class Container extends Component {
             }
         }
         needsPaint = false;
-        childrenNeedRepaint = false;
+        if (needsLayout) {
+            layout();
+        }
+        needsLayout = false;
+    }
+
+    private function layout() {
+        for (c in children) {
+            c.displayObject.x = c.x.toAbsolute(this);
+            c.displayObject.y = c.y.toAbsolute(this);
+        }
+    }
+
+    public function relayout() {
+        needsLayout = true;
+        if (null != parent) {
+            parent.relayout();
+        }
     }
 
     public function repaintChildren() {
