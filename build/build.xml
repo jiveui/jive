@@ -46,7 +46,7 @@
         <antcall target="openfl">
             <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="test"/>
-            <param name="options" value="project.xml cpp -Dtest"/>
+            <param name="options" value="project.xml cpp -Dtest -debug"/>
         </antcall>
 
         <!--<copy todir="${project.root.path}/tests/resources/assets">-->

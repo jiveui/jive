@@ -5,7 +5,7 @@ import massive.munit.Assert;
 class DataBindingTest {
     @Test
     public function testBinding() {
-        var c: DataBindingTestTemplate = new DataBindingTestTemplate();
+        var t: DataBindingTestTemplate = new DataBindingTestTemplate();
         Assert.isNull(t.s);
         Assert.areEqual(0, t.i);
         var context = new DataBindingModel();

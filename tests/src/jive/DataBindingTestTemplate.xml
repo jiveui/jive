@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtendedComponent
+<ExtendedComponentTemplate
         xmlns="jive"
         xmlns:haxe="http://haxe.org/"
         s="{Binding s}" i="{Binding i mode=twoway}">
-    <haxe:Implements><![CDATA[jive.DataContextControllable<jive.DataBindingModel>]]></haxe:Implements>
-</ExtendedComponent>
+</ExtendedComponentTemplate>
