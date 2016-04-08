@@ -31,7 +31,7 @@ class Svg extends Component {
         if (needsPaint) {
             needsPaint = false;
             shape.graphics.clear();
-            new SVG().render(shape.graphics);
+            new SVG(content).render(shape.graphics);
         }
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }
