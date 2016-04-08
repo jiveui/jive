@@ -24,7 +24,7 @@ class Container extends Component {
             }
         }
 
-        return new IntDimension(displayObject.width, displayObject.height);
+        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }
 
     public function repaintChildren() {

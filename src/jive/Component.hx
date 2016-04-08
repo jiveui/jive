@@ -67,7 +67,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteWidth(): Int {
         switch (_width) {
             case absolute(v) : return v;
-            case percent(v) : return (parent != null) ? (parent.absoluteWidth * v / 100) : 0;
+            case percent(v) : return (parent != null) ? Std.int(parent.absoluteWidth * v / 100) : 0;
             case virtual(v) : return 0; // TODO virtual pixels
         }
     }
@@ -76,7 +76,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteHeight(): Int {
         switch (_height) {
             case absolute(v) : return v;
-            case percent(v) : return (parent != null) ? (parent.absoluteHeight * v / 100) : 0;
+            case percent(v) : return (parent != null) ? Std.int(parent.absoluteHeight * v / 100) : 0;
             case virtual(v) : return 0; // TODO virtual pixels
         }
     }
@@ -101,7 +101,7 @@ class Component extends EventDispatcher implements IBindable {
             needsPaint = false;
         }
 
-        return new IntDimension(displayObject.width, displayObject.height);
+        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }
 
     public function repaint() {

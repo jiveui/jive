@@ -35,12 +35,12 @@ class TemplatedComponent<T: (Component, DataContextControllable<V>), V> extends 
         templateModel = Type.createEmptyInstance(Type.getClass(templateModel));
     }
 
-    override private function calcPreferredSize(): IntDimension {
+    /*override private function calcPreferredSize(): IntDimension {
         return if (null != templateInstance) templateInstance.calcPreferredSize() else new IntDimension(0,0);
     }
 
     override private function set_paintSize(v: IntDimension): IntDimension {
         if (null != templateInstance) templateInstance.paintSize = v;
         return super.set_paintSize(v);
-    }
+    }*/
 }

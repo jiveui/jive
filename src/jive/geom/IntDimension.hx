@@ -70,7 +70,7 @@ class IntDimension{
 	 * return a new size with this size with a change.
 	 */
 	public function changedSize(deltaW:Int, deltaH:Int):IntDimension{
-		var s:IntDimension = new IntDimension(w + deltaW, h + deltaH);
+		var s:IntDimension = new IntDimension(width + deltaW, height + deltaH);
 		return s;
 	}
 	

@@ -18,7 +18,7 @@ class BaseLayout extends Container {
         }
         needsLayout = false;
 
-        return new IntDimension.createNullDimension();
+        return IntDimension.createNullDimension();
     }
 
     private function layout() {
