@@ -63,6 +63,24 @@ class Component extends EventDispatcher implements IBindable {
         return parent = c;
     }
 
+    public var absoluteWidth(get, never): Int;
+    private function get_absoluteWidth(): Int {
+        switch (_width) {
+            case absolute(v) : return v;
+            case percent(v) : return (parent != null) ? (parent.absoluteWidth * v / 100) : 0;
+            case virtual(v) : return 0; // TODO virtual pixels
+        }
+    }
+
+    public var absoluteHeight(get, never): Int;
+    private function get_absoluteHeight(): Int {
+        switch (_height) {
+            case absolute(v) : return v;
+            case percent(v) : return (parent != null) ? (parent.absoluteHeight * v / 100) : 0;
+            case virtual(v) : return 0; // TODO virtual pixels
+        }
+    }
+
     public function new() {
         super();
     }
