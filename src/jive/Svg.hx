@@ -20,6 +20,7 @@ class Svg extends Component {
 
     public function new() {
         super();
+        displayObject;
     }
 
     override private function createDisplayObject(): DisplayObject {

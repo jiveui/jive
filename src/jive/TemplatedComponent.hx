@@ -1,5 +1,7 @@
 package jive;
 
+import jive.geom.PaintDimension;
+import openfl.display.DisplayObject;
 import jive.geom.IntDimension;
 
 using jive.tools.TypeTools;
@@ -9,7 +11,7 @@ typedef Constructible = {
 }
 
 @:generic
-class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V>), V: (Constructible, ViewModel)> extends Container {
+class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V>), V: (Constructible, ViewModel)> extends Component {
 
     public var templateInstance(default, null): T;
 
@@ -19,12 +21,15 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
     private function set_template(v: Class<T>): Class<T> {
         _template = v;
         if (v != Type.getClass(templateInstance)) {
-            if (null != templateInstance) { children.remove(templateInstance); }
             templateInstance = Type.createInstance(v, []);
             if (null != templateModel) { templateInstance.dataContext = templateModel; }
-            children.add(templateInstance);
+            repaint();
         }
         return v;
+    }
+
+    override private function get_displayObject(): DisplayObject {
+        return if (null != templateInstance) return templateInstance.displayObject else super.get_displayObject();
     }
 
     public var templateModel(get, set): V;
@@ -33,6 +38,7 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
     private function set_templateModel(v: V): V {
         _templateModel = v;
         if (null != templateInstance) templateInstance.dataContext = v;
+        repaint();
         return v;
     }
 
@@ -40,5 +46,7 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
         super();
     }
 
-
+    override public function paint(size: PaintDimension): IntDimension {
+        return if (null != templateInstance) templateInstance.paint(size) else super.paint(size);
+    }
 }

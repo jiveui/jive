@@ -5,7 +5,7 @@
     <!-- output -->
     <app main="TestMain" file="jive-tests" path="bin" />
 
-    <window width="0" height="0" background="0xFFFFFF" fps="60"/>
+    <window width="1000" height="700" background="0xFFFFFF" fps="60"/>
 
     <!-- classpath, haxe libs -->
     <source path="src" />

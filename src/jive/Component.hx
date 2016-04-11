@@ -11,7 +11,7 @@ import jive.geom.PaintDimension;
 
 class Component extends EventDispatcher implements IBindable {
 
-    private var needsPaint: Bool;
+    private var needsPaint: Bool = true;
 
     public var x(get, set): Metric;
     private var _x: Metric;

@@ -1,6 +1,7 @@
 package jive.hml;
 
 #if macro
+import haxe.macro.Context;
 import lime.project.MetaData;
 import haxe.rtti.CType.MetaData;
 import hml.xml.writer.DefaultNodeWriter;
@@ -26,6 +27,7 @@ using Lambda;
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	public function new() {
 		super([
+            new SvgAdapter(),
 			new ContainerAdapter(),
 			new ComponentAdapter(),
 			new DisplayObjectAdapter(),
@@ -56,7 +58,7 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 	override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
 		var nodesToRemove = [];
 		for (n in node.nodes) {
-			if (n.cData != null && n.cData.indexOf('{Binding') >= 0) {
+			if (n.cData != null && n.cData.indexOf('{Binding') == 0) {
 				nodesToRemove.push(n);
 
 				var mode = 'oneway'; //once, oneway, twoway
@@ -160,6 +162,42 @@ class BaseCommandAdapter extends ComponentAdapter {
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
         super(baseType, events, matchLevel);
 
+    }
+}
+
+class SvgAdapter extends DisplayObjectAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.Svg;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 30);
+        super(baseType, events, matchLevel);
+    }
+
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+        return [new SvgWithMetaWriter(baseType, metaWriter, matchLevel)];
+    }
+}
+
+class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
+    override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+
+        var nodesToRemove = [];
+        for (n in node.nodes) {
+
+            if (n.name.name == 'content') {
+                nodesToRemove.push(n);
+                var propertyName = scope + ".content";
+                var value: String = n.cData;
+                value = value.replace("'", '"');
+
+                method.push('{');
+                method.push('$propertyName = \'$value\';');
+                method.push('}');
+            }
+        }
+        for (n in nodesToRemove) {
+            node.nodes.remove(n);
+        }
+        super.writeNodes(node, scope, writer, method);
     }
 }
 #end

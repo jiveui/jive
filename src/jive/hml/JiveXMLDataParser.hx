@@ -28,7 +28,10 @@ class JiveXMLDataParser extends DefaultXMLDataParser {
         processNode(node);
 
         parseAttributes(node, data, parser);
-        parseNodes(node, data, parser);
+
+        if (node.name.name != "content" || node.parent.name.name != "Svg" ) {
+            parseNodes(node, data, parser);
+        }
     }
 }
 #end

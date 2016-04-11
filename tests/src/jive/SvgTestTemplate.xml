@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Svg    xmlns="jive"
+        xmlns:haxe="http://haxe.org/">
+    <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
+    <content>
+            <circle cx="100" cy="100" r="40" stroke="#000000" stroke-width="10" fill="#00ff00" />
+    </content>
+</Svg>
