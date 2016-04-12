@@ -1,5 +1,6 @@
 import massive.munit.TestSuite;
 
+import jive.ComponentTest;
 import jive.DataBindingTest;
 import jive.SvgTest;
 import jive.TemplatedComponentTest;
@@ -16,6 +17,7 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
+		add(jive.ComponentTest);
 		add(jive.DataBindingTest);
 		add(jive.SvgTest);
 		add(jive.TemplatedComponentTest);
