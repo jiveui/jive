@@ -18,6 +18,7 @@
     <haxelib name="mlib" />
     <haxelib name="hamcrest" />
     <haxelib name="jive"/>
+    <haxelib name="svg"/>
 
     <template path="templates" />
 </project>

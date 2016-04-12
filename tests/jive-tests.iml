@@ -81,5 +81,16 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/usr/local/lib/haxe/lib/svg/1,0,9">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/svg/1,0,9" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/svg/1,0,9" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
