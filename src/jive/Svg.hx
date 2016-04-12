@@ -7,6 +7,9 @@ import openfl.display.DisplayObject;
 import openfl.display.Shape;
 
 class Svg extends Component {
+
+    public var generateContent: Void -> String;
+
     var shape: Shape;
 
     public var content(get, set): String;
@@ -32,6 +35,8 @@ class Svg extends Component {
         if (needsPaint) {
             needsPaint = false;
             shape.graphics.clear();
+            if (null != generateContent) _content = generateContent();
+            trace(content);
             new SVG(content).render(shape.graphics);
         }
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));

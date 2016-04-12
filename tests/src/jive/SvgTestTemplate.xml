@@ -3,6 +3,12 @@
         xmlns:haxe="http://haxe.org/">
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
     <content>
-            <circle cx="100" cy="100" r="40" stroke="#000000" stroke-width="10" fill="#00ff00" />
+            <circle
+                    cx="{ widthPercent(50) }"
+                    cy="{ heightPercent(50) }"
+                    r="{ absolute(100) }"
+                    stroke="{ theme.foreground.toSvg() }"
+                    stroke-width="10"
+                    fill="#00ff00" />
     </content>
 </Svg>

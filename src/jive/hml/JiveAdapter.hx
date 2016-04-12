@@ -61,29 +61,16 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 			if (n.cData != null && n.cData.indexOf('{Binding') == 0) {
 				nodesToRemove.push(n);
 
-				var mode = 'oneway'; //once, oneway, twoway
+				var binding: Binding = Binding.fromString(n.cData);
 
-                var trimmed = n.cData.replace('{Binding','').replace('}','').trim();
-				var sourcePropertyName = trimmed;
-
-				// set mode
-				if (trimmed.indexOf(" ") >= 0) {
-                    var splitted = trimmed.split(" ");
-                    sourcePropertyName = splitted[0];
-                    if (splitted[1].startsWith("mode=")) {
-                    	var m = splitted[1].split("=");
-                    	mode = m[1];
-                    }
-				}
-
-				var valueSource = 'this.dataContext.' + sourcePropertyName;
+				var valueSource = 'this.dataContext.' + binding.propertyName;
 				var propertyName = scope + "." + n.name.name;
 
                 method.push('{');
 
 				method.push('if (null != dataContext) { $propertyName = $valueSource; }');
 
-				if (mode.indexOf("way") > 0) {
+				if (binding.mode == BindingMode.oneway || binding.mode == BindingMode.twoway) {
 					method.push('var programmaticalyChange = false;');
 
 					method.push('var sourcePropertyListener = function(_,_) {
@@ -96,7 +83,7 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 					method.push('var bindSourceListener = function() { bindx.Bind.bind($valueSource, sourcePropertyListener); }');
 					method.push('if (null != dataContext) { bindSourceListener(); }');
 					method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
-							if (null != old) { bindx.Bind.unbind(old.$sourcePropertyName, sourcePropertyListener);}
+							if (null != old) { bindx.Bind.unbind(old.${binding.propertyName}, sourcePropertyListener);}
 							if (null != this.dataContext) {
 								$propertyName = $valueSource;
 								bindSourceListener();
@@ -104,7 +91,7 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 						});
 					');
 
-					if (mode == "twoway") {
+					if (binding.mode == BindingMode.twoway) {
 						method.push('var propertyListener = function(_,_) {
 							if (!programmaticalyChange && null != this.dataContext) {
 								programmaticalyChange = true;
@@ -189,9 +176,48 @@ class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
                 var value: String = n.cData;
                 value = value.replace("'", '"');
 
-                method.push('{');
-                method.push('$propertyName = \'$value\';');
-                method.push('}');
+                var r: EReg = new EReg("{[^}]+}", "g");
+                var startsWithLetter: EReg = new EReg("^[A-Za-z].*", "g");
+
+                var expressions = [];
+                r.map(value, function(r) {
+                    var match: String = r.matched(0)
+                                            .replace("{", "")
+                                            .replace("}", "")
+                                            .trim();
+
+                    var items = match.split(" ");
+                    var expression = "";
+                    for (item in items) {
+                        expression +=
+                            if (item.startsWith("virtual(") || item.startsWith("absolute(")) {
+                                "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item + ") ";
+                            } else if (item.startsWith("widthPercent(")) {
+                                "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("widthP", "p") + ", this.absoluteWidth) ";
+                            } else if (item.startsWith("heightPercent(")) {
+                                "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("heightP", "p") + ", this.absoluteHeight) ";
+                            } else if (startsWithLetter.match(item)){
+                                "dataContext." + item + " ";
+                            } else {
+                                item + " ";
+                            }
+
+                    }
+                    expressions.push(expression);
+                    return "";
+                });
+
+                method.push("generateContent = function() { var b = new StringBuf();");
+                var parts = r.split(value);
+                var i: Int = 0;
+                for (p in parts) {
+                    method.push('b.add(\'$p\');');
+                    if (i < expressions.length) {
+                        method.push('b.add(${expressions[i]});');
+                        i += 1;
+                    }
+                }
+                method.push("return b.toString(); }");
             }
         }
         for (n in nodesToRemove) {

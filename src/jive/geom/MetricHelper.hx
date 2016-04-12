@@ -1,7 +1,7 @@
 package jive.geom;
 
 class MetricHelper {
-    static public function toAbsolute(m: Metric, d: Int): Int {
+    static public function toAbsolute(m: Metric, d: Int = 0): Int {
         switch (m) {
             case virtual(v): return 0;
             case percent(v): return Std.int(d * v / 100);

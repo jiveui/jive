@@ -65,24 +65,30 @@ class Component extends EventDispatcher implements IBindable {
 
     public var absoluteWidth(get, never): Int;
     private function get_absoluteWidth(): Int {
-        switch (_width) {
-            case absolute(v) : return v;
-            case percent(v) : return (parent != null) ? Std.int(parent.absoluteWidth * v / 100) : 0;
-            case virtual(v) : return 0; // TODO virtual pixels
+        return switch (_width) {
+            case absolute(v) : v;
+            case percent(v) : (parent != null) ? Std.int(parent.absoluteWidth * v / 100) : 0;
+            case virtual(v) : 0; // TODO virtual pixels
+            case auto: 0;
         }
     }
 
     public var absoluteHeight(get, never): Int;
     private function get_absoluteHeight(): Int {
-        switch (_height) {
-            case absolute(v) : return v;
-            case percent(v) : return (parent != null) ? Std.int(parent.absoluteHeight * v / 100) : 0;
-            case virtual(v) : return 0; // TODO virtual pixels
+        return switch (_height) {
+            case absolute(v) : v;
+            case percent(v) : (parent != null) ? Std.int(parent.absoluteHeight * v / 100) : 0;
+            case virtual(v) : 0; // TODO virtual pixels
+            case auto: 0;
         }
     }
 
     public function new() {
         super();
+        x = Metric.absolute(0);
+        y = Metric.absolute(0);
+        width = Metric.none;
+        height = Metric.none;
     }
 
     private function createDisplayObject(): DisplayObject {

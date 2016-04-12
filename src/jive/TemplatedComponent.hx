@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.Metric;
 import jive.geom.PaintDimension;
 import openfl.display.DisplayObject;
 import jive.geom.IntDimension;
@@ -12,6 +13,29 @@ typedef Constructible = {
 
 @:generic
 class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V>), V: (Constructible, ViewModel)> extends Component {
+
+    override private function get_x(): Metric { return if (null != templateInstance) templateInstance.x else super.get_x(); }
+    override private function set_x(v: Metric): Metric { if (null != templateInstance) templateInstance.x = v else super.set_x(v); return v; }
+    override private function get_y(): Metric { return if (null != templateInstance) templateInstance.y else super.get_y(); }
+    override private function set_y(v: Metric): Metric { if (null != templateInstance) templateInstance.y = v else super.set_y(v); return v; }
+
+    override private function get_width(): Metric { return if (null != templateInstance) templateInstance.width else super.get_width(); }
+    override private function set_width(v: Metric): Metric {
+        if (_width != v) {
+            repaint();
+            if (null != templateInstance) templateInstance.width = v else _width = v;
+        }
+        return v;
+    }
+
+    override private function get_height(): Metric { return if (null != templateInstance) templateInstance.height else super.get_height(); }
+    override private function set_height(v: Metric): Metric {
+        if (_height != v) {
+            repaint();
+            if (null != templateInstance) templateInstance.height = v else _height = v;
+        }
+        return v;
+    }
 
     public var templateInstance(default, null): T;
 

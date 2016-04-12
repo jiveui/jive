@@ -1,6 +1,7 @@
 package jive.themes;
 
 class Theme {
-    public function new() {
-    }
+    public var foreground: Color = Color.BLUE;
+
+    public function new() {}
 }
