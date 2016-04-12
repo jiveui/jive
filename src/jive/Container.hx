@@ -14,6 +14,16 @@ class Container extends Component {
         children = new Collection();
     }
 
+    public function append(child: Component) {
+        children.add(child);
+        child.parent = this;
+    }
+
+    public function remove(child: Component) {
+        children.remove(child);
+        child.parent = null;
+    }
+
     override public function paint(size: PaintDimension): IntDimension {
         super.paint(size);
 
