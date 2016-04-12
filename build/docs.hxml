@@ -6,5 +6,7 @@
 -lib actuate
 -lib openfl
 -lib lime
+-lib format
+-lib svg
 --macro "include('jive')"
 --remap flash:openfl
