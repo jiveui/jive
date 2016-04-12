@@ -23,7 +23,6 @@ class SvgTest {
         c.templateModel = new SvgTestModel();
         c.width = Metric.absolute(Lib.current.stage.stageWidth);
         c.height = Metric.absolute(Lib.current.stage.stageHeight);
-        trace(c.absoluteWidth);
         c.paint(PaintDimension.none);
         Lib.current.addChild(c.displayObject);
     }

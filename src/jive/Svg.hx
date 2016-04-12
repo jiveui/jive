@@ -36,7 +36,6 @@ class Svg extends Component {
             needsPaint = false;
             shape.graphics.clear();
             if (null != generateContent) _content = generateContent();
-            trace(content);
             new SVG(content).render(shape.graphics);
         }
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
