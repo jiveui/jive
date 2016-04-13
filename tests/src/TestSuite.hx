@@ -4,6 +4,7 @@ import jive.ComponentTest;
 import jive.DataBindingTest;
 import jive.SvgTest;
 import jive.TemplatedComponentTest;
+import jive.WindowTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -21,5 +22,6 @@ class TestSuite extends massive.munit.TestSuite
 		add(jive.DataBindingTest);
 		add(jive.SvgTest);
 		add(jive.TemplatedComponentTest);
+		add(jive.WindowTest);
 	}
 }

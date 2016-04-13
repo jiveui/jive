@@ -9,6 +9,8 @@ import jive.geom.IntDimension;
 import jive.geom.Metric;
 import jive.geom.PaintDimension;
 
+using jive.geom.MetricHelper;
+
 class Component extends EventDispatcher implements IBindable {
 
     private var needsPaint: Bool = true;
@@ -106,6 +108,9 @@ class Component extends EventDispatcher implements IBindable {
         if (needsPaint) {
             needsPaint = false;
         }
+
+        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0);
+        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0);
 
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }

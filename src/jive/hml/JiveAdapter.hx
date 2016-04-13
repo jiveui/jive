@@ -207,7 +207,8 @@ class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
                     return "";
                 });
 
-                method.push("generateContent = function() { var b = new StringBuf();");
+                var generateContentName = (if (Std.is(node, hml.xml.Type)) "" else "res.") +  "generateContent";
+                method.push(generateContentName + " = function() { var b = new StringBuf();");
                 var parts = r.split(value);
                 var i: Int = 0;
                 for (p in parts) {
