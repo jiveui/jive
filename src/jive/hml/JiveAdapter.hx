@@ -223,11 +223,20 @@ class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
 
                 if (expressions.length > 0) {
                     method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix+ "repaint(); } ");
+                    method.push("var subscribe = function() {");
                     for (e in expressions) {
                         if (e.startsWith("dataContext.")) {
-                            method.push("bindx.Bind.bind(this." + e + ", onChange);");
+                            method.push("bindx.BindExt.chain(" + e + ", onChange);");
                         }
                     }
+                    method.push("};");
+                    method.push('if (null != dataContext) { subscribe(); }');
+                    method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
+							if (null != this.dataContext) {
+								subscribe();
+							}
+						});
+					');
                 }
             }
         }
