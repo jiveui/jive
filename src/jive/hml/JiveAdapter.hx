@@ -207,7 +207,8 @@ class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
                     return "";
                 });
 
-                var generateContentName = (if (Std.is(node, hml.xml.Type)) "" else "res.") +  "generateContent";
+                var svgPrefix = if (Std.is(node, hml.xml.Type)) "" else "res.";
+                var generateContentName = svgPrefix +  "generateContent";
                 method.push(generateContentName + " = function() { var b = new StringBuf();");
                 var parts = r.split(value);
                 var i: Int = 0;
@@ -219,6 +220,15 @@ class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
                     }
                 }
                 method.push("return b.toString(); }");
+
+                if (expressions.length > 0) {
+                    method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix+ "repaint(); } ");
+                    for (e in expressions) {
+                        if (e.startsWith("dataContext.")) {
+                            method.push("bindx.Bind.bind(this." + e + ", onChange);");
+                        }
+                    }
+                }
             }
         }
         for (n in nodesToRemove) {

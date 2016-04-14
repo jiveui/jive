@@ -7,7 +7,6 @@
                     cx="{ widthPercent(50) }"
                     cy="{ heightPercent(50) }"
                     r="{ absolute(100) }"
-                    stroke="{ theme.foreground.toSvg() }"
                     stroke-width="10"
                     fill="#00ff00" />
     </content>
