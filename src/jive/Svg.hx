@@ -35,9 +35,16 @@ class Svg extends Component {
         if (needsPaint) {
             needsPaint = false;
             shape.graphics.clear();
+
+            //Draw transparent rectangle to prevent glitches during animations
+            shape.graphics.beginFill(0,0);
+            shape.graphics.drawRect(0, 0, absoluteWidth, absoluteHeight);
+            shape.graphics.endFill();
+
             if (null != generateContent) _content = generateContent();
             new SVG(content).render(shape.graphics);
         }
+        super.paint(size);
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }
 }

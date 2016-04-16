@@ -1,5 +1,8 @@
 package jive;
 
+import openfl.geom.Matrix;
+import jive.geom.IntPoint;
+import openfl.geom.Rectangle;
 import bindx.IBindable;
 import openfl.display.Sprite;
 import openfl.events.EventDispatcher;
@@ -21,13 +24,16 @@ class Component extends EventDispatcher implements IBindable {
     private function get_x(): Metric { return _x; }
     private function set_x(v: Metric): Metric {
         _x = v;
+        reposition();
         return v;
     }
+
     public var y(get, set): Metric;
     private var _y: Metric;
     private function get_y(): Metric { return _y; }
     private function set_y(v: Metric): Metric {
         _y = v;
+        reposition();
         return v;
     }
 
@@ -50,6 +56,37 @@ class Component extends EventDispatcher implements IBindable {
             repaint();
             _height = v;
         }
+        return v;
+    }
+
+    public var rotationAngle(get, set): Float;
+    private var _rotationAngle: Float;
+    private function get_rotationAngle(): Float {
+        return _rotationAngle;
+    }
+    private function set_rotationAngle(v: Float): Float {
+        _rotationAngle = v;
+        if (rotationPivot == null) {
+            displayObject.rotation = v;
+        } else {
+            var matrix:Matrix = new Matrix();
+            matrix.translate(-rotationPivot.x, -rotationPivot.y);
+            matrix.rotate((rotationAngle / 180) * Math.PI);
+            //TODO: move to the paint process because the issues can be found when the parent size is changed
+            matrix.translate(
+                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
+                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
+            displayObject.transform.matrix = matrix;
+        }
+        return v;
+    }
+
+    public var rotationPivot(get, set): IntPoint;
+    private var _rotationPivot: IntPoint;
+    private function get_rotationPivot(): IntPoint { return _rotationPivot; }
+    private function set_rotationPivot(v: IntPoint): IntPoint {
+        _rotationPivot = v;
+        rotationAngle = rotationAngle;
         return v;
     }
 
@@ -108,6 +145,7 @@ class Component extends EventDispatcher implements IBindable {
     public function paint(size: PaintDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
+            displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
         }
 
         displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0);
@@ -118,6 +156,10 @@ class Component extends EventDispatcher implements IBindable {
 
     public function repaint() {
         needsPaint = true;
+        if (parent != null) parent.repaintChildren();
+    }
+
+    public function reposition() {
         if (parent != null) parent.repaintChildren();
     }
 }
