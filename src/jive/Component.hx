@@ -90,6 +90,13 @@ class Component extends EventDispatcher implements IBindable {
         return v;
     }
 
+    public var alpha(get, set): Float;
+    private function get_alpha(): Float { return displayObject.alpha; }
+    private function set_alpha(v: Float): Float {
+        displayObject.alpha = v;
+        return v;
+    }
+    
     public var displayObject(get, null): DisplayObject;
     private function get_displayObject(): DisplayObject {
         if (null == displayObject) {

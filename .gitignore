@@ -9,3 +9,4 @@ src/assets/fonts/*.eot
 src/assets/fonts/*.svg
 src/assets/fonts/*.woff
 tests/jive-tests.iws
+jive.iws
