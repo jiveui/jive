@@ -3,7 +3,7 @@ package jive;
 import jive.geom.IntDimension;
 import jive.geom.PaintDimension;
 
-class BaseLayout extends Container {
+class EmptyLayout extends Container {
 
     private var needsLayout: Bool;
 

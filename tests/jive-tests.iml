@@ -28,123 +28,123 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/openfl/3,6,1">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/openfl/3,6,1">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/openfl/3,6,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/openfl/3,6,1" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/openfl/3,6,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/openfl/3,6,1" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/munit/2,1,0">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/munit/2,1,2">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/munit/2,1,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/munit/2,1,2" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/munit/2,1,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/munit/2,1,2" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/hamcrest/2,0,1">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/mcover/2,1,1">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/hamcrest/2,0,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mcover/2,1,1" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/hamcrest/2,0,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mcover/2,1,1" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/mcover/2,1,1">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/mconsole/1,6,0">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mcover/2,1,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mconsole/1,6,0" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mcover/2,1,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mconsole/1,6,0" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/mconsole/1,6,0">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/mlib/2,0,2">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mconsole/1,6,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mlib/2,0,2" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mconsole/1,6,0" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/mlib/2,0,2" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/mlib/2,0,2">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/hamcrest/2,0,1">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mlib/2,0,2" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/hamcrest/2,0,1" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/mlib/2,0,2" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/hamcrest/2,0,1" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/actuate/1,8,6">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/actuate/1,8,6">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/actuate/1,8,6" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/actuate/1,8,6" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/actuate/1,8,6" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/bindx2/2,5,2/src">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/bindx2/2,5,2/src">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/bindx2/2,5,2/src" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/bindx2/2,5,2/src" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/bindx2/2,5,2/src" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/bindx2/2,5,2/src" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/hml/0,0,2-alpha/src">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/hml/0,0,2-alpha/src">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/hml/0,0,2-alpha/src" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/hml/0,0,2-alpha/src" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/hml/0,0,2-alpha/src" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/hml/0,0,2-alpha/src" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/unifill/0,4,1">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/unifill/0,4,0">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/unifill/0,4,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/unifill/0,4,1" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|D:/development/tools/haxe/lib/svg/1,0,9">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/svg/1,0,9">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/svg/1,0,9" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../tools/haxe/lib/svg/1,0,9" />
+          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
         </SOURCES>
       </library>
     </orderEntry>

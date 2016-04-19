@@ -56,12 +56,8 @@ class Container extends Component {
 
     public function removeAll() {
         for (child in children) {
-            child.parent = null;
+            remove(child);
         }
-
-        children.remove();
-
-        repaint();
     }
 
     override public function paint(size: PaintDimension): IntDimension {
