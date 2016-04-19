@@ -2,7 +2,7 @@ package jive;
 
 import format.SVG;
 import jive.geom.IntDimension;
-import jive.geom.PaintDimension;
+import jive.geom.MetricDimension;
 import openfl.display.DisplayObject;
 import openfl.display.Shape;
 
@@ -31,7 +31,7 @@ class Svg extends Component {
         return shape;
     }
 
-    override public function paint(size: PaintDimension): IntDimension {
+    override public function paint(size: MetricDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
             shape.graphics.clear();

@@ -10,7 +10,7 @@ import openfl.display.DisplayObject;
 
 import jive.geom.IntDimension;
 import jive.geom.Metric;
-import jive.geom.PaintDimension;
+import jive.geom.MetricDimension;
 
 using jive.geom.MetricHelper;
 
@@ -57,6 +57,11 @@ class Component extends EventDispatcher implements IBindable {
             _height = v;
         }
         return v;
+    }
+
+    public var dimension(get, never): IntDimension;
+    private function get_dimension(): IntDimension {
+        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
     }
 
     public var rotationAngle(get, set): Float;
@@ -116,7 +121,7 @@ class Component extends EventDispatcher implements IBindable {
             case absolute(v) : v;
             case percent(v) : (parent != null) ? Std.int(parent.absoluteWidth * v / 100) : 0;
             case virtual(v) : 0; // TODO virtual pixels
-            case auto: 0;
+            case none: 0;
         }
     }
 
@@ -126,7 +131,27 @@ class Component extends EventDispatcher implements IBindable {
             case absolute(v) : v;
             case percent(v) : (parent != null) ? Std.int(parent.absoluteHeight * v / 100) : 0;
             case virtual(v) : 0; // TODO virtual pixels
-            case auto: 0;
+            case none: 0;
+        }
+    }
+
+    public var absoluteX(get, never): Int;
+    private function get_absoluteX(): Int {
+        return switch (_x) {
+            case absolute(v) : v;
+            case percent(v) : (parent != null) ? Std.int(parent.absoluteX * v / 100) : 0;
+            case virtual(v) : 0; // TODO virtual pixels
+            case none: 0;
+        }
+    }
+
+    public var absoluteY(get, never): Int;
+    private function get_absoluteY(): Int {
+        return switch (_y) {
+            case absolute(v) : v;
+            case percent(v) : (parent != null) ? Std.int(parent.absoluteY * v / 100) : 0;
+            case virtual(v) : 0; // TODO virtual pixels
+            case none: 0;
         }
     }
 
@@ -149,7 +174,7 @@ class Component extends EventDispatcher implements IBindable {
     **/
     public function dispose() {}
 
-    public function paint(size: PaintDimension): IntDimension {
+    public function paint(size: MetricDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
             displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);

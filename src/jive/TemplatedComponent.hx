@@ -1,7 +1,7 @@
 package jive;
 
 import jive.geom.Metric;
-import jive.geom.PaintDimension;
+import jive.geom.MetricDimension;
 import openfl.display.DisplayObject;
 import jive.geom.IntDimension;
 
@@ -70,7 +70,7 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
         super();
     }
 
-    override public function paint(size: PaintDimension): IntDimension {
+    override public function paint(size: MetricDimension): IntDimension {
         return if (null != templateInstance) templateInstance.paint(size) else super.paint(size);
     }
 }
