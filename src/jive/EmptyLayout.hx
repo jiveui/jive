@@ -16,16 +16,7 @@ class EmptyLayout extends Container {
     }
 
     override private function calcPaintDimension(size: MetricDimension): MetricDimension {
-        var newWidth: Metric = switch (_width) {
-            case none: size.width;
-            default: _width;
-        }
-        var newHeight: Metric = switch (_height) {
-            case none: size.height;
-            default: _height;
-        }
-
-        return new MetricDimension(newWidth, newHeight);
+        return new MetricDimension(_width, _height);
     }
 
     override public function paint(size: MetricDimension): IntDimension {

@@ -17,17 +17,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="haxelib|/Users/ngrebenshikov/repositories/jive-next/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../src" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="haxelib|C:/HaxeToolkit/haxe/lib/openfl/3,6,1">
         <CLASSES>
           <root url="file://C:/HaxeToolkit/haxe/lib/openfl/3,6,1" />
@@ -90,6 +79,17 @@
         <JAVADOC />
         <SOURCES>
           <root url="file://C:/HaxeToolkit/haxe/lib/hamcrest/2,0,1" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|C:/work/jive/src">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../src" />
         </SOURCES>
       </library>
     </orderEntry>
