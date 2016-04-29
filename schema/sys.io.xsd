@@ -7,6 +7,9 @@ xmlns:empty="empty"
 <xs:complexType name="ProcessSchemaTypeValue">
 <xs:all><xs:element ref="Process"/></xs:all></xs:complexType>
 
+<xs:complexType name="FileSchemaTypeValue">
+<xs:all><xs:element ref="File"/></xs:all></xs:complexType>
+
 <xs:complexType name="ProcessSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -22,6 +25,16 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="FileSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="Process" type="ProcessSchemaType"/>
+<xs:element name="File" type="FileSchemaType"/>
 </xs:schema>

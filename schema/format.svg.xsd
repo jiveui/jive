@@ -1,0 +1,314 @@
+<xs:schema targetNamespace="format.svg" xmlns="format.svg" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:format-gfx="format.gfx"
+xmlns:empty="empty"
+>
+<xs:import namespace="format.gfx" schemaLocation="format.gfx.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GradSchemaTypeValue">
+<xs:all><xs:element ref="Grad"/></xs:all></xs:complexType>
+
+<xs:complexType name="PathSegmentSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MoveSegment" />
+<xs:element ref="ArcSegment" />
+<xs:element ref="DrawSegment" />
+<xs:element ref="QuadraticSegment" />
+<xs:element ref="CubicSegment" />
+<xs:element ref="PathSegment" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SVGRendererSchemaTypeValue">
+<xs:all><xs:element ref="SVGRenderer"/></xs:all></xs:complexType>
+
+<xs:complexType name="GroupSchemaTypeValue">
+<xs:choice>
+<xs:element ref="SVGData" />
+<xs:element ref="Group" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SVGDataSchemaTypeValue">
+<xs:all><xs:element ref="SVGData"/></xs:all></xs:complexType>
+
+<xs:complexType name="DrawSegmentSchemaTypeValue">
+<xs:all><xs:element ref="DrawSegment"/></xs:all></xs:complexType>
+
+<xs:complexType name="QuadraticSegmentSchemaTypeValue">
+<xs:all><xs:element ref="QuadraticSegment"/></xs:all></xs:complexType>
+
+<xs:complexType name="PathSchemaTypeValue">
+<xs:all><xs:element ref="Path"/></xs:all></xs:complexType>
+
+<xs:complexType name="CubicSegmentSchemaTypeValue">
+<xs:all><xs:element ref="CubicSegment"/></xs:all></xs:complexType>
+
+<xs:complexType name="MoveSegmentSchemaTypeValue">
+<xs:all><xs:element ref="MoveSegment"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextSchemaTypeValue">
+<xs:all><xs:element ref="Text"/></xs:all></xs:complexType>
+
+<xs:complexType name="PathParserSchemaTypeValue">
+<xs:all><xs:element ref="PathParser"/></xs:all></xs:complexType>
+
+<xs:complexType name="RenderContextSchemaTypeValue">
+<xs:all><xs:element ref="RenderContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="ArcSegmentSchemaTypeValue">
+<xs:all><xs:element ref="ArcSegment"/></xs:all></xs:complexType>
+
+<xs:complexType name="GradSchemaType">
+<xs:complexContent>
+<xs:extension base="format-gfx:GradientSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gradMatrix" type="xs:string"/>
+<xs:element minOccurs="0" name="radius" type="xs:double"/>
+<xs:element minOccurs="0" name="x1" type="xs:double"/>
+<xs:element minOccurs="0" name="y1" type="xs:double"/>
+<xs:element minOccurs="0" name="x2" type="xs:double"/>
+<xs:element minOccurs="0" name="y2" type="xs:double"/>
+</xs:all>
+<xs:attribute name="gradMatrix" type="xs:string"/>
+<xs:attribute name="radius" type="xs:double"/>
+<xs:attribute name="x1" type="xs:double"/>
+<xs:attribute name="y1" type="xs:double"/>
+<xs:attribute name="x2" type="xs:double"/>
+<xs:attribute name="y2" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PathSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+</xs:all>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SVGRendererSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+</xs:all>
+<xs:attribute name="width" type="xs:double"/>
+<xs:attribute name="height" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GroupSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="children" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="children" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SVGDataSchemaType">
+<xs:complexContent>
+<xs:extension base="GroupSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="height" type="xs:double"/>
+<xs:element minOccurs="0" name="width" type="xs:double"/>
+</xs:all>
+<xs:attribute name="height" type="xs:double"/>
+<xs:attribute name="width" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DrawSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="PathSegmentSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="QuadraticSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="PathSegmentSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="cx" type="xs:double"/>
+<xs:element minOccurs="0" name="cy" type="xs:double"/>
+</xs:all>
+<xs:attribute name="cx" type="xs:double"/>
+<xs:attribute name="cy" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PathSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="matrix" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="font_size" type="xs:double"/>
+<xs:element minOccurs="0" name="fill" type="xs:string"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="fill_alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="stroke_alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="stroke_colour" type="xs:string"/>
+<xs:element minOccurs="0" name="stroke_width" type="xs:double"/>
+<xs:element minOccurs="0" name="stroke_caps" type="xs:string"/>
+<xs:element minOccurs="0" name="joint_style" type="xs:string"/>
+<xs:element minOccurs="0" name="miter_limit" type="xs:double"/>
+<xs:element minOccurs="0" name="segments" type="xs:string"/>
+</xs:all>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="font_size" type="xs:double"/>
+<xs:attribute name="fill" type="xs:string"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="fill_alpha" type="xs:double"/>
+<xs:attribute name="stroke_alpha" type="xs:double"/>
+<xs:attribute name="stroke_colour" type="xs:string"/>
+<xs:attribute name="stroke_width" type="xs:double"/>
+<xs:attribute name="stroke_caps" type="xs:string"/>
+<xs:attribute name="joint_style" type="xs:string"/>
+<xs:attribute name="miter_limit" type="xs:double"/>
+<xs:attribute name="segments" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CubicSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="PathSegmentSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="cx1" type="xs:double"/>
+<xs:element minOccurs="0" name="cy1" type="xs:double"/>
+<xs:element minOccurs="0" name="cx2" type="xs:double"/>
+<xs:element minOccurs="0" name="cy2" type="xs:double"/>
+</xs:all>
+<xs:attribute name="cx1" type="xs:double"/>
+<xs:attribute name="cy1" type="xs:double"/>
+<xs:attribute name="cx2" type="xs:double"/>
+<xs:attribute name="cy2" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MoveSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="PathSegmentSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="x" type="xs:double"/>
+<xs:element minOccurs="0" name="y" type="xs:double"/>
+<xs:element minOccurs="0" name="matrix" type="xs:string"/>
+<xs:element minOccurs="0" name="text" type="xs:string"/>
+<xs:element minOccurs="0" name="fill" type="xs:string"/>
+<xs:element minOccurs="0" name="fill_alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="stroke_alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="stroke_colour" type="xs:string"/>
+<xs:element minOccurs="0" name="stroke_width" type="xs:double"/>
+<xs:element minOccurs="0" name="font_family" type="xs:string"/>
+<xs:element minOccurs="0" name="font_size" type="xs:double"/>
+<xs:element minOccurs="0" name="kerning" type="xs:double"/>
+<xs:element minOccurs="0" name="letter_spacing" type="xs:double"/>
+<xs:element minOccurs="0" name="text_align" type="xs:string"/>
+</xs:all>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="x" type="xs:double"/>
+<xs:attribute name="y" type="xs:double"/>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="text" type="xs:string"/>
+<xs:attribute name="fill" type="xs:string"/>
+<xs:attribute name="fill_alpha" type="xs:double"/>
+<xs:attribute name="stroke_alpha" type="xs:double"/>
+<xs:attribute name="stroke_colour" type="xs:string"/>
+<xs:attribute name="stroke_width" type="xs:double"/>
+<xs:attribute name="font_family" type="xs:string"/>
+<xs:attribute name="font_size" type="xs:double"/>
+<xs:attribute name="kerning" type="xs:double"/>
+<xs:attribute name="letter_spacing" type="xs:double"/>
+<xs:attribute name="text_align" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PathParserSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RenderContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="matrix" type="xs:string"/>
+<xs:element minOccurs="0" name="rect" type="xs:string"/>
+<xs:element minOccurs="0" name="rectW" type="xs:double"/>
+<xs:element minOccurs="0" name="rectH" type="xs:double"/>
+<xs:element minOccurs="0" name="firstX" type="xs:double"/>
+<xs:element minOccurs="0" name="firstY" type="xs:double"/>
+<xs:element minOccurs="0" name="lastX" type="xs:double"/>
+<xs:element minOccurs="0" name="lastY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="rect" type="xs:string"/>
+<xs:attribute name="rectW" type="xs:double"/>
+<xs:attribute name="rectH" type="xs:double"/>
+<xs:attribute name="firstX" type="xs:double"/>
+<xs:attribute name="firstY" type="xs:double"/>
+<xs:attribute name="lastX" type="xs:double"/>
+<xs:attribute name="lastY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ArcSegmentSchemaType">
+<xs:complexContent>
+<xs:extension base="PathSegmentSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Grad" type="GradSchemaType"/>
+<xs:element name="PathSegment" type="PathSegmentSchemaType"/>
+<xs:element name="SVGRenderer" type="SVGRendererSchemaType"/>
+<xs:element name="Group" type="GroupSchemaType"/>
+<xs:element name="SVGData" type="SVGDataSchemaType"/>
+<xs:element name="DrawSegment" type="DrawSegmentSchemaType"/>
+<xs:element name="QuadraticSegment" type="QuadraticSegmentSchemaType"/>
+<xs:element name="Path" type="PathSchemaType"/>
+<xs:element name="CubicSegment" type="CubicSegmentSchemaType"/>
+<xs:element name="MoveSegment" type="MoveSegmentSchemaType"/>
+<xs:element name="Text" type="TextSchemaType"/>
+<xs:element name="PathParser" type="PathParserSchemaType"/>
+<xs:element name="RenderContext" type="RenderContextSchemaType"/>
+<xs:element name="ArcSegment" type="ArcSegmentSchemaType"/>
+</xs:schema>

@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="jive.themes" xmlns="jive.themes" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:jive="jive"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:complexType name="ThemeSchemaTypeValue">
 <xs:all><xs:element ref="Theme"/></xs:all></xs:complexType>
 
@@ -9,7 +11,9 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="foreground" type="jive:ColorSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="foreground" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
