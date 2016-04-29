@@ -6,6 +6,7 @@ import flash.display.DisplayObject;
 import jive.geom.IntDimension;
 import jive.geom.MetricDimension;
 
+@:children("jive.Component")
 class Container extends Component {
 
     private var childrenNeedRepaint: Bool;
