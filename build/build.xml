@@ -9,7 +9,7 @@
     <property name="localbuild.path" location="${project.root.path}/localbuild"/>
     <property name="github.deployment.path" location="${project.root.path}/../jive-pages"/>
 
-    <import file="${project.root.path}/../keys/jive.xml"/>
+    <!--<import file="${project.root.path}/../keys/jive.xml"/>-->
 
     <condition property="is.mac">
         <os family="mac"/>
