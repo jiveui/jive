@@ -60,16 +60,17 @@
         <!--</antcall>-->
     </target>
 
+    <!-- to test one test use ant test.oneTest -Dtest=SvgTest-->
     <target name="test.oneTest">
         <!--<condition property="browser.option" value="-browser ${browser}" else="">-->
                 <!--<isset property="browser"/>-->
         <!--</condition>-->
         <antcall target="haxe">
-            <param name="dir" value="${project.root.path}"/>
-            <param name="hxml" value="tests/gen.hxml"/>
+            <param name="dir" value="${project.root.path}/tests"/>
+            <param name="hxml" value="gen.hxml"/>
         </antcall>
         <antcall target="munit">
-            <param name="dir" value="${project.root.path}"/>
+            <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="gen"/>
             <param name="options" value="-filter ${test}"/>
         </antcall>

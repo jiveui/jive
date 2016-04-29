@@ -2,7 +2,7 @@ package jive;
 
 import jive.geom.Metric;
 import jive.geom.Metric;
-import jive.geom.PaintDimension;
+import jive.geom.MetricDimension;
 import openfl.Lib;
 import massive.munit.Assert;
 

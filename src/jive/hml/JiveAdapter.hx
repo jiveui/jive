@@ -55,34 +55,34 @@ class ComponentAdapter extends DisplayObjectAdapter {
 }
 
 class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
-	override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
-		var nodesToRemove = [];
-		for (n in node.nodes) {
-			if (n.cData != null && n.cData.indexOf('{Binding') == 0) {
-				nodesToRemove.push(n);
+    function processBinding(childNode: Node, node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+        var nodesToRemove = [];
+        var n = childNode;
+        if (n.cData != null && n.cData.indexOf('{Binding') == 0) {
+            nodesToRemove.push(n);
 
-				var binding: Binding = Binding.fromString(n.cData);
+            var binding: Binding = Binding.fromString(n.cData);
 
-				var valueSource = 'this.dataContext.' + binding.propertyName;
-				var propertyName = scope + "." + n.name.name;
+            var valueSource = 'this.dataContext.' + binding.propertyName;
+            var propertyName = scope + "." + n.name.name;
 
-                method.push('{');
+            method.push('{');
 
-				method.push('if (null != dataContext) { $propertyName = $valueSource; }');
+            method.push('if (null != dataContext) { $propertyName = $valueSource; }');
 
-				if (binding.mode == BindingMode.oneway || binding.mode == BindingMode.twoway) {
-					method.push('var programmaticalyChange = false;');
+            if (binding.mode == BindingMode.oneway || binding.mode == BindingMode.twoway) {
+                method.push('var programmaticalyChange = false;');
 
-					method.push('var sourcePropertyListener = function(_,_) {
+                method.push('var sourcePropertyListener = function(_,_) {
 						if (!programmaticalyChange) {
 							programmaticalyChange = true;
 							$propertyName = $valueSource;
 							programmaticalyChange = false;
 						}
 					};');
-					method.push('var bindSourceListener = function() { bindx.Bind.bind($valueSource, sourcePropertyListener); }');
-					method.push('if (null != dataContext) { bindSourceListener(); }');
-					method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
+                method.push('var bindSourceListener = function() { bindx.Bind.bind($valueSource, sourcePropertyListener); }');
+                method.push('if (null != dataContext) { bindSourceListener(); }');
+                method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
 							if (null != old) { bindx.Bind.unbind(old.${binding.propertyName}, sourcePropertyListener);}
 							if (null != this.dataContext) {
 								$propertyName = $valueSource;
@@ -91,25 +91,31 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 						});
 					');
 
-					if (binding.mode == BindingMode.twoway) {
-						method.push('var propertyListener = function(_,_) {
+                if (binding.mode == BindingMode.twoway) {
+                    method.push('var propertyListener = function(_,_) {
 							if (!programmaticalyChange && null != this.dataContext) {
 								programmaticalyChange = true;
 								$valueSource = $propertyName;
 								programmaticalyChange = false;
 							}
 						};');
-						method.push('bindx.Bind.bind($propertyName, propertyListener);');
-						method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
+                    method.push('bindx.Bind.bind($propertyName, propertyListener);');
+                    method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
 						 	if (null != this.dataContext) {
 								$valueSource = $propertyName;
 							}
 						});');
-					}
-				}
-
-                method.push('}');
+                }
             }
+
+            method.push('}');
+        }
+        return nodesToRemove;
+    }
+	override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+		var nodesToRemove = [];
+		for (n in node.nodes) {
+            nodesToRemove = nodesToRemove.concat(processBinding(n, node, scope, writer, method));
 		}
 		for (n in nodesToRemove) {
 			node.nodes.remove(n);
@@ -164,12 +170,15 @@ class SvgAdapter extends DisplayObjectAdapter {
     }
 }
 
-class SvgWithMetaWriter extends BaseNodeWithMetaWriter {
+class SvgWithMetaWriter extends ComponentWithMetaWriter {
     override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
 
         var nodesToRemove = [];
         for (n in node.nodes) {
 
+            nodesToRemove = nodesToRemove.concat(processBinding(n, node, scope, writer, method));
+
+            //Process SVG content
             if (n.name.name == 'content') {
                 nodesToRemove.push(n);
                 var propertyName = scope + ".content";

@@ -13,7 +13,6 @@ class Window extends Container {
     private function set_opened(v: Bool): Bool {
         if (_opened != v) {
             _opened = v;
-            trace(_opened);
             if (_opened) {
                 Jive.openWindow(this);
             } else {
