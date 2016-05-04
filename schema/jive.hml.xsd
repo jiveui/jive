@@ -1,0 +1,23 @@
+<xs:schema targetNamespace="jive.hml" xmlns="jive.hml" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="BindingSchemaTypeValue">
+<xs:all><xs:element ref="Binding"/></xs:all></xs:complexType>
+
+<xs:complexType name="BindingSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="propertyName" type="xs:string"/>
+<xs:element minOccurs="0" name="mode" type="xs:string"/>
+</xs:all>
+<xs:attribute name="propertyName" type="xs:string"/>
+<xs:attribute name="mode" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Binding" type="BindingSchemaType"/>
+</xs:schema>

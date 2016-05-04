@@ -1,0 +1,23 @@
+<xs:schema targetNamespace="format" xmlns="format" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:format-svg="format.svg"
+xmlns:empty="empty"
+>
+<xs:import namespace="format.svg" schemaLocation="format.svg.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="SVGSchemaTypeValue">
+<xs:all><xs:element ref="SVG"/></xs:all></xs:complexType>
+
+<xs:complexType name="SVGSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="data" type="format-svg:SVGDataSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="data" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="SVG" type="SVGSchemaType"/>
+</xs:schema>

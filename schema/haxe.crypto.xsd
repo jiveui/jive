@@ -2,11 +2,23 @@
 xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="Crc32SchemaTypeValue">
+<xs:all><xs:element ref="Crc32"/></xs:all></xs:complexType>
+
 <xs:complexType name="Md5SchemaTypeValue">
 <xs:all><xs:element ref="Md5"/></xs:all></xs:complexType>
 
 <xs:complexType name="BaseCodeSchemaTypeValue">
 <xs:all><xs:element ref="BaseCode"/></xs:all></xs:complexType>
+
+<xs:complexType name="Crc32SchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="Md5SchemaType">
 <xs:complexContent>
@@ -27,6 +39,7 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
+<xs:element name="Crc32" type="Crc32SchemaType"/>
 <xs:element name="Md5" type="Md5SchemaType"/>
 <xs:element name="BaseCode" type="BaseCodeSchemaType"/>
 </xs:schema>

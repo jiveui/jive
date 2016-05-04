@@ -5,7 +5,19 @@ xmlns:empty="empty"
 <xs:complexType name="TextFormatToolsSchemaTypeValue">
 <xs:all><xs:element ref="TextFormatTools"/></xs:all></xs:complexType>
 
+<xs:complexType name="TypeToolsSchemaTypeValue">
+<xs:all><xs:element ref="TypeTools"/></xs:all></xs:complexType>
+
 <xs:complexType name="TextFormatToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TypeToolsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -16,4 +28,5 @@ xmlns:empty="empty"
 
 
 <xs:element name="TextFormatTools" type="TextFormatToolsSchemaType"/>
+<xs:element name="TypeTools" type="TypeToolsSchemaType"/>
 </xs:schema>

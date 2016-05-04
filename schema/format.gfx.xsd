@@ -1,0 +1,164 @@
+<xs:schema targetNamespace="format.gfx" xmlns="format.gfx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:format-svg="format.svg"
+xmlns:empty="empty"
+>
+<xs:import namespace="format.svg" schemaLocation="format.svg.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="GfxTextFinderSchemaTypeValue">
+<xs:all><xs:element ref="GfxTextFinder"/></xs:all></xs:complexType>
+
+<xs:complexType name="GfxGraphicsSchemaTypeValue">
+<xs:all><xs:element ref="GfxGraphics"/></xs:all></xs:complexType>
+
+<xs:complexType name="GfxBytesSchemaTypeValue">
+<xs:all><xs:element ref="GfxBytes"/></xs:all></xs:complexType>
+
+<xs:complexType name="GfxSchemaTypeValue">
+<xs:choice>
+<xs:element ref="Gfx2Haxe" />
+<xs:element ref="GfxGraphics" />
+<xs:element ref="GfxBytes" />
+<xs:element ref="GfxExtent" />
+<xs:element ref="GfxTextFinder" />
+<xs:element ref="Gfx" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GradientSchemaTypeValue">
+<xs:choice>
+<xs:element ref="format-svg:Grad" />
+<xs:element ref="Gradient" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="GfxExtentSchemaTypeValue">
+<xs:all><xs:element ref="GfxExtent"/></xs:all></xs:complexType>
+
+<xs:complexType name="Gfx2HaxeSchemaTypeValue">
+<xs:all><xs:element ref="Gfx2Haxe"/></xs:all></xs:complexType>
+
+<xs:complexType name="LineStyleSchemaTypeValue">
+<xs:all><xs:element ref="LineStyle"/></xs:all></xs:complexType>
+
+<xs:complexType name="GfxTextFinderSchemaType">
+<xs:complexContent>
+<xs:extension base="GfxSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="text" type="format-svg:TextSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="text" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GfxGraphicsSchemaType">
+<xs:complexContent>
+<xs:extension base="GfxSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GfxBytesSchemaType">
+<xs:complexContent>
+<xs:extension base="GfxSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="buffer" type="xs:string"/>
+</xs:all>
+<xs:attribute name="buffer" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GfxSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GradientSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="colors" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="alphas" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="ratios" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="matrix" type="xs:string"/>
+<xs:element minOccurs="0" name="spread" type="xs:string"/>
+<xs:element minOccurs="0" name="interp" type="xs:string"/>
+<xs:element minOccurs="0" name="focus" type="xs:double"/>
+</xs:all>
+<xs:attribute name="type" type="xs:string"/>
+<xs:attribute name="colors" type="xs:string"/>
+<xs:attribute name="alphas" type="xs:string"/>
+<xs:attribute name="ratios" type="xs:string"/>
+<xs:attribute name="matrix" type="xs:string"/>
+<xs:attribute name="spread" type="xs:string"/>
+<xs:attribute name="interp" type="xs:string"/>
+<xs:attribute name="focus" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GfxExtentSchemaType">
+<xs:complexContent>
+<xs:extension base="GfxSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="extent" type="xs:string"/>
+</xs:all>
+<xs:attribute name="extent" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Gfx2HaxeSchemaType">
+<xs:complexContent>
+<xs:extension base="GfxSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="commands" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="commands" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="LineStyleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="thickness" type="xs:double"/>
+<xs:element minOccurs="0" name="color" type="xs:int"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+<xs:element minOccurs="0" name="pixelHinting" type="xs:boolean"/>
+<xs:element minOccurs="0" name="scaleMode" type="xs:string"/>
+<xs:element minOccurs="0" name="capsStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="jointStyle" type="xs:string"/>
+<xs:element minOccurs="0" name="miterLimit" type="xs:double"/>
+</xs:all>
+<xs:attribute name="thickness" type="xs:double"/>
+<xs:attribute name="color" type="xs:int"/>
+<xs:attribute name="alpha" type="xs:double"/>
+<xs:attribute name="pixelHinting" type="xs:boolean"/>
+<xs:attribute name="scaleMode" type="xs:string"/>
+<xs:attribute name="capsStyle" type="xs:string"/>
+<xs:attribute name="jointStyle" type="xs:string"/>
+<xs:attribute name="miterLimit" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GfxTextFinder" type="GfxTextFinderSchemaType"/>
+<xs:element name="GfxGraphics" type="GfxGraphicsSchemaType"/>
+<xs:element name="GfxBytes" type="GfxBytesSchemaType"/>
+<xs:element name="Gfx" type="GfxSchemaType"/>
+<xs:element name="Gradient" type="GradientSchemaType"/>
+<xs:element name="GfxExtent" type="GfxExtentSchemaType"/>
+<xs:element name="Gfx2Haxe" type="Gfx2HaxeSchemaType"/>
+<xs:element name="LineStyle" type="LineStyleSchemaType"/>
+</xs:schema>

@@ -13,19 +13,39 @@ xmlns:empty="empty"
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
+<xs:complexType name="SvgSchemaTypeValue">
+<xs:all><xs:element ref="Svg"/></xs:all></xs:complexType>
+
 <xs:complexType name="ComponentSchemaTypeValue">
 <xs:choice>
+<xs:element ref="BaseLayout" />
+<xs:element ref="Svg" />
 <xs:element ref="Container" />
+<xs:element ref="Window" />
 <xs:element ref="TemplatedComponent" />
 <xs:element ref="Component" />
 </xs:choice>
 </xs:complexType>
 
+<xs:complexType name="ColorSchemaTypeValue">
+<xs:all><xs:element ref="Color"/></xs:all></xs:complexType>
+
 <xs:complexType name="TemplatedComponentSchemaTypeValue">
 <xs:all><xs:element ref="TemplatedComponent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ContainerSchemaTypeValue">
-<xs:all><xs:element ref="Container"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="BaseLayout" />
+<xs:element ref="Window" />
+<xs:element ref="Container" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="JiveSchemaTypeValue">
+<xs:all><xs:element ref="Jive"/></xs:all></xs:complexType>
+
+<xs:complexType name="WindowSchemaTypeValue">
+<xs:all><xs:element ref="Window"/></xs:all></xs:complexType>
 
 <xs:complexType name="CommandSchemaTypeValue">
 <xs:choice>
@@ -38,6 +58,9 @@ xmlns:empty="empty"
 
 <xs:complexType name="CollectionSchemaTypeValue">
 <xs:all><xs:element ref="Collection"/></xs:all></xs:complexType>
+
+<xs:complexType name="BaseLayoutSchemaTypeValue">
+<xs:all><xs:element ref="BaseLayout"/></xs:all></xs:complexType>
 
 <xs:complexType name="BaseCommandSchemaTypeValue">
 <xs:all><xs:element ref="BaseCommand"/></xs:all></xs:complexType>
@@ -53,6 +76,19 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="SvgSchemaType">
+<xs:complexContent>
+<xs:extension base="ComponentSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="generateContent" type="xs:string"/>
+<xs:element minOccurs="0" name="content" type="xs:string"/>
+</xs:all>
+<xs:attribute name="generateContent" type="xs:string"/>
+<xs:attribute name="content" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="ComponentSchemaType">
 <xs:complexContent>
 <xs:extension base="openfl-events:EventDispatcherSchemaType">
@@ -63,6 +99,8 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="height" type="xs:string"/>
 <xs:element minOccurs="0" name="displayObject" type="openfl-display:DisplayObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="parent" type="ContainerSchemaTypeValue"/>
+<xs:element minOccurs="0" name="absoluteWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="absoluteHeight" type="xs:int"/>
 </xs:all>
 <xs:attribute name="x" type="xs:string"/>
 <xs:attribute name="y" type="xs:string"/>
@@ -70,6 +108,21 @@ xmlns:empty="empty"
 <xs:attribute name="height" type="xs:string"/>
 <xs:attribute name="displayObject" type="xs:string"/>
 <xs:attribute name="parent" type="xs:string"/>
+<xs:attribute name="absoluteWidth" type="xs:int"/>
+<xs:attribute name="absoluteHeight" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ColorSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="rgb" type="xs:int"/>
+<xs:element minOccurs="0" name="alpha" type="xs:double"/>
+</xs:all>
+<xs:attribute name="rgb" type="xs:int"/>
+<xs:attribute name="alpha" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -78,11 +131,13 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="templateInstance" type="xs:string"/>
 <xs:element minOccurs="0" name="template" type="xs:string"/>
-<xs:element minOccurs="0" name="viewModel" type="ViewModelSchemaTypeValue"/>
+<xs:element minOccurs="0" name="templateModel" type="xs:string"/>
 </xs:all>
+<xs:attribute name="templateInstance" type="xs:string"/>
 <xs:attribute name="template" type="xs:string"/>
-<xs:attribute name="viewModel" type="xs:string"/>
+<xs:attribute name="templateModel" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -91,9 +146,37 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="BaseLayout" />
+<xs:element minOccurs="0" ref="Svg" />
+<xs:element minOccurs="0" ref="Container" />
+<xs:element minOccurs="0" ref="Window" />
+<xs:element minOccurs="0" ref="TemplatedComponent" />
+<xs:element minOccurs="0" ref="Component" />
+<xs:element minOccurs="0" name="displayObjectContainer" type="xs:string"/>
 <xs:element minOccurs="0" name="children" type="CollectionSchemaTypeValue"/>
 </xs:all>
+<xs:attribute name="displayObjectContainer" type="xs:string"/>
 <xs:attribute name="children" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="JiveSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WindowSchemaType">
+<xs:complexContent>
+<xs:extension base="ContainerSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="opened" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="opened" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -129,6 +212,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="BaseLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="ContainerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -140,11 +232,16 @@ xmlns:empty="empty"
 
 
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
+<xs:element name="Svg" type="SvgSchemaType"/>
 <xs:element name="Component" type="ComponentSchemaType"/>
+<xs:element name="Color" type="ColorSchemaType"/>
 <xs:element name="TemplatedComponent" type="TemplatedComponentSchemaType"/>
 <xs:element name="Container" type="ContainerSchemaType"/>
+<xs:element name="Jive" type="JiveSchemaType"/>
+<xs:element name="Window" type="WindowSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
 <xs:element name="ViewModel" type="ViewModelSchemaType"/>
 <xs:element name="Collection" type="CollectionSchemaType"/>
+<xs:element name="BaseLayout" type="BaseLayoutSchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
 </xs:schema>

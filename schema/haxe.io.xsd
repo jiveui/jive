@@ -11,9 +11,13 @@ xmlns:lime-utils="lime.utils"
 <xs:complexType name="PathSchemaTypeValue">
 <xs:all><xs:element ref="Path"/></xs:all></xs:complexType>
 
+<xs:complexType name="BytesOutputSchemaTypeValue">
+<xs:all><xs:element ref="BytesOutput"/></xs:all></xs:complexType>
+
 <xs:complexType name="InputSchemaTypeValue">
 <xs:choice>
 <xs:element ref="sys-io-_Process:Stdout" />
+<xs:element ref="BytesInput" />
 <xs:element ref="Input" />
 </xs:choice>
 </xs:complexType>
@@ -23,6 +27,7 @@ xmlns:lime-utils="lime.utils"
 
 <xs:complexType name="OutputSchemaTypeValue">
 <xs:choice>
+<xs:element ref="BytesOutput" />
 <xs:element ref="sys-io-_Process:Stdin" />
 <xs:element ref="Output" />
 </xs:choice>
@@ -42,6 +47,9 @@ xmlns:lime-utils="lime.utils"
 <xs:complexType name="BytesBufferSchemaTypeValue">
 <xs:all><xs:element ref="BytesBuffer"/></xs:all></xs:complexType>
 
+<xs:complexType name="BytesInputSchemaTypeValue">
+<xs:all><xs:element ref="BytesInput"/></xs:all></xs:complexType>
+
 <xs:complexType name="PathSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -59,11 +67,24 @@ xmlns:lime-utils="lime.utils"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="BytesOutputSchemaType">
+<xs:complexContent>
+<xs:extension base="OutputSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="InputSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bigEndian" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="bigEndian" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -81,7 +102,9 @@ xmlns:lime-utils="lime.utils"
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bigEndian" type="xs:boolean"/>
 </xs:all>
+<xs:attribute name="bigEndian" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -117,12 +140,27 @@ xmlns:lime-utils="lime.utils"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="BytesInputSchemaType">
+<xs:complexContent>
+<xs:extension base="InputSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="position" type="xs:int"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+</xs:all>
+<xs:attribute name="position" type="xs:int"/>
+<xs:attribute name="length" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 
 <xs:element name="Path" type="PathSchemaType"/>
+<xs:element name="BytesOutput" type="BytesOutputSchemaType"/>
 <xs:element name="Input" type="InputSchemaType"/>
 <xs:element name="Eof" type="EofSchemaType"/>
 <xs:element name="Output" type="OutputSchemaType"/>
 <xs:element name="Bytes" type="BytesSchemaType"/>
 <xs:element name="Unsigned_char__" type="Unsigned_char__SchemaType"/>
 <xs:element name="BytesBuffer" type="BytesBufferSchemaType"/>
+<xs:element name="BytesInput" type="BytesInputSchemaType"/>
 </xs:schema>

@@ -1,0 +1,32 @@
+<xs:schema targetNamespace="format.tools" xmlns="format.tools" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="InflateSchemaTypeValue">
+<xs:all><xs:element ref="Inflate"/></xs:all></xs:complexType>
+
+<xs:complexType name="DeflateSchemaTypeValue">
+<xs:all><xs:element ref="Deflate"/></xs:all></xs:complexType>
+
+<xs:complexType name="InflateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="DeflateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Inflate" type="InflateSchemaType"/>
+<xs:element name="Deflate" type="DeflateSchemaType"/>
+</xs:schema>

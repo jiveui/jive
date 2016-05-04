@@ -1,0 +1,47 @@
+<xs:schema targetNamespace="format.png" xmlns="format.png" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:empty="empty"
+>
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ToolsSchemaTypeValue">
+<xs:all><xs:element ref="Tools"/></xs:all></xs:complexType>
+
+<xs:complexType name="ReaderSchemaTypeValue">
+<xs:all><xs:element ref="Reader"/></xs:all></xs:complexType>
+
+<xs:complexType name="WriterSchemaTypeValue">
+<xs:all><xs:element ref="Writer"/></xs:all></xs:complexType>
+
+<xs:complexType name="ToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ReaderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="checkCRC" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="checkCRC" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="WriterSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Tools" type="ToolsSchemaType"/>
+<xs:element name="Reader" type="ReaderSchemaType"/>
+<xs:element name="Writer" type="WriterSchemaType"/>
+</xs:schema>

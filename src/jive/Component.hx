@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.MetricInsets;
 import openfl.geom.Matrix;
 import jive.geom.IntPoint;
 import openfl.geom.Rectangle;
@@ -59,6 +60,8 @@ class Component extends EventDispatcher implements IBindable {
         return v;
     }
 
+    public var margin: MetricInsets;
+
     public var dimension(get, never): IntDimension;
     private function get_dimension(): IntDimension {
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
@@ -71,18 +74,7 @@ class Component extends EventDispatcher implements IBindable {
     }
     private function set_rotationAngle(v: Float): Float {
         _rotationAngle = v;
-        if (rotationPivot == null) {
-            displayObject.rotation = v;
-        } else {
-            var matrix:Matrix = new Matrix();
-            matrix.translate(-rotationPivot.x, -rotationPivot.y);
-            matrix.rotate((rotationAngle / 180) * Math.PI);
-            //TODO: move to the paint process because the issues can be found when the parent size is changed
-            matrix.translate(
-                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
-                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
-            displayObject.transform.matrix = matrix;
-        }
+        repaint();
         return v;
     }
 
@@ -91,7 +83,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_rotationPivot(): IntPoint { return _rotationPivot; }
     private function set_rotationPivot(v: IntPoint): IntPoint {
         _rotationPivot = v;
-        rotationAngle = rotationAngle;
+        repaint();
         return v;
     }
 
@@ -161,6 +153,7 @@ class Component extends EventDispatcher implements IBindable {
         y = Metric.absolute(0);
         width = Metric.none;
         height = Metric.none;
+        margin = new MetricInsets();
     }
 
     private function createDisplayObject(): DisplayObject {
@@ -180,10 +173,25 @@ class Component extends EventDispatcher implements IBindable {
             displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
         }
 
-        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0);
-        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0);
+        var insets = margin.toInsets(this);
 
-        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
+        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + insets.left;
+        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + insets.top;
+
+        if (rotationPivot == null) {
+            displayObject.rotation = rotationAngle;
+        } else {
+            var matrix:Matrix = new Matrix();
+            matrix.translate(-rotationPivot.x, -rotationPivot.y);
+            matrix.rotate((rotationAngle / 180) * Math.PI);
+            matrix.translate(
+                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
+                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
+            displayObject.transform.matrix = matrix;
+        }
+
+
+        return new IntDimension(Std.int(displayObject.width + insets.getMarginWidth()), Std.int(displayObject.height + insets.getMarginHeight()));
     }
 
     public function repaint() {

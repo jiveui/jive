@@ -4,14 +4,43 @@ xmlns:jive="jive"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:complexType name="SignalToolsSchemaTypeValue">
+<xs:all><xs:element ref="SignalTools"/></xs:all></xs:complexType>
+
 <xs:complexType name="IBindableSchemaTypeValue">
 <xs:choice>
 <xs:element ref="jive:Component" />
 <xs:element ref="jive:DataContextControllable" />
 <xs:element ref="jive:ViewModel" />
+<xs:element ref="jive:BaseLayout" />
+<xs:element ref="jive:Svg" />
 <xs:element ref="jive:Container" />
+<xs:element ref="jive:Window" />
 <xs:element ref="jive:TemplatedComponent" />
 </xs:choice>
+</xs:complexType>
+
+<xs:complexType name="SignalSchemaTypeValue">
+<xs:choice>
+<xs:element ref="MethodSignal" />
+<xs:element ref="FieldSignal" />
+<xs:element ref="Signal" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="FieldSignalSchemaTypeValue">
+<xs:all><xs:element ref="FieldSignal"/></xs:all></xs:complexType>
+
+<xs:complexType name="MethodSignalSchemaTypeValue">
+<xs:all><xs:element ref="MethodSignal"/></xs:all></xs:complexType>
+
+<xs:complexType name="SignalToolsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
 </xs:complexType>
 
 <xs:complexType name="IBindableSchemaType">
@@ -23,6 +52,39 @@ xmlns:jive="jive"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="SignalSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="removeAll" type="xs:string"/>
+</xs:all>
+<xs:attribute name="removeAll" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
+<xs:complexType name="FieldSignalSchemaType">
+<xs:complexContent>
+<xs:extension base="SignalSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MethodSignalSchemaType">
+<xs:complexContent>
+<xs:extension base="SignalSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="SignalTools" type="SignalToolsSchemaType"/>
 <xs:element name="IBindable" type="IBindableSchemaType"/>
+<xs:element name="Signal" type="SignalSchemaType"/>
+<xs:element name="FieldSignal" type="FieldSignalSchemaType"/>
+<xs:element name="MethodSignal" type="MethodSignalSchemaType"/>
 </xs:schema>

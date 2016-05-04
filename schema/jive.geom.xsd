@@ -2,8 +2,55 @@
 xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="MetricHelperSchemaTypeValue">
+<xs:all><xs:element ref="MetricHelper"/></xs:all></xs:complexType>
+
+<xs:complexType name="IntDimensionSchemaTypeValue">
+<xs:all><xs:element ref="IntDimension"/></xs:all></xs:complexType>
+
+<xs:complexType name="IntPointSchemaTypeValue">
+<xs:all><xs:element ref="IntPoint"/></xs:all></xs:complexType>
+
 <xs:complexType name="MetricPointSchemaTypeValue">
 <xs:all><xs:element ref="MetricPoint"/></xs:all></xs:complexType>
+
+<xs:complexType name="IntRectangleSchemaTypeValue">
+<xs:all><xs:element ref="IntRectangle"/></xs:all></xs:complexType>
+
+<xs:complexType name="MetricHelperSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntDimensionSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+</xs:all>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IntPointSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+</xs:all>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="MetricPointSchemaType">
 <xs:complexContent>
@@ -18,6 +65,27 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="IntRectangleSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="x" type="xs:int"/>
+<xs:element minOccurs="0" name="y" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+</xs:all>
+<xs:attribute name="x" type="xs:int"/>
+<xs:attribute name="y" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+<xs:attribute name="height" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
+
+<xs:element name="MetricHelper" type="MetricHelperSchemaType"/>
+<xs:element name="IntDimension" type="IntDimensionSchemaType"/>
+<xs:element name="IntPoint" type="IntPointSchemaType"/>
 <xs:element name="MetricPoint" type="MetricPointSchemaType"/>
+<xs:element name="IntRectangle" type="IntRectangleSchemaType"/>
 </xs:schema>
