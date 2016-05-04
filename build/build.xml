@@ -60,7 +60,7 @@
         <!--</antcall>-->
     </target>
 
-    <!-- to test one test use ant test.oneTest -Dtest=SvgTest-->
+    <!-- to test one test use ant test.oneTest -Dtest=WindowTest-->
     <target name="test.oneTest">
         <!--<condition property="browser.option" value="-browser ${browser}" else="">-->
                 <!--<isset property="browser"/>-->

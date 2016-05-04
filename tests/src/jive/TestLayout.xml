@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window
+        xmlns="jive"
+        xmlns:haxe="http://haxe.org/"
+        x="Metric.absolute(0)"
+        y="Metric.absolute(0)"
+        width="Metric.absolute(Std.int(Lib.current.stage.stageWidth/2))"
+        height="Metric.absolute(Std.int(Lib.current.stage.stageHeight/2))"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
+        <EmptyLayout>
+            <Svg width="Metric.percent(30)" height="Metric.percent(30)">
+                    <content>
+                            <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+            </Svg>
+            <Svg width="Metric.percent(25)" height="Metric.percent(25)">
+                <content>
+                    <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                </content>
+            </Svg>
+            <Svg width="Metric.percent(20)" height="Metric.percent(20)">
+                <content>
+                    <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#0000ff"/>
+                </content>
+            </Svg>
+        </EmptyLayout>
+</Window>
