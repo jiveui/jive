@@ -10,6 +10,7 @@ import hml.xml.adapters.base.MergedAdapter;
 
 import hml.base.MatchLevel;
 import hml.xml.Data;
+import hml.xml.Data.XMLData;
 
 import hml.xml.adapters.FlashAdapter;
 import hml.xml.adapters.base.BaseMetaAdapter;

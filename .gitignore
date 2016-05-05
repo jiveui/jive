@@ -4,6 +4,7 @@ docs/
 tests/bin/
 tests/report/
 tests/gen/
+tests/out/
 localbuild/
 src/assets/fonts/*.eot
 src/assets/fonts/*.svg
