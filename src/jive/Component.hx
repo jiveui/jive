@@ -130,7 +130,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteWidth():Int {
         return switch (_width) {
             case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(parent.absoluteWidth * v / 100) : 0;
+            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteWidth * v / 100)) : 0;
             case virtual(v) : 0; // TODO virtual pixels
             case none: 0;
         }
@@ -141,7 +141,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteHeight():Int {
         return switch (_height) {
             case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(parent.absoluteHeight * v / 100) : 0;
+            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteHeight * v / 100)) : 0;
             case virtual(v) : 0; // TODO virtual pixels
             case none: 0;
         }
@@ -152,7 +152,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteX():Int {
         return switch (_x) {
             case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(parent.absoluteX * v / 100) : 0;
+            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteWidth * v / 100)) : 0;
             case virtual(v) : 0; // TODO virtual pixels
             case none: 0;
         }
@@ -163,7 +163,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_absoluteY():Int {
         return switch (_y) {
             case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(parent.absoluteY * v / 100) : 0;
+            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteHeight * v / 100)) : 0;
             case virtual(v) : 0; // TODO virtual pixels
             case none: 0;
         }

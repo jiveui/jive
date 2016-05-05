@@ -11,6 +11,8 @@
     <source path="src" />
     <source path="bin/gen" />
 
+    <set name="HXCPP_DEBUGGER"/>
+
     <!--<set name="html5-backend" value="openfl-snapsvg" />-->
 
     <haxelib name="openfl" />
