@@ -4,12 +4,11 @@ import openfl.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import jive.geom.Metric;
 import jive.geom.IntDimension;
-import jive.geom.IntDimension;
 import jive.geom.MetricDimension;
 
 class EmptyLayout extends Container {
 
-    private var needsLayout: Bool;
+    private var needsLayout:Bool;
 
     public function new() {
         super();
@@ -17,7 +16,7 @@ class EmptyLayout extends Container {
         needsLayout = false;
     }
 
-    override private function get_displayObjectContainer(): Sprite {
+    override private function get_displayObjectContainer():Sprite {
         if (null == displayObjectContainer && null != parent) {
             displayObjectContainer = parent.displayObjectContainer;
             displayObject = displayObjectContainer;
@@ -25,7 +24,7 @@ class EmptyLayout extends Container {
         return displayObjectContainer;
     }
 
-    override private function createDisplayObjectContainer(): Sprite {
+    override private function createDisplayObjectContainer():Sprite {
         return null;
     }
 
@@ -50,8 +49,8 @@ class EmptyLayout extends Container {
         relayout();
     }
 
-    override private function set_parent(c: Container): Container {
-        var needRebase: Bool =  parent != c;
+    override private function set_parent(c:Container):Container {
+        var needRebase:Bool = parent != c;
         parent = c;
         if (needRebase)
             rebase();
@@ -59,7 +58,7 @@ class EmptyLayout extends Container {
         return parent;
     }
 
-    override public function append(child: Component) {
+    override public function append(child:Component) {
         children.add(child);
         child.parent = this;
 
@@ -69,7 +68,7 @@ class EmptyLayout extends Container {
         }
     }
 
-    override public function insert(index: Int, child: Component) {
+    override public function insert(index:Int, child:Component) {
         children.add(child, index);
         child.parent = this;
 
@@ -79,7 +78,7 @@ class EmptyLayout extends Container {
         }
     }
 
-    override public function remove(child: Component) {
+    override public function remove(child:Component) {
         if (displayObjectContainer != null) {
             displayObjectContainer.removeChild(child.displayObject);
             repaint();
@@ -89,13 +88,13 @@ class EmptyLayout extends Container {
         child.parent = null;
     }
 
-    override private function calcPaintDimension(size: MetricDimension): MetricDimension {
+    override private function calcPaintDimension(size:MetricDimension):MetricDimension {
         return new MetricDimension(_width, _height);
     }
 
-    override public function paint(size: MetricDimension): IntDimension {
+    override public function paint(size:MetricDimension):IntDimension {
         for (child in children) {
-            var childSize: IntDimension = child.dimension;
+            var childSize:IntDimension = child.dimension;
             if (!child.paint(calcPaintDimension(size)).equals(childSize)) {
                 needsLayout = true;
             }

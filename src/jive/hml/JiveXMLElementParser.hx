@@ -1,8 +1,6 @@
 package jive.hml;
 
 #if macro
-import haxe.macro.Context;
-import haxe.macro.Context;
 import hml.xml.reader.IXMLParser;
 import com.tenderowls.xml176.Xml176Parser.Xml176Document;
 import hml.xml.Data;
@@ -12,14 +10,14 @@ using hml.base.MatchLevel;
 using hml.xml.Data;
 using StringTools;
 
-class JiveXMLElementParser extends DefaultXMLElementParser{
+class JiveXMLElementParser extends DefaultXMLElementParser {
     public function new() {
         super();
     }
 
     override function parseData(res:XMLData, xmlNode:Xml176Document, parent:XMLData, parser:IXMLParser<XMLData>) {
         var node = xmlNode.document;
-        if (parent.name.name == "Svg" && node.nodeName == "content" ) {
+        if (parent.name.name == "Svg" && node.nodeName == "content") {
             res.name = node.nodeName.toXMLQName();
             res.nodePos = posToXMLDataPos(xmlNode, xmlNode.getNodePosition(node));
             res.parent = parent;

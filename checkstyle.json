@@ -104,7 +104,7 @@
         },
         {
             "props": {
-                "character": "tab"
+                "character": "space"
             },
             "type": "IndentationCharacter"
         },

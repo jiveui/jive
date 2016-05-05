@@ -7,17 +7,17 @@ import openfl.events.Event;
 
 class Jive {
 
-    private static var windows: Array<Window> = [];
-    private static var started: Bool;
+    private static var windows:Array<Window> = [];
+    private static var started:Bool;
 
-    public static function openWindow(w: Window) {
+    public static function openWindow(w:Window) {
         if (windows.indexOf(w) < 0) {
             Lib.current.addChild(w.displayObject);
             windows.push(w);
         }
     }
 
-    public static function closeWindow(w: Window) {
+    public static function closeWindow(w:Window) {
         if (windows.indexOf(w) >= 0) {
             Lib.current.removeChild(w.displayObject);
             windows.remove(w);

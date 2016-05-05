@@ -1,9 +1,5 @@
 package jive;
 
-import jive.geom.Metric;
-import jive.geom.IntDimension;
-import jive.geom.MetricDimension;
-
 class Flow extends EmptyLayout {
 
     public function new() {
@@ -13,12 +9,12 @@ class Flow extends EmptyLayout {
     override private function layout() {
         if (needsLayout) {
             needsLayout = false;
-            var x: Float = 0;
-            var y: Float = 0;
+            var x:Float = 0;
+            var y:Float = 0;
             for (child in children) {
                 child.displayObject.x = x;
                 child.displayObject.y = y;
-                x+=child.absoluteWidth;
+                x += child.absoluteWidth;
                 //y+=child.absoluteHeight;
             }
         }

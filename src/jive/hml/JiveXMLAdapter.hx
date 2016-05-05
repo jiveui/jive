@@ -6,12 +6,11 @@ import hml.xml.reader.DefaultXMLDocumentParser;
 import hml.xml.reader.IXMLParser.IXMLNodeParser;
 import hml.xml.typeResolver.IHaxeTypeResolver;
 import hml.xml.writer.IHaxeWriter.IHaxeNodeWriter;
-import hml.xml.Data;
 import hml.xml.typeResolver.IHaxeTypeResolver.IXMLDataNodeParser;
 import hml.xml.typeResolver.DefaultXMLDataRootParser;
 import hml.xml.adapters.DefaultXMLAdapter;
 
-class JiveXMLAdapter extends DefaultXMLAdapter{
+class JiveXMLAdapter extends DefaultXMLAdapter {
     public function new() { super(); }
 
     public override function getXmlNodeParsers():Array<IXMLNodeParser<XMLData>> {

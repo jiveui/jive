@@ -8,13 +8,14 @@ import jive.events.CollectionEvent;
 * collection class with events support
 **/
 class Collection<T> extends EventDispatcher {
-    private var elements: Array<T>;
+    private var elements:Array<T>;
 
     /**
     * collection elements count
     **/
-    public var length(get, never): Int;
-    private function get_length(): Int {
+    public var length(get, never):Int;
+
+    private function get_length():Int {
         return elements.length;
     }
 
@@ -28,7 +29,8 @@ class Collection<T> extends EventDispatcher {
     * @param element    element to add
     * @param index      position to add. If 'index<0' element would be added to the end
     **/
-    public function add(element: T, index: Int = -1): Void {
+
+    public function add(element:T, index:Int = -1):Void {
         if (index < 0)
             elements.push(element);
         else
@@ -41,8 +43,9 @@ class Collection<T> extends EventDispatcher {
     * get element at index
     * @param index      position of element, if there is no element returns null (or should throw exception)
     **/
-    public function get(index: Int): T {
-        if (index >= 0 && index < elements.length)  {
+
+    public function get(index:Int):T {
+        if (index >= 0 && index < elements.length) {
             return elements[index];
         }
         return null;
@@ -52,7 +55,8 @@ class Collection<T> extends EventDispatcher {
     * remove element from collection
     * @param element    element to remove. If it is 'null' all elements would be removed.
     **/
-    public function remove(element: T = null): Void {
+
+    public function remove(element:T = null):Void {
         if (element != null)
             elements.remove(element);
         else
@@ -62,7 +66,7 @@ class Collection<T> extends EventDispatcher {
     }
 
     @:dox(hide)
-    public function iterator() : Iterator<T> {
+    public function iterator():Iterator<T> {
         return elements.iterator();
     }
 }

@@ -3,12 +3,11 @@ package jive.hml;
 #if macro
 import haxe.macro.Context;
 import hml.xml.typeResolver.IHaxeTypeResolver;
-import hml.xml.Data;
 
 using jive.tools.TypeTools;
 
 class JiveTypeResolver implements IHaxeTypeResolver<Node, Type> {
-    static private var imports: String = "import openfl.Lib; import jive.*; import jive.geom.*; using jive.geom.MetricHelper;";
+    static private var imports:String = "import openfl.Lib; import jive.*; import jive.geom.*; using jive.geom.MetricHelper;";
 
 
     public var types:Map<String, Type>;
@@ -21,7 +20,7 @@ class JiveTypeResolver implements IHaxeTypeResolver<Node, Type> {
             p = p.parent;
         }
         if (p != null) {
-            var t: hml.xml.Type = p.as(hml.xml.Type);
+            var t:hml.xml.Type = p.as(hml.xml.Type);
             if (null == t.script || t.script.indexOf(imports) < 0) {
                 t.script = imports + "\n" + (if (null != t.script) t.script else "");
             }
@@ -30,7 +29,7 @@ class JiveTypeResolver implements IHaxeTypeResolver<Node, Type> {
     }
 
     public function getFieldNativeType(node:Node, qName:XMLQName):Null<haxe.macro.Type> {
-        return if ("dataContext" == qName.name)  Context.getType("Dynamic") else null;
+        return if ("dataContext" == qName.name) Context.getType("Dynamic") else null;
     }
 }
 #end

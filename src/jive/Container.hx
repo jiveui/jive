@@ -9,10 +9,11 @@ import jive.geom.MetricDimension;
 @:children("jive.Component")
 class Container extends Component {
 
-    private var childrenNeedRepaint: Bool;
+    private var childrenNeedRepaint:Bool;
 
-    public var displayObjectContainer(get, null): Sprite;
-    private function get_displayObjectContainer(): Sprite {
+    public var displayObjectContainer(get, null):Sprite;
+
+    private function get_displayObjectContainer():Sprite {
         if (null == displayObjectContainer) {
             displayObjectContainer = createDisplayObjectContainer();
             displayObject = displayObjectContainer;
@@ -20,36 +21,36 @@ class Container extends Component {
         return displayObjectContainer;
     }
 
-    private function createDisplayObjectContainer(): Sprite {
+    private function createDisplayObjectContainer():Sprite {
         return new Sprite();
     }
 
-    override private function createDisplayObject(): DisplayObject {
+    override private function createDisplayObject():DisplayObject {
         return displayObjectContainer;
     }
 
-    public var children: Collection<Component>;
+    public var children:Collection<Component>;
 
     public function new() {
         super();
         children = new Collection();
     }
 
-    public function append(child: Component) {
+    public function append(child:Component) {
         children.add(child);
         child.parent = this;
         displayObjectContainer.addChild(child.displayObject);
         child.repaint();
     }
 
-    public function insert(index: Int, child: Component) {
+    public function insert(index:Int, child:Component) {
         children.add(child, index);
         child.parent = this;
         displayObjectContainer.addChildAt(child.displayObject, index);
         child.repaint();
     }
 
-    public function remove(child: Component) {
+    public function remove(child:Component) {
         children.remove(child);
         displayObjectContainer.removeChild(child.displayObject);
         child.parent = null;
@@ -62,7 +63,7 @@ class Container extends Component {
         }
     }
 
-    override public function paint(size: MetricDimension): IntDimension {
+    override public function paint(size:MetricDimension):IntDimension {
         super.paint(size);
 
         if (childrenNeedRepaint) {
@@ -75,7 +76,7 @@ class Container extends Component {
         return new IntDimension(Std.int(displayObjectContainer.width), Std.int(displayObjectContainer.height));
     }
 
-    private function calcPaintDimension(size: MetricDimension): MetricDimension {
+    private function calcPaintDimension(size:MetricDimension):MetricDimension {
         return new MetricDimension(_width, _height);
     }
 

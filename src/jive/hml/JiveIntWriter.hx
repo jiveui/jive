@@ -3,7 +3,6 @@ package jive.hml;
 #if macro
 import hml.xml.writer.DefaultStringWriter;
 import hml.base.MatchLevel;
-import hml.xml.Data;
 
 class JiveIntWriter extends DefaultStringWriter {
     override public function match(node:Node):MatchLevel {

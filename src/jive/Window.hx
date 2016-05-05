@@ -7,10 +7,12 @@ class Window extends Container {
         super();
     }
 
-    public var opened(get, set): Bool;
-    private var _opened: Bool;
-    private function get_opened(): Bool { return _opened; }
-    private function set_opened(v: Bool): Bool {
+    public var opened(get, set):Bool;
+    private var _opened:Bool;
+
+    private function get_opened():Bool { return _opened; }
+
+    private function set_opened(v:Bool):Bool {
         if (_opened != v) {
             _opened = v;
             if (_opened) {

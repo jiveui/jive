@@ -3,14 +3,14 @@ package jive.hml;
 using StringTools;
 
 class Binding {
-    public var propertyName: String;
-    public var mode: BindingMode = BindingMode.oneway;
+    public var propertyName:String;
+    public var mode:BindingMode = BindingMode.oneway;
 
     public function new() {}
 
-    public static function fromString(s: String): Binding {
+    public static function fromString(s:String):Binding {
         var b = new Binding();
-        var trimmed = s.replace('{Binding','').replace('}','').trim();
+        var trimmed = s.replace('{Binding', '').replace('}', '').trim();
         var name = trimmed;
 
         if (trimmed.indexOf(" ") >= 0) {

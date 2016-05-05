@@ -4,7 +4,6 @@ package jive.hml;
 import hml.xml.typeResolver.DefaultXMLDataParser;
 import haxe.macro.Context;
 import hml.xml.typeResolver.IHaxeTypeResolver;
-import hml.xml.Data;
 
 using hml.base.MacroTools;
 using StringTools;
@@ -29,7 +28,7 @@ class JiveXMLDataParser extends DefaultXMLDataParser {
 
         parseAttributes(node, data, parser);
 
-        if (node.name.name != "content" || node.parent.name.name != "Svg" ) {
+        if (node.name.name != "content" || node.parent.name.name != "Svg") {
             parseNodes(node, data, parser);
         }
     }

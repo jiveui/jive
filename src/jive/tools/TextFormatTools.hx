@@ -4,7 +4,7 @@ import flash.text.TextFormat;
 
 class TextFormatTools {
 
-    public static function clone(tf: TextFormat):TextFormat {
+    public static function clone(tf:TextFormat):TextFormat {
 
         var newFormat = new TextFormat (tf.font, tf.size, tf.color, tf.bold, tf.italic, tf.underline, tf.url, tf.target);
 
