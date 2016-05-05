@@ -91,6 +91,25 @@
         <!--</antcall>-->
     </target>
 
+    <!-- to test one test use ant test.oneTest -Dtest=SvgTest-->
+    <target name="debug.oneTest">
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/tests"/>
+            <param name="hxml" value="gen.hxml"/>
+        </antcall>
+        <antcall target="munit">
+            <param name="dir" value="${project.root.path}/tests"/>
+            <param name="command" value="gen"/>
+            <param name="options" value="-filter ${test}"/>
+        </antcall>
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/tests"/>
+            <param name="command" value="test"/>
+            <param name="options" value="project.xml cpp -Dtest -DHXCPP_DEBUGGER -debug"/>
+            <!-- -args  -start_debugger -debugger_host=localhost:6557 -->
+        </antcall>
+    </target>
+
     <target name="gen.docs">
         <antcall target="haxe">
             <param name="hxml" value="docs.hxml"/>

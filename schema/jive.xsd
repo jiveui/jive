@@ -2,19 +2,14 @@
 xmlns:bindx="bindx"
 xmlns:openfl-events="openfl.events"
 xmlns:jive-themes="jive.themes"
-xmlns:jive-geom="jive.geom"
 xmlns:openfl-display="openfl.display"
 xmlns:empty="empty"
 >
 <xs:import namespace="bindx" schemaLocation="bindx.xsd" />
 <xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
 <xs:import namespace="jive.themes" schemaLocation="jive.themes.xsd" />
-<xs:import namespace="jive.geom" schemaLocation="jive.geom.xsd" />
 <xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:complexType name="FlowSchemaTypeValue">
-<xs:all><xs:element ref="Flow"/></xs:all></xs:complexType>
-
 <xs:complexType name="DataContextControllableSchemaTypeValue">
 <xs:all><xs:element ref="DataContextControllable"/></xs:all></xs:complexType>
 
@@ -23,11 +18,10 @@ xmlns:empty="empty"
 
 <xs:complexType name="ComponentSchemaTypeValue">
 <xs:choice>
-<xs:element ref="Flow" />
+<xs:element ref="BaseLayout" />
 <xs:element ref="Svg" />
 <xs:element ref="Container" />
 <xs:element ref="Window" />
-<xs:element ref="EmptyLayout" />
 <xs:element ref="TemplatedComponent" />
 <xs:element ref="Component" />
 </xs:choice>
@@ -41,9 +35,8 @@ xmlns:empty="empty"
 
 <xs:complexType name="ContainerSchemaTypeValue">
 <xs:choice>
-<xs:element ref="Flow" />
+<xs:element ref="BaseLayout" />
 <xs:element ref="Window" />
-<xs:element ref="EmptyLayout" />
 <xs:element ref="Container" />
 </xs:choice>
 </xs:complexType>
@@ -60,30 +53,17 @@ xmlns:empty="empty"
 </xs:choice>
 </xs:complexType>
 
-<xs:complexType name="EmptyLayoutSchemaTypeValue">
-<xs:choice>
-<xs:element ref="Flow" />
-<xs:element ref="EmptyLayout" />
-</xs:choice>
-</xs:complexType>
-
 <xs:complexType name="ViewModelSchemaTypeValue">
 <xs:all><xs:element ref="ViewModel"/></xs:all></xs:complexType>
 
 <xs:complexType name="CollectionSchemaTypeValue">
 <xs:all><xs:element ref="Collection"/></xs:all></xs:complexType>
 
+<xs:complexType name="BaseLayoutSchemaTypeValue">
+<xs:all><xs:element ref="BaseLayout"/></xs:all></xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaTypeValue">
 <xs:all><xs:element ref="BaseCommand"/></xs:all></xs:complexType>
-
-<xs:complexType name="FlowSchemaType">
-<xs:complexContent>
-<xs:extension base="EmptyLayoutSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
 
 <xs:complexType name="DataContextControllableSchemaType">
 <xs:complexContent>
@@ -117,31 +97,19 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="y" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:string"/>
 <xs:element minOccurs="0" name="height" type="xs:string"/>
-<xs:element minOccurs="0" name="dimension" type="jive-geom:IntDimensionSchemaTypeValue"/>
-<xs:element minOccurs="0" name="rotationAngle" type="xs:double"/>
-<xs:element minOccurs="0" name="rotationPivot" type="jive-geom:IntPointSchemaTypeValue"/>
-<xs:element minOccurs="0" name="alpha" type="xs:double"/>
 <xs:element minOccurs="0" name="displayObject" type="openfl-display:DisplayObjectSchemaTypeValue"/>
 <xs:element minOccurs="0" name="parent" type="ContainerSchemaTypeValue"/>
 <xs:element minOccurs="0" name="absoluteWidth" type="xs:int"/>
 <xs:element minOccurs="0" name="absoluteHeight" type="xs:int"/>
-<xs:element minOccurs="0" name="absoluteX" type="xs:int"/>
-<xs:element minOccurs="0" name="absoluteY" type="xs:int"/>
 </xs:all>
 <xs:attribute name="x" type="xs:string"/>
 <xs:attribute name="y" type="xs:string"/>
 <xs:attribute name="width" type="xs:string"/>
 <xs:attribute name="height" type="xs:string"/>
-<xs:attribute name="dimension" type="xs:string"/>
-<xs:attribute name="rotationAngle" type="xs:double"/>
-<xs:attribute name="rotationPivot" type="xs:string"/>
-<xs:attribute name="alpha" type="xs:double"/>
 <xs:attribute name="displayObject" type="xs:string"/>
 <xs:attribute name="parent" type="xs:string"/>
 <xs:attribute name="absoluteWidth" type="xs:int"/>
 <xs:attribute name="absoluteHeight" type="xs:int"/>
-<xs:attribute name="absoluteX" type="xs:int"/>
-<xs:attribute name="absoluteY" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -178,6 +146,12 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="BaseLayout" />
+<xs:element minOccurs="0" ref="Svg" />
+<xs:element minOccurs="0" ref="Container" />
+<xs:element minOccurs="0" ref="Window" />
+<xs:element minOccurs="0" ref="TemplatedComponent" />
+<xs:element minOccurs="0" ref="Component" />
 <xs:element minOccurs="0" name="displayObjectContainer" type="xs:string"/>
 <xs:element minOccurs="0" name="children" type="CollectionSchemaTypeValue"/>
 </xs:all>
@@ -216,15 +190,6 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="EmptyLayoutSchemaType">
-<xs:complexContent>
-<xs:extension base="ContainerSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
 <xs:complexType name="ViewModelSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -247,6 +212,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="BaseLayoutSchemaType">
+<xs:complexContent>
+<xs:extension base="ContainerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="BaseCommandSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -257,7 +231,6 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
-<xs:element name="Flow" type="FlowSchemaType"/>
 <xs:element name="DataContextControllable" type="DataContextControllableSchemaType"/>
 <xs:element name="Svg" type="SvgSchemaType"/>
 <xs:element name="Component" type="ComponentSchemaType"/>
@@ -267,8 +240,8 @@ xmlns:empty="empty"
 <xs:element name="Jive" type="JiveSchemaType"/>
 <xs:element name="Window" type="WindowSchemaType"/>
 <xs:element name="Command" type="CommandSchemaType"/>
-<xs:element name="EmptyLayout" type="EmptyLayoutSchemaType"/>
 <xs:element name="ViewModel" type="ViewModelSchemaType"/>
 <xs:element name="Collection" type="CollectionSchemaType"/>
+<xs:element name="BaseLayout" type="BaseLayoutSchemaType"/>
 <xs:element name="BaseCommand" type="BaseCommandSchemaType"/>
 </xs:schema>

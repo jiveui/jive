@@ -12,11 +12,10 @@ xmlns:jive="jive"
 <xs:element ref="jive:Component" />
 <xs:element ref="jive:DataContextControllable" />
 <xs:element ref="jive:ViewModel" />
-<xs:element ref="jive:Flow" />
+<xs:element ref="jive:BaseLayout" />
 <xs:element ref="jive:Svg" />
 <xs:element ref="jive:Container" />
 <xs:element ref="jive:Window" />
-<xs:element ref="jive:EmptyLayout" />
 <xs:element ref="jive:TemplatedComponent" />
 </xs:choice>
 </xs:complexType>

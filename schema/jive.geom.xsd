@@ -17,9 +17,6 @@ xmlns:empty="empty"
 <xs:complexType name="IntRectangleSchemaTypeValue">
 <xs:all><xs:element ref="IntRectangle"/></xs:all></xs:complexType>
 
-<xs:complexType name="MetricDimensionSchemaTypeValue">
-<xs:all><xs:element ref="MetricDimension"/></xs:all></xs:complexType>
-
 <xs:complexType name="MetricHelperSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -85,24 +82,10 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="MetricDimensionSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="width" type="xs:string"/>
-<xs:element minOccurs="0" name="height" type="xs:string"/>
-</xs:all>
-<xs:attribute name="width" type="xs:string"/>
-<xs:attribute name="height" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
 
 <xs:element name="MetricHelper" type="MetricHelperSchemaType"/>
 <xs:element name="IntDimension" type="IntDimensionSchemaType"/>
 <xs:element name="IntPoint" type="IntPointSchemaType"/>
 <xs:element name="MetricPoint" type="MetricPointSchemaType"/>
 <xs:element name="IntRectangle" type="IntRectangleSchemaType"/>
-<xs:element name="MetricDimension" type="MetricDimensionSchemaType"/>
 </xs:schema>

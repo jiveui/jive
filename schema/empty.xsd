@@ -829,6 +829,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="format-svg:PathParser" />
 <xs:element ref="haxe-xml:Printer" />
 <xs:element ref="openfl-display:Stage" />
+<xs:element ref="jive:BaseLayout" />
 <xs:element ref="lime-_backend-native-_NativeApplication:ApplicationEventInfo" />
 <xs:element ref="format-gfx:GfxExtent" />
 <xs:element ref="openfl-display:DisplayObject" />

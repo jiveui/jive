@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window
+        xmlns="jive"
+        xmlns:haxe="http://haxe.org/"
+        x="Metric.absolute(0)"
+        y="Metric.absolute(0)"
+        width="Metric.absolute(Std.int(Lib.current.stage.stageWidth))"
+        height="Metric.absolute(Std.int(Lib.current.stage.stageHeight))"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
+    <Swiper x="Metric.percent(10)" y="Metric.percent(10)" width="Metric.percent(80)" height="Metric.percent(80)">
+        <Svg>
+            <content>
+                <rect x="0" y="0" width="{ widthPercent(80) }" height="{ heightPercent(80) }" fill="#e1e1e1"/>
+                <rect 
+                    x="{absolute(10)}"
+                    y="{absolute(10)}"
+                    width="{ widthPercent(80) - absolute(2*10) }"
+                    height="{ heightPercent(80) - absolute(2*10) }"
+                    stroke="#ff0000"
+                    fill="none"/>
+                <circle
+                    cx="{ widthPercent(40) }"
+                    cy="{ heightPercent(40) }"
+                    r="{ widthPercent(20) }"
+                    stroke-width="10"
+                    fill="#edff34" />
+            </content>
+        </Svg>
+        <Svg>
+            <content>
+                <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(80) }" fill="#22e1e1"/>
+                <rect 
+                    x="{absolute(10)}"
+                    y="{absolute(10)}"
+                    width="{ widthPercent(100) - absolute(2*10) }"
+                    height="{ heightPercent(100) - absolute(2*10) }"
+                    stroke="#ff0000"
+                    fill="none"/>
+                <circle
+                    cx="{ widthPercent(40) }"
+                    cy="{ heightPercent(40) }"
+                    r="{ widthPercent(20) }"
+                    stroke-width="10"
+                    fill="#ee0000" />
+            </content>
+        </Svg>
+    </Swiper>
+</Window>

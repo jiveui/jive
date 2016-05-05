@@ -38,6 +38,17 @@ class Collection<T> extends EventDispatcher {
     }
 
     /**
+    * get element at index
+    * @param index      position of element, if there is no element returns null (or should throw exception)
+    **/
+    public function get(index: Int): T {
+        if (index >= 0 && index < elements.length)  {
+            return elements[index];
+        }
+        return null;
+    }
+
+    /**
     * remove element from collection
     * @param element    element to remove. If it is 'null' all elements would be removed.
     **/

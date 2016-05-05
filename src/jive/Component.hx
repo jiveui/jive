@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.MetricInsets;
 import openfl.geom.Matrix;
 import jive.geom.IntPoint;
 import openfl.geom.Rectangle;
@@ -7,6 +8,7 @@ import bindx.IBindable;
 import openfl.display.Sprite;
 import openfl.events.EventDispatcher;
 import openfl.display.DisplayObject;
+import openfl.events.Event;
 
 import jive.geom.IntDimension;
 import jive.geom.Metric;
@@ -59,6 +61,8 @@ class Component extends EventDispatcher implements IBindable {
         return v;
     }
 
+    public var margin: MetricInsets;
+
     public var dimension(get, never): IntDimension;
     private function get_dimension(): IntDimension {
         return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
@@ -71,18 +75,7 @@ class Component extends EventDispatcher implements IBindable {
     }
     private function set_rotationAngle(v: Float): Float {
         _rotationAngle = v;
-        if (rotationPivot == null) {
-            displayObject.rotation = v;
-        } else {
-            var matrix:Matrix = new Matrix();
-            matrix.translate(-rotationPivot.x, -rotationPivot.y);
-            matrix.rotate((rotationAngle / 180) * Math.PI);
-            //TODO: move to the paint process because the issues can be found when the parent size is changed
-            matrix.translate(
-                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
-                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
-            displayObject.transform.matrix = matrix;
-        }
+        repaint();
         return v;
     }
 
@@ -91,7 +84,7 @@ class Component extends EventDispatcher implements IBindable {
     private function get_rotationPivot(): IntPoint { return _rotationPivot; }
     private function set_rotationPivot(v: IntPoint): IntPoint {
         _rotationPivot = v;
-        rotationAngle = rotationAngle;
+        repaint();
         return v;
     }
 
@@ -161,6 +154,7 @@ class Component extends EventDispatcher implements IBindable {
         y = Metric.absolute(0);
         width = Metric.none;
         height = Metric.none;
+        margin = new MetricInsets();
     }
 
     private function createDisplayObject(): DisplayObject {
@@ -172,7 +166,66 @@ class Component extends EventDispatcher implements IBindable {
     * e.g. delete all bitmap graphics
     * and remove all listeners
     **/
-    public function dispose() {}
+    public function dispose() {
+        for(l in listeners) 
+            displayObject.removeEventListener(l.type, l.listener, l.useCapture);
+        listeners = null;
+    }
+
+
+    /**
+    * start IEventDispatcher methods 
+    **/
+
+    private var listeners:Array<EventListenerInfo>;
+
+    override public function addEventListener(type:String, listener:Dynamic->Void, useCapture:Bool = false,
+        priority:Int = 0, useWeakReference:Bool = false):Void {
+        
+        if (listeners == null) {
+            listeners = new Array<EventListenerInfo>();
+        }
+
+        displayObject.addEventListener(type, listener, useCapture, priority, useWeakReference);
+
+        listeners.push({
+            type: type,
+            listener: listener,
+            useCapture: useCapture
+        });
+    }
+
+    override public function dispatchEvent (event:Event):Bool {
+        return displayObject.dispatchEvent(event);
+    }
+
+    override public function hasEventListener (type:String):Bool {
+        return displayObject.hasEventListener(type);
+    }
+
+    override public function removeEventListener (type:String, listener:Dynamic->Void, useCapture:Bool = false):Void {
+        var found = listeners.filter(function(info:EventListenerInfo) {
+            return info.type == type && info.listener == listener && info.useCapture == useCapture;
+        });
+
+        // should be only one
+        for (f in found)
+            listeners.remove(f);
+
+        displayObject.removeEventListener(type, listener, useCapture);
+    }
+
+    override public function toString ():String {
+        return displayObject.toString();
+    }
+
+    override public function willTrigger (type:String):Bool {
+        return displayObject.willTrigger(type);
+    }
+
+    /**
+    * end IEventDispatcher methods
+    **/
 
     public function paint(size: MetricDimension): IntDimension {
         if (needsPaint) {
@@ -180,10 +233,25 @@ class Component extends EventDispatcher implements IBindable {
             displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
         }
 
-        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0);
-        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0);
+        var insets = margin.toInsets(this);
 
-        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
+        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + insets.left;
+        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + insets.top;
+
+        if (rotationPivot == null) {
+            displayObject.rotation = rotationAngle;
+        } else {
+            var matrix:Matrix = new Matrix();
+            matrix.translate(-rotationPivot.x, -rotationPivot.y);
+            matrix.rotate((rotationAngle / 180) * Math.PI);
+            matrix.translate(
+                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
+                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
+            displayObject.transform.matrix = matrix;
+        }
+
+
+        return new IntDimension(Std.int(displayObject.width + insets.getMarginWidth()), Std.int(displayObject.height + insets.getMarginHeight()));
     }
 
     public function repaint() {
@@ -194,4 +262,10 @@ class Component extends EventDispatcher implements IBindable {
     public function reposition() {
         if (parent != null) parent.repaintChildren();
     }
+}
+
+typedef EventListenerInfo = {
+    public var type: String;
+    public var listener: Dynamic->Void;
+    public var useCapture: Bool;
 }
