@@ -3,7 +3,7 @@
     <meta title="tests" package="jive" version="0.0.1" company="Jive" />
 
     <!-- output -->
-    <app main="TestMain" file="jive-tests" path="bin" />
+    <app main="WrapTestMain" file="jive-tests" path="bin" />
 
     <window width="1000" height="700" background="0xFFFFFF" fps="60"/>
 
@@ -19,6 +19,7 @@
     <haxelib name="hamcrest" />
     <haxelib name="jive"/>
     <haxelib name="svg"/>
+    <haxelib name="hxcpp-debugger"/>
 
     <template path="templates" />
 </project>

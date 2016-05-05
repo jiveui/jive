@@ -8,6 +8,7 @@ import bindx.IBindable;
 import openfl.display.Sprite;
 import openfl.events.EventDispatcher;
 import openfl.display.DisplayObject;
+import openfl.events.Event;
 
 import jive.geom.IntDimension;
 import jive.geom.Metric;
@@ -165,7 +166,66 @@ class Component extends EventDispatcher implements IBindable {
     * e.g. delete all bitmap graphics
     * and remove all listeners
     **/
-    public function dispose() {}
+    public function dispose() {
+        for(l in listeners) 
+            displayObject.removeEventListener(l.type, l.listener, l.useCapture);
+        listeners = null;
+    }
+
+
+    /**
+    * start IEventDispatcher methods 
+    **/
+
+    private var listeners:Array<EventListenerInfo>;
+
+    override public function addEventListener(type:String, listener:Dynamic->Void, useCapture:Bool = false,
+        priority:Int = 0, useWeakReference:Bool = false):Void {
+        
+        if (listeners == null) {
+            listeners = new Array<EventListenerInfo>();
+        }
+
+        displayObject.addEventListener(type, listener, useCapture, priority, useWeakReference);
+
+        listeners.push({
+            type: type,
+            listener: listener,
+            useCapture: useCapture
+        });
+    }
+
+    override public function dispatchEvent (event:Event):Bool {
+        return displayObject.dispatchEvent(event);
+    }
+
+    override public function hasEventListener (type:String):Bool {
+        return displayObject.hasEventListener(type);
+    }
+
+    override public function removeEventListener (type:String, listener:Dynamic->Void, useCapture:Bool = false):Void {
+        var found = listeners.filter(function(info:EventListenerInfo) {
+            return info.type == type && info.listener == listener && info.useCapture == useCapture;
+        });
+
+        // should be only one
+        for (f in found)
+            listeners.remove(f);
+
+        displayObject.removeEventListener(type, listener, useCapture);
+    }
+
+    override public function toString ():String {
+        return displayObject.toString();
+    }
+
+    override public function willTrigger (type:String):Bool {
+        return displayObject.willTrigger(type);
+    }
+
+    /**
+    * end IEventDispatcher methods
+    **/
 
     public function paint(size: MetricDimension): IntDimension {
         if (needsPaint) {
@@ -202,4 +262,10 @@ class Component extends EventDispatcher implements IBindable {
     public function reposition() {
         if (parent != null) parent.repaintChildren();
     }
+}
+
+typedef EventListenerInfo = {
+    public var type: String;
+    public var listener: Dynamic->Void;
+    public var useCapture: Bool;
 }

@@ -15,6 +15,7 @@ class Container extends Component {
     private function get_displayObjectContainer(): Sprite {
         if (null == displayObjectContainer) {
             displayObjectContainer = createDisplayObjectContainer();
+            displayObject = displayObjectContainer;
         }
         return displayObjectContainer;
     }
@@ -36,15 +37,15 @@ class Container extends Component {
 
     public function append(child: Component) {
         children.add(child);
-        displayObjectContainer.addChild(child.displayObject);
         child.parent = this;
+        displayObjectContainer.addChild(child.displayObject);
         child.repaint();
     }
 
     public function insert(index: Int, child: Component) {
         children.add(child, index);
-        displayObjectContainer.addChildAt(child.displayObject, index);
         child.parent = this;
+        displayObjectContainer.addChildAt(child.displayObject, index);
         child.repaint();
     }
 
@@ -52,7 +53,6 @@ class Container extends Component {
         children.remove(child);
         displayObjectContainer.removeChild(child.displayObject);
         child.parent = null;
-
         repaint();
     }
 
