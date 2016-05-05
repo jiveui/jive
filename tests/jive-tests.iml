@@ -17,7 +17,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="haxelib|C:/work/jive/src">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/jive-next/src">
         <CLASSES>
           <root url="file://$MODULE_DIR$/../src" />
         </CLASSES>
@@ -30,11 +30,11 @@
     <orderEntry type="module-library">
       <library name="haxelib|openfl">
         <CLASSES>
-          <root url="/usr/local/lib/haxe/lib/openfl/3,6,0/" />
+          <root url="/usr/local/lib/haxe/lib/openfl/3,6,1/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="/usr/local/lib/haxe/lib/openfl/3,6,0/" />
+          <root url="/usr/local/lib/haxe/lib/openfl/3,6,1/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -61,9 +61,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-<<<<<<< HEAD
-      <library name="haxelib|C:/HaxeToolkit/haxe/lib/actuate/1,8,6">
-=======
       <library name="haxelib|hamcrest">
         <CLASSES>
           <root url="/usr/local/lib/haxe/lib/hamcrest/2,0,1/" />
@@ -76,7 +73,6 @@
     </orderEntry>
     <orderEntry type="module-library">
       <library name="haxelib|/usr/local/lib/haxe/lib/actuate/1,8,6">
->>>>>>> c1caf4a81b8d3d5b8e6ad17a36f46b92c1fb5da5
         <CLASSES>
           <root url="file:///usr/local/lib/haxe/lib/actuate/1,8,6" />
         </CLASSES>
@@ -87,15 +83,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-<<<<<<< HEAD
-      <library name="haxelib|C:/HaxeToolkit/haxe/lib/unifill/0,4,0">
-        <CLASSES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/unifill/0,4,0" />
-=======
       <library name="haxelib|/usr/local/lib/haxe/lib/bindx2/2,5,2/src">
         <CLASSES>
           <root url="file:///usr/local/lib/haxe/lib/bindx2/2,5,2/src" />
@@ -103,20 +90,10 @@
         <JAVADOC />
         <SOURCES>
           <root url="file:///usr/local/lib/haxe/lib/bindx2/2,5,2/src" />
->>>>>>> c1caf4a81b8d3d5b8e6ad17a36f46b92c1fb5da5
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-<<<<<<< HEAD
-      <library name="haxelib|C:/HaxeToolkit/haxe/lib/svg/1,0,9">
-        <CLASSES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
-=======
       <library name="haxelib|/usr/local/lib/haxe/lib/hml/0,0,2-alpha/src">
         <CLASSES>
           <root url="file:///usr/local/lib/haxe/lib/hml/0,0,2-alpha/src" />
@@ -124,20 +101,10 @@
         <JAVADOC />
         <SOURCES>
           <root url="file:///usr/local/lib/haxe/lib/hml/0,0,2-alpha/src" />
->>>>>>> c1caf4a81b8d3d5b8e6ad17a36f46b92c1fb5da5
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-<<<<<<< HEAD
-      <library name="haxelib|C:/work/transstroy/jive/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../transstroy/jive/src" />
-=======
       <library name="haxelib|/usr/local/lib/haxe/lib/unifill/0,4,0">
         <CLASSES>
           <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,0" />
@@ -145,20 +112,10 @@
         <JAVADOC />
         <SOURCES>
           <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,0" />
->>>>>>> c1caf4a81b8d3d5b8e6ad17a36f46b92c1fb5da5
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-<<<<<<< HEAD
-      <library name="haxelib|C:/work/transstroy/bindx/src">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../transstroy/bindx/src" />
-=======
       <library name="haxelib|svg">
         <CLASSES>
           <root url="/usr/local/lib/haxe/lib/svg/1,0,9/" />
@@ -166,7 +123,28 @@
         <JAVADOC />
         <SOURCES>
           <root url="/usr/local/lib/haxe/lib/svg/1,0,9/" />
->>>>>>> c1caf4a81b8d3d5b8e6ad17a36f46b92c1fb5da5
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/Users/ngrebenshikov/repositories/hxcpp-debugger">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../hxcpp-debugger" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../hxcpp-debugger" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|/usr/local/lib/haxe/lib/hxcpp/3,2,205">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/hxcpp/3,2,205" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/hxcpp/3,2,205" />
         </SOURCES>
       </library>
     </orderEntry>

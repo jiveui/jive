@@ -3,6 +3,8 @@ package jive.hml;
 #if macro
 import haxe.macro.Context;
 import hml.xml.typeResolver.IHaxeTypeResolver;
+import hml.xml.Data;
+
 
 using jive.tools.TypeTools;
 

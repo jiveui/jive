@@ -9,6 +9,7 @@ import hml.xml.writer.IHaxeWriter.IHaxeNodeWriter;
 import hml.xml.typeResolver.IHaxeTypeResolver.IXMLDataNodeParser;
 import hml.xml.typeResolver.DefaultXMLDataRootParser;
 import hml.xml.adapters.DefaultXMLAdapter;
+import hml.xml.Data;
 
 class JiveXMLAdapter extends DefaultXMLAdapter {
     public function new() { super(); }

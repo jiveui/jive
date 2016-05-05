@@ -4,6 +4,8 @@ package jive.hml;
 import hml.xml.typeResolver.DefaultXMLDataParser;
 import haxe.macro.Context;
 import hml.xml.typeResolver.IHaxeTypeResolver;
+import hml.xml.Data;
+
 
 using hml.base.MacroTools;
 using StringTools;
