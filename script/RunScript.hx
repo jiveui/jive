@@ -18,17 +18,18 @@ class RunScript {
 		var args = Sys.args ();
 		var workingDirectory = args.pop ();
 
-        if (args[0] == "build" || args[0] == "test") {
-
-        }
-
+        var shouldProcessHml =  args[0] == "build" || args[0] == "test";
 		var args = [ "run", "lime" ].concat (args);
         LogHelper.verbose = true;
 
-		try {
-			
-			Sys.setCwd (workingDirectory);
 
+        try {
+			Sys.setCwd (workingDirectory);
+		} catch (e:Dynamic) {
+			LogHelper.error ("Cannot set current working directory to \"" + workingDirectory + "\"");
+		}
+
+        if (shouldProcessHml) {
             var projectFile = findProjectFile (Sys.getCwd ());
 
             if (projectFile == "") {
@@ -41,7 +42,11 @@ class RunScript {
             }
 
             project = new ProjectXMLParser (Path.withoutDirectory (projectFile), null, []);
-            trace(project);
+            project.command = "build";
+            project.debug = false;
+            project.target = PlatformHelper.hostPlatform;
+            project.targetFlags = new Map <String, String> ();
+            project.targetFlags.set ("cpp", "");
 
             var targetDirectory = project.app.path + "/jive";
             PathHelper.mkdir (targetDirectory);
@@ -51,21 +56,16 @@ class RunScript {
             var jive = new Haxelib ("jive");
             var jivePath = PathHelper.getHaxelib (jive);
 
-            trace(jivePath);
-
             FileHelper.recursiveCopyTemplate([jivePath + "/templates"], "jive", targetDirectory, context);
 
+            ProcessHelper.runCommand ("", "haxe", [ targetDirectory + "/gen.hxml" ]);
 
-		} catch (e:Dynamic) {
-			LogHelper.error ("Cannot set current working directory to \"" + workingDirectory + "\"");
-		}
-		
-//		Sys.exit (Sys.command ("haxelib", args.concat ([ "-openfl" ])));
+            args = args.concat(["--source=" + targetDirectory+"/gen"]);
+        }
+
+		Sys.exit (Sys.command ("haxelib", args.concat ([ "-openfl" ])));
 		
 	}
-
-    private static function createBuildDirectory() {}
-    private static function processHml() {}
 
     // From lime/tools/CommandLineTools.hx
     static private function findProjectFile (path:String):String {
@@ -145,6 +145,7 @@ class RunScript {
 
     static private function generateContext ():Dynamic {
         var context = project.templateContext;
+        context.JIVE_HML_SOURCE = project.sources[0];
         return context;
     }
 }
