@@ -1,0 +1,8 @@
+-main GenHx ::HAXE_FLAGS::
+-cp ::BUILD_DIR::/jive
+-cpp ::BUILD_DIR::/jive/bin
+--macro keep("::APP_MAIN::")
+--no-output
+--macro allowPackage('flash')
+--macro allowPackage('openfl')
+#-D hml_debug
