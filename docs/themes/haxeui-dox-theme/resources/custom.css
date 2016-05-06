@@ -91,7 +91,7 @@ code .string { color:#E6DB74; }
 code .macro { color:#A6E22A; }
 code .inactive { color:#75715E; }
 
-.navbar-fixed-top { position: fixed; }
+.navbar-fixed-top { position: fixed; display: none; }
 .navbar-fixed-top .navbar-inner,
 .navbar-fixed-bottom .navbar-inner { padding: 0; }
 
