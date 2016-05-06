@@ -1,4 +1,7 @@
 package ;
+
+import jive.SwiperTest;
+
 class WrapTestMain {
     static function main() {
         #if (debug && cpp)
@@ -28,5 +31,7 @@ class WrapTestMain {
         #end
 
         new TestMain();
+        // var test = new SwiperTest();
+        // test.test();
     }
 }

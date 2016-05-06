@@ -29,7 +29,7 @@
         </Svg>
         <Svg>
             <content>
-                <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(80) }" fill="#22e1e1"/>
+                <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#22e1e1"/>
                 <rect 
                     x="{absolute(10)}"
                     y="{absolute(10)}"
