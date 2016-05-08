@@ -57,7 +57,7 @@ class Image extends Component {
         return bitmap;
     }
 
-    override public function paint(size: MetricDimension): IntDimension {
+    override public function paint(size: IntDimension): IntDimension {
 
         //TODO: implement scale and keepRatio
         return super.paint(size);

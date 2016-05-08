@@ -79,7 +79,7 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
         super();
     }
 
-    override public function paint(size:MetricDimension):IntDimension {
+    override public function paint(size: IntDimension): IntDimension {
         return if (null != templateInstance) templateInstance.paint(size) else super.paint(size);
     }
 }

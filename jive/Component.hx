@@ -249,7 +249,7 @@ class Component extends EventDispatcher implements IBindable {
     * end IEventDispatcher methods
     **/
 
-    public function paint(size:MetricDimension):IntDimension {
+    public function paint(size: IntDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
             displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);

@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.IntDimension;
 import jive.geom.Metric;
 import jive.geom.MetricDimension;
 import openfl.Lib;
@@ -30,7 +31,7 @@ class Jive {
         started = true;
         Lib.current.stage.addEventListener(Event.ENTER_FRAME, function(e) {
             for (w in windows) {
-                w.paint(new MetricDimension(Metric.none, Metric.none));
+                w.paint(IntDimension.createNullDimension());
             }
         });
     }

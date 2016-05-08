@@ -89,11 +89,7 @@ class EmptyLayout extends Container {
         child.parent = null;
     }
 
-    override private function calcPaintDimension(size:MetricDimension):MetricDimension {
-        return new MetricDimension(_width, _height);
-    }
-
-    override public function paint(size:MetricDimension):IntDimension {
+    override public function paint(size: IntDimension):IntDimension {
         for (child in children) {
             var childSize:IntDimension = child.dimension;
             if (!child.paint(calcPaintDimension(size)).equals(childSize)) {

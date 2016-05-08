@@ -33,7 +33,7 @@ class Svg extends Component {
         return shape;
     }
 
-    override public function paint(size:MetricDimension):IntDimension {
+    override public function paint(size: IntDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
             shape.graphics.clear();

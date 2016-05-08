@@ -4,7 +4,8 @@ import jive.geom.Metric;
 import flash.display.Sprite;
 import flash.display.DisplayObject;
 import jive.geom.IntDimension;
-import jive.geom.MetricDimension;
+
+using jive.geom.MetricHelper;
 
 @:children("jive.Component")
 class Container extends Component {
@@ -63,7 +64,7 @@ class Container extends Component {
         }
     }
 
-    override public function paint(size:MetricDimension):IntDimension {
+    override public function paint(size: IntDimension): IntDimension {
         super.paint(size);
 
         if (childrenNeedRepaint) {
@@ -76,8 +77,8 @@ class Container extends Component {
         return new IntDimension(Std.int(displayObjectContainer.width), Std.int(displayObjectContainer.height));
     }
 
-    private function calcPaintDimension(size:MetricDimension):MetricDimension {
-        return new MetricDimension(_width, _height);
+    private function calcPaintDimension(size: IntDimension): IntDimension {
+        return new IntDimension(absoluteWidth, absoluteHeight);
     }
 
     public function repaintChildren() {

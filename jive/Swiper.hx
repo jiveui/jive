@@ -111,7 +111,7 @@ class Swiper extends Container {
     * custom coordinates are necessary
     **/
 
-    override public function paint(size:MetricDimension):IntDimension {
+    override public function paint(size: IntDimension):IntDimension {
         var np = needsPaint;
         
 

@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.IntDimension;
 import jive.geom.Metric;
 import jive.geom.MetricDimension;
 import openfl.Lib;
@@ -14,7 +15,7 @@ class SvgTest {
         svg.content = '<svg>
                             <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="3" fill="#ff0000" />
                        </svg>';
-        svg.paint(new MetricDimension(Metric.none, Metric.none));
+        svg.paint(IntDimension.createNullDimension());
         Lib.current.addChild(svg.displayObject);
     }
 
@@ -25,7 +26,7 @@ class SvgTest {
         c.templateModel = new SvgTestModel();
         c.width = Metric.absolute(Lib.current.stage.stageWidth);
         c.height = Metric.absolute(Lib.current.stage.stageHeight);
-        c.paint(new MetricDimension(Metric.none, Metric.none));
+        c.paint(IntDimension.createNullDimension());
         Lib.current.addChild(c.displayObject);
     }
 
