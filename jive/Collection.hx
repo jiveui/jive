@@ -65,6 +65,7 @@ class Collection<T> extends EventDispatcher {
         dispatchEvent(new CollectionEvent(CollectionEvent.COLLECTION_REMOVED));
     }
 
+
     @:dox(hide)
     public function iterator():Iterator<T> {
         return elements.iterator();

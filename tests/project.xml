@@ -22,6 +22,7 @@
     <haxelib name="jive"/>
     <haxelib name="svg"/>
     <haxelib name="hxcpp-debugger"/>
+    <haxelib name="jive-gestures"/>
 
     <template path="templates" />
 
