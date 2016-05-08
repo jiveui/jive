@@ -23,7 +23,12 @@ class JiveXMLAdapter extends DefaultXMLAdapter {
     }
 
     public override function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
-        return super.getNodeWriters().concat([new JiveIntWriter(), new JiveFloatWriter(), new JiveBoolWriter()]);
+        return super.getNodeWriters().concat([
+            new JiveIntWriter(),
+            new JiveFloatWriter(),
+            new JiveBoolWriter(),
+            new JiveStringWriter()
+        ]);
     }
 
     public override function getTypeResolvers():Array<IHaxeTypeResolver<Node, Type>> {
