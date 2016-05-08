@@ -17,6 +17,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
+<<<<<<< HEAD
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/openfl/3,6,1">
+=======
       <library name="haxelib|munit">
         <CLASSES>
           <root url="/usr/local/lib/haxe/lib/munit/2,1,2/" />
@@ -29,6 +32,7 @@
     </orderEntry>
     <orderEntry type="module-library">
       <library name="haxelib|mlib">
+>>>>>>> 70383e17e7ab95347b3dba303f295020b6a10329
         <CLASSES>
           <root url="/usr/local/lib/haxe/lib/mlib/2,0,2/" />
         </CLASSES>
@@ -94,6 +98,37 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+<<<<<<< HEAD
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/svg/1,0,9">
+        <CLASSES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/svg/1,0,9" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/hxcpp-debugger/1,0,6">
+        <CLASSES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/hxcpp-debugger/1,0,6" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/hxcpp-debugger/1,0,6" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|C:/HaxeToolkit/haxe/lib/hxcpp/3,2,180">
+        <CLASSES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/hxcpp/3,2,180" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://C:/HaxeToolkit/haxe/lib/hxcpp/3,2,180" />
+=======
       <library name="haxelib|jive">
         <CLASSES>
           <root url="$MODULE_DIR$/../../jive/src/" />
@@ -101,6 +136,7 @@
         <JAVADOC />
         <SOURCES>
           <root url="$MODULE_DIR$/../../jive/src/" />
+>>>>>>> 70383e17e7ab95347b3dba303f295020b6a10329
         </SOURCES>
       </library>
     </orderEntry>
