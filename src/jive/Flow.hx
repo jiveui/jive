@@ -14,8 +14,8 @@ class Flow extends EmptyLayout {
             for (child in children) {
                 child.displayObject.x = x;
                 child.displayObject.y = y;
-                x += child.absoluteWidth;
-                //y+=child.absoluteHeight;
+                // x += child.absoluteWidth;
+                y+=child.absoluteHeight;
             }
         }
     }
