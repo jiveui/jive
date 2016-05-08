@@ -1,5 +1,6 @@
 import massive.munit.TestSuite;
 
+import jive.AssetImageTest;
 import jive.ComponentTest;
 import jive.DataBindingTest;
 import jive.LayoutTest;
@@ -20,6 +21,7 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
+		add(jive.AssetImageTest);
 		add(jive.ComponentTest);
 		add(jive.DataBindingTest);
 		add(jive.LayoutTest);

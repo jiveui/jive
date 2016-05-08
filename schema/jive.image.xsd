@@ -1,0 +1,46 @@
+<xs:schema targetNamespace="jive.image" xmlns="jive.image" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-display="openfl.display"
+xmlns:jive="jive"
+>
+<xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:complexType name="ImageSchemaTypeValue">
+<xs:choice>
+<xs:element ref="AssetImage" />
+<xs:element ref="Image" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="AssetImageSchemaTypeValue">
+<xs:all><xs:element ref="AssetImage"/></xs:all></xs:complexType>
+
+<xs:complexType name="ImageSchemaType">
+<xs:complexContent>
+<xs:extension base="jive:ComponentSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bitmapData" type="openfl-display:BitmapDataSchemaTypeValue"/>
+<xs:element minOccurs="0" name="scale" type="xs:boolean"/>
+<xs:element minOccurs="0" name="keepRatio" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="bitmapData" type="xs:string"/>
+<xs:attribute name="scale" type="xs:boolean"/>
+<xs:attribute name="keepRatio" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AssetImageSchemaType">
+<xs:complexContent>
+<xs:extension base="ImageSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="assetId" type="xs:string"/>
+</xs:all>
+<xs:attribute name="assetId" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Image" type="ImageSchemaType"/>
+<xs:element name="AssetImage" type="AssetImageSchemaType"/>
+</xs:schema>

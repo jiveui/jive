@@ -1,9 +1,46 @@
 <xs:schema targetNamespace="openfl" xmlns="openfl" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:lime="lime"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime" schemaLocation="lime.xsd" />
+<xs:complexType name="IAssetCacheSchemaTypeValue">
+<xs:choice>
+<xs:element ref="AssetCache" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="AssetLibrarySchemaTypeValue">
+<xs:all><xs:element ref="AssetLibrary"/></xs:all></xs:complexType>
+
 <xs:complexType name="LibSchemaTypeValue">
 <xs:all><xs:element ref="Lib"/></xs:all></xs:complexType>
+
+<xs:complexType name="AssetsSchemaTypeValue">
+<xs:all><xs:element ref="Assets"/></xs:all></xs:complexType>
+
+<xs:complexType name="AssetCacheSchemaTypeValue">
+<xs:all><xs:element ref="AssetCache"/></xs:all></xs:complexType>
+
+<xs:complexType name="IAssetCacheSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="enabled" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AssetLibrarySchemaType">
+<xs:complexContent>
+<xs:extension base="lime:AssetLibrarySchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="LibSchemaType">
 <xs:complexContent>
@@ -14,6 +51,30 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="AssetsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
+<xs:complexType name="AssetCacheSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="enabled" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="IAssetCache" type="IAssetCacheSchemaType"/>
+<xs:element name="AssetLibrary" type="AssetLibrarySchemaType"/>
 <xs:element name="Lib" type="LibSchemaType"/>
+<xs:element name="Assets" type="AssetsSchemaType"/>
+<xs:element name="AssetCache" type="AssetCacheSchemaType"/>
 </xs:schema>

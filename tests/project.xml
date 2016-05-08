@@ -24,4 +24,6 @@
     <haxelib name="hxcpp-debugger"/>
 
     <template path="templates" />
+
+    <assets path="assets"/>
 </project>

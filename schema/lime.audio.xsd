@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="lime.audio" xmlns="lime.audio" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:lime-app="lime.app"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
 <xs:complexType name="FlashAudioContextSchemaTypeValue">
 <xs:all><xs:element ref="FlashAudioContext"/></xs:all></xs:complexType>
 
@@ -13,6 +15,9 @@ xmlns:empty="empty"
 
 <xs:complexType name="AudioBufferSchemaTypeValue">
 <xs:all><xs:element ref="AudioBuffer"/></xs:all></xs:complexType>
+
+<xs:complexType name="AudioSourceSchemaTypeValue">
+<xs:all><xs:element ref="AudioSource"/></xs:all></xs:complexType>
 
 <xs:complexType name="AudioManagerSchemaTypeValue">
 <xs:all><xs:element ref="AudioManager"/></xs:all></xs:complexType>
@@ -127,6 +132,29 @@ xmlns:empty="empty"
 <xs:attribute name="id" type="xs:int"/>
 <xs:attribute name="sampleRate" type="xs:int"/>
 <xs:attribute name="src" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="AudioSourceSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="onComplete" type="lime-app:Event_Void_VoidSchemaTypeValue"/>
+<xs:element minOccurs="0" name="buffer" type="AudioBufferSchemaTypeValue"/>
+<xs:element minOccurs="0" name="currentTime" type="xs:int"/>
+<xs:element minOccurs="0" name="gain" type="xs:double"/>
+<xs:element minOccurs="0" name="length" type="xs:int"/>
+<xs:element minOccurs="0" name="loops" type="xs:int"/>
+<xs:element minOccurs="0" name="offset" type="xs:int"/>
+</xs:all>
+<xs:attribute name="onComplete" type="xs:string"/>
+<xs:attribute name="buffer" type="xs:string"/>
+<xs:attribute name="currentTime" type="xs:int"/>
+<xs:attribute name="gain" type="xs:double"/>
+<xs:attribute name="length" type="xs:int"/>
+<xs:attribute name="loops" type="xs:int"/>
+<xs:attribute name="offset" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -299,6 +327,7 @@ xmlns:empty="empty"
 <xs:element name="ALCAudioContext" type="ALCAudioContextSchemaType"/>
 <xs:element name="HTML5AudioContext" type="HTML5AudioContextSchemaType"/>
 <xs:element name="AudioBuffer" type="AudioBufferSchemaType"/>
+<xs:element name="AudioSource" type="AudioSourceSchemaType"/>
 <xs:element name="AudioManager" type="AudioManagerSchemaType"/>
 <xs:element name="WebAudioContext" type="WebAudioContextSchemaType"/>
 <xs:element name="ALAudioContext" type="ALAudioContextSchemaType"/>

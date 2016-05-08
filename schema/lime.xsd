@@ -1,14 +1,20 @@
 <xs:schema targetNamespace="lime" xmlns="lime" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:empty="empty"
+xmlns:openfl="openfl"
 xmlns:lime-app="lime.app"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl" schemaLocation="openfl.xsd" />
 <xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
 <xs:complexType name="AssetCacheSchemaTypeValue">
 <xs:all><xs:element ref="AssetCache"/></xs:all></xs:complexType>
 
 <xs:complexType name="AssetLibrarySchemaTypeValue">
-<xs:all><xs:element ref="AssetLibrary"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="openfl:AssetLibrary" />
+<xs:element ref="AssetLibrary" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="AssetsSchemaTypeValue">
 <xs:all><xs:element ref="Assets"/></xs:all></xs:complexType>
