@@ -46,6 +46,7 @@ class EmptyLayout extends Container {
             }
         }
 
+        repaint();
         relayout();
     }
 
