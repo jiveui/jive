@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="openfl.events" xmlns="openfl.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:openfl-display3D-textures="openfl.display3D.textures"
 xmlns:openfl-net="openfl.net"
+xmlns:openfl-media="openfl.media"
 xmlns:openfl-text="openfl.text"
+xmlns:jive-image="jive.image"
 xmlns:openfl-display="openfl.display"
 xmlns:empty="empty"
 xmlns:jive-events="jive.events"
@@ -10,7 +12,9 @@ xmlns:openfl-ui="openfl.ui"
 >
 <xs:import namespace="openfl.display3D.textures" schemaLocation="openfl.display3D.textures.xsd" />
 <xs:import namespace="openfl.net" schemaLocation="openfl.net.xsd" />
+<xs:import namespace="openfl.media" schemaLocation="openfl.media.xsd" />
 <xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
+<xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
 <xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
@@ -108,17 +112,23 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display3D-textures:Texture" />
 <xs:element ref="openfl-display:DirectRenderer" />
 <xs:element ref="EventDispatcher" />
+<xs:element ref="openfl-media:Sound" />
 <xs:element ref="openfl-display:LoaderInfo" />
+<xs:element ref="jive-image:AssetImage" />
 <xs:element ref="openfl-display:DisplayObjectContainer" />
+<xs:element ref="jive:EmptyLayout" />
 <xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="jive:Swiper" />
 <xs:element ref="jive:TemplatedComponent" />
 <xs:element ref="openfl-display:OpenGLView" />
 <xs:element ref="openfl-display:MovieClip" />
 <xs:element ref="openfl-display:Bitmap" />
 <xs:element ref="openfl-net:URLLoader" />
+<xs:element ref="jive-image:Image" />
+<xs:element ref="openfl-media:SoundChannel" />
 <xs:element ref="openfl-display:Stage" />
 <xs:element ref="openfl-display3D-textures:TextureBase" />
-<xs:element ref="jive:BaseLayout" />
+<xs:element ref="jive:Flow" />
 <xs:element ref="openfl-display3D-textures:CubeTexture" />
 <xs:element ref="openfl-display:DisplayObject" />
 <xs:element ref="UncaughtErrorEvents" />
@@ -146,17 +156,23 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display:Stage3D" />
 <xs:element ref="openfl-display3D-textures:Texture" />
 <xs:element ref="openfl-display:DirectRenderer" />
+<xs:element ref="openfl-media:Sound" />
 <xs:element ref="openfl-display:LoaderInfo" />
+<xs:element ref="jive-image:AssetImage" />
 <xs:element ref="openfl-display:DisplayObjectContainer" />
+<xs:element ref="jive:EmptyLayout" />
 <xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="jive:Swiper" />
 <xs:element ref="jive:TemplatedComponent" />
 <xs:element ref="openfl-display:OpenGLView" />
 <xs:element ref="openfl-display:MovieClip" />
 <xs:element ref="openfl-display:Bitmap" />
 <xs:element ref="openfl-net:URLLoader" />
+<xs:element ref="jive-image:Image" />
+<xs:element ref="openfl-media:SoundChannel" />
 <xs:element ref="openfl-display:Stage" />
 <xs:element ref="openfl-display3D-textures:TextureBase" />
-<xs:element ref="jive:BaseLayout" />
+<xs:element ref="jive:Flow" />
 <xs:element ref="openfl-display3D-textures:CubeTexture" />
 <xs:element ref="openfl-display:DisplayObject" />
 <xs:element ref="UncaughtErrorEvents" />

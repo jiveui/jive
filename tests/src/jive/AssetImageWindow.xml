@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window
+        xmlns="jive"
+        xmlns:image="jive.image"
+        xmlns:haxe="http://haxe.org/"
+        x="Metric.absolute(100)"
+        y="Metric.absolute(100)"
+        width="Metric.absolute(500)"
+        height="Metric.absolute(500)"
+        >
+    <image:AssetImage id="image" assetId="'assets/rgb.png'"/>
+</Window>

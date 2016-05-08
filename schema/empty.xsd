@@ -7,6 +7,7 @@ xmlns:openfl-net-_URLRequestMethod="openfl.net._URLRequestMethod"
 xmlns:motion-actuators="motion.actuators"
 xmlns:openfl-_internal-text="openfl._internal.text"
 xmlns:openfl-text-_FontType="openfl.text._FontType"
+xmlns:openfl-_Assets="openfl._Assets"
 xmlns:openfl-ui-_MultitouchInputMode="openfl.ui._MultitouchInputMode"
 xmlns:lime-graphics-utils="lime.graphics.utils"
 xmlns:lime-math-_Matrix4="lime.math._Matrix4"
@@ -145,10 +146,11 @@ xmlns:lime-graphics-opengl="lime.graphics.opengl"
 xmlns:openfl-text-_TextFieldAutoSize="openfl.text._TextFieldAutoSize"
 xmlns:lime-text-_TextScript="lime.text._TextScript"
 xmlns:openfl-display-_SpreadMethod="openfl.display._SpreadMethod"
+xmlns:jive-image="jive.image"
 xmlns:lime-graphics-utils-_ImageDataUtil="lime.graphics.utils._ImageDataUtil"
+xmlns:openfl="openfl"
 xmlns:openfl-display-_StageDisplayState="openfl.display._StageDisplayState"
 xmlns:lime-utils-_Int32Array="lime.utils._Int32Array"
-xmlns:openfl="openfl"
 xmlns:openfl-_internal-renderer-opengl-utils="openfl._internal.renderer.opengl.utils"
 xmlns:openfl-utils-_CompressionAlgorithm="openfl.utils._CompressionAlgorithm"
 xmlns:openfl-ui="openfl.ui"
@@ -182,6 +184,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:import namespace="motion.actuators" schemaLocation="motion.actuators.xsd" />
 <xs:import namespace="openfl._internal.text" schemaLocation="openfl._internal.text.xsd" />
 <xs:import namespace="openfl.text._FontType" schemaLocation="openfl.text._FontType.xsd" />
+<xs:import namespace="openfl._Assets" schemaLocation="openfl._Assets.xsd" />
 <xs:import namespace="openfl.ui._MultitouchInputMode" schemaLocation="openfl.ui._MultitouchInputMode.xsd" />
 <xs:import namespace="lime.graphics.utils" schemaLocation="lime.graphics.utils.xsd" />
 <xs:import namespace="lime.math._Matrix4" schemaLocation="lime.math._Matrix4.xsd" />
@@ -320,10 +323,11 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:import namespace="openfl.text._TextFieldAutoSize" schemaLocation="openfl.text._TextFieldAutoSize.xsd" />
 <xs:import namespace="lime.text._TextScript" schemaLocation="lime.text._TextScript.xsd" />
 <xs:import namespace="openfl.display._SpreadMethod" schemaLocation="openfl.display._SpreadMethod.xsd" />
+<xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
 <xs:import namespace="lime.graphics.utils._ImageDataUtil" schemaLocation="lime.graphics.utils._ImageDataUtil.xsd" />
+<xs:import namespace="openfl" schemaLocation="openfl.xsd" />
 <xs:import namespace="openfl.display._StageDisplayState" schemaLocation="openfl.display._StageDisplayState.xsd" />
 <xs:import namespace="lime.utils._Int32Array" schemaLocation="lime.utils._Int32Array.xsd" />
-<xs:import namespace="openfl" schemaLocation="openfl.xsd" />
 <xs:import namespace="openfl._internal.renderer.opengl.utils" schemaLocation="openfl._internal.renderer.opengl.utils.xsd" />
 <xs:import namespace="openfl.utils._CompressionAlgorithm" schemaLocation="openfl.utils._CompressionAlgorithm.xsd" />
 <xs:import namespace="openfl.ui" schemaLocation="openfl.ui.xsd" />
@@ -443,6 +447,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="openfl-display3D:VertexBuffer3D" />
 <xs:element ref="lime-system:Clipboard" />
 <xs:element ref="lime-system:ThreadPool" />
+<xs:element ref="openfl-_Assets:AssetType_Impl_" />
 <xs:element ref="motion-easing:Expo" />
 <xs:element ref="motion-actuators:PropertyDetails" />
 <xs:element ref="Type" />
@@ -478,6 +483,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="lime-_backend-native-_NativeMouse:MouseCursorType_Impl_" />
 <xs:element ref="jive:Svg" />
 <xs:element ref="Xml" />
+<xs:element ref="openfl:IAssetCache" />
 <xs:element ref="openfl-_internal-renderer-_DrawCommandReader:LineBitmapStyleView_Impl_" />
 <xs:element ref="haxe-io:Path" />
 <xs:element ref="lime-audio-openal:AL" />
@@ -519,6 +525,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="motion-actuators:TransformActuator" />
 <xs:element ref="openfl-_internal-renderer-opengl-utils:GLGraphicsData" />
 <xs:element ref="openfl-display:OpenGLView" />
+<xs:element ref="openfl-media:ID3Info" />
 <xs:element ref="openfl-events:FullScreenEvent" />
 <xs:element ref="openfl-display3D-_Context3D:SamplerState" />
 <xs:element ref="openfl-events:TextEvent" />
@@ -555,6 +562,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="openfl-text-_FontStyle:FontStyle_Impl_" />
 <xs:element ref="lime-graphics-cairo-_CairoFontOptions:CairoFontOptions_Impl_" />
 <xs:element ref="lime-utils-_Float32Array:Float32Array_Impl_" />
+<xs:element ref="jive:Swiper" />
 <xs:element ref="format:SVG" />
 <xs:element ref="motion-actuators:SimpleActuator" />
 <xs:element ref="openfl-_internal-renderer-opengl-shaders2-_FillShader:Uniform_Impl_" />
@@ -562,6 +570,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="openfl-display:MovieClip" />
 <xs:element ref="openfl-display:Application" />
 <xs:element ref="lime-graphics-cairo-_CairoLineCap:CairoLineCap_Impl_" />
+<xs:element ref="jive-image:Image" />
 <xs:element ref="motion-_Actuate:TweenTimer" />
 <xs:element ref="motion:BezierPath" />
 <xs:element ref="String" />
@@ -599,6 +608,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="lime-ui-_GamepadAxis:GamepadAxis_Impl_" />
 <xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawPathView_Impl_" />
 <xs:element ref="openfl-display:TextureUvs" />
+<xs:element ref="jive-geom:Insets" />
 <xs:element ref="cpp:ArrayBase" />
 <xs:element ref="lime-_backend-native-_NativeApplication:WindowEventType_Impl_" />
 <xs:element ref="openfl-ui-_MultitouchInputMode:MultitouchInputMode_Impl_" />
@@ -641,6 +651,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="lime-graphics-cairo-_CairoFontFace:CairoFontFace_Impl_" />
 <xs:element ref="openfl-_internal-renderer-opengl-shaders2-_DefaultShader:Varying_Impl_" />
 <xs:element ref="haxe-xml:Parser" />
+<xs:element ref="jive-image:AssetImage" />
 <xs:element ref="lime-utils-_ArrayBufferView:TypedArrayType_Impl_" />
 <xs:element ref="jive:Command" />
 <xs:element ref="jive:EmptyLayout" />
@@ -683,6 +694,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="openfl-_internal-renderer-_DrawCommandReader:CurveToView_Impl_" />
 <xs:element ref="openfl-_internal-renderer-_DrawCommandReader:DrawEllipseView_Impl_" />
 <xs:element ref="openfl-geom:Transform" />
+<xs:element ref="openfl-media:SoundChannel" />
 <xs:element ref="openfl-display3D-textures:TextureBase" />
 <xs:element ref="sys-io-_Process:Stdout" />
 <xs:element ref="bindx:Signal" />
@@ -695,6 +707,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="format-png:Reader" />
 <xs:element ref="lime-ui-_GamepadButton:GamepadButton_Impl_" />
 <xs:element ref="openfl-text-_AntiAliasType:AntiAliasType_Impl_" />
+<xs:element ref="lime-audio:AudioSource" />
 <xs:element ref="format-png:Writer" />
 <xs:element ref="format-tools:Inflate" />
 <xs:element ref="openfl-ui:GameInputDevice" />
@@ -808,6 +821,8 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="format-tools:Deflate" />
 <xs:element ref="format-svg:Text" />
 <xs:element ref="lime-utils-_UInt16Array:UInt16Array_Impl_" />
+<xs:element ref="openfl:AssetLibrary" />
+<xs:element ref="openfl-media:SoundLoaderContext" />
 <xs:element ref="lime-audio-openal:ALC" />
 <xs:element ref="motion-actuators:MotionPathActuator" />
 <xs:element ref="openfl-_internal-renderer-opengl-utils:VertexArray" />
@@ -829,7 +844,6 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="format-svg:PathParser" />
 <xs:element ref="haxe-xml:Printer" />
 <xs:element ref="openfl-display:Stage" />
-<xs:element ref="jive:BaseLayout" />
 <xs:element ref="lime-_backend-native-_NativeApplication:ApplicationEventInfo" />
 <xs:element ref="format-gfx:GfxExtent" />
 <xs:element ref="openfl-display:DisplayObject" />
@@ -877,6 +891,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="bindx:FieldSignal" />
 <xs:element ref="lime-graphics-opengl:GL" />
 <xs:element ref="motion:IComponentPath" />
+<xs:element ref="openfl:Assets" />
 <xs:element ref="sys-io-_Process:Stdin" />
 <xs:element ref="bindx:MethodSignal" />
 <xs:element ref="haxe-io:Bytes" />
@@ -886,6 +901,8 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="lime-system:CFFI" />
 <xs:element ref="openfl-utils:IDataOutput" />
 <xs:element ref="openfl-events:EventDispatcher" />
+<xs:element ref="openfl-media:Sound" />
+<xs:element ref="jive-geom:MetricInsets" />
 <xs:element ref="openfl-_internal-renderer-cairo:CairoTextField" />
 <xs:element ref="lime-utils:ArrayBufferIO" />
 <xs:element ref="openfl-display:Shader" />
@@ -918,6 +935,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="lime-audio:ALAudioContext" />
 <xs:element ref="Math" />
 <xs:element ref="jive-geom:MetricDimension" />
+<xs:element ref="openfl:AssetCache" />
 <xs:element ref="openfl-_internal-renderer-opengl-utils:RenderTexture" />
 <xs:element ref="haxe-io:BytesBuffer" />
 <xs:element ref="haxe-zip:Compress" />

@@ -1,8 +1,6 @@
 import massive.munit.TestSuite;
 
-<<<<<<< HEAD
-import jive.LayoutTest;
-=======
+import jive.AssetImageTest;
 import jive.ComponentTest;
 import jive.DataBindingTest;
 import jive.LayoutTest;
@@ -10,7 +8,6 @@ import jive.SvgTest;
 import jive.SwiperTest;
 import jive.TemplatedComponentTest;
 import jive.WindowTest;
->>>>>>> 04f5be6cfdca206b99216861592a6fc6faa2490b
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -24,9 +21,7 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-<<<<<<< HEAD
-		add(jive.LayoutTest);
-=======
+		add(jive.AssetImageTest);
 		add(jive.ComponentTest);
 		add(jive.DataBindingTest);
 		add(jive.LayoutTest);
@@ -34,6 +29,5 @@ class TestSuite extends massive.munit.TestSuite
 		add(jive.SwiperTest);
 		add(jive.TemplatedComponentTest);
 		add(jive.WindowTest);
->>>>>>> 04f5be6cfdca206b99216861592a6fc6faa2490b
 	}
 }

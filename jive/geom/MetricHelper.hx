@@ -3,6 +3,7 @@ package jive.geom;
 class MetricHelper {
     static public function toAbsolute(m:Metric, d:Int = 0):Int {
         switch (m) {
+            //TODO: implement virtual
             case virtual(v): return 0;
             case percent(v): return Std.int(d * v / 100);
             case absolute(v) : return v;

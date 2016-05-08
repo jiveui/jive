@@ -1,9 +1,63 @@
 <xs:schema targetNamespace="openfl.media" xmlns="openfl.media" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
 xmlns:empty="empty"
 >
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:complexType name="ID3InfoSchemaTypeValue">
+<xs:all><xs:element ref="ID3Info"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoundChannelSchemaTypeValue">
+<xs:all><xs:element ref="SoundChannel"/></xs:all></xs:complexType>
+
 <xs:complexType name="SoundTransformSchemaTypeValue">
 <xs:all><xs:element ref="SoundTransform"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoundLoaderContextSchemaTypeValue">
+<xs:all><xs:element ref="SoundLoaderContext"/></xs:all></xs:complexType>
+
+<xs:complexType name="SoundSchemaTypeValue">
+<xs:all><xs:element ref="Sound"/></xs:all></xs:complexType>
+
+<xs:complexType name="ID3InfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="album" type="xs:string"/>
+<xs:element minOccurs="0" name="artist" type="xs:string"/>
+<xs:element minOccurs="0" name="comment" type="xs:string"/>
+<xs:element minOccurs="0" name="genre" type="xs:string"/>
+<xs:element minOccurs="0" name="songName" type="xs:string"/>
+<xs:element minOccurs="0" name="track" type="xs:string"/>
+<xs:element minOccurs="0" name="year" type="xs:string"/>
+</xs:all>
+<xs:attribute name="album" type="xs:string"/>
+<xs:attribute name="artist" type="xs:string"/>
+<xs:attribute name="comment" type="xs:string"/>
+<xs:attribute name="genre" type="xs:string"/>
+<xs:attribute name="songName" type="xs:string"/>
+<xs:attribute name="track" type="xs:string"/>
+<xs:attribute name="year" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SoundChannelSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="leftPeak" type="xs:double"/>
+<xs:element minOccurs="0" name="position" type="xs:double"/>
+<xs:element minOccurs="0" name="rightPeak" type="xs:double"/>
+<xs:element minOccurs="0" name="soundTransform" type="SoundTransformSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="leftPeak" type="xs:double"/>
+<xs:attribute name="position" type="xs:double"/>
+<xs:attribute name="rightPeak" type="xs:double"/>
+<xs:attribute name="soundTransform" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
 <xs:complexType name="SoundTransformSchemaType">
 <xs:complexContent>
@@ -26,6 +80,44 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="SoundLoaderContextSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
+<xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="bufferTime" type="xs:double"/>
+<xs:attribute name="checkPolicyFile" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
+<xs:complexType name="SoundSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
+<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
+<xs:element minOccurs="0" name="id3" type="ID3InfoSchemaTypeValue"/>
+<xs:element minOccurs="0" name="isBuffering" type="xs:boolean"/>
+<xs:element minOccurs="0" name="length" type="xs:double"/>
+<xs:element minOccurs="0" name="url" type="xs:string"/>
+</xs:all>
+<xs:attribute name="bytesLoaded" type="xs:int"/>
+<xs:attribute name="bytesTotal" type="xs:int"/>
+<xs:attribute name="id3" type="xs:string"/>
+<xs:attribute name="isBuffering" type="xs:boolean"/>
+<xs:attribute name="length" type="xs:double"/>
+<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="ID3Info" type="ID3InfoSchemaType"/>
+<xs:element name="SoundChannel" type="SoundChannelSchemaType"/>
 <xs:element name="SoundTransform" type="SoundTransformSchemaType"/>
+<xs:element name="SoundLoaderContext" type="SoundLoaderContextSchemaType"/>
+<xs:element name="Sound" type="SoundSchemaType"/>
 </xs:schema>

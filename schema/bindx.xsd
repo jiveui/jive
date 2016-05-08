@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="bindx" xmlns="bindx" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-image="jive.image"
 xmlns:empty="empty"
 xmlns:jive="jive"
 >
+<xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:complexType name="SignalToolsSchemaTypeValue">
@@ -11,11 +13,15 @@ xmlns:jive="jive"
 <xs:choice>
 <xs:element ref="jive:Component" />
 <xs:element ref="jive:DataContextControllable" />
+<xs:element ref="jive-image:Image" />
+<xs:element ref="jive-image:AssetImage" />
 <xs:element ref="jive:ViewModel" />
-<xs:element ref="jive:BaseLayout" />
+<xs:element ref="jive:Flow" />
 <xs:element ref="jive:Svg" />
 <xs:element ref="jive:Container" />
 <xs:element ref="jive:Window" />
+<xs:element ref="jive:EmptyLayout" />
+<xs:element ref="jive:Swiper" />
 <xs:element ref="jive:TemplatedComponent" />
 </xs:choice>
 </xs:complexType>
