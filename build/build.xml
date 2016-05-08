@@ -41,16 +41,12 @@
         <!--<condition property="browser.option" value="-browser ${browser}" else="">-->
             <!--<isset property="browser"/>-->
         <!--</condition>-->
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/tests"/>
-            <param name="hxml" value="gen.hxml"/>
-        </antcall>
         <antcall target="munit">
             <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="gen"/>
             <param name="options" value=""/>
         </antcall>
-        <antcall target="openfl">
+        <antcall target="jive">
             <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="test"/>
             <param name="options" value="project.xml cpp -Dtest -debug"/>
@@ -72,16 +68,12 @@
         <!--<condition property="browser.option" value="-browser ${browser}" else="">-->
                 <!--<isset property="browser"/>-->
         <!--</condition>-->
-        <antcall target="haxe">
-            <param name="dir" value="${project.root.path}/tests"/>
-            <param name="hxml" value="gen.hxml"/>
-        </antcall>
         <antcall target="munit">
             <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="gen"/>
             <param name="options" value="-filter ${test}"/>
         </antcall>
-        <antcall target="openfl">
+        <antcall target="jive">
             <param name="dir" value="${project.root.path}/tests"/>
             <param name="command" value="test"/>
             <param name="options" value="project.xml cpp -Dtest -debug -verbose"/>

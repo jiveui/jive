@@ -70,4 +70,15 @@
 		</exec>
 	</target>
 
+    <target name="jive">
+        <condition property="dir" value=".">
+            <not>
+                <isset property="dir"/>
+            </not>
+        </condition>
+        <echo level="info">Executing Jive ${command} ${options} for "${dir}"</echo>
+        <exec dir="${dir}" executable="haxelib" failonerror="true">
+            <arg line="run jive ${command} ${options}"/>
+        </exec>
+    </target>
 </project>
