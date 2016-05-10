@@ -13,3 +13,5 @@ tests/jive-tests.iws
 jive.iws
 vscode-project.hxml
 .vscode/
+build/bin/jive/gen.hxml
+build/bin/jive/GenHx.hx

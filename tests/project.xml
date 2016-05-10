@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
-    <meta title="tests" package="jive" version="0.0.1" company="Jive" />
+    <meta title="tests" package="jive.tests" version="0.0.1" company="Jive" />
 
     <!-- output -->
     <app main="WrapTestMain" file="jive-tests" path="bin" />
@@ -27,4 +27,6 @@
     <template path="templates" />
 
     <assets path="assets"/>
+
+    <config:hxtelemetry host="192.168.88.238" allocations="true"/>
 </project>
