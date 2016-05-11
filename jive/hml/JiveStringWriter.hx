@@ -1,5 +1,6 @@
 package jive.hml;
 
+#if macro
 import hml.base.MatchLevel;
 import hml.xml.writer.DefaultNodeWriter;
 import hml.xml.Data;
@@ -24,3 +25,4 @@ class JiveStringWriter extends DefaultNodeWriter {
         return node.cData != null ? node.cData : "\"\"";
     }
 }
+#end

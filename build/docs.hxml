@@ -1,4 +1,4 @@
--cp ..
+-cp ../
 -cpp tests/bin
 --no-output
 -xml ../docs/jive.xml
@@ -8,5 +8,6 @@
 -lib lime
 -lib format
 -lib svg
+-lib jive-gestures
 --macro "include('jive')"
 --remap flash:openfl
