@@ -30,8 +30,8 @@ class WrapTestMain {
         }
         #end
 
-        new TestMain();
-        // var test = new SwiperTest();
-        // test.test();
+        //new TestMain();
+        var test = new SwiperTest();
+        test.test();
     }
 }
