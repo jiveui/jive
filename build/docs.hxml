@@ -8,6 +8,5 @@
 -lib lime
 -lib format
 -lib svg
--lib jive-gestures
 --macro "include('jive')"
 --remap flash:openfl

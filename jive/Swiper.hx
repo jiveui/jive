@@ -12,6 +12,7 @@ import jive.gestures.core.Touch;
 import jive.gestures.events.GestureEvent;
 import openfl.events.Event;
 import openfl.events.MouseEvent;
+import openfl.geom.Rectangle;
 
 import motion.Actuate;
 import motion.actuators.IGenericActuator;
@@ -85,17 +86,22 @@ class Swiper extends Container {
     {
         var i = 0;
         var current = children.get(currentIndex);
+
+        displayObject.scrollRect =new Rectangle(displayObject.scrollRect.x - pan.offsetX, 0, absoluteWidth, absoluteHeight);
+        
         // if ( current.absoluteX + pan.offsetX > - absoluteWidth / 3  && current.absoluteX + pan.offsetX < 2 * absoluteWidth / 3 ) 
         //for (c in pool) {
         // trace('onPan = ' + event.newState);
 
-        for(d in [-1,0,1]) {    
+        /*for(d in [-1, 0, 1]) {
             var c = children.get(currentIndex + d);
             if (c != null) {
                 c.x = Metric.absolute(Std.int(c.absoluteX + pan.offsetX));
-                c.paint(null);
             }
-        }
+        }*/
+
+
+
             // trace('Child ' + (++i) + ':' + Std.int(c.absoluteX + pan.offsetX));
         //}
     }
@@ -104,13 +110,22 @@ class Swiper extends Container {
         // trace('pan ended, currentIndex = $currentIndex');
         if (!isInAnimationProcess) {
             var index = currentIndex;
-            var current = children.get(currentIndex);        
-            // sync changes
-            if (current.absoluteX <= -absoluteWidth / 3 ){
+            // var current = children.get(currentIndex);        
+            // // sync changes
+            // if (current.absoluteX <= -absoluteWidth / 3 ){
+            //     // to right
+            //     if(currentIndex < children.length - 1)
+            //         currentIndex ++ ;
+            // } else if (current.absoluteX >= absoluteWidth / 3) {
+            //     // to left
+            //     if(currentIndex > 0)
+            //         currentIndex -- ;
+            // } 
+            if (displayObject.scrollRect.x >= absoluteWidth / 3 + currentIndex * absoluteWidth){
                 // to right
                 if(currentIndex < children.length - 1)
                     currentIndex ++ ;
-            } else if (current.absoluteX >= absoluteWidth / 3) {
+            } else if (displayObject.scrollRect.x <= - absoluteWidth / 3 + currentIndex * absoluteWidth) {
                 // to left
                 if(currentIndex > 0)
                     currentIndex -- ;
@@ -148,19 +163,23 @@ class Swiper extends Container {
 
         var current = children.get(index);
         var animation = {
-            x: current.absoluteX 
+            // x: current.absoluteX 
+            x: displayObject.scrollRect.x
         };
 
         isInAnimationProcess = true;
 
         actuator = Actuate.tween(animation, 0.6, {
-            x: (index - ci) * absoluteWidth
+            // x: (index - ci) * absoluteWidth
+            x: ci * absoluteWidth
         }).onUpdate(function(){
-            for(d in [-1,0,1]) {
+            /*for(d in [-1,0,1]) {
                 var c = children.get(index + d);
                 if (c != null)
                     c.x = Metric.absolute(Std.int(animation.x + d * absoluteWidth));
-            }
+            }*/
+            displayObject.scrollRect = new Rectangle(animation.x, 0, absoluteWidth, absoluteHeight);
+            // .x = Std.int(animation.x);
         }).onComplete(function(){
 
             isInAnimationProcess = false;
@@ -176,10 +195,9 @@ class Swiper extends Container {
                     
                 if (ci > 0) {
                     var target = children.get(ci - 1);
-                    target.x = Metric.percent(-GAP);
                     displayObjectContainer.addChild(target.displayObject);
                     displayObjectContainer.setChildIndex(target.displayObject, 0);
-                    target.paint(null);
+                    target.repaint();
                 }
             } else if (ci > index) {
                 // to right
@@ -190,10 +208,8 @@ class Swiper extends Container {
 
                 if (ci < children.length - 1) {
                     var target = children.get(ci + 1);
-                    target.x = Metric.percent(GAP);
-                    pool.push(target);
                     displayObjectContainer.addChild(target.displayObject);
-                    target.paint(null);
+                    target.repaint();
                 }
 
             }   
@@ -233,7 +249,9 @@ class Swiper extends Container {
     override public function append(child: Component) {
         child.width = Metric.percent(100);
         child.height = Metric.percent(100);
-
+        child.x = Metric.percent(GAP * children.length);
+        child.margin.left = children.length > 0 ? Metric.absolute(1) : Metric.absolute(0);
+                    
         // if (currentIndex == 0 && children.length == 0) {
         // displayObjectContainer.addChild(child.displayObject);
         // trace('First added');
@@ -257,10 +275,7 @@ class Swiper extends Container {
         for (d in [-1, 0, 1]) {
             var target = children.get(currentIndex + d);
             if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
-                target.x = Metric.percent(d * GAP);
                 displayObjectContainer.addChild(target.displayObject);
-                pool.push(target);
-                //trace('Child $d: ' + target.absoluteX + ' | ' + absoluteWidth);
             }
         }
     }
