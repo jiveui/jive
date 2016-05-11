@@ -1,0 +1,162 @@
+<xs:schema targetNamespace="jive.gestures" xmlns="jive.gestures" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-gestures-core="jive.gestures.core"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+>
+<xs:import namespace="jive.gestures.core" schemaLocation="jive.gestures.core.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:complexType name="LongPressGestureSchemaTypeValue">
+<xs:all><xs:element ref="LongPressGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformGestureSchemaTypeValue">
+<xs:all><xs:element ref="TransformGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="GesturesSchemaTypeValue">
+<xs:all><xs:element ref="Gestures"/></xs:all></xs:complexType>
+
+<xs:complexType name="PanGestureSchemaTypeValue">
+<xs:all><xs:element ref="PanGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="ZoomGestureSchemaTypeValue">
+<xs:all><xs:element ref="ZoomGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="SwipeGestureSchemaTypeValue">
+<xs:all><xs:element ref="SwipeGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="TapGestureSchemaTypeValue">
+<xs:all><xs:element ref="TapGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="RotateGestureSchemaTypeValue">
+<xs:all><xs:element ref="RotateGesture"/></xs:all></xs:complexType>
+
+<xs:complexType name="LongPressGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="numTouchesRequired" type="xs:int"/>
+<xs:element minOccurs="0" name="minPressDuration" type="xs:int"/>
+<xs:element minOccurs="0" name="slop" type="xs:double"/>
+</xs:all>
+<xs:attribute name="numTouchesRequired" type="xs:int"/>
+<xs:attribute name="minPressDuration" type="xs:int"/>
+<xs:attribute name="slop" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GesturesSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="gesturesManager" type="jive-gestures-core:GesturesManagerSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="gesturesManager" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="PanGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="slop" type="xs:double"/>
+<xs:element minOccurs="0" name="direction" type="xs:int"/>
+<xs:element minOccurs="0" name="maxNumTouchesRequired" type="xs:int"/>
+<xs:element minOccurs="0" name="minNumTouchesRequired" type="xs:int"/>
+<xs:element minOccurs="0" name="offsetX" type="xs:double"/>
+<xs:element minOccurs="0" name="offsetY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="slop" type="xs:double"/>
+<xs:attribute name="direction" type="xs:int"/>
+<xs:attribute name="maxNumTouchesRequired" type="xs:int"/>
+<xs:attribute name="minNumTouchesRequired" type="xs:int"/>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ZoomGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="slop" type="xs:double"/>
+<xs:element minOccurs="0" name="lockAspectRatio" type="xs:boolean"/>
+<xs:element minOccurs="0" name="scaleX" type="xs:double"/>
+<xs:element minOccurs="0" name="scaleY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="slop" type="xs:double"/>
+<xs:attribute name="lockAspectRatio" type="xs:boolean"/>
+<xs:attribute name="scaleX" type="xs:double"/>
+<xs:attribute name="scaleY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="SwipeGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="slop" type="xs:double"/>
+<xs:element minOccurs="0" name="numTouchesRequired" type="xs:int"/>
+<xs:element minOccurs="0" name="direction" type="xs:int"/>
+<xs:element minOccurs="0" name="maxDuration" type="xs:int"/>
+<xs:element minOccurs="0" name="minOffset" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="minVelocity" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="offsetX" type="xs:double"/>
+<xs:element minOccurs="0" name="offsetY" type="xs:double"/>
+</xs:all>
+<xs:attribute name="slop" type="xs:double"/>
+<xs:attribute name="numTouchesRequired" type="xs:int"/>
+<xs:attribute name="direction" type="xs:int"/>
+<xs:attribute name="maxDuration" type="xs:int"/>
+<xs:attribute name="minOffset" type="xs:string"/>
+<xs:attribute name="minVelocity" type="xs:string"/>
+<xs:attribute name="offsetX" type="xs:double"/>
+<xs:attribute name="offsetY" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TapGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="RotateGestureSchemaType">
+<xs:complexContent>
+<xs:extension base="jive-gestures-core:GestureSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="slop" type="xs:double"/>
+<xs:element minOccurs="0" name="rotation" type="xs:double"/>
+</xs:all>
+<xs:attribute name="slop" type="xs:double"/>
+<xs:attribute name="rotation" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="LongPressGesture" type="LongPressGestureSchemaType"/>
+<xs:element name="TransformGesture" type="TransformGestureSchemaType"/>
+<xs:element name="Gestures" type="GesturesSchemaType"/>
+<xs:element name="PanGesture" type="PanGestureSchemaType"/>
+<xs:element name="ZoomGesture" type="ZoomGestureSchemaType"/>
+<xs:element name="SwipeGesture" type="SwipeGestureSchemaType"/>
+<xs:element name="TapGesture" type="TapGestureSchemaType"/>
+<xs:element name="RotateGesture" type="RotateGestureSchemaType"/>
+</xs:schema>

@@ -1,14 +1,19 @@
 <xs:schema targetNamespace="openfl.utils" xmlns="openfl.utils" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:haxe-io="haxe.io"
+xmlns:openfl-events="openfl.events"
 xmlns:empty="empty"
 >
 <xs:import namespace="haxe.io" schemaLocation="haxe.io.xsd" />
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="IDataInputSchemaTypeValue">
 <xs:choice>
 <xs:element ref="ByteArrayData" />
 </xs:choice>
 </xs:complexType>
+
+<xs:complexType name="TimerSchemaTypeValue">
+<xs:all><xs:element ref="Timer"/></xs:all></xs:complexType>
 
 <xs:complexType name="ByteArrayDataSchemaTypeValue">
 <xs:all><xs:element ref="ByteArrayData"/></xs:all></xs:complexType>
@@ -30,6 +35,23 @@ xmlns:empty="empty"
 <xs:attribute name="bytesAvailable" type="xs:int"/>
 <xs:attribute name="endian" type="xs:string"/>
 <xs:attribute name="objectEncoding" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TimerSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="currentCount" type="xs:int"/>
+<xs:element minOccurs="0" name="delay" type="xs:double"/>
+<xs:element minOccurs="0" name="repeatCount" type="xs:int"/>
+<xs:element minOccurs="0" name="running" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="currentCount" type="xs:int"/>
+<xs:attribute name="delay" type="xs:double"/>
+<xs:attribute name="repeatCount" type="xs:int"/>
+<xs:attribute name="running" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -66,6 +88,7 @@ xmlns:empty="empty"
 
 
 <xs:element name="IDataInput" type="IDataInputSchemaType"/>
+<xs:element name="Timer" type="TimerSchemaType"/>
 <xs:element name="ByteArrayData" type="ByteArrayDataSchemaType"/>
 <xs:element name="IDataOutput" type="IDataOutputSchemaType"/>
 </xs:schema>

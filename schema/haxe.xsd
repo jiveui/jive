@@ -1,7 +1,9 @@
 <xs:schema targetNamespace="haxe" xmlns="haxe" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-state="jive.state"
 xmlns:empty="empty"
 xmlns:haxe-ds="haxe.ds"
 >
+<xs:import namespace="jive.state" schemaLocation="jive.state.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
 <xs:complexType name="EnumValueToolsSchemaTypeValue">
@@ -18,6 +20,7 @@ xmlns:haxe-ds="haxe.ds"
 
 <xs:complexType name="IMapSchemaTypeValue">
 <xs:choice>
+<xs:element ref="jive-state:States" />
 <xs:element ref="haxe-ds:IntMap" />
 <xs:element ref="haxe-ds:StringMap" />
 <xs:element ref="haxe-ds:ObjectMap" />

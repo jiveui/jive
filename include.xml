@@ -6,5 +6,4 @@
     <haxelib name="svg"/>
     <haxelib name="unifill"/>
     <haxelib name="bindx2"/>
-    <haxelib name="jive-gestures"/>
 </extension>

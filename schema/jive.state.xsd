@@ -1,0 +1,174 @@
+<xs:schema targetNamespace="jive.state" xmlns="jive.state" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:motion-easing="motion.easing"
+xmlns:jive-image="jive.image"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+xmlns:jive="jive"
+xmlns:haxe-ds="haxe.ds"
+>
+<xs:import namespace="motion.easing" schemaLocation="motion.easing.xsd" />
+<xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="haxe.ds" schemaLocation="haxe.ds.xsd" />
+<xs:complexType name="TransformationSchemaTypeValue">
+<xs:all><xs:element ref="Transformation"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformationItemsSchemaTypeValue">
+<xs:all><xs:element ref="TransformationItems"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformationsSchemaTypeValue">
+<xs:all><xs:element ref="Transformations"/></xs:all></xs:complexType>
+
+<xs:complexType name="StatefullSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive:Component" />
+<xs:element ref="jive-image:Image" />
+<xs:element ref="jive-image:AssetImage" />
+<xs:element ref="jive:Flow" />
+<xs:element ref="jive:Svg" />
+<xs:element ref="jive:Container" />
+<xs:element ref="jive:Window" />
+<xs:element ref="jive:EmptyLayout" />
+<xs:element ref="jive:Swiper" />
+<xs:element ref="jive:TemplatedComponent" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="StateSchemaTypeValue">
+<xs:all><xs:element ref="State"/></xs:all></xs:complexType>
+
+<xs:complexType name="StatesSchemaTypeValue">
+<xs:all><xs:element ref="States"/></xs:all></xs:complexType>
+
+<xs:complexType name="ItemSchemaTypeValue">
+<xs:all><xs:element ref="Item"/></xs:all></xs:complexType>
+
+<xs:complexType name="StateManagerSchemaTypeValue">
+<xs:all><xs:element ref="StateManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="StateChangedEventSchemaTypeValue">
+<xs:all><xs:element ref="StateChangedEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="TransformationSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="object" type="xs:string"/>
+<xs:element minOccurs="0" name="duration" type="xs:double"/>
+<xs:element minOccurs="0" name="ease" type="motion-easing:IEasingSchemaTypeValue"/>
+<xs:element minOccurs="0" name="properties" type="TransformationItemsSchemaTypeValue"/>
+<xs:element minOccurs="0" name="after" type="TransformationSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="object" type="xs:string"/>
+<xs:attribute name="duration" type="xs:double"/>
+<xs:attribute name="ease" type="xs:string"/>
+<xs:attribute name="properties" type="xs:string"/>
+<xs:attribute name="after" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformationItemsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:ListSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="Item" />
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TransformationsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:ListSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="Transformation" />
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StatefullSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+<xs:element minOccurs="0" name="states" type="StatesSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="state" type="xs:string"/>
+<xs:attribute name="states" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="transformations" type="TransformationsSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="transformations" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StatesSchemaType">
+<xs:complexContent>
+<xs:extension base="haxe-ds:StringMapSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" ref="State" />
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ItemSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:double"/>
+</xs:all>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="value" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StateManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="StateChangedEventSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="previous" type="StateSchemaTypeValue"/>
+<xs:element minOccurs="0" name="current" type="StateSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="previous" type="xs:string"/>
+<xs:attribute name="current" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="Transformation" type="TransformationSchemaType"/>
+<xs:element name="TransformationItems" type="TransformationItemsSchemaType"/>
+<xs:element name="Transformations" type="TransformationsSchemaType"/>
+<xs:element name="Statefull" type="StatefullSchemaType"/>
+<xs:element name="State" type="StateSchemaType"/>
+<xs:element name="States" type="StatesSchemaType"/>
+<xs:element name="Item" type="ItemSchemaType"/>
+<xs:element name="StateManager" type="StateManagerSchemaType"/>
+<xs:element name="StateChangedEvent" type="StateChangedEventSchemaType"/>
+</xs:schema>

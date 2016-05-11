@@ -1,24 +1,34 @@
 <xs:schema targetNamespace="openfl.events" xmlns="openfl.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:openfl-display3D-textures="openfl.display3D.textures"
 xmlns:openfl-net="openfl.net"
+xmlns:empty="empty"
+xmlns:jive-gestures-events="jive.gestures.events"
+xmlns:jive-gestures="jive.gestures"
+xmlns:jive="jive"
+xmlns:openfl-utils="openfl.utils"
+xmlns:jive-state="jive.state"
 xmlns:openfl-media="openfl.media"
 xmlns:openfl-text="openfl.text"
 xmlns:jive-image="jive.image"
+xmlns:jive-gestures-core="jive.gestures.core"
 xmlns:openfl-display="openfl.display"
-xmlns:empty="empty"
 xmlns:jive-events="jive.events"
-xmlns:jive="jive"
 xmlns:openfl-ui="openfl.ui"
 >
 <xs:import namespace="openfl.display3D.textures" schemaLocation="openfl.display3D.textures.xsd" />
 <xs:import namespace="openfl.net" schemaLocation="openfl.net.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="jive.gestures.events" schemaLocation="jive.gestures.events.xsd" />
+<xs:import namespace="jive.gestures" schemaLocation="jive.gestures.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:import namespace="openfl.utils" schemaLocation="openfl.utils.xsd" />
+<xs:import namespace="jive.state" schemaLocation="jive.state.xsd" />
 <xs:import namespace="openfl.media" schemaLocation="openfl.media.xsd" />
 <xs:import namespace="openfl.text" schemaLocation="openfl.text.xsd" />
 <xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
+<xs:import namespace="jive.gestures.core" schemaLocation="jive.gestures.core.xsd" />
 <xs:import namespace="openfl.display" schemaLocation="openfl.display.xsd" />
-<xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
-<xs:import namespace="jive" schemaLocation="jive.xsd" />
 <xs:import namespace="openfl.ui" schemaLocation="openfl.ui.xsd" />
 <xs:complexType name="GameInputEventSchemaTypeValue">
 <xs:all><xs:element ref="GameInputEvent"/></xs:all></xs:complexType>
@@ -28,6 +38,7 @@ xmlns:openfl-ui="openfl.ui"
 
 <xs:complexType name="EventSchemaTypeValue">
 <xs:choice>
+<xs:element ref="TimerEvent" />
 <xs:element ref="jive-events:TransformGestureEvent" />
 <xs:element ref="IOErrorEvent" />
 <xs:element ref="ErrorEvent" />
@@ -43,13 +54,18 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="FocusEvent" />
 <xs:element ref="TextEvent" />
 <xs:element ref="ActivityEvent" />
+<xs:element ref="jive-state:StateChangedEvent" />
 <xs:element ref="ProgressEvent" />
+<xs:element ref="jive-gestures-events:GestureEvent" />
 <xs:element ref="Event" />
 </xs:choice>
 </xs:complexType>
 
 <xs:complexType name="FocusEventSchemaTypeValue">
 <xs:all><xs:element ref="FocusEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="TimerEventSchemaTypeValue">
+<xs:all><xs:element ref="TimerEvent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ErrorEventSchemaTypeValue">
 <xs:choice>
@@ -96,6 +112,7 @@ xmlns:openfl-ui="openfl.ui"
 <xs:complexType name="IEventDispatcherSchemaTypeValue">
 <xs:choice>
 <xs:element ref="jive:Component" />
+<xs:element ref="jive-gestures:RotateGesture" />
 <xs:element ref="openfl-display:Shape" />
 <xs:element ref="openfl-display:Loader" />
 <xs:element ref="openfl-ui:GameInput" />
@@ -104,6 +121,9 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="jive:Container" />
 <xs:element ref="openfl-text:TextField" />
 <xs:element ref="jive:Collection" />
+<xs:element ref="jive-gestures:ZoomGesture" />
+<xs:element ref="jive-gestures:LongPressGesture" />
+<xs:element ref="openfl-utils:Timer" />
 <xs:element ref="openfl-display:FrameLabel" />
 <xs:element ref="jive:Svg" />
 <xs:element ref="jive:Window" />
@@ -113,15 +133,18 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display:DirectRenderer" />
 <xs:element ref="EventDispatcher" />
 <xs:element ref="openfl-media:Sound" />
+<xs:element ref="jive-gestures:TransformGesture" />
 <xs:element ref="openfl-display:LoaderInfo" />
 <xs:element ref="jive-image:AssetImage" />
 <xs:element ref="openfl-display:DisplayObjectContainer" />
 <xs:element ref="jive:EmptyLayout" />
 <xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="jive-gestures:SwipeGesture" />
 <xs:element ref="jive:Swiper" />
 <xs:element ref="jive:TemplatedComponent" />
 <xs:element ref="openfl-display:OpenGLView" />
 <xs:element ref="openfl-display:MovieClip" />
+<xs:element ref="jive-gestures-core:Gesture" />
 <xs:element ref="openfl-display:Bitmap" />
 <xs:element ref="openfl-net:URLLoader" />
 <xs:element ref="jive-image:Image" />
@@ -129,9 +152,11 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display:Stage" />
 <xs:element ref="openfl-display3D-textures:TextureBase" />
 <xs:element ref="jive:Flow" />
+<xs:element ref="jive-gestures:TapGesture" />
 <xs:element ref="openfl-display3D-textures:CubeTexture" />
 <xs:element ref="openfl-display:DisplayObject" />
 <xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="jive-gestures:PanGesture" />
 </xs:choice>
 </xs:complexType>
 
@@ -141,6 +166,7 @@ xmlns:openfl-ui="openfl.ui"
 <xs:complexType name="EventDispatcherSchemaTypeValue">
 <xs:choice>
 <xs:element ref="jive:Component" />
+<xs:element ref="jive-gestures:RotateGesture" />
 <xs:element ref="openfl-display:Shape" />
 <xs:element ref="openfl-display:Loader" />
 <xs:element ref="openfl-ui:GameInput" />
@@ -149,6 +175,9 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="jive:Container" />
 <xs:element ref="openfl-text:TextField" />
 <xs:element ref="jive:Collection" />
+<xs:element ref="jive-gestures:ZoomGesture" />
+<xs:element ref="jive-gestures:LongPressGesture" />
+<xs:element ref="openfl-utils:Timer" />
 <xs:element ref="openfl-display:FrameLabel" />
 <xs:element ref="jive:Svg" />
 <xs:element ref="jive:Window" />
@@ -157,15 +186,18 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display3D-textures:Texture" />
 <xs:element ref="openfl-display:DirectRenderer" />
 <xs:element ref="openfl-media:Sound" />
+<xs:element ref="jive-gestures:TransformGesture" />
 <xs:element ref="openfl-display:LoaderInfo" />
 <xs:element ref="jive-image:AssetImage" />
 <xs:element ref="openfl-display:DisplayObjectContainer" />
 <xs:element ref="jive:EmptyLayout" />
 <xs:element ref="openfl-display:InteractiveObject" />
+<xs:element ref="jive-gestures:SwipeGesture" />
 <xs:element ref="jive:Swiper" />
 <xs:element ref="jive:TemplatedComponent" />
 <xs:element ref="openfl-display:OpenGLView" />
 <xs:element ref="openfl-display:MovieClip" />
+<xs:element ref="jive-gestures-core:Gesture" />
 <xs:element ref="openfl-display:Bitmap" />
 <xs:element ref="openfl-net:URLLoader" />
 <xs:element ref="jive-image:Image" />
@@ -173,9 +205,11 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element ref="openfl-display:Stage" />
 <xs:element ref="openfl-display3D-textures:TextureBase" />
 <xs:element ref="jive:Flow" />
+<xs:element ref="jive-gestures:TapGesture" />
 <xs:element ref="openfl-display3D-textures:CubeTexture" />
 <xs:element ref="openfl-display:DisplayObject" />
 <xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="jive-gestures:PanGesture" />
 <xs:element ref="EventDispatcher" />
 </xs:choice>
 </xs:complexType>
@@ -235,6 +269,15 @@ xmlns:openfl-ui="openfl.ui"
 <xs:attribute name="keyCode" type="xs:int"/>
 <xs:attribute name="relatedObject" type="xs:string"/>
 <xs:attribute name="shiftKey" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TimerEventSchemaType">
+<xs:complexContent>
+<xs:extension base="EventSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -455,6 +498,7 @@ xmlns:openfl-ui="openfl.ui"
 <xs:element name="IOErrorEvent" type="IOErrorEventSchemaType"/>
 <xs:element name="Event" type="EventSchemaType"/>
 <xs:element name="FocusEvent" type="FocusEventSchemaType"/>
+<xs:element name="TimerEvent" type="TimerEventSchemaType"/>
 <xs:element name="ErrorEvent" type="ErrorEventSchemaType"/>
 <xs:element name="FullScreenEvent" type="FullScreenEventSchemaType"/>
 <xs:element name="TextEvent" type="TextEventSchemaType"/>

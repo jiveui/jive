@@ -1,5 +1,6 @@
 package jive;
 
+import jive.state.States;
 import jive.state.State;
 import haxe.ds.StringMap;
 import jive.state.Statefull;
@@ -24,8 +25,21 @@ class Component extends EventDispatcher implements IBindable implements Stateful
 
     private var needsPaint:Bool = true;
 
-    var state: String;
-    var states: StringMap<State>;
+    public var state(get, set): String;
+    private var _state: String;
+    private function get_state(): String { return _state; }
+    private function set_state(v: String): String {
+        _state = v;
+        return v;
+    }
+
+    public var states(get, set): States;
+    private var _states: States;
+    private function get_states(): States { return _states; }
+    private function set_states(v: States): States {
+        _states = v;
+        return v; 
+    }
 
     public var x(get, set):Metric;
     private var _x:Metric;

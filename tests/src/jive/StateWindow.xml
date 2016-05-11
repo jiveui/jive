@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Window
         xmlns="jive"
+        xmlns:state="jive.state"
         xmlns:haxe="http://haxe.org/"
         width="Metric.absolute(Std.int(Lib.current.stage.stageWidth))"
         height="Metric.absolute(Std.int(Lib.current.stage.stageHeight))"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
-    <Svg width="Metric.percent(100)" height="Metric.percent(100)">
+    <states>
+        <state:States>
+            <state:State name="normal">
+                <state:transformations>
+                    <state:Transformations>
+                        <state:Transformation object="svg1" duration="1000">
+                            <state:properties>
+                                <state:TransformationItems>
+                                    <state:Item name="alpha" value="0.0"/>
+                                </state:TransformationItems>
+                            </state:properties>
+                        </state:Transformation>
+                    </state:Transformations>
+                </state:transformations>
+            </state:State>
+        </state:States>
+    </states>
+    <Svg id="svg1" width="Metric.percent(100)" height="Metric.percent(100)">
         <content>
                 <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#e1e1e1"/>
                 <rect x="{absolute(10)}"

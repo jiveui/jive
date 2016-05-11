@@ -1,0 +1,135 @@
+<xs:schema targetNamespace="jive.gestures.core" xmlns="jive.gestures.core" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:empty="empty"
+xmlns:openfl-geom="openfl.geom"
+xmlns:jive-gestures="jive.gestures"
+xmlns:jive="jive"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="empty" schemaLocation="empty.xsd" />
+<xs:import namespace="openfl.geom" schemaLocation="openfl.geom.xsd" />
+<xs:import namespace="jive.gestures" schemaLocation="jive.gestures.xsd" />
+<xs:import namespace="jive" schemaLocation="jive.xsd" />
+<xs:complexType name="TouchesManagerSchemaTypeValue">
+<xs:all><xs:element ref="TouchesManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="GesturesManagerSchemaTypeValue">
+<xs:all><xs:element ref="GesturesManager"/></xs:all></xs:complexType>
+
+<xs:complexType name="TouchSchemaTypeValue">
+<xs:all><xs:element ref="Touch"/></xs:all></xs:complexType>
+
+<xs:complexType name="GestureStateSchemaTypeValue">
+<xs:all><xs:element ref="GestureState"/></xs:all></xs:complexType>
+
+<xs:complexType name="GestureSchemaTypeValue">
+<xs:choice>
+<xs:element ref="jive-gestures:RotateGesture" />
+<xs:element ref="jive-gestures:LongPressGesture" />
+<xs:element ref="jive-gestures:TransformGesture" />
+<xs:element ref="jive-gestures:SwipeGesture" />
+<xs:element ref="jive-gestures:TapGesture" />
+<xs:element ref="jive-gestures:ZoomGesture" />
+<xs:element ref="jive-gestures:PanGesture" />
+<xs:element ref="Gesture" />
+</xs:choice>
+</xs:complexType>
+
+<xs:complexType name="TouchesManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="activeTouchesCount" type="xs:int"/>
+</xs:all>
+<xs:attribute name="activeTouchesCount" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GesturesManagerSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="target" type="jive:ComponentSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="target" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="TouchSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="id" type="xs:int"/>
+<xs:element minOccurs="0" name="sizeX" type="xs:double"/>
+<xs:element minOccurs="0" name="sizeY" type="xs:double"/>
+<xs:element minOccurs="0" name="pressure" type="xs:double"/>
+<xs:element minOccurs="0" name="location" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="previousLocation" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="beginLocation" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="locationOffset" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="time" type="xs:int"/>
+<xs:element minOccurs="0" name="beginTime" type="xs:int"/>
+</xs:all>
+<xs:attribute name="id" type="xs:int"/>
+<xs:attribute name="sizeX" type="xs:double"/>
+<xs:attribute name="sizeY" type="xs:double"/>
+<xs:attribute name="pressure" type="xs:double"/>
+<xs:attribute name="location" type="xs:string"/>
+<xs:attribute name="previousLocation" type="xs:string"/>
+<xs:attribute name="beginLocation" type="xs:string"/>
+<xs:attribute name="locationOffset" type="xs:string"/>
+<xs:attribute name="time" type="xs:int"/>
+<xs:attribute name="beginTime" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GestureStateSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="isEndState" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="isEndState" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="GestureSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="touchesCount" type="xs:int"/>
+<xs:element minOccurs="0" name="state" type="GestureStateSchemaTypeValue"/>
+<xs:element minOccurs="0" name="idle" type="xs:boolean"/>
+<xs:element minOccurs="0" name="canBePreventedByGesture" type="xs:string"/>
+<xs:element minOccurs="0" name="canPreventGesture" type="xs:string"/>
+<xs:element minOccurs="0" name="gestureShouldReceiveTouch" type="xs:string"/>
+<xs:element minOccurs="0" name="gestureShouldBegin" type="xs:string"/>
+<xs:element minOccurs="0" name="gesturesShouldRecognizeSimultaneously" type="xs:string"/>
+<xs:element minOccurs="0" name="location" type="openfl-geom:Vector3DSchemaTypeValue"/>
+<xs:element minOccurs="0" name="enabled" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="touchesCount" type="xs:int"/>
+<xs:attribute name="state" type="xs:string"/>
+<xs:attribute name="idle" type="xs:boolean"/>
+<xs:attribute name="canBePreventedByGesture" type="xs:string"/>
+<xs:attribute name="canPreventGesture" type="xs:string"/>
+<xs:attribute name="gestureShouldReceiveTouch" type="xs:string"/>
+<xs:attribute name="gestureShouldBegin" type="xs:string"/>
+<xs:attribute name="gesturesShouldRecognizeSimultaneously" type="xs:string"/>
+<xs:attribute name="location" type="xs:string"/>
+<xs:attribute name="enabled" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="TouchesManager" type="TouchesManagerSchemaType"/>
+<xs:element name="GesturesManager" type="GesturesManagerSchemaType"/>
+<xs:element name="Touch" type="TouchSchemaType"/>
+<xs:element name="GestureState" type="GestureStateSchemaType"/>
+<xs:element name="Gesture" type="GestureSchemaType"/>
+</xs:schema>

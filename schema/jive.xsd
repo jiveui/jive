@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="jive" xmlns="jive" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:bindx="bindx"
+xmlns:jive-state="jive.state"
 xmlns:openfl-events="openfl.events"
 xmlns:jive-image="jive.image"
 xmlns:jive-themes="jive.themes"
@@ -8,6 +9,7 @@ xmlns:openfl-display="openfl.display"
 xmlns:empty="empty"
 >
 <xs:import namespace="bindx" schemaLocation="bindx.xsd" />
+<xs:import namespace="jive.state" schemaLocation="jive.state.xsd" />
 <xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
 <xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
 <xs:import namespace="jive.themes" schemaLocation="jive.themes.xsd" />
@@ -122,6 +124,8 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="openfl-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+<xs:element minOccurs="0" name="states" type="jive-state:StatesSchemaTypeValue"/>
 <xs:element minOccurs="0" name="x" type="xs:string"/>
 <xs:element minOccurs="0" name="y" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:string"/>
@@ -138,6 +142,8 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="absoluteX" type="xs:int"/>
 <xs:element minOccurs="0" name="absoluteY" type="xs:int"/>
 </xs:all>
+<xs:attribute name="state" type="xs:string"/>
+<xs:attribute name="states" type="xs:string"/>
 <xs:attribute name="x" type="xs:string"/>
 <xs:attribute name="y" type="xs:string"/>
 <xs:attribute name="width" type="xs:string"/>

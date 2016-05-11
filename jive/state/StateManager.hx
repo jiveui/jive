@@ -35,7 +35,7 @@ class StateManager {
             .ease(t.ease)
             .onComplete(function() {
                 if (t.after != null) {
-                    startTransformation(object, t.after);
+                    startTransformation(object, t.after, onComplete);
                 } else {
                     onComplete();
                 }

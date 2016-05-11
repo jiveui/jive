@@ -8,7 +8,7 @@ class TypeTools {
         }
     }
 
-    inline public static function lastObjectOfChain(o: Dynamic, memberChain: String): Dynamic {
+    public static function lastObjectOfChain(o: Dynamic, memberChain: String): Dynamic {
         var members = memberChain.split(".");
         for (m in members) {
             if (null == o) return null;
