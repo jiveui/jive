@@ -8,8 +8,8 @@
         height="Metric.absolute(Std.int(Lib.current.stage.stageHeight/2))"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
-    <Scroll>
-        <Flow width="Metric.percent(100)" height="Metric.percent(100)">
+    <Scroll width="Metric.percent(30)" height="Metric.percent(75)">
+        <Flow width="Metric.percent(30)" height="Metric.percent(75)">
             <Svg width="Metric.percent(30)" height="Metric.percent(30)">
                     <content>
                             <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
