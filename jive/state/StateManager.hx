@@ -1,5 +1,6 @@
 package jive.state;
 
+import motion.easing.Linear;
 import motion.Actuate;
 
 using jive.tools.TypeTools;
@@ -27,12 +28,19 @@ class StateManager {
     }
 
     private static function startTransformation(object: Statefull, t: Transformation, onComplete: Void -> Void) {
+        var o = if (null != t.object) object.lastObjectOfChain(t.object) else object;
+
+        if (o == null) {
+            onComplete();
+            return;
+        }
+
         Actuate
             .tween(
-                object.lastObjectOfChain(t.object),
+                o,
                 t.duration,
                 t.getPropertiesObject())
-            .ease(t.ease)
+            .ease(if (t.ease != null) t.ease else Linear.easeNone)
             .onComplete(function() {
                 if (t.after != null) {
                     startTransformation(object, t.after, onComplete);

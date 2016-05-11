@@ -1,5 +1,6 @@
 package jive;
 
+import jive.state.StateManager;
 import jive.state.States;
 import jive.state.State;
 import haxe.ds.StringMap;
@@ -29,7 +30,11 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     private var _state: String;
     private function get_state(): String { return _state; }
     private function set_state(v: String): String {
-        _state = v;
+        if (v == State.CHANGING || _state == State.CHANGING) {
+            _state = v;
+        } else {
+            StateManager.changeTo(this, v);
+        }
         return v;
     }
 
@@ -38,7 +43,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     private function get_states(): States { return _states; }
     private function set_states(v: States): States {
         _states = v;
-        return v; 
+        return v;
     }
 
     public var x(get, set):Metric;
@@ -148,25 +153,25 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     public var absoluteWidth(get, never):Int;
 
     private function get_absoluteWidth():Int {
-        return _width.toAbsolute(parent.absoluteWidth);
+        return _width.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
     }
 
     public var absoluteHeight(get, never):Int;
 
     private function get_absoluteHeight():Int {
-        return _height.toAbsolute(parent.absoluteHeight);
+        return _height.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
     }
 
     public var absoluteX(get, never):Int;
 
     private function get_absoluteX():Int {
-        return _x.toAbsolute(parent.absoluteWidth);
+        return _x.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
     }
 
     public var absoluteY(get, never):Int;
 
     private function get_absoluteY():Int {
-        return _y.toAbsolute(parent.absoluteHeight);
+        return _y.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
     }
 
     public function new() {

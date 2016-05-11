@@ -32,7 +32,9 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
             new DisplayObjectAdapter(),
             new IEventDispatcherAdapter(),
             new JiveXMLAdapter(),
-            new BaseCommandAdapter()
+            new BaseCommandAdapter(),
+            new StateAdapter(),
+            new TransformationAdapter()
         ]);
     }
 
@@ -159,6 +161,24 @@ class BaseCommandAdapter extends ComponentAdapter {
     }
 }
 
+class StateAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.state.State;
+        if (matchLevel == null) matchLevel = ClassLevel;
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class TransformationAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.state.Transformation;
+        if (matchLevel == null) matchLevel = ClassLevel;
+        super(baseType, events, matchLevel);
+
+    }
+}
+
 class SvgAdapter extends DisplayObjectAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : jive.Svg;
@@ -256,4 +276,5 @@ class SvgWithMetaWriter extends ComponentWithMetaWriter {
         super.writeNodes(node, scope, writer, method);
     }
 }
+
 #end

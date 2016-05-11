@@ -1,5 +1,6 @@
 package ;
 
+import jive.StateTest;
 import jive.SwiperTest;
 
 class WrapTestMain {
@@ -31,7 +32,7 @@ class WrapTestMain {
         #end
 
         new TestMain();
-        //var test = new SwiperTest();
-        //test.test();
+//        var test = new StateTest();
+//        test.test();
     }
 }

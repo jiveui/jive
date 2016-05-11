@@ -25,6 +25,7 @@ xmlns:haxe-ds="haxe.ds"
 <xs:choice>
 <xs:element ref="jive:Component" />
 <xs:element ref="jive-image:Image" />
+<xs:element ref="jive:Scroll" />
 <xs:element ref="jive-image:AssetImage" />
 <xs:element ref="jive:Flow" />
 <xs:element ref="jive:Svg" />

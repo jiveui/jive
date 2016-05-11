@@ -12,11 +12,7 @@ class TypeTools {
         var members = memberChain.split(".");
         for (m in members) {
             if (null == o) return null;
-            if (Reflect.hasField(o, m)) {
-                o = Reflect.getProperty(o, m);
-            } else {
-                return null;
-            }
+            o = Reflect.field(o, m);
         }
         return o;
     }

@@ -623,6 +623,7 @@ xmlns:lime-system-_System="lime.system._System"
 <xs:element ref="openfl-_internal-renderer-cairo:CairoMaskManager" />
 <xs:element ref="openfl-events:KeyboardEvent" />
 <xs:element ref="openfl-net-_URLLoaderDataFormat:URLLoaderDataFormat_Impl_" />
+<xs:element ref="jive:Scroll" />
 <xs:element ref="jive-gestures-core:GesturesManager" />
 <xs:element ref="lime-system:Display" />
 <xs:element ref="openfl-_internal-text:TextLayoutGroup" />

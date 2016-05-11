@@ -9,15 +9,24 @@
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
     <states>
         <state:States>
-            <state:State name="normal">
+            <state:State key="invisible">
                 <state:transformations>
                     <state:Transformations>
-                        <state:Transformation object="svg1" duration="1000">
+                        <state:Transformation object="svg1" duration="0.5">
                             <state:properties>
                                 <state:TransformationItems>
                                     <state:Item name="alpha" value="0.0"/>
                                 </state:TransformationItems>
                             </state:properties>
+                            <state:after>
+                                <state:Transformation object="svg1" duration="0.5">
+                                    <state:properties>
+                                        <state:TransformationItems>
+                                            <state:Item name="alpha" value="1.0"/>
+                                        </state:TransformationItems>
+                                    </state:properties>
+                                </state:Transformation>
+                            </state:after>
                         </state:Transformation>
                     </state:Transformations>
                 </state:transformations>

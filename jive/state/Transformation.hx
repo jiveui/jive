@@ -9,6 +9,8 @@ class Transformation {
     public var properties: TransformationItems;
     public var after: Transformation;
 
+    public function new() {}
+
     public function getPropertiesObject() {
         var res = {};
         for (p in properties) {

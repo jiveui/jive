@@ -27,7 +27,9 @@ class JiveXMLAdapter extends DefaultXMLAdapter {
             new JiveIntWriter(),
             new JiveFloatWriter(),
             new JiveBoolWriter(),
-            new JiveStringWriter()
+            new JiveStringWriter(),
+            new JiveListWriter(),
+            new JiveStringMapWriter()
         ]);
     }
 
