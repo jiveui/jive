@@ -1,6 +1,6 @@
 import massive.munit.TestSuite;
 
-import jive.SwiperTest;
+import jive.LayoutTest;
 
 /**
  * Auto generated Test Suite for MassiveUnit.
@@ -14,6 +14,6 @@ class TestSuite extends massive.munit.TestSuite
 	{
 		super();
 
-		add(jive.SwiperTest);
+		add(jive.LayoutTest);
 	}
 }
