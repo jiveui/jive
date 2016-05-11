@@ -15,14 +15,11 @@
 
     <!--<set name="html5-backend" value="openfl-snapsvg" />-->
 
-    <haxelib name="openfl" />
     <haxelib name="munit" />
     <haxelib name="mlib" />
     <haxelib name="hamcrest" />
     <haxelib name="jive"/>
-    <haxelib name="svg"/>
     <haxelib name="hxcpp-debugger"/>
-    <haxelib name="jive-gestures"/>
 
     <template path="templates" />
 

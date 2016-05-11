@@ -50,17 +50,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|svg">
-        <CLASSES>
-          <root url="/usr/local/lib/haxe/lib/svg/1,0,9/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="/usr/local/lib/haxe/lib/svg/1,0,9/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="haxelib|/Users/ngrebenshikov/repositories/hxcpp-debugger">
         <CLASSES>
           <root url="file://$MODULE_DIR$/../../hxcpp-debugger" />
