@@ -1,5 +1,10 @@
 package jive;
 
+import jive.state.StateManager;
+import jive.state.States;
+import jive.state.State;
+import haxe.ds.StringMap;
+import jive.state.Statefull;
 import jive.geom.MetricInsets;
 import openfl.geom.Matrix;
 import jive.geom.IntPoint;
@@ -17,9 +22,29 @@ import jive.geom.MetricDimension;
 using jive.geom.MetricHelper;
 
 @:bindable
-class Component extends EventDispatcher implements IBindable {
+class Component extends EventDispatcher implements IBindable implements Statefull {
 
     private var needsPaint:Bool = true;
+
+    public var state(get, set): String;
+    private var _state: String;
+    private function get_state(): String { return _state; }
+    private function set_state(v: String): String {
+        if (v == State.CHANGING || _state == State.CHANGING) {
+            _state = v;
+        } else {
+            StateManager.changeTo(this, v);
+        }
+        return v;
+    }
+
+    public var states(get, set): States;
+    private var _states: States;
+    private function get_states(): States { return _states; }
+    private function set_states(v: States): States {
+        _states = v;
+        return v;
+    }
 
     public var x(get, set):Metric;
     private var _x:Metric;
@@ -128,45 +153,25 @@ class Component extends EventDispatcher implements IBindable {
     public var absoluteWidth(get, never):Int;
 
     private function get_absoluteWidth():Int {
-        return switch (_width) {
-            case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteWidth * v / 100)) : 0;
-            case virtual(v) : 0; // TODO virtual pixels
-            case none: 0;
-        }
+        return _width.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
     }
 
     public var absoluteHeight(get, never):Int;
 
     private function get_absoluteHeight():Int {
-        return switch (_height) {
-            case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteHeight * v / 100)) : 0;
-            case virtual(v) : 0; // TODO virtual pixels
-            case none: 0;
-        }
+        return _height.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
     }
 
     public var absoluteX(get, never):Int;
 
     private function get_absoluteX():Int {
-        return switch (_x) {
-            case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteWidth * v / 100)) : 0;
-            case virtual(v) : 0; // TODO virtual pixels
-            case none: 0;
-        }
+        return _x.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
     }
 
     public var absoluteY(get, never):Int;
 
     private function get_absoluteY():Int {
-        return switch (_y) {
-            case absolute(v) : v;
-            case percent(v) : (parent != null) ? Std.int(Math.round(parent.absoluteHeight * v / 100)) : 0;
-            case virtual(v) : 0; // TODO virtual pixels
-            case none: 0;
-        }
+        return _y.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
     }
 
     public function new() {

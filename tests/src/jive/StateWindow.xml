@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window
+        xmlns="jive"
+        xmlns:state="jive.state"
+        xmlns:haxe="http://haxe.org/"
+        width="Metric.absolute(Std.int(Lib.current.stage.stageWidth))"
+        height="Metric.absolute(Std.int(Lib.current.stage.stageHeight))"
+        >
+    <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
+    <states>
+        <state:States>
+            <state:State key="invisible">
+                <state:transformations>
+                    <state:Transformations>
+                        <state:Transformation object="svg1" duration="0.5">
+                            <state:properties>
+                                <state:TransformationItems>
+                                    <state:Item name="alpha" value="0.0"/>
+                                </state:TransformationItems>
+                            </state:properties>
+                            <state:after>
+                                <state:Transformation object="svg1" duration="0.5">
+                                    <state:properties>
+                                        <state:TransformationItems>
+                                            <state:Item name="alpha" value="1.0"/>
+                                        </state:TransformationItems>
+                                    </state:properties>
+                                </state:Transformation>
+                            </state:after>
+                        </state:Transformation>
+                    </state:Transformations>
+                </state:transformations>
+            </state:State>
+        </state:States>
+    </states>
+    <Svg id="svg1" width="Metric.percent(100)" height="Metric.percent(100)">
+        <content>
+                <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#e1e1e1"/>
+                <rect x="{absolute(10)}"
+                      y="{absolute(10)}"
+                      width="{ widthPercent(100) - absolute(2*10) }"
+                      height="{ heightPercent(100) - absolute(2*10) }"
+                      stroke="#ff0000"
+                      fill="none"/>
+                <circle
+                        cx="{ widthPercent(50) }"
+                        cy="{ heightPercent(50) }"
+                        r="{ widthPercent(20) }"
+                        stroke-width="10"
+                        fill="#00ff00" />
+        </content>
+    </Svg>
+</Window>

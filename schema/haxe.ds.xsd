@@ -1,9 +1,15 @@
 <xs:schema targetNamespace="haxe.ds" xmlns="haxe.ds" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:jive-state="jive.state"
 xmlns:empty="empty"
 >
+<xs:import namespace="jive.state" schemaLocation="jive.state.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:complexType name="StringMapSchemaTypeValue">
-<xs:all><xs:element ref="StringMap"/></xs:all></xs:complexType>
+<xs:choice>
+<xs:element ref="jive-state:States" />
+<xs:element ref="StringMap" />
+</xs:choice>
+</xs:complexType>
 
 <xs:complexType name="IntMapSchemaTypeValue">
 <xs:all><xs:element ref="IntMap"/></xs:all></xs:complexType>

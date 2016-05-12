@@ -7,4 +7,13 @@ class TypeTools {
             return null;
         }
     }
+
+    public static function lastObjectOfChain(o: Dynamic, memberChain: String): Dynamic {
+        var members = memberChain.split(".");
+        for (m in members) {
+            if (null == o) return null;
+            o = Reflect.field(o, m);
+        }
+        return o;
+    }
 }

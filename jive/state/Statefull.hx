@@ -1,9 +1,8 @@
 package jive.state;
 
+import haxe.ds.StringMap;
+
 interface Statefull {
-    var state: State;
-    var states: Array<State>;
-    function moveToState(name: String): Void;
-    function addStateListener(listener: StateEvent -> Void): Void;
-    function removeStateListener(listener: StateEvent -> Void): Void;
+    var state(get, set): String;
+    var states(get, set): States;
 }

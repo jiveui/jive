@@ -1,5 +1,6 @@
 <xs:schema targetNamespace="jive" xmlns="jive" xmlns:xs="http://www.w3.org/2001/XMLSchema"
 xmlns:bindx="bindx"
+xmlns:jive-state="jive.state"
 xmlns:openfl-events="openfl.events"
 xmlns:jive-image="jive.image"
 xmlns:jive-themes="jive.themes"
@@ -8,6 +9,7 @@ xmlns:openfl-display="openfl.display"
 xmlns:empty="empty"
 >
 <xs:import namespace="bindx" schemaLocation="bindx.xsd" />
+<xs:import namespace="jive.state" schemaLocation="jive.state.xsd" />
 <xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
 <xs:import namespace="jive.image" schemaLocation="jive.image.xsd" />
 <xs:import namespace="jive.themes" schemaLocation="jive.themes.xsd" />
@@ -26,6 +28,7 @@ xmlns:empty="empty"
 <xs:complexType name="ComponentSchemaTypeValue">
 <xs:choice>
 <xs:element ref="jive-image:Image" />
+<xs:element ref="Scroll" />
 <xs:element ref="jive-image:AssetImage" />
 <xs:element ref="Flow" />
 <xs:element ref="Svg" />
@@ -44,11 +47,15 @@ xmlns:empty="empty"
 <xs:complexType name="SwiperSchemaTypeValue">
 <xs:all><xs:element ref="Swiper"/></xs:all></xs:complexType>
 
+<xs:complexType name="ScrollSchemaTypeValue">
+<xs:all><xs:element ref="Scroll"/></xs:all></xs:complexType>
+
 <xs:complexType name="TemplatedComponentSchemaTypeValue">
 <xs:all><xs:element ref="TemplatedComponent"/></xs:all></xs:complexType>
 
 <xs:complexType name="ContainerSchemaTypeValue">
 <xs:choice>
+<xs:element ref="Scroll" />
 <xs:element ref="Flow" />
 <xs:element ref="Window" />
 <xs:element ref="EmptyLayout" />
@@ -122,6 +129,8 @@ xmlns:empty="empty"
 <xs:complexContent>
 <xs:extension base="openfl-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+<xs:element minOccurs="0" name="states" type="jive-state:StatesSchemaTypeValue"/>
 <xs:element minOccurs="0" name="x" type="xs:string"/>
 <xs:element minOccurs="0" name="y" type="xs:string"/>
 <xs:element minOccurs="0" name="width" type="xs:string"/>
@@ -138,6 +147,8 @@ xmlns:empty="empty"
 <xs:element minOccurs="0" name="absoluteX" type="xs:int"/>
 <xs:element minOccurs="0" name="absoluteY" type="xs:int"/>
 </xs:all>
+<xs:attribute name="state" type="xs:string"/>
+<xs:attribute name="states" type="xs:string"/>
 <xs:attribute name="x" type="xs:string"/>
 <xs:attribute name="y" type="xs:string"/>
 <xs:attribute name="width" type="xs:string"/>
@@ -179,6 +190,15 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="ScrollSchemaType">
+<xs:complexContent>
+<xs:extension base="ContainerSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="TemplatedComponentSchemaType">
 <xs:complexContent>
 <xs:extension base="ComponentSchemaType">
@@ -199,6 +219,7 @@ xmlns:empty="empty"
 <xs:extension base="ComponentSchemaType">
 <xs:all minOccurs='0'>
 <xs:element minOccurs="0" ref="jive-image:Image" />
+<xs:element minOccurs="0" ref="Scroll" />
 <xs:element minOccurs="0" ref="jive-image:AssetImage" />
 <xs:element minOccurs="0" ref="Flow" />
 <xs:element minOccurs="0" ref="Svg" />
@@ -293,6 +314,7 @@ xmlns:empty="empty"
 <xs:element name="Component" type="ComponentSchemaType"/>
 <xs:element name="Color" type="ColorSchemaType"/>
 <xs:element name="Swiper" type="SwiperSchemaType"/>
+<xs:element name="Scroll" type="ScrollSchemaType"/>
 <xs:element name="TemplatedComponent" type="TemplatedComponentSchemaType"/>
 <xs:element name="Container" type="ContainerSchemaType"/>
 <xs:element name="Jive" type="JiveSchemaType"/>

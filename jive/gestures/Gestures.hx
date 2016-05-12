@@ -2,6 +2,7 @@ package jive.gestures;
 
 import openfl.events.MouseEvent;
 import openfl.events.TouchEvent;
+import openfl.Lib;
 import jive.Component;
 import jive.gestures.core.GesturesManager;
 import jive.gestures.core.GestureState;
@@ -110,18 +111,18 @@ class Gestures
 	{
 		//Luxe.core.emitter.on(luxe.Ev.mousemove, onmousemove);
 		//Luxe.core.emitter.on(luxe.Ev.mouseup, onmouseup);
-		_component.addEventListener(MouseEvent.MOUSE_MOVE, onmousemove);
-		_component.addEventListener(MouseEvent.MOUSE_UP, onmouseup);
-		_component.addEventListener(MouseEvent.MOUSE_OUT, onmouseup);
+        Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, onmousemove);
+        Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, onmouseup);
+		//_component.addEventListener(MouseEvent.MOUSE_OUT, onmouseup);
 	}
 
 	private function removemouselisteners()
 	{
 		//Luxe.core.emitter.off(luxe.Ev.mousemove, onmousemove);
 		//Luxe.core.emitter.off(luxe.Ev.mouseup, onmouseup);
-		_component.removeEventListener(MouseEvent.MOUSE_MOVE, onmousemove);
-		_component.removeEventListener(MouseEvent.MOUSE_UP, onmouseup);
-		_component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onmousemove);
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, onmouseup);
+		//_component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
 	}
 
 	public function dispose()
@@ -130,12 +131,12 @@ class Gestures
 		gesturesManager = null;
 		touchesManager = null;
 
-		_component.removeEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
-		_component.removeEventListener(TouchEvent.TOUCH_END, ontouchup);
-		_component.removeEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
-		_component.removeEventListener(TouchEvent.TOUCH_OUT, ontouchup);
+		// _component.removeEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
+		// _component.removeEventListener(TouchEvent.TOUCH_END, ontouchup);
+		// _component.removeEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
+		// _component.removeEventListener(TouchEvent.TOUCH_OUT, ontouchup);
 		_component.removeEventListener(MouseEvent.MOUSE_DOWN, onmouseup);
-		_component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
+		// _component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
 
 		//Luxe.core.emitter.off(luxe.Ev.touchdown, ontouchdown);
 		//Luxe.core.emitter.off(luxe.Ev.touchmove, ontouchmove);

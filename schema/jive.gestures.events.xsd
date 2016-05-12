@@ -1,0 +1,25 @@
+<xs:schema targetNamespace="jive.gestures.events" xmlns="jive.gestures.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns:openfl-events="openfl.events"
+xmlns:jive-gestures-core="jive.gestures.core"
+>
+<xs:import namespace="openfl.events" schemaLocation="openfl.events.xsd" />
+<xs:import namespace="jive.gestures.core" schemaLocation="jive.gestures.core.xsd" />
+<xs:complexType name="GestureEventSchemaTypeValue">
+<xs:all><xs:element ref="GestureEvent"/></xs:all></xs:complexType>
+
+<xs:complexType name="GestureEventSchemaType">
+<xs:complexContent>
+<xs:extension base="openfl-events:EventSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="newState" type="jive-gestures-core:GestureStateSchemaTypeValue"/>
+<xs:element minOccurs="0" name="oldState" type="jive-gestures-core:GestureStateSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="newState" type="xs:string"/>
+<xs:attribute name="oldState" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+
+<xs:element name="GestureEvent" type="GestureEventSchemaType"/>
+</xs:schema>
