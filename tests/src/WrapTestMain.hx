@@ -1,6 +1,6 @@
 package ;
 
-import jive.SwiperTest;
+// import jive.ScrollTest;
 
 class WrapTestMain {
     static function main() {
@@ -31,7 +31,7 @@ class WrapTestMain {
         #end
 
         new TestMain();
-        //var test = new SwiperTest();
-        //test.test();
+//        var test = new ScrollTest();
+//        test.testScroll();
     }
 }

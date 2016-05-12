@@ -11,9 +11,9 @@
     <Scroll width="Metric.percent(30)" height="Metric.percent(75)">
         <Flow width="Metric.percent(100)" height="Metric.percent(200)">
             <Svg width="Metric.percent(100)" height="Metric.percent(30)">
-                    <content>
-                            <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
-                    </content>
+                <content>
+                    <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                </content>
             </Svg>
             <Svg width="Metric.percent(90)" height="Metric.percent(25)">
                 <content>
