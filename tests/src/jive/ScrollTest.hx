@@ -1,8 +1,9 @@
 package jive;
 
 class ScrollTest {
-    @Test
-    public function testScroll() {
+    public function new () {}
+    //@Test
+    public function test() {
         Jive.start();
         var w: TestScroll = new TestScroll();
         w.dataContext = new SvgTestModel();
