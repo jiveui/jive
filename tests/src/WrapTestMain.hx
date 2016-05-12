@@ -31,7 +31,10 @@ class WrapTestMain {
         }
         #end
 
+        var originalTrace = haxe.Log.trace;
         new TestMain();
+        haxe.Log.trace = originalTrace;
+
 //        var test = new StateTest();
 //        test.test();
     }
