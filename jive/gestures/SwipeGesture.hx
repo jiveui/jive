@@ -83,9 +83,9 @@ class SwipeGesture extends Gesture
 	var _timer:Timer;
 	var isRecognized: Bool;
 	
-	public function new() 
+	public function new(component: jive.Component) 
 	{
-		super();
+		super(component);
 		// trace('screenDpi=' + Capabilities.screenDPI);
 		// trace('MIN_OFFSET=$MIN_OFFSET');
 		// trace('MIN_OFFSET=$MIN_OFFSET');

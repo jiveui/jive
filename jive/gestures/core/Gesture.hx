@@ -21,8 +21,8 @@ class Gesture extends EventDispatcher {
 	/**
 	 * Map (generic object) of tracking touch points, where keys are touch points IDs.
 	 */
-	var _touchesMap:Map<Int, Touch>;
-	var _touchesCount:UInt;
+	private var _touchesMap:Map<Int, Touch>;
+	private var _touchesCount:UInt;
 	public var touchesCount(get, null):UInt;
 	public function get_touchesCount():UInt { return _touchesCount; }
 	public var state:GestureState;
@@ -74,7 +74,6 @@ class Gesture extends EventDispatcher {
 	public var gesturesShouldRecognizeSimultaneously:Gesture->Gesture->Bool;
 	
 	
-	var _gesturesManager:GesturesManager;
 	var _centralPoint:Vector3D;
 	/**
 	 * List of gesture we require to fail.
@@ -85,9 +84,9 @@ class Gesture extends EventDispatcher {
 	public var location(get, null):Vector3D;
 	public var enabled(default, set):Bool;
 	
-	public function new() 
+	public function new(component: Component) 
 	{
-		super();
+		super(component);
 		preinit();
 
 		// target_geometry = _target_geom;
@@ -104,12 +103,10 @@ class Gesture extends EventDispatcher {
 		state = GestureState.POSSIBLE;
 		idle = true;
 		
-		// _gesturesManager.addGesture(this);
+		Gestures.gesturesManager.addGesture(this);
+		Gestures.register(component);
 	}
 
-	public function init(gesturesManager: GesturesManager) {
-		_gesturesManager = gesturesManager;
-	}
 	
 	/**
 	 * First method, called in constructor.
@@ -266,7 +263,7 @@ class Gesture extends EventDispatcher {
 		
 		if (state.isEndState)
 		{
-			_gesturesManager.scheduleGestureStateReset(this);
+			Gestures.gesturesManager.scheduleGestureStateReset(this);
 		}
 		
 		//TODO: what if RTE happens in event handlers?
@@ -285,7 +282,7 @@ class Gesture extends EventDispatcher {
 		
 		if (state == GestureState.BEGAN || state == GestureState.RECOGNIZED)
 		{
-			_gesturesManager.onGestureRecognized(this);
+			Gestures.gesturesManager.onGestureRecognized(this);
 		}
 		
 		return true;

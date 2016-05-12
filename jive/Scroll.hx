@@ -5,34 +5,58 @@ import motion.easing.Cubic;
 import openfl.events.MouseEvent;
 import openfl.geom.Rectangle;
 import openfl.Lib;
-//import jive.gestures.PanGesture;
-//import jive.gestures.Gestures;
-//import jive.gestures.events.GestureEvent;
+import jive.gestures.PanGesture;
+import jive.gestures.Gestures;
+import jive.gestures.events.GestureEvent;
 
 class Scroll extends Container {
-//    private var gestures: Gestures;
-//    private var pan: PanGesture;
+    private var pan: PanGesture;
 
     private var lastY: Int;
     private var lastTime: Int;
     private var yTicks: Array<Int>;
+    private var animation: Dynamic;
 
     public function new() {
         super();
 
         yTicks = new Array();
 
-        /*Gestures.init();
+        Gestures.init();
 
-        pan = new PanGesture();
+        pan = new PanGesture(this);
         pan.direction = PanGesture.VERTICAL;
 
-        gestures = new Gestures(this);
-        gestures.gesturesManager.addGesture(pan);
 
-        pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);*/
+        pan.addEventListener(GestureEvent.GESTURE_BEGAN, onPanStopAnimation);
+        //pan.addEventListener(GestureEvent.GESTURE_CANCELLED, onPanStopAnimation);
+        //pan.addEventListener(GestureEvent.GESTURE_FAILED, onPanStopAnimation);
+        pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
+        pan.addEventListener(GestureEvent.GESTURE_ENDED, mouseUp);
 
-        displayObjectContainer.addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+        addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+    }
+
+
+    private function onPanStopAnimation(event: GestureEvent){
+        Actuate.stop(animation);
+    }
+    private function onPan(event: GestureEvent){
+        var prev = displayObjectContainer.scrollRect.y;
+        displayObjectContainer.scrollRect = new Rectangle(0, prev - pan.offsetY, absoluteWidth, absoluteHeight);
+        accountVelocity(Std.int(pan.offsetY));
+    }
+
+    private function accountVelocity(diffY: Int) {
+        var newTime: Int = Std.int(Lib.getTimer() / 20);
+        if (lastTime < newTime) {
+            if (yTicks.length > 1 && (diffY - yTicks[yTicks.length - 1]) * (yTicks[yTicks.length - 1] - yTicks[0]) < 0) {
+                yTicks.splice(0, yTicks.length);
+            }
+            yTicks.push(diffY);
+            lastTime = newTime;
+            if (yTicks.length > 50) yTicks.shift();
+        }
     }
 
     override private function set_parent(c:Container):Container {
@@ -46,14 +70,15 @@ class Scroll extends Container {
     }
 
     private function mouseDown(e: MouseEvent) {
-        if (children.length > 0) {
-            lastY = Std.int(e.stageY + displayObjectContainer.scrollRect.y);
-            lastTime = Std.int(Lib.getTimer() / 20);
-            yTicks.push(lastY);
-            Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
-            Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
-            // displayObjectContainer.startDrag(false, new Rectangle(0, -absoluteHeight, 0, absoluteHeight));
-        }
+        //Actuate.stop(animation);
+        // if (children.length > 0) {
+        //     lastY = Std.int(e.stageY + displayObjectContainer.scrollRect.y);
+        //     lastTime = Std.int(Lib.getTimer() / 20);
+        //     yTicks.push(lastY);
+        //     Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
+        //     Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
+        //     // displayObjectContainer.startDrag(false, new Rectangle(0, -absoluteHeight, 0, absoluteHeight));
+        // }
     }
 
     private function mouseUp(e: MouseEvent) {
@@ -63,7 +88,7 @@ class Scroll extends Container {
 
             var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
 
-            var animation = {
+            animation = {
                 y: displayObjectContainer.scrollRect.y
             };
 

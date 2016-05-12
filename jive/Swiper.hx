@@ -46,19 +46,15 @@ class Swiper extends Container {
 
         isInAnimationProcess = false;
 
-        pan = new PanGesture();
+        pan = new PanGesture(this);
         pan.direction = PanGesture.HORIZONTAL;
+        pan.gesturesShouldRecognizeSimultaneously = panShouldRecognizeSimultaneously;
 
-        swipe = new SwipeGesture();
+        swipe = new SwipeGesture(this);
         swipe.direction = SwipeGesture.HORIZONTAL;
-        swipe.gestureShouldBegin = gestureShouldBegin;
-        swipe.gestureShouldReceiveTouch = gestureShouldReceiveTouch;
-        swipe.gesturesShouldRecognizeSimultaneously = gesturesShouldRecognizeSimultaneously;
+        swipe.gesturesShouldRecognizeSimultaneously = swipeShouldRecognizeSimultaneously;
 
 
-        gestures = new Gestures(this);
-        gestures.gesturesManager.addGesture(pan);
-        gestures.gesturesManager.addGesture(swipe);
 
         // addEventListener(MouseEvent.MOUSE_DOWN, touchDownHandler);
         /*addEventListener(MouseEvent.MOUSE_MOVE, touchMoveHandler);
@@ -219,19 +215,13 @@ class Swiper extends Container {
     //----------------------------------
     // Begin of IGestureDelegate implementation
     //----------------------------------
-    public function gestureShouldReceiveTouch(gesture:Gesture, touch:Touch):Bool
+    public function swipeShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
     {
-        return true;
+        return otherGesture == pan;
     }
-    
-    public function gestureShouldBegin(gesture:Gesture):Bool
+    public function panShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
     {
-        return true;
-    }
-    
-    public function gesturesShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
-    {
-        return true;
+        return otherGesture == swipe;
     }
     //----------------------------------
     // End of IGestureDelegate implementation

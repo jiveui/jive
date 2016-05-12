@@ -8,7 +8,7 @@ class SwiperTest {
     public function new () {
         
     }
-	// @Test
+	@Test
     public function test() {
         Jive.start();
         var w: SwiperTestTemplate = new SwiperTestTemplate();
