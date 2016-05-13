@@ -12,6 +12,8 @@ import flash.text.TextFormatAlign;
 import openfl.Assets;
 
 import jive.geom.IntDimension;
+import jive.tools.TypeTools;
+import jive.tools.TextTools;
 
 /**
  * Font that specified the font name, size, style and whether or not embed.
@@ -103,7 +105,7 @@ class Font {
 		this.italic = italic;
 		this.underline = underline;
 		if(Std.is(embedFontsOrAdvancedPros,FontAdvProperties)){
-			advancedProperties = AsWingUtils.as(embedFontsOrAdvancedPros, FontAdvProperties);
+			advancedProperties = TypeTools.as(embedFontsOrAdvancedPros, FontAdvProperties);
 		
 		}else{
 			advancedProperties = new FontAdvProperties(embedFontsOrAdvancedPros==true);
@@ -219,7 +221,7 @@ class Font {
 	 * @return the computed size of the text
 	 */
 	public function computeTextSize(text:String, includeGutters:Bool = true):IntDimension {
-		return AsWingUtils.computeStringSizeWithFont(this, text, includeGutters);
+		return TextTools.computeStringSizeWithFont(this, text, includeGutters);
 	}
 	
 	/**

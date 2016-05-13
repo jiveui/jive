@@ -1,10 +1,12 @@
 package jive.themes;
 
+import flash.system.Capabilities;
+
 class Theme {
     public var foreground: Color = Color.BLUE;
     public var margin: Int;
     public var cornerSize: Int;
-    public var dpiScale: Int;
+    public var dpiScale: Float;
     public var fontSize: Float = 14;
     public var controlHeaderFont: Font;
 
