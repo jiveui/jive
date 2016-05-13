@@ -1,6 +1,6 @@
 package jive;
 
-import jive.Theme;
+import jive.themes.Theme;
 import jive.geom.IntDimension;
 import jive.geom.Metric;
 import jive.geom.MetricDimension;
