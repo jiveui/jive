@@ -38,6 +38,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         return v;
     }
 
+    public var name: String; // for debug
     public var states(get, set): States;
     private var _states: States;
     private function get_states(): States { return _states; }
@@ -255,9 +256,24 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     **/
 
     public function paint(size: IntDimension): IntDimension {
+        return processPaint(size);
+    }
+
+    private function processPaint(size: IntDimension): IntDimension {
         if (needsPaint) {
             needsPaint = false;
-            displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
+            // if there already is scrollRect adjust it width and height;
+            if (displayObject.scrollRect != null) {
+                var rect = displayObject.scrollRect;
+
+                rect.width = absoluteWidth;
+                rect.height = absoluteHeight;
+
+                displayObject.scrollRect = rect;
+            } else {
+                displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
+            }
+
         }
 
         var insets = margin.toInsets(this);

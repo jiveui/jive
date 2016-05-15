@@ -65,7 +65,7 @@ class Container extends Component {
     }
 
     override public function paint(size: IntDimension): IntDimension {
-        super.paint(size);
+        var result = super.paint(size);
 
         if (childrenNeedRepaint) {
             childrenNeedRepaint = false;
@@ -74,7 +74,7 @@ class Container extends Component {
             }
         }
 
-        return new IntDimension(Std.int(displayObjectContainer.width), Std.int(displayObjectContainer.height));
+        return result;
     }
 
     private function calcPaintDimension(size: IntDimension): IntDimension {

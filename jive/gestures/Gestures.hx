@@ -32,14 +32,13 @@ class Gestures
     }
 
     static public function register(component: Component) {
-        component.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
         // _component.addEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
         // _component.addEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
         // _component.addEventListener(TouchEvent.TOUCH_END, ontouchup);
         // _component.addEventListener(TouchEvent.TOUCH_OUT, ontouchup);
     }
 
-    static private function ontouchdown(event:TouchEvent)
+    static public function ontouchdown(event:TouchEvent)
     {
         /*
          * state : InteractState.down,
@@ -51,22 +50,22 @@ class Gestures
             dy : y,
             pos : _touch_pos*/
         // Original: _touchesManager.onTouchBegin(event.touchPointID, event.pos.x * Luxe.screen.w, event.pos.y * Luxe.screen.h); //, event.target as InteractiveObject);
-        touchesManager.onTouchBegin(event.touchPointID, event.localX, event.localY); //, event.target as InteractiveObject);
+        touchesManager.onTouchBegin(event.touchPointID, event.stageX, event.stageY); //, event.target as InteractiveObject);
     }
 
     static private function ontouchmove(event:TouchEvent)
     {
-        touchesManager.onTouchMove(event.touchPointID, event.localX, event.localY);
+        touchesManager.onTouchMove(event.touchPointID, event.stageX, event.stageY);
     }
 
     static private function ontouchup(event:TouchEvent)
     {
-        touchesManager.onTouchEnd(event.touchPointID, event.localX, event.localY);
+        touchesManager.onTouchEnd(event.touchPointID, event.stageX, event.stageY);
     }
 
-    static private function onmousedown(event:MouseEvent)
+    static public function onmousedown(event:MouseEvent)
     {
-        var touchAccepted:Bool = touchesManager.onTouchBegin(MOUSE_TOUCH_POINT_ID, event.localX, event.localY);
+        var touchAccepted:Bool = touchesManager.onTouchBegin(MOUSE_TOUCH_POINT_ID, event.stageX, event.stageY);
 
         if (touchAccepted)
             addmouselisteners();
@@ -74,12 +73,12 @@ class Gestures
 
     static private function onmousemove(event:MouseEvent)
     {
-        touchesManager.onTouchMove(MOUSE_TOUCH_POINT_ID, event.localX, event.localY);
+        touchesManager.onTouchMove(MOUSE_TOUCH_POINT_ID, event.stageX, event.stageY);
     }
 
     static private function onmouseup(event:MouseEvent)
     {
-        touchesManager.onTouchEnd(MOUSE_TOUCH_POINT_ID, event.localX, event.localY);
+        touchesManager.onTouchEnd(MOUSE_TOUCH_POINT_ID, event.stageX, event.stageY);
 
         if (touchesManager.activeTouchesCount == 0)
             removemouselisteners();

@@ -11,6 +11,7 @@ import jive.gestures.core.Touch;
 import jive.gestures.events.GestureEvent;
 import openfl.geom.Vector3D;
 import openfl.events.EventDispatcher;
+import openfl.events.MouseEvent;
 
 /**
  * ...
@@ -27,6 +28,8 @@ class Gesture extends EventDispatcher {
 	public function get_touchesCount():UInt { return _touchesCount; }
 	public var state:GestureState;
 	public var idle:Bool;
+    public var name: String;
+
 	
 	/**
 	 * Threshold for screen distance they must move to count as valid input 
@@ -81,14 +84,16 @@ class Gesture extends EventDispatcher {
 	 */
 	var _gesturesToFail:Map<Gesture, Bool>;
 	var _pendingRecognizedState:GestureState;
+    public var component: Component;
 	public var location(get, null):Vector3D;
 	public var enabled(default, set):Bool;
 	
-	public function new(component: Component) 
+	public function new(c: Component) 
 	{
-		super(component);
+		super(c);
 		preinit();
 
+        component = c;
 		// target_geometry = _target_geom;
 		
         _touchesCount = 0;
@@ -99,15 +104,22 @@ class Gesture extends EventDispatcher {
 		_centralPoint = new Vector3D();
 		location = new Vector3D();
 		_gesturesToFail = new Map<Gesture, Bool>();
-		enabled = true;
+		enabled = false;
 		state = GestureState.POSSIBLE;
 		idle = true;
 		
 		Gestures.gesturesManager.addGesture(this);
-		Gestures.register(component);
+		// Gestures.register(component);
+
+        component.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
 	}
 
 	
+    function onmousedown(event: MouseEvent) {
+        enabled = true;
+        Gestures.onmousedown(event);
+    }
+
 	/**
 	 * First method, called in constructor.
 	 */

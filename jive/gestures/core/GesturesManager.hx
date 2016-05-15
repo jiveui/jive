@@ -96,6 +96,7 @@ class GesturesManager
 					(gesture.gesturesShouldRecognizeSimultaneously == null || !gesture.gesturesShouldRecognizeSimultaneously(gesture, otherGesture)) &&
 					(otherGesture.gesturesShouldRecognizeSimultaneously == null || !otherGesture.gesturesShouldRecognizeSimultaneously(otherGesture, gesture)))
 				{
+                    // trace(otherGesture.name  + ' ' + otherGesture.component.name);
 					otherGesture.setState(GestureState.FAILED);
 				}
 			}
@@ -174,6 +175,8 @@ class GesturesManager
 			
 			if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
 				gesture.touchEndHandler(touch);
+
+            gesture.enabled = false;
 		}
 		
 		GestureUtils.clearArray(gesturesForTouch);
@@ -193,6 +196,8 @@ class GesturesManager
 			
 			if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
 				gesture.touchCancelHandler(touch);
+            
+            gesture.enabled = false;
 		}
 		
 		GestureUtils.clearArray(gesturesForTouch);
