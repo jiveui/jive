@@ -8,7 +8,94 @@
         height="Metric.absolute(Std.int(Lib.current.stage.stageHeight))"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
-    <Swiper x="Metric.percent(10)" y="Metric.percent(10)" width="Metric.percent(80)" height="Metric.percent(80)">
+    <Swiper x="Metric.percent(0)" y="Metric.percent(0)" width="Metric.percent(100)" height="Metric.percent(100)" name="sw">
+        <Scroll width="Metric.percent(30)" height="Metric.percent(75)" name="s1">
+            <Flow width="Metric.percent(100)" height="Metric.percent(300)">
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(80)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#0000ff"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+            </Flow>
+        </Scroll>
+        <Scroll width="Metric.percent(30)" height="Metric.percent(75)" name="s2">
+            <Flow width="Metric.percent(100)" height="Metric.percent(300)">
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(80)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#0000ff"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+            </Flow>
+        </Scroll>
+         <Scroll width="Metric.percent(30)" height="Metric.percent(75)" name="s3">
+            <Flow width="Metric.percent(100)" height="Metric.percent(300)">
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(80)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#0000ff"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(100)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#ff0000"/>
+                    </content>
+                </Svg>
+                <Svg width="Metric.percent(90)" height="Metric.percent(20)">
+                    <content>
+                        <rect x="0" y="0" width="{ widthPercent(100) }" height="{ heightPercent(100) }" fill="#00ff00"/>
+                    </content>
+                </Svg>
+            </Flow>
+        </Scroll>
         <Svg>
             <content>
                 <rect x="0" y="0" width="{ widthPercent(80) }" height="{ heightPercent(80) }" fill="#e1e1e1"/>

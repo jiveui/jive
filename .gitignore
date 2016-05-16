@@ -15,3 +15,5 @@ vscode-project.hxml
 .vscode/
 build/bin/jive/gen.hxml
 build/bin/jive/GenHx.hx
+bin/
+project.xml

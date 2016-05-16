@@ -13,6 +13,7 @@ import jive.gestures.events.GestureEvent;
 import openfl.events.Event;
 import openfl.events.MouseEvent;
 import openfl.geom.Rectangle;
+import openfl.display.Sprite;
 
 import motion.Actuate;
 import motion.actuators.IGenericActuator;
@@ -20,7 +21,7 @@ import motion.actuators.IGenericActuator;
 
 using jive.geom.MetricHelper;
 
-class Swiper extends Container {
+class Swiper extends ScrolledContainer {
     private var currentIndex: Int;
     private var isHolded: Bool;
     private var prevX: Float;
@@ -46,19 +47,18 @@ class Swiper extends Container {
 
         isInAnimationProcess = false;
 
-        pan = new PanGesture();
+        pan = new PanGesture(this);
         pan.direction = PanGesture.HORIZONTAL;
+        pan.gesturesShouldRecognizeSimultaneously = panShouldRecognizeSimultaneously;
 
-        swipe = new SwipeGesture();
+        pan.name = 'swiperPan';
+
+        swipe = new SwipeGesture(this);
         swipe.direction = SwipeGesture.HORIZONTAL;
-        swipe.gestureShouldBegin = gestureShouldBegin;
-        swipe.gestureShouldReceiveTouch = gestureShouldReceiveTouch;
-        swipe.gesturesShouldRecognizeSimultaneously = gesturesShouldRecognizeSimultaneously;
+        swipe.gesturesShouldRecognizeSimultaneously = swipeShouldRecognizeSimultaneously;
 
+        swipe.name = 'swiperSwipe';
 
-        gestures = new Gestures(this);
-        gestures.gesturesManager.addGesture(pan);
-        gestures.gesturesManager.addGesture(swipe);
 
         // addEventListener(MouseEvent.MOUSE_DOWN, touchDownHandler);
         /*addEventListener(MouseEvent.MOUSE_MOVE, touchMoveHandler);
@@ -84,10 +84,13 @@ class Swiper extends Container {
 
     function onPan(event:GestureEvent) 
     {
-        var i = 0;
-        var current = children.get(currentIndex);
+        // var i = 0;
+        // var current = children.get(currentIndex);
 
-        displayObject.scrollRect =new Rectangle(displayObject.scrollRect.x - pan.offsetX, 0, absoluteWidth, absoluteHeight);
+        // displayObject.scrollRect =new Rectangle(displayObject.scrollRect.x - pan.offsetX, 0, absoluteWidth, absoluteHeight);
+
+        displayObjectContainer.x += pan.offsetX;
+
         
         // if ( current.absoluteX + pan.offsetX > - absoluteWidth / 3  && current.absoluteX + pan.offsetX < 2 * absoluteWidth / 3 ) 
         //for (c in pool) {
@@ -121,11 +124,11 @@ class Swiper extends Container {
             //     if(currentIndex > 0)
             //         currentIndex -- ;
             // } 
-            if (displayObject.scrollRect.x >= absoluteWidth / 3 + currentIndex * absoluteWidth){
+            if (displayObjectContainer.x <= - absoluteWidth / 3 - currentIndex * absoluteWidth){
                 // to right
                 if(currentIndex < children.length - 1)
                     currentIndex ++ ;
-            } else if (displayObject.scrollRect.x <= - absoluteWidth / 3 + currentIndex * absoluteWidth) {
+            } else if (displayObjectContainer.x >= absoluteWidth / 3 - currentIndex * absoluteWidth) {
                 // to left
                 if(currentIndex > 0)
                     currentIndex -- ;
@@ -164,21 +167,22 @@ class Swiper extends Container {
         var current = children.get(index);
         var animation = {
             // x: current.absoluteX 
-            x: displayObject.scrollRect.x
+            x: displayObjectContainer.x
         };
 
         isInAnimationProcess = true;
 
         actuator = Actuate.tween(animation, 0.6, {
             // x: (index - ci) * absoluteWidth
-            x: ci * absoluteWidth
+            x: - ci * absoluteWidth
         }).onUpdate(function(){
             /*for(d in [-1,0,1]) {
                 var c = children.get(index + d);
                 if (c != null)
                     c.x = Metric.absolute(Std.int(animation.x + d * absoluteWidth));
             }*/
-            displayObject.scrollRect = new Rectangle(animation.x, 0, absoluteWidth, absoluteHeight);
+            // displayObject.scrollRect = new Rectangle(animation.x, 0, absoluteWidth, absoluteHeight);
+            displayObjectContainer.x = animation.x;
             // .x = Std.int(animation.x);
         }).onComplete(function(){
 
@@ -196,7 +200,6 @@ class Swiper extends Container {
                 if (ci > 0) {
                     var target = children.get(ci - 1);
                     displayObjectContainer.addChild(target.displayObject);
-                    displayObjectContainer.setChildIndex(target.displayObject, 0);
                     target.repaint();
                 }
             } else if (ci > index) {
@@ -211,27 +214,21 @@ class Swiper extends Container {
                     displayObjectContainer.addChild(target.displayObject);
                     target.repaint();
                 }
+            }
 
-            }   
         });
     }
 
     //----------------------------------
     // Begin of IGestureDelegate implementation
     //----------------------------------
-    public function gestureShouldReceiveTouch(gesture:Gesture, touch:Touch):Bool
+    public function swipeShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
     {
-        return true;
+        return otherGesture == pan;
     }
-    
-    public function gestureShouldBegin(gesture:Gesture):Bool
+    public function panShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
     {
-        return true;
-    }
-    
-    public function gesturesShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
-    {
-        return true;
+        return otherGesture == swipe;
     }
     //----------------------------------
     // End of IGestureDelegate implementation
@@ -250,7 +247,7 @@ class Swiper extends Container {
         child.width = Metric.percent(100);
         child.height = Metric.percent(100);
         child.x = Metric.percent(GAP * children.length);
-        child.margin.left = children.length > 0 ? Metric.absolute(1) : Metric.absolute(0);
+        //child.margin.left = children.length > 0 ? Metric.absolute(1) : Metric.absolute(0);
                     
         // if (currentIndex == 0 && children.length == 0) {
         // displayObjectContainer.addChild(child.displayObject);
@@ -272,7 +269,7 @@ class Swiper extends Container {
 
     private function layoutChildren() {
 
-        for (d in [-1, 0, 1]) {
+        for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
             if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
                 displayObjectContainer.addChild(target.displayObject);
@@ -290,13 +287,27 @@ class Swiper extends Container {
         var np = needsPaint;
         
 
-        super.paint(size);
+        var result = super.processPaint(size);
+
 
         // for debug ? make for every component
         if (np) {
             displayObjectContainer.graphics.beginFill(0x009900, 0.2);
             displayObjectContainer.graphics.drawRect(0, 0, absoluteWidth, absoluteHeight);
             displayObjectContainer.graphics.endFill();
+        }
+
+        if (childrenNeedRepaint) {
+            childrenNeedRepaint = false;
+            for (d in [-1, 1, 0]) {
+                var target = children.get(currentIndex + d);
+                if (null != target) {
+                    if ( d == 0 ) {
+                        displayObjectContainer.setChildIndex(target.displayObject, 0);
+                    }
+                    target.paint(calcPaintDimension(size));
+                }
+            }
         }
 
         // if (childrenNeedRepaint) {
@@ -312,6 +323,6 @@ class Swiper extends Container {
         //     }
         // }
 
-        return new IntDimension(Std.int(displayObjectContainer.width), Std.int(displayObjectContainer.height));
+        return result;
     }
 }

@@ -1,6 +1,7 @@
 package ;
 
-import jive.ScrollTest;
+import jive.StateTest;
+import jive.SwiperTest;
 
 class WrapTestMain {
     static function main() {
@@ -30,8 +31,11 @@ class WrapTestMain {
         }
         #end
 
-        // new TestMain();
-        var test = new ScrollTest();
-        test.test();
+        var originalTrace = haxe.Log.trace;
+        new TestMain();
+        haxe.Log.trace = originalTrace;
+
+//        var test = new StateTest();
+//        test.test();
     }
 }

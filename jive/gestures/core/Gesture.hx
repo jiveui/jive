@@ -11,6 +11,7 @@ import jive.gestures.core.Touch;
 import jive.gestures.events.GestureEvent;
 import openfl.geom.Vector3D;
 import openfl.events.EventDispatcher;
+import openfl.events.MouseEvent;
 
 /**
  * ...
@@ -21,12 +22,14 @@ class Gesture extends EventDispatcher {
 	/**
 	 * Map (generic object) of tracking touch points, where keys are touch points IDs.
 	 */
-	var _touchesMap:Map<Int, Touch>;
-	var _touchesCount:UInt;
+	private var _touchesMap:Map<Int, Touch>;
+	private var _touchesCount:UInt;
 	public var touchesCount(get, null):UInt;
 	public function get_touchesCount():UInt { return _touchesCount; }
 	public var state:GestureState;
 	public var idle:Bool;
+    public var name: String;
+
 	
 	/**
 	 * Threshold for screen distance they must move to count as valid input 
@@ -74,7 +77,6 @@ class Gesture extends EventDispatcher {
 	public var gesturesShouldRecognizeSimultaneously:Gesture->Gesture->Bool;
 	
 	
-	var _gesturesManager:GesturesManager;
 	var _centralPoint:Vector3D;
 	/**
 	 * List of gesture we require to fail.
@@ -82,14 +84,16 @@ class Gesture extends EventDispatcher {
 	 */
 	var _gesturesToFail:Map<Gesture, Bool>;
 	var _pendingRecognizedState:GestureState;
+    public var component: Component;
 	public var location(get, null):Vector3D;
 	public var enabled(default, set):Bool;
 	
-	public function new() 
+	public function new(c: Component) 
 	{
-		super();
+		super(c);
 		preinit();
 
+        component = c;
 		// target_geometry = _target_geom;
 		
         _touchesCount = 0;
@@ -100,17 +104,22 @@ class Gesture extends EventDispatcher {
 		_centralPoint = new Vector3D();
 		location = new Vector3D();
 		_gesturesToFail = new Map<Gesture, Bool>();
-		enabled = true;
+		enabled = false;
 		state = GestureState.POSSIBLE;
 		idle = true;
 		
-		// _gesturesManager.addGesture(this);
+		Gestures.gesturesManager.addGesture(this);
+		// Gestures.register(component);
+
+        component.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
 	}
 
-	public function init(gesturesManager: GesturesManager) {
-		_gesturesManager = gesturesManager;
-	}
 	
+    function onmousedown(event: MouseEvent) {
+        enabled = true;
+        Gestures.onmousedown(event);
+    }
+
 	/**
 	 * First method, called in constructor.
 	 */
@@ -266,7 +275,7 @@ class Gesture extends EventDispatcher {
 		
 		if (state.isEndState)
 		{
-			_gesturesManager.scheduleGestureStateReset(this);
+			Gestures.gesturesManager.scheduleGestureStateReset(this);
 		}
 		
 		//TODO: what if RTE happens in event handlers?
@@ -285,7 +294,7 @@ class Gesture extends EventDispatcher {
 		
 		if (state == GestureState.BEGAN || state == GestureState.RECOGNIZED)
 		{
-			_gesturesManager.onGestureRecognized(this);
+			Gestures.gesturesManager.onGestureRecognized(this);
 		}
 		
 		return true;
