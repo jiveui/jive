@@ -1,5 +1,6 @@
 package jive;
 
+import flash.display.DisplayObject;
 import openfl.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import jive.geom.Metric;
@@ -14,6 +15,10 @@ class EmptyLayout extends Container {
         super();
 
         needsLayout = false;
+    }
+
+    override private function get_displayObject():DisplayObject {
+        return null;
     }
 
     override private function get_displayObjectContainer():Sprite {

@@ -40,20 +40,23 @@ class Container extends Component {
     public function append(child:Component) {
         children.add(child);
         child.parent = this;
-        displayObjectContainer.addChild(child.displayObject);
+        if (child.displayObject != null)
+            displayObjectContainer.addChild(child.displayObject);
         child.repaint();
     }
 
     public function insert(index:Int, child:Component) {
         children.add(child, index);
         child.parent = this;
-        displayObjectContainer.addChildAt(child.displayObject, index);
+        if (child.displayObject != null)
+            displayObjectContainer.addChildAt(child.displayObject, index);
         child.repaint();
     }
 
     public function remove(child:Component) {
         children.remove(child);
-        displayObjectContainer.removeChild(child.displayObject);
+        if (child.displayObject != null)
+            displayObjectContainer.removeChild(child.displayObject);
         child.parent = null;
         repaint();
     }
