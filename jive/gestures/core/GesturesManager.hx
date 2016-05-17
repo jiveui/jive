@@ -52,7 +52,7 @@ class GesturesManager
 	
 	public function scheduleGestureStateReset(gesture:Gesture)
 	{
-		//trace(CallStack.toString(CallStack.callStack()));
+		// trace(CallStack.toString(CallStack.callStack()));
 
 		if (!_dirtyGesturesMap[gesture])
 		{
@@ -80,7 +80,7 @@ class GesturesManager
 	function enterFrame(event:Event) {
 		resetDirtyGestures();
 	}
-	
+
 	public function onGestureRecognized(gesture:Gesture)
 	{
 		for (otherGesture in _gesturesMap.keys())
@@ -120,6 +120,7 @@ class GesturesManager
 		for (gesture in _gesturesMap.keys()) 
 		{
 			if (gesture.enabled &&
+                gesture.active &&
 				(gesture.gestureShouldReceiveTouch == null ||
 				 gesture.gestureShouldReceiveTouch(gesture, touch)))
 			{
@@ -130,6 +131,7 @@ class GesturesManager
 		
 		// Then we populate them with this touch and event.
 		// They might start tracking this touch or ignore it (via Gesture#ignoreTouch())
+
 		var i = gesturesForTouch.length;
 		while (i-- > 0)
 		{
@@ -175,8 +177,6 @@ class GesturesManager
 			
 			if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
 				gesture.touchEndHandler(touch);
-
-            gesture.enabled = false;
 		}
 		
 		GestureUtils.clearArray(gesturesForTouch);
@@ -196,8 +196,6 @@ class GesturesManager
 			
 			if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
 				gesture.touchCancelHandler(touch);
-            
-            gesture.enabled = false;
 		}
 		
 		GestureUtils.clearArray(gesturesForTouch);

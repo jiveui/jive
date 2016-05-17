@@ -86,7 +86,9 @@ class Gesture extends EventDispatcher {
 	var _pendingRecognizedState:GestureState;
     public var component: Component;
 	public var location(get, null):Vector3D;
-	public var enabled(default, set):Bool;
+	
+    public var enabled(default, set):Bool;
+    public var active(default, null):Bool;
 	
 	public function new(c: Component) 
 	{
@@ -104,20 +106,26 @@ class Gesture extends EventDispatcher {
 		_centralPoint = new Vector3D();
 		location = new Vector3D();
 		_gesturesToFail = new Map<Gesture, Bool>();
-		enabled = false;
+		enabled = true;
+        active = false;
 		state = GestureState.POSSIBLE;
 		idle = true;
 		
 		Gestures.gesturesManager.addGesture(this);
 		// Gestures.register(component);
 
-        component.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
+        component.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 	}
 
+    override public function toString():String
+    {
+        return "Gesture [" + name + " at " + component.name + ", " + active + "]";
+    }
+
 	
-    function onmousedown(event: MouseEvent) {
-        enabled = true;
-        Gestures.onmousedown(event);
+    function onMouseDown(event: MouseEvent) {
+        // activate gesture for current component
+        active = true;
     }
 
 	/**
@@ -339,9 +347,11 @@ class Gesture extends EventDispatcher {
 	 */
 	public function reset()
 	{
-		if (idle)
+		active = false;
+
+        if (idle)
 			return;// Do nothing as we are idle and there is nothing to reset
-		
+
 		var state:GestureState = this.state;//caching getter
 		
 		location.x = 0;

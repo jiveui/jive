@@ -28,14 +28,8 @@ class Gestures
             
             gesturesManager = new GesturesManager();
             touchesManager = new TouchesManager(gesturesManager);
+            Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
         }
-    }
-
-    static public function register(component: Component) {
-        // _component.addEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
-        // _component.addEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
-        // _component.addEventListener(TouchEvent.TOUCH_END, ontouchup);
-        // _component.addEventListener(TouchEvent.TOUCH_OUT, ontouchup);
     }
 
     static public function ontouchdown(event:TouchEvent)
@@ -112,14 +106,10 @@ class Gestures
         // _component.removeEventListener(TouchEvent.TOUCH_END, ontouchup);
         // _component.removeEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
         // _component.removeEventListener(TouchEvent.TOUCH_OUT, ontouchup);
-        // _component.removeEventListener(MouseEvent.MOUSE_DOWN, onmouseup);
         // _component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
+        
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onmouseup);
 
-        //Luxe.core.emitter.off(luxe.Ev.touchdown, ontouchdown);
-        //Luxe.core.emitter.off(luxe.Ev.touchmove, ontouchmove);
-        //Luxe.core.emitter.off(luxe.Ev.touchup, ontouchup);
-
-        //Luxe.core.emitter.off(luxe.Ev.mousedown, onmousedown);
         removemouselisteners();
     }
 }
