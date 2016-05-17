@@ -32,14 +32,14 @@ class ScrolledContainer extends Container {
         return displayObject;
     }
 
-    // override public function paint(size: IntDimension):IntDimension {
-        
-    //     //Jive.printChildren(displayObjectContainer, '');
-
-    //     trace(displayObjectContainer.parent == displayObjectContainer);
-
-    //     Jive.printChildren( cast(displayObject, Sprite), '' );
-
-    //     return super.paint(size);
-    // } 
+    override public function paint(size: IntDimension):IntDimension {
+        if (needsPaint) {
+            var g = cast(displayObject, Sprite).graphics;
+            g.beginFill(0xFFFFFF, 0);
+            g.drawRect(0, 0, absoluteWidth, absoluteHeight);
+            g.endFill();
+        }
+    
+        return super.paint(size);
+    } 
 }

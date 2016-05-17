@@ -34,7 +34,7 @@ class Scroll extends ScrolledContainer {
         //pan.addEventListener(GestureEvent.GESTURE_CANCELLED, onPanStopAnimation);
         //pan.addEventListener(GestureEvent.GESTURE_FAILED, onPanStopAnimation);
         pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
-        pan.addEventListener(GestureEvent.GESTURE_ENDED, mouseUp);
+        pan.addEventListener(GestureEvent.GESTURE_ENDED, onPanEnded);
 
         addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
     }
@@ -64,29 +64,7 @@ class Scroll extends ScrolledContainer {
         }
     }
 
-    override private function set_parent(c:Container):Container {
-        super.set_parent(c);
-
-        //displayObjectContainer.graphics.lineStyle(1, 0);
-        //displayObjectContainer.graphics.beginFill(0, 0);
-        //displayObjectContainer.graphics.drawRect(0, 0, absoluteWidth, absoluteHeight - 1);
-
-        return c;
-    }
-
-    private function mouseDown(e: MouseEvent) {
-        //Actuate.stop(animation);
-        // if (children.length > 0) {
-        //     lastY = Std.int(e.stageY + displayObjectContainer.scrollRect.y);
-        //     lastTime = Std.int(Lib.getTimer() / 20);
-        //     yTicks.push(lastY);
-        //     Lib.current.stage.addEventListener(MouseEvent.MOUSE_UP, mouseUp);
-        //     Lib.current.stage.addEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
-        //     // displayObjectContainer.startDrag(false, new Rectangle(0, -absoluteHeight, 0, absoluteHeight));
-        // }
-    }
-
-    private function mouseUp(e: MouseEvent) {
+    private function onPanEnded(e: MouseEvent) {
         if (children.length > 0) {
             Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, mouseUp);
             Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
@@ -148,35 +126,6 @@ class Scroll extends ScrolledContainer {
         }
     }
 
-    private function mouseMove(e: MouseEvent) {
-        if (children.length > 0) {
-            var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
-            var diffY: Int = Std.int(lastY - e.stageY);
-
-            // change 1/2 in Math.pow for more space behind the screen. e.g. 0.8
-
-            if (diffY < 0) {
-                diffY = - Std.int(Math.pow(-diffY, 1 / 2));
-            }
-
-            if (diffY > childMaxY) {
-                diffY = childMaxY + Std.int(Math.pow(diffY - childMaxY, 1 / 2));
-            }
-
-            displayObjectContainer.scrollRect = new Rectangle(0, diffY, absoluteWidth, absoluteHeight);
-
-            var newTime: Int = Std.int(Lib.getTimer() / 20);
-            if (lastTime < newTime) {
-                if (yTicks.length > 1 && (diffY - yTicks[yTicks.length - 1]) * (yTicks[yTicks.length - 1] - yTicks[0]) < 0) {
-                    yTicks.splice(0, yTicks.length);
-                }
-                yTicks.push(diffY);
-                lastTime = newTime;
-                if (yTicks.length > 50) yTicks.shift();
-            }
-        }
-    }
-
     override public function append(child:Component) {
         if (children.length > 0) {
             remove(children.get(0));
@@ -200,11 +149,4 @@ class Scroll extends ScrolledContainer {
             repaint();
         }
     }
-
-    /*function onPan(event:GestureEvent) {
-        if (children.length > 0) {
-            trace(displayObject.scrollRect.y - pan.offsetY);
-            children.get(0).displayObject.scrollRect = new Rectangle(0, children.get(0).displayObject.scrollRect.y - pan.offsetY, children.get(0).absoluteWidth, children.get(0).absoluteHeight);
-        }
-    }*/
 }
