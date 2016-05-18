@@ -1,4 +1,5 @@
 package jive.gestures.core;
+import openfl.Lib;
 import openfl.geom.Vector3D;
 
 /**
@@ -27,11 +28,15 @@ class Touch
 	public var time:UInt;
 	public var beginTime:UInt;
 	
-	
+    public var speed: Vector3D;
+    public var touchTime: UInt;
+    public var touchLocation: Vector3D;
+
 
 	public function new(id:UInt = 0)
 	{
 		this.id = id;
+        speed = new Vector3D();
 	}
 	
 	public function setLocation(x:Float, y:Float, time:UInt)
@@ -39,11 +44,35 @@ class Touch
 		location = new Vector3D(x, y);
 		beginLocation = location.clone();
 		previousLocation = location.clone();
-		
+        touchLocation = location.clone();
+
 		this.time = time;
 		beginTime = time;
+        touchTime = time;
+        speed.x = 0.0;
+        speed.y = 0.0;
 	}
-	
+
+    public function updateSpeed(x:Float, y:Float, time:UInt):Bool
+    {
+        if (touchLocation != null)
+        {
+            if (time - touchTime > 50) {
+                speed.x = (x - touchLocation.x)/(time - touchTime);
+                speed.y = (y - touchLocation.y)/(time - touchTime);
+                touchLocation.x = x;
+                touchLocation.y = y;
+                touchTime = time;
+            }
+        }
+        else
+        {
+            setLocation(x, y, time);
+        }
+
+        return true;
+    }
+
 	public function updateLocation(x:Float, y:Float, time:UInt):Bool
 	{
 		if (location != null)
@@ -64,6 +93,20 @@ class Touch
 		
 		return true;
 	}
+
+    public function move() {
+        var time = Lib.getTimer();
+            updateLocation(
+                location.x + speed.x * (time - this.time),
+                location.y + speed.y * (time - this.time),
+                time
+            );
+        if (time - this.touchTime > 100) {
+            // It seems that touch moving are paused
+            speed.x = 0.0;
+            speed.y = 0.0;
+        }
+    }
 	
 	public function clone():Touch
 	{
@@ -76,7 +119,10 @@ class Touch
 		touch.pressure = pressure;
 		touch.time = time;
 		touch.beginTime = beginTime;
-		
+        touch.touchTime = touchTime;
+        touch.touchLocation = touchLocation.clone();
+        touch.speed = speed.clone();
+
 		return touch;
 	}
 	

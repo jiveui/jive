@@ -1,4 +1,5 @@
 package jive.gestures.core;
+import openfl.events.Event;
 import openfl.geom.Vector3D;
 import jive.gestures.utils.GestureUtils;
 import openfl.Lib;
@@ -19,6 +20,7 @@ class TouchesManager
 		_gesturesManager = gesturesManager;
 		_touchesMap = new Map<UInt, Touch>();
 		activeTouchesCount = 0;
+        Lib.current.stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 	}
 	
 	public function onTouchBegin(touchID:UInt, x:Float, y:Float):Bool //, possibleTarget:Object = null):Bool
@@ -52,8 +54,8 @@ class TouchesManager
 		activeTouchesCount++;
 		
 		_gesturesManager.onTouchBegin(touch);
-		
-		return true;
+
+        return true;
 	}
 	
 	public function onTouchMove(touchID:UInt, x:Float, y:Float)
@@ -62,13 +64,12 @@ class TouchesManager
 			return;// touch with specified ID isn't registered
 		
 		var touch = _touchesMap.get(touchID);
-		if (touch.updateLocation(x, y, Lib.getTimer()))
+		if (touch.updateSpeed(x, y, Lib.getTimer()))
 		{
 			// NB! It appeared that native TOUCH_MOVE event is dispatched also when
 			// the location is the same, but size has changed. We are only interested
 			// in location at the moment, so we shall ignore irrelevant calls.
 			
-			_gesturesManager.onTouchMove(touch);
 		}
 	}
 	
@@ -108,4 +109,13 @@ class TouchesManager
 		//TODO: pool
 		return new Touch();
 	}
+
+    function onEnterFrame(e: Dynamic) {
+        for (touch in _touchesMap) {
+            if (null != touch && touch.speed.lengthSquared > 0) {
+                touch.move();
+                _gesturesManager.onTouchMove(touch);
+            }
+        }
+    }
 }
