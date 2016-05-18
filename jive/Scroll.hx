@@ -36,7 +36,7 @@ class Scroll extends ScrolledContainer {
         pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
         pan.addEventListener(GestureEvent.GESTURE_ENDED, onPanEnded);
 
-        addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
+        // addEventListener(MouseEvent.MOUSE_DOWN, mouseDown);
     }
 
 
@@ -66,8 +66,6 @@ class Scroll extends ScrolledContainer {
 
     private function onPanEnded(e: MouseEvent) {
         if (children.length > 0) {
-            Lib.current.stage.removeEventListener(MouseEvent.MOUSE_UP, mouseUp);
-            Lib.current.stage.removeEventListener(MouseEvent.MOUSE_MOVE, mouseMove);
 
             var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
 
