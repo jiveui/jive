@@ -1,6 +1,4 @@
 package jive.gestures.core;
-import cpp.vm.Gc;
-import openfl.events.Event;
 import openfl.geom.Vector3D;
 import jive.gestures.utils.GestureUtils;
 import openfl.Lib;
@@ -16,11 +14,7 @@ class TouchesManager
 	var _touchesMap:Map<UInt, Touch>;
 	public var activeTouchesCount(default, null):UInt;
 
-    var prevFrameTime: Float = 0.0;
-    var prevMouseTime: Float = 0.0;
-
-
-    public function new(gesturesManager:GesturesManager)
+	public function new(gesturesManager:GesturesManager)
 	{
 		_gesturesManager = gesturesManager;
 		_touchesMap = new Map<UInt, Touch>();
@@ -58,10 +52,6 @@ class TouchesManager
 		activeTouchesCount++;
 		
 		_gesturesManager.onTouchBegin(touch);
-
-        Lib.current.addEventListener(Event.ENTER_FRAME, onEnterFrame);
-
-        Gc.enable(false);
 		
 		return true;
 	}
@@ -72,14 +62,13 @@ class TouchesManager
 			return;// touch with specified ID isn't registered
 		
 		var touch = _touchesMap.get(touchID);
-
-		if (touch.updateSpeed(x, y, Lib.getTimer()))
+		if (touch.updateLocation(x, y, Lib.getTimer()))
 		{
 			// NB! It appeared that native TOUCH_MOVE event is dispatched also when
 			// the location is the same, but size has changed. We are only interested
 			// in location at the moment, so we shall ignore irrelevant calls.
-
-            // All work is happened in onEnterFrame
+			
+			_gesturesManager.onTouchMove(touch);
 		}
 	}
 	
@@ -96,10 +85,7 @@ class TouchesManager
 		activeTouchesCount--;
 		
 		_gesturesManager.onTouchEnd(touch);
-
-        Lib.current.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-        Gc.enable(true);
-    }
+	}
 	
 	
 	public function onTouchCancel(touchID:UInt, x:Float, y:Float)
@@ -122,13 +108,4 @@ class TouchesManager
 		//TODO: pool
 		return new Touch();
 	}
-
-    private function onEnterFrame(e: Dynamic) {
-        for (touch in _touchesMap) {
-            if (null != touch && null != touch.speed && (touch.speed.x != 0.0 || touch.speed.y != 0.0)) {
-                touch.updateLocationBetweenMouseEvents();
-                _gesturesManager.onTouchMove(touch);
-            }
-        }
-    }
 }
