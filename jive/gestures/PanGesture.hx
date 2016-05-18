@@ -24,6 +24,14 @@ class PanGesture extends Gesture
 	public var offsetX:Float = 0;
 	public var offsetY:Float = 0;
 
+    public var velX:Float = 0;
+    public var velY:Float = 0;
+
+    private var sumOffsetX:Float = 0;
+    private var timeX:Int = 0;
+    private var sumOffsetY:Float = 0;
+    private var timeY:Int = 0;
+
 	public function new(component: jive.Component) 
 	{
 		super(component);
@@ -47,8 +55,15 @@ class PanGesture extends Gesture
 			return;
 		}
 		
-		if (_touchesCount >= minNumTouchesRequired)
+		if (_touchesCount >= minNumTouchesRequired) {
 			updateLocation();
+            sumOffsetX = 0;
+            sumOffsetY = 0;
+            velX = 0;
+            velY = 0;
+            timeX = touch.time;
+            timeY = touch.time;
+        }
 	}
 	
 	override function onTouchMove(touch:Touch)
@@ -77,8 +92,14 @@ class PanGesture extends Gesture
 			if (locationOffset.length > slop || slop != slop)//faster isNaN(slop)
 			{
 				// NB! += instead of = for the case when this gesture recognition is delayed via requireGestureToFail
-				offsetX += location.x - prevLocationX;
-				offsetY += location.y - prevLocationY;
+                
+                var dx = location.x - prevLocationX;
+                var dy = location.y - prevLocationY;
+
+                updateOffsetSum(dx, dy, touch);
+
+				offsetX += dx;
+				offsetY += dy;
 				
 				setState(GestureState.BEGAN);
 			}
@@ -88,13 +109,35 @@ class PanGesture extends Gesture
 			prevLocationX = location.x;
 			prevLocationY = location.y;
 			updateLocation();
-			offsetX = location.x - prevLocationX;
-			offsetY = location.y - prevLocationY;
+
+            var dx = location.x - prevLocationX;
+            var dy = location.y - prevLocationY;
+
+            updateOffsetSum(dx, dy, touch);
+
+			offsetX = dx;
+			offsetY = dy;
 			
 			setState(GestureState.CHANGED);
 		}
 	}
 	
+    private function updateOffsetSum(dx: Float, dy: Float, touch:Touch) {
+        if (dx * sumOffsetX >= 0 && dx != 0) {
+            sumOffsetX += dx ;
+        } else {
+            sumOffsetX = dx ;
+            timeX = touch.time;
+        }
+
+        if (dy * sumOffsetY >= 0 && dy != 0) {
+            sumOffsetY += dy ;
+        } else {
+            sumOffsetY = dy ;
+            timeY = touch.time;
+        }
+    }
+
 	override function onTouchEnd(touch:Touch)
 	{
 		super.onTouchEnd(touch);
@@ -103,8 +146,12 @@ class PanGesture extends Gesture
 		{
 			if (state == GestureState.POSSIBLE)
 				setState(GestureState.FAILED);
-			else
-				setState(GestureState.ENDED);
+			else {
+                velX = touch.time - timeX == 0 ? 0 : sumOffsetX / (touch.time - timeX); 
+                velY = touch.time - timeY == 0 ? 0 : sumOffsetY / (touch.time - timeY); 
+                
+                setState(GestureState.ENDED);
+            }
 		}
 		else
 			updateLocation();

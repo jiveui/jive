@@ -4,11 +4,11 @@
         xmlns:haxe="http://haxe.org/"
         x="Metric.absolute(0)"
         y="Metric.absolute(0)"
-        width="Metric.absolute(Std.int(Lib.current.stage.stageWidth/2))"
-        height="Metric.absolute(Std.int(Lib.current.stage.stageHeight/2))"
+        width="Metric.absolute(Std.int(Lib.current.stage.stageWidth))"
+        height="Metric.absolute(Std.int(Lib.current.stage.stageHeight))"
         >
     <haxe:Implements><![CDATA[jive.DataContextControllable<jive.SvgTestModel>]]></haxe:Implements>
-    <Scroll width="Metric.percent(30)" height="Metric.percent(75)">
+    <Scroll width="Metric.percent(100)" height="Metric.percent(100)">
         <Flow width="Metric.percent(100)" height="Metric.percent(300)">
             <Svg width="Metric.percent(100)" height="Metric.percent(20)">
                 <content>
