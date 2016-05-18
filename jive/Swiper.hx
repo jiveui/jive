@@ -230,9 +230,9 @@ class Swiper extends ScrolledContainer {
             for (d in [-1, 1, 0]) {
                 var target = children.get(currentIndex + d);
                 if (null != target) {
-                    if ( d == 0 ) {
-                        displayObjectContainer.setChildIndex(target.displayObject, 0);
-                    }
+//                    if ( d == 0 ) {
+//                        displayObjectContainer.setChildIndex(target.displayObject, 0);
+//                    }
                     target.paint(calcPaintDimension(size));
                 }
             }
