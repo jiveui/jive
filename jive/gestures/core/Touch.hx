@@ -1,4 +1,5 @@
 package jive.gestures.core;
+import openfl.Lib;
 import openfl.geom.Vector3D;
 
 /**
@@ -26,12 +27,16 @@ class Touch
 	public var locationOffset(get, null):Vector3D;
 	public var time:UInt;
 	public var beginTime:UInt;
-	
-	
+    public var speed: Vector3D; // Pixels/sec
+
+    private var previousMouseTime:UInt;
+    private var previousMouseLocation:Vector3D;
+
 
 	public function new(id:UInt = 0)
 	{
 		this.id = id;
+        speed = new Vector3D();
 	}
 	
 	public function setLocation(x:Float, y:Float, time:UInt)
@@ -39,18 +44,17 @@ class Touch
 		location = new Vector3D(x, y);
 		beginLocation = location.clone();
 		previousLocation = location.clone();
-		
+        previousMouseLocation = location.clone();
+
 		this.time = time;
 		beginTime = time;
+        previousMouseTime = time;
 	}
 	
 	public function updateLocation(x:Float, y:Float, time:UInt):Bool
 	{
 		if (location != null)
 		{
-			if (location.x == x && location.y == y)
-				return false;
-			
 			previousLocation.x = location.x;
 			previousLocation.y = location.y;
 			location.x = x;
@@ -64,6 +68,33 @@ class Touch
 		
 		return true;
 	}
+
+    public function updateSpeed(x:Float, y:Float, time:UInt):Bool
+    {
+        if (previousMouseLocation != null && time > previousMouseTime)
+        {
+            speed.x = (x - previousMouseLocation.x)/(time - previousMouseTime);
+            speed.y = (y - previousMouseLocation.y)/(time - previousMouseTime);
+            previousMouseLocation.x = x;
+            previousMouseLocation.y = y;
+            previousMouseTime = time;
+        }
+        else
+        {
+            setLocation(x, y, time);
+        }
+
+        return true;
+    }
+
+    public function updateLocationBetweenMouseEvents() {
+        var t = Lib.getTimer();
+        var l = if (null == location) previousLocation else location;
+        updateLocation(
+            l.x + speed.x * (t-time),
+            l.y + speed.y * (t-time),
+            t);
+    }
 	
 	public function clone():Touch
 	{
@@ -74,7 +105,7 @@ class Touch
 		touch.sizeX = sizeX;
 		touch.sizeY = sizeY;
 		touch.pressure = pressure;
-		touch.time = time;
+        touch.time = time;
 		touch.beginTime = beginTime;
 		
 		return touch;
@@ -83,20 +114,19 @@ class Touch
 	
 	public function toString():String
 	{
-		return "Touch [id: " + id + ", location: " + location + ", ...]";
+		return "Touch [id: " + id + ", location: " + location + ",  speed: " + speed + "...]";
 	}
 	
 	/* GETTERS & SETTERS */
 	
 	public function get_location():Vector3D
 	{
-		//return location.clone();
 		return location;
 	}
 	
 	public function get_previousLocation():Vector3D
 	{
-		return previousLocation.clone();
+		return previousLocation;
 	}
 	
 	public function get_beginLocation():Vector3D
