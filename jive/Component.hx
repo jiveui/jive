@@ -14,6 +14,7 @@ import openfl.display.Sprite;
 import openfl.events.EventDispatcher;
 import openfl.display.DisplayObject;
 import openfl.events.Event;
+import openfl.geom.Point;
 
 import jive.geom.IntDimension;
 import jive.geom.Metric;
@@ -304,6 +305,26 @@ class Component extends EventDispatcher implements IBindable implements Stateful
 
     public function reposition() {
         if (parent != null) parent.repaintChildren();
+    }
+
+    /**
+    * Moved from old component
+    **/
+    public function globalToComponent(p:IntPoint):IntPoint{
+        var np:Point = new Point(p.x, p.y);
+        np = displayObject.globalToLocal(np);
+        return new IntPoint(Std.int(np.x), Std.int(np.y));
+    }
+
+    /**
+    * Converts local (inside component space) coordinates to the global space.
+    *
+    * @see Component.globalToLocal
+    **/
+    public function componentToGlobal(p:IntPoint):IntPoint{
+        var np:Point = new Point(p.x, p.y);
+        np = displayObject.localToGlobal(np);
+        return new IntPoint(Std.int(np.x), Std.int(np.y));
     }
 }
 
