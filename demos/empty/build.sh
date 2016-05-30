@@ -1,2 +1,2 @@
 haxe gen.hxml
-haxelib run openfl build project.xml html5
+haxelib run openfl build project.xml cpp

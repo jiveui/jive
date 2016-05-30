@@ -2,9 +2,14 @@
 -lib hml
 -lib openfl
 -lib lime
+-lib format
+-lib svg
 -cp src/
--swf bin/empty.swf
--swf-version 11
+-cp gen/
+-D lime_legacy
+-D openfl_legacy
+-cpp bin/empty
+--remap flash:openfl
 --no-output
 -main GenHx
 --macro allowPackage('flash')
