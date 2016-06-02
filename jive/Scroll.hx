@@ -137,8 +137,7 @@ class Scroll extends ScrolledContainer {
         }
         children.add(child);
         child.parent = this;
-        if (!Std.is(child, EmptyLayout)) // TODO: temporarly
-            displayObjectContainer.addChild(child.displayObject);
+        displayObjectContainer.addChild(child.displayObject);
         child.repaint();
     }
 
