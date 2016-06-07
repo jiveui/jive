@@ -52,13 +52,12 @@ class GesturesManager
 	
 	public function scheduleGestureStateReset(gesture:Gesture)
 	{
-		// trace(CallStack.toString(CallStack.callStack()));
-
-		if (!_dirtyGesturesMap[gesture])
+		if (!_dirtyGesturesMap.exists(gesture) || !_dirtyGesturesMap[gesture])
 		{
 			_dirtyGesturesMap[gesture] = true;
 			_dirtyGesturesCount++;
 			// Luxe.next(resetDirtyGestures);
+            Lib.current.removeEventListener(Event.ENTER_FRAME, enterFrame);
 			Lib.current.addEventListener(Event.ENTER_FRAME, enterFrame);
 		}
 	}

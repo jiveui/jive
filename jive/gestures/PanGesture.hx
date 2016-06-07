@@ -13,7 +13,8 @@ class PanGesture extends Gesture
 	public static inline var NO_DIRECTION:UInt = 0;
 	public static inline var VERTICAL:UInt = 1 << 0;
 	public static inline var HORIZONTAL:UInt = 1 << 1;
-	
+	public static inline var MAX_DURATION:Int = 400;
+
 	public var slop:Float = Gesture.DEFAULT_SLOP;
 	/**
 	 * Used for initial slop overcome calculations only.
@@ -23,6 +24,7 @@ class PanGesture extends Gesture
 	public var minNumTouchesRequired(default, set):UInt;
 	public var offsetX:Float = 0;
 	public var offsetY:Float = 0;
+    public var maxDuration: Int = MAX_DURATION;
 
     public var velX:Float = 0;
     public var velY:Float = 0;
@@ -147,8 +149,13 @@ class PanGesture extends Gesture
 			if (state == GestureState.POSSIBLE)
 				setState(GestureState.FAILED);
 			else {
-                velX = touch.time - timeX == 0 ? 0 : sumOffsetX / (touch.time - timeX); 
-                velY = touch.time - timeY == 0 ? 0 : sumOffsetY / (touch.time - timeY); 
+                var dtx = touch.time - timeX;
+                var dty = touch.time - timeY;
+
+                //trace('(dtx: $dtx, dty: $dty) offset ($sumOffsetX, $sumOffsetY)');
+
+                velX = dtx == 0 || dtx > maxDuration ? 0 : sumOffsetX / dtx; 
+                velY = dty == 0 || dty > maxDuration ? 0 : sumOffsetY / dty; 
                 
                 setState(GestureState.ENDED);
             }

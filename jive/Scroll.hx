@@ -31,10 +31,10 @@ class Scroll extends ScrolledContainer {
 
 
         pan.addEventListener(GestureEvent.GESTURE_BEGAN, onPanStopAnimation);
-        //pan.addEventListener(GestureEvent.GESTURE_CANCELLED, onPanStopAnimation);
-        //pan.addEventListener(GestureEvent.GESTURE_FAILED, onPanStopAnimation);
         pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
         pan.addEventListener(GestureEvent.GESTURE_ENDED, onPanEnded);
+        //pan.addEventListener(GestureEvent.GESTURE_CANCELLED, onPanStopAnimation);
+        //pan.addEventListener(GestureEvent.GESTURE_FAILED, onPanStopAnimation);
     }
 
 
@@ -72,10 +72,10 @@ class Scroll extends ScrolledContainer {
                 y: displayObjectContainer.y
             };
 
-            if (Math.abs(pan.velY) > 0.2) {
+            if (Math.abs(pan.velY) > 0.1) {
                 //calc path
                 // var diff: Int = Std.int(displayObjectContainer.scrollRect.y + absoluteHeight * 0.1 * (lastTime - firstTime) / (yTicks.length + 2));
-                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * pan.velY);
+                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * pan.velY * 0.3);
 
                 Actuate.tween(animation, 1, {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
                     // if (animation.y >= Std.int(absoluteHeight * 0.05)) {

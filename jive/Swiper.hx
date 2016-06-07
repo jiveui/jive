@@ -47,26 +47,25 @@ class Swiper extends ScrolledContainer {
 
         isInAnimationProcess = false;
 
+        /*swipe = new SwipeGesture(this);
+        swipe.direction = SwipeGesture.HORIZONTAL;
+        swipe.gesturesShouldRecognizeSimultaneously = swipeShouldRecognizeSimultaneously;
+
+        swipe.name = 'swiperSwipe';*/
+        // swipe.addEventListener(GestureEvent.GESTURE_RECOGNIZED, onSwipe);
+
         pan = new PanGesture(this);
         pan.direction = PanGesture.HORIZONTAL;
         pan.gesturesShouldRecognizeSimultaneously = panShouldRecognizeSimultaneously;
 
         pan.name = 'swiperPan';
-
-        swipe = new SwipeGesture(this);
-        swipe.direction = SwipeGesture.HORIZONTAL;
-        swipe.gesturesShouldRecognizeSimultaneously = swipeShouldRecognizeSimultaneously;
-
-        swipe.name = 'swiperSwipe';
-
-
+        
         pan.addEventListener(GestureEvent.GESTURE_BEGAN, function(event:GestureEvent){
             Actuate.stop(actuator);
         });
         pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
         pan.addEventListener(GestureEvent.GESTURE_ENDED, onPanEnded);
 
-        swipe.addEventListener(GestureEvent.GESTURE_RECOGNIZED, onSwipe);
     }
 
     function onPan(event:GestureEvent) 
@@ -79,8 +78,20 @@ class Swiper extends ScrolledContainer {
 
     function onPanEnded(event:GestureEvent) {
         // trace('pan ended, currentIndex = $currentIndex');
-        if (!isInAnimationProcess) {
-            var index = currentIndex;
+        //if (!isInAnimationProcess) {
+        //}
+        
+        var index = currentIndex;
+
+        if (Math.abs(pan.velX) > 0.16) {
+            if (pan.velX < 0) {
+                if(currentIndex < children.length - 1)
+                    currentIndex ++ ;
+            } else {
+                if(currentIndex > 0)
+                    currentIndex -- ;
+            }
+        } else {
             if (displayObjectContainer.x <= - absoluteWidth / 3 - currentIndex * absoluteWidth){
                 // to right
                 if(currentIndex < children.length - 1)
@@ -89,14 +100,14 @@ class Swiper extends ScrolledContainer {
                 // to left
                 if(currentIndex > 0)
                     currentIndex -- ;
-            } 
-            animate(index);
+            }             
         }
+
+        animate(index);
     }
 
     function onSwipe(event:GestureEvent)
     {
-        // trace("swipe! " + swipe.offsetX);
         if (!isInAnimationProcess){
             var index = currentIndex;
             if (swipe.offsetX < 0) {
