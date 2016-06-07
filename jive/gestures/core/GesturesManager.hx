@@ -163,6 +163,23 @@ class GesturesManager
 			}
 		}
 	}
+
+    public function onTouchAnimated(touch: Touch) {
+        var gesturesForTouch:Array<Gesture> = _gesturesForTouchMap[touch];
+        var gesture:Gesture;
+        var i = gesturesForTouch.length;
+        while (i-- > 0)
+        {
+            gesture = gesturesForTouch[i];
+            if (!_dirtyGesturesMap[gesture] && gesture.isTrackingTouch(touch.id))
+                gesture.touchAnimatedHandler(touch);
+            else
+            {
+                // gesture is no more interested in this touch (e.g. ignoreTouch was called)
+                gesturesForTouch.splice(i, 1);
+            }
+        }   
+    }
 	
 	
 	public function onTouchEnd(touch:Touch)

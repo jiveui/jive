@@ -59,6 +59,7 @@ class PanGesture extends Gesture
 		
 		if (_touchesCount >= minNumTouchesRequired) {
 			updateLocation();
+            updateALocation();
             sumOffsetX = 0;
             sumOffsetY = 0;
             velX = 0;
@@ -83,6 +84,7 @@ class PanGesture extends Gesture
 			prevLocationX = location.x;
 			prevLocationY = location.y;
 			updateLocation();
+            updateALocation();
 			
 			// Check if finger moved enough for gesture to be recognized
 			var locationOffset = touch.locationOffset;
@@ -117,12 +119,32 @@ class PanGesture extends Gesture
 
             updateOffsetSum(dx, dy, touch);
 
-			offsetX = dx;
-			offsetY = dy;
+			//offsetX = dx;
+			//offsetY = dy;
 			
-			setState(GestureState.CHANGED);
+			// setState(GestureState.CHANGED);
 		}
 	}
+
+    override function onTouchAnimated(touch:Touch) {
+        super.onTouchAnimated(touch);
+
+        var prevLocationX:Float;
+        var prevLocationY:Float;
+
+        if (state == GestureState.BEGAN || state == GestureState.CHANGED)
+        {
+            prevLocationX = alocation.x;
+            prevLocationY = alocation.y;
+            updateALocation();
+
+            offsetX = alocation.x - prevLocationX;
+            offsetY = alocation.y - prevLocationY;
+
+            setState(GestureState.CHANGED);
+        }
+    }
+
 	
     private function updateOffsetSum(dx: Float, dy: Float, touch:Touch) {
         if (dx * sumOffsetX >= 0 && dx != 0) {
@@ -160,8 +182,10 @@ class PanGesture extends Gesture
                 setState(GestureState.ENDED);
             }
 		}
-		else
+		else {
 			updateLocation();
+            updateALocation();
+        }
 	}
 	
 	override function resetNotificationProperties()

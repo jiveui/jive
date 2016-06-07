@@ -79,6 +79,7 @@ class Gesture extends EventDispatcher {
     
     
     var _centralPoint:Vector3D;
+    var _acentralPoint:Vector3D;
     /**
      * List of gesture we require to fail.
      * @see requireGestureToFail()
@@ -86,7 +87,8 @@ class Gesture extends EventDispatcher {
     var _gesturesToFail:Map<Gesture, Bool>;
     var _pendingRecognizedState:GestureState;
     public var component: Component;
-    public var location(get, null):Vector3D;
+    public var location(default, null):Vector3D;
+    public var alocation(default, null):Vector3D;
     
     public var enabled(default, set):Bool;
     public var active(default, null):Bool;
@@ -105,7 +107,9 @@ class Gesture extends EventDispatcher {
 
        _touchesMap = new Map<Int, Touch>();
        _centralPoint = new Vector3D();
+       _acentralPoint = new Vector3D();
        location = new Vector3D();
+       alocation = new Vector3D();
        _gesturesToFail = new Map<Gesture, Bool>();
        enabled = true;
         active = false;
@@ -115,7 +119,7 @@ class Gesture extends EventDispatcher {
        Gestures.gesturesManager.addGesture(this);
        // Gestures.register(component);
 
-        component.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+       component.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
     }
 
     override public function toString():String
@@ -181,7 +185,14 @@ class Gesture extends EventDispatcher {
     {
     }
     
+    /**
+     * <p><b>NB!</b> This is abstract method and must be overridden.</p>
+     */
+    function onTouchAnimated(touch:Touch)
+    {
+    }
     
+
     /**
      * <p><b>NB!</b> This is abstract method and must be overridden.</p>
      */
@@ -325,12 +336,33 @@ class Gesture extends EventDispatcher {
        _centralPoint.y = (y != 0) ? y / _touchesCount : 0;
     }
     
-    
+    function updateACentralPoint()
+    {
+       var touchLocation:Vector3D;
+       var x:Float = 0;
+       var y:Float = 0;
+       for (touch in _touchesMap)
+       {
+         x += touch.alocation.x;
+         y += touch.alocation.y;
+       }
+       
+       _acentralPoint.x = (x != 0) ? x / _touchesCount : 0;
+       _acentralPoint.y = (y != 0) ? y / _touchesCount : 0;
+    }
+
     function updateLocation()
     {
        updateCentralPoint();
        location.x = _centralPoint.x;
        location.y = _centralPoint.y;
+    }
+    
+    function updateALocation()
+    {
+       updateACentralPoint();
+       alocation.x = _acentralPoint.x;
+       alocation.y = _acentralPoint.y;
     }
     
     function resetNotificationProperties()
@@ -349,47 +381,49 @@ class Gesture extends EventDispatcher {
      */
     public function reset()
     {
-       active = false;
+        active = false;
 
         if (idle)
-         return;// Do nothing as we are idle and there is nothing to reset
+            return;// Do nothing as we are idle and there is nothing to reset
 
-       var state:GestureState = this.state;//caching getter
-       
-       location.x = 0;
-       location.y = 0;
-       _touchesMap = new Map<Int, Touch>();
-       _touchesCount = 0;
-       idle = true;
-       var gestureToFail;
-       
-       for (gestureToFail in _gesturesToFail.keys())
-       {
-         // TODO: fix
-         // gestureToFail.events.unlisten(GestureEvent.GESTURE_STATE_CHANGE);
-         gestureToFail.removeEventListener(GestureEvent.GESTURE_STATE_CHANGE, gestureToFailstateChangeHandler);
-       }
-       _pendingRecognizedState = null;
-       
-       if (state == GestureState.POSSIBLE)
-       {
-         // manual reset() call. Set to FAILED to keep our State Machine clean and stable
-         setState(GestureState.FAILED);
-       }
-       else if (state == GestureState.BEGAN || state == GestureState.CHANGED)
-       {
-         // manual reset() call. Set to CANCELLED to keep our State Machine clean and stable
-         setState(GestureState.CANCELLED);
-       }
-       else
-       {
-         // reset from GesturesManager after reaching one of the 4 final states:
-         //(state == GestureState.RECOGNIZED ||
-          //state == GestureState.ENDED ||
-          //state == GestureState.FAILED ||
-          //state == GestureState.CANCELLED)
-         setState(GestureState.POSSIBLE);
-       }
+        var state:GestureState = this.state;//caching getter
+
+        location.x = 0;
+        location.y = 0;
+        alocation.x = 0;
+        alocation.y = 0;
+        _touchesMap = new Map<Int, Touch>();
+        _touchesCount = 0;
+        idle = true;
+        var gestureToFail;
+
+        for (gestureToFail in _gesturesToFail.keys())
+        {
+            // TODO: fix
+            // gestureToFail.events.unlisten(GestureEvent.GESTURE_STATE_CHANGE);
+            gestureToFail.removeEventListener(GestureEvent.GESTURE_STATE_CHANGE, gestureToFailstateChangeHandler);
+        }
+        _pendingRecognizedState = null;
+
+        if (state == GestureState.POSSIBLE)
+        {
+            // manual reset() call. Set to FAILED to keep our State Machine clean and stable
+            setState(GestureState.FAILED);
+        }
+        else if (state == GestureState.BEGAN || state == GestureState.CHANGED)
+        {
+            // manual reset() call. Set to CANCELLED to keep our State Machine clean and stable
+            setState(GestureState.CANCELLED);
+        }
+        else
+        {
+            // reset from GesturesManager after reaching one of the 4 final states:
+            //(state == GestureState.RECOGNIZED ||
+            //state == GestureState.ENDED ||
+            //state == GestureState.FAILED ||
+            //state == GestureState.CANCELLED)
+            setState(GestureState.POSSIBLE);
+        }
     }
     
     /**
@@ -453,6 +487,14 @@ class Gesture extends EventDispatcher {
        onTouchMove(touch);
     }
     
+    public function touchAnimatedHandler(touch:Touch)
+    {
+       if (!_touchesMap.exists(touch.id)) return;
+       
+       //_touchesMap[touch.id] = touch;
+       onTouchAnimated(touch);
+    }
+
     
     public function touchEndHandler(touch:Touch)
     {
@@ -511,11 +553,11 @@ class Gesture extends EventDispatcher {
     }
     
     /* GETTERS & SETTERS */
-    public function get_location():Vector3D
-    {
-       //return location.clone();
-       return location;
-    }
+    // public function get_location():Vector3D
+    // {
+    //    //return location.clone();
+    //    return location;
+    // }
     
     public function set_enabled(value:Bool):Bool
     {

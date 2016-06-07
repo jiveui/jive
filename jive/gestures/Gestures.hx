@@ -29,6 +29,7 @@ class Gestures
             gesturesManager = new GesturesManager();
             touchesManager = new TouchesManager(gesturesManager);
             Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
+            // Lib.current.stage.addEventListener(TouchEvent.TOUCH_DOWN, ontouchdown);
         }
     }
 
