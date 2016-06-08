@@ -310,7 +310,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     /**
     * Moved from old component
     **/
-    public function globalToComponent(p:IntPoint):IntPoint{
+    public function globalToLocal(p:IntPoint):IntPoint{
         var np:Point = new Point(p.x, p.y);
         np = displayObject.globalToLocal(np);
         return new IntPoint(Std.int(np.x), Std.int(np.y));
@@ -321,7 +321,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     *
     * @see Component.globalToLocal
     **/
-    public function componentToGlobal(p:IntPoint):IntPoint{
+    public function localToGlobal(p:IntPoint):IntPoint{
         var np:Point = new Point(p.x, p.y);
         np = displayObject.localToGlobal(np);
         return new IntPoint(Std.int(np.x), Std.int(np.y));
