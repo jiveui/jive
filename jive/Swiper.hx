@@ -47,13 +47,6 @@ class Swiper extends ScrolledContainer {
 
         isInAnimationProcess = false;
 
-        /*swipe = new SwipeGesture(this);
-        swipe.direction = SwipeGesture.HORIZONTAL;
-        swipe.gesturesShouldRecognizeSimultaneously = swipeShouldRecognizeSimultaneously;
-
-        swipe.name = 'swiperSwipe';*/
-        // swipe.addEventListener(GestureEvent.GESTURE_RECOGNIZED, onSwipe);
-
         pan = new PanGesture(this);
         pan.direction = PanGesture.HORIZONTAL;
         pan.gesturesShouldRecognizeSimultaneously = panShouldRecognizeSimultaneously;
@@ -70,17 +63,10 @@ class Swiper extends ScrolledContainer {
 
     function onPan(event:GestureEvent) 
     {
-        // var i = 0;
-        // var current = children.get(currentIndex);
-        // displayObject.scrollRect =new Rectangle(displayObject.scrollRect.x - pan.offsetX, 0, absoluteWidth, absoluteHeight);
         displayObjectContainer.x += pan.offsetX;
     }
 
     function onPanEnded(event:GestureEvent) {
-        // trace('pan ended, currentIndex = $currentIndex');
-        //if (!isInAnimationProcess) {
-        //}
-        
         var index = currentIndex;
 
         if (Math.abs(pan.velX) > 0.16) {
@@ -106,59 +92,26 @@ class Swiper extends ScrolledContainer {
         animate(index);
     }
 
-    function onSwipe(event:GestureEvent)
-    {
-        if (!isInAnimationProcess){
-            var index = currentIndex;
-            if (swipe.offsetX < 0) {
-                // to right
-                if(currentIndex < children.length - 1)
-                    currentIndex ++ ;
-            } else {
-                // to right
-                if(currentIndex > 0)
-                    currentIndex -- ;
-            }
-            animate(index);
-        }
-        //TweenMax.to(menu, 1, {bezierThrough:[{scaleX:2}, {scaleX:1}]});
-    }
-
     function animate(index: Int) {
-
-        // Actuate.stop(actuator);
-
-        // trace('index=$index, currentIndex=$currentIndex');
-        
         var ci = currentIndex; // closure
 
         var current = children.get(index);
         var animation = {
-            // x: current.absoluteX 
             x: displayObjectContainer.x
         };
 
         isInAnimationProcess = true;
 
         actuator = Actuate.tween(animation, 0.6, {
-            // x: (index - ci) * absoluteWidth
             x: - ci * absoluteWidth
         }).onUpdate(function(){
-            /*for(d in [-1,0,1]) {
-                var c = children.get(index + d);
-                if (c != null)
-                    c.x = Metric.absolute(Std.int(animation.x + d * absoluteWidth));
-            }*/
-            // displayObject.scrollRect = new Rectangle(animation.x, 0, absoluteWidth, absoluteHeight);
             displayObjectContainer.x = animation.x;
-            // .x = Std.int(animation.x);
         }).onComplete(function(){
 
             isInAnimationProcess = false;
 
             actuator = null;
 
-            // trace('animation completed');
             if (ci < index) {
                 // to left 
                 var c = children.get(index+1);
@@ -241,9 +194,6 @@ class Swiper extends ScrolledContainer {
             for (d in [-1, 1, 0]) {
                 var target = children.get(currentIndex + d);
                 if (null != target) {
-//                    if ( d == 0 ) {
-//                        displayObjectContainer.setChildIndex(target.displayObject, 0);
-//                    }
                     target.paint(calcPaintDimension(size));
                 }
             }
