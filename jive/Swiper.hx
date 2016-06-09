@@ -30,8 +30,12 @@ class Swiper extends ScrolledContainer {
     private var pan: PanGesture;
     private var swipe:SwipeGesture;
 
-    // for debug 
     private static var GAP:Int = 100;
+
+    private static var POWER: Float = 0.8;
+    private static var MIN_SPEED: Float = 0.16;
+    private static var ANIMATION_TIME: Float = 0.6;
+
     private var pool:Array<Component>;
     private var actuator: IGenericActuator;
     private var isInAnimationProcess:Bool;
@@ -61,24 +65,29 @@ class Swiper extends ScrolledContainer {
 
     }
 
-    function onPan(event:GestureEvent) 
-    {
+    function onPan(event:GestureEvent) {
+        if (displayObjectContainer.x >= 0 || displayObjectContainer.x <= -absoluteWidth * (children.length - 1)) { 
+            var sign = pan.offsetX >= 0 ? 1 : -1;
+            displayObjectContainer.x += sign * Math.pow(Math.abs(pan.offsetX), POWER);
+            return;
+        } 
+
         displayObjectContainer.x += pan.offsetX;
     }
 
     function onPanEnded(event:GestureEvent) {
         var index = currentIndex;
 
-        if (Math.abs(pan.velX) > 0.16) {
+        if (Math.abs(pan.velX) > MIN_SPEED) {
             if (pan.velX < 0) {
-                if(currentIndex < children.length - 1)
+                if(currentIndex < children.length - 1 && displayObjectContainer.x <= -currentIndex * absoluteWidth)
                     currentIndex ++ ;
             } else {
-                if(currentIndex > 0)
+                if(currentIndex > 0 && displayObjectContainer.x >= -currentIndex * absoluteWidth)
                     currentIndex -- ;
             }
         } else {
-            if (displayObjectContainer.x <= - absoluteWidth / 3 - currentIndex * absoluteWidth){
+            if (displayObjectContainer.x <= -absoluteWidth / 3 - currentIndex * absoluteWidth){
                 // to right
                 if(currentIndex < children.length - 1)
                     currentIndex ++ ;
@@ -102,7 +111,7 @@ class Swiper extends ScrolledContainer {
 
         isInAnimationProcess = true;
 
-        actuator = Actuate.tween(animation, 0.6, {
+        actuator = Actuate.tween(animation, ANIMATION_TIME, {
             x: - ci * absoluteWidth
         }).onUpdate(function(){
             displayObjectContainer.x = animation.x;
@@ -143,12 +152,10 @@ class Swiper extends ScrolledContainer {
     //----------------------------------
     // Begin of IGestureDelegate implementation
     //----------------------------------
-    public function swipeShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
-    {
+    public function swipeShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool {
         return otherGesture == pan;
     }
-    public function panShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool
-    {
+    public function panShouldRecognizeSimultaneously(gesture:Gesture, otherGesture:Gesture):Bool {
         return otherGesture == swipe;
     }
     //----------------------------------
@@ -168,7 +175,6 @@ class Swiper extends ScrolledContainer {
     }
 
     private function layoutChildren() {
-
         for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
             if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
@@ -185,7 +191,6 @@ class Swiper extends ScrolledContainer {
 
     override public function paint(size: IntDimension):IntDimension {
         var np = needsPaint;
-        
 
         var result = super.processPaint(size);
 

@@ -10,8 +10,14 @@ import jive.gestures.Gestures;
 import jive.gestures.events.GestureEvent;
 
 class Scroll extends ScrolledContainer {
-    private var pan: PanGesture;
 
+    private static var POWER: Float = 0.8;
+    private static var INERTIAL_TIME: Float = 1;
+    private static var BACK_TIME: Float = 0.2;
+    private static var MIN_VELOCITY: Float = 0.1;
+    private static var VELOCITY_MULTIPLIER: Float = 3;
+
+    private var pan: PanGesture;
     private var lastY: Int;
     private var lastTime: Int;
     private var yTicks: Array<Int>;
@@ -29,7 +35,6 @@ class Scroll extends ScrolledContainer {
 
         pan.name = 'scrollPan';
 
-
         pan.addEventListener(GestureEvent.GESTURE_BEGAN, onPanStopAnimation);
         pan.addEventListener(GestureEvent.GESTURE_CHANGED, onPan);
         pan.addEventListener(GestureEvent.GESTURE_ENDED, onPanEnded);
@@ -39,8 +44,16 @@ class Scroll extends ScrolledContainer {
     private function onPanStopAnimation(event: GestureEvent){
         Actuate.stop(animation);
     }
-    
+
     private function onPan(event: GestureEvent){
+        var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
+
+        if (displayObjectContainer.y >= 0 || displayObjectContainer.y <= -childMaxY) { 
+            var sign = pan.offsetY >= 0 ? 1 : -1;
+            displayObjectContainer.y += sign * Math.pow(Math.abs(pan.offsetY), POWER);
+            return;
+        } 
+
         displayObjectContainer.y += pan.offsetY;
     }
 
@@ -53,17 +66,17 @@ class Scroll extends ScrolledContainer {
                 y: displayObjectContainer.y
             };
 
-            if (Math.abs(pan.velY) > 0.1) {
+            if (Math.abs(pan.velY) > MIN_VELOCITY) {
                 //calc path
-                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * pan.velY * 0.3);
+                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * pan.velY * VELOCITY_MULTIPLIER);
 
-                Actuate.tween(animation, 1, {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
+                Actuate.tween(animation, INERTIAL_TIME, {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
                     if (animation.y > 0) {
                         animation.y = 0;
                         Actuate.stop(animation);
                     }
-                    if (animation.y <= - childMaxY) {
-                        animation.y = - childMaxY;
+                    if (animation.y <= -childMaxY) {
+                        animation.y = -childMaxY;
                         Actuate.stop(animation);
                     }
 
@@ -72,11 +85,11 @@ class Scroll extends ScrolledContainer {
             }
 
             if (displayObjectContainer.y > 0) {
-                Actuate.tween(animation, 0.2, {y : 0}).onUpdate(function() {
+                Actuate.tween(animation, BACK_TIME, {y : 0}).onUpdate(function() {
                     displayObjectContainer.y = Std.int(animation.y);
                 });
             } else if (displayObjectContainer.y < -childMaxY) {
-                Actuate.tween(animation, 0.2, {y : -childMaxY}).onUpdate(function() {
+                Actuate.tween(animation, BACK_TIME, {y : -childMaxY}).onUpdate(function() {
                     displayObjectContainer.y = Std.int(animation.y);
                 });
             }
