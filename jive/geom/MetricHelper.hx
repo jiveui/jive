@@ -10,7 +10,7 @@ class MetricHelper {
                 case virtual(v): return 0;
                 case percent(v): return Std.int(d * v / 100);
                 case absolute(v) : return v;
-                default: return -1;
+                default: return 0;
             }
         }
     }
