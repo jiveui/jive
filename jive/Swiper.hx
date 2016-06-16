@@ -15,6 +15,7 @@ import openfl.events.MouseEvent;
 import openfl.geom.Rectangle;
 import openfl.display.Sprite;
 
+import motion.easing.Cubic;
 import motion.Actuate;
 import motion.actuators.IGenericActuator;
 
@@ -113,7 +114,9 @@ class Swiper extends ScrolledContainer {
 
         actuator = Actuate.tween(animation, ANIMATION_TIME, {
             x: - ci * absoluteWidth
-        }).onUpdate(function(){
+        })
+        .ease(Cubic.easeOut)
+        .onUpdate(function(){
             displayObjectContainer.x = animation.x;
         }).onComplete(function(){
 

@@ -12,10 +12,10 @@ import jive.gestures.events.GestureEvent;
 class Scroll extends ScrolledContainer {
 
     private static var POWER: Float = 0.8;
-    private static var INERTIAL_TIME: Float = 1;
+    private static var INERTIAL_TIME: Float = 0.8;
     private static var BACK_TIME: Float = 0.2;
     private static var MIN_VELOCITY: Float = 0.1;
-    private static var VELOCITY_MULTIPLIER: Float = 3;
+    private static var VELOCITY_MULTIPLIER: Float = 800;
 
     private var pan: PanGesture;
     private var lastY: Int;
@@ -66,11 +66,11 @@ class Scroll extends ScrolledContainer {
                 y: displayObjectContainer.y
             };
 
-            if (Math.abs(pan.velY) > MIN_VELOCITY) {
-                //calc path
-                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * pan.velY * VELOCITY_MULTIPLIER);
+            var vel: Float = pan.velY / absoluteHeight * VELOCITY_MULTIPLIER;
 
-                Actuate.tween(animation, INERTIAL_TIME, {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
+            if (Math.abs(vel) > MIN_VELOCITY) {
+                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * vel);
+                Actuate.tween(animation, Math.abs(vel) <= 1 ? INERTIAL_TIME : INERTIAL_TIME * Math.abs(vel), {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
                     if (animation.y > 0) {
                         animation.y = 0;
                         Actuate.stop(animation);
@@ -79,17 +79,16 @@ class Scroll extends ScrolledContainer {
                         animation.y = -childMaxY;
                         Actuate.stop(animation);
                     }
-
                     displayObjectContainer.y = Std.int(animation.y);
                 });
             }
 
             if (displayObjectContainer.y > 0) {
-                Actuate.tween(animation, BACK_TIME, {y : 0}).onUpdate(function() {
+                Actuate.tween(animation, BACK_TIME, {y : 0}).ease(Cubic.easeOut).onUpdate(function() {
                     displayObjectContainer.y = Std.int(animation.y);
                 });
             } else if (displayObjectContainer.y < -childMaxY) {
-                Actuate.tween(animation, BACK_TIME, {y : -childMaxY}).onUpdate(function() {
+                Actuate.tween(animation, BACK_TIME, {y : -childMaxY}).ease(Cubic.easeOut).onUpdate(function() {
                     displayObjectContainer.y = Std.int(animation.y);
                 });
             }
