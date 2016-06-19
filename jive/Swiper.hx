@@ -35,7 +35,7 @@ class Swiper extends ScrolledContainer {
 
     private static var POWER: Float = 0.8;
     private static var MIN_SPEED: Float = 0.16;
-    private static var ANIMATION_TIME: Float = 0.6;
+    private static var ANIMATION_TIME: Float = 0.3;
 
     private var pool:Array<Component>;
     private var actuator: IGenericActuator;
@@ -131,9 +131,7 @@ class Swiper extends ScrolledContainer {
                     displayObjectContainer.removeChild(c.displayObject);
                     
                 if (ci > 0) {
-                    var target = children.get(ci - 1);
-                    displayObjectContainer.addChild(target.displayObject);
-                    target.repaint();
+                    layoutChildren();
                 }
             } else if (ci > index) {
                 // to right
@@ -143,9 +141,7 @@ class Swiper extends ScrolledContainer {
                     displayObjectContainer.removeChild(c.displayObject);
 
                 if (ci < children.length - 1) {
-                    var target = children.get(ci + 1);
-                    displayObjectContainer.addChild(target.displayObject);
-                    target.repaint();
+                    layoutChildren();
                 }
             }
 
@@ -168,7 +164,6 @@ class Swiper extends ScrolledContainer {
     override public function append(child: Component) {
         child.width = Metric.percent(100);
         child.height = Metric.percent(100);
-        child.x = Metric.percent(GAP * children.length);
         
         children.add(child);
         child.parent = this;
@@ -177,11 +172,30 @@ class Swiper extends ScrolledContainer {
         layoutChildren();
     }
 
+    override public function insert(index:Int, child:Component) {
+        child.width = Metric.percent(100);
+        child.height = Metric.percent(100);
+
+        children.add(child, index);
+        child.parent = this;
+        displayObjectContainer.addChildAt(child.displayObject, index);
+        child.repaint();
+
+        layoutChildren();
+    }
+
+    override public function remove(child: Component) {
+        super.remove(child);
+        layoutChildren();
+    }
+
     private function layoutChildren() {
         for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
             if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
+                target.x = Metric.percent(GAP * (currentIndex + d));
                 displayObjectContainer.addChild(target.displayObject);
+                target.repaint();
             }
         }
     }
