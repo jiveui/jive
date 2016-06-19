@@ -264,17 +264,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         if (needsPaint) {
             needsPaint = false;
             // if there already is scrollRect adjust it width and height;
-            if (displayObject.scrollRect != null) {
-                var rect = displayObject.scrollRect;
-
-                rect.width = absoluteWidth;
-                rect.height = absoluteHeight;
-
-                displayObject.scrollRect = rect;
-            } else {
-                displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
-            }
-
+            processRepaint();   
         }
 
         var insets = margin.toInsets(this);
@@ -296,6 +286,19 @@ class Component extends EventDispatcher implements IBindable implements Stateful
 
 
         return new IntDimension(Std.int(displayObject.width + insets.getMarginWidth()), Std.int(displayObject.height + insets.getMarginHeight()));
+    }
+
+    private function processRepaint() {
+        if (displayObject.scrollRect != null) {
+            var rect = displayObject.scrollRect;
+
+            rect.width = absoluteWidth;
+            rect.height = absoluteHeight;
+
+            displayObject.scrollRect = rect;
+        } else {
+            displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
+        }
     }
 
     public function repaint() {

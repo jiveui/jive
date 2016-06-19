@@ -9,6 +9,8 @@ import openfl.display.DisplayObject;
 import jive.geom.IntDimension;
 import jive.geom.MetricDimension;
 
+using jive.geom.MetricHelper;
+
 class Image extends Component {
 
     var bitmap: Bitmap;
@@ -60,6 +62,26 @@ class Image extends Component {
     override public function paint(size: IntDimension): IntDimension {
 
         //TODO: implement scale and keepRatio
+
+        
+
         return super.paint(size);
+    }
+
+    override private function processRepaint() {
+        if (keepRatio) {
+            if (absoluteWidth != displayObject.width) { 
+                displayObject.width = absoluteWidth;
+                displayObject.height = Math.ceil(bitmapData.height * absoluteWidth / bitmapData.width);
+                _height = Metric.absolute(Std.int(displayObject.height));
+            }
+            else if (absoluteHeight != displayObject.height) { 
+                displayObject.width = Math.ceil(bitmapData.width * absoluteHeight / bitmapData.height);
+                displayObject.height = absoluteHeight;
+                _width = Metric.absolute(Std.int(displayObject.width));
+            }
+        }
+        // TODO: what to do with scroll rect? it's scaling
+        // super.processRepaint();
     }
 }

@@ -164,7 +164,8 @@ class Swiper extends ScrolledContainer {
     override public function append(child: Component) {
         child.width = Metric.percent(100);
         child.height = Metric.percent(100);
-        
+        child.x = Metric.percent(GAP * children.length);
+
         children.add(child);
         child.parent = this;
         child.repaint();
@@ -178,22 +179,29 @@ class Swiper extends ScrolledContainer {
 
         children.add(child, index);
         child.parent = this;
-        displayObjectContainer.addChildAt(child.displayObject, index);
         child.repaint();
 
-        layoutChildren();
+        layoutChildren(true);
     }
 
     override public function remove(child: Component) {
         super.remove(child);
-        layoutChildren();
+        layoutChildren(true);
     }
 
-    private function layoutChildren() {
+    private function layoutChildren(relocate: Bool = false) {
+        if (relocate) {
+            var index = 0;
+            for (child in children) {
+                child.x = Metric.percent(GAP * index);
+                child.repaint();
+                index ++;
+            }
+        }
+
         for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
             if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
-                target.x = Metric.percent(GAP * (currentIndex + d));
                 displayObjectContainer.addChild(target.displayObject);
                 target.repaint();
             }
