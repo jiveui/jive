@@ -1,5 +1,7 @@
 package jive.image;
 
+import openfl.geom.Matrix;
+import openfl.display.BitmapData;
 import jive.geom.Metric;
 import openfl.display.PixelSnapping;
 import openfl.display.BitmapData;
@@ -61,27 +63,35 @@ class Image extends Component {
 
     override public function paint(size: IntDimension): IntDimension {
 
-        //TODO: implement scale and keepRatio
-
-        
-
-        return super.paint(size);
-    }
-
-    override private function processRepaint() {
-        if (keepRatio) {
-            if (absoluteWidth != displayObject.width) { 
-                displayObject.width = absoluteWidth;
-                displayObject.height = Math.ceil(bitmapData.height * absoluteWidth / bitmapData.width);
-                _height = Metric.absolute(Std.int(displayObject.height));
-            }
-            else if (absoluteHeight != displayObject.height) { 
-                displayObject.width = Math.ceil(bitmapData.width * absoluteHeight / bitmapData.height);
-                displayObject.height = absoluteHeight;
-                _width = Metric.absolute(Std.int(displayObject.width));
+        var m = new Matrix();
+        var scaleX = 1.0;
+        var scaleY = 1.0;
+        if (scale) {
+            if (keepRatio) {
+                if (size.width / size.height > bitmapData.width / bitmapData.height) {
+                    scaleY = size.height / bitmapData.height;
+                    scaleX = scaleY;
+                } else {
+                    scaleY = size.width / bitmapData.width;
+                    scaleX = scaleY;
+                }
+            } else {
+                scaleX = size.width / bitmapData.width;
+                scaleY = size.height / bitmapData.height;
             }
         }
-        // TODO: what to do with scroll rect? it's scaling
-        // super.processRepaint();
+        var data = new BitmapData(Std.int(bitmapData.width * scaleX), Std.int(bitmapData.height * scaleY));
+        m.scale(scaleX, scaleY);
+        data.draw(bitmapData, m, null, null, null, true);
+
+        bitmap.bitmapData = data;
+
+        trace(size);
+        trace(bitmapData.width);
+        trace(bitmapData.height);
+        trace(data.width);
+        trace(data.height);
+
+        return super.paint(new IntDimension(data.width, data.height));
     }
 }
