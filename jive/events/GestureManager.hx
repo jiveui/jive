@@ -60,8 +60,8 @@ class GestureManager {
     }
 
     private function onTouchBegin(e:TouchEvent):Void {
-        component.displayObject.stage.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-        component.displayObject.stage.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+        component.sprite.stage.addEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+        component.sprite.stage.addEventListener(TouchEvent.TOUCH_END, onTouchEnd);
 
         if (null != actuator) {
             Actuate.stop(actuator);
@@ -76,7 +76,7 @@ class GestureManager {
         touchTimes.set(e.touchPointID, Timer.stamp());
         touchMoves.set(e.touchPointID, new Array<Point>());
 
-        var localCoords = component.displayObject.globalToLocal(new Point(
+        var localCoords = component.sprite.globalToLocal(new Point(
         Std.int(touchPrevCoords.get(e.touchPointID).x),
         Std.int(touchPrevCoords.get(e.touchPointID).y)
         ));
@@ -103,15 +103,15 @@ class GestureManager {
         if (count == 2) {
             var scaleX = 1 +
             (Math.abs(touchCoords.get(a[0]).x - touchCoords.get(a[1]).x) - Math.abs(touchPrevCoords.get(a[0]).x - touchPrevCoords.get(a[1]).x))
-            / component.displayObject.width;
+            / component.sprite.width;
             var scaleY = 1 +
             (Math.abs(touchCoords.get(a[0]).y - touchCoords.get(a[1]).y) - Math.abs(touchPrevCoords.get(a[0]).y - touchPrevCoords.get(a[1]).y))
-            / component.displayObject.height;
+            / component.sprite.height;
 
             var offsetX = (touchCoords.get(a[0]).x + touchCoords.get(a[1]).x - (touchPrevCoords.get(a[0]).x + touchPrevCoords.get(a[1]).x)) / 2;
             var offsetY = (touchCoords.get(a[0]).y + touchCoords.get(a[1]).y - (touchPrevCoords.get(a[0]).y + touchPrevCoords.get(a[1]).y)) / 2;
 
-            var localCoords = component.displayObject.globalToLocal(new Point(
+            var localCoords = component.sprite.globalToLocal(new Point(
             Std.int((touchPrevCoords.get(a[0]).x + touchPrevCoords.get(a[1]).x) / 2),
             Std.int((touchPrevCoords.get(a[0]).y + touchPrevCoords.get(a[1]).y) / 2)
             ));
@@ -121,7 +121,7 @@ class GestureManager {
             var offsetX = touchCoords.get(a[0]).x - touchPrevCoords.get(a[0]).x;
             var offsetY = touchCoords.get(a[0]).y - touchPrevCoords.get(a[0]).y;
 
-            var localCoords = component.displayObject.globalToLocal(new Point(
+            var localCoords = component.sprite.globalToLocal(new Point(
             Std.int(touchPrevCoords.get(a[0]).x),
             Std.int(touchPrevCoords.get(a[0]).y)
             ));
@@ -132,8 +132,8 @@ class GestureManager {
     }
 
     private function onTouchEnd(e:TouchEvent):Void {
-        component.displayObject.stage.removeEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-        component.displayObject.stage.removeEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+        component.sprite.stage.removeEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+        component.sprite.stage.removeEventListener(TouchEvent.TOUCH_END, onTouchEnd);
 
         if (!touchBeginCoords.exists(e.touchPointID)) return;
 
@@ -152,7 +152,7 @@ class GestureManager {
                 offsetX += p.x;
             }
 
-            var localCoords = component.displayObject.globalToLocal(new Point(
+            var localCoords = component.sprite.globalToLocal(new Point(
             Std.int(touchPrevCoords.get(e.touchPointID).x),
             Std.int(touchPrevCoords.get(e.touchPointID).y)
             ));

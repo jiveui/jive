@@ -1,5 +1,8 @@
 package jive;
 
+import jive.geom.IntRectangle;
+import jive.tools.CachedFunction;
+import jive.tools.CachedFunction;
 import jive.state.StateManager;
 import jive.state.States;
 import jive.state.State;
@@ -27,12 +30,10 @@ class Component extends EventDispatcher implements IBindable implements Stateful
 
     private var needsPaint:Bool = true;
 
-    public var state(get, set): String;
-    private var _state: String;
-    private function get_state(): String { return _state; }
+    public var state(default, set): String;
     private function set_state(v: String): String {
-        if (v == State.CHANGING || _state == State.CHANGING) {
-            _state = v;
+        if (v == State.CHANGING || state == State.CHANGING) {
+            state = v;
         } else {
             StateManager.changeTo(this, v);
         }
@@ -40,171 +41,119 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     }
 
     public var name: String; // for debug
-    public var states(get, set): States;
-    private var _states: States;
-    private function get_states(): States { return _states; }
+    public var states(default, set): States;
     private function set_states(v: States): States {
-        _states = v;
+        states = v;
         return v;
     }
 
-    public var x(get, set):Metric;
-    private var _x:Metric;
-
-    private function get_x():Metric { return _x; }
-
-    private function set_x(v:Metric):Metric {
-        _x = v;
+    @:isVar public var x(get, set): Metric;
+    private function get_x() { return x; }
+    private function set_x(v:Metric): Metric {
+        x = v;
         reposition();
         return v;
     }
 
-    public var y(get, set):Metric;
-    private var _y:Metric;
-
-    private function get_y():Metric { return _y; }
-
+    @:isVar public var y(default, set): Metric;
+    private function get_y() { return y; }
     private function set_y(v:Metric):Metric {
-        _y = v;
+        y = v;
         reposition();
         return v;
     }
 
-    public var width(get, set):Metric;
-    private var _width:Metric;
-
-    private function get_width():Metric { return _width; }
-
+    @:isVar public var width(default, set): Metric;
+    private function get_width() { return width; }
     private function set_width(v:Metric):Metric {
-        if (_width != v) {
+        if (width != v) {
             repaint();
-            _width = v;
+            width = v;
         }
         return v;
     }
 
-    public var height(get, set):Metric;
-    private var _height:Metric;
-
-    private function get_height():Metric { return _height; }
-
+    @:isVar public var height(default, set):Metric;
+    private function get_height() { return height; }
     private function set_height(v:Metric):Metric {
-        if (_height != v) {
+        if (height != v) {
             repaint();
-            _height = v;
+            height = v;
         }
         return v;
     }
 
-    public var margin:MetricInsets;
+    public var margin: MetricInsets;
 
-    public var dimension(get, never):IntDimension;
-
-    private function get_dimension():IntDimension {
-        return new IntDimension(Std.int(displayObject.width), Std.int(displayObject.height));
-    }
-
-    public var rotationAngle(get, set):Float;
-    private var _rotationAngle:Float;
-
-    private function get_rotationAngle():Float {
-        return _rotationAngle;
-    }
-
+    public var rotationAngle(default, set):Float;
     private function set_rotationAngle(v:Float):Float {
-        _rotationAngle = v;
+        rotationAngle = v;
         repaint();
         return v;
     }
 
-    public var rotationPivot(get, set):IntPoint;
-    private var _rotationPivot:IntPoint;
-
-    private function get_rotationPivot():IntPoint { return _rotationPivot; }
-
+    public var rotationPivot(default, set):IntPoint;
     private function set_rotationPivot(v:IntPoint):IntPoint {
-        _rotationPivot = v;
+        rotationPivot = v;
         repaint();
         return v;
     }
 
-    public var alpha(get, set):Float;
-
-    private function get_alpha():Float { return displayObject.alpha; }
-
+    public var alpha(default, set):Float;
     private function set_alpha(v:Float):Float {
-        displayObject.alpha = v;
+        alpha = v;
+        repaint();
         return v;
     }
 
-    public var displayObject(get, null):DisplayObject;
-
-    private function get_displayObject():DisplayObject {
-        if (null == displayObject) {
-            displayObject = createDisplayObject();
-        }
-        return displayObject;
-    }
+    public var sprite(default, null): Sprite;
 
     public var parent(default, set):Container;
-
     private function set_parent(c:Container):Container {
-        return parent = c;
+        parent = c;
+        repaint();
+        return c;
     }
 
-    public var absoluteWidth(get, never):Int;
+    /**
+    * It's used by containers to get the size of a child.
+    * The preferredSize.calculate should be changed by the children that
+    * need a special way to calculate the size not based on
+    * the width and the height properties.
+    **/
+    @:allow(Container)
+    private var preferredSize: CachedFunction<IntDimension>;
 
-    private function get_absoluteWidth():Int {
-        return _width.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
-    }
-
-    public var absoluteHeight(get, never):Int;
-
-    private function get_absoluteHeight():Int {
-        return _height.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
-    }
-
-    public var absoluteX(get, never):Int;
-
-    private function get_absoluteX():Int {
-        return _x.toAbsolute(if (parent == null) 0 else parent.absoluteWidth);
-    }
-
-    public var absoluteY(get, never):Int;
-
-    private function get_absoluteY():Int {
-        return _y.toAbsolute(if (parent == null) 0 else parent.absoluteHeight);
-    }
 
     public function new() {
         super();
+        sprite = new Sprite();
+
         x = Metric.absolute(0);
         y = Metric.absolute(0);
         width = Metric.none;
         height = Metric.none;
         margin = new MetricInsets();
-    }
 
-    private function createDisplayObject():DisplayObject {
-        return new Sprite();
+        preferredSize.func = function() { return calcPreferredSize(); }
     }
 
     /**
-    * destroy component
+    * Destroy component
     * e.g. delete all bitmap graphics
     * and remove all listeners
     **/
 
     public function dispose() {
         for (l in listeners)
-            displayObject.removeEventListener(l.type, l.listener, l.useCapture);
+            sprite.removeEventListener(l.type, l.listener, l.useCapture);
         listeners = null;
     }
 
 
-    /**
-    * start IEventDispatcher methods 
-    **/
+    //****************************************************************
+    // Start IEventDispatcher methods
+    //****************************************************************
 
     private var listeners:Array<EventListenerInfo>;
 
@@ -215,7 +164,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
             listeners = new Array<EventListenerInfo>();
         }
 
-        displayObject.addEventListener(type, listener, useCapture, priority, useWeakReference);
+        sprite.addEventListener(type, listener, useCapture, priority, useWeakReference);
 
         listeners.push({
             type: type,
@@ -225,11 +174,11 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     }
 
     override public function dispatchEvent(event:Event):Bool {
-        return displayObject.dispatchEvent(event);
+        return sprite.dispatchEvent(event);
     }
 
     override public function hasEventListener(type:String):Bool {
-        return displayObject.hasEventListener(type);
+        return sprite.hasEventListener(type);
     }
 
     override public function removeEventListener(type:String, listener:Dynamic -> Void, useCapture:Bool = false):Void {
@@ -241,63 +190,53 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         for (f in found)
             listeners.remove(f);
 
-        displayObject.removeEventListener(type, listener, useCapture);
+        sprite.removeEventListener(type, listener, useCapture);
     }
 
     override public function toString():String {
-        return displayObject.toString();
+        return sprite.toString();
     }
 
     override public function willTrigger(type:String):Bool {
-        return displayObject.willTrigger(type);
+        return sprite.willTrigger(type);
     }
 
-    /**
-    * end IEventDispatcher methods
-    **/
-
-    public function paint(size: IntDimension): IntDimension {
-        return processPaint(size);
-    }
-
-    private function processPaint(size: IntDimension): IntDimension {
+    public function paint(size: IntDimension) {
+        updateSpriteRotation();
         if (needsPaint) {
             needsPaint = false;
-            // if there already is scrollRect adjust it width and height;
-            processRepaint();   
+            doPaint(size);
         }
+    }
 
-        var insets = margin.toInsets(this);
+    private function doPaint(size: IntDimension) {
+        updateSpriteScrollRect(size);
+    }
 
-        displayObject.x = x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + insets.left;
-        displayObject.y = y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + insets.top;
-
+    private inline function updateSpriteRotation() {
         if (rotationPivot == null) {
-            displayObject.rotation = rotationAngle;
+            sprite.rotation = rotationAngle;
         } else {
             var matrix:Matrix = new Matrix();
             matrix.translate(-rotationPivot.x, -rotationPivot.y);
             matrix.rotate((rotationAngle / 180) * Math.PI);
             matrix.translate(
-                x.toAbsolute(if (null != parent) parent.absoluteWidth else 0) + rotationPivot.x,
-                y.toAbsolute(if (null != parent) parent.absoluteHeight else 0) + rotationPivot.y);
-            displayObject.transform.matrix = matrix;
+                x.toAbsolute(if (null != parent) parent.absoluteWidth() else 0) + rotationPivot.x,
+                y.toAbsolute(if (null != parent) parent.absoluteHeight() else 0) + rotationPivot.y);
+            sprite.transform.matrix = matrix;
         }
-
-
-        return new IntDimension(Std.int(displayObject.width + insets.getMarginWidth()), Std.int(displayObject.height + insets.getMarginHeight()));
     }
 
-    private function processRepaint() {
-        if (displayObject.scrollRect != null) {
-            var rect = displayObject.scrollRect;
+    private inline function updateSpriteScrollRect(size: IntDimension) {
+        if (sprite.scrollRect != null) {
+            var rect = sprite.scrollRect;
 
-            rect.width = absoluteWidth;
-            rect.height = absoluteHeight;
+            rect.width = size.width;
+            rect.height = size.height;
 
-            displayObject.scrollRect = rect;
+            sprite.scrollRect = rect;
         } else {
-            displayObject.scrollRect = new Rectangle(0, 0, absoluteWidth, absoluteHeight);
+            sprite.scrollRect = new Rectangle(0, 0, size.width, size.height);
         }
     }
 
@@ -310,24 +249,8 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         if (parent != null) parent.repaintChildren();
     }
 
-    /**
-    * Moved from old component
-    **/
-    public function globalToLocal(p:IntPoint):IntPoint{
-        var np:Point = new Point(p.x, p.y);
-        np = displayObject.globalToLocal(np);
-        return new IntPoint(Std.int(np.x), Std.int(np.y));
-    }
-
-    /**
-    * Converts local (inside component space) coordinates to the global space.
-    *
-    * @see Component.globalToLocal
-    **/
-    public function localToGlobal(p:IntPoint):IntPoint{
-        var np:Point = new Point(p.x, p.y);
-        np = displayObject.localToGlobal(np);
-        return new IntPoint(Std.int(np.x), Std.int(np.y));
+    private function calcPreferredSize(): IntDimension {
+        return new IntDimension(this.absoluteWidth(), this.absoluteHeight());
     }
 }
 

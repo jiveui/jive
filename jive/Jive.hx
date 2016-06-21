@@ -18,14 +18,14 @@ class Jive {
 
     public static function openWindow(w:Window) {
         if (windows.indexOf(w) < 0) {
-            Lib.current.addChild(w.displayObject);
+            Lib.current.addChild(w.sprite);
             windows.push(w);
         }
     }
 
     public static function closeWindow(w:Window) {
         if (windows.indexOf(w) >= 0) {
-            Lib.current.removeChild(w.displayObject);
+            Lib.current.removeChild(w.sprite);
             windows.remove(w);
         }
 

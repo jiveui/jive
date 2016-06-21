@@ -14,9 +14,9 @@ class AssetImageTest {
         var handler: Dynamic = factory.createHandler(this, function() {
             Assert.areEqual(w.children.length, 1);
             Assert.areEqual(w.displayObjectContainer.numChildren, 1);
-            Assert.areEqual(w.displayObjectContainer.getChildAt(0), w.image.displayObject);
-            Assert.areEqual(4096, w.image.displayObject.width);
-            Assert.areEqual(4096, w.image.displayObject.height);
+            Assert.areEqual(w.displayObjectContainer.getChildAt(0), w.image.sprite);
+            Assert.areEqual(4096, w.image.sprite.width);
+            Assert.areEqual(4096, w.image.sprite.height);
             Assert.areEqual(4096, w.image.absoluteWidth);
             Assert.areEqual(4096, w.image.absoluteHeight);
         }, 1000);

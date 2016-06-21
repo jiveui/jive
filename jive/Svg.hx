@@ -2,15 +2,10 @@ package jive;
 
 import format.SVG;
 import jive.geom.IntDimension;
-import jive.geom.MetricDimension;
-import openfl.display.DisplayObject;
-import openfl.display.Shape;
 
 class Svg extends Component {
 
     public var generateContent:Void -> String;
-
-    var shape:Shape;
 
     public var content(get, set):String;
     private var _content:String;
@@ -25,26 +20,20 @@ class Svg extends Component {
 
     public function new() {
         super();
-        displayObject;
     }
 
-    override private function createDisplayObject():DisplayObject {
-        shape = new Shape();
-        return shape;
-    }
-
-    override public function paint(size: IntDimension): IntDimension {
+    override public function paint(size: IntDimension) {
         if (needsPaint) {
             needsPaint = false;
-            shape.graphics.clear();
+            sprite.graphics.clear();
 
             //Draw transparent rectangle to prevent glitches during animations
-            shape.graphics.beginFill(0, 0);
-            shape.graphics.drawRect(0, 0, absoluteWidth, absoluteHeight);
-            shape.graphics.endFill();
+            sprite.graphics.beginFill(0, 0);
+            sprite.graphics.drawRect(0, 0, size.width, size.height);
+            sprite.graphics.endFill();
 
             if (null != generateContent) _content = generateContent();
-            new SVG(content).render(shape.graphics);
+            new SVG(content).render(sprite.graphics);
         }
         return super.paint(size);
     }

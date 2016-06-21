@@ -2,22 +2,17 @@
 <project>
     <meta title="tests" package="jive.tests" version="0.0.1" company="Jive" />
 
-    <!-- output -->
     <app main="WrapTestMain" file="jive-tests" path="bin" />
 
     <window width="1000" height="700" background="0xFFFFFF" fps="60"/>
 
-    <!-- classpath, haxe libs -->
     <source path="src" />
     <source path="bin/gen" />
-
-    <set name="HXCPP_DEBUGGER"/>
-
-    <!--<set name="html5-backend" value="openfl-snapsvg" />-->
 
     <haxelib name="munit" />
     <haxelib name="mlib" />
     <haxelib name="hamcrest" />
+    <haxelib name="openfl"/>
     <haxelib name="jive"/>
     <haxelib name="hxcpp-debugger"/>
 

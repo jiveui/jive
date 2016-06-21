@@ -36,4 +36,20 @@ class MetricHelper {
             }
         }
     }
+
+    static public function absoluteWidth(c: Component):Int {
+        return toAbsolute(c.width, if (c.parent == null) 0 else absoluteWidth(c.parent));
+    }
+
+    static public function absoluteHeight(c: Component):Int {
+        return toAbsolute(c.height, if (c.parent == null) 0 else absoluteHeight(c.parent));
+    }
+
+    static public function absoluteX(c: Component):Int {
+        return toAbsolute(c.x, if (c.parent == null) 0 else absoluteWidth(c.parent));
+    }
+
+    static public function absoluteY(c: Component):Int {
+        return toAbsolute(c.y, if (c.parent == null) 0 else absoluteWidth(c.parent));
+    }
 }

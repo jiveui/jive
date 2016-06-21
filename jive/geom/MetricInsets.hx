@@ -18,8 +18,8 @@ class MetricInsets {
     }
 
     public function toInsets(component:Component):Insets {
-        var w = if (null != component && null != component.parent) component.parent.absoluteWidth else 0;
-        var h = if (null != component && null != component.parent) component.parent.absoluteWidth else 0;
+        var w = if (null != component && null != component.parent) component.parent.absoluteWidth() else 0;
+        var h = if (null != component && null != component.parent) component.parent.absoluteWidth() else 0;
         return new Insets(top.toAbsolute(h), left.toAbsolute(w), bottom.toAbsolute(h), right.toAbsolute(w));
     }
 }

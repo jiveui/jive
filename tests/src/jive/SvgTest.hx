@@ -16,7 +16,7 @@ class SvgTest {
                             <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="3" fill="#ff0000" />
                        </svg>';
         svg.paint(IntDimension.createNullDimension());
-        Lib.current.addChild(svg.displayObject);
+        Lib.current.addChild(svg.sprite);
     }
 
     @Test
@@ -27,7 +27,7 @@ class SvgTest {
         c.width = Metric.absolute(Lib.current.stage.stageWidth);
         c.height = Metric.absolute(Lib.current.stage.stageHeight);
         c.paint(IntDimension.createNullDimension());
-        Lib.current.addChild(c.displayObject);
+        Lib.current.addChild(c.sprite);
     }
 
     @AsyncTest

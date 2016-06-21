@@ -67,13 +67,13 @@ class Swiper extends ScrolledContainer {
     }
 
     function onPan(event:GestureEvent) {
-        if (displayObjectContainer.x >= 0 || displayObjectContainer.x <= -absoluteWidth * (children.length - 1)) { 
+        if (sprite.x >= 0 || sprite.x <= -this.absoluteWidth() * (children.length - 1)) { 
             var sign = pan.offsetX >= 0 ? 1 : -1;
-            displayObjectContainer.x += sign * Math.pow(Math.abs(pan.offsetX), POWER);
+            sprite.x += sign * Math.pow(Math.abs(pan.offsetX), POWER);
             return;
         } 
 
-        displayObjectContainer.x += pan.offsetX;
+        sprite.x += pan.offsetX;
     }
 
     function onPanEnded(event:GestureEvent) {
@@ -81,18 +81,18 @@ class Swiper extends ScrolledContainer {
 
         if (Math.abs(pan.velX) > MIN_SPEED) {
             if (pan.velX < 0) {
-                if(currentIndex < children.length - 1 && displayObjectContainer.x <= -currentIndex * absoluteWidth)
+                if(currentIndex < children.length - 1 && sprite.x <= -currentIndex * this.absoluteWidth())
                     currentIndex ++ ;
             } else {
-                if(currentIndex > 0 && displayObjectContainer.x >= -currentIndex * absoluteWidth)
+                if(currentIndex > 0 && sprite.x >= -currentIndex * this.absoluteWidth())
                     currentIndex -- ;
             }
         } else {
-            if (displayObjectContainer.x <= -absoluteWidth / 3 - currentIndex * absoluteWidth){
+            if (sprite.x <= -this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()){
                 // to right
                 if(currentIndex < children.length - 1)
                     currentIndex ++ ;
-            } else if (displayObjectContainer.x >= absoluteWidth / 3 - currentIndex * absoluteWidth) {
+            } else if (sprite.x >= this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()) {
                 // to left
                 if(currentIndex > 0)
                     currentIndex -- ;
@@ -107,17 +107,17 @@ class Swiper extends ScrolledContainer {
 
         var current = children.get(index);
         var animation = {
-            x: displayObjectContainer.x
+            x: sprite.x
         };
 
         isInAnimationProcess = true;
 
         actuator = Actuate.tween(animation, ANIMATION_TIME, {
-            x: - ci * absoluteWidth
+            x: - ci * this.absoluteWidth()
         })
         .ease(Cubic.easeOut)
         .onUpdate(function(){
-            displayObjectContainer.x = animation.x;
+            sprite.x = animation.x;
         }).onComplete(function(){
 
             isInAnimationProcess = false;
@@ -128,7 +128,7 @@ class Swiper extends ScrolledContainer {
                 // to left 
                 var c = children.get(index+1);
                 if (c != null)
-                    displayObjectContainer.removeChild(c.displayObject);
+                    sprite.removeChild(c.sprite);
                     
                 if (ci > 0) {
                     layoutChildren();
@@ -138,7 +138,7 @@ class Swiper extends ScrolledContainer {
 
                 var c = children.get(index-1);
                 if (c != null)
-                    displayObjectContainer.removeChild(c.displayObject);
+                    sprite.removeChild(c.sprite);
 
                 if (ci < children.length - 1) {
                     layoutChildren();
@@ -201,8 +201,8 @@ class Swiper extends ScrolledContainer {
 
         for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
-            if (null != target && displayObjectContainer.getChildIndex(target.displayObject) < 0) {
-                displayObjectContainer.addChild(target.displayObject);
+            if (null != target && sprite.getChildIndex(target.sprite) < 0) {
+                sprite.addChild(target.sprite);
                 target.repaint();
             }
         }
@@ -214,21 +214,17 @@ class Swiper extends ScrolledContainer {
     * custom coordinates are necessary
     **/
 
-    override public function paint(size: IntDimension):IntDimension {
-        var np = needsPaint;
-
-        var result = super.processPaint(size);
+    override public function paint(size: IntDimension) {
+        super.doPaint(size);
 
         if (childrenNeedRepaint) {
             childrenNeedRepaint = false;
             for (d in [-1, 1, 0]) {
                 var target = children.get(currentIndex + d);
                 if (null != target) {
-                    target.paint(calcPaintDimension(size));
+                    target.paint(size);
                 }
             }
         }
-
-        return result;
     }
 }

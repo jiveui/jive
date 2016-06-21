@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.MetricHelper;
 import jive.geom.Metric;
 import flash.display.Sprite;
 import flash.display.DisplayObject;
@@ -10,25 +11,8 @@ using jive.geom.MetricHelper;
 @:children("jive.Component")
 class Container extends Component {
 
-    private var childrenNeedRepaint:Bool;
-
-    public var displayObjectContainer(get, null):Sprite;
-
-    private function get_displayObjectContainer():Sprite {
-        if (null == displayObjectContainer) {
-            displayObjectContainer = createDisplayObjectContainer();
-            displayObject = displayObjectContainer;
-        }
-        return displayObjectContainer;
-    }
-
-    private function createDisplayObjectContainer():Sprite {
-        return new Sprite();
-    }
-
-    override private function createDisplayObject():DisplayObject {
-        return displayObjectContainer;
-    }
+    private var childrenNeedRepaint:Bool = true;
+    private var needsLayout: Bool = true;
 
     public var children:Collection<Component>;
 
@@ -40,22 +24,25 @@ class Container extends Component {
     public function append(child:Component) {
         children.add(child);
         child.parent = this;
-        displayObjectContainer.addChild(child.displayObject);
+        sprite.addChild(child.sprite);
         child.repaint();
+        relayout();
     }
 
     public function insert(index:Int, child:Component) {
         children.add(child, index);
         child.parent = this;
-        displayObjectContainer.addChildAt(child.displayObject, index);
+        sprite.addChildAt(child.sprite, index);
         child.repaint();
+        relayout();
     }
 
     public function remove(child:Component) {
         children.remove(child);
-        displayObjectContainer.removeChild(child.displayObject);
+        sprite.removeChild(child.sprite);
         child.parent = null;
         repaint();
+        relayout();
     }
 
     public function removeAll() {
@@ -64,25 +51,41 @@ class Container extends Component {
         }
     }
 
-    override public function paint(size: IntDimension): IntDimension {
-        var result = super.paint(size);
+    override public function paint(size: IntDimension) {
+        super.paint(size);
 
         if (childrenNeedRepaint) {
             childrenNeedRepaint = false;
             for (c in children) {
-                c.paint(calcPaintDimension(size));
+                c.paint(calcPaintComponentSize(c, size));
             }
         }
 
-        return result;
+        layout();
     }
 
-    private function calcPaintDimension(size: IntDimension): IntDimension {
-        return new IntDimension(absoluteWidth, absoluteHeight);
+    private function calcPaintComponentSize(c: Component, size: IntDimension): IntDimension {
+        return size;
     }
 
     public function repaintChildren() {
         childrenNeedRepaint = true;
         if (parent != null) parent.repaintChildren();
+        relayout();
+    }
+
+    private function layout() {
+        if (needsLayout) {
+            needsLayout = false;
+            for (child in children) {
+                var insets = child.margin.toInsets(child);
+                child.sprite.x = child.absoluteX() + insets.left;
+                child.sprite.y = child.absoluteY() + insets.top;
+            }
+        }
+    }
+
+    public function relayout() {
+        needsLayout = true;
     }
 }

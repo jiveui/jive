@@ -25,9 +25,9 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
     override private function get_width():Metric { return if (null != templateInstance) templateInstance.width else super.get_width(); }
 
     override private function set_width(v:Metric):Metric {
-        if (_width != v) {
+        if (width != v) {
             repaint();
-            if (null != templateInstance) templateInstance.width = v else _width = v;
+            if (null != templateInstance) templateInstance.width = v else width = v;
         }
         return v;
     }
@@ -35,9 +35,9 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
     override private function get_height():Metric { return if (null != templateInstance) templateInstance.height else super.get_height(); }
 
     override private function set_height(v:Metric):Metric {
-        if (_height != v) {
+        if (height != v) {
             repaint();
-            if (null != templateInstance) templateInstance.height = v else _height = v;
+            if (null != templateInstance) templateInstance.height = v else height = v;
         }
         return v;
     }
@@ -53,14 +53,11 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
         _template = v;
         if (v != Type.getClass(templateInstance)) {
             templateInstance = Type.createInstance(v, []);
+            sprite = templateInstance.sprite;
             if (null != templateModel) { templateInstance.dataContext = templateModel; }
             repaint();
         }
         return v;
-    }
-
-    override private function get_displayObject():DisplayObject {
-        return if (null != templateInstance) return templateInstance.displayObject else super.get_displayObject();
     }
 
     public var templateModel(get, set):V;
@@ -79,7 +76,7 @@ class TemplatedComponent<T: (Constructible, Component, DataContextControllable<V
         super();
     }
 
-    override public function paint(size: IntDimension): IntDimension {
-        return if (null != templateInstance) templateInstance.paint(size) else super.paint(size);
+    override public function paint(size: IntDimension) {
+        if (null != templateInstance) templateInstance.paint(size) else super.paint(size);
     }
 }

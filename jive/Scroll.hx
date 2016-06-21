@@ -9,6 +9,8 @@ import jive.gestures.PanGesture;
 import jive.gestures.Gestures;
 import jive.gestures.events.GestureEvent;
 
+using jive.geom.MetricHelper;
+
 class Scroll extends ScrolledContainer {
 
     private static var POWER: Float = 0.8;
@@ -46,30 +48,30 @@ class Scroll extends ScrolledContainer {
     }
 
     private function onPan(event: GestureEvent){
-        var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
+        var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight() - this.absoluteHeight()));
 
-        if (displayObjectContainer.y >= 0 || displayObjectContainer.y <= -childMaxY) { 
+        if (sprite.y >= 0 || sprite.y <= -childMaxY) { 
             var sign = pan.offsetY >= 0 ? 1 : -1;
-            displayObjectContainer.y += sign * Math.pow(Math.abs(pan.offsetY), POWER);
+            sprite.y += sign * Math.pow(Math.abs(pan.offsetY), POWER);
             return;
         } 
 
-        displayObjectContainer.y += pan.offsetY;
+        sprite.y += pan.offsetY;
     }
 
     private function onPanEnded(e: MouseEvent) {
         if (children.length > 0) {
 
-            var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight - absoluteHeight));
+            var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight() - this.absoluteHeight()));
 
             animation = {
-                y: displayObjectContainer.y
+                y: sprite.y
             };
 
-            var vel: Float = pan.velY / absoluteHeight * VELOCITY_MULTIPLIER;
+            var vel: Float = pan.velY / this.absoluteHeight() * VELOCITY_MULTIPLIER;
 
             if (Math.abs(vel) > MIN_VELOCITY) {
-                var diff: Int = Std.int(displayObjectContainer.y + absoluteHeight * vel);
+                var diff: Int = Std.int(sprite.y + this.absoluteHeight() * vel);
                 Actuate.tween(animation, Math.abs(vel) <= 1 ? INERTIAL_TIME : INERTIAL_TIME * Math.abs(vel), {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
                     if (animation.y > 0) {
                         animation.y = 0;
@@ -79,17 +81,17 @@ class Scroll extends ScrolledContainer {
                         animation.y = -childMaxY;
                         Actuate.stop(animation);
                     }
-                    displayObjectContainer.y = Std.int(animation.y);
+                    sprite.y = Std.int(animation.y);
                 });
             }
 
-            if (displayObjectContainer.y > 0) {
+            if (sprite.y > 0) {
                 Actuate.tween(animation, BACK_TIME, {y : 0}).ease(Cubic.easeOut).onUpdate(function() {
-                    displayObjectContainer.y = Std.int(animation.y);
+                    sprite.y = Std.int(animation.y);
                 });
-            } else if (displayObjectContainer.y < -childMaxY) {
+            } else if (sprite.y < -childMaxY) {
                 Actuate.tween(animation, BACK_TIME, {y : -childMaxY}).ease(Cubic.easeOut).onUpdate(function() {
-                    displayObjectContainer.y = Std.int(animation.y);
+                    sprite.y = Std.int(animation.y);
                 });
             }
 
@@ -103,7 +105,7 @@ class Scroll extends ScrolledContainer {
         }
         children.add(child);
         child.parent = this;
-        displayObjectContainer.addChild(child.displayObject);
+        sprite.addChild(child.sprite);
         child.repaint();
     }
 
@@ -114,7 +116,7 @@ class Scroll extends ScrolledContainer {
     override public function remove(child:Component) {
         if (children.get(0) == child) {
             children.remove(child);
-            displayObjectContainer.removeChild(child.displayObject);
+            sprite.removeChild(child.sprite);
             child.parent = null;
             repaint();
         }

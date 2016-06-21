@@ -1,5 +1,7 @@
 package jive.image;
 
+import jive.geom.IntDimension;
+import jive.geom.IntDimension;
 import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import jive.geom.Metric;
@@ -15,21 +17,11 @@ using jive.geom.MetricHelper;
 
 class Image extends Component {
 
-    var bitmap: Bitmap;
-
     public var bitmapData(default, set): BitmapData;
     private function set_bitmapData(v: BitmapData): BitmapData {
 
         if (null != bitmapData) bitmapData.dispose();
         bitmapData = v;
-
-        if (null == width || width == Metric.none) width = Metric.absolute(bitmapData.width);
-        if (null == height || height == Metric.none) height = Metric.absolute(bitmapData.height);
-
-        if (null != parent) parent.remove(this);
-        displayObject = createDisplayObject();
-        if (null != parent) parent.append(this);
-
         repaint();
 
         return v;
@@ -53,15 +45,9 @@ class Image extends Component {
         super();
         scale = true;
         keepRatio = true;
-        displayObject;
     }
 
-    override private function createDisplayObject(): DisplayObject {
-        bitmap = new Bitmap(bitmapData, PixelSnapping.AUTO, true);
-        return bitmap;
-    }
-
-    override public function paint(size: IntDimension): IntDimension {
+    override public function paint(size: IntDimension) {
 
         var m = new Matrix();
         var scaleX = 1.0;
@@ -80,18 +66,21 @@ class Image extends Component {
                 scaleY = size.height / bitmapData.height;
             }
         }
-        var data = new BitmapData(Std.int(bitmapData.width * scaleX), Std.int(bitmapData.height * scaleY));
+
         m.scale(scaleX, scaleY);
-        data.draw(bitmapData, m, null, null, null, true);
 
-        bitmap.bitmapData = data;
+        var g = sprite.graphics;
+        g.clear();
+        g.beginBitmapFill(bitmapData, m, false, true);
+        g.drawRect(0, 0, size.width, size.height);
+        g.endFill();
+    }
 
-        trace(size);
-        trace(bitmapData.width);
-        trace(bitmapData.height);
-        trace(data.width);
-        trace(data.height);
-
-        return super.paint(new IntDimension(data.width, data.height));
+    override private function calcPreferredSize(): IntDimension {
+        var d = super.calcPreferredSize();
+        return if (null == bitmapData) new IntDimension(0,0)
+            else
+                if (d.width > 0 && d.height > 0) d
+                else new IntDimension(bitmapData.width, bitmapData.height);
     }
 }
