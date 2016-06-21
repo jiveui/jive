@@ -11,6 +11,7 @@
     "bindx2": "2.5.2",
     "actuate": "",
     "unifill": "",
-    "hml": "0.0.2-alpha"
+    "hml": "0.0.2-alpha",
+    "svg": ""
   }
 }
