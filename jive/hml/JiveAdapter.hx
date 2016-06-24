@@ -223,9 +223,9 @@ class SvgWithMetaWriter extends ComponentWithMetaWriter {
                         if (item.startsWith("virtual(") || item.startsWith("absolute(")) {
                             "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item + ") ";
                         } else if (item.startsWith("widthPercent(")) {
-                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("widthP", "p") + ", " + scope + ".absoluteWidth) ";
+                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("widthP", "p") + ", jive.geom.MetricHelper.absoluteWidth(" + scope + ")) ";
                         } else if (item.startsWith("heightPercent(")) {
-                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("heightP", "p") + ", " + scope + ".absoluteHeight) ";
+                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("heightP", "p") + ", jive.geom.MetricHelper.absoluteHeight(" + scope + ")) ";
                         } else if (startsWithLetter.match(item)) {
                             "dataContext." + item + " ";
                         } else {

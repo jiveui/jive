@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.DimensionRequest;
 import jive.geom.MetricHelper;
 import jive.geom.Metric;
 import flash.display.Sprite;
@@ -61,26 +62,36 @@ class Container extends Component {
             }
         }
 
-        layout();
+        layout(size);
     }
 
     private function calcPaintComponentSize(c: Component, size: IntDimension): IntDimension {
         return size;
     }
 
-    public function repaintChildren() {
-        childrenNeedRepaint = true;
-        if (parent != null) parent.repaintChildren();
-        relayout();
+    override public function repaint() {
+        if (!needsPaint) {
+            super.repaint();
+            for (c in children) {
+                c.repaint();
+            }
+        }
     }
 
-    private function layout() {
+    public function repaintChildren() {
+        if (!childrenNeedRepaint) {
+            childrenNeedRepaint = true;
+            if (parent != null) parent.repaintChildren();
+            relayout();
+        }
+    }
+
+    private function layout(size: IntDimension) {
         if (needsLayout) {
             needsLayout = false;
             for (child in children) {
                 var insets = child.margin.toInsets(child);
-                child.sprite.x = child.absoluteX() + insets.left;
-                child.sprite.y = child.absoluteY() + insets.top;
+                child.updateSpriteTransformationMatrix(child.absoluteX() + insets.left, child.absoluteY() + insets.top);
             }
         }
     }

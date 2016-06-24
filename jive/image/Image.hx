@@ -1,5 +1,7 @@
 package jive.image;
 
+import jive.geom.IntRequest;
+import jive.geom.DimensionRequest;
 import jive.geom.IntDimension;
 import jive.geom.IntDimension;
 import openfl.geom.Matrix;
@@ -48,13 +50,13 @@ class Image extends Component {
     }
 
     override public function paint(size: IntDimension) {
-
         var m = new Matrix();
         var scaleX = 1.0;
         var scaleY = 1.0;
-        if (scale) {
+        if (scale && (size.width >= 0 || size.height >= 0)) {
             if (keepRatio) {
-                if (size.width / size.height > bitmapData.width / bitmapData.height) {
+                if ((size.width >= 0 && size.height >= 0 && size.width / size.height > bitmapData.width / bitmapData.height)
+                    || size.width < 0) {
                     scaleY = size.height / bitmapData.height;
                     scaleX = scaleY;
                 } else {
@@ -76,11 +78,7 @@ class Image extends Component {
         g.endFill();
     }
 
-    override private function calcPreferredSize(): IntDimension {
-        var d = super.calcPreferredSize();
-        return if (null == bitmapData) new IntDimension(0,0)
-            else
-                if (d.width > 0 && d.height > 0) d
-                else new IntDimension(bitmapData.width, bitmapData.height);
+    override public function calcPreferredSize(request: DimensionRequest): IntDimension {
+        return new IntDimension(bitmapData.width, bitmapData.height);
     }
 }

@@ -1,7 +1,6 @@
 package jive;
 
 import bindx.Bind;
-import cpp.vm.Thread;
 import jive.state.State;
 import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;

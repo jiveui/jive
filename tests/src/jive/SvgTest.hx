@@ -8,6 +8,8 @@ import massive.munit.Assert;
 import massive.munit.async.AsyncFactory;
 import massive.munit.util.Timer;
 
+using jive.geom.MetricHelper;
+
 class SvgTest {
     @Test
     public function testPaint() {
@@ -30,19 +32,18 @@ class SvgTest {
         Lib.current.addChild(c.sprite);
     }
 
-    @AsyncTest
+    @Test
     public function testMetricCalculations(factory: AsyncFactory) {
         Jive.start();
         var w: SvgMetricCalculationWindow = new SvgMetricCalculationWindow();
         w.opened = true;
-        var handler: Dynamic = factory.createHandler(this, function() {
-            Assert.areEqual(0, w.svg.x);
-            Assert.areEqual(0, w.svg.y);
-            Assert.areEqual(Std.int(Lib.current.stage.stageWidth * 0.3), w.svg.absoluteWidth);
-            Assert.areEqual(Std.int(Lib.current.stage.stageHeight * 0.3), w.svg.absoluteHeight);
-            Assert.isTrue(w.svg.generateContent().indexOf('width="300"') >= 0);
-            Assert.isTrue(w.svg.generateContent().indexOf('height="210"') >= 0);
-        }, 1000);
-        Timer.delay(handler, 100);
+        w.paint(IntDimension.createNullDimension());
+
+        Assert.areEqual(0, w.svg.x);
+        Assert.areEqual(0, w.svg.y);
+        Assert.areEqual(Std.int(Lib.current.stage.stageWidth * 0.3), w.svg.absoluteWidth());
+        Assert.areEqual(Std.int(Lib.current.stage.stageHeight * 0.3), w.svg.absoluteHeight());
+        Assert.isTrue(w.svg.generateContent().indexOf('width="300"') >= 0);
+        Assert.isTrue(w.svg.generateContent().indexOf('height="210"') >= 0);
     }
 }

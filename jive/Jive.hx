@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.DimensionRequest;
 import openfl.display.DisplayObjectContainer;
 import jive.themes.Theme;
 import jive.geom.IntDimension;
@@ -8,6 +9,8 @@ import jive.geom.MetricDimension;
 import openfl.Lib;
 import openfl.events.Event;
 import openfl.events.MouseEvent;
+
+using jive.geom.MetricHelper;
 
 class Jive {
 
@@ -37,15 +40,15 @@ class Jive {
         theme = new Theme();
         Lib.current.stage.addEventListener(Event.ENTER_FRAME, function(e) {
             for (w in windows) {
-                w.paint(IntDimension.createNullDimension());
+                w.paint(new IntDimension(w.absoluteWidth(), w.absoluteHeight()));
             }
         });
 
-        var stage = Lib.current.stage;
-
-        // Lib.current.stage.addEventListener(MouseEvent.CLICK, function(e){
-        //     printChildren(Lib.current.stage, '');
-        // }); 
+//        var stage = Lib.current.stage;
+//
+//        Lib.current.stage.addEventListener(MouseEvent.CLICK, function(e){
+//             printChildren(Lib.current.stage, '');
+//        });
     }
 
     public static function printChildren(doc: DisplayObjectContainer, ident: String) {

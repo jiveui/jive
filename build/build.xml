@@ -142,4 +142,11 @@
         <zip basedir="${localbuild.path}/package" destfile="${localbuild.path}/jive-package.zip"/>
     </target>
 
+    <target name="checkstyle">
+        <antcall target="checkstyle">
+            <param name="dir" value="${project.root.path}"/>
+            <param name="options" value=""/>
+        </antcall>
+    </target>
+
 </project>

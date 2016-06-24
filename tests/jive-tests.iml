@@ -105,17 +105,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="haxelib|munit">
-        <CLASSES>
-          <root url="/usr/local/lib/haxe/lib/munit/2,1,2/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="/usr/local/lib/haxe/lib/munit/2,1,2/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="haxelib|mlib">
         <CLASSES>
           <root url="/usr/local/lib/haxe/lib/mlib/2,0,2/" />
@@ -149,5 +138,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="openf" level="project" />
+    <orderEntry type="library" name="munit" level="project" />
   </component>
 </module>

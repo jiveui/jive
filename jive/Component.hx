@@ -1,8 +1,9 @@
 package jive;
 
+import jive.geom.IntRequest;
+import jive.geom.IntRequest;
+import jive.geom.DimensionRequest;
 import jive.geom.IntRectangle;
-import jive.tools.CachedFunction;
-import jive.tools.CachedFunction;
 import jive.state.StateManager;
 import jive.state.States;
 import jive.state.State;
@@ -68,6 +69,7 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     private function set_width(v:Metric):Metric {
         if (width != v) {
             repaint();
+            invalidatePreferredSize();
             width = v;
         }
         return v;
@@ -78,12 +80,20 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     private function set_height(v:Metric):Metric {
         if (height != v) {
             repaint();
+            invalidatePreferredSize();
             height = v;
         }
         return v;
     }
 
-    public var margin: MetricInsets;
+    @:isVar public var margin(get, set): MetricInsets;
+    private function get_margin(): MetricInsets { return margin; }
+    private function set_margin(v: MetricInsets): MetricInsets {
+        margin = v;
+        if (null != parent) parent.repaintChildren();
+        invalidatePreferredSize();
+        return v;
+    }
 
     public var rotationAngle(default, set):Float;
     private function set_rotationAngle(v:Float):Float {
@@ -112,30 +122,21 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     private function set_parent(c:Container):Container {
         parent = c;
         repaint();
+        invalidatePreferredSize();
         return c;
     }
 
-    /**
-    * It's used by containers to get the size of a child.
-    * The preferredSize.calculate should be changed by the children that
-    * need a special way to calculate the size not based on
-    * the width and the height properties.
-    **/
-    @:allow(Container)
-    private var preferredSize: CachedFunction<IntDimension>;
+    private var cachedPreferredSize: IntDimension;
 
 
     public function new() {
         super();
         sprite = new Sprite();
-
         x = Metric.absolute(0);
         y = Metric.absolute(0);
         width = Metric.none;
         height = Metric.none;
         margin = new MetricInsets();
-
-        preferredSize.func = function() { return calcPreferredSize(); }
     }
 
     /**
@@ -202,7 +203,6 @@ class Component extends EventDispatcher implements IBindable implements Stateful
     }
 
     public function paint(size: IntDimension) {
-        updateSpriteRotation();
         if (needsPaint) {
             needsPaint = false;
             doPaint(size);
@@ -213,18 +213,17 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         updateSpriteScrollRect(size);
     }
 
-    private inline function updateSpriteRotation() {
-        if (rotationPivot == null) {
-            sprite.rotation = rotationAngle;
-        } else {
-            var matrix:Matrix = new Matrix();
-            matrix.translate(-rotationPivot.x, -rotationPivot.y);
+    private inline function updateSpriteTransformationMatrix(x: Int, y: Int) {
+        var pivot = if (null != rotationPivot) rotationPivot else new IntPoint(0,0);
+        var matrix:Matrix = new Matrix();
+        if (rotationAngle != 0.0) {
+            matrix.translate(-pivot.x, -pivot.y);
             matrix.rotate((rotationAngle / 180) * Math.PI);
-            matrix.translate(
-                x.toAbsolute(if (null != parent) parent.absoluteWidth() else 0) + rotationPivot.x,
-                y.toAbsolute(if (null != parent) parent.absoluteHeight() else 0) + rotationPivot.y);
-            sprite.transform.matrix = matrix;
+            matrix.translate(x + pivot.x, y + pivot.y);
+        } else {
+            matrix.translate(x, y);
         }
+        sprite.transform.matrix = matrix;
     }
 
     private inline function updateSpriteScrollRect(size: IntDimension) {
@@ -249,8 +248,30 @@ class Component extends EventDispatcher implements IBindable implements Stateful
         if (parent != null) parent.repaintChildren();
     }
 
-    private function calcPreferredSize(): IntDimension {
+    /**
+    * It's used by containers to get the size of a child.
+    * The calcPreferredSize should be overriden by the children that
+    * need a special way to calculate the size.
+    **/
+
+    public function getPreferredSize(?request: DimensionRequest): IntDimension {
+        if (null == cachedPreferredSize) {
+            cachedPreferredSize = calcPreferredSize(request);
+        }
+        return cachedPreferredSize;
+    }
+
+    @:dox("hide")
+    @:noCompletion
+    public function calcPreferredSize(request: DimensionRequest): IntDimension {
         return new IntDimension(this.absoluteWidth(), this.absoluteHeight());
+    }
+
+    @:dox("hide")
+    @:noCompletion
+    public function invalidatePreferredSize() {
+        cachedPreferredSize = null;
+        if (null != parent) parent.invalidatePreferredSize();
     }
 }
 

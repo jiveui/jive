@@ -1,6 +1,10 @@
 package jive;
 
-import openfl.Lib;
+import jive.geom.IntRequest;
+import jive.geom.DimensionRequest;
+import jive.geom.IntDimension;
+
+using jive.geom.MetricHelper;
 
 class Window extends Container {
     public function new() {
@@ -23,5 +27,4 @@ class Window extends Container {
         }
         return v;
     }
-
 }

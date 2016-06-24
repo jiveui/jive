@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.DimensionRequest;
 import format.SVG;
 import jive.geom.IntDimension;
 
@@ -22,19 +23,23 @@ class Svg extends Component {
         super();
     }
 
-    override public function paint(size: IntDimension) {
-        if (needsPaint) {
-            needsPaint = false;
-            sprite.graphics.clear();
+    override public function doPaint(size: IntDimension) {
 
-            //Draw transparent rectangle to prevent glitches during animations
-            sprite.graphics.beginFill(0, 0);
-            sprite.graphics.drawRect(0, 0, size.width, size.height);
-            sprite.graphics.endFill();
+        sprite.graphics.clear();
 
-            if (null != generateContent) _content = generateContent();
-            new SVG(content).render(sprite.graphics);
-        }
-        return super.paint(size);
+        //Draw transparent rectangle to prevent glitches during animations
+        sprite.graphics.beginFill(0, 0);
+        sprite.graphics.drawRect(0, 0, size.width, size.height);
+        sprite.graphics.endFill();
+
+        if (null != generateContent) _content = generateContent();
+        new SVG(content).render(sprite.graphics);
+
+        super.doPaint(size);
+    }
+
+    override public function calcPreferredSize(request: DimensionRequest): IntDimension {
+        var data = new SVG(content).data;
+        return new IntDimension(Std.int(data.width), Std.int(data.height));
     }
 }

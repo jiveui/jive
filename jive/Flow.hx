@@ -1,5 +1,8 @@
 package jive;
 
+import jive.geom.DimensionRequest;
+import jive.geom.IntRequest;
+import jive.geom.DimensionRequest;
 import jive.geom.IntDimension;
 
 class Flow extends Container {
@@ -11,43 +14,52 @@ class Flow extends Container {
         orientation = Orientation.vertical;
     }
 
-    override private function layout() {
+    override private function layout(size: IntDimension) {
         if (needsLayout) {
             needsLayout = false;
             var x:Float = 0.0;
             var y:Float = 0.0;
+            var sizeRequest = new DimensionRequest(IntRequest.int(size.width), IntRequest.int(size.height));
             for (child in children) {
                 var insets = child.margin.toInsets(child);
-                child.sprite.x = x + insets.left;
-                child.sprite.y = y + insets.top;
+                child.updateSpriteTransformationMatrix(Std.int(x + insets.left), Std.int(y + insets.top));
+
+                var size = child.getPreferredSize(sizeRequest);
                 if (orientation == Orientation.vertical) {
-                    y += child.preferredSize.value.height;
+                    y += size.height;
                     y += insets.bottom;
                 } else {
-                    x += child.preferredSize.value.width;
+                    x += size.width;
                     x += insets.right;
                 }
+
+                trace(size);
+                trace(x);
+                trace(y);
             }
         }
     }
 
     override private function calcPaintComponentSize(c: Component, size: IntDimension): IntDimension {
-        return new IntDimension(c.preferredSize.value.width, c.preferredSize.value.width);
+        return return c.getPreferredSize(new DimensionRequest(IntRequest.int(size.width), IntRequest.int(size.height)));
     }
 
-    override private function calcPreferredSize(): IntDimension {
+    override public function calcPreferredSize(request: DimensionRequest): IntDimension {
         var w = 0.0;
         var h = 0.0;
+        var sizeRequest = new DimensionRequest(IntRequest.auto, IntRequest.auto);
         for (child in children) {
             var insets = child.margin.toInsets(child);
+            var size = child.getPreferredSize(sizeRequest);
             if (orientation == Orientation.vertical) {
-                w = Math.max(w, insets.left + child.preferredSize.value.width + insets.right);
-                h += insets.top + child.preferredSize.value.height + insets.bottom;
+                w = Math.max(w, insets.left + size.width + insets.right);
+                h += insets.top + size.height + insets.bottom;
             } else {
-                w += insets.left + child.preferredSize.value.width + insets.right;
-                h = Math.max(h, insets.top + child.preferredSize.value.height + insets.bottom);
+                w += insets.left + size.width + insets.right;
+                h = Math.max(h, insets.top + size.height + insets.bottom);
             }
         }
+        trace(new IntDimension(Std.int(w), Std.int(h)));
         return new IntDimension(Std.int(w), Std.int(h));
     }
 }

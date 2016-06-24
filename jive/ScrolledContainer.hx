@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.DimensionRequest;
 import openfl.display.Sprite;
 import openfl.display.DisplayObject;
 import jive.geom.IntDimension;
@@ -15,14 +16,11 @@ class ScrolledContainer extends Container {
         wrap.name = "wrapper";
     }
 
-    override public function paint(size: IntDimension) {
-        if (needsPaint) {
-            var g = cast(sprite, Sprite).graphics;
-            g.beginFill(0xFFFFFF, 0);
-            g.drawRect(0, 0, size.width, size.height);
-            g.endFill();
-        }
-    
-        return super.paint(size);
-    } 
+    override public function doPaint(size: IntDimension) {
+        var g = sprite.graphics;
+        g.beginFill(0xFFFFFF, 0);
+        g.drawRect(0, 0, size.width, size.height);
+        g.endFill();
+        super.doPaint(size);
+    }
 }

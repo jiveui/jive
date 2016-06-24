@@ -1,5 +1,6 @@
 package jive;
 
+import jive.geom.DimensionRequest;
 import jive.geom.Metric;
 import jive.geom.IntDimension;
 import jive.geom.MetricDimension;

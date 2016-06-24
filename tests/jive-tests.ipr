@@ -168,6 +168,15 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="munit" type="Haxe">
+      <CLASSES>
+        <root url="file:///usr/local/lib/haxe/lib/munit/2,1,2" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES>
+        <root url="file:///usr/local/lib/haxe/lib/munit/2,1,2" />
+      </SOURCES>
+    </library>
     <library name="openf" type="Haxe">
       <CLASSES>
         <root url="file:///usr/local/lib/haxe/lib/openfl/3,6,1" />
