@@ -50,28 +50,28 @@ class Scroll extends ScrolledContainer {
     private function onPan(event: GestureEvent){
         var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight() - this.absoluteHeight()));
 
-        if (sprite.y >= 0 || sprite.y <= -childMaxY) { 
+        if (wrap.y >= 0 || wrap.y <= -childMaxY) { 
             var sign = pan.offsetY >= 0 ? 1 : -1;
-            sprite.y += sign * Math.pow(Math.abs(pan.offsetY), POWER);
+            wrap.y += sign * Math.pow(Math.abs(pan.offsetY), POWER);
             return;
         } 
 
-        sprite.y += pan.offsetY;
+        wrap.y += pan.offsetY;
     }
 
     private function onPanEnded(e: MouseEvent) {
         if (children.length > 0) {
 
-            var childMaxY: Int = Std.int(Math.max(0, children.get(0).absoluteHeight() - this.absoluteHeight()));
+            var childMaxY: Int = Std.int(Math.max(0, wrap.height - this.absoluteHeight()));
 
             animation = {
-                y: sprite.y
+                y: wrap.y
             };
 
             var vel: Float = pan.velY / this.absoluteHeight() * VELOCITY_MULTIPLIER;
 
             if (Math.abs(vel) > MIN_VELOCITY) {
-                var diff: Int = Std.int(sprite.y + this.absoluteHeight() * vel);
+                var diff: Int = Std.int(wrap.y + this.absoluteHeight() * vel);
                 Actuate.tween(animation, Math.abs(vel) <= 1 ? INERTIAL_TIME : INERTIAL_TIME * Math.abs(vel), {y : diff}).ease(Cubic.easeOut).onUpdate(function() {
                     if (animation.y > 0) {
                         animation.y = 0;
@@ -81,17 +81,17 @@ class Scroll extends ScrolledContainer {
                         animation.y = -childMaxY;
                         Actuate.stop(animation);
                     }
-                    sprite.y = Std.int(animation.y);
+                    wrap.y = Std.int(animation.y);
                 });
             }
 
-            if (sprite.y > 0) {
+            if (wrap.y > 0) {
                 Actuate.tween(animation, BACK_TIME, {y : 0}).ease(Cubic.easeOut).onUpdate(function() {
-                    sprite.y = Std.int(animation.y);
+                    wrap.y = Std.int(animation.y);
                 });
-            } else if (sprite.y < -childMaxY) {
+            } else if (wrap.y < -childMaxY) {
                 Actuate.tween(animation, BACK_TIME, {y : -childMaxY}).ease(Cubic.easeOut).onUpdate(function() {
-                    sprite.y = Std.int(animation.y);
+                    wrap.y = Std.int(animation.y);
                 });
             }
 
@@ -105,7 +105,7 @@ class Scroll extends ScrolledContainer {
         }
         children.add(child);
         child.parent = this;
-        sprite.addChild(child.sprite);
+        wrap.addChild(child.sprite);
         child.repaint();
     }
 
@@ -116,7 +116,7 @@ class Scroll extends ScrolledContainer {
     override public function remove(child:Component) {
         if (children.get(0) == child) {
             children.remove(child);
-            sprite.removeChild(child.sprite);
+            wrap.removeChild(child.sprite);
             child.parent = null;
             repaint();
         }

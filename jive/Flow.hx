@@ -41,13 +41,17 @@ class Flow extends Container {
     }
 
     override private function calcPaintComponentSize(c: Component, size: IntDimension): IntDimension {
-        return return c.getPreferredSize(new DimensionRequest(IntRequest.int(size.width), IntRequest.int(size.height)));
+        return c.getPreferredSize(new DimensionRequest(IntRequest.int(size.width), IntRequest.int(size.height)));
     }
 
     override public function calcPreferredSize(request: DimensionRequest): IntDimension {
         var w = 0.0;
         var h = 0.0;
-        var sizeRequest = new DimensionRequest(IntRequest.auto, IntRequest.auto);
+
+        var sizeRequest = new DimensionRequest( 
+                orientation == Orientation.vertical ? request.width : IntRequest.auto,
+                orientation == Orientation.horizontal ? request.height : IntRequest.auto );
+
         for (child in children) {
             var insets = child.margin.toInsets(child);
             var size = child.getPreferredSize(sizeRequest);

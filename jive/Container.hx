@@ -57,12 +57,16 @@ class Container extends Component {
 
         if (childrenNeedRepaint) {
             childrenNeedRepaint = false;
-            for (c in children) {
-                c.paint(calcPaintComponentSize(c, size));
-            }
+            doChildrenRepaint(size);
         }
 
         layout(size);
+    }
+
+    private function doChildrenRepaint(size: IntDimension) {
+        for (c in children) {
+            c.paint(calcPaintComponentSize(c, size));
+        }
     }
 
     private function calcPaintComponentSize(c: Component, size: IntDimension): IntDimension {

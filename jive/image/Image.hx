@@ -53,17 +53,10 @@ class Image extends Component {
         var m = new Matrix();
         var scaleX = 1.0;
         var scaleY = 1.0;
-        if (scale && (size.width >= 0 || size.height >= 0)) {
-            if (keepRatio) {
-                if ((size.width >= 0 && size.height >= 0 && size.width / size.height > bitmapData.width / bitmapData.height)
-                    || size.width < 0) {
-                    scaleY = size.height / bitmapData.height;
-                    scaleX = scaleY;
-                } else {
-                    scaleY = size.width / bitmapData.width;
-                    scaleX = scaleY;
-                }
-            } else {
+
+        if (scale) { 
+            if (size.width != bitmapData.width || size.height != bitmapData.height) {
+                size = adjustSize(size);
                 scaleX = size.width / bitmapData.width;
                 scaleY = size.height / bitmapData.height;
             }
@@ -79,6 +72,21 @@ class Image extends Component {
     }
 
     override public function calcPreferredSize(request: DimensionRequest): IntDimension {
-        return new IntDimension(bitmapData.width, bitmapData.height);
+        return adjustSize(request.toIntDimension(bitmapData.width, bitmapData.height));
+    }
+
+    private function adjustSize(size: IntDimension): IntDimension {
+        var w = bitmapData.width;
+        var h = bitmapData.height;
+
+        if (keepRatio) {
+            if (Math.abs(size.width / size.height - w / h) > 0.0001) {
+                var scale = Math.min(size.width / w, size.height / h);
+                size.width = Math.round(w * scale);
+                size.height = Math.round(h * scale);
+            }
+        }
+
+        return size;
     }
 }

@@ -68,13 +68,13 @@ class Swiper extends ScrolledContainer {
     }
 
     function onPan(event:GestureEvent) {
-        if (sprite.x >= 0 || sprite.x <= -this.absoluteWidth() * (children.length - 1)) { 
+        if (wrap.x >= 0 || wrap.x <= -this.absoluteWidth() * (children.length - 1)) { 
             var sign = pan.offsetX >= 0 ? 1 : -1;
-            sprite.x += sign * Math.pow(Math.abs(pan.offsetX), POWER);
+            wrap.x += sign * Math.pow(Math.abs(pan.offsetX), POWER);
             return;
         } 
 
-        sprite.x += pan.offsetX;
+        wrap.x += pan.offsetX;
     }
 
     function onPanEnded(event:GestureEvent) {
@@ -82,18 +82,18 @@ class Swiper extends ScrolledContainer {
 
         if (Math.abs(pan.velX) > MIN_SPEED) {
             if (pan.velX < 0) {
-                if(currentIndex < children.length - 1 && sprite.x <= -currentIndex * this.absoluteWidth())
+                if(currentIndex < children.length - 1 && wrap.x <= -currentIndex * this.absoluteWidth())
                     currentIndex ++ ;
             } else {
-                if(currentIndex > 0 && sprite.x >= -currentIndex * this.absoluteWidth())
+                if(currentIndex > 0 && wrap.x >= -currentIndex * this.absoluteWidth())
                     currentIndex -- ;
             }
         } else {
-            if (sprite.x <= -this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()){
+            if (wrap.x <= -this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()){
                 // to right
                 if(currentIndex < children.length - 1)
                     currentIndex ++ ;
-            } else if (sprite.x >= this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()) {
+            } else if (wrap.x >= this.absoluteWidth() / 3 - currentIndex * this.absoluteWidth()) {
                 // to left
                 if(currentIndex > 0)
                     currentIndex -- ;
@@ -108,7 +108,7 @@ class Swiper extends ScrolledContainer {
 
         var current = children.get(index);
         var animation = {
-            x: sprite.x
+            x: wrap.x
         };
 
         isInAnimationProcess = true;
@@ -118,7 +118,7 @@ class Swiper extends ScrolledContainer {
         })
         .ease(Cubic.easeOut)
         .onUpdate(function(){
-            sprite.x = animation.x;
+            wrap.x = animation.x;
         }).onComplete(function(){
 
             isInAnimationProcess = false;
@@ -129,20 +129,20 @@ class Swiper extends ScrolledContainer {
                 // to left 
                 var c = children.get(index+1);
                 if (c != null)
-                    sprite.removeChild(c.sprite);
+                    wrap.removeChild(c.sprite);
                     
                 if (ci > 0) {
-                    layoutChildren();
+                    placeChildren();
                 }
             } else if (ci > index) {
                 // to right
 
                 var c = children.get(index-1);
                 if (c != null)
-                    sprite.removeChild(c.sprite);
+                    wrap.removeChild(c.sprite);
 
                 if (ci < children.length - 1) {
-                    layoutChildren();
+                    placeChildren();
                 }
             }
 
@@ -169,9 +169,8 @@ class Swiper extends ScrolledContainer {
 
         children.add(child);
         child.parent = this;
-        child.repaint();
 
-        layoutChildren();
+        placeChildren();
     }
 
     override public function insert(index:Int, child:Component) {
@@ -180,17 +179,16 @@ class Swiper extends ScrolledContainer {
 
         children.add(child, index);
         child.parent = this;
-        child.repaint();
 
-        layoutChildren(true);
+        placeChildren(true);
     }
 
     override public function remove(child: Component) {
         super.remove(child);
-        layoutChildren(true);
+        placeChildren(true);
     }
 
-    private function layoutChildren(relocate: Bool = false) {
+    private function placeChildren(relocate: Bool = false) {
         if (relocate) {
             var index = 0;
             for (child in children) {
@@ -199,15 +197,15 @@ class Swiper extends ScrolledContainer {
                 index ++;
             }
         }
-
         for (d in [-1, 1, 0]) {
             var target = children.get(currentIndex + d);
-            if (null != target && sprite.getChildIndex(target.sprite) < 0) {
-                sprite.addChild(target.sprite);
-                target.repaint();
+            if (null != target && wrap.getChildIndex(target.sprite) < 0) {
+                wrap.addChild(target.sprite);
+                repaintChildren();
             }
         }
     }
+        
 
     /**
     * paints only previous, current and next children
@@ -215,16 +213,24 @@ class Swiper extends ScrolledContainer {
     * custom coordinates are necessary
     **/
 
-    override public function paint(size: IntDimension) {
-        super.doPaint(size);
+    // override public function paint(size: IntDimension) {
+    //     if (needsPaint) {
+    //         needsPaint = false;
+    //         doPaint(size);
+    //     }
 
-        if (childrenNeedRepaint) {
-            childrenNeedRepaint = false;
-            for (d in [-1, 1, 0]) {
-                var target = children.get(currentIndex + d);
-                if (null != target) {
-                    target.paint(size);
-                }
+    //     if (childrenNeedRepaint) {
+    //         childrenNeedRepaint = false;
+    //     }
+
+    //     layout(size);
+    // }
+
+    override private function doChildrenRepaint(size: IntDimension) {
+        for (d in [-1, 1, 0]) {
+            var target = children.get(currentIndex + d);
+            if (null != target) {
+                target.paint(size);
             }
         }
     }
