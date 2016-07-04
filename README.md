@@ -10,4 +10,4 @@ The key ideas:
 - Model-View-ViewModel (http://en.wikipedia.org/wiki/Model_View_ViewModel);
 - Data Binding (http://en.wikipedia.org/wiki/UI_data_binding).
 
-[Our site and blog](http://jiveui.github.io)...
+[Our site and blog](http://jiveui.github.io).
