@@ -22,4 +22,8 @@ class MetricInsets {
         var h = if (null != component && null != component.parent) component.parent.absoluteWidth() else 0;
         return new Insets(top.toAbsolute(h), left.toAbsolute(w), bottom.toAbsolute(h), right.toAbsolute(w));
     }
+
+    public function toString():String {
+        return "MetricInsets[bottom:" + bottom + ", top:" + top + ", left:" + left + ", right:" + right + "]";
+    }
 }

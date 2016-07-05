@@ -11,7 +11,7 @@ class Theme {
     public var controlHeaderFont: Font;
 
     public function new() {
-    	var size = 700;
+    	var size = 500;
 
         cornerSize = Std.int(fontSize / 3);
         margin = Std.int(size / 10);
