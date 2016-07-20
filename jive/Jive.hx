@@ -59,7 +59,7 @@ class Jive {
             if (Std.is(child, DisplayObjectContainer)) {
                 printChildren(cast(child, DisplayObjectContainer), ident == '' ? '  ' : ident + '  ');
             } else {
-                trace(ident + ' ' + child + ' name: ' + child.name);
+                trace(ident + '   ' + child + ' name: ' + child.name);
             }
         }
     }
