@@ -1,13 +1,20 @@
 package jive.geom;
 
+import jive.nativetools.NativeTools;
+
 class MetricHelper {
+    static private var scale : Float = -1;
+
     static public function toAbsolute(m:Metric, d:Int = 0):Int {
         if (m == null) {
             return -1;
         } else {
             switch (m) {
-                //TODO: implement virtual
-                case virtual(v): return 0;
+                case virtual(v): { 
+                    if (scale < 0) 
+                        scale = NativeTools.getScale(); 
+                    return Std.int(v * scale);
+                };
                 case percent(v): return Std.int(d * v / 100);
                 case absolute(v) : return v;
                 default: return 0;
