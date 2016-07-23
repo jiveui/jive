@@ -28,7 +28,7 @@ class Font {
 	private function set_name(v: String): String {
 
 		#if flash
-		if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
+			if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;
         #elseif html5
             #if !openfl_snapsvg
             if (Assets.exists(v, AssetType.FONT)) v = Assets.getFont(v).fontName;

@@ -6,8 +6,8 @@ import openfl.text.TextFormat;
 
 import jive.geom.IntDimension;
 import jive.geom.DimensionRequest;
-import jive.Color;
 import jive.geom.Metric;
+import jive.Font;
 
 class Label extends Component {
 
@@ -15,11 +15,33 @@ class Label extends Component {
 
     public var font(default, set): Font;
     private function set_font(v: Font): Font {
-        v.apply(textField);
-        // repaint();
-
+        font = v;
+        repaint();
         return v;
     }
+
+
+    public var fontName(default, set): String;
+    private function get_fontName(): String {
+        return font.name;
+    }
+    private function set_fontName(v: String): String {
+        font.name = v;
+        repaint();
+        return v;
+    }
+
+
+    public var fontSize(get, set): Int;
+    private function get_fontSize(): Int {
+        return font.size;
+    }
+    private function set_fontSize(v: Int): Int {
+        font.size = v;
+        repaint();
+        return v;
+    }
+
 
     public var text(get, set): String;
     private var _text:String;
@@ -29,7 +51,7 @@ class Label extends Component {
             _text = v;
             textField.text = text;
             textField.name = text;
-            // repaint();
+            repaint();
         }
         return v;
     }
@@ -42,6 +64,7 @@ class Label extends Component {
         textField.selectable = false;
 
         this.text = text;
+        this.font = jive.Jive.theme.defaultFont.clone();
 
         sprite.addChild(textField);
     }
@@ -59,8 +82,17 @@ class Label extends Component {
 
 	override public function paint(size: IntDimension) {
         if (needsPaint) {
-            width = Metric.absolute(Std.int(textField.textWidth));
+            font.apply(textField);
+
+            // Do we really need next 2 lines?
+            width = Metric.absolute(Std.int(textField.textWidth)); 
             height = Metric.absolute(Std.int(textField.textHeight));
+
+            size.width = Std.int(textField.textWidth);
+            size.height = Std.int(textField.textHeight);
+
+            textField.width = textField.textWidth;
+            textField.height = textField.textHeight;
         }
 
         super.paint(size);
