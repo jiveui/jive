@@ -8,6 +8,7 @@ import jive.geom.IntDimension;
 import jive.geom.DimensionRequest;
 import jive.geom.Metric;
 import jive.Font;
+import jive.Jive;
 
 class Label extends Component {
 
@@ -57,6 +58,14 @@ class Label extends Component {
     }
 
 
+    public var color(default, set): Int;
+    private function set_color(v: Int): Int {
+        color = v;
+        repaint();
+        return v;
+    }
+
+
     public function new(?text:String = "") {
         super();
 
@@ -64,7 +73,8 @@ class Label extends Component {
         textField.selectable = false;
 
         this.text = text;
-        this.font = jive.Jive.theme.defaultFont.clone();
+        this.font = Jive.theme.defaultFont.clone();
+        this.color = Jive.theme.defaultTextColor;
 
         sprite.addChild(textField);
     }
@@ -81,7 +91,8 @@ class Label extends Component {
 
 
 	override public function paint(size: IntDimension) {
-        if (needsPaint) {
+        if (needsPaint) {         
+            textField.textColor = color;
             font.apply(textField);
 
             // Do we really need next 2 lines?
