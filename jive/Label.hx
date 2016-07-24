@@ -3,10 +3,7 @@ package jive;
 import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
-
-import jive.geom.IntDimension;
-import jive.geom.DimensionRequest;
-import jive.geom.Metric;
+import jive.geom.*;
 import jive.Font;
 import jive.Jive;
 
@@ -58,6 +55,18 @@ class Label extends Component {
     }
 
 
+    public var wordWrap(default, set): Bool;
+    private var _wordWrap:Bool;
+    private function get_wordWrap(): Bool { return _wordWrap; }
+    private function set_wordWrap(v: Bool): Bool { 
+        if (_wordWrap != v) {
+            _wordWrap = v;
+            repaint();
+        }
+        return v;
+    }
+
+
     public var color(default, set): Int;
     private function set_color(v: Int): Int {
         color = v;
@@ -95,15 +104,21 @@ class Label extends Component {
             textField.textColor = color;
             font.apply(textField);
 
+            if (_wordWrap) {          
+                textField.wordWrap = true;
+                textField.width = size.width;
+                textField.height = textField.textHeight + 3;
+            } else {
+                textField.width = textField.textWidth;
+                textField.height = textField.textHeight;
+            }
+           
             // Do we really need next 2 lines?
-            width = Metric.absolute(Std.int(textField.textWidth)); 
-            height = Metric.absolute(Std.int(textField.textHeight));
+            // width = Metric.absolute(Std.int(textField.width)); 
+            // height = Metric.absolute(Std.int(textField.height));
 
-            size.width = Std.int(textField.textWidth);
-            size.height = Std.int(textField.textHeight);
-
-            textField.width = textField.textWidth;
-            textField.height = textField.textHeight;
+            size.width = Std.int(textField.width);
+            size.height = Std.int(textField.height);
         }
 
         super.paint(size);
