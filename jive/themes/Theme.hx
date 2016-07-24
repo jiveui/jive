@@ -9,7 +9,9 @@ class Theme {
     public var dpiScale: Float;
     public var fontSize: Float = 14;
     public var controlHeaderFont: Font;
+
     public var defaultFont: Font;
+    public var defaultTextColor: Int;
 
     public function new() {
     	var size = 500;
@@ -21,5 +23,6 @@ class Theme {
         controlHeaderFont = new Font();
 
         defaultFont = new Font();
+        defaultTextColor = 0x000000;
     }
 }
