@@ -32,13 +32,14 @@ class Svg extends Component {
         sprite.graphics.drawRect(0, 0, size.width, size.height);
         sprite.graphics.endFill();
 
-        if (null != generateContent) _content = generateContent();
+        if (null == content && null != generateContent) _content = generateContent();
         new SVG(content).render(sprite.graphics);
 
         super.doPaint(size);
     }
 
     override public function calcPreferredSize(request: DimensionRequest): IntDimension {
+        if (null != generateContent) _content = generateContent();
         var data = new SVG(content).data;
         return new IntDimension(Std.int(data.width), Std.int(data.height));
     }
