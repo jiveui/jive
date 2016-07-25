@@ -20,9 +20,9 @@ class ZoomGesture extends Gesture
 	public var scaleX:Float = 1;
 	public var scaleY:Float = 1;
 
-	public function new() 
+	public function new(c: Component)
 	{
-		super();
+		super(c);
 		
 		//scaleX = scaleY = 1;
 	}

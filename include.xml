@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension>
     <assets path="assets"/>
-    <haxelib name="openfl"/>
     <haxelib name="actuate"/>
     <haxelib name="svg"/>
     <haxelib name="unifill"/>

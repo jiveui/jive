@@ -1,5 +1,6 @@
 package jive.hml;
 
+#if macro
 import hml.xml.writer.DefaultNodeWriter;
 import hml.base.MatchLevel;
 import hml.xml.Data;
@@ -17,3 +18,4 @@ class JiveListWriter extends DefaultNodeWriter {
         }
     }
 }
+#end
