@@ -415,7 +415,8 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		if ((c=getChild(BEYOND_SOUTH,ltr)) != null) {
 			d = c.getPreferredSize();
-			c.setBounds(new IntRectangle(left, bottom, right - left, d.height));
+			var y = Std.int(c.y);
+			c.setBounds(new IntRectangle(left, y/*bottom*/, right - left, d.height));
 //			bottom -= d.height + vgap;
 		}
 		if ((c=getChild(BEYOND_EAST,ltr)) != null) {
