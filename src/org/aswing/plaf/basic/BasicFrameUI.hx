@@ -5,6 +5,7 @@
 package org.aswing.plaf.basic;
 
 
+import org.aswing.AsWingUtils;
 import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.events.Event;
@@ -238,8 +239,8 @@ class BasicFrameUI extends BaseComponentUI  implements FrameUI{
 	private var startPos:IntPoint;
 	private var startMousePos:IntPoint;
     private function __onTitleBarPress(e:MouseEvent):Void {
-	 
-    	if(e.target != titleBar && e.target != titleBar.getLabel()){
+	    var t: Dynamic = e.target;
+    	if(t != titleBar && t != titleBar.getLabel()){
     		return;
     	}
     	if(!titleBar.isTitleEnabled()){
@@ -286,9 +287,10 @@ class BasicFrameUI extends BaseComponentUI  implements FrameUI{
     }
     
     private function __onTitleBarDoubleClick(e:Event):Void{
-    	if(e.target != titleBar && e.target != titleBar.getLabel()){
-    		return;
-    	}
+        var t: Dynamic = e.target;
+        if(t != titleBar && t != titleBar.getLabel()){
+            return;
+        }
     	if(!titleBar.isTitleEnabled()){
     		return;
     	}

@@ -26,16 +26,5 @@
     <orderEntry type="library" name="bindx" level="project" />
     <orderEntry type="library" name="hml" level="project" />
     <orderEntry type="library" name="actuate" level="project" />
-    <orderEntry type="module-library">
-      <library name="haxelib|D:/Programming/HaXe/haxe/lib/openfl/git">
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../../HaXe/haxe/lib/openfl/git" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../../../../HaXe/haxe/lib/openfl/git" />
-        </SOURCES>
-      </library>
-    </orderEntry>
   </component>
 </module>
