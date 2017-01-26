@@ -59,6 +59,10 @@ class Timer extends AbstractImpulser  implements Impulser{
 		 
 		currentCount = 0;
 	}
+
+	public override function isRunning():Bool{
+		return running;
+	}
 	
 	
 	public function reset()

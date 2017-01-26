@@ -103,9 +103,9 @@ class BasicTableUI extends BaseComponentUI  implements TableUI{
 	}
 	
 	private function __onTablePress(e:MouseEvent):Void{
-		if(!table.getCellPane().hitTestMouse()){
+		/*if(!table.getCellPane().hitTestMouse()){
 			return;
-		}
+		}*/
 		selectMousePointed(e);
 		table.addEventListener(MouseEvent.MOUSE_MOVE, __onTableMouseMove);
 		var editor:TableCellEditor = table.getCellEditor();
@@ -115,9 +115,9 @@ class BasicTableUI extends BaseComponentUI  implements TableUI{
 	}
 	
 	private function __onTableClicked(e:ClickCountEvent):Void{
-		if(!table.getCellPane().hitTestMouse()){
+		/*if(!table.getCellPane().hitTestMouse()){
 			return;
-		}
+		}*/
 		var p:IntPoint = getMousePosOnTable();
 		var row:Int= table.rowAtPoint(p);
 		var column:Int= table.columnAtPoint(p);
