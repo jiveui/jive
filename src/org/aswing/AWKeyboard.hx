@@ -39,8 +39,8 @@ class AWKeyboard
 	public static var COMMAND : Int = 15;
 	public static var CONTROL : Int = 17;
 	public static var DELETE : Int = 46;
-	public static var DOWN : Int = 40;
-	public static var END : Int = 35;
+	public static var DOWN (default, never): Int = 40;
+	public static var END (default, never): Int = 35;
 	public static var ENTER : Int = 13;
 	public static var EQUAL : Int = 187;
 	public static var ESCAPE : Int = 27;
@@ -59,9 +59,9 @@ class AWKeyboard
 	public static var F13 : Int = 124;
 	public static var F14 : Int = 125;
 	public static var F15 : Int = 126;
-	public static var HOME : Int = 36;
+	public static var HOME (default, never): Int = 36;
 	public static var INSERT : Int = 45;
-	public static var LEFT : Int = 37;
+	public static var LEFT (default, never): Int = 37;
 	public static var LEFTBRACKET : Int = 219;
 	public static var MINUS : Int = 189;
 	public static var NUMBER_0 : Int = 48;
@@ -91,18 +91,18 @@ class AWKeyboard
 	public static var NUMPAD_ENTER : Int = 108;
 	public static var NUMPAD_MULTIPLY : Int = 106;
 	public static var NUMPAD_SUBTRACT : Int = 109;
-	public static var PAGE_DOWN : Int = 34;
-	public static var PAGE_UP : Int = 33;
+	public static var PAGE_DOWN (default, never): Int = 34;
+	public static var PAGE_UP (default, never): Int = 33;
 	public static var PERIOD : Int = 190;
 	public static var QUOTE : Int = 222;
-	public static var RIGHT : Int = 39;
+	public static var RIGHT (default, never): Int = 39;
 	public static var RIGHTBRACKET : Int = 221;
 	public static var SEMICOLON : Int = 186;
 	public static var SHIFT : Int = 16;
 	public static var SLASH : Int = 191;
 	public static var SPACE : Int = 32;
 	public static var TAB : Int = 9;
-	public static var UP : Int = 38; 
+	public static var UP (default, never): Int = 38; 
 	
 }
 
