@@ -10,6 +10,7 @@ import flash.text.TextField;
 import flash.text.TextFormat;
 import flash.text.TextFormatAlign;
 import openfl.Assets;
+import openfl.utils.AssetType;
 
 import org.aswing.geom.IntDimension;
 
