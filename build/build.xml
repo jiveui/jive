@@ -80,6 +80,13 @@
         </exec>
     </target>
 
+    <target name="build.runscript">
+        <antcall target="haxe">
+            <param name="dir" value="${project.root.path}/script"/>
+            <param name="hxml" value="build.hxml"/>
+        </antcall>
+    </target>
+
     <target name="test">
         <condition property="browser.option" value="-browser ${browser}" else="">
             <isset property="browser"/>

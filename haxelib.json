@@ -1,0 +1,17 @@
+{
+  "name": "jive",
+  "url": "https://github.com/jiveui/jive",
+  "license": "MIT",
+  "tags": [ "GUI", "UI"],
+  "description": "Jive - a crossplatform UI framework",
+  "version": "0.3",
+  "releasenote": "The command line tool, the SVG component, the mobile web mode.",
+  "contributors": [ "ngrebenshikov" ],
+  "dependencies": {
+    "bindx2": "2.6.3",
+    "actuate": "",
+    "unifill": "",
+    "hml": "0.0.3",
+    "svg": ""
+  }
+}

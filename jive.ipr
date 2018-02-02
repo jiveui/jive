@@ -6,8 +6,6 @@
     </buildFile>
   </component>
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac" />
-    <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="!?*.java" />
       <entry name="!?*.form" />
@@ -18,11 +16,6 @@
       <entry name="!?*.kt" />
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
-    <annotationProcessing>
-      <profile default="true" name="Default" enabled="false">
-        <processorPath useClasspath="true" />
-      </profile>
-    </annotationProcessing>
   </component>
   <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
@@ -34,6 +27,12 @@
   </component>
   <component name="HaxeProjectSettings" defines="html5" />
   <component name="IdProvider" IDEtalkID="C85B4E78C0B9F4BB3ED0A561EA269812" />
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0" is_locked="false">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
   <component name="Palette2">
     <group name="Swing">
       <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
@@ -160,7 +159,7 @@
       <module fileurl="file://$PROJECT_DIR$/tests/jive.iml" filepath="$PROJECT_DIR$/tests/jive.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" assert-keyword="false" jdk-15="false" project-jdk-name="Haxe 3.2.0" project-jdk-type="Haxe toolkit">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" project-jdk-name="Haxe 3.2.0" project-jdk-type="Haxe toolkit">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">

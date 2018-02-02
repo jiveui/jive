@@ -7,15 +7,15 @@
     <option name="openFLTarget" value="HTML5" />
     <option name="outputFolder" value="$MODULE_DIR$/../demos/calendar/out/production/tests" />
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/../demos/calendar/out/production/tests" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/..">
-      <sourceFolder url="file://$MODULE_DIR$/../src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../site/haxe/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../demos/all-in-one-hml/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.." isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/report" />
     </content>
