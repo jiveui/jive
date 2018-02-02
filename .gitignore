@@ -54,3 +54,4 @@ site/haxe/bin/
 demos/all-in-one-hml/bin/
 localbuild/
 demos/empty/gen
+demos/empty/bin
