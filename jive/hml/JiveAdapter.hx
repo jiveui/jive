@@ -1,14 +1,14 @@
 package jive.hml;
 
 #if macro
+import haxe.macro.Context;
 import lime.project.MetaData;
-import haxe.rtti.CType.MetaData;
-import hml.xml.writer.DefaultNodeWriter;
 import hml.xml.writer.IHaxeWriter;
 import hml.xml.adapters.base.MergedAdapter;
 
 import hml.base.MatchLevel;
 import hml.xml.Data;
+import hml.xml.Data.XMLData;
 
 import hml.xml.adapters.FlashAdapter;
 import hml.xml.adapters.base.BaseMetaAdapter;
@@ -24,8 +24,10 @@ using Lambda;
 
 #if macro
 class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
+
 	public function new() {
 		super([
+		    new SvgAdapter(),
 		    new JMenuBarNodeAdapter(),
 		    new JMenuNodeAdapter(),
 		    new AbstractTabbedPaneAdapter(),
@@ -47,7 +49,7 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 	}
 
 	static public function register():Void {
-		hml.Hml.registerProcessor(new JiveXMLProcessor([new JiveAdapter()]));
+		hml.Hml.registerProcessor(new JiveXmlProcessor([new JiveAdapter()]));
 	}
 }
 
@@ -59,51 +61,40 @@ class ComponentAdapter extends DisplayObjectAdapter {
     }
 
     override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
-		return [new ComponentWithMetaWriter(baseType, metaWriter, matchLevel)];
-	}
+        return [new ComponentWithMetaWriter(baseType, metaWriter, matchLevel)];
+    }
 }
 
 class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
-	override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
-		var nodesToRemove = [];
-		for (n in node.nodes) {
-			if (n.cData != null && n.cData.indexOf('{Binding') >= 0) {
-				nodesToRemove.push(n);
+    function processBinding(childNode:Node, node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+        var nodesToRemove = [];
+        var n = childNode;
+        if (n.cData != null && n.cData.indexOf('{Binding') == 0) {
+            nodesToRemove.push(n);
 
-				var mode = 'oneway'; //once, oneway, twoway
+            var binding:Binding = Binding.fromString(n.cData);
 
-                var trimmed = n.cData.replace('{Binding','').replace('}','').trim();
-				var sourcePropertyName = trimmed;
+            var valueSource = 'this.dataContext.' + binding.propertyName;
+            var propertyName = scope + "." + n.name.name;
 
-				// set mode
-				if (trimmed.indexOf(" ") >= 0) {
-                    var splitted = trimmed.split(" ");
-                    sourcePropertyName = splitted[0];
-                    if (splitted[1].startsWith("mode=")) {
-                    	var m = splitted[1].split("=");
-                    	mode = m[1];
-                    }
-				}
+            method.push('{');
 
-				var valueSource = 'this.dataContext.' + sourcePropertyName;
-				var propertyName = scope + "." + n.name.name;
+            method.push('if (null != dataContext) { $propertyName = $valueSource; }');
 
-				method.push('if (null != dataContext) { $propertyName = $valueSource; }');
+            if (binding.mode == BindingMode.oneway || binding.mode == BindingMode.twoway) {
+                method.push('var programmaticalyChange = false;');
 
-				if (mode.indexOf("way") > 0) {
-					method.push('var programmaticalyChange = false;');
-
-					method.push('var sourcePropertyListener = function(_,_) {
+                method.push('var sourcePropertyListener = function(_,_) {
 						if (!programmaticalyChange) {
 							programmaticalyChange = true;
 							$propertyName = $valueSource;
 							programmaticalyChange = false;
 						}
 					};');
-					method.push('var bindSourceListener = function() { bindx.Bind.bindx($valueSource, sourcePropertyListener); }');
-					method.push('if (null != dataContext) { bindSourceListener(); }');
-					method.push('bindx.Bind.bindx(this.dataContext, function(old,_) {
-							if (null != old) { bindx.Bind.unbindx(old.$sourcePropertyName, sourcePropertyListener);}
+                method.push('var bindSourceListener = function() { bindx.Bind.bind($valueSource, sourcePropertyListener); }');
+                method.push('if (null != dataContext) { bindSourceListener(); }');
+                method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
+							if (null != old) { bindx.Bind.unbind(old.${binding.propertyName}, sourcePropertyListener);}
 							if (null != this.dataContext) {
 								$propertyName = $valueSource;
 								bindSourceListener();
@@ -111,29 +102,38 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 						});
 					');
 
-					if (mode == "twoway") {
-						method.push('var propertyListener = function(_,_) {
+                if (binding.mode == BindingMode.twoway) {
+                    method.push('var propertyListener = function(_,_) {
 							if (!programmaticalyChange && null != this.dataContext) {
 								programmaticalyChange = true;
 								$valueSource = $propertyName;
 								programmaticalyChange = false;
 							}
 						};');
-						method.push('bindx.Bind.bindx($propertyName, propertyListener);');
-						method.push('bindx.Bind.bindx(this.dataContext, function(old,_) {
+                    method.push('bindx.Bind.bind($propertyName, propertyListener);');
+                    method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
 						 	if (null != this.dataContext) {
 								$valueSource = $propertyName;
 							}
 						});');
-					}
-				}
-			}
-		}
-		for (n in nodesToRemove) {
-			node.nodes.remove(n);
-		}
-		super.writeNodes(node, scope, writer, method);
-	}
+                }
+            }
+
+            method.push('}');
+        }
+        return nodesToRemove;
+    }
+
+    override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+        var nodesToRemove = [];
+        for (n in node.nodes) {
+            nodesToRemove = nodesToRemove.concat(processBinding(n, node, scope, writer, method));
+        }
+        for (n in nodesToRemove) {
+            node.nodes.remove(n);
+        }
+        super.writeNodes(node, scope, writer, method);
+    }
 }
 
 class ContainerAdapter extends ComponentAdapter {
@@ -159,6 +159,168 @@ class ContainerWithMetaWriter extends ComponentWithMetaWriter {
             method.push('$scope.append(${universalGet(child)});');
         }
 	}
+}
+
+class BaseCommandAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.BaseCommand;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class StateAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.state.State;
+        if (matchLevel == null) matchLevel = ClassLevel;
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class TransformationAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.state.Transformation;
+        if (matchLevel == null) matchLevel = ClassLevel;
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class SvgAdapter extends DisplayObjectAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.Svg;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 30);
+        super(baseType, events, matchLevel);
+    }
+
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+        return [new SvgWithMetaWriter(baseType, metaWriter, matchLevel)];
+    }
+}
+
+class SvgWithMetaWriter extends ComponentWithMetaWriter {
+    override function writeNodes(node:Node, scope:String, writer:IHaxeWriter<Node>, method:Array<String>) {
+
+        var nodesToRemove = [];
+        for (n in node.nodes) {
+
+            nodesToRemove = nodesToRemove.concat(processBinding(n, node, scope, writer, method));
+
+            //Process SVG content
+            if (n.name.name == 'content') {
+                nodesToRemove.push(n);
+                var propertyName = scope + ".content";
+                var value:String = n.cData;
+                value = value.replace("'", '"');
+
+                var r:EReg = new EReg("{[^}]+}", "g");
+                var startsWithLetter:EReg = new EReg("^[A-Za-z].*", "g");
+
+                var expressions = [];
+                r.map(value, function(r) {
+                    var match:String = r.matched(0)
+                    .replace("{", "")
+                    .replace("}", "")
+                    .trim();
+
+                    var items = match.split(" ");
+                    var expression = "";
+                    for (item in items) {
+                        expression +=
+                        if (item.startsWith("virtual(") || item.startsWith("absolute(")) {
+                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item + ") ";
+                        } else if (item.startsWith("widthPercent(")) {
+                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("widthP", "p") + ", jive.geom.MetricHelper.absoluteWidth(" + scope + ")) ";
+                        } else if (item.startsWith("heightPercent(")) {
+                            "jive.geom.MetricHelper.toAbsolute(jive.geom.Metric." + item.replace("heightP", "p") + ", jive.geom.MetricHelper.absoluteHeight(" + scope + ")) ";
+                        } else if (startsWithLetter.match(item)) {
+                            "dataContext." + item + " ";
+                        } else {
+                            item + " ";
+                        }
+
+                    }
+                    expressions.push(expression);
+                    return "";
+                });
+
+                var svgPrefix = if (Std.is(node, hml.xml.Type)) "" else "res.";
+                var generateContentName = svgPrefix + "generateContent";
+                method.push(generateContentName + " = function() { var b = new StringBuf();");
+                var parts = r.split(value);
+                var i:Int = 0;
+                for (p in parts) {
+                    method.push('b.add(\'$p\');');
+                    if (i < expressions.length) {
+                        method.push('b.add(${expressions[i]});');
+                        i += 1;
+                    }
+                }
+                method.push("return b.toString(); }");
+
+                if (expressions.length > 0) {
+                    method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix + "repaint(); } ");
+                    method.push("var subscribe = function() {");
+                    for (e in expressions) {
+                        if (e.startsWith("dataContext.")) {
+                            method.push("bindx.BindExt.chain(" + e + ", onChange);");
+                        }
+                    }
+                    method.push("};");
+                    method.push('if (null != dataContext) { subscribe(); }');
+                    method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
+							if (null != this.dataContext) {
+								subscribe();
+							}
+						});
+					');
+                }
+            }
+        }
+        for (n in nodesToRemove) {
+            node.nodes.remove(n);
+        }
+        super.writeNodes(node, scope, writer, method);
+    }
+}
+
+class EmptyLayoutAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.EmptyLayout;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class AbstractTableModelAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.table.AbstractTableModel;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+
+class DefaultTableColumnModelAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : org.aswing.table.DefaultTableColumnModel;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
+        return [new DefaultTableColumnModelNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
+    }
+}
+
+class DefaultTableColumnModelNodeWithMetaWriter extends ComponentWithMetaWriter {
+    override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
+        method.push('$scope.addColumn(${universalGet(child)});');
+    }
 }
 
 class AbstractTabbedPaneAdapter extends ComponentAdapter {
@@ -278,49 +440,4 @@ class DecorateBorderAdapter extends ComponentAdapter {
     }
 }
 
-class BaseCommandAdapter extends ComponentAdapter {
-    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
-        if (baseType == null) baseType = macro : jive.BaseCommand;
-        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
-        super(baseType, events, matchLevel);
-
-    }
-}
-
-class EmptyLayoutAdapter extends ComponentAdapter {
-    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
-        if (baseType == null) baseType = macro : org.aswing.EmptyLayout;
-        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
-        super(baseType, events, matchLevel);
-
-    }
-}
-
-class AbstractTableModelAdapter extends ComponentAdapter {
-    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
-        if (baseType == null) baseType = macro : org.aswing.table.AbstractTableModel;
-        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
-        super(baseType, events, matchLevel);
-
-    }
-}
-
-
-class DefaultTableColumnModelAdapter extends ComponentAdapter {
-    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
-        if (baseType == null) baseType = macro : org.aswing.table.DefaultTableColumnModel;
-        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
-        super(baseType, events, matchLevel);
-
-    }
-    override public function getNodeWriters():Array<IHaxeNodeWriter<Node>> {
-        return [new DefaultTableColumnModelNodeWithMetaWriter(baseType, metaWriter, matchLevel)];
-    }
-}
-
-class DefaultTableColumnModelNodeWithMetaWriter extends ComponentWithMetaWriter {
-    override function child(node:Node, scope:String, child:Node, method:Array<String>, assign = false):Void {
-        method.push('$scope.addColumn(${universalGet(child)});');
-    }
-}
 #end

@@ -14,7 +14,7 @@ import hml.xml.XMLWriter;
 using hml.base.MatchLevel;
 
 
-class JiveXMLProcessor extends XMLProcessor {
+class JiveXmlProcessor extends XMLProcessor {
     static var HML_EXT = ~/.hml$/;
 
     public function new(adapters:Array<IAdapter<XMLData, Node, Type>>) {
