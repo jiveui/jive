@@ -159,6 +159,14 @@ class Component extends AWSprite implements IBindable {
 	private function set_preferredSize(v:IntDimension) { setPreferredSize(v); return v; }
 	private function get_preferredSize():IntDimension { return getPreferredSize();}
 
+	public var preferredWidth(get, set): Int;
+	private function set_preferredWidth(v: Int) { setPreferredWidth(v); return v; }
+	private function get_preferredWidth():Int { return getPreferredWidth();}
+
+	public var preferredHeight(get, set): Int;
+	private function set_preferredHeight(v: Int) { setPreferredHeight(v); return v; }
+	private function get_preferredHeight():Int { return getPreferredHeight();}
+
 	/**
 	* The component's size.
 	*

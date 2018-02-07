@@ -417,6 +417,10 @@ class ASColor{
 		return "ASColor(rgb:"+StringTools.hex(_rgb)+", alpha:"+_alpha+")";
 	}
 
+	public function toSvg():String {
+		return "#" + StringTools.hex(_rgb);
+	}
+
 	/**
 	 * Compare if compareTo object has the same value as this ASColor object does
 	 * @param compareTo the object to compare with

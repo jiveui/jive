@@ -9,7 +9,7 @@ import hml.xml.Data;
 using jive.tools.TypeTools;
 
 class JiveTypeResolver implements IHaxeTypeResolver<Node, Type> {
-    static private var imports:String = "import openfl.Lib; import jive.*; import jive.geom.*; using jive.geom.MetricHelper;";
+    static private var imports:String = "import openfl.Lib; import jive.*; import org.aswing.*; import org.aswing.geom.*;";
 
 
     public var types:Map<String, Type>;

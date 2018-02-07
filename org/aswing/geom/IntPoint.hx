@@ -9,7 +9,8 @@ package org.aswing.geom;
  * A point with x and y coordinates in int.
  * @author paling
  */
-class IntPoint{
+@:bindable
+class IntPoint implements bindx.IBindable {
 	
 	public var x:Int;
 	public var y:Int;

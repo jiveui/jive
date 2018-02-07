@@ -4,6 +4,8 @@
 
 package org.aswing;
 
+import org.aswing.geom.IntPoint;
+import openfl.geom.Matrix;
 import openfl.events.MouseEvent;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -413,4 +415,37 @@ class AWSprite extends Sprite
 	 
     @:dox(hide)
 	public var d_numChildren (get, null):Int;
+
+	/**
+	* It can not be used together with the matrix or rotation fields
+	**/
+	public var rotationAngle(default, set):Float;
+	private function set_rotationAngle(v:Float):Float {
+		rotationAngle = v;
+		updateSpriteTransformationMatrix();
+		return v;
+	}
+
+	/**
+	* It can not be used together with the matrix or rotation fields
+	**/
+	public var rotationPivot(default, set):IntPoint;
+	private function set_rotationPivot(v:IntPoint):IntPoint {
+		rotationPivot = v;
+		updateSpriteTransformationMatrix();
+		return v;
+	}
+
+	private inline function updateSpriteTransformationMatrix() {
+		var pivot = if (null != rotationPivot) rotationPivot else new IntPoint(0,0);
+		var matrix:Matrix = new Matrix();
+		if (rotationAngle != 0.0) {
+			matrix.translate(-pivot.x, -pivot.y);
+			matrix.rotate((rotationAngle / 180) * Math.PI);
+			matrix.translate(x + pivot.x, y + pivot.y);
+		} else {
+			matrix.translate(x, y);
+		}
+		transform.matrix = matrix;
+	}
 }

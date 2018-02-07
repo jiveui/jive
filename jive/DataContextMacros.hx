@@ -9,7 +9,7 @@ using haxe.macro.Tools;
 using Lambda;
 
 class DataContextMacros {
-	static var processed:Map<String, Bool> = new Map();
+    static var processed:Map<String, Bool> = new Map();
 
     public static function build():Array<Field> {
         var res = Context.getBuildFields();
@@ -30,13 +30,13 @@ class DataContextMacros {
                 case TInst(name, _): Std.string(name);
                 default: null;
             }
-            add.push( {
+            add.push({
                 name: "dataContext",
                 pos:Context.currentPos(),
                 access: [APublic],
-                meta: [ {pos: Context.currentPos(), params: null, name: "bindable"}],
+                meta: [ {pos: Context.currentPos(), params: null, name: ":bindable"}],
                 doc: null,
-                kind:FProp("default", "default", Context.toComplexType(Context.getType(typeName)))
+                kind:FVar(Context.toComplexType(Context.getType(typeName)))
             });
         }
 

@@ -1,6 +1,8 @@
 package jive;
 
 
+import org.aswing.geom.IntDimension;
+import org.aswing.geom.IntRectangle;
 import format.SVG;
 
 
@@ -8,6 +10,9 @@ class Svg extends org.aswing.Component {
 
     public var generateContent:Void -> String;
 
+    /**
+    * The content property is ignored if the generateContent function is set.
+    **/
     public var content(get, set):String;
     private var _content:String;
 
@@ -23,24 +28,24 @@ class Svg extends org.aswing.Component {
         super();
     }
 
-//    override public function doPaint(size: IntDimension) {
-//
-//        sprite.graphics.clear();
-//
-//        //Draw transparent rectangle to prevent glitches during animations
-//        sprite.graphics.beginFill(0, 0);
-//        sprite.graphics.drawRect(0, 0, size.width, size.height);
-//        sprite.graphics.endFill();
-//
-//        if (null == content && null != generateContent) _content = generateContent();
-//        new SVG(content).render(sprite.graphics);
-//
-//        super.doPaint(size);
-//    }
-//
-//    override public function calcPreferredSize(request: DimensionRequest): IntDimension {
-//        if (null != generateContent) _content = generateContent();
-//        var data = new SVG(content).data;
-//        return new IntDimension(Std.int(data.width), Std.int(data.height));
-//    }
+    override private function paint(b:IntRectangle): Void {
+        super.paint(b);
+
+        //Draw transparent rectangle to prevent glitches during animations
+        graphics.beginFill(0, 0);
+        graphics.drawRect(b.x, b.y, b.width, b.height);
+        graphics.endFill();
+
+        if (null != generateContent) _content = generateContent();
+        new SVG(content).render(graphics);
+
+        trace(b);
+        trace(content);
+    }
+
+    override public function getPreferredSize(): IntDimension {
+        if (null != generateContent) _content = generateContent();
+        var data = new SVG(content).data;
+        return new IntDimension(Std.int(data.width), Std.int(data.height));
+    }
 }
