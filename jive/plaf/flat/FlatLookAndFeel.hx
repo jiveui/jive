@@ -75,7 +75,7 @@ class FlatLookAndFeel extends LookAndFeel {
         table.set("scrollBarWidth", Std.int(size/60));
         table.set("halfMargin", Std.int(size/20));
         table.set("iconGap", Std.int(0.5 * fontSize));
-        table.set("dpiScale", Capabilities.screenDPI/72);
+        table.set("dpiScale", Jive.scale);
     }
 
     private function initClassDefaults(table:UIDefaults):Void{
@@ -176,15 +176,26 @@ class FlatLookAndFeel extends LookAndFeel {
 		table.set("focusOutter", new ASColorUIResource(0x40FF40, 0.4));
 	}
 	
-	private function initSystemFontDefaults(table:UIDefaults):Void{
+	private function initSystemFontDefaults(table:UIDefaults):Void {
+		#if cpp
 		var defaultSystemFonts:Array<Dynamic>= [
-			"systemFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
-			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14),
-            "topMenuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16),
-			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false),
-			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14, true),
-            "controlHeaderFont", new ASFontUIResource("assets/Lato-Bold.ttf", 18)
+			"systemFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale),
+			"menuFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale),
+            "topMenuFont", new ASFontUIResource("Lato-Regular", 16 * Jive.scale, true),
+			"controlFont", new ASFontUIResource("Lato-Regular", 16 * Jive.scale, false),
+			"windowFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale, true),
+            "controlHeaderFont", new ASFontUIResource("Lato-Regular", 18 * Jive.scale, true)
 		];
+		#else
+		var defaultSystemFonts:Array<Dynamic>= [
+			"systemFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale),
+			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale),
+			"topMenuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16 * Jive.scale),
+			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16 * Jive.scale),
+			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale, true),
+			"controlHeaderFont", new ASFontUIResource("assets/Lato-Bold.ttf", 18 * Jive.scale)
+		];
+		#end
 		table.putDefaults(defaultSystemFonts);
 	}
 	
