@@ -1,6 +1,7 @@
 package;
 
 
+import haxe.crypto.Sha1;
 import sys.FileSystem;
 import haxe.io.Path;
 import lime.tools.helpers.*;
@@ -12,6 +13,45 @@ import sys.io.Process;
 class RunScript {
 
     private static var project: HXProject;
+
+    static private function calcRecursiveHmlFilesHashForDirectory(dir: String): String {
+        var temp = new StringBuf();
+        var files = sys.FileSystem.readDirectory(dir);
+        var r = ~/^.*\.hml$/;
+        for (f in files) {
+            var path = dir + "/" +  f;
+            if (sys.FileSystem.isDirectory(path)) {
+                if (f == "bin") continue;
+                temp.add(calcRecursiveHmlFilesHashForDirectory(path));
+            }
+            if (r.match(f)) {
+                temp.add(Sha1.encode(File.getContent(path)));
+            }
+        }
+        return Sha1.encode(temp.toString());
+    }
+
+    static private function isHmlChanged(dir: String, hash: String) {
+
+        var oldHash = null;
+        var file = dir + "/cache_hash.txt";
+        try {
+            oldHash = File.getContent(file);
+        } catch (e: Dynamic) {}
+
+        if (oldHash == hash) {
+            LogHelper.info("Jive: HML files are not modified since the last build.");
+            return false;
+        } else {
+            if (!sys.FileSystem.exists(dir)) {
+                sys.FileSystem.createDirectory(dir);
+            }
+            File.saveContent(file, hash);
+            LogHelper.info("Jive: HML files are modified. Compiling...");
+            return true;
+        }
+    }
+
 	
 	public static function main () {
 		
@@ -58,7 +98,9 @@ class RunScript {
 
             FileHelper.recursiveCopyTemplate([jivePath + "/templates"], "jive", targetDirectory, context);
 
-            ProcessHelper.runCommand ("", "haxe", [ targetDirectory + "/gen.hxml" ]);
+            if (isHmlChanged(targetDirectory, calcRecursiveHmlFilesHashForDirectory(project.sources[0]))) {
+                ProcessHelper.runCommand ("", "haxe", [ targetDirectory + "/gen.hxml" ]);
+            }
 
             args = args.concat(["--source=" + targetDirectory+"/gen"]);
         }

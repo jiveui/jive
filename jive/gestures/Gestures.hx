@@ -1,5 +1,7 @@
 package jive.gestures;
 
+import openfl.ui.MultitouchInputMode;
+import openfl.ui.Multitouch;
 import openfl.events.MouseEvent;
 import openfl.events.TouchEvent;
 import openfl.Lib;
@@ -25,11 +27,12 @@ class Gestures
     {
         if (gesturesManager == null) {
             GestureState.initStates();
-            
+            Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
+
             gesturesManager = new GesturesManager();
             touchesManager = new TouchesManager(gesturesManager);
-            Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
-            // Lib.current.stage.addEventListener(TouchEvent.TOUCH_DOWN, ontouchdown);
+//            Lib.current.stage.addEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
+            Lib.current.stage.addEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
         }
     }
 
@@ -45,7 +48,12 @@ class Gestures
             dy : y,
             pos : _touch_pos*/
         // Original: _touchesManager.onTouchBegin(event.touchPointID, event.pos.x * Luxe.screen.w, event.pos.y * Luxe.screen.h); //, event.target as InteractiveObject);
-        touchesManager.onTouchBegin(event.touchPointID, event.stageX, event.stageY); //, event.target as InteractiveObject);
+        //touchesManager.onTouchBegin(event.touchPointID, event.stageX, event.stageY); //, event.target as InteractiveObject);
+
+        var touchAccepted:Bool = touchesManager.onTouchBegin(event.touchPointID, event.stageX, event.stageY);
+
+        if (touchAccepted)
+            addListeners();
     }
 
     static private function ontouchmove(event:TouchEvent)
@@ -97,6 +105,18 @@ class Gestures
         //_component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
     }
 
+    static private function addListeners()
+    {
+        Lib.current.stage.addEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
+        Lib.current.stage.addEventListener(TouchEvent.TOUCH_END, ontouchup);
+    }
+
+    static private function removeListeners()
+    {
+        Lib.current.stage.removeEventListener(TouchEvent.TOUCH_MOVE, ontouchmove);
+        Lib.current.stage.removeEventListener(TouchEvent.TOUCH_END, ontouchup);
+    }
+
     static public function dispose()
     {
         gesturesManager.removeAllGestures();
@@ -109,8 +129,12 @@ class Gestures
         // _component.removeEventListener(TouchEvent.TOUCH_OUT, ontouchup);
         // _component.removeEventListener(MouseEvent.MOUSE_OUT, onmouseup);
         
-        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onmouseup);
+        //Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onmouseup);
 
+        removeListeners();
         removemouselisteners();
+
+        Lib.current.stage.removeEventListener(MouseEvent.MOUSE_DOWN, onmousedown);
+        Lib.current.stage.removeEventListener(TouchEvent.TOUCH_BEGIN, ontouchdown);
     }
 }

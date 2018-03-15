@@ -179,12 +179,12 @@ class FlatLookAndFeel extends LookAndFeel {
 	private function initSystemFontDefaults(table:UIDefaults):Void {
 		#if cpp
 		var defaultSystemFonts:Array<Dynamic>= [
-			"systemFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale),
-			"menuFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale),
-            "topMenuFont", new ASFontUIResource("Lato-Regular", 16 * Jive.scale, true),
-			"controlFont", new ASFontUIResource("Lato-Regular", 16 * Jive.scale, false),
-			"windowFont", new ASFontUIResource("Lato-Regular", 14 * Jive.scale, true),
-            "controlHeaderFont", new ASFontUIResource("Lato-Regular", 18 * Jive.scale, true)
+			"systemFont", new ASFontUIResource("Lato Regular", 14 * Jive.scale),
+			"menuFont", new ASFontUIResource("Lato Regular", 14 * Jive.scale),
+            "topMenuFont", new ASFontUIResource("Lato Bold", 16 * Jive.scale),
+			"controlFont", new ASFontUIResource("Lato Regular", 16 * Jive.scale),
+			"windowFont", new ASFontUIResource("Lato Bold", 14 * Jive.scale),
+            "controlHeaderFont", new ASFontUIResource("Lato Bold", 18 * Jive.scale)
 		];
 		#else
 		var defaultSystemFonts:Array<Dynamic>= [
@@ -233,7 +233,7 @@ class FlatLookAndFeel extends LookAndFeel {
 			"Button.focusable", true,  
 			"Button.font", table.getFont("controlFont"),
 			"Button.bg", jive.plaf.flat.background.FlatButtonBackground,
-            "Button.colorAdjust", new UIStyleTune(0.18, -0.02, 0.34, 0.22, 5),
+            "Button.colorAdjust", new UIStyleTune(0.18, -0.02, 0.34, 0.22, 5 * Jive.scale),
             "Button.margin", new InsetsUIResource(7, 15, 7, 15),
 			"Button.textShiftOffset", 0,
             "Button.textFilters", null,

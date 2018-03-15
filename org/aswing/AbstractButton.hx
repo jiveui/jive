@@ -341,7 +341,23 @@ class AbstractButton extends Component implements bindx.IBindable {
 	
     public var iconAsBackground: Bool;
 
-    public var command: Command;
+    public var command(default, set): Command;
+    private function set_command(c: Command): Command {
+        if (command != null) {
+            bindx.Bind.unbind(command.enabled, updateEnabledByCommand);
+        }
+        if (c != null) {
+            enabled = c.enabled;
+            bindx.Bind.bind(c.enabled, updateEnabledByCommand);
+        }
+        command = c;
+        return c;
+    }
+
+    private function updateEnabledByCommand(from: Null<Bool>, to: Null<Bool>) {
+        enabled = to;
+    }
+
 
 	public function new(text:String="", icon:Icon=null){
 		this._shiftOffset=0;

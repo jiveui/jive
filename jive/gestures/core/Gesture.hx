@@ -4,6 +4,8 @@ package jive.gestures.core;
 // import luxe.Events;
 // import luxe.Vector;
 
+import openfl.ui.MultitouchInputMode;
+import flash.ui.Multitouch;
 import org.aswing.Component;
 import jive.gestures.core.GesturesManager;
 import jive.gestures.core.GestureState;

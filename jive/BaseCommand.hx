@@ -1,6 +1,6 @@
 package jive;
 
-class BaseCommand implements Command {
+class BaseCommand extends Command {
 
     private var actionHandler: Void -> Void;
 
@@ -8,7 +8,7 @@ class BaseCommand implements Command {
         this.actionHandler = actionHandler;
     }
 
-    public function action() {
+    public override function action() {
         if (null != actionHandler) actionHandler();
     }
 }

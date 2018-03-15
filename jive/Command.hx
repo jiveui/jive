@@ -1,5 +1,7 @@
 package jive;
 
-interface Command {
-    public function action(): Void;
+@:bindable
+class Command implements bindx.IBindable {
+    public function action(): Void {};
+    public var enabled: Bool = true;
 }

@@ -26,4 +26,9 @@ class Jive {
 	private static function get_scale(): Float {
 		return dpi / 96;
 	}
+
+	public static var atom(get, null): Int;
+	private static function get_atom(): Int {
+		return Std.int(15 * scale);
+	}
 }

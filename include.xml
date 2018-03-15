@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension>
-    <assets path="assets"/>
+    <assets path="assets/fonts/lato" include="*.ttf" if="jive_include_fonts_lato"/>
+    <assets path="assets/fonts/pts" include="*.ttf" if="jive_include_fonts_pts"/>
     <haxelib name="openfl"/>
     <haxelib name="actuate"/>
     <haxelib name="svg"/>

@@ -229,6 +229,19 @@ class JTable extends Container  implements Viewportable
     private function get_rowHeight(): Int { return getRowHeight(); }
     private function set_rowHeight(v: Int): Int { setRowHeight(v); return v; }
 
+	public var headerHeight(get, set): Int;
+	private var _headerHeight: Int = -1;
+	private function get_headerHeight(): Int {
+		return _headerHeight;
+	}
+	private function set_headerHeight(v: Int): Int {
+		if (tableHeader != null) {
+			tableHeader.rowHeight = v;
+		}
+		_headerHeight = v;
+		return v;
+	}
+
     /**
 	 * The amount of empty space between cells in adjacent rows.
 	 */
@@ -649,6 +662,7 @@ class JTable extends Container  implements Viewportable
 				tableHeader.setTable(this);
 				headerPane.append(tableHeader);
 			}
+			if (_headerHeight >= 0) _tableHeader.rowHeight = _headerHeight;
 			//firePropertyChange("tableHeader", old, tableHeader);
 		}
 	}

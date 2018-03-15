@@ -113,13 +113,32 @@ class IntRectangle
      *		  the specified <code>Rectangle</code> and this 
      *		  <code>Rectangle</code>.
      */
-    public function union(r:IntRectangle):IntRectangle{
+    public function union(r: IntRectangle):IntRectangle{
 		var x1:Int= Std.int(Math.min(x, r.x));
 		var x2:Int= Std.int(Math.max(x + width, r.x + r.width));
 		var y1:Int= Std.int(Math.min(y, r.y));
 		var y2:Int= Std.int(Math.max(y + height, r.y + r.height));
 		return new IntRectangle(x1, y1, x2 - x1, y2 - y1);
     }
+
+	/**
+	* Invariant: left <= right && top <= bottom
+	**/
+	inline private function arePerpendicularSegmentsIntersected(left: Int, right: Int, y: Int, top: Int, bottom: Int, x: Int): Bool {
+		return x >= left && x <= right && y >= top && y <= bottom;
+	}
+
+	public function intersects(r: IntRectangle): Bool {
+		return
+			arePerpendicularSegmentsIntersected(x, x+width, y, r.y, r.y+r.height, r.x) ||
+			arePerpendicularSegmentsIntersected(x, x+width, y, r.y, r.y+r.height, r.x+r.width) ||
+			arePerpendicularSegmentsIntersected(x, x+width, y+height, r.y, r.y+r.height, r.x) ||
+			arePerpendicularSegmentsIntersected(x, x+width, y+height, r.y, r.y+r.height, r.x+r.width) ||
+			arePerpendicularSegmentsIntersected(r.x, r.x+width, r.y, y, y+height, x) ||
+			arePerpendicularSegmentsIntersected(r.x, r.x+r.width, r.y, y, y+height, x + width) ||
+			arePerpendicularSegmentsIntersected(r.x, r.x+width, r.y+r.height, y, y+height, x) ||
+			arePerpendicularSegmentsIntersected(r.x, r.x+width, r.y+r.height, y, y+height, x+width);
+	}
     
     /**
      * Resizes the <code>Rectangle</code> both horizontally and vertically.

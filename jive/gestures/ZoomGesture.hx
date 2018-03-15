@@ -1,4 +1,5 @@
 package jive.gestures;
+import org.aswing.Component;
 import openfl.geom.Vector3D;
 import jive.gestures.core.GestureState;
 import jive.gestures.core.Touch;
@@ -59,11 +60,12 @@ class ZoomGesture extends Gesture
 	{
 		super.onTouchMove(touch);
 		
+
 		if (_touchesCount < 2)
 			return;
-		
+
 		var currTransformVector:Vector3D = _touch2.location.subtract(_touch1.location);
-		
+
 		if (state == GestureState.POSSIBLE)
 		{
 			var d:Float = currTransformVector.length - _initialDistance;
@@ -128,7 +130,7 @@ class ZoomGesture extends Gesture
 			if (state == GestureState.BEGAN || state == GestureState.CHANGED)
 			{
 				updateLocation();
-				setState(GestureState.CHANGED);
+//				setState(GestureState.CHANGED);
 			}
 		}
 	}
