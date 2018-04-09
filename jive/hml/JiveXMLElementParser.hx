@@ -29,7 +29,7 @@ class JiveXMLElementParser extends DefaultXMLElementParser {
                 if (data.length > 0)
                     res.cData = res.cData == null ? data : res.cData + "\n" + data;
             }
-            if (res.cData != null) {
+            if (res.cData != null && res.cData.indexOf("<svg") < 0) {
                 res.cData = "<svg>\n" + res.cData + "</svg>\n";
             }
             return res;
