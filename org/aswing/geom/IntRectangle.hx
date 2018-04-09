@@ -4,6 +4,7 @@
 
 package org.aswing.geom;
 
+import flash.geom.Point;
 import org.aswing.geom.IntPoint;
 import flash.geom.Rectangle;
 
@@ -197,13 +198,21 @@ class IntRectangle
 	}
 	
 	public function containsPoint(p:IntPoint):Bool{
-		if(p.x < x || p.y < y || p.x > x+width || p.y > y+height){
+		return containsPointByCoords(p.x, p.y);
+	}
+
+	public function containsAnyPoint(points: Array<Point>):Bool {
+		return Lambda.exists(points, function(p) { return containsPointByCoords(Std.int(p.x), Std.int(p.y)); });
+	}
+
+	public inline function containsPointByCoords(x: Int, y: Int):Bool{
+		if(x < this.x || y < this.y || x > this.x+width || y > this.y+height){
 			return false;
-		}else{
+		} else {
 			return true;
 		}
 	}
-	
+
 	/**
 	 *
 	 */
