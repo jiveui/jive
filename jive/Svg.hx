@@ -38,9 +38,6 @@ class Svg extends org.aswing.Component {
 
         if (null != generateContent) _content = generateContent();
         new SVG(content).render(graphics);
-
-        trace(b);
-        trace(content);
     }
 
     override public function getPreferredSize(): IntDimension {
