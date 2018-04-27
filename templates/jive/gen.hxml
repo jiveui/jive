@@ -5,4 +5,5 @@
 --no-output
 --macro allowPackage('flash')
 --macro allowPackage('openfl')
+-D jive_hml_processing
 #-D hml_debug
