@@ -5,19 +5,32 @@ import jive.BaseCommand;
 import jive.Command;
 class AdjusterViewModel extends ComboBoxViewModel {
 
-    @bindable public var isLoginDialogShowed: Bool;
-    @bindable public var openLoginDialogCommand: Command;
+    @:bindable public var isLoginDialogShowed: Bool;
+    @:bindable public var openLoginDialogCommand: Command;
 
-    @bindable public var iphoneQuantity(default, set): Int;
-    private function set_iphoneQuantity(v: Int): Int { iphoneQuantity = v; bindx.Bind.notify(this.totalCost); return v;}
+    @:bindable public var iphoneQuantity(default, set): Int;
+    private function set_iphoneQuantity(v: Int): Int {
+        var old = totalCost;
+        iphoneQuantity = v;
+        bindx.Bind.notify(this.totalCost, old, totalCost);
+        return v;
+    }
 
-    @bindable public var galaxyQuantity(default, set): Int;
-    private function set_galaxyQuantity(v: Int): Int { galaxyQuantity = v; bindx.Bind.notify(this.totalCost); return v;}
+    @:bindable public var galaxyQuantity(default, set): Int;
+    private function set_galaxyQuantity(v: Int): Int {
+        var old = totalCost;
+        galaxyQuantity = v; bindx.Bind.notify(this.totalCost, old, totalCost);
+        return v;
+    }
 
-    @bindable public var lumiaQuantity(default, set): Int;
-    private function set_lumiaQuantity(v: Int): Int { lumiaQuantity = v; bindx.Bind.notify(this.totalCost); return v;}
+    @:bindable public var lumiaQuantity(default, set): Int;
+    private function set_lumiaQuantity(v: Int): Int {
+        var old = totalCost;
+        lumiaQuantity = v; bindx.Bind.notify(this.totalCost, old, totalCost);
+        return v;
+    }
 
-    @bindable public var totalCost(get, set):String;
+    @:bindable public var totalCost(get, set):String;
     private function get_totalCost(): String {
         var cost: Float = 812.98 * iphoneQuantity + 1019.99 * galaxyQuantity + 342.49 * lumiaQuantity;
         return "$" + Std.string(Math.fround(cost * 100) / 100);

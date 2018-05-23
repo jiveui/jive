@@ -1,13 +1,17 @@
--cp ../src
--swf doc.swf
--swf-version 11
+-cp ..
+-cpp bin
 --no-output
 -xml ../docs/jive.xml
--lib bindx
+-lib bindx2
 -lib actuate
 -lib openfl
 -lib lime
+-lib unifill
+-lib svg
+-lib hml
+--remap flash:openfl
 --macro allowPackage('flash')
 --macro "include('org.aswing')"
 --macro "include('jive')"
+-D docs
 

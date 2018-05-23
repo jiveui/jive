@@ -8,151 +8,38 @@ xmlns:flash-events="flash.events"
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:complexType name="SoundLoaderContextSchemaTypeValue">
-<xs:all><xs:element ref="SoundLoaderContext"/></xs:all></xs:complexType>
-
-<xs:complexType name="CameraSchemaTypeValue">
-<xs:all><xs:element ref="Camera"/></xs:all></xs:complexType>
-
-<xs:complexType name="StageVideoSchemaTypeValue">
-<xs:all><xs:element ref="StageVideo"/></xs:all></xs:complexType>
-
-<xs:complexType name="AVSourceSchemaTypeValue">
-<xs:all><xs:element ref="AVSource"/></xs:all></xs:complexType>
-
-<xs:complexType name="MicrophoneEnhancedOptionsSchemaTypeValue">
-<xs:all><xs:element ref="MicrophoneEnhancedOptions"/></xs:all></xs:complexType>
-
 <xs:complexType name="SoundTransformSchemaTypeValue">
 <xs:all><xs:element ref="SoundTransform"/></xs:all></xs:complexType>
-
-<xs:complexType name="ID3InfoSchemaTypeValue">
-<xs:all><xs:element ref="ID3Info"/></xs:all></xs:complexType>
-
-<xs:complexType name="AVPlayStateSchemaTypeValue">
-<xs:all><xs:element ref="AVPlayState"/></xs:all></xs:complexType>
-
-<xs:complexType name="MicrophoneSchemaTypeValue">
-<xs:all><xs:element ref="Microphone"/></xs:all></xs:complexType>
 
 <xs:complexType name="AVResultSchemaTypeValue">
 <xs:all><xs:element ref="AVResult"/></xs:all></xs:complexType>
 
-<xs:complexType name="SoundSchemaTypeValue">
-<xs:all><xs:element ref="Sound"/></xs:all></xs:complexType>
-
-<xs:complexType name="AVCaptionStyleSchemaTypeValue">
-<xs:all><xs:element ref="AVCaptionStyle"/></xs:all></xs:complexType>
+<xs:complexType name="MicrophoneSchemaTypeValue">
+<xs:all><xs:element ref="Microphone"/></xs:all></xs:complexType>
 
 <xs:complexType name="VideoStreamSettingsSchemaTypeValue">
 <xs:all><xs:element ref="VideoStreamSettings"/></xs:all></xs:complexType>
 
-<xs:complexType name="SoundChannelSchemaTypeValue">
-<xs:all><xs:element ref="SoundChannel"/></xs:all></xs:complexType>
+<xs:complexType name="AVSourceSchemaTypeValue">
+<xs:all><xs:element ref="AVSource"/></xs:all></xs:complexType>
+
+<xs:complexType name="CameraSchemaTypeValue">
+<xs:all><xs:element ref="Camera"/></xs:all></xs:complexType>
+
+<xs:complexType name="MicrophoneEnhancedOptionsSchemaTypeValue">
+<xs:all><xs:element ref="MicrophoneEnhancedOptions"/></xs:all></xs:complexType>
+
+<xs:complexType name="AVCaptionStyleSchemaTypeValue">
+<xs:all><xs:element ref="AVCaptionStyle"/></xs:all></xs:complexType>
+
+<xs:complexType name="AVPlayStateSchemaTypeValue">
+<xs:all><xs:element ref="AVPlayState"/></xs:all></xs:complexType>
 
 <xs:complexType name="AVStreamSchemaTypeValue">
 <xs:all><xs:element ref="AVStream"/></xs:all></xs:complexType>
 
-<xs:complexType name="SoundLoaderContextSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bufferTime" type="xs:double"/>
-<xs:element minOccurs="0" name="checkPolicyFile" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="bufferTime" type="xs:double"/>
-<xs:attribute name="checkPolicyFile" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="CameraSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="activityLevel" type="xs:double"/>
-<xs:element minOccurs="0" name="bandwidth" type="xs:int"/>
-<xs:element minOccurs="0" name="currentFPS" type="xs:double"/>
-<xs:element minOccurs="0" name="fps" type="xs:double"/>
-<xs:element minOccurs="0" name="height" type="xs:int"/>
-<xs:element minOccurs="0" name="index" type="xs:int"/>
-<xs:element minOccurs="0" name="keyFrameInterval" type="xs:int"/>
-<xs:element minOccurs="0" name="loopback" type="xs:boolean"/>
-<xs:element minOccurs="0" name="motionLevel" type="xs:int"/>
-<xs:element minOccurs="0" name="motionTimeout" type="xs:int"/>
-<xs:element minOccurs="0" name="muted" type="xs:boolean"/>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
-<xs:element minOccurs="0" name="quality" type="xs:int"/>
-<xs:element minOccurs="0" name="width" type="xs:int"/>
-</xs:all>
-<xs:attribute name="activityLevel" type="xs:double"/>
-<xs:attribute name="bandwidth" type="xs:int"/>
-<xs:attribute name="currentFPS" type="xs:double"/>
-<xs:attribute name="fps" type="xs:double"/>
-<xs:attribute name="height" type="xs:int"/>
-<xs:attribute name="index" type="xs:int"/>
-<xs:attribute name="keyFrameInterval" type="xs:int"/>
-<xs:attribute name="loopback" type="xs:boolean"/>
-<xs:attribute name="motionLevel" type="xs:int"/>
-<xs:attribute name="motionTimeout" type="xs:int"/>
-<xs:attribute name="muted" type="xs:boolean"/>
-<xs:attribute name="name" type="xs:string"/>
-<xs:attribute name="quality" type="xs:int"/>
-<xs:attribute name="width" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="StageVideoSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="colorSpaces" type="flash:VectorSchemaTypeValue"/>
-<xs:element minOccurs="0" name="depth" type="xs:int"/>
-<xs:element minOccurs="0" name="pan" type="flash-geom:PointSchemaTypeValue"/>
-<xs:element minOccurs="0" name="videoHeight" type="xs:int"/>
-<xs:element minOccurs="0" name="videoWidth" type="xs:int"/>
-<xs:element minOccurs="0" name="viewPort" type="flash-geom:RectangleSchemaTypeValue"/>
-<xs:element minOccurs="0" name="zoom" type="flash-geom:PointSchemaTypeValue"/>
-</xs:all>
-<xs:attribute name="colorSpaces" type="xs:string"/>
-<xs:attribute name="depth" type="xs:int"/>
-<xs:attribute name="pan" type="xs:string"/>
-<xs:attribute name="videoHeight" type="xs:int"/>
-<xs:attribute name="videoWidth" type="xs:int"/>
-<xs:attribute name="viewPort" type="xs:string"/>
-<xs:attribute name="zoom" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="AVSourceSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="MicrophoneEnhancedOptionsSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="autoGain" type="xs:boolean"/>
-<xs:element minOccurs="0" name="echoPath" type="xs:int"/>
-<xs:element minOccurs="0" name="isVoiceDetected" type="xs:int"/>
-<xs:element minOccurs="0" name="mode" type="xs:string"/>
-<xs:element minOccurs="0" name="nonLinearProcessing" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="autoGain" type="xs:boolean"/>
-<xs:attribute name="echoPath" type="xs:int"/>
-<xs:attribute name="isVoiceDetected" type="xs:int"/>
-<xs:attribute name="mode" type="xs:string"/>
-<xs:attribute name="nonLinearProcessing" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
+<xs:complexType name="StageVideoSchemaTypeValue">
+<xs:all><xs:element ref="StageVideo"/></xs:all></xs:complexType>
 
 <xs:complexType name="SoundTransformSchemaType">
 <xs:complexContent>
@@ -175,36 +62,13 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="ID3InfoSchemaType">
+<xs:complexType name="AVResultSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="album" type="xs:string"/>
-<xs:element minOccurs="0" name="artist" type="xs:string"/>
-<xs:element minOccurs="0" name="comment" type="xs:string"/>
-<xs:element minOccurs="0" name="genre" type="xs:string"/>
-<xs:element minOccurs="0" name="songName" type="xs:string"/>
-<xs:element minOccurs="0" name="track" type="xs:string"/>
-<xs:element minOccurs="0" name="year" type="xs:string"/>
+<xs:element minOccurs="0" name="result" type="xs:int"/>
 </xs:all>
-<xs:attribute name="album" type="xs:string"/>
-<xs:attribute name="artist" type="xs:string"/>
-<xs:attribute name="comment" type="xs:string"/>
-<xs:attribute name="genre" type="xs:string"/>
-<xs:attribute name="songName" type="xs:string"/>
-<xs:attribute name="track" type="xs:string"/>
-<xs:attribute name="year" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="AVPlayStateSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="state" type="xs:int"/>
-</xs:all>
-<xs:attribute name="state" type="xs:int"/>
+<xs:attribute name="result" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -250,36 +114,90 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="AVResultSchemaType">
+<xs:complexType name="VideoStreamSettingsSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="result" type="xs:int"/>
+<xs:element minOccurs="0" name="bandwidth" type="xs:int"/>
+<xs:element minOccurs="0" name="codec" type="xs:string"/>
+<xs:element minOccurs="0" name="fps" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="keyFrameInterval" type="xs:int"/>
+<xs:element minOccurs="0" name="quality" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
 </xs:all>
-<xs:attribute name="result" type="xs:int"/>
+<xs:attribute name="bandwidth" type="xs:int"/>
+<xs:attribute name="codec" type="xs:string"/>
+<xs:attribute name="fps" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="keyFrameInterval" type="xs:int"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="SoundSchemaType">
+<xs:complexType name="AVSourceSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
-<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
-<xs:element minOccurs="0" name="id3" type="ID3InfoSchemaTypeValue"/>
-<xs:element minOccurs="0" name="isBuffering" type="xs:boolean"/>
-<xs:element minOccurs="0" name="isURLInaccessible" type="xs:boolean"/>
-<xs:element minOccurs="0" name="length" type="xs:double"/>
-<xs:element minOccurs="0" name="url" type="xs:string"/>
 </xs:all>
-<xs:attribute name="bytesLoaded" type="xs:int"/>
-<xs:attribute name="bytesTotal" type="xs:int"/>
-<xs:attribute name="id3" type="xs:string"/>
-<xs:attribute name="isBuffering" type="xs:boolean"/>
-<xs:attribute name="isURLInaccessible" type="xs:boolean"/>
-<xs:attribute name="length" type="xs:double"/>
-<xs:attribute name="url" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="CameraSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="activityLevel" type="xs:double"/>
+<xs:element minOccurs="0" name="bandwidth" type="xs:int"/>
+<xs:element minOccurs="0" name="currentFPS" type="xs:double"/>
+<xs:element minOccurs="0" name="fps" type="xs:double"/>
+<xs:element minOccurs="0" name="height" type="xs:int"/>
+<xs:element minOccurs="0" name="index" type="xs:int"/>
+<xs:element minOccurs="0" name="keyFrameInterval" type="xs:int"/>
+<xs:element minOccurs="0" name="loopback" type="xs:boolean"/>
+<xs:element minOccurs="0" name="motionLevel" type="xs:int"/>
+<xs:element minOccurs="0" name="motionTimeout" type="xs:int"/>
+<xs:element minOccurs="0" name="muted" type="xs:boolean"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="quality" type="xs:int"/>
+<xs:element minOccurs="0" name="width" type="xs:int"/>
+</xs:all>
+<xs:attribute name="activityLevel" type="xs:double"/>
+<xs:attribute name="bandwidth" type="xs:int"/>
+<xs:attribute name="currentFPS" type="xs:double"/>
+<xs:attribute name="fps" type="xs:double"/>
+<xs:attribute name="height" type="xs:int"/>
+<xs:attribute name="index" type="xs:int"/>
+<xs:attribute name="keyFrameInterval" type="xs:int"/>
+<xs:attribute name="loopback" type="xs:boolean"/>
+<xs:attribute name="motionLevel" type="xs:int"/>
+<xs:attribute name="motionTimeout" type="xs:int"/>
+<xs:attribute name="muted" type="xs:boolean"/>
+<xs:attribute name="name" type="xs:string"/>
+<xs:attribute name="quality" type="xs:int"/>
+<xs:attribute name="width" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="MicrophoneEnhancedOptionsSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="autoGain" type="xs:boolean"/>
+<xs:element minOccurs="0" name="echoPath" type="xs:int"/>
+<xs:element minOccurs="0" name="isVoiceDetected" type="xs:int"/>
+<xs:element minOccurs="0" name="mode" type="xs:string"/>
+<xs:element minOccurs="0" name="nonLinearProcessing" type="xs:boolean"/>
+</xs:all>
+<xs:attribute name="autoGain" type="xs:boolean"/>
+<xs:attribute name="echoPath" type="xs:int"/>
+<xs:attribute name="isVoiceDetected" type="xs:int"/>
+<xs:attribute name="mode" type="xs:string"/>
+<xs:attribute name="nonLinearProcessing" type="xs:boolean"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -315,42 +233,13 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="VideoStreamSettingsSchemaType">
+<xs:complexType name="AVPlayStateSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bandwidth" type="xs:int"/>
-<xs:element minOccurs="0" name="codec" type="xs:string"/>
-<xs:element minOccurs="0" name="fps" type="xs:double"/>
-<xs:element minOccurs="0" name="height" type="xs:int"/>
-<xs:element minOccurs="0" name="keyFrameInterval" type="xs:int"/>
-<xs:element minOccurs="0" name="quality" type="xs:int"/>
-<xs:element minOccurs="0" name="width" type="xs:int"/>
+<xs:element minOccurs="0" name="state" type="xs:int"/>
 </xs:all>
-<xs:attribute name="bandwidth" type="xs:int"/>
-<xs:attribute name="codec" type="xs:string"/>
-<xs:attribute name="fps" type="xs:double"/>
-<xs:attribute name="height" type="xs:int"/>
-<xs:attribute name="keyFrameInterval" type="xs:int"/>
-<xs:attribute name="quality" type="xs:int"/>
-<xs:attribute name="width" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="SoundChannelSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="leftPeak" type="xs:double"/>
-<xs:element minOccurs="0" name="position" type="xs:double"/>
-<xs:element minOccurs="0" name="rightPeak" type="xs:double"/>
-<xs:element minOccurs="0" name="soundTransform" type="SoundTransformSchemaTypeValue"/>
-</xs:all>
-<xs:attribute name="leftPeak" type="xs:double"/>
-<xs:attribute name="position" type="xs:double"/>
-<xs:attribute name="rightPeak" type="xs:double"/>
-<xs:attribute name="soundTransform" type="xs:string"/>
+<xs:attribute name="state" type="xs:int"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -398,20 +287,39 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="StageVideoSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="colorSpaces" type="flash:VectorSchemaTypeValue"/>
+<xs:element minOccurs="0" name="depth" type="xs:int"/>
+<xs:element minOccurs="0" name="pan" type="flash-geom:PointSchemaTypeValue"/>
+<xs:element minOccurs="0" name="videoHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="videoWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="viewPort" type="flash-geom:RectangleSchemaTypeValue"/>
+<xs:element minOccurs="0" name="zoom" type="flash-geom:PointSchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="colorSpaces" type="xs:string"/>
+<xs:attribute name="depth" type="xs:int"/>
+<xs:attribute name="pan" type="xs:string"/>
+<xs:attribute name="videoHeight" type="xs:int"/>
+<xs:attribute name="videoWidth" type="xs:int"/>
+<xs:attribute name="viewPort" type="xs:string"/>
+<xs:attribute name="zoom" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
-<xs:element name="SoundLoaderContext" type="SoundLoaderContextSchemaType"/>
-<xs:element name="Camera" type="CameraSchemaType"/>
-<xs:element name="StageVideo" type="StageVideoSchemaType"/>
-<xs:element name="AVSource" type="AVSourceSchemaType"/>
-<xs:element name="MicrophoneEnhancedOptions" type="MicrophoneEnhancedOptionsSchemaType"/>
+
 <xs:element name="SoundTransform" type="SoundTransformSchemaType"/>
-<xs:element name="ID3Info" type="ID3InfoSchemaType"/>
-<xs:element name="AVPlayState" type="AVPlayStateSchemaType"/>
-<xs:element name="Microphone" type="MicrophoneSchemaType"/>
 <xs:element name="AVResult" type="AVResultSchemaType"/>
-<xs:element name="Sound" type="SoundSchemaType"/>
-<xs:element name="AVCaptionStyle" type="AVCaptionStyleSchemaType"/>
+<xs:element name="Microphone" type="MicrophoneSchemaType"/>
 <xs:element name="VideoStreamSettings" type="VideoStreamSettingsSchemaType"/>
-<xs:element name="SoundChannel" type="SoundChannelSchemaType"/>
+<xs:element name="AVSource" type="AVSourceSchemaType"/>
+<xs:element name="Camera" type="CameraSchemaType"/>
+<xs:element name="MicrophoneEnhancedOptions" type="MicrophoneEnhancedOptionsSchemaType"/>
+<xs:element name="AVCaptionStyle" type="AVCaptionStyleSchemaType"/>
+<xs:element name="AVPlayState" type="AVPlayStateSchemaType"/>
 <xs:element name="AVStream" type="AVStreamSchemaType"/>
+<xs:element name="StageVideo" type="StageVideoSchemaType"/>
 </xs:schema>

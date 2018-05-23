@@ -35,7 +35,6 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	private var reorderingAllowed:Bool;
 	private var resizingAllowed:Bool;
 	private var resizingColumn:TableColumn;
-	private var defaultRenderer:TableCellFactory;
 
     public var rowHeight(get, set): Int;
     private var _rowHeight: Int;
@@ -44,6 +43,14 @@ class JTableHeader extends Container  implements TableColumnModelListener{
         setRowHeight(v);
         return v;
     }
+
+	public var defaultRenderer(get, set): TableCellFactory;
+	private var _defaultRenderer: TableCellFactory;
+	private function get_defaultRenderer(): TableCellFactory { return getDefaultRenderer(); }
+	private function set_defaultRenderer(v: TableCellFactory): TableCellFactory {
+	    setDefaultRenderer(v);
+	    return v;
+	}
 
 	/**
 	 * Constructs a <code>JTableHeader</code> which is initialized with
@@ -233,7 +240,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	 * @param defaultRenderer  the default renderer
 	 */	
 	public function setDefaultRenderer(defaultRenderer:TableCellFactory):Void{
-		this.defaultRenderer = defaultRenderer;
+		this._defaultRenderer = defaultRenderer;
 	}
 	
 	/**
@@ -242,7 +249,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	 * @return the default renderer
 	 */	
 	public function getDefaultRenderer():TableCellFactory{
-		return defaultRenderer;
+		return _defaultRenderer;
 	}
 	
 	/**

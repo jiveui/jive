@@ -23,7 +23,7 @@ class LongPressGesture extends Gesture
 	var _timer:Timer;
 	var _numTouchesRequiredReached:Bool;
 
-	public function new(component: jive.Component) 
+	public function new(component: org.aswing.Component)
 	{
 		super(component);
 		

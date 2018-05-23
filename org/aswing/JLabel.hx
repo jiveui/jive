@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import jive.Jive;
 import org.aswing.plaf.basic.BasicLabelUI;
 import flash.display.DisplayObject;
 import flash.filters.BitmapFilter;
@@ -210,7 +211,7 @@ class JLabel extends Component {
     	installIcon(icon);
     	this._horizontalAlignment = horizontalAlignment;
     	
-    	_iconTextGap = 4;
+    	_iconTextGap = Jive.toPixelSize(4);
     	_selectable = false;
         readyToPaint = true;
 		

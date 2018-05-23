@@ -9,9 +9,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Progress bar and Slider'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Progress bar and Slider" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -19,7 +19,7 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <SoftBox gap="10">
                     <border><border:EmptyBorder top="30"/></border>
@@ -35,7 +35,7 @@
                             </border:LineBorder>
                         </border>
 
-                        <JLabel text="'Progress bar'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JLabel text="Progress bar" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
                         <JProgressBar indeterminate="{Binding isScrollbarIndeterminate}" value="{Binding sliderValue}">
                             <preferredSize>
                                 <geom:IntDimension width="300" height="10"/>
@@ -43,10 +43,10 @@
                         </JProgressBar>
 
                         <JSpacer><preferredSize><geom:IntDimension width="5" height="5"/></preferredSize></JSpacer>
-                        <JCheckBox text="'Indeterminate progress'" selected="{Binding isScrollbarIndeterminate mode=twoway}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JCheckBox text="Indeterminate progress" selected="{Binding isScrollbarIndeterminate mode=twoway}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
 
                         <JSpacer><preferredSize><geom:IntDimension width="10" height="10"/> </preferredSize></JSpacer>
-                        <JLabel text="'Move slider to make a progress'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JLabel text="Move slider to make a progress" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
 
                         <JPanel>
                             <JSlider value="{Binding sliderValue mode=twoway}">
@@ -60,7 +60,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -71,7 +71,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

@@ -19,12 +19,89 @@
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/report" />
     </content>
-    <orderEntry type="jdk" jdkName="Haxe 3.2.0" jdkType="Haxe toolkit" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="munit" level="project" />
     <orderEntry type="library" name="jive" level="project" />
     <orderEntry type="library" name="bindx" level="project" />
     <orderEntry type="library" name="hml" level="project" />
     <orderEntry type="library" name="actuate" level="project" />
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|openfl:any">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../openfl/src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../openfl/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|mlib:any">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/mlib/2,0,2" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/mlib/2,0,2" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|mcover:any">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/mcover/2,1,1" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/mcover/2,1,1" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|mconsole:any">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/mconsole/1,6,0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/mconsole/1,6,0" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|bindx2:2.6.3">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/bindx2/2,6,3/src" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/bindx2/2,6,3/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|unifill:any">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,1" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/unifill/0,4,1" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library name="haxelib|svg:any">
+        <CLASSES>
+          <root url="file:///usr/local/lib/haxe/lib/svg/1,1,2" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///usr/local/lib/haxe/lib/svg/1,1,2" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

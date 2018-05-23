@@ -154,8 +154,14 @@
     </target>
 
     <target name="gen.docs">
-        <antcall target="haxe">
-            <param name="hxml" value="docs.hxml"/>
+        <!--<antcall target="haxe">-->
+            <!--<param name="hxml" value="docs.hxml"/>-->
+        <!--</antcall>-->
+
+        <antcall target="openfl">
+            <param name="dir" value="${project.root.path}/demos/all-in-one-hml"/>
+            <param name="command" value="build"/>
+            <param name="options" value="project.xml flash -xml ../docs/jive.xml"/>
         </antcall>
 
         <antcall target="dox">

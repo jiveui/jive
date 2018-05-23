@@ -4,19 +4,42 @@ xmlns:flash-events="flash.events"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:complexType name="Program3DSchemaTypeValue">
-<xs:all><xs:element ref="Program3D"/></xs:all></xs:complexType>
-
-<xs:complexType name="VertexBuffer3DSchemaTypeValue">
-<xs:all><xs:element ref="VertexBuffer3D"/></xs:all></xs:complexType>
+<xs:complexType name="Context3DSchemaTypeValue">
+<xs:all><xs:element ref="Context3D"/></xs:all></xs:complexType>
 
 <xs:complexType name="IndexBuffer3DSchemaTypeValue">
 <xs:all><xs:element ref="IndexBuffer3D"/></xs:all></xs:complexType>
 
-<xs:complexType name="Context3DSchemaTypeValue">
-<xs:all><xs:element ref="Context3D"/></xs:all></xs:complexType>
+<xs:complexType name="VertexBuffer3DSchemaTypeValue">
+<xs:all><xs:element ref="VertexBuffer3D"/></xs:all></xs:complexType>
 
-<xs:complexType name="Program3DSchemaType">
+<xs:complexType name="Program3DSchemaTypeValue">
+<xs:all><xs:element ref="Program3D"/></xs:all></xs:complexType>
+
+<xs:complexType name="Context3DSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="backBufferHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="backBufferWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="driverInfo" type="xs:string"/>
+<xs:element minOccurs="0" name="enableErrorChecking" type="xs:boolean"/>
+<xs:element minOccurs="0" name="maxBackBufferHeight" type="xs:int"/>
+<xs:element minOccurs="0" name="maxBackBufferWidth" type="xs:int"/>
+<xs:element minOccurs="0" name="totalGPUMemory" type="xs:double"/>
+</xs:all>
+<xs:attribute name="backBufferHeight" type="xs:int"/>
+<xs:attribute name="backBufferWidth" type="xs:int"/>
+<xs:attribute name="driverInfo" type="xs:string"/>
+<xs:attribute name="enableErrorChecking" type="xs:boolean"/>
+<xs:attribute name="maxBackBufferHeight" type="xs:int"/>
+<xs:attribute name="maxBackBufferWidth" type="xs:int"/>
+<xs:attribute name="totalGPUMemory" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="IndexBuffer3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -34,7 +57,7 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="IndexBuffer3DSchemaType">
+<xs:complexType name="Program3DSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
@@ -43,22 +66,9 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="Context3DSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="driverInfo" type="xs:string"/>
-<xs:element minOccurs="0" name="enableErrorChecking" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="driverInfo" type="xs:string"/>
-<xs:attribute name="enableErrorChecking" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
 
-
-<xs:element name="Program3D" type="Program3DSchemaType"/>
-<xs:element name="VertexBuffer3D" type="VertexBuffer3DSchemaType"/>
-<xs:element name="IndexBuffer3D" type="IndexBuffer3DSchemaType"/>
 <xs:element name="Context3D" type="Context3DSchemaType"/>
+<xs:element name="IndexBuffer3D" type="IndexBuffer3DSchemaType"/>
+<xs:element name="VertexBuffer3D" type="VertexBuffer3DSchemaType"/>
+<xs:element name="Program3D" type="Program3DSchemaType"/>
 </xs:schema>

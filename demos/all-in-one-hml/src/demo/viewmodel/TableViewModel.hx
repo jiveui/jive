@@ -6,11 +6,11 @@ import jive.BaseCommand;
 import jive.Command;
 class TableViewModel extends ComboBoxViewModel {
 
-    @bindable public var isLoginDialogShowed: Bool;
-    @bindable public var openLoginDialogCommand: Command;
-    @bindable public var languages: VectorListModel;
+    @:bindable public var isLoginDialogShowed: Bool;
+    @:bindable public var openLoginDialogCommand: Command;
+    @:bindable public var languages: VectorListModel;
 
-    @bindable public var selectedItem(default, set): Dynamic;
+    @:bindable public var selectedItem(default, set): Dynamic;
     private function set_selectedItem(v: Dynamic): Dynamic {
         selectedItem = v;
         informationPanelVisibility = null != selectedItem;
@@ -22,10 +22,10 @@ class TableViewModel extends ComboBoxViewModel {
         return v;
     }
 
-    @bindable public var highest: String;
-    @bindable public var lowest: String;
-    @bindable public var languageOfYear: String;
-    @bindable public var informationPanelVisibility: Bool;
+    @:bindable public var highest: String;
+    @:bindable public var lowest: String;
+    @:bindable public var languageOfYear: String;
+    @:bindable public var informationPanelVisibility: Bool;
 
     public function new() {
         super();

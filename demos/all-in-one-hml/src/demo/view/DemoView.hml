@@ -41,21 +41,21 @@
             <JSpacer><preferredSize>
                 <geom:IntDimension width="20" height="20"/>
             </preferredSize></JSpacer>
-            <JLabel text="'Others:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
-            <JLabelButton text="'Flash Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+            <JLabel text="Others:" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+            <JLabelButton text="Flash Demo" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                 <command>
-                    <jive:OpenLinkCommand url="'/jive/flash.html'"/>
+                    <jive:OpenLinkCommand url="/jive/flash.html"/>
                 </command>
             </JLabelButton>
-            <JLabelButton text="'Windows Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+            <JLabelButton text="Windows Demo" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                 <command>
-                    <jive:OpenLinkCommand url="'/jive/demos/jive-demo.zip'"/>
+                    <jive:OpenLinkCommand url="/jive/demos/jive-demo.zip"/>
                 </command>
             </JLabelButton>
 
-            <JLabelButton text="'OSX Demo'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+            <JLabelButton text="OSX Demo" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                 <command>
-                    <jive:OpenLinkCommand url="'/jive/demos/jive-demo.dmg'"/>
+                    <jive:OpenLinkCommand url="/jive/demos/jive-demo.dmg"/>
                 </command>
             </JLabelButton>
 

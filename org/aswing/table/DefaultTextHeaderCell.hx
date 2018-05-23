@@ -14,7 +14,7 @@ import flash.filters.DropShadowFilter;
  * Default table header cell to render text
  * @author paling
  */
-class DefaultTextHeaderCell extends DefaultTextCell{
+class DefaultTextHeaderCell extends DefaultTextCell {
 	
 	public var columnIndex(default, null): Int;
 	public var table(default, null): JTable;

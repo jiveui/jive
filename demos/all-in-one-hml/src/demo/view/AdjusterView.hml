@@ -11,9 +11,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Adjuster'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Adjuster" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -21,7 +21,7 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <JPanel>
                     <border><border:EmptyBorder top="30"/></border>
@@ -37,9 +37,9 @@
                             </border:LineBorder>
                         </border>
 
-                        <JLabel text="'Shopping Cart'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                        <JLabel text="Shopping Cart" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                             <font>
-                                <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                                <ASFont name="assets/Lato-Bold.ttf" size="18"/>
                             </font>
                             <border><border:EmptyBorder bottom="10"/></border>
                         </JLabel>
@@ -48,12 +48,12 @@
                             <layout>
                                 <FlowLayout hgap="0"/>
                             </layout>
-                            <JLabel text="'Apple iPhone 6 64 GB'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="Apple iPhone 6 64 GB" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="250" height="-1"/>
                                 </preferredSize>
                             </JLabel>
-                            <JLabel text="'$812.98'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="$812.98" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="100" height="-1"/>
                                 </preferredSize>
@@ -64,12 +64,12 @@
                             <layout>
                                 <FlowLayout hgap="0"/>
                             </layout>
-                            <JLabel text="'Samsung Galaxy S6 Edge 64GB'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="Samsung Galaxy S6 Edge 64GB" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="250" height="-1"/>
                                 </preferredSize>
                             </JLabel>
-                            <JLabel text="'$1019.99'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="$1019.99" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="100" height="-1"/>
                                 </preferredSize>
@@ -80,12 +80,12 @@
                             <layout>
                                 <FlowLayout hgap="0"/>
                             </layout>
-                            <JLabel text="'Nokia Lumia 930'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="Nokia Lumia 930" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="250" height="-1"/>
                                 </preferredSize>
                             </JLabel>
-                            <JLabel text="'$342.49'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                            <JLabel text="$342.49" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                 <preferredSize>
                                     <geom:IntDimension width="100" height="-1"/>
                                 </preferredSize>
@@ -106,14 +106,14 @@
                                 <layout>
                                     <FlowLayout hgap="0"/>
                                 </layout>
-                                <JLabel text="'Total:'">
+                                <JLabel text="Total:">
                                     <font>
-                                        <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                        <ASFont name="assets/Lato-Bold.ttf" size="16"/>
                                     </font>
                                 </JLabel>
                                 <JLabel text="{Binding totalCost}">
                                     <font>
-                                        <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                        <ASFont name="assets/Lato-Bold.ttf" size="16"/>
                                     </font>
                                 </JLabel>
                             </JPanel>
@@ -121,11 +121,11 @@
                                 <layout>
                                     <FlowLayout hgap="0"/>
                                 </layout>
-                                <JButton text="'Cancel'"/>
+                                <JButton text="Cancel"/>
                                 <JSpacer>
                                     <preferredSize><geom:IntDimension width="15" height="15"/></preferredSize>
                                 </JSpacer>
-                                <JButton text="'Checkout'" >
+                                <JButton text="Checkout" >
                                     <background>
                                         <ASColor rgb="0x2ecc71"/>
                                     </background>
@@ -138,7 +138,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -149,7 +149,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

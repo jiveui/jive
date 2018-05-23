@@ -41,7 +41,7 @@ class FlatTableHeaderBackground implements GroundDecorator implements UIResource
 		shape.graphics.clear();
 		if(c.isOpaque()){
 			g = new Graphics2D(shape.graphics);
-			g.drawLine(new Pen(c.mideground), b.x, b.y + b.height-1, b.x + b.width, b.y + b.height-1);
+			g.drawLine(new Pen(c.mideground), b.x, b.y + b.height-0.5, b.x + b.width, b.y + b.height-0.5);
 		}
 		shape.visible = c.isOpaque();
 	}

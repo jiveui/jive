@@ -7,18 +7,18 @@ import bindx.IBindable;
 
 class ButtonsViewModel implements IBindable implements Spotable {
 
-    @bindable public var buttonsLog: String = "";
+    @:bindable public var buttonsLog: String = "";
 
-    @bindable public var defaultButtonCommand: Command;
-    @bindable public var basicButtonCommand: Command;
-    @bindable public var messagesButtonCommand: Command;
-    @bindable public var weatherButtonCommand: Command;
-    @bindable public var calendarButtonCommand: Command;
+    @:bindable public var defaultButtonCommand: Command;
+    @:bindable public var basicButtonCommand: Command;
+    @:bindable public var messagesButtonCommand: Command;
+    @:bindable public var weatherButtonCommand: Command;
+    @:bindable public var calendarButtonCommand: Command;
 
-    @bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.xml");
-    @bindable public var haxeSource: String = Assets.getText("assets/source/ButtonsViewModel.hx");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.xml");
+    @:bindable public var haxeSource: String = Assets.getText("assets/source/ButtonsViewModel.hx");
 
-    @bindable public var selectedSpotIndex(get, set): Int;
+    @:bindable public var selectedSpotIndex(get, set): Int;
     private var _selectedSpotIndex: Int;
     private function get_selectedSpotIndex(): Int { return _selectedSpotIndex; }
     private function set_selectedSpotIndex(v: Int): Int {

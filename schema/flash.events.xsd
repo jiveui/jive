@@ -1,545 +1,110 @@
 <xs:schema targetNamespace="flash.events" xmlns="flash.events" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:org-aswing="org.aswing"
-xmlns:jive-formatting="jive.formatting"
 xmlns:flash-text="flash.text"
 xmlns:flash-ui="flash.ui"
-xmlns:org-aswing-event="org.aswing.event"
+xmlns:flash-display="flash.display"
 xmlns:flash-net="flash.net"
-xmlns:jive-plaf-flat-tabbedpane="jive.plaf.flat.tabbedpane"
-xmlns:jive-plaf-flat="jive.plaf.flat"
+xmlns:flash-display3D="flash.display3D"
 xmlns:flash="flash"
 xmlns:flash-display3D-textures="flash.display3D.textures"
 xmlns:empty="empty"
-xmlns:jive="jive"
-xmlns:org-aswing-table="org.aswing.table"
-xmlns:org-aswing-util="org.aswing.util"
-xmlns:flash-_Boot="flash._Boot"
-xmlns:jive-plaf-flat-accordion="jive.plaf.flat.accordion"
-xmlns:org-aswing-plaf-basic-splitpane="org.aswing.plaf.basic.splitpane"
-xmlns:flash-display="flash.display"
-xmlns:org-aswing-table-sorter="org.aswing.table.sorter"
-xmlns:org-aswing-colorchooser="org.aswing.colorchooser"
-xmlns:flash-display3D="flash.display3D"
-xmlns:org-aswing-ext="org.aswing.ext"
-xmlns:jive-events="jive.events"
-xmlns:org-aswing-tree="org.aswing.tree"
 xmlns:flash-media="flash.media"
-xmlns:lime-app="lime.app"
-xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
+xmlns:flash-_Boot="flash._Boot"
 >
-<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
-<xs:import namespace="jive.formatting" schemaLocation="jive.formatting.xsd" />
 <xs:import namespace="flash.text" schemaLocation="flash.text.xsd" />
 <xs:import namespace="flash.ui" schemaLocation="flash.ui.xsd" />
-<xs:import namespace="org.aswing.event" schemaLocation="org.aswing.event.xsd" />
+<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="flash.net" schemaLocation="flash.net.xsd" />
-<xs:import namespace="jive.plaf.flat.tabbedpane" schemaLocation="jive.plaf.flat.tabbedpane.xsd" />
-<xs:import namespace="jive.plaf.flat" schemaLocation="jive.plaf.flat.xsd" />
+<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
 <xs:import namespace="flash" schemaLocation="flash.xsd" />
 <xs:import namespace="flash.display3D.textures" schemaLocation="flash.display3D.textures.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:import namespace="jive" schemaLocation="jive.xsd" />
-<xs:import namespace="org.aswing.table" schemaLocation="org.aswing.table.xsd" />
-<xs:import namespace="org.aswing.util" schemaLocation="org.aswing.util.xsd" />
-<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
-<xs:import namespace="jive.plaf.flat.accordion" schemaLocation="jive.plaf.flat.accordion.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.splitpane" schemaLocation="org.aswing.plaf.basic.splitpane.xsd" />
-<xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
-<xs:import namespace="org.aswing.table.sorter" schemaLocation="org.aswing.table.sorter.xsd" />
-<xs:import namespace="org.aswing.colorchooser" schemaLocation="org.aswing.colorchooser.xsd" />
-<xs:import namespace="flash.display3D" schemaLocation="flash.display3D.xsd" />
-<xs:import namespace="org.aswing.ext" schemaLocation="org.aswing.ext.xsd" />
-<xs:import namespace="jive.events" schemaLocation="jive.events.xsd" />
-<xs:import namespace="org.aswing.tree" schemaLocation="org.aswing.tree.xsd" />
 <xs:import namespace="flash.media" schemaLocation="flash.media.xsd" />
-<xs:import namespace="lime.app" schemaLocation="lime.app.xsd" />
-<xs:import namespace="org.aswing.plaf.basic.cursor" schemaLocation="org.aswing.plaf.basic.cursor.xsd" />
-<xs:complexType name="ErrorEventSchemaTypeValue">
+<xs:import namespace="flash._Boot" schemaLocation="flash._Boot.xsd" />
+<xs:complexType name="EventDispatcherSchemaTypeValue">
 <xs:choice>
-<xs:element ref="IOErrorEvent" />
-<xs:element ref="ErrorEvent" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="IOErrorEventSchemaTypeValue">
-<xs:all><xs:element ref="IOErrorEvent"/></xs:all></xs:complexType>
-
-<xs:complexType name="IEventDispatcherSchemaTypeValue">
-<xs:choice>
-<xs:element ref="org-aswing:JLabel" />
-<xs:element ref="org-aswing:JTable" />
-<xs:element ref="org-aswing:JToggleButton" />
-<xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="flash-display:DisplayObject" />
+<xs:element ref="flash-display:Loader" />
+<xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="flash-display3D-textures:TextureBase" />
-<xs:element ref="org-aswing-table:PoorTextCell" />
-<xs:element ref="org-aswing:JRadioButtonMenuItem" />
-<xs:element ref="org-aswing:JList" />
-<xs:element ref="org-aswing:JAccordion" />
-<xs:element ref="org-aswing:JToolTip" />
-<xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
-<xs:element ref="flash-display:Bitmap" />
-<xs:element ref="org-aswing:AbstractTabbedPane" />
-<xs:element ref="jive:Dialog" />
-<xs:element ref="jive-formatting:RegExFormattedTextArea" />
-<xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="flash-display3D-textures:RectangleTexture" />
+<xs:element ref="flash-display:InteractiveObject" />
+<xs:element ref="flash-media:Camera" />
+<xs:element ref="flash-display:MovieClip" />
+<xs:element ref="flash-display:Sprite" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash-display:FrameLabel" />
+<xs:element ref="flash-net:NetStream" />
 <xs:element ref="flash-display3D-textures:VideoTexture" />
-<xs:element ref="org-aswing:JPanel" />
-<xs:element ref="org-aswing-table:JTableHeader" />
-<xs:element ref="flash-display:Shape" />
-<xs:element ref="org-aswing:JClosableTabbedPane" />
-<xs:element ref="org-aswing-ext:FormRow" />
-<xs:element ref="org-aswing:JTextComponent" />
-<xs:element ref="org-aswing:LabelComboBoxEditor" />
+<xs:element ref="flash-display:LoaderInfo" />
+<xs:element ref="flash-display:Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="flash-display3D-textures:CubeTexture" />
+<xs:element ref="flash-media:AVStream" />
+<xs:element ref="flash-media:StageVideo" />
+<xs:element ref="flash-display3D-textures:Texture" />
 <xs:element ref="flash-display:Stage3D" />
-<xs:element ref="jive:MessageBox" />
-<xs:element ref="org-aswing:DefaultComboBoxEditor" />
+<xs:element ref="flash-net:NetStreamPlayOptions" />
 <xs:element ref="flash-media:Microphone" />
-<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
+<xs:element ref="flash-display:DisplayObjectContainer" />
 <xs:element ref="flash-media:AVSource" />
 <xs:element ref="flash-net:NetConnection" />
-<xs:element ref="flash-media:SoundChannel" />
-<xs:element ref="flash-display:DisplayObject" />
-<xs:element ref="org-aswing:DefaultBoundedRangeModel" />
-<xs:element ref="org-aswing:JSpacer" />
-<xs:element ref="flash-display:NativeMenu" />
-<xs:element ref="org-aswing:JViewport" />
-<xs:element ref="org-aswing-colorchooser:DefaultColorSelectionModel" />
-<xs:element ref="flash-display3D-textures:RectangleTexture" />
-<xs:element ref="org-aswing:JPopup" />
-<xs:element ref="org-aswing-ext:GridList" />
-<xs:element ref="org-aswing:ToggleButtonModel" />
-<xs:element ref="flash-media:Camera" />
-<xs:element ref="flash-display:InteractiveObject" />
-<xs:element ref="flash-display:MovieClip" />
-<xs:element ref="org-aswing:CellPane" />
-<xs:element ref="org-aswing:JSharedToolTip" />
-<xs:element ref="org-aswing:JSplitPane" />
-<xs:element ref="org-aswing:JTextField" />
-<xs:element ref="org-aswing:SimpleButton" />
-<xs:element ref="org-aswing:JRootPane" />
-<xs:element ref="flash-net:NetStream" />
-<xs:element ref="jive:Spot" />
-<xs:element ref="org-aswing:JRadioButton" />
-<xs:element ref="org-aswing-tree:EmptySelectionModel" />
-<xs:element ref="org-aswing:DefaultButtonModel" />
-<xs:element ref="org-aswing:JPopupMenu" />
-<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
-<xs:element ref="flash-media:StageVideo" />
-<xs:element ref="org-aswing:JTextArea" />
-<xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
-<xs:element ref="org-aswing:JColorChooser" />
-<xs:element ref="org-aswing:JToolBar" />
-<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
-<xs:element ref="org-aswing:JScrollBar" />
-<xs:element ref="org-aswing-table:SelectablePoorTextCell" />
-<xs:element ref="org-aswing:Container" />
-<xs:element ref="org-aswing:JComboBox" />
-<xs:element ref="org-aswing:Box" />
-<xs:element ref="org-aswing:AbstractButton" />
-<xs:element ref="org-aswing:JTree" />
-<xs:element ref="org-aswing:JProgressBar" />
-<xs:element ref="flash-display3D:Context3D" />
-<xs:element ref="org-aswing-ext:DateLabel" />
-<xs:element ref="org-aswing:JFrameTitleBar" />
-<xs:element ref="lime-app:Preloader" />
-<xs:element ref="org-aswing:JCheckBoxMenuItem" />
-<xs:element ref="org-aswing:AWTextField" />
-<xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
-<xs:element ref="flash-text:TextField" />
-<xs:element ref="jive-plaf-flat:TextCellComponent" />
-<xs:element ref="org-aswing:JCheckBox" />
-<xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
-<xs:element ref="org-aswing-ext:Form" />
-<xs:element ref="org-aswing:JLoadPane" />
-<xs:element ref="org-aswing-table:TableColumn" />
-<xs:element ref="org-aswing:Component" />
-<xs:element ref="org-aswing:JLayeredPane" />
-<xs:element ref="flash-display:Sprite" />
-<xs:element ref="org-aswing-ext:DefaultGridCell" />
 <xs:element ref="EventDispatcher" />
-<xs:element ref="flash-text:StyleSheet" />
-<xs:element ref="flash-display:FrameLabel" />
-<xs:element ref="org-aswing-ext:Folder" />
-<xs:element ref="flash-display:Stage" />
-<xs:element ref="org-aswing-util:Timer" />
-<xs:element ref="flash-display3D-textures:CubeTexture" />
-<xs:element ref="org-aswing:AssetPane" />
-<xs:element ref="flash-display3D-textures:Texture" />
-<xs:element ref="org-aswing:JMenuBar" />
-<xs:element ref="org-aswing:JTabbedPane" />
-<xs:element ref="org-aswing:KeyboardManager" />
-<xs:element ref="flash-net:NetStreamPlayOptions" />
-<xs:element ref="flash-media:Sound" />
-<xs:element ref="org-aswing:SoftBox" />
-<xs:element ref="org-aswing:JLabelButton" />
-<xs:element ref="org-aswing-table:DefaultTextCell" />
-<xs:element ref="flash-display:Loader" />
-<xs:element ref="org-aswing:JMenuItem" />
-<xs:element ref="org-aswing:JWindow" />
-<xs:element ref="org-aswing:DefaultListSelectionModel" />
-<xs:element ref="flash-ui:ContextMenu" />
-<xs:element ref="org-aswing-colorchooser:JColorMixer" />
-<xs:element ref="flash-net:URLLoader" />
-<xs:element ref="org-aswing:JButton" />
-<xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
-<xs:element ref="org-aswing-ext:MultilineLabel" />
-<xs:element ref="org-aswing-util:AbstractImpulser" />
-<xs:element ref="org-aswing:JOptionPane" />
-<xs:element ref="org-aswing-ext:GridCellHolder" />
-<xs:element ref="UncaughtErrorEvents" />
-<xs:element ref="jive:WaitingPopup" />
-<xs:element ref="org-aswing:MenuSelectionManager" />
-<xs:element ref="org-aswing:AWSprite" />
-<xs:element ref="flash-_Boot:RealBoot" />
-<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
-<xs:element ref="org-aswing:JMenu" />
-<xs:element ref="flash-display:LoaderInfo" />
-<xs:element ref="org-aswing:JAdjuster" />
-<xs:element ref="org-aswing:JSlider" />
-<xs:element ref="flash:Boot" />
-<xs:element ref="org-aswing-plaf-basic-cursor:H_ResizeCursor" />
-<xs:element ref="org-aswing-plaf-basic-cursor:HV_ResizeCursor" />
-<xs:element ref="flash-media:AVStream" />
-<xs:element ref="org-aswing:JStepper" />
-<xs:element ref="org-aswing:JSeparator" />
-<xs:element ref="org-aswing:DefaultSingleSelectionModel" />
-<xs:element ref="org-aswing:JScrollPane" />
-<xs:element ref="org-aswing-ext:DateChooser" />
-<xs:element ref="flash-display:DisplayObjectContainer" />
-<xs:element ref="org-aswing:JFrame" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="KeyboardEventSchemaTypeValue">
-<xs:choice>
-<xs:element ref="org-aswing-event:FocusKeyEvent" />
-<xs:element ref="KeyboardEvent" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="TouchEventSchemaTypeValue">
-<xs:all><xs:element ref="TouchEvent"/></xs:all></xs:complexType>
-
-<xs:complexType name="ProgressEventSchemaTypeValue">
-<xs:all><xs:element ref="ProgressEvent"/></xs:all></xs:complexType>
-
-<xs:complexType name="TextEventSchemaTypeValue">
-<xs:choice>
-<xs:element ref="ErrorEvent" />
-<xs:element ref="IOErrorEvent" />
-<xs:element ref="TextEvent" />
 </xs:choice>
 </xs:complexType>
 
 <xs:complexType name="UncaughtErrorEventsSchemaTypeValue">
 <xs:all><xs:element ref="UncaughtErrorEvents"/></xs:all></xs:complexType>
 
-<xs:complexType name="FocusEventSchemaTypeValue">
-<xs:all><xs:element ref="FocusEvent"/></xs:all></xs:complexType>
+<xs:complexType name="EventSchemaTypeValue">
+<xs:all><xs:element ref="Event"/></xs:all></xs:complexType>
 
-<xs:complexType name="EventDispatcherSchemaTypeValue">
+<xs:complexType name="IEventDispatcherSchemaTypeValue">
 <xs:choice>
-<xs:element ref="org-aswing:JLabel" />
-<xs:element ref="org-aswing:JTable" />
-<xs:element ref="org-aswing:JToggleButton" />
-<xs:element ref="org-aswing-colorchooser:JColorSwatches" />
+<xs:element ref="flash-display3D:Context3D" />
+<xs:element ref="flash-display:DisplayObject" />
+<xs:element ref="flash-display:Loader" />
+<xs:element ref="flash-display:NativeMenu" />
+<xs:element ref="flash-text:TextField" />
+<xs:element ref="flash-ui:ContextMenu" />
 <xs:element ref="flash-display3D-textures:TextureBase" />
-<xs:element ref="org-aswing-table:PoorTextCell" />
-<xs:element ref="org-aswing:JRadioButtonMenuItem" />
-<xs:element ref="org-aswing:JList" />
-<xs:element ref="org-aswing:JAccordion" />
-<xs:element ref="org-aswing:JToolTip" />
-<xs:element ref="org-aswing-tree:DefaultTreeSelectionModel" />
-<xs:element ref="flash-display:Bitmap" />
-<xs:element ref="org-aswing:AbstractTabbedPane" />
-<xs:element ref="jive:Dialog" />
-<xs:element ref="jive-formatting:RegExFormattedTextArea" />
-<xs:element ref="org-aswing-tree:DefaultTreeCell" />
+<xs:element ref="flash-display3D-textures:RectangleTexture" />
+<xs:element ref="flash-display:InteractiveObject" />
+<xs:element ref="flash-media:Camera" />
+<xs:element ref="flash-display:MovieClip" />
+<xs:element ref="flash-display:Sprite" />
+<xs:element ref="UncaughtErrorEvents" />
+<xs:element ref="EventDispatcher" />
+<xs:element ref="flash-text:StyleSheet" />
+<xs:element ref="flash-_Boot:RealBoot" />
+<xs:element ref="flash-display:FrameLabel" />
+<xs:element ref="flash-net:NetStream" />
 <xs:element ref="flash-display3D-textures:VideoTexture" />
-<xs:element ref="org-aswing:JPanel" />
-<xs:element ref="org-aswing-table:JTableHeader" />
-<xs:element ref="flash-display:Shape" />
-<xs:element ref="org-aswing:JClosableTabbedPane" />
-<xs:element ref="org-aswing-ext:FormRow" />
-<xs:element ref="org-aswing:JTextComponent" />
-<xs:element ref="org-aswing:LabelComboBoxEditor" />
+<xs:element ref="flash-display:LoaderInfo" />
+<xs:element ref="flash-display:Stage" />
+<xs:element ref="flash:Boot" />
+<xs:element ref="flash-display3D-textures:CubeTexture" />
+<xs:element ref="flash-media:AVStream" />
+<xs:element ref="flash-media:StageVideo" />
+<xs:element ref="flash-display3D-textures:Texture" />
 <xs:element ref="flash-display:Stage3D" />
-<xs:element ref="jive:MessageBox" />
-<xs:element ref="org-aswing:DefaultComboBoxEditor" />
+<xs:element ref="flash-net:NetStreamPlayOptions" />
 <xs:element ref="flash-media:Microphone" />
-<xs:element ref="jive-plaf-flat-tabbedpane:FlatTabButton" />
+<xs:element ref="flash-display:DisplayObjectContainer" />
 <xs:element ref="flash-media:AVSource" />
 <xs:element ref="flash-net:NetConnection" />
-<xs:element ref="flash-media:SoundChannel" />
-<xs:element ref="flash-display:DisplayObject" />
-<xs:element ref="org-aswing:DefaultBoundedRangeModel" />
-<xs:element ref="org-aswing:JSpacer" />
-<xs:element ref="flash-display:NativeMenu" />
-<xs:element ref="org-aswing:JViewport" />
-<xs:element ref="org-aswing-colorchooser:DefaultColorSelectionModel" />
-<xs:element ref="flash-display3D-textures:RectangleTexture" />
-<xs:element ref="org-aswing:JPopup" />
-<xs:element ref="org-aswing-ext:GridList" />
-<xs:element ref="org-aswing:ToggleButtonModel" />
-<xs:element ref="flash-media:Camera" />
-<xs:element ref="flash-display:InteractiveObject" />
-<xs:element ref="flash-display:MovieClip" />
-<xs:element ref="org-aswing:CellPane" />
-<xs:element ref="org-aswing:JSharedToolTip" />
-<xs:element ref="org-aswing:JSplitPane" />
-<xs:element ref="org-aswing:JTextField" />
-<xs:element ref="org-aswing:SimpleButton" />
-<xs:element ref="org-aswing:JRootPane" />
-<xs:element ref="flash-net:NetStream" />
-<xs:element ref="jive:Spot" />
-<xs:element ref="org-aswing:JRadioButton" />
-<xs:element ref="org-aswing-tree:EmptySelectionModel" />
-<xs:element ref="org-aswing:DefaultButtonModel" />
-<xs:element ref="org-aswing:JPopupMenu" />
-<xs:element ref="jive-plaf-flat-accordion:AccordionItemContainer" />
-<xs:element ref="flash-media:StageVideo" />
-<xs:element ref="org-aswing:JTextArea" />
-<xs:element ref="org-aswing-plaf-basic-splitpane:Divider" />
-<xs:element ref="org-aswing:JColorChooser" />
-<xs:element ref="org-aswing:JToolBar" />
-<xs:element ref="org-aswing-table-sorter:SortableTextHeaderCell" />
-<xs:element ref="org-aswing:JScrollBar" />
-<xs:element ref="org-aswing-table:SelectablePoorTextCell" />
-<xs:element ref="org-aswing:Container" />
-<xs:element ref="org-aswing:JComboBox" />
-<xs:element ref="org-aswing:Box" />
-<xs:element ref="org-aswing:AbstractButton" />
-<xs:element ref="org-aswing:JTree" />
-<xs:element ref="org-aswing:JProgressBar" />
-<xs:element ref="flash-display3D:Context3D" />
-<xs:element ref="org-aswing-ext:DateLabel" />
-<xs:element ref="org-aswing:JFrameTitleBar" />
-<xs:element ref="lime-app:Preloader" />
-<xs:element ref="org-aswing:JCheckBoxMenuItem" />
-<xs:element ref="org-aswing:AWTextField" />
-<xs:element ref="org-aswing-table:DefaultTextHeaderCell" />
-<xs:element ref="flash-text:TextField" />
-<xs:element ref="jive-plaf-flat:TextCellComponent" />
-<xs:element ref="org-aswing:JCheckBox" />
-<xs:element ref="org-aswing-plaf-basic-cursor:V_ResizeCursor" />
-<xs:element ref="org-aswing-ext:Form" />
-<xs:element ref="org-aswing:JLoadPane" />
-<xs:element ref="org-aswing-table:TableColumn" />
-<xs:element ref="org-aswing:Component" />
-<xs:element ref="org-aswing:JLayeredPane" />
-<xs:element ref="flash-display:Sprite" />
-<xs:element ref="org-aswing-ext:DefaultGridCell" />
-<xs:element ref="flash-text:StyleSheet" />
-<xs:element ref="flash-display:FrameLabel" />
-<xs:element ref="org-aswing-ext:Folder" />
-<xs:element ref="flash-display:Stage" />
-<xs:element ref="org-aswing-util:Timer" />
-<xs:element ref="flash-display3D-textures:CubeTexture" />
-<xs:element ref="org-aswing:AssetPane" />
-<xs:element ref="flash-display3D-textures:Texture" />
-<xs:element ref="org-aswing:JMenuBar" />
-<xs:element ref="org-aswing:JTabbedPane" />
-<xs:element ref="org-aswing:KeyboardManager" />
-<xs:element ref="flash-net:NetStreamPlayOptions" />
-<xs:element ref="flash-media:Sound" />
-<xs:element ref="org-aswing:SoftBox" />
-<xs:element ref="org-aswing:JLabelButton" />
-<xs:element ref="org-aswing-table:DefaultTextCell" />
-<xs:element ref="flash-display:Loader" />
-<xs:element ref="org-aswing:JMenuItem" />
-<xs:element ref="org-aswing:JWindow" />
-<xs:element ref="org-aswing:DefaultListSelectionModel" />
-<xs:element ref="flash-ui:ContextMenu" />
-<xs:element ref="org-aswing-colorchooser:JColorMixer" />
-<xs:element ref="flash-net:URLLoader" />
-<xs:element ref="org-aswing:JButton" />
-<xs:element ref="org-aswing-colorchooser:AbstractColorChooserPanel" />
-<xs:element ref="org-aswing-ext:MultilineLabel" />
-<xs:element ref="org-aswing-util:AbstractImpulser" />
-<xs:element ref="org-aswing:JOptionPane" />
-<xs:element ref="org-aswing-ext:GridCellHolder" />
-<xs:element ref="UncaughtErrorEvents" />
-<xs:element ref="jive:WaitingPopup" />
-<xs:element ref="org-aswing:MenuSelectionManager" />
-<xs:element ref="org-aswing:AWSprite" />
-<xs:element ref="flash-_Boot:RealBoot" />
-<xs:element ref="jive-plaf-flat-accordion:AccordionHeaderButton" />
-<xs:element ref="org-aswing:JMenu" />
-<xs:element ref="flash-display:LoaderInfo" />
-<xs:element ref="org-aswing:JAdjuster" />
-<xs:element ref="org-aswing:JSlider" />
-<xs:element ref="flash:Boot" />
-<xs:element ref="org-aswing-plaf-basic-cursor:H_ResizeCursor" />
-<xs:element ref="org-aswing-plaf-basic-cursor:HV_ResizeCursor" />
-<xs:element ref="flash-media:AVStream" />
-<xs:element ref="org-aswing:JStepper" />
-<xs:element ref="org-aswing:JSeparator" />
-<xs:element ref="org-aswing:DefaultSingleSelectionModel" />
-<xs:element ref="org-aswing:JScrollPane" />
-<xs:element ref="org-aswing-ext:DateChooser" />
-<xs:element ref="flash-display:DisplayObjectContainer" />
-<xs:element ref="org-aswing:JFrame" />
-<xs:element ref="EventDispatcher" />
 </xs:choice>
 </xs:complexType>
 
-<xs:complexType name="EventSchemaTypeValue">
-<xs:choice>
-<xs:element ref="org-aswing-event:ReleaseEvent" />
-<xs:element ref="org-aswing-event:ListItemEvent" />
-<xs:element ref="org-aswing-event:ClickCountEvent" />
-<xs:element ref="org-aswing-event:TreeEvent" />
-<xs:element ref="org-aswing-event:TreeCellEditEvent" />
-<xs:element ref="TextEvent" />
-<xs:element ref="org-aswing-event:WindowEvent" />
-<xs:element ref="org-aswing-ext:GridListItemEvent" />
-<xs:element ref="FocusEvent" />
-<xs:element ref="org-aswing-event:ContainerEvent" />
-<xs:element ref="org-aswing-event:FrameEvent" />
-<xs:element ref="org-aswing-event:AWEvent" />
-<xs:element ref="jive-events:GestureEvent" />
-<xs:element ref="org-aswing-event:ToolTipEvent" />
-<xs:element ref="org-aswing-event:MovedEvent" />
-<xs:element ref="org-aswing-event:ScrollPaneEvent" />
-<xs:element ref="ErrorEvent" />
-<xs:element ref="org-aswing-event:PopupEvent" />
-<xs:element ref="org-aswing-event:TabCloseEvent" />
-<xs:element ref="jive-events:TransformGestureEvent" />
-<xs:element ref="IOErrorEvent" />
-<xs:element ref="org-aswing-event:DragAndDropEvent" />
-<xs:element ref="org-aswing-event:AttachEvent" />
-<xs:element ref="ProgressEvent" />
-<xs:element ref="org-aswing-event:SelectionEvent" />
-<xs:element ref="KeyboardEvent" />
-<xs:element ref="org-aswing-event:TableCellEditEvent" />
-<xs:element ref="TouchEvent" />
-<xs:element ref="org-aswing-event:ColorChooserEvent" />
-<xs:element ref="org-aswing-event:ResizedEvent" />
-<xs:element ref="org-aswing-event:InteractiveEvent" />
-<xs:element ref="org-aswing-event:TreeSelectionEvent" />
-<xs:element ref="org-aswing-event:PropertyChangeEvent" />
-<xs:element ref="org-aswing-event:FocusKeyEvent" />
-<xs:element ref="MouseEvent" />
-<xs:element ref="Event" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="MouseEventSchemaTypeValue">
-<xs:choice>
-<xs:element ref="org-aswing-event:ReleaseEvent" />
-<xs:element ref="org-aswing-event:ListItemEvent" />
-<xs:element ref="org-aswing-ext:GridListItemEvent" />
-<xs:element ref="MouseEvent" />
-</xs:choice>
-</xs:complexType>
-
-<xs:complexType name="ErrorEventSchemaType">
-<xs:complexContent>
-<xs:extension base="TextEventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="errorID" type="xs:int"/>
-</xs:all>
-<xs:attribute name="errorID" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="IOErrorEventSchemaType">
-<xs:complexContent>
-<xs:extension base="ErrorEventSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="IEventDispatcherSchemaType">
+<xs:complexType name="EventDispatcherSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="KeyboardEventSchemaType">
-<xs:complexContent>
-<xs:extension base="EventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="charCode" type="xs:int"/>
-<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
-<xs:element minOccurs="0" name="keyLocation" type="xs:string"/>
-<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="altKey" type="xs:boolean"/>
-<xs:attribute name="charCode" type="xs:int"/>
-<xs:attribute name="ctrlKey" type="xs:boolean"/>
-<xs:attribute name="keyCode" type="xs:int"/>
-<xs:attribute name="keyLocation" type="xs:string"/>
-<xs:attribute name="shiftKey" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="TouchEventSchemaType">
-<xs:complexContent>
-<xs:extension base="EventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="isPrimaryTouchPoint" type="xs:boolean"/>
-<xs:element minOccurs="0" name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:element minOccurs="0" name="localX" type="xs:double"/>
-<xs:element minOccurs="0" name="localY" type="xs:double"/>
-<xs:element minOccurs="0" name="pressure" type="xs:double"/>
-<xs:element minOccurs="0" name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
-<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="sizeX" type="xs:double"/>
-<xs:element minOccurs="0" name="sizeY" type="xs:double"/>
-<xs:element minOccurs="0" name="stageX" type="xs:double"/>
-<xs:element minOccurs="0" name="stageY" type="xs:double"/>
-<xs:element minOccurs="0" name="touchPointID" type="xs:int"/>
-</xs:all>
-<xs:attribute name="altKey" type="xs:boolean"/>
-<xs:attribute name="ctrlKey" type="xs:boolean"/>
-<xs:attribute name="isPrimaryTouchPoint" type="xs:boolean"/>
-<xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:attribute name="localX" type="xs:double"/>
-<xs:attribute name="localY" type="xs:double"/>
-<xs:attribute name="pressure" type="xs:double"/>
-<xs:attribute name="relatedObject" type="xs:string"/>
-<xs:attribute name="shiftKey" type="xs:boolean"/>
-<xs:attribute name="sizeX" type="xs:double"/>
-<xs:attribute name="sizeY" type="xs:double"/>
-<xs:attribute name="stageX" type="xs:double"/>
-<xs:attribute name="stageY" type="xs:double"/>
-<xs:attribute name="touchPointID" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="ProgressEventSchemaType">
-<xs:complexContent>
-<xs:extension base="EventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesLoaded" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesTotal" type="xs:double"/>
-</xs:all>
-<xs:attribute name="bytesLoaded" type="xs:double"/>
-<xs:attribute name="bytesTotal" type="xs:double"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="TextEventSchemaType">
-<xs:complexContent>
-<xs:extension base="EventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="text" type="xs:string"/>
-</xs:all>
-<xs:attribute name="text" type="xs:string"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -547,32 +112,6 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 <xs:complexType name="UncaughtErrorEventsSchemaType">
 <xs:complexContent>
 <xs:extension base="EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="FocusEventSchemaType">
-<xs:complexContent>
-<xs:extension base="EventSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:element minOccurs="0" name="keyCode" type="xs:int"/>
-<xs:element minOccurs="0" name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
-<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:attribute name="keyCode" type="xs:int"/>
-<xs:attribute name="relatedObject" type="xs:string"/>
-<xs:attribute name="shiftKey" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="EventDispatcherSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
 </xs:all>
 </xs:extension>
@@ -600,48 +139,18 @@ xmlns:org-aswing-plaf-basic-cursor="org.aswing.plaf.basic.cursor"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="MouseEventSchemaType">
+<xs:complexType name="IEventDispatcherSchemaType">
 <xs:complexContent>
-<xs:extension base="EventSchemaType">
+<xs:extension base="empty:RootObjectTypeSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="altKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="buttonDown" type="xs:boolean"/>
-<xs:element minOccurs="0" name="ctrlKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="delta" type="xs:int"/>
-<xs:element minOccurs="0" name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:element minOccurs="0" name="localX" type="xs:double"/>
-<xs:element minOccurs="0" name="localY" type="xs:double"/>
-<xs:element minOccurs="0" name="relatedObject" type="flash-display:InteractiveObjectSchemaTypeValue"/>
-<xs:element minOccurs="0" name="shiftKey" type="xs:boolean"/>
-<xs:element minOccurs="0" name="stageX" type="xs:double"/>
-<xs:element minOccurs="0" name="stageY" type="xs:double"/>
 </xs:all>
-<xs:attribute name="altKey" type="xs:boolean"/>
-<xs:attribute name="buttonDown" type="xs:boolean"/>
-<xs:attribute name="ctrlKey" type="xs:boolean"/>
-<xs:attribute name="delta" type="xs:int"/>
-<xs:attribute name="isRelatedObjectInaccessible" type="xs:boolean"/>
-<xs:attribute name="localX" type="xs:double"/>
-<xs:attribute name="localY" type="xs:double"/>
-<xs:attribute name="relatedObject" type="xs:string"/>
-<xs:attribute name="shiftKey" type="xs:boolean"/>
-<xs:attribute name="stageX" type="xs:double"/>
-<xs:attribute name="stageY" type="xs:double"/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
 
 
-<xs:element name="ErrorEvent" type="ErrorEventSchemaType"/>
-<xs:element name="IOErrorEvent" type="IOErrorEventSchemaType"/>
-<xs:element name="IEventDispatcher" type="IEventDispatcherSchemaType"/>
-<xs:element name="KeyboardEvent" type="KeyboardEventSchemaType"/>
-<xs:element name="TouchEvent" type="TouchEventSchemaType"/>
-<xs:element name="ProgressEvent" type="ProgressEventSchemaType"/>
-<xs:element name="TextEvent" type="TextEventSchemaType"/>
-<xs:element name="UncaughtErrorEvents" type="UncaughtErrorEventsSchemaType"/>
-<xs:element name="FocusEvent" type="FocusEventSchemaType"/>
 <xs:element name="EventDispatcher" type="EventDispatcherSchemaType"/>
+<xs:element name="UncaughtErrorEvents" type="UncaughtErrorEventsSchemaType"/>
 <xs:element name="Event" type="EventSchemaType"/>
-<xs:element name="MouseEvent" type="MouseEventSchemaType"/>
+<xs:element name="IEventDispatcher" type="IEventDispatcherSchemaType"/>
 </xs:schema>

@@ -16,11 +16,10 @@
 
     <haxelib name="openfl" />
     <haxelib name="jive"/>
-    <haxelib name="bindx"/>
 
     <template path="templates" />
 
     <assets path="assets" rename=""/>
-    <assets path="declarations/demo/view" rename="assets/source"/>
+    <assets path="src/demo/view" rename="assets/source"/>
     <assets path="src/demo/viewmodel" rename="assets/source"/>
 </project>

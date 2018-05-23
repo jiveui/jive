@@ -12,17 +12,11 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="NetStreamPlayOptionsSchemaTypeValue">
 <xs:all><xs:element ref="NetStreamPlayOptions"/></xs:all></xs:complexType>
 
-<xs:complexType name="URLLoaderSchemaTypeValue">
-<xs:all><xs:element ref="URLLoader"/></xs:all></xs:complexType>
-
-<xs:complexType name="NetStreamSchemaTypeValue">
-<xs:all><xs:element ref="NetStream"/></xs:all></xs:complexType>
-
-<xs:complexType name="URLRequestSchemaTypeValue">
-<xs:all><xs:element ref="URLRequest"/></xs:all></xs:complexType>
-
 <xs:complexType name="NetConnectionSchemaTypeValue">
 <xs:all><xs:element ref="NetConnection"/></xs:all></xs:complexType>
+
+<xs:complexType name="NetStreamMulticastInfoSchemaTypeValue">
+<xs:all><xs:element ref="NetStreamMulticastInfo"/></xs:all></xs:complexType>
 
 <xs:complexType name="NetStreamInfoSchemaTypeValue">
 <xs:all><xs:element ref="NetStreamInfo"/></xs:all></xs:complexType>
@@ -30,8 +24,11 @@ xmlns:flash-media="flash.media"
 <xs:complexType name="ResponderSchemaTypeValue">
 <xs:all><xs:element ref="Responder"/></xs:all></xs:complexType>
 
-<xs:complexType name="NetStreamMulticastInfoSchemaTypeValue">
-<xs:all><xs:element ref="NetStreamMulticastInfo"/></xs:all></xs:complexType>
+<xs:complexType name="NetStreamSchemaTypeValue">
+<xs:all><xs:element ref="NetStream"/></xs:all></xs:complexType>
+
+<xs:complexType name="URLRequestSchemaTypeValue">
+<xs:all><xs:element ref="URLRequest"/></xs:all></xs:complexType>
 
 <xs:complexType name="URLRequestHeaderSchemaType">
 <xs:complexContent>
@@ -67,19 +64,154 @@ xmlns:flash-media="flash.media"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="URLLoaderSchemaType">
+<xs:complexType name="NetConnectionSchemaType">
 <xs:complexContent>
 <xs:extension base="flash-events:EventDispatcherSchemaType">
 <xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesLoaded" type="xs:int"/>
-<xs:element minOccurs="0" name="bytesTotal" type="xs:int"/>
-<xs:element minOccurs="0" name="data" type="xs:string"/>
-<xs:element minOccurs="0" name="dataFormat" type="xs:string"/>
+<xs:element minOccurs="0" name="client" type="xs:string"/>
+<xs:element minOccurs="0" name="connected" type="xs:boolean"/>
+<xs:element minOccurs="0" name="connectedProxyType" type="xs:string"/>
+<xs:element minOccurs="0" name="farID" type="xs:string"/>
+<xs:element minOccurs="0" name="farNonce" type="xs:string"/>
+<xs:element minOccurs="0" name="maxPeerConnections" type="xs:int"/>
+<xs:element minOccurs="0" name="nearID" type="xs:string"/>
+<xs:element minOccurs="0" name="nearNonce" type="xs:string"/>
+<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
+<xs:element minOccurs="0" name="protocol" type="xs:string"/>
+<xs:element minOccurs="0" name="proxyType" type="xs:string"/>
+<xs:element minOccurs="0" name="unconnectedPeerStreams" type="empty:ArraySchemaTypeValue"/>
+<xs:element minOccurs="0" name="uri" type="xs:string"/>
+<xs:element minOccurs="0" name="usingTLS" type="xs:boolean"/>
 </xs:all>
-<xs:attribute name="bytesLoaded" type="xs:int"/>
-<xs:attribute name="bytesTotal" type="xs:int"/>
-<xs:attribute name="data" type="xs:string"/>
-<xs:attribute name="dataFormat" type="xs:string"/>
+<xs:attribute name="client" type="xs:string"/>
+<xs:attribute name="connected" type="xs:boolean"/>
+<xs:attribute name="connectedProxyType" type="xs:string"/>
+<xs:attribute name="farID" type="xs:string"/>
+<xs:attribute name="farNonce" type="xs:string"/>
+<xs:attribute name="maxPeerConnections" type="xs:int"/>
+<xs:attribute name="nearID" type="xs:string"/>
+<xs:attribute name="nearNonce" type="xs:string"/>
+<xs:attribute name="objectEncoding" type="xs:int"/>
+<xs:attribute name="protocol" type="xs:string"/>
+<xs:attribute name="proxyType" type="xs:string"/>
+<xs:attribute name="unconnectedPeerStreams" type="xs:string"/>
+<xs:attribute name="uri" type="xs:string"/>
+<xs:attribute name="usingTLS" type="xs:boolean"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamMulticastInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="bytesPushedFromPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesPushedToPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesReceivedFromIPMulticast" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesReceivedFromServer" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesRequestedByPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="bytesRequestedFromPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsPushedFromPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsPushedToPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsReceivedFromServer" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsRequestedByPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="fragmentsRequestedFromPeers" type="xs:double"/>
+<xs:element minOccurs="0" name="receiveControlBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="receiveDataBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
+<xs:element minOccurs="0" name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
+<xs:element minOccurs="0" name="sendControlBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="sendControlBytesPerSecondToServer" type="xs:double"/>
+<xs:element minOccurs="0" name="sendDataBytesPerSecond" type="xs:double"/>
+</xs:all>
+<xs:attribute name="bytesPushedFromPeers" type="xs:double"/>
+<xs:attribute name="bytesPushedToPeers" type="xs:double"/>
+<xs:attribute name="bytesReceivedFromIPMulticast" type="xs:double"/>
+<xs:attribute name="bytesReceivedFromServer" type="xs:double"/>
+<xs:attribute name="bytesRequestedByPeers" type="xs:double"/>
+<xs:attribute name="bytesRequestedFromPeers" type="xs:double"/>
+<xs:attribute name="fragmentsPushedFromPeers" type="xs:double"/>
+<xs:attribute name="fragmentsPushedToPeers" type="xs:double"/>
+<xs:attribute name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
+<xs:attribute name="fragmentsReceivedFromServer" type="xs:double"/>
+<xs:attribute name="fragmentsRequestedByPeers" type="xs:double"/>
+<xs:attribute name="fragmentsRequestedFromPeers" type="xs:double"/>
+<xs:attribute name="receiveControlBytesPerSecond" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecond" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
+<xs:attribute name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
+<xs:attribute name="sendControlBytesPerSecond" type="xs:double"/>
+<xs:attribute name="sendControlBytesPerSecondToServer" type="xs:double"/>
+<xs:attribute name="sendDataBytesPerSecond" type="xs:double"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="NetStreamInfoSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="SRTT" type="xs:double"/>
+<xs:element minOccurs="0" name="audioBufferByteLength" type="xs:double"/>
+<xs:element minOccurs="0" name="audioBufferLength" type="xs:double"/>
+<xs:element minOccurs="0" name="audioByteCount" type="xs:double"/>
+<xs:element minOccurs="0" name="audioBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="audioLossRate" type="xs:double"/>
+<xs:element minOccurs="0" name="byteCount" type="xs:double"/>
+<xs:element minOccurs="0" name="currentBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="dataBufferByteLength" type="xs:double"/>
+<xs:element minOccurs="0" name="dataBufferLength" type="xs:double"/>
+<xs:element minOccurs="0" name="dataByteCount" type="xs:double"/>
+<xs:element minOccurs="0" name="dataBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="droppedFrames" type="xs:double"/>
+<xs:element minOccurs="0" name="isLive" type="xs:boolean"/>
+<xs:element minOccurs="0" name="maxBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="metaData" type="xs:string"/>
+<xs:element minOccurs="0" name="playbackBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="resourceName" type="xs:string"/>
+<xs:element minOccurs="0" name="uri" type="xs:string"/>
+<xs:element minOccurs="0" name="videoBufferByteLength" type="xs:double"/>
+<xs:element minOccurs="0" name="videoBufferLength" type="xs:double"/>
+<xs:element minOccurs="0" name="videoByteCount" type="xs:double"/>
+<xs:element minOccurs="0" name="videoBytesPerSecond" type="xs:double"/>
+<xs:element minOccurs="0" name="videoLossRate" type="xs:double"/>
+<xs:element minOccurs="0" name="xmpData" type="xs:string"/>
+</xs:all>
+<xs:attribute name="SRTT" type="xs:double"/>
+<xs:attribute name="audioBufferByteLength" type="xs:double"/>
+<xs:attribute name="audioBufferLength" type="xs:double"/>
+<xs:attribute name="audioByteCount" type="xs:double"/>
+<xs:attribute name="audioBytesPerSecond" type="xs:double"/>
+<xs:attribute name="audioLossRate" type="xs:double"/>
+<xs:attribute name="byteCount" type="xs:double"/>
+<xs:attribute name="currentBytesPerSecond" type="xs:double"/>
+<xs:attribute name="dataBufferByteLength" type="xs:double"/>
+<xs:attribute name="dataBufferLength" type="xs:double"/>
+<xs:attribute name="dataByteCount" type="xs:double"/>
+<xs:attribute name="dataBytesPerSecond" type="xs:double"/>
+<xs:attribute name="droppedFrames" type="xs:double"/>
+<xs:attribute name="isLive" type="xs:boolean"/>
+<xs:attribute name="maxBytesPerSecond" type="xs:double"/>
+<xs:attribute name="metaData" type="xs:string"/>
+<xs:attribute name="playbackBytesPerSecond" type="xs:double"/>
+<xs:attribute name="resourceName" type="xs:string"/>
+<xs:attribute name="uri" type="xs:string"/>
+<xs:attribute name="videoBufferByteLength" type="xs:double"/>
+<xs:attribute name="videoBufferLength" type="xs:double"/>
+<xs:attribute name="videoByteCount" type="xs:double"/>
+<xs:attribute name="videoBytesPerSecond" type="xs:double"/>
+<xs:attribute name="videoLossRate" type="xs:double"/>
+<xs:attribute name="xmpData" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ResponderSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -190,166 +322,13 @@ xmlns:flash-media="flash.media"
 </xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="NetConnectionSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="client" type="xs:string"/>
-<xs:element minOccurs="0" name="connected" type="xs:boolean"/>
-<xs:element minOccurs="0" name="connectedProxyType" type="xs:string"/>
-<xs:element minOccurs="0" name="farID" type="xs:string"/>
-<xs:element minOccurs="0" name="farNonce" type="xs:string"/>
-<xs:element minOccurs="0" name="maxPeerConnections" type="xs:int"/>
-<xs:element minOccurs="0" name="nearID" type="xs:string"/>
-<xs:element minOccurs="0" name="nearNonce" type="xs:string"/>
-<xs:element minOccurs="0" name="objectEncoding" type="xs:int"/>
-<xs:element minOccurs="0" name="protocol" type="xs:string"/>
-<xs:element minOccurs="0" name="proxyType" type="xs:string"/>
-<xs:element minOccurs="0" name="unconnectedPeerStreams" type="empty:ArraySchemaTypeValue"/>
-<xs:element minOccurs="0" name="uri" type="xs:string"/>
-<xs:element minOccurs="0" name="usingTLS" type="xs:boolean"/>
-</xs:all>
-<xs:attribute name="client" type="xs:string"/>
-<xs:attribute name="connected" type="xs:boolean"/>
-<xs:attribute name="connectedProxyType" type="xs:string"/>
-<xs:attribute name="farID" type="xs:string"/>
-<xs:attribute name="farNonce" type="xs:string"/>
-<xs:attribute name="maxPeerConnections" type="xs:int"/>
-<xs:attribute name="nearID" type="xs:string"/>
-<xs:attribute name="nearNonce" type="xs:string"/>
-<xs:attribute name="objectEncoding" type="xs:int"/>
-<xs:attribute name="protocol" type="xs:string"/>
-<xs:attribute name="proxyType" type="xs:string"/>
-<xs:attribute name="unconnectedPeerStreams" type="xs:string"/>
-<xs:attribute name="uri" type="xs:string"/>
-<xs:attribute name="usingTLS" type="xs:boolean"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="NetStreamInfoSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="SRTT" type="xs:double"/>
-<xs:element minOccurs="0" name="audioBufferByteLength" type="xs:double"/>
-<xs:element minOccurs="0" name="audioBufferLength" type="xs:double"/>
-<xs:element minOccurs="0" name="audioByteCount" type="xs:double"/>
-<xs:element minOccurs="0" name="audioBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="audioLossRate" type="xs:double"/>
-<xs:element minOccurs="0" name="byteCount" type="xs:double"/>
-<xs:element minOccurs="0" name="currentBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="dataBufferByteLength" type="xs:double"/>
-<xs:element minOccurs="0" name="dataBufferLength" type="xs:double"/>
-<xs:element minOccurs="0" name="dataByteCount" type="xs:double"/>
-<xs:element minOccurs="0" name="dataBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="droppedFrames" type="xs:double"/>
-<xs:element minOccurs="0" name="isLive" type="xs:boolean"/>
-<xs:element minOccurs="0" name="maxBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="metaData" type="xs:string"/>
-<xs:element minOccurs="0" name="playbackBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="resourceName" type="xs:string"/>
-<xs:element minOccurs="0" name="uri" type="xs:string"/>
-<xs:element minOccurs="0" name="videoBufferByteLength" type="xs:double"/>
-<xs:element minOccurs="0" name="videoBufferLength" type="xs:double"/>
-<xs:element minOccurs="0" name="videoByteCount" type="xs:double"/>
-<xs:element minOccurs="0" name="videoBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="videoLossRate" type="xs:double"/>
-<xs:element minOccurs="0" name="xmpData" type="xs:string"/>
-</xs:all>
-<xs:attribute name="SRTT" type="xs:double"/>
-<xs:attribute name="audioBufferByteLength" type="xs:double"/>
-<xs:attribute name="audioBufferLength" type="xs:double"/>
-<xs:attribute name="audioByteCount" type="xs:double"/>
-<xs:attribute name="audioBytesPerSecond" type="xs:double"/>
-<xs:attribute name="audioLossRate" type="xs:double"/>
-<xs:attribute name="byteCount" type="xs:double"/>
-<xs:attribute name="currentBytesPerSecond" type="xs:double"/>
-<xs:attribute name="dataBufferByteLength" type="xs:double"/>
-<xs:attribute name="dataBufferLength" type="xs:double"/>
-<xs:attribute name="dataByteCount" type="xs:double"/>
-<xs:attribute name="dataBytesPerSecond" type="xs:double"/>
-<xs:attribute name="droppedFrames" type="xs:double"/>
-<xs:attribute name="isLive" type="xs:boolean"/>
-<xs:attribute name="maxBytesPerSecond" type="xs:double"/>
-<xs:attribute name="metaData" type="xs:string"/>
-<xs:attribute name="playbackBytesPerSecond" type="xs:double"/>
-<xs:attribute name="resourceName" type="xs:string"/>
-<xs:attribute name="uri" type="xs:string"/>
-<xs:attribute name="videoBufferByteLength" type="xs:double"/>
-<xs:attribute name="videoBufferLength" type="xs:double"/>
-<xs:attribute name="videoByteCount" type="xs:double"/>
-<xs:attribute name="videoBytesPerSecond" type="xs:double"/>
-<xs:attribute name="videoLossRate" type="xs:double"/>
-<xs:attribute name="xmpData" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="ResponderSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="NetStreamMulticastInfoSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="bytesPushedFromPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesPushedToPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesReceivedFromIPMulticast" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesReceivedFromServer" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesRequestedByPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="bytesRequestedFromPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsPushedFromPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsPushedToPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsReceivedFromServer" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsRequestedByPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="fragmentsRequestedFromPeers" type="xs:double"/>
-<xs:element minOccurs="0" name="receiveControlBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="receiveDataBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
-<xs:element minOccurs="0" name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
-<xs:element minOccurs="0" name="sendControlBytesPerSecond" type="xs:double"/>
-<xs:element minOccurs="0" name="sendControlBytesPerSecondToServer" type="xs:double"/>
-<xs:element minOccurs="0" name="sendDataBytesPerSecond" type="xs:double"/>
-</xs:all>
-<xs:attribute name="bytesPushedFromPeers" type="xs:double"/>
-<xs:attribute name="bytesPushedToPeers" type="xs:double"/>
-<xs:attribute name="bytesReceivedFromIPMulticast" type="xs:double"/>
-<xs:attribute name="bytesReceivedFromServer" type="xs:double"/>
-<xs:attribute name="bytesRequestedByPeers" type="xs:double"/>
-<xs:attribute name="bytesRequestedFromPeers" type="xs:double"/>
-<xs:attribute name="fragmentsPushedFromPeers" type="xs:double"/>
-<xs:attribute name="fragmentsPushedToPeers" type="xs:double"/>
-<xs:attribute name="fragmentsReceivedFromIPMulticast" type="xs:double"/>
-<xs:attribute name="fragmentsReceivedFromServer" type="xs:double"/>
-<xs:attribute name="fragmentsRequestedByPeers" type="xs:double"/>
-<xs:attribute name="fragmentsRequestedFromPeers" type="xs:double"/>
-<xs:attribute name="receiveControlBytesPerSecond" type="xs:double"/>
-<xs:attribute name="receiveDataBytesPerSecond" type="xs:double"/>
-<xs:attribute name="receiveDataBytesPerSecondFromIPMulticast" type="xs:double"/>
-<xs:attribute name="receiveDataBytesPerSecondFromServer" type="xs:double"/>
-<xs:attribute name="sendControlBytesPerSecond" type="xs:double"/>
-<xs:attribute name="sendControlBytesPerSecondToServer" type="xs:double"/>
-<xs:attribute name="sendDataBytesPerSecond" type="xs:double"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
 
 <xs:element name="URLRequestHeader" type="URLRequestHeaderSchemaType"/>
 <xs:element name="NetStreamPlayOptions" type="NetStreamPlayOptionsSchemaType"/>
-<xs:element name="URLLoader" type="URLLoaderSchemaType"/>
-<xs:element name="NetStream" type="NetStreamSchemaType"/>
-<xs:element name="URLRequest" type="URLRequestSchemaType"/>
 <xs:element name="NetConnection" type="NetConnectionSchemaType"/>
+<xs:element name="NetStreamMulticastInfo" type="NetStreamMulticastInfoSchemaType"/>
 <xs:element name="NetStreamInfo" type="NetStreamInfoSchemaType"/>
 <xs:element name="Responder" type="ResponderSchemaType"/>
-<xs:element name="NetStreamMulticastInfo" type="NetStreamMulticastInfoSchemaType"/>
+<xs:element name="NetStream" type="NetStreamSchemaType"/>
+<xs:element name="URLRequest" type="URLRequestSchemaType"/>
 </xs:schema>

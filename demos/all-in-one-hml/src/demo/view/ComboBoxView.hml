@@ -10,9 +10,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Combo Box'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Combo Box" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -20,7 +20,7 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <JPanel>
                     <border><border:EmptyBorder top="30"/></border>
@@ -36,10 +36,10 @@
                             </border:LineBorder>
                         </border>
 
-                        <JLabel text="'Login into your account'" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
+                        <JLabel text="Login into your account" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
 
-                        <JTextField columns="13" inlineHint="'E-mail'" text="{Binding email mode=twoway}"/>
-                        <JTextField columns="14" inlineHint="'Password'" text="{Binding password mode=twoway}" displayAsPassword="true"/>
+                        <JTextField columns="13" inlineHint="E-mail" text="{Binding email mode=twoway}"/>
+                        <JTextField columns="14" inlineHint="Password" text="{Binding password mode=twoway}" displayAsPassword="true"/>
                         <JPanel>
                             <layout>
                                 <BorderLayout hgap="30"/>
@@ -56,15 +56,15 @@
                                     </VectorListModel>
                                 </model>
                             </JComboBox>
-                            <JCheckBox text="'Remember me'" constraints="org.aswing.BorderLayout.EAST"/>
+                            <JCheckBox text="Remember me" constraints="org.aswing.BorderLayout.EAST"/>
                         </JPanel>
                         <JPanel>
                             <layout>
                                 <FlowLayout align="org.aswing.FlowLayout.RIGHT"/>
                             </layout>
-                            <JButton text="'Sign up'"/>
+                            <JButton text="Sign up"/>
                             <JSpacer><preferredSize><geom:IntDimension width="10" height="10"/></preferredSize></JSpacer>
-                            <JButton text="'Sign in'">
+                            <JButton text="Sign in">
                                 <background>
                                     <ASColor rgb="0x1abc9c"/>
                                 </background>
@@ -75,7 +75,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -86,7 +86,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

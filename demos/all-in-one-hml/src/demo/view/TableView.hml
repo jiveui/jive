@@ -13,9 +13,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Table'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Table" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -23,15 +23,15 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <JPanel>
                     <layout>
                         <BorderLayout/>
                     </layout>
-                    <JLabel text="'TIOBE Index for May 2015, www.tiobe.com'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+                    <JLabel text="TIOBE Index for May 2015, www.tiobe.com" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
                         <font>
-                            <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                            <ASFont name="assets/Lato-Bold.ttf" size="18"/>
                         </font>
                         <border>
                             <border:EmptyBorder top="15" bottom="15"/>
@@ -84,9 +84,9 @@
                                     </border:LineBorder>
                                 </border>
                                 <JPanel>
-                                    <JLabel text="'Highest:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                    <JLabel text="Highest:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding highest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
@@ -95,9 +95,9 @@
                                         </border>
                                     </JLabel>
 
-                                    <JLabel text="'Lowest:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                    <JLabel text="Lowest:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding lowest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
@@ -106,9 +106,9 @@
                                         </border>
                                     </JLabel>
 
-                                    <JLabel text="'Language of the year:'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                    <JLabel text="Language of the year:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="'assets/Lato-Bold.ttf'" size="16"/>
+                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding languageOfYear}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>
@@ -120,7 +120,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -131,7 +131,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

@@ -10,9 +10,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Text'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Text" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -20,7 +20,7 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER" selectedIndex="{Binding selectedSpotIndex mode=twoway}">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <SoftBox>
                     <border><border:EmptyBorder top="30"/></border>
@@ -38,27 +38,27 @@
                             </border>
 
                             <JPanel>
-                                <JLabel text="'Predator'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <JLabel text="Predator" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                     <preferredSize>
                                         <geom:IntDimension width="100" height="-1"/>
                                     </preferredSize>
                                 </JLabel>
-                                <JTextField columns="15" inlineHint="'Lion'" text="{Binding predator mode=twoway}"/>
+                                <JTextField columns="15" inlineHint="Lion" text="{Binding predator mode=twoway}"/>
                             </JPanel>
 
                             <JPanel>
-                                <JLabel text="'Prey'" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
+                                <JLabel text="Prey" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                     <preferredSize>
                                         <geom:IntDimension width="100" height="-1"/>
                                     </preferredSize>
                                 </JLabel>
-                                <JTextField columns="15" inlineHint="'Antelope'" text="{Binding prey mode=twoway}"/>
+                                <JTextField columns="15" inlineHint="Antelope" text="{Binding prey mode=twoway}"/>
                             </JPanel>
 
                         </SoftBox>
                         <ext:MultilineLabel text="{Binding predatorVictimSentence mode=oneway}" rows="5" columns="20" >
                             <ext:font>
-                                <ASFont name="'assets/Lato-Bold.ttf'" size="20"/>
+                                <ASFont name="assets/Lato-Bold.ttf" size="20"/>
                             </ext:font>
                         </ext:MultilineLabel>
                     </SoftBox>
@@ -66,7 +66,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -77,7 +77,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

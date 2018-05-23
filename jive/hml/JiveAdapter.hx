@@ -38,6 +38,7 @@ class JiveAdapter extends MergedAdapter<XMLData, Node, Type> {
 			new DisplayObjectAdapter(),
 			new IEventDispatcherAdapter(),
 			new JiveXMLAdapter(),
+            new SvgIconAdapter(),
             new AssetIconAdapter(),
             new GradientBackgroundAdapter(),
             new AssetBackgroundAdapter(),
@@ -411,6 +412,15 @@ class AssetIconAdapter extends ComponentAdapter {
     public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
         if (baseType == null) baseType = macro : org.aswing.AssetIcon;
         if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 10);
+        super(baseType, events, matchLevel);
+
+    }
+}
+
+class SvgIconAdapter extends ComponentAdapter {
+    public function new(?baseType:ComplexType, ?events:Map<String, MetaData>, ?matchLevel:MatchLevel) {
+        if (baseType == null) baseType = macro : jive.SvgIcon;
+        if (matchLevel == null) matchLevel = CustomLevel(ClassLevel, 20);
         super(baseType, events, matchLevel);
 
     }

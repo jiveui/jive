@@ -2,20 +2,11 @@
 xmlns:empty="empty"
 >
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:complexType name="XMLSchemaTypeValue">
-<xs:all><xs:element ref="XML"/></xs:all></xs:complexType>
-
 <xs:complexType name="XMLListSchemaTypeValue">
 <xs:all><xs:element ref="XMLList"/></xs:all></xs:complexType>
 
-<xs:complexType name="XMLSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
+<xs:complexType name="XMLSchemaTypeValue">
+<xs:all><xs:element ref="XML"/></xs:all></xs:complexType>
 
 <xs:complexType name="XMLListSchemaType">
 <xs:complexContent>
@@ -26,7 +17,16 @@ xmlns:empty="empty"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="XMLSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+</xs:all>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
-<xs:element name="XML" type="XMLSchemaType"/>
+
 <xs:element name="XMLList" type="XMLListSchemaType"/>
+<xs:element name="XML" type="XMLSchemaType"/>
 </xs:schema>

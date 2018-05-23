@@ -19,7 +19,7 @@ class RotateGesture extends Gesture
 	/** rotation: in radians */
 	public var rotation:Float = 0;
 
-	public function new(component: jive.Component) 
+	public function new(component: org.aswing.Component)
 	{
 		super(component);
 	}

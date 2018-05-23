@@ -10,9 +10,9 @@
     <layout>
         <BorderLayout/>
     </layout>
-    <JLabel text="'Accordion'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+    <JLabel text="Accordion" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="'assets/Lato-Bold.ttf'" size="30"/>
+            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -20,46 +20,46 @@
     </JLabel>
     <JTabbedPane constraints="org.aswing.BorderLayout.CENTER">
         <!-- Demos -->
-        <TabInfo title="'Demo'">
+        <TabInfo title="Demo">
             <content>
                 <JPanel>
                     <layout>
                         <BorderLayout/>
                     </layout>
                     <border><border:EmptyBorder top="30"/></border>
-                    <JLabel text="'FAQ'" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
+                    <JLabel text="FAQ" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
                         <font>
-                            <ASFont name="'assets/Lato-Bold.ttf'" size="18"/>
+                            <ASFont name="assets/Lato-Bold.ttf" size="18"/>
                         </font>
                         <border>
                             <border:EmptyBorder bottom="15"/>
                         </border>
                     </JLabel>
                     <JAccordion>
-                        <TabInfo title="'Can I put color buttons inside?'">
+                        <TabInfo title="Can I put color buttons inside?">
                             <content>
                                 <SoftBox gap="10">
-                                    <JButton text="'Hello wisteria world!'">
+                                    <JButton text="Hello wisteria world!">
                                         <background>
                                             <ASColor rgb="0x8e44ad"/>
                                         </background>
                                     </JButton>
-                                    <JButton text="'Hello world from Belize!'">
+                                    <JButton text="Hello world from Belize!">
                                         <background>
                                             <ASColor rgb="0x2980b9"/>
                                         </background>
                                     </JButton>
-                                    <JButton text="'Emeralds\'re better than diamonds!'">
+                                    <JButton text="Emeralds\'re better than diamonds!">
                                         <background>
                                             <ASColor rgb="0x2ecc71"/>
                                         </background>
                                     </JButton>
-                                    <JButton text="'Let\'s make it orange!'">
+                                    <JButton text="Let\'s make it orange!">
                                         <background>
                                             <ASColor rgb="0xf39c12"/>
                                         </background>
                                     </JButton>
-                                    <JButton text="'I love pomegranates!'">
+                                    <JButton text="I love pomegranates!">
                                         <background>
                                             <ASColor rgb="0xc0392b"/>
                                         </background>
@@ -67,7 +67,7 @@
                                 </SoftBox>
                             </content>
                         </TabInfo>
-                        <TabInfo title="'Can I put the accordion demo XML source inside?'">
+                        <TabInfo title="Can I put the accordion demo XML source inside?">
                             <content>
                                 <JScrollPane>
                                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -78,7 +78,7 @@
                                 </JScrollPane>
                             </content>
                         </TabInfo>
-                        <TabInfo title="'Can I put the Haxe logo inside?'">
+                        <TabInfo title="Can I put the Haxe logo inside?">
                             <content>
                                 <JPanel>
                                     <layout>
@@ -93,7 +93,7 @@
             </content>
         </TabInfo>
         <!--Sources-->
-        <TabInfo title="'View (XML source)'">
+        <TabInfo title="View (XML source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding xmlSource}" backgroundDecorator="null">
@@ -104,7 +104,7 @@
                 </JScrollPane>
             </content>
         </TabInfo>
-        <TabInfo title="'View Model (Haxe source)'">
+        <TabInfo title="View Model (Haxe source)">
             <content>
                 <JScrollPane>
                     <formatting:RegExFormattedTextArea text="{Binding haxeSource}" backgroundDecorator="null">

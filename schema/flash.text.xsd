@@ -1,71 +1,25 @@
 <xs:schema targetNamespace="flash.text" xmlns="flash.text" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-xmlns:org-aswing="org.aswing"
 xmlns:flash-display="flash.display"
 xmlns:empty="empty"
 xmlns:flash-events="flash.events"
 >
-<xs:import namespace="org.aswing" schemaLocation="org.aswing.xsd" />
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
 <xs:import namespace="flash.events" schemaLocation="flash.events.xsd" />
-<xs:complexType name="FontSchemaTypeValue">
-<xs:all><xs:element ref="Font"/></xs:all></xs:complexType>
-
-<xs:complexType name="StyleSheetSchemaTypeValue">
-<xs:all><xs:element ref="StyleSheet"/></xs:all></xs:complexType>
-
-<xs:complexType name="TextSnapshotSchemaTypeValue">
-<xs:all><xs:element ref="TextSnapshot"/></xs:all></xs:complexType>
-
 <xs:complexType name="TextLineMetricsSchemaTypeValue">
 <xs:all><xs:element ref="TextLineMetrics"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextFieldSchemaTypeValue">
-<xs:choice>
-<xs:element ref="org-aswing:AWTextField" />
-<xs:element ref="TextField" />
-</xs:choice>
-</xs:complexType>
+<xs:all><xs:element ref="TextField"/></xs:all></xs:complexType>
+
+<xs:complexType name="TextSnapshotSchemaTypeValue">
+<xs:all><xs:element ref="TextSnapshot"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextFormatSchemaTypeValue">
 <xs:all><xs:element ref="TextFormat"/></xs:all></xs:complexType>
 
-<xs:complexType name="FontSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="fontName" type="xs:string"/>
-<xs:element minOccurs="0" name="fontStyle" type="xs:string"/>
-<xs:element minOccurs="0" name="fontType" type="xs:string"/>
-</xs:all>
-<xs:attribute name="fontName" type="xs:string"/>
-<xs:attribute name="fontStyle" type="xs:string"/>
-<xs:attribute name="fontType" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="StyleSheetSchemaType">
-<xs:complexContent>
-<xs:extension base="flash-events:EventDispatcherSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="styleNames" type="empty:ArraySchemaTypeValue"/>
-</xs:all>
-<xs:attribute name="styleNames" type="xs:string"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-
-<xs:complexType name="TextSnapshotSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-<xs:element minOccurs="0" name="charCount" type="xs:int"/>
-</xs:all>
-<xs:attribute name="charCount" type="xs:int"/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
+<xs:complexType name="StyleSheetSchemaTypeValue">
+<xs:all><xs:element ref="StyleSheet"/></xs:all></xs:complexType>
 
 <xs:complexType name="TextLineMetricsSchemaType">
 <xs:complexContent>
@@ -177,6 +131,17 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="TextSnapshotSchemaType">
+<xs:complexContent>
+<xs:extension base="empty:RootObjectTypeSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="charCount" type="xs:int"/>
+</xs:all>
+<xs:attribute name="charCount" type="xs:int"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
 <xs:complexType name="TextFormatSchemaType">
 <xs:complexContent>
 <xs:extension base="empty:RootObjectTypeSchemaType">
@@ -224,11 +189,21 @@ xmlns:flash-events="flash.events"
 </xs:complexContent>
 </xs:complexType>
 
+<xs:complexType name="StyleSheetSchemaType">
+<xs:complexContent>
+<xs:extension base="flash-events:EventDispatcherSchemaType">
+<xs:all minOccurs='0'>
+<xs:element minOccurs="0" name="styleNames" type="empty:ArraySchemaTypeValue"/>
+</xs:all>
+<xs:attribute name="styleNames" type="xs:string"/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
 
-<xs:element name="Font" type="FontSchemaType"/>
-<xs:element name="StyleSheet" type="StyleSheetSchemaType"/>
-<xs:element name="TextSnapshot" type="TextSnapshotSchemaType"/>
+
 <xs:element name="TextLineMetrics" type="TextLineMetricsSchemaType"/>
 <xs:element name="TextField" type="TextFieldSchemaType"/>
+<xs:element name="TextSnapshot" type="TextSnapshotSchemaType"/>
 <xs:element name="TextFormat" type="TextFormatSchemaType"/>
+<xs:element name="StyleSheet" type="StyleSheetSchemaType"/>
 </xs:schema>

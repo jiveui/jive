@@ -6,9 +6,6 @@ xmlns:empty="empty"
 <xs:import namespace="flash.utils" schemaLocation="flash.utils.xsd" />
 <xs:import namespace="flash.display" schemaLocation="flash.display.xsd" />
 <xs:import namespace="empty" schemaLocation="empty.xsd" />
-<xs:complexType name="CapabilitiesSchemaTypeValue">
-<xs:all><xs:element ref="Capabilities"/></xs:all></xs:complexType>
-
 <xs:complexType name="ApplicationDomainSchemaTypeValue">
 <xs:all><xs:element ref="ApplicationDomain"/></xs:all></xs:complexType>
 
@@ -17,15 +14,6 @@ xmlns:empty="empty"
 
 <xs:complexType name="SecurityDomainSchemaTypeValue">
 <xs:all><xs:element ref="SecurityDomain"/></xs:all></xs:complexType>
-
-<xs:complexType name="CapabilitiesSchemaType">
-<xs:complexContent>
-<xs:extension base="empty:RootObjectTypeSchemaType">
-<xs:all minOccurs='0'>
-</xs:all>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
 
 <xs:complexType name="ApplicationDomainSchemaType">
 <xs:complexContent>
@@ -75,7 +63,6 @@ xmlns:empty="empty"
 </xs:complexType>
 
 
-<xs:element name="Capabilities" type="CapabilitiesSchemaType"/>
 <xs:element name="ApplicationDomain" type="ApplicationDomainSchemaType"/>
 <xs:element name="LoaderContext" type="LoaderContextSchemaType"/>
 <xs:element name="SecurityDomain" type="SecurityDomainSchemaType"/>

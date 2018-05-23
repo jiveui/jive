@@ -5,8 +5,8 @@ import jive.BaseCommand;
 import jive.Command;
 class FrameViewModel extends ComboBoxViewModel {
 
-    @bindable public var isLoginDialogShowed: Bool;
-    @bindable public var openLoginDialogCommand: Command;
+    @:bindable public var isLoginDialogShowed: Bool;
+    @:bindable public var openLoginDialogCommand: Command;
 
     public function new() {
         super();

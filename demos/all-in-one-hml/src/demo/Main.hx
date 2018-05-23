@@ -18,6 +18,8 @@ class Main extends Sprite {
    public function new() {
        super();
 
+       var s: jive.Svg;
+
        stage.quality = flash.display.StageQuality.BEST;
 
        AsWingManager.initAsStandard(Lib.current);
