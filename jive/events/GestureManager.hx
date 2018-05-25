@@ -135,8 +135,10 @@ class GestureManager {
     }
 
     private function onTouchEnd(e:TouchEvent):Void {
-        component.stage.removeEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
-        component.stage.removeEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+        if (component != null) {
+            component.stage.removeEventListener(TouchEvent.TOUCH_MOVE, onTouchMove);
+            component.stage.removeEventListener(TouchEvent.TOUCH_END, onTouchEnd);
+        }
 
         if (!touchBeginCoords.exists(e.touchPointID)) return;
 
