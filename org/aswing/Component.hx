@@ -2429,7 +2429,8 @@ class Component extends AWSprite implements IBindable {
      * This method can be called often, so it needs to execute quickly.
      * See `Component.validate`, `Component.doLayout`, `Component.invalidatePreferSizeCaches`, `org.aswing.LayoutManager`
      */	
-	public function invalidate():Void {
+	override public function invalidate():Void {
+		super.invalidate();
     	invalidateTree();
     	invalidatePreferSizeCaches();
 	}
