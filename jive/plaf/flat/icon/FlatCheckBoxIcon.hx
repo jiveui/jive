@@ -87,11 +87,11 @@ class FlatCheckBoxIcon implements Icon implements UIResource{
 	}
 	
 	public function getIconHeight(c:Component):Int{
-		return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else 20;
+		return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else Jive.toPixelSize(20);
 	}
 	
 	public function getIconWidth(c:Component):Int{
-        return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else 20;
+        return if(null != UIManager.get("iconSize")) UIManager.get("iconSize") else Jive.toPixelSize(20);
 	}
 	
 	public function getDisplay(c:Component):DisplayObject{
