@@ -440,7 +440,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
 			if(_model != null){
 				_model.removeListDataListener(this);
 			}
-			_model = m;
+			_model = if (null != m) m else new VectorListModel();
 			_model.addListDataListener(this);
 			updateListView();
 		}
