@@ -698,7 +698,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 			this._text = text;
 			analyzeMnemonic();
 			repaint();
-			invalidate();
+			invalidateComponent();
 		}
 	}
 	
@@ -821,7 +821,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 			this._defaultIcon = defaultIcon;
 			installIcon(defaultIcon);
 			repaint();
-			invalidate();
+			invalidateComponent();
 		}
 	}
 

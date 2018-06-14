@@ -68,7 +68,7 @@ class PoorTextCell extends Component  implements TableCell{
 	/**
 	 * Simpler this method to speed up performance
 	 */
-	override public function invalidate():Void{
+	override public function invalidateComponent():Void{
 		valid = false;
 	}
 	/**

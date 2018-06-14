@@ -520,7 +520,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
     @:dox(hide)
     override public function updateUI():Void{
         setUI(UIManager.getUI(this));
-        invalidate();
+        invalidateComponent();
     }
 
     @:dox(hide)
@@ -573,7 +573,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 		if(_cellFactory != x){
 	        _cellFactory = x;
 	        firePropertyChange(CELL_FACTORY_PROPERTY, oldValue, _cellFactory);
-	        invalidate();
+	        invalidateComponent();
 		}
     }
 
@@ -630,7 +630,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	        this._cellEditor = cellEditor;
 	        cellEditor.addCellEditorListener(this);
 	        firePropertyChange(CELL_EDITOR_PROPERTY, oldEditor, cellEditor);
-	        invalidate();
+	        invalidateComponent();
 		}
     }
 
@@ -682,7 +682,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	        }
 		}
         firePropertyChange(TREE_MODEL_PROPERTY, oldModel, _treeModel);
-        invalidate();
+        invalidateComponent();
     }
 
     /**
@@ -725,7 +725,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
         this._rowHeight = rowHeight;
 		rowHeightSet = true;
         firePropertyChange(ROW_HEIGHT_PROPERTY, oldValue, this._rowHeight);
-        invalidate();
+        invalidateComponent();
     }
 
     /**
@@ -2204,7 +2204,7 @@ class JTree extends Container  implements Viewportable implements TreeModelListe
 	        _visibleRowCount = newCount;
 	        firePropertyChange(VISIBLE_ROW_COUNT_PROPERTY, oldCount,
 	                           _visibleRowCount);
-	        invalidate();
+	        invalidateComponent();
 		}
     }
 

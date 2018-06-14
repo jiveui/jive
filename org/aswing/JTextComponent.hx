@@ -214,7 +214,7 @@ class JTextComponent extends Component  implements EditableComponent implements 
 				getTextField().type = TextFieldType.DYNAMIC;
 			}
             updateTextForeground();
-			invalidate();
+			invalidateComponent();
 			invalidateColumnRowSize();
 			repaint();
 		}

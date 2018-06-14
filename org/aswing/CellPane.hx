@@ -7,7 +7,7 @@ package org.aswing;
 
 /**
  * Cell Pane is just a container, it do not layout children, 
- * do not invalidate parent.
+ * do not invalidateComponent parent.
  * @author paling
  */
 class CellPane extends Container{
@@ -20,7 +20,7 @@ class CellPane extends Container{
 		valid = true;
 	}
 	
-	override public function invalidate():Void{
+	override public function invalidateComponent():Void{
 		valid = true;
 	}
 	

@@ -1340,7 +1340,7 @@ class Component extends AWSprite implements IBindable {
 	}
 	
 	/**
-	 * Set the component's location, if it is diffs from old location, invalidate it to wait validate.
+	 * Set the component's location, if it is diffs from old location, invalidateComponent it to wait validate.
 	 *
 	 * The top-left corner of the new location is specified by the x and y parameters
 	  *
@@ -2364,7 +2364,7 @@ class Component extends AWSprite implements IBindable {
     /**
      * Supports deferred automatic layout.  
      *
-     * Calls `Component.invalidate` and then adds this component
+     * Calls `Component.invalidateComponent` and then adds this component
      * to a list of components that need to be
      * validated.  Validation will occur after all currently pending
      * events have been dispatched.  In other words after this method
@@ -2376,15 +2376,15 @@ class Component extends AWSprite implements IBindable {
      *
      * This method will or will not automatically be called on this component 
      * when a property value changes such that size, location, or 
-     * internal layout of this component has been affected.But invalidate
+     * internal layout of this component has been affected.But invalidateComponent
      * will do called after thats method, so you want to get the contents of 
      * the GUI to update you should call this method.
      *
      *
-     * See `Component.invalidate`, `Component.validate`, `Component.isValidateRoot`, `RepaintManager.addInvalidComponent`
+     * See `Component.invalidateComponent`, `Component.validate`, `Component.isValidateRoot`, `RepaintManager.addInvalidComponent`
      */
 	public function revalidate():Void{
-    	invalidate();
+    	invalidateComponent();
     	RepaintManager.getInstance().addInvalidComponent(this);
     }
         
@@ -2418,7 +2418,7 @@ class Component extends AWSprite implements IBindable {
 	private function size():Void{
 		readyToPaint = true;
 		repaint();
-		invalidate();
+		invalidateComponent();
 	}
 	
     /**
@@ -2429,8 +2429,7 @@ class Component extends AWSprite implements IBindable {
      * This method can be called often, so it needs to execute quickly.
      * See `Component.validate`, `Component.doLayout`, `Component.invalidatePreferSizeCaches`, `org.aswing.LayoutManager`
      */	
-	override public function invalidate():Void {
-		super.invalidate();
+	public function invalidateComponent():Void {
     	invalidateTree();
     	invalidatePreferSizeCaches();
 	}
@@ -2456,8 +2455,8 @@ class Component extends AWSprite implements IBindable {
      * `Component.invalidatePreferSizeCaches` will be helpful now.
      *
      * Generally you do not need to call this method manually unless you get above situation.
-     * this method will be called inside `Component.invalidate` automatically.
-     * See	`Component.invalidate`, `Component.validate`, `Component.setCachePreferSizes`, `org.aswing.LayoutManager`
+     * this method will be called inside `Component.invalidateComponent` automatically.
+     * See	`Component.invalidateComponent`, `Component.validate`, `Component.setCachePreferSizes`, `org.aswing.LayoutManager`
      */		
 	public function invalidatePreferSizeCaches():Void{
     	clearPreferSizeCaches();
@@ -2476,7 +2475,7 @@ class Component extends AWSprite implements IBindable {
     /**
      * Ensures that this component has a valid layout.  This method is
      * primarily intended to operate on instances of `Container`.
-     * See `Component.invalidate`, `Container.doLayout`, `LayoutManager`, `Container.validate`
+     * See `Component.invalidateComponent`, `Container.doLayout`, `LayoutManager`, `Container.validate`
      */	
 	public function validate():Void{
     	if(!valid){
@@ -2616,7 +2615,7 @@ class Component extends AWSprite implements IBindable {
      * @return <code>true</code> if the component is valid, <code>false</code>
      * otherwise
      * @see #validate()
-     * @see #invalidate()
+     * @see #invalidateComponent()
      */
     public function isValid():Bool{
     	return valid;

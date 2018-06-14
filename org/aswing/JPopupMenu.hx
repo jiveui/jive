@@ -251,7 +251,7 @@ class JPopupMenu extends Container  implements MenuElement{
 //			ui.uninstallUI(this);
 //			ui.installUI(this);
 //		}
-//		invalidate();
+//		invalidateComponent();
 	}	
 	
 	/**

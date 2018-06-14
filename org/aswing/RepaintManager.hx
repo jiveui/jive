@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import haxe.CallStack;
 import flash.display.Stage;
 import org.aswing.error.Error;
 import flash.events.Event;
@@ -99,7 +100,7 @@ class RepaintManager{
 	 * Find the Component's validate root parent and regist it need to validate.
 	 * @see org.aswing.Component#revalidate()
 	 * @see org.aswing.Component#validate()
-	 * @see org.aswing.Component#invalidate()
+	 * @see org.aswing.Component#invalidateComponent()
 	 */	
 	public function addInvalidComponent(com:Component):Void{
 		var validateRoot:Component = getValidateRootComponent(com);
@@ -213,7 +214,6 @@ class RepaintManager{
 		while((++i) < n){
 			com = processRepaints[i];
 			com.paintImmediately();
-//            trace("painting com : " + com);
 		}
 //		if(n > 0){
 //			trace(n + " paint time : " + (getTimer() - time));

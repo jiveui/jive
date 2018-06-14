@@ -76,7 +76,7 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	override public function updateUI():Void{
 		setUI(UIManager.getUI(this));
 		resizeAndRepaint();
-		invalidate();
+		invalidateComponent();
 	}
 	
     override public function getDefaultBasicUIClass():Class<Dynamic>{
@@ -89,13 +89,13 @@ class JTableHeader extends Container  implements TableColumnModelListener{
 	}	
 	
 	/**
-	 * Make it do not invalidate parents if it located in a JTable
+	 * Make it do not invalidateComponent parents if it located in a JTable
 	 */
-	override public function invalidate():Void{
+	override public function invalidateComponent():Void{
 		if(parent == getTable()){
 			valid = false;
 		}else{
-			super.invalidate();
+			super.invalidateComponent();
 		}
 	}
 	

@@ -298,7 +298,7 @@ class SoftBoxLayout extends EmptyLayout{
 
 							var c: Container = target;
 							while (c != null) {
-								c.invalidate();
+								c.invalidateComponent();
 								c.validate();
 								c = c.getParent();
 							}

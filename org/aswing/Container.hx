@@ -110,9 +110,9 @@ class Container extends Component{
      * @see #doLayout()
      * @see org.aswing.LayoutManager
      */
-    override public function invalidate():Void{
+    override public function invalidateComponent():Void{
     	_layout.invalidateLayout(this);
-    	super.invalidate();
+    	super.invalidateComponent();
     }
 	
     /** 
@@ -125,7 +125,7 @@ class Container extends Component{
      * changed) after the container has been displayed.
      *
      * @see #append()
-     * @see Component#invalidate()
+     * @see Component#invalidateComponent()
      * @see org.aswing.Component#revalidate()
      */
     override public function validate():Void{
