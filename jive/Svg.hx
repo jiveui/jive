@@ -1,6 +1,7 @@
 package jive;
 
 
+import openfl.utils.Assets;
 import org.aswing.geom.IntDimension;
 import org.aswing.geom.IntRectangle;
 import format.SVG;
@@ -24,6 +25,13 @@ class Svg extends org.aswing.Component {
         return v;
     }
 
+    public var asset(default, set): String;
+    private function set_asset(v: String): String {
+        asset = v;
+        repaint();
+        return v;
+    }
+
     public function new() {
         super();
     }
@@ -36,13 +44,20 @@ class Svg extends org.aswing.Component {
         graphics.drawRect(b.x, b.y, b.width, b.height);
         graphics.endFill();
 
-        if (null != generateContent) _content = generateContent();
-        new SVG(content).render(graphics);
-    }
+        updateContent();
 
-    override public function getPreferredSize(): IntDimension {
-        if (null != generateContent) _content = generateContent();
+        new SVG(content).render(graphics, 0, 0, preferredSize.width, preferredSize.height);
+    }
+    override public function countPreferredSize(): IntDimension {
+        updateContent();
         var data = new SVG(content).data;
         return new IntDimension(Std.int(data.width), Std.int(data.height));
+    }
+
+    private function updateContent() {
+        if (null != generateContent) _content = generateContent();
+        if (null == content && asset != null) {
+            _content = Assets.getText(asset);
+        }
     }
 }
