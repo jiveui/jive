@@ -1516,10 +1516,7 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     	var viewSize:IntDimension = getViewSize();
     	var rowCount:Int= getVisibleRowCount();
     	if(rowCount > 0){
-	    	var rowHeight:Int= 20;
-	    	if(getCellFactory().isAllCellHasSameHeight()){
-	    		rowHeight = getCellFactory().getCellHeight();
-	    	}
+			var rowHeight = getRowHeight();
     		viewSize.height = rowCount * rowHeight;
     	}
     	var cellWidth:Int= getVisibleCellWidth();
@@ -1528,6 +1525,14 @@ class JList extends Container  implements LayoutManager implements Viewportable 
     	}
     	return getInsets().getOutsideSize(viewSize);
     }
+
+	private inline function getRowHeight(): Int {
+		var rowHeight:Int= 20;
+		if(getCellFactory().isAllCellHasSameHeight()){
+			rowHeight = getCellFactory().getCellHeight();
+		}
+		return rowHeight;
+	}
 
     /**
     * Implementation of LayoutManager interface
