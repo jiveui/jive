@@ -66,6 +66,16 @@ class TableSorter extends AbstractTableModel  implements TableModelListener{
         return v;
     }
 
+    //TODO: support getter and many columns
+    public var sortingStatus(get, set): TableSortingStatus;
+    private var _sortingStatus: TableSortingStatus;
+    private function get_sortingStatus(): TableSortingStatus { return _sortingStatus; }
+    private function set_sortingStatus(v: TableSortingStatus): TableSortingStatus {
+        _sortingStatus = v;
+        setSortingStatus(v.columnIndex, v.status);
+        return v;
+    }
+
     public var tableHeader(get, set): JTableHeader;
     private var _tableHeader: JTableHeader;
     private function get_tableHeader(): JTableHeader { return getTableHeader(); }
