@@ -244,6 +244,7 @@ class SvgWithMetaWriter extends ComponentWithMetaWriter {
                 var svgPrefix = if (Std.is(node, hml.xml.Type)) "" else "res.";
                 var generateContentName = svgPrefix + "generateContent";
                 method.push(generateContentName + " = function() { var b = new StringBuf();");
+                method.push("if (dataContext != null) { ");
                 var parts = r.split(value);
                 var i:Int = 0;
                 for (p in parts) {
@@ -253,7 +254,9 @@ class SvgWithMetaWriter extends ComponentWithMetaWriter {
                         i += 1;
                     }
                 }
-                method.push("return b.toString(); }");
+                method.push("return b.toString();");
+                method.push("} else { return null; }"); //dataContext nullness check
+                method.push("}");
 
                 if (expressions.length > 0) {
                     method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix + "repaint(); } ");

@@ -50,8 +50,12 @@ class Svg extends org.aswing.Component {
     }
     override public function countPreferredSize(): IntDimension {
         updateContent();
-        var data = new SVG(content).data;
-        return new IntDimension(Std.int(data.width), Std.int(data.height));
+        if (null != content) {
+            var data = new SVG(content).data;
+            return new IntDimension(Std.int(data.width), Std.int(data.height));
+        } else {
+            return new IntDimension(0, 0);
+        }
     }
 
     private function updateContent() {
