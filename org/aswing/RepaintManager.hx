@@ -5,6 +5,7 @@
 package org.aswing;
 
 
+import haxe.ds.ObjectMap;
 import haxe.CallStack;
 import flash.display.Stage;
 import org.aswing.error.Error;
@@ -52,8 +53,8 @@ class RepaintManager{
 		validateQueue = new Array<Component>();
 		renderring = false;
 		alwaysUseTimer = false;
-		timer = new Timer(20, 0);
-		timer.addEventListener(AWEvent.ACT, __timerRender);
+//		timer = new Timer(20, 0);
+//		timer.addEventListener(AWEvent.ACT, __timerRender);
 	}
 	
 	/**
@@ -84,7 +85,7 @@ class RepaintManager{
 	 */
 	public function setAlwaysUseTimer(b:Bool, delay:Int=19):Void{
 		alwaysUseTimer = b;
-		timer.setDelay(delay);
+//		timer.setDelay(delay);
 	}
 		
 	/**
@@ -123,16 +124,16 @@ class RepaintManager{
 		var st:Stage = AsWingManager.getStage();
 		//why
 	    
-		if (alwaysUseTimer || st == null || renderring) {
-	
-			if(timer.isRunning()!=true){
-				timer.restart(); 
-			}
-			
-		}else{
+//		if (alwaysUseTimer || st == null || renderring) {
+//
+//			if(timer.isRunning()!=true){
+////				timer.restart();
+//			}
+//
+//		}else{
 			st.addEventListener(Event.RENDER, __render, false, 0, true);
 			st.invalidate();
-		}
+//		}
 	}
 	
 	/**
@@ -166,58 +167,41 @@ class RepaintManager{
 	}
 	
 	private function __timerRender(e:AWEvent):Void{
-		__render();
+		//__render();
 		//e.updateAfterEvent();
 	}
 	
 	/**
 	 * Every frame this method will be executed to invoke the painting of components needed.
 	 */
-	private function __render(e:Event=null):Void{
+	private function __render(e:Event=null):Void {
+
 		if(e!=null)	{
 			var st:Stage = AsWingManager.getStage()	;
     		 st.removeEventListener(Event.RENDER, __render);
 		}
-		var i:Int;
-		var n:Int;
-		var com:Component;
-		//time++;
-		
+
 		renderring = true;
 		
-//		var time:Number = getTimer();
-		var processValidates:Array<Component>= validateQueue.copy();
+		var processValidates: ObjectMap<Component, Component> = new ObjectMap<Component, Component>();
+		for (c in validateQueue) processValidates.set(c, c);
 		//must clear here, because there maybe addRepaintComponent at below operation
-		validateQueue=new Array<Component>();
-		n = processValidates.length;
-		i = -1;
-		if(n > 0){
-			//trace("------------------------one tick---------------------------");
+		validateQueue = new Array<Component>();
+
+		for (c in processValidates) {
+			c.validate();
 		}
-		while((++i) < n){
-			com = processValidates[i];
-			com.validate();
-//			trace("validating com : " + com);
-		}
-//		if(n > 0){
-//			trace(n + " validate time : " + (getTimer() - time));
-//		}
-//		time = getTimer();
 		
-		
-		var processRepaints:Array<Component>= repaintQueue.copy();
+		var processRepaints: ObjectMap<Component, Component> = new ObjectMap<Component, Component>();
+		for (c in repaintQueue) processRepaints.set(c, c);
 		//must clear here, because there maybe addInvalidComponent at below operation
-	 
-		repaintQueue=new Array<Component>();
-		n = processRepaints.length;
-		i = -1;
-		while((++i) < n){
-			com = processRepaints[i];
-			com.paintImmediately();
+		repaintQueue = new Array<Component>();
+
+
+		for (c in processRepaints) {
+			c.paintImmediately();
 		}
-//		if(n > 0){
-//			trace(n + " paint time : " + (getTimer() - time));
-//		}
+
 		renderring = false;
 	}	
 }
