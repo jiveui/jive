@@ -4,7 +4,8 @@
 
 package org.aswing.event;
 
-	
+
+import flash.events.KeyboardEvent;
 import flash.events.KeyboardEvent;
 import flash.events.Event; 
 
@@ -76,7 +77,7 @@ class FocusKeyEvent extends KeyboardEvent{
 		 
 	 }
 	
-	override public function clone():Event{
+	override public function clone(): KeyboardEvent {
 		return new FocusKeyEvent(type, charCode, keyCode, keyLocation, ctrlKey, altKey, shiftKey);
 	}
 	

@@ -4,7 +4,8 @@
 
 package org.aswing.event;
 
-	
+
+import flash.events.MouseEvent;
 import flash.display.DisplayObject;
 import flash.events.Event;
 import flash.events.MouseEvent;
@@ -99,7 +100,7 @@ class ReleaseEvent extends MouseEvent{
 		return releasedOutSide;
 	}
 	
-	override public function clone():Event{
+	override public function clone(): MouseEvent {
 		return new ReleaseEvent(type, getPressTarget(), isReleasedOutSide(), this);
 	}
 	

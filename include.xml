@@ -8,4 +8,5 @@
     <haxelib name="unifill"/>
     <haxelib name="bindx2"/>
     <haxelib name="hml"/>
+    <haxeflag name="--remap flash:openfl"/>
 </extension>

@@ -5,8 +5,8 @@
 package org.aswing.event;
 
 
-import flash.events.Event;
-import flash.events.MouseEvent;
+import openfl.events.Event;
+import openfl.events.MouseEvent;
 
 import org.aswing.ListCell;
 
@@ -14,7 +14,7 @@ import org.aswing.ListCell;
  * The event for items of List.
  * @author paling
  */
-class ListItemEvent extends MouseEvent{
+class ListItemEvent extends MouseEvent {
 	
 	/**
      *  The <code>ListItemEvent.ITEM_CLICK</code> constant defines the value of the
@@ -189,7 +189,7 @@ class ListItemEvent extends MouseEvent{
 		return cell;
 	}
 	
-	override public function clone():Event{
+	override public function clone(): MouseEvent {
 		return new ListItemEvent(type, value, cell, this);
 	}
 }

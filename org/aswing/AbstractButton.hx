@@ -3,6 +3,7 @@
 */
 
 package org.aswing;
+import flash.events.TouchEvent;
 import flash.Lib;
 import flash.geom.Point;
 import flash.events.TouchEvent;
@@ -1250,7 +1251,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 	
 	private function initSelfHandlers():Void {
 
-        addEventListener(TouchEvent.TOUCH_ROLL_OUT, __rollOutListener);
+        addEventListener(TouchEvent.TOUCH_ROLL_OUT, __touchRollOutListener);
 		addEventListener(MouseEvent.ROLL_OUT, __rollOutListener);
 		addEventListener(MouseEvent.ROLL_OVER, __rollOverListener);
 		addEventListener(MouseEvent.MOUSE_DOWN, __mouseDownListener);
@@ -1295,15 +1296,23 @@ class AbstractButton extends Component implements bindx.IBindable {
 		}
 	}
 
-	private function __rollOutListener(e:MouseEvent):Void{
+    private function __rollOutHandler() {
         var m:ButtonModel = getModel();
-		if(isRollOverEnabled()) {
-			if(!m.isPressed()){
-				m.setRollOver(false);
-			}
-		}
-		m.setArmed(false);
+        if(isRollOverEnabled()) {
+            if(!m.isPressed()){
+                m.setRollOver(false);
+            }
+        }
+        m.setArmed(false);
+    }
+
+	private function __rollOutListener(e:MouseEvent):Void{
+        __rollOutHandler();
 	}
+
+    private function __touchRollOutListener(e:TouchEvent):Void{
+        __rollOutHandler();
+    }
 
 	private function __mouseDownListener(e:MouseEvent):Void {
 		getModel().setArmed(true);
