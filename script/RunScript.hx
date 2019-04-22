@@ -3,12 +3,12 @@ package;
 
 import haxe.crypto.Sha1;
 import sys.FileSystem;
-import haxe.io.Path;
-import lime.tools.helpers.*;
-import lime.tools.platforms.*;
 import lime.project.*;
 import sys.io.File;
 import sys.io.Process;
+import lime.tools.*;
+import hxp.*;
+import hxp.System;
 
 class RunScript {
 
@@ -40,14 +40,14 @@ class RunScript {
         } catch (e: Dynamic) {}
 
         if (oldHash == hash) {
-            LogHelper.info("Jive: HML files are not modified since the last build.");
+            Log.info("Jive: HML files are not modified since the last build.");
             return false;
         } else {
             if (!sys.FileSystem.exists(dir)) {
                 sys.FileSystem.createDirectory(dir);
             }
             File.saveContent(file, hash);
-            LogHelper.info("Jive: HML files are modified. Compiling...");
+            Log.info("Jive: HML files are modified. Compiling...");
             return true;
         }
     }
@@ -58,15 +58,15 @@ class RunScript {
 		var args = Sys.args ();
 		var workingDirectory = args.pop ();
 
-        var shouldProcessHml =  args[0] == "build" || args[0] == "test";
+        var shouldProcessHml =  args[0] == "build" || args[0] == "test" || args[0] == "deploy" || args[0] == "update";
 		var args = [ "run", "lime" ].concat (args);
-        LogHelper.verbose = true;
+        Log.verbose = true;
 
 
         try {
 			Sys.setCwd (workingDirectory);
 		} catch (e:Dynamic) {
-			LogHelper.error ("Cannot set current working directory to \"" + workingDirectory + "\"");
+			Log.error ("Cannot set current working directory to \"" + workingDirectory + "\"");
 		}
 
         if (shouldProcessHml) {
@@ -74,32 +74,32 @@ class RunScript {
 
             if (projectFile == "") {
 
-                LogHelper.error ("You must have a \"project.xml\" file.");
+                Log.error ("You must have a \"project.xml\" file.");
                 return;
 
             } else {
-                LogHelper.info ("", LogHelper.accentColor + "Using project file: " + projectFile + LogHelper.resetColor);
+                Log.info ("", Log.accentColor + "Using project file: " + projectFile + Log.resetColor);
             }
 
             project = new ProjectXMLParser (Path.withoutDirectory (projectFile), null, []);
             project.command = "build";
             project.debug = false;
-            project.target = PlatformHelper.hostPlatform;
+            project.target = cast System.hostPlatform;
             project.targetFlags = new Map <String, String> ();
             project.targetFlags.set ("cpp", "");
 
             var targetDirectory = project.app.path + "/jive";
-            PathHelper.mkdir (targetDirectory);
+            System.mkdir (targetDirectory);
 
             var context = generateContext ();
 
             var jive = new Haxelib ("jive");
-            var jivePath = PathHelper.getHaxelib (jive);
+            var jivePath = Haxelib.getPath(jive);
 
-            FileHelper.recursiveCopyTemplate([jivePath + "/templates"], "jive", targetDirectory, context);
+            System.recursiveCopyTemplate([jivePath + "/templates"], "jive", targetDirectory, context);
 
             if (isHmlChanged(targetDirectory, calcRecursiveHmlFilesHashForDirectory(project.sources[0]))) {
-                ProcessHelper.runCommand ("", "haxe", [ targetDirectory + "/gen.hxml" ]);
+                System.runCommand ("", "haxe", [ targetDirectory + "/gen.hxml" ]);
             }
 
             args = args.concat(["--source=" + targetDirectory+"/gen"]);
@@ -112,21 +112,21 @@ class RunScript {
     // From lime/tools/CommandLineTools.hx
     static private function findProjectFile (path:String):String {
 
-        if (FileSystem.exists (PathHelper.combine (path, "project.hxp"))) {
+        if (FileSystem.exists (Path.combine (path, "project.hxp"))) {
 
-            return PathHelper.combine (path, "project.hxp");
+            return Path.combine (path, "project.hxp");
 
-        } else if (FileSystem.exists (PathHelper.combine (path, "project.lime"))) {
+        } else if (FileSystem.exists (Path.combine (path, "project.lime"))) {
 
-            return PathHelper.combine (path, "project.lime");
+            return Path.combine (path, "project.lime");
 
-        } else if (FileSystem.exists (PathHelper.combine (path, "project.nmml"))) {
+        } else if (FileSystem.exists (Path.combine (path, "project.nmml"))) {
 
-            return PathHelper.combine (path, "project.nmml");
+            return Path.combine (path, "project.nmml");
 
-        } else if (FileSystem.exists (PathHelper.combine (path, "project.xml"))) {
+        } else if (FileSystem.exists (Path.combine (path, "project.xml"))) {
 
-            return PathHelper.combine (path, "project.xml");
+            return Path.combine (path, "project.xml");
 
         } else {
 
@@ -139,7 +139,7 @@ class RunScript {
 
             for (file in files) {
 
-                var path = PathHelper.combine (path, file);
+                var path = Path.combine (path, file);
 
                 if (FileSystem.exists (path) && !FileSystem.isDirectory (path)) {
 

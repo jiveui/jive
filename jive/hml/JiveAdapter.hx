@@ -2,7 +2,7 @@ package jive.hml;
 
 #if macro
 import haxe.macro.Context;
-import lime.project.MetaData;
+import lime.tools.MetaData;
 import hml.xml.writer.IHaxeWriter;
 import hml.xml.adapters.base.MergedAdapter;
 
