@@ -26,8 +26,10 @@ class Jive {
 	private static function get_scale(): Float {
 		#if jive_pseudo_mobile
 		return 1.0;
-		#else
+		#elseif mobile
 		return dpi / 163;
+		#else
+		return dpi / 123;
 		#end
 	}
 

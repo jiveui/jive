@@ -259,7 +259,7 @@ class SvgWithMetaWriter extends ComponentWithMetaWriter {
                 method.push("}");
 
                 if (expressions.length > 0) {
-                    method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix + "repaint(); } ");
+                    method.push("var onChange = function(from: Dynamic, to: Dynamic) { " + svgPrefix + "revalidate(); " + svgPrefix + "repaint(); } ");
                     method.push("var subscribe = function() {");
                     for (e in expressions) {
                         if (e.startsWith("dataContext.")) {

@@ -15,9 +15,9 @@ import flash.display.Shape;
  * A background decorator that paint a solid color.
  * @author
  */
-class SolidBackground implements GroundDecorator{
+class SolidBackground implements GroundDecorator implements bindx.IBindable {
 	
-	private var color:ASColor;
+	public var color:ASColor;
 	private var shape:Shape;
 	
 	public function new(color:ASColor = null){

@@ -21,6 +21,7 @@ class Svg extends org.aswing.Component {
 
     private function set_content(v:String):String {
         _content = v;
+        revalidate();
         repaint();
         return v;
     }
@@ -28,6 +29,7 @@ class Svg extends org.aswing.Component {
     public var asset(default, set): String;
     private function set_asset(v: String): String {
         asset = v;
+        revalidate();
         repaint();
         return v;
     }
