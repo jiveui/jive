@@ -106,13 +106,9 @@ class TitledBorder extends DecorateBorder{
     	if(textField == null){
 	    	textField = new TextField();
 	    	textField.selectable = false;
-			 #if(flash9 || html5)
-	    	textField.autoSize = TextFieldAutoSize.CENTER;  
-			 
-			 #end
-			  #if(cpp)
-			textField.autoSize = TextFieldAutoSize.LEFT;  
-			 #end
+			#if(flash9 || html5 || cpp)
+	    	textField.autoSize = TextFieldAutoSize.LEFT;
+			#end
     	}
     	return textField;
 	}
