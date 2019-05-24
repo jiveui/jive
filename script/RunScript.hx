@@ -112,73 +112,68 @@ class RunScript {
     // From lime/tools/CommandLineTools.hx
     static private function findProjectFile (path:String):String {
 
-        if (FileSystem.exists (Path.combine (path, "project.hxp"))) {
+        if (FileSystem.exists(Path.combine(path, "project.hxp")))
+        {
+            return Path.combine(path, "project.hxp");
+        }
+        else if (FileSystem.exists(Path.combine(path, "project.lime")))
+        {
+            return Path.combine(path, "project.lime");
+        }
+        else if (FileSystem.exists(Path.combine(path, "project.xml")))
+        {
+            return Path.combine(path, "project.xml");
+        }
+        else if (FileSystem.exists(Path.combine(path, "project.nmml")))
+        {
+            return Path.combine(path, "project.nmml");
+        }
+        else
+        {
+            var files = FileSystem.readDirectory(path);
+            var matches = new Map<String, Array<String>>();
+            matches.set("hxp", []);
+            matches.set("lime", []);
+            matches.set("nmml", []);
+            matches.set("xml", []);
 
-            return Path.combine (path, "project.hxp");
+            for (file in files)
+            {
+                var path = Path.combine(path, file);
 
-        } else if (FileSystem.exists (Path.combine (path, "project.lime"))) {
+                if (FileSystem.exists(path) && !FileSystem.isDirectory(path))
+                {
+                    var extension = Path.extension(file);
 
-            return Path.combine (path, "project.lime");
-
-        } else if (FileSystem.exists (Path.combine (path, "project.nmml"))) {
-
-            return Path.combine (path, "project.nmml");
-
-        } else if (FileSystem.exists (Path.combine (path, "project.xml"))) {
-
-            return Path.combine (path, "project.xml");
-
-        } else {
-
-            var files = FileSystem.readDirectory (path);
-            var matches = new Map <String, Array <String>> ();
-            matches.set ("hxp", []);
-            matches.set ("lime", []);
-            matches.set ("nmml", []);
-            matches.set ("xml", []);
-
-            for (file in files) {
-
-                var path = Path.combine (path, file);
-
-                if (FileSystem.exists (path) && !FileSystem.isDirectory (path)) {
-
-                    var extension = Path.extension (file);
-
-                    if ((extension == "lime" && file != "include.lime") || (extension == "nmml" && file != "include.nmml") || (extension == "xml" && file != "include.xml") || extension == "hxp") {
-
-                        matches.get (extension).push (path);
-
+                    if ((extension == "lime" && file != "include.lime")
+                    || (extension == "nmml" && file != "include.nmml")
+                    || (extension == "xml" && file != "include.xml")
+                    || extension == "hxp")
+                    {
+                        matches.get(extension).push(path);
                     }
-
                 }
-
             }
 
-            if (matches.get ("hxp").length > 0) {
-
-                return matches.get ("hxp")[0];
-
+            if (matches.get("hxp").length > 0)
+            {
+                return matches.get("hxp")[0];
             }
 
-            if (matches.get ("lime").length > 0) {
-
-                return matches.get ("lime")[0];
-
+            if (matches.get("lime").length > 0)
+            {
+                return matches.get("lime")[0];
             }
 
-            if (matches.get ("nmml").length > 0) {
-
-                return matches.get ("nmml")[0];
-
+            if (matches.get("nmml").length > 0)
+            {
+                return matches.get("nmml")[0];
             }
 
-            if (matches.get ("xml").length > 0) {
-
-                return matches.get ("xml")[0];
-
+            if (matches.get("xml").length > 0)
+            {
+                return matches.get("xml")[0];
             }
-
         }
 
         return "";
