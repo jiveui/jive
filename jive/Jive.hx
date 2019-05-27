@@ -19,7 +19,11 @@ class Jive {
 
 	public static var dpi(get, null): Float;
 	private static function get_dpi(): Float {
-		return lime.system.System.getDisplay(0).dpi;
+		var display = lime.system.System.getDisplay(0);
+		if (null == display) {
+			throw "Jive.dpi is called before putting the app on a display.";
+		}
+		return display.dpi;
 	}
 
 	public static var scale(get, null): Float;
