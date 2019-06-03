@@ -188,12 +188,12 @@ class FlatLookAndFeel extends LookAndFeel {
 		];
 		#else
 		var defaultSystemFonts:Array<Dynamic>= [
-			"systemFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale),
-			"menuFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale),
-			"topMenuFont", new ASFontUIResource("assets/Lato-Bold.ttf", 16 * Jive.scale),
-			"controlFont", new ASFontUIResource("assets/Lato-Regular.ttf", 16 * Jive.scale),
-			"windowFont", new ASFontUIResource("assets/Lato-Regular.ttf", 14 * Jive.scale, true),
-			"controlHeaderFont", new ASFontUIResource("assets/Lato-Bold.ttf", 18 * Jive.scale)
+			"systemFont", new ASFontUIResource("Lato Regular", 14 * Jive.scale),
+			"menuFont", new ASFontUIResource("Lato Regular", 14 * Jive.scale),
+			"topMenuFont", new ASFontUIResource("Lato-Bold", 16 * Jive.scale),
+			"controlFont", new ASFontUIResource("Lato Regular", 16 * Jive.scale),
+			"windowFont", new ASFontUIResource("Lato Regular", 14 * Jive.scale, true),
+			"controlHeaderFont", new ASFontUIResource("Lato Bold", 18 * Jive.scale)
 		];
 		#end
 		table.putDefaults(defaultSystemFonts);
@@ -251,7 +251,7 @@ class FlatLookAndFeel extends LookAndFeel {
 			"LabelButton.colorAdjust", new UIStyleTune(0.26, 0.05, 0.20, 0.20), 
 			"LabelButton.opaque", false,  
 			"LabelButton.focusable", true,  
-			"LabelButton.font", new ASFontUIResource("assets/Lato-Regular.ttf", 16, false, false, true),
+			"LabelButton.font", new ASFontUIResource("Lato Regular", 16, false, false, true),
 			"LabelButton.margin", new InsetsUIResource(0, 0, 0, 0), 
 			"LabelButton.textShiftOffset", 0 ,
 		    "LabelButton.textFilters", f

@@ -29,7 +29,7 @@ class TableViewModel extends ComboBoxViewModel {
 
     public function new() {
         super();
-        xmlSource = Assets.getText("assets/source/TableView.xml");
+        xmlSource = Assets.getText("assets/source/TableView.hml");
         haxeSource = Assets.getText("assets/source/TableViewModel.hx");
         isLoginDialogShowed = false;
         openLoginDialogCommand = new BaseCommand(function() { isLoginDialogShowed = true; });

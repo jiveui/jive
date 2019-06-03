@@ -8,7 +8,7 @@ class ProgressViewModel implements IBindable implements Spotable {
     @:bindable public var isScrollbarIndeterminate: Bool = false;
     @:bindable public var sliderValue: Int = 0;
 
-    @:bindable public var xmlSource: String = Assets.getText("assets/source/ProgressView.xml");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/ProgressView.hml");
     @:bindable public var haxeSource: String = Assets.getText("assets/source/ProgressViewModel.hx");
 
     @:bindable public var selectedSpotIndex(get, set): Int;

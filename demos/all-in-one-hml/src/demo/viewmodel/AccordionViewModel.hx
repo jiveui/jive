@@ -7,7 +7,7 @@ import bindx.IBindable;
 
 class AccordionViewModel implements IBindable implements Spotable  {
 
-    @:bindable public var xmlSource: String = Assets.getText("assets/source/AccordionView.xml");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/AccordionView.hml");
     @:bindable public var haxeSource: String = Assets.getText("assets/source/AccordionViewModel.hx");
     @:bindable public var haxeLogo: DisplayObject = new Bitmap(Assets.getBitmapData("haxe-logo.png"));
 

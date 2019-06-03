@@ -15,7 +15,7 @@ class ButtonsViewModel implements IBindable implements Spotable {
     @:bindable public var weatherButtonCommand: Command;
     @:bindable public var calendarButtonCommand: Command;
 
-    @:bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.xml");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/ButtonsView.hml");
     @:bindable public var haxeSource: String = Assets.getText("assets/source/ButtonsViewModel.hx");
 
     @:bindable public var selectedSpotIndex(get, set): Int;

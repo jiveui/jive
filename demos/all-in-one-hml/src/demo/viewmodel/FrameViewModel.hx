@@ -10,7 +10,7 @@ class FrameViewModel extends ComboBoxViewModel {
 
     public function new() {
         super();
-        xmlSource = Assets.getText("assets/source/FrameView.xml");
+        xmlSource = Assets.getText("assets/source/FrameView.hml");
         haxeSource = Assets.getText("assets/source/FrameViewModel.hx");
         isLoginDialogShowed = false;
         openLoginDialogCommand = new BaseCommand(function() { isLoginDialogShowed = true; });

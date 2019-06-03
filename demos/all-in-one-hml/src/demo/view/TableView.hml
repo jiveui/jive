@@ -15,7 +15,7 @@
     </layout>
     <JLabel text="Table" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
+            <ASFont name="Lato Bold" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -31,7 +31,7 @@
                     </layout>
                     <JLabel text="TIOBE Index for May 2015, www.tiobe.com" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
                         <font>
-                            <ASFont name="assets/Lato-Bold.ttf" size="18"/>
+                            <ASFont name="Lato Bold" size="18"/>
                         </font>
                         <border>
                             <border:EmptyBorder top="15" bottom="15"/>
@@ -86,7 +86,7 @@
                                 <JPanel>
                                     <JLabel text="Highest:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
+                                            <ASFont name="Lato Bold" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding highest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
@@ -97,7 +97,7 @@
 
                                     <JLabel text="Lowest:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
+                                            <ASFont name="Lato Bold" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding lowest}" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
@@ -108,7 +108,7 @@
 
                                     <JLabel text="Language of the year:" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                                         <font>
-                                            <ASFont name="assets/Lato-Bold.ttf" size="16"/>
+                                            <ASFont name="Lato Bold" size="16"/>
                                         </font>
                                     </JLabel>
                                     <JLabel text="{Binding languageOfYear}" horizontalAlignment="org.aswing.AsWingConstants.LEFT"/>

@@ -12,7 +12,7 @@
     </layout>
     <JLabel text="Text" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
+            <ASFont name="Lato Bold" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -58,7 +58,7 @@
                         </SoftBox>
                         <ext:MultilineLabel text="{Binding predatorVictimSentence mode=oneway}" rows="5" columns="20" >
                             <ext:font>
-                                <ASFont name="assets/Lato-Bold.ttf" size="20"/>
+                                <ASFont name="Lato Bold" size="20"/>
                             </ext:font>
                         </ext:MultilineLabel>
                     </SoftBox>

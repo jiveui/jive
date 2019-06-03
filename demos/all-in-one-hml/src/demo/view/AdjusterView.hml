@@ -13,7 +13,7 @@
     </layout>
     <JLabel text="Adjuster" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
+            <ASFont name="Lato Bold" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -39,7 +39,7 @@
 
                         <JLabel text="Shopping Cart" horizontalAlignment="org.aswing.AsWingConstants.LEFT">
                             <font>
-                                <ASFont name="assets/Lato-Bold.ttf" size="18"/>
+                                <ASFont name="Lato Bold" size="18"/>
                             </font>
                             <border><border:EmptyBorder bottom="10"/></border>
                         </JLabel>
@@ -108,12 +108,12 @@
                                 </layout>
                                 <JLabel text="Total:">
                                     <font>
-                                        <ASFont name="assets/Lato-Bold.ttf" size="16"/>
+                                        <ASFont name="Lato Bold" size="16"/>
                                     </font>
                                 </JLabel>
                                 <JLabel text="{Binding totalCost}">
                                     <font>
-                                        <ASFont name="assets/Lato-Bold.ttf" size="16"/>
+                                        <ASFont name="Lato Bold" size="16"/>
                                     </font>
                                 </JLabel>
                             </JPanel>

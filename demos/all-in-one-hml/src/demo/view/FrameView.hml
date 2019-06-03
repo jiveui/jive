@@ -13,7 +13,7 @@
     </layout>
     <JLabel text="Dialog" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
+            <ASFont name="Lato Bold" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>

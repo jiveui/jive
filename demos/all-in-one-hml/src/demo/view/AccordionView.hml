@@ -12,7 +12,7 @@
     </layout>
     <JLabel text="Accordion" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
         <font>
-            <ASFont name="assets/Lato-Bold.ttf" size="30"/>
+            <ASFont name="Lato Bold" size="30"/>
         </font>
         <border>
             <border:EmptyBorder bottom="30"/>
@@ -29,7 +29,7 @@
                     <border><border:EmptyBorder top="30"/></border>
                     <JLabel text="FAQ" horizontalAlignment="org.aswing.AsWingConstants.LEFT" constraints="org.aswing.BorderLayout.NORTH">
                         <font>
-                            <ASFont name="assets/Lato-Bold.ttf" size="18"/>
+                            <ASFont name="Lato Bold" size="18"/>
                         </font>
                         <border>
                             <border:EmptyBorder bottom="15"/>

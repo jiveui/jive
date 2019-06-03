@@ -39,7 +39,7 @@ class AdjusterViewModel extends ComboBoxViewModel {
 
     public function new() {
         super();
-        xmlSource = Assets.getText("assets/source/AdjusterView.xml");
+        xmlSource = Assets.getText("assets/source/AdjusterView.hml");
         haxeSource = Assets.getText("assets/source/AdjusterViewModel.hx");
         isLoginDialogShowed = false;
         openLoginDialogCommand = new BaseCommand(function() { isLoginDialogShowed = true; });

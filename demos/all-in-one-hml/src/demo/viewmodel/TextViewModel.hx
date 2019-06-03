@@ -37,7 +37,7 @@ class TextViewModel implements IBindable implements Spotable {
     }
     private function set_predatorVictimSentence(v: String): String { return v; }
 
-    @:bindable public var xmlSource: String = Assets.getText("assets/source/TextView.xml");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/TextView.hml");
     @:bindable public var haxeSource: String = Assets.getText("assets/source/TextViewModel.hx");
 
     @:bindable public var selectedSpotIndex(get, set): Int;

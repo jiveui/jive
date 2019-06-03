@@ -14,12 +14,11 @@
       <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../site/haxe/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../demos/all-in-one-hml/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/.." isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/bin" />
       <excludeFolder url="file://$MODULE_DIR$/report" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Haxe 3.4" jdkType="Haxe toolkit" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="munit" level="project" />
     <orderEntry type="library" name="jive" level="project" />

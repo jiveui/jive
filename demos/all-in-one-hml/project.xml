@@ -10,14 +10,11 @@
 
     <!-- classpath, haxe libs -->
     <source path="src" />
-    <source path="gen" />
 
     <!--<set name="html5-backend" value="openfl-snapsvg"/>-->
 
     <haxelib name="openfl" />
     <haxelib name="jive"/>
-
-    <template path="templates" />
 
     <assets path="assets" rename=""/>
     <assets path="src/demo/view" rename="assets/source"/>

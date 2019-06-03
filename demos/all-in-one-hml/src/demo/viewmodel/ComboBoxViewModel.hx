@@ -17,7 +17,7 @@ class ComboBoxViewModel implements IBindable implements Spotable {
 
     @:bindable public var role: Int = 0;
 
-    @:bindable public var xmlSource: String = Assets.getText("assets/source/ComboBoxView.xml");
+    @:bindable public var xmlSource: String = Assets.getText("assets/source/ComboBoxView.hml");
     @:bindable public var haxeSource: String = Assets.getText("assets/source/ComboBoxViewModel.hx");
 
     @:bindable public var selectedSpotIndex(get, set): Int;
