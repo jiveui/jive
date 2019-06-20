@@ -22,7 +22,7 @@ import flash.display.DisplayObject;
  * TitledBorder, a border with a line rectangle and a title text.
  * @author paling
  */	
-class TitledBorder extends DecorateBorder{
+class TitledBorder extends DecorateBorder {
 	public var DEFAULT_LINE_LIGHT_COLOR (get, null):ASColor;
 
 	public var DEFAULT_LINE_COLOR (get, null):ASColor;
@@ -53,20 +53,102 @@ class TitledBorder extends DecorateBorder{
 	inline public static var RIGHT:Int= AsWingConstants.RIGHT;
 	
 
-    // Space between the text and the line end
-    inline public static var GAP:Int= 1;	
+	public var textGap(get, set): Int;
+	private var _textGap: Int;
+	private function get_textGap(): Int { return _textGap; }
+	private function set_textGap(v: Int): Int {
+	    _textGap = v;
+	    return v;
+	}
+
+	public var title(get, set): String;
+	private var _title: String;
+	private function get_title(): String { return _title; }
+	private function set_title(v: String): String {
+	    _title = v;
+	    return v;
+	}
+
+	public var edge(get, set): Float;
+	private var _edge: Float;
+	private function get_edge(): Float { return _edge; }
+	private function set_edge(v: Float): Float {
+	    _edge = v;
+	    return v;
+	}
+
+	public var position(get, set): Int;
+	private var _position: Int;
+	private function get_position(): Int { return _position; }
+	private function set_position(v: Int): Int {
+	    _position = v;
+	    return v;
+	}
+
+	public var align(get, set): Int;
+	private var _align: Int;
+	private function get_align(): Int { return _align; }
+	private function set_align(v: Int): Int {
+	    _align = v;
+	    return v;
+	}
+
+	public var color(get, set): ASColor;
+	private var _color: ASColor;
+	private function get_color(): ASColor { return _color; }
+	private function set_color(v: ASColor): ASColor {
+	    _color = v;
+	    return v;
+	}
+
+	public var round(get, set): Float;
+	private var _round: Float;
+	private function get_round(): Float { return _round; }
+	private function set_round(v: Float): Float {
+	    _round = v;
+	    return v;
+	}
+
+	public var font(get, set): ASFont;
+	private var _font: ASFont;
+	private function get_font(): ASFont { return _font; }
+	private function set_font(v: ASFont): ASFont {
+	    _font = v;
+	    return v;
+	}
+
+	public var lineColor(get, set): ASColor;
+	private var _lineColor: ASColor;
+	private function get_lineColor(): ASColor { return _lineColor; }
+	private function set_lineColor(v: ASColor): ASColor {
+	    _lineColor = v;
+	    return v;
+	}
+
+	public var lineThickness(get, set): Float;
+	private var _lineThickness: Float;
+	private function get_lineThickness(): Float { return _lineThickness; }
+	private function set_lineThickness(v: Float): Float {
+	    _lineThickness = v;
+	    return v;
+	}
 	
-	private var title:String;
-	private var position:Int;
-	private var align:Int;
-	private var edge:Float;
-	private var round:Float;
-	private var font:ASFont;
-	private var color:ASColor;
-	private var lineColor:ASColor;
-	private var lineLightColor:ASColor;
-	private var lineThickness:Float;
-	private var beveled:Bool;
+	public var lineLightColor(get, set): ASColor;
+	private var _lineLightColor: ASColor;
+	private function get_lineLightColor(): ASColor { return _lineLightColor; }
+	private function set_lineLightColor(v: ASColor): ASColor {
+	    _lineLightColor = v;
+	    return v; 
+	}
+	
+	public var beveled(get, set): Bool;
+	private var _beveled: Bool;
+	private function get_beveled(): Bool { return _beveled; }
+	private function set_beveled(v: Bool): Bool {
+	    _beveled = v;
+	    return v; 
+	}
+
 	private var textField:TextField;
 	private var textFieldSize:IntDimension;
 	
@@ -91,7 +173,8 @@ class TitledBorder extends DecorateBorder{
 		this.align = align;
 		this.edge = edge;
 		this.round = round;
-		
+
+		textGap = 1;
 		font = DEFAULT_FONT;
 		color = DEFAULT_COLOR;
 		lineColor = DEFAULT_LINE_COLOR;
@@ -157,20 +240,20 @@ class TitledBorder extends DecorateBorder{
     			//draw dark rect
     			g.beginDraw(pen);
     			if(position == TOP){
-	    			g.moveTo(textR.x - GAP, y1);
+	    			g.moveTo(textR.x - textGap, y1);
 	    			g.lineTo(x1, y1);
 	    			g.lineTo(x1, y2);
 	    			g.lineTo(x2, y2);
 	    			g.lineTo(x2, y1);
-	    			g.lineTo(textR.x + textR.width+GAP, y1);
+	    			g.lineTo(textR.x + textR.width+textGap, y1);
 	    				    			
     			}else{
-	    			g.moveTo(textR.x - GAP, y2);
+	    			g.moveTo(textR.x - textGap, y2);
 	    			g.lineTo(x1, y2);
 	    			g.lineTo(x1, y1);
 	    			g.lineTo(x2, y1);
 	    			g.lineTo(x2, y2);
-	    			g.lineTo(textR.x + textR.width+GAP, y2);
+	    			g.lineTo(textR.x + textR.width+textGap, y2);
     			}
     			g.endDraw();
     			if(beveled)	{
@@ -178,24 +261,24 @@ class TitledBorder extends DecorateBorder{
 	    			pen.setColor(lineLightColor);
 	    			g.beginDraw(pen);
 	    			if(position == TOP){
-		    			g.moveTo(textR.x - GAP, y1+lineThickness);
+		    			g.moveTo(textR.x - textGap, y1+lineThickness);
 		    			g.lineTo(x1+lineThickness, y1+lineThickness);
 		    			g.lineTo(x1+lineThickness, y2-lineThickness);
 		    			g.moveTo(x1, y2+lineThickness);
 		    			g.lineTo(x2+lineThickness, y2+lineThickness);
 		    			g.lineTo(x2+lineThickness, y1);
 		    			g.moveTo(x2-lineThickness, y1+lineThickness);
-		    			g.lineTo(textR.x + textR.width+GAP, y1+lineThickness);
+		    			g.lineTo(textR.x + textR.width+textGap, y1+lineThickness);
 		    				    			
 	    			}else{
-		    			g.moveTo(textR.x - GAP, y2+lineThickness);
+		    			g.moveTo(textR.x - textGap, y2+lineThickness);
 		    			g.lineTo(x1, y2+lineThickness);
 		    			g.moveTo(x1+lineThickness, y2-lineThickness);
 		    			g.lineTo(x1+lineThickness, y1+lineThickness);
 		    			g.lineTo(x2-lineThickness, y1+lineThickness);
 		    			g.moveTo(x2+lineThickness, y1);
 		    			g.lineTo(x2+lineThickness, y2+lineThickness);
-		    			g.lineTo(textR.x + textR.width+GAP, y2+lineThickness);
+		    			g.lineTo(textR.x + textR.width+textGap, y2+lineThickness);
 	    			}
 	    			g.endDraw();
     			}
@@ -225,7 +308,7 @@ class TitledBorder extends DecorateBorder{
     				y1+=t;
     				y2+=t;
 	    			if(position == TOP){
-			    		g.moveTo(textR.x - GAP, y1);
+			    		g.moveTo(textR.x - textGap, y1);
 						//Top left
 						g.lineTo (x1+r, y1);
 						g.curveTo(x1, y1, x1, y1+r);
@@ -238,9 +321,9 @@ class TitledBorder extends DecorateBorder{
 						//Top right
 						g.lineTo (x2, y1+r);
 						g.curveTo(x2, y1, x2-r, y1);
-						g.lineTo(textR.x + textR.width+GAP, y1);
+						g.lineTo(textR.x + textR.width+textGap, y1);
 	    			}else{
-			    		g.moveTo(textR.x + textR.width+GAP, y2);
+			    		g.moveTo(textR.x + textR.width+textGap, y2);
 						//bottom right
 						g.lineTo(x2-r, y2);
 						g.curveTo(x2, y2, x2, y2-r);
@@ -253,7 +336,7 @@ class TitledBorder extends DecorateBorder{
 						//Bottom left
 						g.lineTo (x1, y2-r );
 						g.curveTo(x1, y2, x1+r, y2);
-						g.lineTo(textR.x - GAP, y2);
+						g.lineTo(textR.x - textGap, y2);
 	    			}
 	    			g.endDraw();  
     				x1-=t;
@@ -264,7 +347,7 @@ class TitledBorder extends DecorateBorder{
     			pen.setColor(lineColor);		
     			g.beginDraw(pen);
     			if(position == TOP){
-		    		g.moveTo(textR.x - GAP, y1);
+		    		g.moveTo(textR.x - textGap, y1);
 					//Top left
 					g.lineTo (x1+r, y1);
 					g.curveTo(x1, y1, x1, y1+r);
@@ -277,9 +360,9 @@ class TitledBorder extends DecorateBorder{
 					//Top right
 					g.lineTo (x2, y1+r);
 					g.curveTo(x2, y1, x2-r, y1);
-					g.lineTo(textR.x + textR.width+GAP, y1);
+					g.lineTo(textR.x + textR.width+textGap, y1);
     			}else{
-		    		g.moveTo(textR.x + textR.width+GAP, y2);
+		    		g.moveTo(textR.x + textR.width+textGap, y2);
 					//bottom right
 					g.lineTo(x2-r, y2);
 					g.curveTo(x2, y2, x2, y2-r);
@@ -292,7 +375,7 @@ class TitledBorder extends DecorateBorder{
 					//Bottom left
 					g.lineTo (x1, y2-r );
 					g.curveTo(x1, y2, x1+r, y2);
-					g.lineTo(textR.x - GAP, y2);
+					g.lineTo(textR.x - textGap, y2);
     			}
     			g.endDraw();
     		}
