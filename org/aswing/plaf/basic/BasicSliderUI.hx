@@ -119,8 +119,10 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 	private function uninstallComponents():Void{
 		slider.removeChild(trackCanvas);
 		slider.removeChild(progressCanvas);
-		slider.removeChild(thumbIcon.getDisplay(slider));
-		thumbIcon = null;
+		if (null != thumbIcon) {
+			slider.removeChild(thumbIcon.getDisplay(slider));
+			thumbIcon = null;
+		}
 		progressCanvas = null;
 		trackCanvas = null;
 	}
@@ -142,8 +144,10 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 		slider.removeEventListener(MouseEvent.MOUSE_WHEEL, __onSliderMouseWheel);
 		slider.removeStateListener(__onSliderStateChanged);
 		slider.removeEventListener(FocusKeyEvent.FOCUS_KEY_DOWN, __onSliderKeyDown);
-		scrollTimer.stop();
-		scrollTimer = null;
+		if (null != scrollTimer) {
+			scrollTimer.stop();
+			scrollTimer = null;
+		}
 	}
 	
 	private function isVertical():Bool{
@@ -234,6 +238,7 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 	}
 	
 	private function getThumbSize():IntDimension{
+		if (null == thumbIcon) return new IntDimension(0,0);
 		if(isVertical()){
 			return new IntDimension(thumbIcon.getIconHeight(slider), thumbIcon.getIconWidth(slider));
 		}else{
@@ -439,6 +444,7 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 	}
 	
 	private function paintThumb(g:Graphics2D, drawRect:IntRectangle):Void{
+		if (null == thumbIcon) return;
 		if(isVertical()){
 			thumbIcon.getDisplay(slider).rotation = 90;
 			thumbIcon.updateIcon(slider, g, drawRect.x+thumbIcon.getIconHeight(slider), drawRect.y);
@@ -531,6 +537,7 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 	//----------------------------
 	
 	private function __onSliderStateChanged(e:Event):Void{
+		if (null == thumbIcon) return;
 		if(isDragging!=true){
 			countThumbRect();
 			paintThumb(null, thumbRect);
@@ -615,6 +622,7 @@ class BasicSliderUI extends BaseComponentUI  implements SliderUI{
 			delta = -delta;
 		}
 		scrollByIncrement(delta*getUnitIncrement());
+		e.stopPropagation();
 	}
 	
 	private function __scrollTimerPerformed(e:Event):Void{
