@@ -418,7 +418,7 @@ class ASColor{
 	}
 
 	public function toSvg():String {
-		return "#" + StringTools.hex(_rgb);
+		return "#" + StringTools.hex(_rgb, 6);
 	}
 
 	/**
