@@ -1,5 +1,6 @@
 package jive;
 
+import haxe.CallStack;
 import org.aswing.AsWingManager;
 import openfl.Lib;
 
@@ -21,6 +22,7 @@ class Jive {
 	private static function get_dpi(): Float {
 		var display = lime.system.System.getDisplay(0);
 		if (null == display) {
+            trace(CallStack.toString(CallStack.callStack()));
 			throw "Jive.dpi is called before putting the app on a display.";
 		}
 		return display.dpi;
