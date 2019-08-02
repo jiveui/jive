@@ -70,8 +70,8 @@ class BorderExtLayout extends EmptyLayout{
 	private var beyondEast: Component;
 	private var beyondSouth: Component;
 
-	private var overlay: Component;
-	private var centerOverlay: Component;
+	private var overlays: Array<Component> = [];
+	private var centerOverlays: Array<Component> = [];
 	
 	private var defaultConstraints:String;
 
@@ -253,9 +253,9 @@ class BorderExtLayout extends EmptyLayout{
 //
 //			beyondWest.setEnabled(false);
 		} else if (CENTER_OVERLAY == name) {
-			centerOverlay = comp;
+			centerOverlays.push(comp);
 		} else if (OVERLAY == name) {
-			overlay = comp;
+			overlays.push(comp);
 		} else {
 			//defaut center
 		    center = comp;
@@ -282,11 +282,10 @@ class BorderExtLayout extends EmptyLayout{
 			beyondEast = null;
 		} else if (comp == beyondWest) {
 			beyondWest = null;
-		} else if (comp == centerOverlay) {
-			centerOverlay = null;
-		} else if (comp == overlay) {
-			overlay = null;
 		}
+
+		centerOverlays.remove(comp);
+		overlays.remove(comp);
 
 		if (comp == firstLine) {
 		    firstLine = null;
@@ -459,15 +458,11 @@ class BorderExtLayout extends EmptyLayout{
 			d = c.getPreferredSize();
 		    c.setBounds(new IntRectangle(Std.int(c.x), top, right - left, bottom - top));
 		}
-		if ((c=getChild(CENTER_OVERLAY,ltr)) != null) {
-			c.setBounds(new IntRectangle(Std.int(c.x), top, right - left, bottom - top));
-//			d = c.getPreferredSize();
-//			c.setBounds(new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height));
-		}
-		if ((c=getChild(OVERLAY,ltr)) != null) {
-//			c.setBounds(new IntRectangle(left, top, right - left, bottom - top));
+
+		for (c in centerOverlays) c.bounds = new IntRectangle(Std.int(c.x), top, right - left, bottom - top);
+		for (c in overlays) {
 			d = c.getPreferredSize();
-			c.setBounds(new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height));
+			c.bounds = new IntRectangle(Std.int(c.x), Std.int(c.y), d.width, d.height);
 		}
     }
 
@@ -510,12 +505,6 @@ class BorderExtLayout extends EmptyLayout{
 		}
 		else if (key == BEYOND_SOUTH) {
 			result = beyondSouth;
-		}
-		else if (key == CENTER_OVERLAY) {
-			result = centerOverlay;
-		}
-		else if (key == OVERLAY) {
-			result = overlay;
 		}
         else if (key == CENTER) {
             result = center;
