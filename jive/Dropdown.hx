@@ -34,6 +34,7 @@ class Dropdown extends JPopup {
     }
 
     override public function setVisible(v:Bool): Void {
+        pack();
         updateLocation();
         super.setVisible(v);
         if (v) {
