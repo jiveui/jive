@@ -25,7 +25,19 @@ class Jive {
             trace(CallStack.toString(CallStack.callStack()));
 			throw "Jive.dpi is called before putting the app on a display.";
 		}
-		return display.dpi;
+
+		//hack
+		var iPadMini = Lambda.fold(
+			["iPad4,4", "iPad4,5", "iPad4,6", "iPad4,7", "iPad4,8", "iPad4,9", "iPad5,1", "iPad5,2"],
+			function(s, r) {
+				var m = lime.system.System.deviceModel;
+				return r || (m != null && m.indexOf(s) >= 0);
+			},
+			false
+		);
+
+		return if (iPadMini) 326 else display.dpi;
+
 	}
 
 	public static var scale(get, null): Float;
