@@ -1,5 +1,6 @@
 package jive;
 
+import flash.events.MouseEvent;
 import org.aswing.geom.IntRectangle;
 import flash.filters.BitmapFilterQuality;
 import flash.filters.DropShadowFilter;
@@ -34,16 +35,27 @@ class Dropdown extends JPopup {
     }
 
     override public function setVisible(v:Bool): Void {
-        pack();
-        updateLocation();
         super.setVisible(v);
         if (v) {
+            pack();
+            updateLocation();
             timer = new Timer(100);
             timer.run = updateLocation;
+            if (null != stage) {
+                stage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+            }
         } else {
             if (null != timer) timer.stop();
             timer == null;
+            if (null != stage) {
+                stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+            }
         }
+    }
+
+    private function onMouseDown(e: MouseEvent) {
+        trace(e);
+        if (!hitTestMouse() && closeOnMouseDownOutside) visibility = false;
     }
 
     private function updateLocation() {
@@ -88,5 +100,13 @@ class Dropdown extends JPopup {
                 else DropdownSnapCorner.BottomLeft;
             else if (snapToLocation.y + snapToBounds.height + b.height + gap <= stageHeight) DropdownSnapCorner.TopRight;
                 else BottomRight;
+    }
+
+    public var closeOnMouseDownOutside(get, set): Bool;
+    private var _closeOnMouseDownOutside: Bool = false;
+    private function get_closeOnMouseDownOutside(): Bool { return _closeOnMouseDownOutside; }
+    private function set_closeOnMouseDownOutside(v: Bool): Bool {
+        _closeOnMouseDownOutside = v;
+        return v;
     }
 }
