@@ -2242,6 +2242,7 @@ class Component extends AWSprite implements IBindable {
 		}else{
 			this._preferredSize = preferredSize.clone();
 		}
+		repaintAndRevalidate();
 	}
 
 	/**
