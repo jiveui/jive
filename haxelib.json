@@ -4,7 +4,7 @@
   "license": "MIT",
   "tags": [ "GUI", "UI"],
   "description": "Jive - a crossplatform UI framework",
-  "version": "0.3",
+  "version": "0.3.0",
   "releasenote": "The command line tool, the SVG component, the mobile web mode.",
   "contributors": [ "ngrebenshikov" ],
   "dependencies": {
