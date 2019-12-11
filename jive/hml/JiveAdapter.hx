@@ -113,11 +113,6 @@ class ComponentWithMetaWriter extends BaseNodeWithMetaWriter {
 							}
 						};');
                     method.push('bindx.Bind.bind($propertyName, propertyListener);');
-                    method.push('bindx.Bind.bind(this.dataContext, function(old,_) {
-						 	if (null != this.dataContext) {
-								$valueSource = $propertyName;
-							}
-						});');
                 }
             }
 
