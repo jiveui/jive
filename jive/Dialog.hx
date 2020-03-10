@@ -34,6 +34,7 @@ class Dialog extends JFrame {
 	@:dox(hide)
 	override public function setVisible(v:Bool):Void{
 		updateSizeAndLocation(null);
+        toFront();
 		super.setVisible(v);
 	}	
 }
