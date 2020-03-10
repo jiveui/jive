@@ -63,7 +63,7 @@ class AWSprite extends Sprite
 		//focusRect = false;
         usingBitmap = false;
 		#if ios
-        //setUsingBitmap(true);
+        setUsingBitmap(true);
         #end
 		clipMaskRect = new IntRectangle();
 		setClipMasked(clipMasked);
@@ -338,7 +338,7 @@ class AWSprite extends Sprite
 //			maskShape.graphics.endFill();
 		}
 		this.scrollRect=new Rectangle(b.x, b.y, b.width, b.height);
-		clipMaskRect.setRect(b);
+//		clipMaskRect.setRect(b);
 	}
 	
 	private function setUsingBitmap(b:Bool):Void{
