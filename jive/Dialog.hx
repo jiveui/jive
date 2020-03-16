@@ -1,6 +1,7 @@
 package jive;
 
-import flash.Lib;
+import openfl.Lib;
+import openfl.events.Event;
 import org.aswing.AsWingManager;
 import org.aswing.event.ContainerEvent;
 import org.aswing.geom.IntPoint;
@@ -13,6 +14,21 @@ class Dialog extends JFrame {
         resizable = false;
         defaultCloseOperation = JFrame.HIDE_ON_CLOSE;
         content.addEventListener(ContainerEvent.COM_ADDED, updateSizeAndLocation);
+
+        addEventListener(Event.ADDED_TO_STAGE, function(e) {
+            Lib.current.stage.addEventListener(Event.RESIZE, onResize);
+        });
+
+        addEventListener(Event.REMOVED_FROM_STAGE, function(e) {
+            Lib.current.stage.removeEventListener(Event.RESIZE, onResize);
+        });
+    }
+
+    private function onResize(e) {
+        if (visible) {
+            updateSizeAndLocation(null);
+            toFront();
+        }
     }
 
     private function updateSizeAndLocation(e: Dynamic) {
