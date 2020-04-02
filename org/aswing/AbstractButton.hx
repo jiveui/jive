@@ -684,9 +684,8 @@ class AbstractButton extends Component implements bindx.IBindable {
 	 * if you set "&File" to be the text, then "File" will be displayed, and "F" 
 	 * will be the mnemonic.
 	 * <p>
-	 * This method will make button repaint, but will not make button relayout, 
-	 * so if you sets a different size text, you may need to call <code>revalidate()</code> 
-	 * to make this button to be relayouted by his container.
+	 * This method will make button repaint and revalidate to make this button
+	 * to be relayouted by his container.
 	 * </p>
 	 * @param text the text.
 	 * See `#getDisplayText()`
@@ -699,7 +698,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 			this._text = text;
 			analyzeMnemonic();
 			repaint();
-			invalidateComponent();
+			revalidate();
 		}
 	}
 	
