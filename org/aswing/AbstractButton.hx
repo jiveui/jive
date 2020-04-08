@@ -3,6 +3,7 @@
 */
 
 package org.aswing;
+import jive.Jive;
 import flash.events.TouchEvent;
 import flash.Lib;
 import flash.geom.Point;
@@ -684,9 +685,8 @@ class AbstractButton extends Component implements bindx.IBindable {
 	 * if you set "&File" to be the text, then "File" will be displayed, and "F" 
 	 * will be the mnemonic.
 	 * <p>
-	 * This method will make button repaint, but will not make button relayout, 
-	 * so if you sets a different size text, you may need to call <code>revalidate()</code> 
-	 * to make this button to be relayouted by his container.
+	 * This method will make button repaint and revalidate to make this button
+	 * to be relayouted by his container.
 	 * </p>
 	 * @param text the text.
 	 * See `#getDisplayText()`
@@ -699,7 +699,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 			this._text = text;
 			analyzeMnemonic();
 			repaint();
-			invalidateComponent();
+			revalidate();
 		}
 	}
 	
@@ -1278,7 +1278,12 @@ class AbstractButton extends Component implements bindx.IBindable {
 
     private var mousePoint: Point;
     private function __moveListener(e: MouseEvent): Void {
-        if (Math.sqrt((mousePoint.x - e.stageX)*(mousePoint.x - e.stageX) + (mousePoint.y - e.stageY)*(mousePoint.y - e.stageY)) > UIManager.get("margin")/2) {
+        trace(e);
+        trace(mousePoint);
+        trace(e.stageX);
+        trace(e.stageY);
+        if (Math.sqrt((mousePoint.x - e.stageX)*(mousePoint.x - e.stageX) + (mousePoint.y - e.stageY)*(mousePoint.y - e.stageY)) > Jive.atom) {
+            trace("moved far");
             model.setArmed(false);
             model.setPressed(false);
         }
