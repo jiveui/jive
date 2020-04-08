@@ -30,7 +30,14 @@ class SvgIcon extends AssetIcon {
         return v;
     }
 
+    public var cacheAsBitmap(get, set): Bool;
     private var _cacheAsBitmap: Bool;
+    private function get_cacheAsBitmap(): Bool { return _cacheAsBitmap; }
+    private function set_cacheAsBitmap(v: Bool): Bool {
+        _cacheAsBitmap = v;
+        updateAsset();
+        return v;
+    }
 
     public function new(assetName: String = null, width: Int = -1, height: Int = -1, cacheAsBitmap: Bool = false) {
         super(null, width, height);
