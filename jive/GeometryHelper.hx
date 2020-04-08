@@ -6,7 +6,7 @@ class GeometryHelper {
         var matrix:Matrix = new Matrix();
         if (angle != 0.0) {
             matrix.translate(-pivotX, -pivotY);
-            matrix.rotate(angle / 180 * Math.PI);
+            matrix.rotate(angle / 180.0 * Math.PI);
             matrix.translate(pivotX, pivotY);
         }
         return matrix;
