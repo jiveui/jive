@@ -151,7 +151,7 @@ class GestureManager {
 
             var moves: Array<Point> = touchMoves.get(e.touchPointID);
 
-            for(i in 0...Std.int(Math.min(10, moves.length))) {
+            for(i in 0...moves.length) {
                 var p = moves.pop();
                 offsetY += p.y;
                 offsetX += p.x;
