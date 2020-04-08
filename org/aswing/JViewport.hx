@@ -188,7 +188,7 @@ class JViewport extends Container  implements Viewportable {
 		setLayout(new ViewportLayout());
 		updateUI();
 
-        gestureManager = new GestureManager(this, 0);
+        gestureManager = new GestureManager(this);
         addEventListener(TransformGestureEvent.GESTURE_PAN, onPan);
 	}
 
