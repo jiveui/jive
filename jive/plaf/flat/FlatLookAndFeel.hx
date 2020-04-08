@@ -911,6 +911,13 @@ class FlatLookAndFeel extends LookAndFeel {
 	        "MenuBar.font", table.getFont("menuFont"),
 	    	"MenuBar.border", null];
 	    table.putDefaults(comDefaults);
+
+		// *** Picker
+		comDefaults = [
+			"Picker.fg", jive.plaf.flat.background.FlatPickerForeground,
+			"Picker.bg", jive.plaf.flat.background.FlatDatePickerBackground
+		];
+		table.putDefaults(comDefaults);
 	}
 	
 }
