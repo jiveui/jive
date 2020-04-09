@@ -1278,12 +1278,7 @@ class AbstractButton extends Component implements bindx.IBindable {
 
     private var mousePoint: Point;
     private function __moveListener(e: MouseEvent): Void {
-        trace(e);
-        trace(mousePoint);
-        trace(e.stageX);
-        trace(e.stageY);
         if (Math.sqrt((mousePoint.x - e.stageX)*(mousePoint.x - e.stageX) + (mousePoint.y - e.stageY)*(mousePoint.y - e.stageY)) > Jive.atom) {
-            trace("moved far");
             model.setArmed(false);
             model.setPressed(false);
         }
