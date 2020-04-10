@@ -5,6 +5,7 @@
 package jive.plaf.flat.icon;
 
 
+import org.aswing.UIManager;
 import org.aswing.graphics.SolidBrush;
 import flash.display.Sprite;
 import flash.display.DisplayObjectContainer;
@@ -107,11 +108,11 @@ class FlatSliderThumbIcon implements Icon implements UIResource{
 	}
 	
 	public function getIconHeight(c:Component):Int{
-		return 15;
+		return UIManager.getInt(getPropertyPrefix()+"thumbSize");
 	}
 	
 	public function getIconWidth(c:Component):Int{
-		return 15;
+		return getIconHeight(c);
 	}
 	
 	public function getDisplay(c:Component):DisplayObject{
