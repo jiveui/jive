@@ -39,7 +39,7 @@ import org.aswing.geom.IntDimension;
 class Container extends Component{
 	
 	private var focusTraversalPolicy:FocusTraversalPolicy;
-	private var children: Array<Dynamic>;
+	private var children: Array<Component>;
 	private var _layout:LayoutManager;
 
 	public var layout(get, set): LayoutManager;
@@ -152,7 +152,7 @@ class Container extends Component{
 	 * @see Component#getConstraints()
 	 */
 	public function reAppendChildren():Void{
-		var chs: Array<Dynamic>= children.copy();
+		var chs: Array<Component>= children.copy();
 		removeAll();
 		for(i in 0...chs.length){
 			append(chs[i]);
@@ -177,12 +177,9 @@ class Container extends Component{
 	 * Adds one or more component to the container with null constraints
 	 * @see #append()
 	 */
-	public function appendAll(coms: Array<Dynamic>):Void{
-		for (i in 0...coms.length ){
-			var com:Component = AsWingUtils.as(coms[i],Component)	;
-			if(com != null){
-				append(com);
-			}
+	public function appendAll(coms: Array<Component>):Void{
+		for (c in coms ){
+			append(c);
 		}
 	}
 	
@@ -206,13 +203,10 @@ class Container extends Component{
 	 * Insets one or more component to the container with null constraints at specified starting index.
 	 * @see #insert()
 	 */
-	public function insertAll(index:Int, coms: Array<Dynamic>):Void{
-		for (i in coms ){
-			var com:Component = AsWingUtils.as(i,Component)	;
-			if(com != null){
-				insert(index, com);
-				index++;
-			}
+	public function insertAll(index:Int, coms: Array<Component>):Void{
+		for (c in coms ){
+			insert(index, c);
+			index++;
 		}
 	}
 	
@@ -358,7 +352,7 @@ class Container extends Component{
 			removeAt(children.length - 1);
 		}
 	}
-	public function  getComponents():Array<Dynamic> {
+	public function  getComponents():Array<Component> {
 		return children ;
 	}	
     /** 
