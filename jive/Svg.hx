@@ -29,6 +29,7 @@ class Svg extends org.aswing.Component {
     public var asset(default, set): String;
     private function set_asset(v: String): String {
         asset = v;
+        _content = null;
         revalidate();
         repaint();
         return v;
@@ -48,7 +49,8 @@ class Svg extends org.aswing.Component {
 
         updateContent();
 
-        new SVG(content).render(graphics, 0, 0, preferredSize.width, preferredSize.height);
+        if (null != content)
+            new SVG(content).render(graphics, 0, 0, preferredSize.width, preferredSize.height);
     }
     override public function countPreferredSize(): IntDimension {
         updateContent();
