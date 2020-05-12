@@ -40,15 +40,19 @@ class Jive {
 
 	}
 
+	private static var _scale: Null<Float>;
 	public static var scale(get, null): Float;
 	private static function get_scale(): Float {
-		#if jive_pseudo_mobile
-		return 1.0;
-		#elseif mobile
-		return dpi / 163;
-		#else
-		return dpi / 123;
-		#end
+		if (_scale == null) {
+			#if jive_pseudo_mobile
+			_scale = 1.0;
+			#elseif mobile
+			_scale = Math.fceil(dpi / 163);
+			#else
+			_scale = dpi / 123;
+			#end
+		}
+		return _scale;
 	}
 
 	public static function toPixelSize(v: Int): Int {
@@ -57,6 +61,6 @@ class Jive {
 
 	public static var atom(get, null): Int;
 	private static function get_atom(): Int {
-		return Std.int(15 * scale);
+		return Std.int(15.0 * scale);
 	}
 }
